@@ -155,8 +155,48 @@ section { padding: 5rem 0; }
 .step p { color: var(--fg-soft); }
 .step-tag { display: inline-block; margin-top: 1rem; font-size: .78rem; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: .25rem .7rem; }
 
+/* ---------- showcase: alternating text + product mock (Webflow) ---------- */
+.showcase { display: grid; gap: 4.5rem; margin-top: 3rem; }
+.show-row { display: grid; grid-template-columns: 1fr 1.15fr; gap: 3.5rem; align-items: center; }
+.show-row:nth-child(even) .show-copy { order: 2; }
+.row-kicker { color: var(--cyan); font-weight: 700; font-size: .82rem; text-transform: uppercase; letter-spacing: .12em; margin-bottom: .7rem; }
+.show-copy h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); margin-bottom: .8rem; }
+.show-copy > p { color: var(--fg-soft); font-size: 1.08rem; }
+.row-list { list-style: none; display: grid; gap: .5rem; margin: 1.1rem 0 1.4rem; }
+.row-list li { position: relative; padding-left: 1.6rem; color: var(--fg-soft); }
+.row-list li::before { content: "✓"; position: absolute; left: 0; color: var(--cyan); font-weight: 700; }
+.browse-link { color: #fff; font-weight: 600; border-bottom: 1px solid var(--cyan); padding-bottom: 2px; transition: color .15s; }
+.browse-link:hover { color: var(--cyan); }
+
+/* product mock panels */
+.mock-panel { background: var(--navy-card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+.mp-bar { display: flex; align-items: center; gap: .4rem; padding: .7rem 1rem; background: var(--navy-muted); border-bottom: 1px solid var(--line-soft); }
+.mp-dot { width: 11px; height: 11px; border-radius: 50%; background: rgba(255,255,255,.22); }
+.mp-title { margin-left: .6rem; font-size: .82rem; color: var(--muted); }
+.mp-body { padding: 1.2rem; font-size: .88rem; }
+.nb-cell { border-radius: 8px; padding: .7rem .85rem; margin-bottom: .7rem; }
+.nb-prompt { background: rgba(90,77,199,.18); color: #fff; }
+.nb-sql { background: rgba(0,0,0,.25); font-family: ui-monospace, Menlo, monospace; font-size: .82rem; line-height: 1.7; color: var(--fg-soft); }
+.nb-chart { display: flex; align-items: flex-end; gap: .5rem; height: 92px; padding-top: .4rem; }
+.nb-chart span { flex: 1; background: linear-gradient(180deg, var(--cyan), rgba(63,241,239,.35)); border-radius: 4px 4px 0 0; }
+.mp-tasks .task { display: flex; align-items: center; gap: .55rem; padding: .5rem 0; color: var(--fg-soft); border-bottom: 1px solid var(--line-soft); }
+.task-ok { color: var(--cyan); font-weight: 700; }
+.task-run { color: #fff; }
+.task-spin { color: var(--purple); font-weight: 700; }
+.diff { margin-top: .8rem; font-family: ui-monospace, Menlo, monospace; font-size: .8rem; display: grid; gap: .2rem; }
+.diff-add { color: #6ee7b7; background: rgba(21,160,106,.12); padding: .15rem .4rem; border-radius: 4px; }
+.diff-del { color: #ffa39e; background: rgba(255,107,107,.1); padding: .15rem .4rem; border-radius: 4px; }
+.viol { width: 100%; border-collapse: collapse; font-size: .84rem; }
+.viol td { padding: .55rem .4rem; border-bottom: 1px solid var(--line-soft); color: var(--fg-soft); }
+.viol td:first-child { font-family: ui-monospace, Menlo, monospace; color: var(--fg); }
+.sev { font-size: .72rem; font-weight: 700; padding: .15rem .55rem; border-radius: 999px; }
+.sev-crit { background: rgba(255,107,107,.16); color: #ff8a84; }
+.sev-warn { background: rgba(245,200,66,.16); color: #f5c842; }
+.sev-ok { background: rgba(63,241,239,.14); color: var(--cyan); }
+.more-label { text-align: center; color: var(--muted); margin: 4rem 0 1.5rem; font-size: .9rem; text-transform: uppercase; letter-spacing: .1em; }
+
 /* ---------- studio features ---------- */
-.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+.feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
 .feature { background: var(--navy-card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.6rem; transition: border-color .15s, transform .15s; }
 .feature:hover { border-color: var(--cyan); transform: translateY(-2px); }
 .feature h3 { font-size: 1.2rem; margin-bottom: .4rem; }
@@ -181,10 +221,19 @@ section { padding: 5rem 0; }
 .govern-item p { color: var(--fg-soft); font-size: .96rem; }
 .badges { margin-top: 1.6rem; text-align: center; color: var(--muted); font-weight: 600; font-size: .92rem; letter-spacing: .02em; }
 
-/* ---------- quote ---------- */
-.quote { background: linear-gradient(180deg, rgba(90,77,199,.16), rgba(90,77,199,.06)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.quote blockquote { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 600; letter-spacing: -.02em; line-height: 1.3; color: #fff; }
-.quote-by { margin-top: 1.2rem; color: var(--fg-soft); font-weight: 600; }
+/* ---------- testimonials carousel ---------- */
+.testimonials { background: linear-gradient(180deg, rgba(90,77,199,.14), transparent 70%); border-top: 1px solid var(--line); }
+.tcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+.tcard { background: var(--navy-card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.8rem; display: flex; flex-direction: column; }
+.tmetric { font-size: 2.6rem; font-weight: 800; letter-spacing: -.04em; color: var(--cyan); line-height: 1; margin-bottom: 1rem; }
+.tmetric span { display: block; font-size: .8rem; font-weight: 600; letter-spacing: 0; color: var(--muted); text-transform: uppercase; margin-top: .3rem; }
+.tcard p { color: #fff; font-size: 1.05rem; font-weight: 500; line-height: 1.45; }
+.tby { margin-top: auto; padding-top: 1.1rem; color: var(--muted); font-size: .9rem; }
+.tby strong { color: var(--fg-soft); font-weight: 600; }
+@media (max-width: 860px) {
+  .tcards { grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: 82%; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: .5rem; }
+  .tcard { scroll-snap-align: start; }
+}
 
 /* ---------- blueprint lead magnet ---------- */
 .blueprint-inner { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2.5rem; align-items: center; }
@@ -265,6 +314,9 @@ section { padding: 5rem 0; }
 @media (max-width: 940px) {
   .hero-visual, .deploy-inner, .blueprint-inner, .footer-inner { grid-template-columns: 1fr; }
   .steps, .feature-grid, .govern-grid, .plans, .proof-grid { grid-template-columns: 1fr 1fr; }
+  .show-row { grid-template-columns: 1fr; gap: 1.6rem; }
+  .show-row:nth-child(even) .show-copy { order: 0; }
+  .showcase { gap: 3rem; }
   .nav { display: none; }
 }
 @media (max-width: 620px) {

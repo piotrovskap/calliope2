@@ -157,14 +157,94 @@
       </div>
     </section>
 
-    <!-- ===== What you get (outcomes, à la Cursor) ===== -->
+    <!-- ===== Showcase: alternating text + product mock (Webflow pattern) ===== -->
     <section class="studio" id="studio">
       <div class="wrap">
         <p class="section-eyebrow">Inside the studio</p>
         <h2 class="section-title">Everything your team needs to build AI — in one stack you control.</h2>
+
+        <div class="showcase">
+          <!-- Row 1: AI Lab -->
+          <article class="show-row">
+            <div class="show-copy">
+              <p class="row-kicker">AI Lab</p>
+              <h3>Analysis at the speed of thought.</h3>
+              <p>JupyterLab with an AI copilot. Ask in plain English, get the query, get the chart — over data that never leaves your cloud.</p>
+              <ul class="row-list">
+                <li>Natural language → SQL</li>
+                <li>300+ packages bundled</li>
+                <li>Governed access &amp; audit</li>
+              </ul>
+              <a href="#demo" class="browse-link">Browse AI Lab →</a>
+            </div>
+            <div class="mock-panel" aria-hidden="true">
+              <div class="mp-bar"><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-title">AI Lab — churn.ipynb</span></div>
+              <div class="mp-body">
+                <div class="nb-cell nb-prompt">“Monthly churn by plan, last 6 months”</div>
+                <div class="nb-cell nb-sql"><code><span class="c-acc">SELECT</span> plan, month, churn_rate<br /><span class="c-acc">FROM</span> subscriptions <span class="c-acc">GROUP BY</span> 1,2</code></div>
+                <div class="nb-chart">
+                  <span style="height:38%"></span><span style="height:55%"></span><span style="height:47%"></span>
+                  <span style="height:70%"></span><span style="height:62%"></span><span style="height:84%"></span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 2: AI IDE + Agents -->
+          <article class="show-row">
+            <div class="show-copy">
+              <p class="row-kicker">AI IDE &amp; Agents</p>
+              <h3>Autonomous agents that ship real work.</h3>
+              <p>Five modes, nine model providers, background agents that plan and execute — with every edit staged for human review.</p>
+              <ul class="row-list">
+                <li>Agent · Ask · Plan · Debug · Council modes</li>
+                <li>Staged changes, accept/reject</li>
+                <li>Runs local or air-gapped</li>
+              </ul>
+              <a href="#demo" class="browse-link">Browse AI IDE →</a>
+            </div>
+            <div class="mock-panel" aria-hidden="true">
+              <div class="mp-bar"><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-title">AI IDE — Agent mode</span></div>
+              <div class="mp-body mp-tasks">
+                <div class="task"><span class="task-ok">✓</span> Explored 12 files</div>
+                <div class="task"><span class="task-ok">✓</span> Wrote Dashboard.tsx</div>
+                <div class="task"><span class="task-ok">✓</span> Added tests · 9 passing</div>
+                <div class="task task-run"><span class="task-spin">◐</span> Running deploy preview…</div>
+                <div class="diff"><span class="diff-add">+ export const Dashboard = () =&gt; {</span><span class="diff-del">- // TODO: build dashboard</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 3: Zemtino governance -->
+          <article class="show-row">
+            <div class="show-copy">
+              <p class="row-kicker">Zemtino GRC · optional</p>
+              <h3>See — and control — every agent action.</h3>
+              <p>Observability, real-time policy enforcement, and compliance mapping. Catch violations before they become incidents.</p>
+              <ul class="row-list">
+                <li>18+ policy types, real-time</li>
+                <li>PII / injection content scanning</li>
+                <li>Audit trail → your SIEM</li>
+              </ul>
+              <a href="#govern" class="browse-link">Browse governance →</a>
+            </div>
+            <div class="mock-panel" aria-hidden="true">
+              <div class="mp-bar"><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-title">Zemtino — policy violations</span></div>
+              <div class="mp-body">
+                <table class="viol">
+                  <tr><td>agent-prod-42</td><td>Budget limit</td><td><span class="sev sev-crit">Critical</span></td></tr>
+                  <tr><td>agent-prod-07</td><td>PII detection</td><td><span class="sev sev-crit">Critical</span></td></tr>
+                  <tr><td>agent-dev-18</td><td>Rate limit</td><td><span class="sev sev-warn">Warning</span></td></tr>
+                  <tr><td>agent-stg-05</td><td>Model restrict</td><td><span class="sev sev-ok">Resolved</span></td></tr>
+                </table>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- And the rest of the toolkit -->
+        <p class="more-label">…and the rest of the studio</p>
         <div class="feature-grid">
-          <div class="feature"><h3>AI Lab</h3><p>JupyterLab with an AI copilot. Natural language to SQL. Analysis at the speed of thought.</p></div>
-          <div class="feature"><h3>AI IDE</h3><p>Five modes, nine model providers, autonomous background agents. Turn devs into 10x engineers.</p></div>
           <div class="feature"><h3>Chat Studio</h3><p>Business users chat with governed data — no SQL, no waiting on the data team.</p></div>
           <div class="feature"><h3>Deep Agent</h3><p>Autonomous research with RAG pipelines over your own sources. Go deep, not shallow.</p></div>
           <div class="feature"><h3>Langflow</h3><p>Drag-and-drop builder for agents and pipelines. Ship complex AI without glue code.</p></div>
@@ -212,14 +292,28 @@
       </div>
     </section>
 
-    <!-- ===== Authority quote ===== -->
-    <section class="quote">
-      <div class="wrap narrow">
-        <blockquote>
-          "We needed enterprise AI our security team would actually approve — without an 18-month build
-          or shipping data to a vendor. Calliope deployed inside our VPC in days."
-        </blockquote>
-        <p class="quote-by">— Placeholder · Head of Platform, regulated enterprise</p>
+    <!-- ===== Testimonials / social proof carousel (Webflow pattern) ===== -->
+    <section class="testimonials">
+      <div class="wrap">
+        <p class="section-eyebrow">Why teams choose Calliope</p>
+        <h2 class="section-title">Built for security teams. Loved by builders.</h2>
+        <div class="tcards">
+          <article class="tcard">
+            <span class="tmetric">Days<span>not 18 months</span></span>
+            <p>"We needed enterprise AI our security team would actually approve. Calliope deployed inside our VPC in days."</p>
+            <div class="tby"><strong>Placeholder</strong> · Head of Platform, regulated enterprise</div>
+          </article>
+          <article class="tcard">
+            <span class="tmetric">0<span>bytes egress</span></span>
+            <p>"Our data never leaves our account. That single fact got the whole program past compliance."</p>
+            <div class="tby"><strong>Placeholder</strong> · CISO, financial services</div>
+          </article>
+          <article class="tcard">
+            <span class="tmetric">9<span>frameworks mapped</span></span>
+            <p>"Audit evidence that used to take weeks is now a report we export. Zemtino paid for itself at the first audit."</p>
+            <div class="tby"><strong>Placeholder</strong> · GRC Lead, healthcare</div>
+          </article>
+        </div>
       </div>
     </section>
 
