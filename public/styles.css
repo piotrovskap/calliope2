@@ -112,7 +112,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.08; letter-spacin
 .announce.hide { display: none; }
 
 /* ---------- header ---------- */
-.header { position: sticky; top: 0; z-index: 40; background: rgba(22,35,69,.8); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s, box-shadow .2s; }
+.topbar { position: sticky; top: 0; z-index: 50; }
+.header { position: relative; z-index: 1; background: rgba(22,35,69,.8); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s, box-shadow .2s; }
 .header.scrolled { border-bottom: 1px solid var(--line); box-shadow: 0 6px 24px -18px rgba(0,0,0,.7); }
 .header-inner { display: flex; align-items: center; gap: 2rem; height: 66px; }
 .brand { display: inline-flex; align-items: center; gap: .55rem; font-weight: 800; font-size: 1.18rem; letter-spacing: -.03em; color: #fff; }

@@ -16,11 +16,9 @@
 </head>
 <body>
   <!-- vertical frame lines around the content column + brand light running down each -->
-  <div class="vframe" aria-hidden="true">
-    <span class="vspark vspark-l"></span>
-    <span class="vspark vspark-r"></span>
-  </div>
+  <div class="vframe" aria-hidden="true"></div>
 
+  <div class="topbar">
   <!-- ===== Announcement / scarcity bar ===== -->
   <div class="announce" id="announce">
     <span>Onboarding a limited number of private deployments this quarter.</span>
@@ -218,10 +216,13 @@
       <a href="#demo" class="btn btn-primary btn-block">Book a demo</a>
     </div>
   </header>
+  </div><!-- /topbar -->
 
   <main>
     <!-- ===== Hero (centered aurora, Arden-style) ===== -->
     <section class="hero hero--center">
+      <span class="vspark vspark-l"></span>
+      <span class="vspark vspark-r"></span>
       <div class="wrap hero-center">
         <span class="hero-pill"><span class="hero-pill-dot"></span> The private-AI studio</span>
         <h1 class="hero-title">One secure AI workspace<br />for your <em>technical team</em>.</h1>
