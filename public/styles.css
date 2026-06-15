@@ -63,6 +63,20 @@ h1, h2, h3, h4 { line-height: 1.08; letter-spacing: -0.025em; font-weight: 700; 
 .btn-sm { padding: .55rem .95rem; font-size: .9rem; }
 .btn-block { width: 100%; }
 
+/* glow button — dark body with a brand-accent halo on the right edge */
+.btn-glow {
+  position: relative; isolation: isolate;
+  padding: .92rem 1.6rem; border-radius: 13px; color: #fff; font-weight: 600;
+  border: 1px solid rgba(63,241,239,.45);
+  background:
+    radial-gradient(135% 200% at 116% 50%, rgba(63,241,239,.6), rgba(90,77,199,.35) 38%, rgba(13,20,38,0) 60%),
+    #0d1426;
+  box-shadow: 0 10px 38px -8px rgba(63,241,239,.5), inset 0 0 0 1px rgba(255,255,255,.03);
+}
+.btn-glow:hover { transform: translateY(-1px); box-shadow: 0 14px 52px -6px rgba(63,241,239,.72); }
+.btn-glow .arrow { display: inline-block; transition: transform .15s ease; }
+.btn-glow:hover .arrow { transform: translateX(3px); }
+
 .eyebrow, .section-eyebrow {
   text-transform: uppercase; letter-spacing: .16em; font-size: .76rem;
   font-weight: 700; color: var(--cyan); margin-bottom: 1rem;
