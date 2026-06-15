@@ -34,7 +34,6 @@
 
   --font-head: "DM Sans", system-ui, sans-serif;
   --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Gloock", "Georgia", "Times New Roman", serif;  /* classical / muse accent */
 
   --maxw: 1140px;
   --radius: 14px;
@@ -223,8 +222,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.08; letter-spacin
 .hero-pill { display: inline-flex; align-items: center; gap: .5rem; padding: .42rem .95rem; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.04); color: var(--fg-soft); font-size: .85rem; font-weight: 500; margin-bottom: 1.9rem; }
 .hero-pill-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
 .hero--center .hero-title { font-size: clamp(2.7rem, 6.4vw, 4.7rem); letter-spacing: -.045em; margin-bottom: 1.4rem; }
-/* classical/antique accent — nods to Calliope, muse of epic poetry */
-.hero-title em { font-family: var(--font-display); font-style: normal; font-weight: 400; color: var(--cyan); letter-spacing: -0.005em; }
+.hero-title em { font-style: italic; font-weight: 700; color: var(--cyan); }
 .hero--center .hero-sub { margin: 0 auto 2.2rem; max-width: 640px; }
 .hero-textlink { color: var(--cyan); font-weight: 600; }
 .hero-textlink:hover { text-decoration: underline; }
