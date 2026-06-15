@@ -3,275 +3,357 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calliope — The Secure AI Development Platform</title>
-  <meta name="description" content="Build, run, observe, control, and secure enterprise AI on one platform. Governance and security built in — not bolted on. Deploy in the cloud, on-prem, or air-gapped." />
-  <link rel="icon" href="data:," />
+  <title>Calliope — The Private-AI Studio. Own your AI, run it on your cloud.</title>
+  <meta name="description" content="Calliope is the private-AI studio you buy, deploy on your own infrastructure, and govern with your own security and GRC. Your data never leaves your perimeter." />
+  <meta property="og:title" content="Calliope — Own your AI. Run it on your cloud." />
+  <meta property="og:description" content="A full AI development studio you own and self-host — built, deployed, and governed on your terms." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235B3DF5'/%3E%3Ctext x='16' y='22' font-size='18' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <!-- ============ HEADER ============ -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="/">Calliope</a>
+  <!-- ===== Announcement / scarcity bar ===== -->
+  <div class="announce" id="announce">
+    <span>Onboarding a limited number of private deployments this quarter.</span>
+    <a href="#demo" class="announce-link">Request access&nbsp;→</a>
+    <button class="announce-close" aria-label="Dismiss" data-close-announce>&times;</button>
+  </div>
+
+  <!-- ===== Header ===== -->
+  <header class="header" id="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark">C</span> Calliope
+      </a>
       <nav class="nav" aria-label="Primary">
-        <a href="#platform">Platform</a>
-        <a href="#products">Products</a>
+        <a href="#how">How it works</a>
+        <a href="#studio">The studio</a>
         <a href="#deploy">Deploy</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#security">Security</a>
+        <a href="#govern">Govern</a>
+        <a href="#pricing">Packaging</a>
       </nav>
       <div class="header-cta">
-        <a class="btn btn-ghost" href="#login">Sign in</a>
-        <a class="btn btn-primary" href="#contact">Talk to sales</a>
+        <a href="#blueprint" class="btn btn-ghost btn-sm">Get the blueprint</a>
+        <a href="#demo" class="btn btn-primary btn-sm">Book a private demo</a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- ============ HERO ============ -->
+    <!-- ===== Hero ===== -->
     <section class="hero">
-      <div class="container">
-        <p class="eyebrow">The Secure AI Development Platform</p>
-        <h1>Ship enterprise AI<br />without choosing between<br /><span class="grad">speed and security</span>.</h1>
+      <div class="wrap">
+        <p class="eyebrow">The private-AI studio</p>
+        <h1 class="hero-title">Own your AI.<br />Run it on <span class="accent">your cloud</span>.</h1>
         <p class="hero-sub">
-          Calliope lets your teams build, run, observe, control, and secure AI on one platform —
-          with governance built in, not bolted on. Move at startup speed with enterprise-grade control.
+          Calliope is the complete AI development studio you <strong>buy</strong>, deploy on your own
+          infrastructure, and govern with your own security and GRC. No multi-tenant SaaS.
+          Your models, your data, your perimeter — <strong>nothing leaves your cloud</strong>.
         </p>
+
+        <!-- Hero lead capture (low-friction) -->
+        <form class="lead-inline" data-lead-form data-source="hero">
+          <input type="email" name="email" required placeholder="you@company.com"
+                 aria-label="Work email" autocomplete="email" />
+          <button type="submit" class="btn btn-primary">Get the deployment blueprint</button>
+        </form>
+        <p class="lead-note">Free 18-page PDF · how to self-host enterprise AI in days, not 18 months.</p>
+
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#contact">Talk to sales</a>
-          <a class="btn btn-ghost btn-lg" href="#platform">See it in action →</a>
+          <a href="#demo" class="btn btn-dark">Book a private demo</a>
+          <a href="#how" class="btn btn-link">See how it works →</a>
         </div>
-        <p class="hero-foot">Deploy in the cloud, on-prem, or fully air-gapped.</p>
+      </div>
+
+      <!-- Show-don't-tell visual -->
+      <div class="wrap hero-visual" aria-hidden="true">
+        <div class="card mock-deploy">
+          <div class="mock-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="mock-title">deploy to your-vpc</span></div>
+          <pre class="mock-body"><code><span class="c-mut">$</span> calliope deploy <span class="c-acc">--cloud</span> aws://acme-prod-vpc
+<span class="c-ok">✓</span> Provisioning in <span class="c-acc">your</span> account (us-east-1)
+<span class="c-ok">✓</span> Studio + Astrolift runtime up
+<span class="c-ok">✓</span> Zemtino GRC policies applied
+<span class="c-ok">✓</span> 0 bytes egress to Calliope
+<span class="c-mut">→</span> https://ai.acme.internal  <span class="c-ok">ready</span></code></pre>
+        </div>
+        <div class="card mock-govern">
+          <div class="mock-govern-head">Data residency</div>
+          <div class="gauge"><span class="gauge-val">100%</span><span class="gauge-lbl">in your VPC</span></div>
+          <ul class="mock-list">
+            <li><span class="tick">✓</span> Encryption keys: customer-managed</li>
+            <li><span class="tick">✓</span> Audit log → your SIEM</li>
+            <li><span class="tick">✓</span> Models: bring your own</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- ============ TRUST STRIP ============ -->
-    <section class="trust">
-      <div class="container">
-        <p class="trust-label">Audit-ready by default</p>
-        <ul class="trust-badges">
-          <li>SOC&nbsp;2</li>
-          <li>HIPAA</li>
-          <li>GDPR</li>
-          <li>EU&nbsp;AI&nbsp;Act</li>
-          <li>FedRAMP&nbsp;path</li>
-        </ul>
+    <!-- ===== Proof bar (metrics, à la StableBrowse) ===== -->
+    <section class="proof">
+      <div class="wrap proof-grid">
+        <div class="proof-item"><span class="proof-num">0</span><span class="proof-lbl">bytes leave your perimeter</span></div>
+        <div class="proof-item"><span class="proof-num">Days</span><span class="proof-lbl">to deploy — not 18 months</span></div>
+        <div class="proof-item"><span class="proof-num">9</span><span class="proof-lbl">compliance frameworks mapped</span></div>
+        <div class="proof-item"><span class="proof-num">5+</span><span class="proof-lbl">targets: AWS · GCP · Azure · on-prem · air-gapped</span></div>
       </div>
     </section>
 
-    <!-- ============ PROBLEM ============ -->
-    <section class="problem" id="platform">
-      <div class="container narrow">
-        <p class="section-eyebrow">The problem</p>
-        <h2>Most enterprises face an impossible choice.</h2>
-        <p class="lead">
-          Lock into vendor ecosystems that limit what your teams can build — or spend 18 months
-          building secure AI infrastructure from scratch, then maintain it forever. Meanwhile:
+    <!-- ===== Logos / backing ===== -->
+    <section class="logos">
+      <div class="wrap">
+        <p class="logos-label">Built by the engineers at CONFLICT · trusted in regulated industries</p>
+        <div class="logo-row" aria-label="Customer logos placeholder">
+          <span class="logo-chip">Finance</span>
+          <span class="logo-chip">Healthcare</span>
+          <span class="logo-chip">Gov &amp; Defense</span>
+          <span class="logo-chip">Energy</span>
+          <span class="logo-chip">Life Sciences</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Problem → insight (Cohere template) ===== -->
+    <section class="insight">
+      <div class="wrap narrow">
+        <p class="section-eyebrow">The shift</p>
+        <h2 class="insight-title">
+          With SaaS AI, your data lives in someone else's logs.
+          Building it yourself takes 18 months you don't have.
+        </h2>
+        <p class="insight-body">
+          Calliope changes the equation. You get a full, production-grade AI studio as a stack you
+          <em>own</em> — deployed inside your cloud in days, governed by your controls, with zero
+          dependency on a vendor's multi-tenant platform.
         </p>
-        <ul class="pain-list">
-          <li>Innovation happens in the shadows, on unsanctioned tools.</li>
-          <li>Security reviews kill momentum before launch.</li>
-          <li>Compliance frameworks block progress instead of enabling it.</li>
-        </ul>
-        <p class="lead">Calliope changes the equation.</p>
       </div>
     </section>
 
-    <!-- ============ FRAMEWORK: build/run/observe/control/secure ============ -->
-    <section class="framework">
-      <div class="container">
-        <p class="section-eyebrow">One platform, five capabilities</p>
-        <h2>Build. Run. Observe. Control. Secure.</h2>
-        <p class="lead center">
-          Everything an enterprise needs to take AI from idea to production — governed end to end.
-        </p>
-        <div class="grid-5">
-          <article class="pillar">
-            <span class="pillar-num">01</span>
-            <h3>Build</h3>
-            <p>Visual workflow builders, IDEs, notebooks, and agents. Prototype fast in browser-based environments — no local security risk.</p>
+    <!-- ===== How it works: Buy → Deploy → Govern ===== -->
+    <section class="how" id="how">
+      <div class="wrap">
+        <p class="section-eyebrow">How it works</p>
+        <h2 class="section-title">Three moves to private AI.</h2>
+        <div class="steps">
+          <article class="step">
+            <span class="step-no">01</span>
+            <h3>Buy the studio</h3>
+            <p>License the full Calliope stack — the Hub of AI tools, agents, and pipelines. The code is yours to run.</p>
+            <span class="step-tag">Calliope</span>
           </article>
-          <article class="pillar">
-            <span class="pillar-num">02</span>
-            <h3>Run</h3>
-            <p>Deploy and scale anywhere: cloud, dedicated, on-prem, or air-gapped. Built for high-performance AI workloads and hundreds of users.</p>
+          <article class="step">
+            <span class="step-no">02</span>
+            <h3>Deploy to your cloud</h3>
+            <p>Astrolift runtime stands it up inside your VPC — AWS, GCP, Azure, on-prem, or fully air-gapped.</p>
+            <span class="step-tag">Astrolift runtime</span>
           </article>
-          <article class="pillar">
-            <span class="pillar-num">03</span>
-            <h3>Observe</h3>
-            <p>Every prompt, response, and policy decision logged and auditable. Full visibility into what your AI is actually doing.</p>
-          </article>
-          <article class="pillar">
-            <span class="pillar-num">04</span>
-            <h3>Control</h3>
-            <p>Define and enforce AI policies across the org with granular access controls and anomaly detection.</p>
-          </article>
-          <article class="pillar">
-            <span class="pillar-num">05</span>
-            <h3>Secure</h3>
-            <p>Content scanning, managed secrets, and defense-in-depth isolation catch sensitive data and threats before they become incidents.</p>
+          <article class="step">
+            <span class="step-no">03</span>
+            <h3>Govern your way</h3>
+            <p>Wire in your security and GRC. Add Zemtino for agent monitoring, policy, audit and compliance — optional.</p>
+            <span class="step-tag">Zemtino · optional</span>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ PRODUCTS ============ -->
-    <section class="products" id="products">
-      <div class="container">
-        <p class="section-eyebrow">The product family</p>
-        <h2>Three products. One governed platform.</h2>
-        <div class="grid-3">
-          <article class="product-card">
-            <h3>Workbench</h3>
-            <p class="product-tag">Build</p>
-            <p>The AI development surface — IDE, notebooks, Chat Studio, and visual agent workflows. Where your teams build, sanctioned and secure.</p>
-          </article>
-          <article class="product-card">
-            <h3>Astralift</h3>
-            <p class="product-tag">Run</p>
-            <p>Deploy, host, and scale models and agents anywhere your security requirements demand — from managed cloud to fully air-gapped.</p>
-          </article>
-          <article class="product-card">
-            <h3>Sentinel</h3>
-            <p class="product-tag">Observe · Control · Secure</p>
-            <p>GRC for AI: audit trails, policy enforcement, risk management, and compliance frameworks — governing every product on the platform.</p>
-          </article>
+    <!-- ===== What you get (outcomes, à la Cursor) ===== -->
+    <section class="studio" id="studio">
+      <div class="wrap">
+        <p class="section-eyebrow">Inside the studio</p>
+        <h2 class="section-title">Everything your team needs to build AI — in one stack you control.</h2>
+        <div class="feature-grid">
+          <div class="feature"><h3>AI Lab</h3><p>JupyterLab with an AI copilot. Natural language to SQL. Analysis at the speed of thought.</p></div>
+          <div class="feature"><h3>AI IDE</h3><p>Five modes, nine model providers, autonomous background agents. Turn devs into 10x engineers.</p></div>
+          <div class="feature"><h3>Chat Studio</h3><p>Business users chat with governed data — no SQL, no waiting on the data team.</p></div>
+          <div class="feature"><h3>Deep Agent</h3><p>Autonomous research with RAG pipelines over your own sources. Go deep, not shallow.</p></div>
+          <div class="feature"><h3>Langflow</h3><p>Drag-and-drop builder for agents and pipelines. Ship complex AI without glue code.</p></div>
+          <div class="feature"><h3>Secure Browser</h3><p>Web access from inside air-gapped and isolated environments. No broken isolation.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ DEPLOY ANYWHERE ============ -->
+    <!-- ===== Deploy + integrations ===== -->
     <section class="deploy" id="deploy">
-      <div class="container">
-        <p class="section-eyebrow">Deploy anywhere</p>
-        <h2>Your security requirements shouldn't limit where you innovate.</h2>
-        <div class="grid-4">
-          <div class="deploy-item"><h3>Cloud Hosted</h3><p>Multi-tenant SaaS. Start immediately — we manage everything.</p></div>
-          <div class="deploy-item"><h3>Dedicated Cloud</h3><p>Single-tenant with dedicated resources and enhanced isolation.</p></div>
-          <div class="deploy-item"><h3>VPC Gateway</h3><p>VPC-peered. Data stays in your network; users work through the browser.</p></div>
-          <div class="deploy-item"><h3>On-Prem / Air-Gapped</h3><p>Maximum isolation in your datacenter. Air-gap capable.</p></div>
+      <div class="wrap deploy-inner">
+        <div class="deploy-copy">
+          <p class="section-eyebrow on-dark">Deploy anywhere you already run</p>
+          <h2 class="section-title on-dark">It runs in your account — not ours.</h2>
+          <p class="on-dark-muted">
+            Single control plane, your infrastructure. Customer-managed encryption keys, VPC peering,
+            data residency by region, and air-gap support for the strictest environments.
+          </p>
+          <ul class="deploy-list">
+            <li>Cloud Hosted in your account</li>
+            <li>Dedicated &amp; isolated single-tenant</li>
+            <li>VPC gateway — data never egresses</li>
+            <li>On-prem / air-gapped datacenter</li>
+          </ul>
+        </div>
+        <div class="deploy-targets">
+          <span class="target">AWS</span><span class="target">GCP</span><span class="target">Azure</span>
+          <span class="target">On-prem</span><span class="target">Air-gapped</span><span class="target">Okta / SAML</span>
+          <span class="target">Splunk</span><span class="target">Datadog</span><span class="target">BYO models</span>
         </div>
       </div>
     </section>
 
-    <!-- ============ WHY ============ -->
-    <section class="why" id="security">
-      <div class="container">
-        <p class="section-eyebrow">Why enterprises choose Calliope</p>
-        <div class="grid-3">
-          <div class="why-item">
-            <h3>Enable sanctioned innovation</h3>
-            <p>Give teams approved AI tools they'll actually want to use — with guardrails that keep data secure.</p>
-          </div>
-          <div class="why-item">
-            <h3>Deploy without restrictions</h3>
-            <p>Cloud, on-prem, or air-gapped. One platform that meets you where your compliance lives.</p>
-          </div>
-          <div class="why-item">
-            <h3>Audit-ready by default</h3>
-            <p>SOC 2, HIPAA, GDPR, and EU AI Act frameworks built in — so security reviews don't slow launches.</p>
-          </div>
+    <!-- ===== Govern / GRC (Zemtino optional) ===== -->
+    <section class="govern" id="govern">
+      <div class="wrap">
+        <p class="section-eyebrow">Governance, optional but built for it</p>
+        <h2 class="section-title">Add Zemtino when you want full control of your agents.</h2>
+        <div class="govern-grid">
+          <div class="govern-item"><h3>Observe</h3><p>Every prompt, response, tool call and data access — logged, attributed, queryable.</p></div>
+          <div class="govern-item"><h3>Control</h3><p>18+ policy types. Rate limits, budget caps, model and tool permissions, enforced in real time.</p></div>
+          <div class="govern-item"><h3>Comply</h3><p>Mapped to SOC 2, GDPR, HIPAA, EU AI Act, NIST AI RMF, ISO 27001/42001 and more.</p></div>
         </div>
+        <p class="badges">SOC 2 · HIPAA · GDPR · EU AI Act · NIST AI RMF · ISO 27001 / 42001</p>
       </div>
     </section>
 
-    <!-- ============ PRICING ============ -->
+    <!-- ===== Authority quote ===== -->
+    <section class="quote">
+      <div class="wrap narrow">
+        <blockquote>
+          "We needed enterprise AI our security team would actually approve — without an 18-month build
+          or shipping data to a vendor. Calliope deployed inside our VPC in days."
+        </blockquote>
+        <p class="quote-by">— Placeholder · Head of Platform, regulated enterprise</p>
+      </div>
+    </section>
+
+    <!-- ===== Lead magnet feature block ===== -->
+    <section class="blueprint" id="blueprint">
+      <div class="wrap blueprint-inner">
+        <div class="blueprint-copy">
+          <p class="section-eyebrow">Free download</p>
+          <h2 class="section-title">The Private-AI Deployment Blueprint</h2>
+          <p>
+            The 18-page guide we use with enterprise teams: reference architecture for self-hosting AI
+            in your VPC, a security &amp; GRC checklist, and the path from zero to governed production.
+          </p>
+          <ul class="blueprint-list">
+            <li>Reference architecture for AWS / GCP / Azure / air-gapped</li>
+            <li>Security &amp; compliance control mapping (9 frameworks)</li>
+            <li>Buy-vs-build cost model</li>
+          </ul>
+        </div>
+        <form class="card lead-card" data-lead-form data-source="blueprint">
+          <h3>Get the blueprint</h3>
+          <label>Work email
+            <input type="email" name="email" required placeholder="you@company.com" autocomplete="email" />
+          </label>
+          <label>Company
+            <input type="text" name="company" placeholder="Acme Corp" autocomplete="organization" />
+          </label>
+          <button type="submit" class="btn btn-primary btn-block">Send me the blueprint</button>
+          <p class="lead-card-note">No spam. Unsubscribe anytime.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== Packaging ===== -->
     <section class="pricing" id="pricing">
-      <div class="container">
-        <p class="section-eyebrow">Pricing</p>
-        <h2>Start small. Scale to the whole enterprise.</h2>
-        <div class="grid-3 price-grid">
-          <article class="price-card">
-            <h3>Starter</h3>
-            <p class="price"><span class="amount">$30</span><span class="per">/user / mo</span></p>
-            <p class="price-desc">For small teams getting started with governed AI.</p>
-            <ul class="price-feats">
-              <li>Workbench + cloud hosting</li>
-              <li>Core audit & observability</li>
-              <li>Standard compliance frameworks</li>
+      <div class="wrap">
+        <p class="section-eyebrow">Packaging</p>
+        <h2 class="section-title">Buy the stack. Add what you need.</h2>
+        <div class="plans">
+          <article class="plan">
+            <h3>Studio</h3>
+            <p class="plan-desc">The Calliope stack, self-hosted in your cloud.</p>
+            <ul class="plan-feats">
+              <li>Full Hub of AI tools</li>
+              <li>Deploy in your account</li>
+              <li>Bring your own models &amp; keys</li>
             </ul>
-            <a class="btn btn-ghost btn-block" href="#contact">Start free trial</a>
+            <a href="#demo" class="btn btn-ghost btn-block">Talk to us</a>
           </article>
-          <article class="price-card price-card--featured">
-            <p class="price-flag">Most popular</p>
-            <h3>Business</h3>
-            <p class="price"><span class="amount">Custom</span></p>
-            <p class="price-desc">For growing orgs that need dedicated isolation and policy control.</p>
-            <ul class="price-feats">
-              <li>Everything in Starter</li>
-              <li>Dedicated cloud or VPC gateway</li>
-              <li>Sentinel policy & risk management</li>
-              <li>SSO, role-based access control</li>
+          <article class="plan plan--featured">
+            <span class="plan-flag">Most teams start here</span>
+            <h3>Studio + Runtime</h3>
+            <p class="plan-desc">Calliope + Astrolift managed deployment runtime.</p>
+            <ul class="plan-feats">
+              <li>Everything in Studio</li>
+              <li>Astrolift deploy &amp; upgrade runtime</li>
+              <li>Multi-cloud &amp; on-prem targets</li>
+              <li>Priority onboarding</li>
             </ul>
-            <a class="btn btn-primary btn-block" href="#contact">Talk to sales</a>
+            <a href="#demo" class="btn btn-primary btn-block">Book a private demo</a>
           </article>
-          <article class="price-card">
-            <h3>Enterprise</h3>
-            <p class="price"><span class="amount">Custom</span></p>
-            <p class="price-desc">For large, regulated orgs deploying AI at scale.</p>
-            <ul class="price-feats">
-              <li>On-prem / air-gapped deployment</li>
-              <li>Full GRC suite + content scanning</li>
-              <li>FedRAMP path, data residency</li>
-              <li>Dedicated support & onboarding</li>
+          <article class="plan">
+            <h3>Enterprise + GRC</h3>
+            <p class="plan-desc">Add Zemtino governance and a dedicated team.</p>
+            <ul class="plan-feats">
+              <li>Everything in Studio + Runtime</li>
+              <li>Zemtino GRC &amp; agent monitoring</li>
+              <li>Air-gapped &amp; custom compliance</li>
+              <li>SLA &amp; named support</li>
             </ul>
-            <a class="btn btn-ghost btn-block" href="#contact">Contact sales</a>
+            <a href="#demo" class="btn btn-ghost btn-block">Contact sales</a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ FINAL CTA ============ -->
-    <section class="cta-final" id="contact">
-      <div class="container narrow center">
-        <h2>Start saying <em>yes</em> to AI — safely.</h2>
-        <p class="lead">
-          See how Calliope lets your teams launch faster, stay compliant, and keep control.
-        </p>
-        <div class="hero-actions center">
-          <a class="btn btn-primary btn-lg" href="mailto:sales@calliope.ai">Talk to sales</a>
-          <a class="btn btn-ghost btn-lg" href="#platform">See governance →</a>
-        </div>
+    <!-- ===== Final CTA / demo ===== -->
+    <section class="cta-final" id="demo">
+      <div class="wrap narrow center">
+        <h2 class="section-title">See Calliope running in your cloud.</h2>
+        <p class="cta-sub">Book a private demo, or grab the blueprint and explore on your own terms.</p>
+        <form class="lead-inline center" data-lead-form data-source="demo">
+          <input type="email" name="email" required placeholder="you@company.com" aria-label="Work email" autocomplete="email" />
+          <button type="submit" class="btn btn-primary">Book a private demo</button>
+        </form>
+        <p class="lead-note">A 30-minute walkthrough with an engineer — not a sales script.</p>
       </div>
     </section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
       <div class="footer-brand">
-        <span class="brand">Calliope</span>
-        <p>The secure AI development platform. Build and govern enterprise AI that enables innovation while managing risk.</p>
-        <p class="footer-addr">Calliope Labs Inc · 80 SW 8th St, STE 2000 · Miami, FL 33130 · USA</p>
+        <a class="brand" href="/"><span class="brand-mark">C</span> Calliope</a>
+        <p>The private-AI studio. Own your AI, run it on your cloud.</p>
+        <p class="footer-fine">By Calliope Labs / CONFLICT · Miami, FL</p>
       </div>
       <div class="footer-cols">
-        <div>
-          <h4>Product</h4>
-          <a href="#products">Workbench</a>
-          <a href="#products">Astralift</a>
-          <a href="#products">Sentinel</a>
-          <a href="#pricing">Pricing</a>
-        </div>
-        <div>
-          <h4>Platform</h4>
-          <a href="#framework">Build &amp; Run</a>
-          <a href="#security">Governance</a>
-          <a href="#deploy">Deployment</a>
-          <a href="#security">Security</a>
-        </div>
-        <div>
-          <h4>Company</h4>
-          <a href="#">About</a>
-          <a href="#">Team</a>
-          <a href="#">Careers</a>
-          <a href="#contact">Contact</a>
+        <div><h4>Product</h4><a href="#studio">The studio</a><a href="#deploy">Deploy</a><a href="#govern">Zemtino GRC</a><a href="#pricing">Packaging</a></div>
+        <div><h4>Resources</h4><a href="#blueprint">Deployment blueprint</a><a href="#how">How it works</a><a href="#demo">Book a demo</a></div>
+        <div class="footer-sub">
+          <h4>Stay in the loop</h4>
+          <form class="lead-inline footer-form" data-lead-form data-source="footer">
+            <input type="email" name="email" required placeholder="you@company.com" aria-label="Work email" />
+            <button type="submit" class="btn btn-dark btn-sm">Subscribe</button>
+          </form>
         </div>
       </div>
     </div>
-    <div class="container footer-bottom">
-      <p>© 2026 Calliope Labs Inc. All rights reserved.</p>
-    </div>
+    <div class="wrap footer-bottom"><p>© 2026 Calliope Labs. All rights reserved.</p></div>
   </footer>
+
+  <!-- ===== Sticky mobile CTA bar ===== -->
+  <div class="sticky-bar" id="stickyBar">
+    <span>Self-host enterprise AI in days.</span>
+    <a href="#demo" class="btn btn-primary btn-sm">Book demo</a>
+  </div>
+
+  <!-- ===== Lead-magnet modal (exit-intent + scroll/time) ===== -->
+  <div class="modal-overlay" id="leadModal" hidden>
+    <div class="modal card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" aria-label="Close" data-close-modal>&times;</button>
+      <p class="modal-kicker">Before you go —</p>
+      <h2 id="modalTitle" class="modal-title">Get the Private-AI Deployment Blueprint</h2>
+      <p class="modal-body">The reference architecture, security &amp; GRC checklist, and buy-vs-build model
+        we use with enterprise teams. Free, 18 pages.</p>
+      <form class="modal-form" data-lead-form data-source="exit-modal">
+        <input type="email" name="email" required placeholder="you@company.com" aria-label="Work email" autocomplete="email" />
+        <button type="submit" class="btn btn-primary btn-block">Send me the blueprint</button>
+      </form>
+      <button class="modal-decline" data-close-modal>No thanks, I'll build it from scratch</button>
+    </div>
+  </div>
 
   <script src="/script.js"></script>
 </body>
