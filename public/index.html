@@ -219,21 +219,6 @@
   <main>
     <!-- ===== Hero (centered aurora, Arden-style) ===== -->
     <section class="hero hero--center">
-      <!-- Calliope, the muse — subtle line-art profile watermark -->
-      <svg class="hero-muse" viewBox="0 0 360 480" fill="none" aria-hidden="true">
-        <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M250 64 C232 60 180 66 170 140 C167 168 178 182 150 206 L110 250 C103 257 122 263 150 267 C137 273 138 282 151 288 C134 294 142 303 158 309 C172 326 180 344 206 360 L214 436" />
-          <path d="M250 64 C300 70 332 112 322 172 C316 220 298 262 256 304" />
-          <path d="M250 64 C268 44 308 44 318 70 C326 92 308 112 286 110" opacity=".85" />
-          <path d="M196 96 C236 86 286 104 300 150" opacity=".6" />
-          <path d="M214 120 C250 112 286 128 300 168" opacity=".45" />
-          <path d="M256 304 C250 340 250 372 262 410" />
-          <path d="M150 192 C162 184 178 184 190 190" opacity=".8" />
-          <path d="M150 205 C162 199 178 200 190 207 C178 213 162 213 150 205 Z" opacity=".8" />
-          <path d="M138 290 C148 287 156 288 162 291" opacity=".7" />
-        </g>
-        <circle cx="168" cy="205" r="2.4" fill="currentColor" />
-      </svg>
       <div class="wrap hero-center">
         <span class="hero-pill"><span class="hero-pill-dot"></span> The private-AI studio</span>
         <h1 class="hero-title">One secure AI workspace<br />for your <em>technical team</em>.</h1>
@@ -360,14 +345,16 @@
               </ul>
               <a href="#demo" class="browse-link">Browse AI IDE →</a>
             </div>
-            <div class="mock-panel" aria-hidden="true">
-              <div class="mp-bar"><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-title">AI IDE — Agent mode</span></div>
-              <div class="mp-body mp-tasks">
-                <div class="task"><span class="task-ok">✓</span> Explored 12 files</div>
-                <div class="task"><span class="task-ok">✓</span> Wrote Dashboard.tsx</div>
-                <div class="task"><span class="task-ok">✓</span> Added tests · 9 passing</div>
-                <div class="task task-run"><span class="task-spin">◐</span> Running deploy preview…</div>
-                <div class="diff"><span class="diff-add">+ export const Dashboard = () =&gt; {</span><span class="diff-del">- // TODO: build dashboard</span></div>
+            <div class="mock-aura" aria-hidden="true">
+              <div class="mock-panel">
+                <div class="mp-bar"><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-title">AI IDE — Agent mode</span></div>
+                <div class="mp-body mp-tasks">
+                  <div class="task"><span class="task-ok">✓</span> Explored 12 files</div>
+                  <div class="task"><span class="task-ok">✓</span> Wrote Dashboard.tsx</div>
+                  <div class="task"><span class="task-ok">✓</span> Added tests · 9 passing</div>
+                  <div class="task task-run"><span class="task-spin">◐</span> Running deploy preview…</div>
+                  <div class="diff"><span class="diff-add">+ export const Dashboard = () =&gt; {</span><span class="diff-del">- // TODO: build dashboard</span></div>
+                </div>
               </div>
             </div>
           </article>
@@ -385,15 +372,17 @@
               </ul>
               <a href="#govern" class="browse-link">Browse governance →</a>
             </div>
-            <div class="mock-panel" aria-hidden="true">
-              <div class="mp-bar"><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-title">Zemtino — policy violations</span></div>
-              <div class="mp-body">
-                <table class="viol">
-                  <tr><td>agent-prod-42</td><td>Budget limit</td><td><span class="sev sev-crit">Critical</span></td></tr>
-                  <tr><td>agent-prod-07</td><td>PII detection</td><td><span class="sev sev-crit">Critical</span></td></tr>
-                  <tr><td>agent-dev-18</td><td>Rate limit</td><td><span class="sev sev-warn">Warning</span></td></tr>
-                  <tr><td>agent-stg-05</td><td>Model restrict</td><td><span class="sev sev-ok">Resolved</span></td></tr>
-                </table>
+            <div class="mock-aura" aria-hidden="true">
+              <div class="mock-panel">
+                <div class="mp-bar"><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-title">Zemtino — policy violations</span></div>
+                <div class="mp-body">
+                  <table class="viol">
+                    <tr><td>agent-prod-42</td><td>Budget limit</td><td><span class="sev sev-crit">Critical</span></td></tr>
+                    <tr><td>agent-prod-07</td><td>PII detection</td><td><span class="sev sev-crit">Critical</span></td></tr>
+                    <tr><td>agent-dev-18</td><td>Rate limit</td><td><span class="sev sev-warn">Warning</span></td></tr>
+                    <tr><td>agent-stg-05</td><td>Model restrict</td><td><span class="sev sev-ok">Resolved</span></td></tr>
+                  </table>
+                </div>
               </div>
             </div>
           </article>
