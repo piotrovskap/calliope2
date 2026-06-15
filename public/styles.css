@@ -302,6 +302,17 @@ section { padding: 5rem 0; }
 .step p { color: var(--fg-soft); }
 .step-tag { display: inline-block; margin-top: 1rem; font-size: .78rem; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: .25rem .7rem; }
 
+/* ---------- problem / solution ---------- */
+.problem { background: var(--navy-deep); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.lead { color: var(--fg-soft); font-size: 1.15rem; }
+.lead em { font-style: normal; color: var(--cyan); font-weight: 600; }
+.pain-list { list-style: none; display: grid; gap: .7rem; margin-top: 1.5rem; }
+.pain-list li { position: relative; padding-left: 1.8rem; color: #fff; font-size: 1.05rem; }
+.pain-list li::before { content: "✕"; position: absolute; left: 0; color: #ff7a7a; font-weight: 700; }
+.solution-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.solution-copy .lead { margin-top: .5rem; }
+.solution-copy .row-list { margin: 1.2rem 0 1.4rem; }
+
 /* ---------- showcase: alternating text + product mock (Webflow) ---------- */
 .showcase { display: grid; gap: 4.5rem; margin-top: 3rem; }
 .show-row { display: grid; grid-template-columns: 1fr 1.15fr; gap: 3.5rem; align-items: center; }
@@ -500,7 +511,7 @@ section { padding: 5rem 0; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 940px) {
-  .hero-visual, .deploy-inner, .blueprint-inner, .footer-inner { grid-template-columns: 1fr; }
+  .hero-visual, .deploy-inner, .blueprint-inner, .footer-inner, .solution-inner { grid-template-columns: 1fr; }
   .steps, .feature-grid, .govern-grid, .plans, .proof-grid { grid-template-columns: 1fr 1fr; }
   .show-row { grid-template-columns: 1fr; gap: 1.6rem; }
   .show-row:nth-child(even) .show-copy { order: 0; }

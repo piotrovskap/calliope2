@@ -276,19 +276,53 @@
       </div>
     </section>
 
-    <!-- ===== Problem → insight (Cohere template) ===== -->
-    <section class="insight">
+    <!-- ===== Problem ===== -->
+    <section class="problem" id="problem">
       <div class="wrap narrow">
-        <p class="section-eyebrow">The shift</p>
-        <h2 class="insight-title">
-          With SaaS AI, your data lives in someone else's logs.
-          Building it yourself takes 18 months you don't have.
-        </h2>
-        <p class="insight-body">
-          Calliope changes the equation. You get a full, production-grade AI studio as a stack you
-          <em>own</em> — deployed inside your cloud in days, governed by your controls, with zero
-          dependency on a vendor's multi-tenant platform.
+        <p class="section-eyebrow">The problem</p>
+        <h2 class="section-title">Stop choosing between security and speed.</h2>
+        <p class="lead">
+          Most enterprises face an impossible choice: lock into a vendor's multi-tenant platform,
+          or spend 18 months building secure AI infrastructure from scratch — then maintain it forever.
+          Meanwhile:
         </p>
+        <ul class="pain-list">
+          <li>Innovation happens in the shadows, on unsanctioned tools.</li>
+          <li>Security reviews kill momentum before launch.</li>
+          <li>Compliance frameworks block progress instead of enabling it.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Solution (with UI screenshot) ===== -->
+    <section class="solution" id="solution">
+      <div class="wrap solution-inner">
+        <div class="solution-copy">
+          <p class="section-eyebrow">The solution</p>
+          <h2 class="section-title">Own your AI. Run it on your cloud.</h2>
+          <p class="lead">
+            Calliope is a full, production-grade AI studio you <em>own</em> — deployed inside your cloud
+            in days, governed by your controls. Governance built in, not bolted on. No multi-tenant SaaS;
+            your data, models and keys never leave your perimeter.
+          </p>
+          <ul class="row-list">
+            <li>Live in your account in days, not 18 months</li>
+            <li>Your data, models and keys never egress</li>
+            <li>Audit, access control &amp; compliance built in</li>
+          </ul>
+          <a href="#how" class="browse-link">See how it works →</a>
+        </div>
+        <div class="mock-aura" aria-hidden="true">
+          <div class="mock-panel">
+            <div class="mock-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="mock-title">deploy to your-vpc</span></div>
+            <pre class="mock-body"><code><span class="c-mut">$</span> calliope deploy <span class="c-acc">--cloud</span> aws://acme-prod-vpc
+<span class="c-ok">✓</span> Provisioning in <span class="c-acc">your</span> account (us-east-1)
+<span class="c-ok">✓</span> Studio + Astrolift runtime up
+<span class="c-ok">✓</span> Zemtino GRC policies applied
+<span class="c-ok">✓</span> 0 bytes egress to Calliope
+<span class="c-mut">→</span> https://ai.acme.internal  <span class="c-ok">ready</span></code></pre>
+          </div>
+        </div>
       </div>
     </section>
 
