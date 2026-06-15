@@ -45,6 +45,22 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  /* ---------------- Mobile menu ---------------- */
+  var hamburger = document.getElementById("hamburger");
+  var mobileMenu = document.getElementById("mobileMenu");
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener("click", function () {
+      var open = mobileMenu.classList.toggle("open");
+      hamburger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    mobileMenu.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        mobileMenu.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
   /* ---------------- Lead modal ---------------- */
   var modal = document.getElementById("leadModal");
   var modalOpen = false;

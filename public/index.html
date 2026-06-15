@@ -15,6 +15,9 @@
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
+  <!-- vertical frame lines around the content column -->
+  <div class="vframe" aria-hidden="true"></div>
+
   <!-- ===== Announcement / scarcity bar ===== -->
   <div class="announce" id="announce">
     <span>Onboarding a limited number of private deployments this quarter.</span>
@@ -28,66 +31,164 @@
       <a class="brand" href="/">
         <span class="brand-mark">C</span> Calliope
       </a>
+
       <nav class="nav" aria-label="Primary">
-        <a href="#how">How it works</a>
-        <a href="#studio">The studio</a>
-        <a href="#deploy">Deploy</a>
-        <a href="#govern">Govern</a>
-        <a href="#pricing">Packaging</a>
+        <!-- Product mega -->
+        <div class="nav-item has-mega">
+          <button class="nav-link" aria-expanded="false">Product <span class="caret">▾</span></button>
+          <div class="mega">
+            <div class="wrap mega-grid">
+              <div class="mega-col">
+                <h4>Build · The Studio</h4>
+                <a href="#studio">AI Lab</a>
+                <a href="#studio">AI IDE &amp; Agents</a>
+                <a href="#studio">Chat Studio</a>
+                <a href="#studio">Deep Agent</a>
+                <a href="#studio">Langflow</a>
+                <a href="#studio">Secure Browser</a>
+              </div>
+              <div class="mega-col">
+                <h4>Run · Astrolift</h4>
+                <a href="#deploy">Cloud Hosted</a>
+                <a href="#deploy">Dedicated Cloud</a>
+                <a href="#deploy">VPC Gateway</a>
+                <a href="#deploy">On-prem / Air-gapped</a>
+                <a href="#deploy">Free Desktop</a>
+              </div>
+              <div class="mega-col">
+                <h4>Govern · Zemtino</h4>
+                <a href="#govern">Observability</a>
+                <a href="#govern">Policy management</a>
+                <a href="#govern">Risk &amp; anomalies</a>
+                <a href="#govern">Compliance</a>
+                <a href="#govern">Content scanning</a>
+                <a href="#govern">Secrets</a>
+              </div>
+              <div class="mega-col mega-feature">
+                <h4>What's new</h4>
+                <a href="#blueprint" class="mega-card">
+                  <span class="mega-card-tag">Free guide</span>
+                  <span class="mega-card-title">Private-AI Deployment Blueprint</span>
+                  <span class="mega-card-desc">Reference architecture + GRC checklist.</span>
+                </a>
+              </div>
+            </div>
+            <a href="#demo" class="mega-cta wrap-cta"><span>See Calliope running in your cloud</span><span class="mega-cta-go">Book a demo →</span></a>
+          </div>
+        </div>
+
+        <!-- Solutions mega -->
+        <div class="nav-item has-mega">
+          <button class="nav-link" aria-expanded="false">Solutions <span class="caret">▾</span></button>
+          <div class="mega">
+            <div class="wrap mega-grid mega-grid--2">
+              <div class="mega-col">
+                <h4>By use case</h4>
+                <a href="#studio">Agent platforms</a>
+                <a href="#studio">AI applications</a>
+                <a href="#studio">Chatbots</a>
+                <a href="#studio">Data exploration</a>
+                <a href="#studio">Internal automation</a>
+                <a href="#studio">Knowledge base</a>
+                <a href="#studio">Research tools</a>
+              </div>
+              <div class="mega-col">
+                <h4>By industry</h4>
+                <a href="#">Financial services</a>
+                <a href="#">Healthcare &amp; pharma</a>
+                <a href="#">Government &amp; defense</a>
+                <a href="#">Energy &amp; utilities</a>
+                <a href="#">Life sciences</a>
+                <a href="#">Manufacturing</a>
+                <a href="#">Research &amp; academia</a>
+              </div>
+              <div class="mega-col mega-feature">
+                <h4>Outcome</h4>
+                <a href="#deploy" class="mega-card">
+                  <span class="mega-card-tag">Deploy anywhere</span>
+                  <span class="mega-card-title">Runs in your account</span>
+                  <span class="mega-card-desc">Cloud, on-prem, or air-gapped — your data never egresses.</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a class="nav-link nav-link--solo" href="#pricing">Pricing</a>
+
+        <!-- Resources mega -->
+        <div class="nav-item has-mega">
+          <button class="nav-link" aria-expanded="false">Resources <span class="caret">▾</span></button>
+          <div class="mega">
+            <div class="wrap mega-grid mega-grid--2">
+              <div class="mega-col">
+                <h4>Learn</h4>
+                <a href="#how">How it works</a>
+                <a href="#govern">Security &amp; governance</a>
+                <a href="#blueprint">Deployment blueprint</a>
+              </div>
+              <div class="mega-col">
+                <h4>Company</h4>
+                <a href="#">About Calliope</a>
+                <a href="#">Built by CONFLICT</a>
+                <a href="#demo">Contact</a>
+              </div>
+              <div class="mega-col mega-feature">
+                <h4>Get started</h4>
+                <a href="#demo" class="mega-card">
+                  <span class="mega-card-tag">30 min</span>
+                  <span class="mega-card-title">Book a private demo</span>
+                  <span class="mega-card-desc">A walkthrough with an engineer — not a sales script.</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav>
+
       <div class="header-cta">
-        <a href="#blueprint" class="btn btn-ghost btn-sm">Get the blueprint</a>
-        <a href="#demo" class="btn btn-primary btn-sm">Book a private demo</a>
+        <a href="#login" class="nav-link nav-link--solo">Sign in</a>
+        <a href="#demo" class="btn btn-primary btn-sm">Book a demo</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
+    </div>
+
+    <!-- mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#studio">Product</a>
+      <a href="#studio">Solutions</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#blueprint">Resources</a>
+      <a href="#login">Sign in</a>
+      <a href="#demo" class="btn btn-primary btn-block">Book a demo</a>
     </div>
   </header>
 
   <main>
-    <!-- ===== Hero ===== -->
-    <section class="hero">
-      <div class="wrap">
-        <p class="eyebrow">The private-AI studio</p>
-        <h1 class="hero-title">One <span class="accent">secure AI workspace</span><br />for your technical team.</h1>
+    <!-- ===== Hero (centered aurora, Arden-style) ===== -->
+    <section class="hero hero--center">
+      <div class="wrap hero-center">
+        <span class="hero-pill"><span class="hero-pill-dot"></span> The private-AI studio · built by CONFLICT</span>
+        <h1 class="hero-title">One secure AI workspace<br />for your <em>technical team</em>.</h1>
         <p class="hero-sub">
           Give developers, data teams, and analysts one place to code with AI, explore data,
           build agents, run notebooks, access databases, and work in isolated cloud environments —
           with <strong>security and governance built in</strong>.
         </p>
 
-        <!-- Hero lead capture (low-friction) -->
-        <form class="lead-inline" data-lead-form data-source="hero">
-          <input type="email" name="email" required placeholder="you@company.com"
-                 aria-label="Work email" autocomplete="email" />
-          <button type="submit" class="btn btn-primary">Get the deployment blueprint</button>
-        </form>
-        <p class="lead-note">Free 18-page PDF · how to self-host enterprise AI in days, not 18 months.</p>
-
-        <div class="hero-actions">
-          <a href="#demo" class="btn btn-glow">Book a private demo <span class="arrow">→</span></a>
-          <a href="#how" class="btn btn-link">See how it works →</a>
+        <div class="hero-actions center">
+          <a href="#demo" class="btn btn-primary btn-lg">Book a demo</a>
+          <a href="#how" class="btn btn-ghost btn-lg">See how it works →</a>
         </div>
-      </div>
+        <p class="lead-note">or <a href="#blueprint" class="hero-textlink">get the free deployment blueprint →</a></p>
 
-      <!-- Show-don't-tell visual -->
-      <div class="wrap hero-visual" aria-hidden="true">
-        <div class="card mock-deploy">
-          <div class="mock-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            <span class="mock-title">deploy to your-vpc</span></div>
-          <pre class="mock-body"><code><span class="c-mut">$</span> calliope deploy <span class="c-acc">--cloud</span> aws://acme-prod-vpc
-<span class="c-ok">✓</span> Provisioning in <span class="c-acc">your</span> account (us-east-1)
-<span class="c-ok">✓</span> Studio + Astrolift runtime up
-<span class="c-ok">✓</span> Zemtino GRC policies applied
-<span class="c-ok">✓</span> 0 bytes egress to Calliope
-<span class="c-mut">→</span> https://ai.acme.internal  <span class="c-ok">ready</span></code></pre>
-        </div>
-        <div class="card mock-govern">
-          <div class="mock-govern-head">Data residency</div>
-          <div class="gauge"><span class="gauge-val">100%</span><span class="gauge-lbl">in your VPC</span></div>
-          <ul class="mock-list">
-            <li><span class="tick">✓</span> Encryption keys: customer-managed</li>
-            <li><span class="tick">✓</span> Audit log → your SIEM</li>
-            <li><span class="tick">✓</span> Models: bring your own</li>
-          </ul>
+        <div class="hero-creds">
+          <span class="hero-creds-label">Trusted across regulated industries</span>
+          <div class="hero-creds-row">
+            <span class="cred">Finance</span><span class="cred">Healthcare</span><span class="cred">Gov &amp; Defense</span><span class="cred">Energy</span><span class="cred">Life Sciences</span>
+          </div>
         </div>
       </div>
     </section>
@@ -99,20 +200,6 @@
         <div class="proof-item"><span class="proof-num">Days</span><span class="proof-lbl">to deploy — not 18 months</span></div>
         <div class="proof-item"><span class="proof-num">9</span><span class="proof-lbl">compliance frameworks mapped</span></div>
         <div class="proof-item"><span class="proof-num">5+</span><span class="proof-lbl">targets: AWS · GCP · Azure · on-prem · air-gapped</span></div>
-      </div>
-    </section>
-
-    <!-- ===== Logos / backing ===== -->
-    <section class="logos">
-      <div class="wrap">
-        <p class="logos-label">Built by the engineers at CONFLICT · trusted in regulated industries</p>
-        <div class="logo-row" aria-label="Customer logos placeholder">
-          <span class="logo-chip">Finance</span>
-          <span class="logo-chip">Healthcare</span>
-          <span class="logo-chip">Gov &amp; Defense</span>
-          <span class="logo-chip">Energy</span>
-          <span class="logo-chip">Life Sciences</span>
-        </div>
       </div>
     </section>
 
