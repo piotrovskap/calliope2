@@ -1,0 +1,13 @@
+{
+  "name": "calliope2",
+  "version": "1.0.0",
+  "description": "Statyczny landing page hostowany na Cloudflare Pages",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler pages dev public",
+    "deploy": "wrangler pages deploy public"
+  },
+  "devDependencies": {
+    "wrangler": "^4.100.0"
+  }
+}
