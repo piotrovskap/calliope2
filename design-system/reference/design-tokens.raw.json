@@ -1,0 +1,1836 @@
+{
+  "home": {
+    "source": "live",
+    "screenshot": "screenshots/home.png",
+    "styles": {
+      "url": "https://calliope.ai/",
+      "body": {
+        "color": "rgb(138, 145, 162)",
+        "background-color": "rgb(22, 35, 69)",
+        "font-family": "Helvetica, sans-serif",
+        "font-size": "14.4px",
+        "line-height": "24.48px"
+      },
+      "h2": {
+        "color": "rgb(26, 29, 58)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "background-image": "none",
+        "font-family": "Helvetica, sans-serif",
+        "font-size": "28px",
+        "font-weight": "700",
+        "line-height": "36.4px",
+        "border-radius": "0px",
+        "border": "0px none rgb(26, 29, 58)",
+        "padding": "0px",
+        "letter-spacing": "normal",
+        "box-shadow": "none"
+      },
+      "buttons": [
+        {
+          "text": "See It in Action",
+          "color": "rgb(255, 255, 255)",
+          "background-color": "rgb(90, 77, 199)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "16px",
+          "font-weight": "700",
+          "line-height": "24px",
+          "border-radius": "6px",
+          "border": "0px none rgb(255, 255, 255)",
+          "padding": "8px 16px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "Log In",
+          "color": "rgb(63, 241, 239)",
+          "background-color": "rgba(255, 255, 255, 0.05)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14px",
+          "font-weight": "500",
+          "line-height": "21px",
+          "border-radius": "6px",
+          "border": "0px none rgb(63, 241, 239)",
+          "padding": "14px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "Download",
+          "color": "rgb(255, 255, 255)",
+          "background-color": "rgb(90, 77, 199)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "16px",
+          "font-weight": "700",
+          "line-height": "24px",
+          "border-radius": "6px",
+          "border": "0px none rgb(255, 255, 255)",
+          "padding": "8px 16px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "Request a Demo",
+          "color": "rgb(0, 0, 0)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14.4px",
+          "font-weight": "400",
+          "line-height": "24.48px",
+          "border-radius": "4px",
+          "border": "1px solid rgb(255, 255, 255)",
+          "padding": "12px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "Request a Demo",
+          "color": "rgb(0, 0, 0)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14.4px",
+          "font-weight": "400",
+          "line-height": "24.48px",
+          "border-radius": "4px",
+          "border": "1px solid rgb(255, 255, 255)",
+          "padding": "12px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        }
+      ],
+      "link": {
+        "color": "rgb(138, 145, 162)",
+        "font-weight": "400",
+        "text-decoration-line": "none"
+      },
+      "colorFreq": [
+        [
+          "rgb(138, 145, 162)",
+          547
+        ],
+        [
+          "rgb(34, 34, 34)",
+          312
+        ],
+        [
+          "rgba(255, 255, 255, 0.85)",
+          298
+        ],
+        [
+          "rgb(0, 0, 0)",
+          224
+        ],
+        [
+          "rgb(255, 255, 255)",
+          133
+        ],
+        [
+          "rgb(136, 136, 136)",
+          108
+        ],
+        [
+          "rgb(51, 51, 51)",
+          80
+        ],
+        [
+          "rgb(33, 37, 41)",
+          26
+        ],
+        [
+          "rgb(63, 241, 239)",
+          20
+        ],
+        [
+          "rgba(255, 255, 255, 0.9)",
+          16
+        ],
+        [
+          "rgb(158, 170, 186)",
+          10
+        ],
+        [
+          "rgba(255, 255, 255, 0.75)",
+          8
+        ],
+        [
+          "rgb(22, 35, 69)",
+          6
+        ],
+        [
+          "rgb(90, 77, 199)",
+          4
+        ],
+        [
+          "rgba(0, 0, 0, 0.176)",
+          4
+        ],
+        [
+          "rgb(238, 238, 238)",
+          4
+        ],
+        [
+          "rgba(255, 255, 255, 0.05)",
+          3
+        ],
+        [
+          "rgba(255, 255, 255, 0.8)",
+          2
+        ],
+        [
+          "rgb(102, 102, 102)",
+          2
+        ],
+        [
+          "rgb(26, 29, 58)",
+          2
+        ],
+        [
+          "rgba(26, 24, 139, 0.3)",
+          1
+        ],
+        [
+          "rgba(255, 255, 255, 0.1)",
+          1
+        ],
+        [
+          "rgb(15, 25, 50)",
+          1
+        ],
+        [
+          "rgba(0, 0, 0, 0.6)",
+          1
+        ]
+      ]
+    }
+  },
+  "product": {
+    "source": "wayback",
+    "screenshot": "screenshots/product.png",
+    "styles": {
+      "url": "https://web.archive.org/web/20251226215418/https://calliope.ai/product/",
+      "body": {
+        "color": "rgb(138, 145, 162)",
+        "background-color": "rgb(22, 35, 69)",
+        "font-family": "Helvetica, sans-serif",
+        "font-size": "14.4px",
+        "line-height": "24.48px"
+      },
+      "buttons": [
+        {
+          "text": "Download",
+          "color": "rgb(255, 255, 255)",
+          "background-color": "rgb(90, 77, 199)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "16px",
+          "font-weight": "700",
+          "line-height": "24px",
+          "border-radius": "6px",
+          "border": "0px none rgb(255, 255, 255)",
+          "padding": "8px 16px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "See Governance",
+          "color": "rgb(0, 0, 0)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14.4px",
+          "font-weight": "400",
+          "line-height": "24.48px",
+          "border-radius": "4px",
+          "border": "1px solid rgb(255, 255, 255)",
+          "padding": "12px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "Talk to Us",
+          "color": "rgb(0, 0, 0)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14.4px",
+          "font-weight": "400",
+          "line-height": "24.48px",
+          "border-radius": "4px",
+          "border": "1px solid rgb(255, 255, 255)",
+          "padding": "12px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "I Accept",
+          "color": "rgb(22, 35, 69)",
+          "background-color": "rgb(63, 241, 239)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14px",
+          "font-weight": "500",
+          "line-height": "21px",
+          "border-radius": "6px",
+          "border": "0px none rgb(22, 35, 69)",
+          "padding": "14px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        }
+      ],
+      "link": {
+        "color": "rgb(138, 145, 162)",
+        "font-weight": "400",
+        "text-decoration-line": "none"
+      },
+      "colorFreq": [
+        [
+          "rgb(34, 34, 34)",
+          494
+        ],
+        [
+          "rgb(138, 145, 162)",
+          473
+        ],
+        [
+          "rgb(33, 37, 41)",
+          222
+        ],
+        [
+          "rgb(0, 0, 0)",
+          135
+        ],
+        [
+          "rgb(255, 255, 255)",
+          121
+        ],
+        [
+          "rgb(136, 136, 136)",
+          84
+        ],
+        [
+          "rgba(255, 255, 255, 0.9)",
+          60
+        ],
+        [
+          "rgb(63, 241, 239)",
+          9
+        ],
+        [
+          "rgb(204, 71, 71)",
+          6
+        ],
+        [
+          "rgb(22, 35, 69)",
+          4
+        ],
+        [
+          "rgb(238, 238, 238)",
+          4
+        ],
+        [
+          "rgb(90, 77, 199)",
+          2
+        ],
+        [
+          "rgb(185, 189, 199)",
+          2
+        ],
+        [
+          "rgba(26, 24, 139, 0.3)",
+          1
+        ],
+        [
+          "rgba(255, 255, 255, 0.1)",
+          1
+        ],
+        [
+          "rgb(15, 25, 50)",
+          1
+        ]
+      ]
+    }
+  },
+  "governance": {
+    "source": "wayback",
+    "screenshot": "screenshots/governance.png",
+    "styles": {
+      "url": "https://web.archive.org/web/20251226215400/https://calliope.ai/governance/",
+      "body": {
+        "color": "rgb(138, 145, 162)",
+        "background-color": "rgb(22, 35, 69)",
+        "font-family": "Helvetica, sans-serif",
+        "font-size": "14.4px",
+        "line-height": "24.48px"
+      },
+      "buttons": [
+        {
+          "text": "Download",
+          "color": "rgb(255, 255, 255)",
+          "background-color": "rgb(90, 77, 199)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "16px",
+          "font-weight": "700",
+          "line-height": "24px",
+          "border-radius": "6px",
+          "border": "0px none rgb(255, 255, 255)",
+          "padding": "8px 16px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "📥\nExport Report",
+          "color": "rgb(255, 255, 255)",
+          "background-color": "rgb(90, 77, 199)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "12px",
+          "font-weight": "400",
+          "line-height": "20.4px",
+          "border-radius": "4px",
+          "border": "0px none rgb(255, 255, 255)",
+          "padding": "8px 16px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "See Risk Management",
+          "color": "rgb(0, 0, 0)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14.4px",
+          "font-weight": "400",
+          "line-height": "24.48px",
+          "border-radius": "4px",
+          "border": "1px solid rgb(255, 255, 255)",
+          "padding": "12px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "I Accept",
+          "color": "rgb(22, 35, 69)",
+          "background-color": "rgb(63, 241, 239)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14px",
+          "font-weight": "500",
+          "line-height": "21px",
+          "border-radius": "6px",
+          "border": "0px none rgb(22, 35, 69)",
+          "padding": "14px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        }
+      ],
+      "link": {
+        "color": "rgb(138, 145, 162)",
+        "font-weight": "400",
+        "text-decoration-line": "none"
+      },
+      "colorFreq": [
+        [
+          "rgb(138, 145, 162)",
+          508
+        ],
+        [
+          "rgb(34, 34, 34)",
+          496
+        ],
+        [
+          "rgb(33, 37, 41)",
+          222
+        ],
+        [
+          "rgb(255, 255, 255)",
+          143
+        ],
+        [
+          "rgb(0, 0, 0)",
+          133
+        ],
+        [
+          "rgba(255, 255, 255, 0.9)",
+          124
+        ],
+        [
+          "rgb(136, 136, 136)",
+          78
+        ],
+        [
+          "rgb(128, 128, 128)",
+          59
+        ],
+        [
+          "rgb(230, 233, 238)",
+          48
+        ],
+        [
+          "rgb(111, 128, 160)",
+          18
+        ],
+        [
+          "rgb(0, 224, 228)",
+          15
+        ],
+        [
+          "rgb(63, 241, 239)",
+          9
+        ],
+        [
+          "rgb(26, 26, 46)",
+          9
+        ],
+        [
+          "rgb(31, 51, 93)",
+          7
+        ],
+        [
+          "rgb(10, 10, 10)",
+          6
+        ],
+        [
+          "rgb(0, 229, 184)",
+          6
+        ],
+        [
+          "rgba(251, 191, 36, 0.2)",
+          6
+        ],
+        [
+          "rgb(22, 35, 69)",
+          5
+        ],
+        [
+          "rgb(90, 77, 199)",
+          5
+        ],
+        [
+          "rgba(0, 229, 184, 0.2)",
+          5
+        ],
+        [
+          "rgb(238, 238, 238)",
+          4
+        ],
+        [
+          "rgba(239, 68, 68, 0.2)",
+          3
+        ],
+        [
+          "rgb(204, 71, 71)",
+          3
+        ],
+        [
+          "rgba(26, 24, 139, 0.3)",
+          1
+        ],
+        [
+          "rgb(169, 168, 229)",
+          1
+        ],
+        [
+          "rgb(228, 228, 228)",
+          1
+        ],
+        [
+          "rgba(255, 255, 255, 0.1)",
+          1
+        ],
+        [
+          "rgb(15, 25, 50)",
+          1
+        ]
+      ]
+    }
+  },
+  "security": {
+    "source": "wayback",
+    "screenshot": "screenshots/security.png",
+    "styles": {
+      "url": "https://web.archive.org/web/20251226215306/https://calliope.ai/security/",
+      "body": {
+        "color": "rgb(138, 145, 162)",
+        "background-color": "rgb(22, 35, 69)",
+        "font-family": "Helvetica, sans-serif",
+        "font-size": "14.4px",
+        "line-height": "24.48px"
+      },
+      "buttons": [
+        {
+          "text": "Download",
+          "color": "rgb(255, 255, 255)",
+          "background-color": "rgb(90, 77, 199)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "16px",
+          "font-weight": "700",
+          "line-height": "24px",
+          "border-radius": "6px",
+          "border": "0px none rgb(255, 255, 255)",
+          "padding": "8px 16px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "✓ Approve Security Fix",
+          "color": "rgb(0, 0, 0)",
+          "background-color": "rgb(0, 229, 184)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "13px",
+          "font-weight": "500",
+          "line-height": "19.5px",
+          "border-radius": "6px",
+          "border": "0px none rgb(0, 0, 0)",
+          "padding": "10px 20px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "📋 Review Details",
+          "color": "rgb(111, 128, 160)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "13px",
+          "font-weight": "500",
+          "line-height": "19.5px",
+          "border-radius": "6px",
+          "border": "1px solid rgb(31, 51, 93)",
+          "padding": "10px 20px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "I Accept",
+          "color": "rgb(22, 35, 69)",
+          "background-color": "rgb(63, 241, 239)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14px",
+          "font-weight": "500",
+          "line-height": "21px",
+          "border-radius": "6px",
+          "border": "0px none rgb(22, 35, 69)",
+          "padding": "14px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        }
+      ],
+      "link": {
+        "color": "rgb(138, 145, 162)",
+        "font-weight": "400",
+        "text-decoration-line": "none"
+      },
+      "colorFreq": [
+        [
+          "rgb(138, 145, 162)",
+          525
+        ],
+        [
+          "rgb(34, 34, 34)",
+          496
+        ],
+        [
+          "rgb(33, 37, 41)",
+          222
+        ],
+        [
+          "rgb(0, 0, 0)",
+          134
+        ],
+        [
+          "rgb(255, 255, 255)",
+          94
+        ],
+        [
+          "rgba(255, 255, 255, 0.9)",
+          66
+        ],
+        [
+          "rgb(135, 134, 218)",
+          44
+        ],
+        [
+          "rgb(111, 128, 160)",
+          36
+        ],
+        [
+          "rgb(136, 136, 136)",
+          36
+        ],
+        [
+          "rgb(169, 168, 229)",
+          24
+        ],
+        [
+          "rgb(0, 229, 184)",
+          23
+        ],
+        [
+          "rgb(0, 224, 228)",
+          20
+        ],
+        [
+          "rgb(10, 10, 10)",
+          19
+        ],
+        [
+          "rgb(151, 246, 225)",
+          18
+        ],
+        [
+          "rgba(0, 229, 184, 0.1)",
+          8
+        ],
+        [
+          "rgb(239, 68, 68)",
+          6
+        ],
+        [
+          "rgb(63, 241, 239)",
+          5
+        ],
+        [
+          "rgb(90, 77, 199)",
+          4
+        ],
+        [
+          "rgb(31, 51, 93)",
+          4
+        ],
+        [
+          "rgb(252, 165, 165)",
+          4
+        ],
+        [
+          "rgb(238, 238, 238)",
+          4
+        ],
+        [
+          "rgb(22, 35, 69)",
+          3
+        ],
+        [
+          "rgb(26, 26, 46)",
+          3
+        ],
+        [
+          "rgb(230, 233, 238)",
+          2
+        ],
+        [
+          "rgba(239, 68, 68, 0.1)",
+          2
+        ],
+        [
+          "rgba(26, 24, 139, 0.3)",
+          1
+        ],
+        [
+          "rgb(15, 25, 50)",
+          1
+        ]
+      ]
+    }
+  },
+  "deployment": {
+    "source": "wayback",
+    "screenshot": "screenshots/deployment.png",
+    "styles": {
+      "url": "https://web.archive.org/web/20251226215405/https://calliope.ai/deployment/",
+      "body": {
+        "color": "rgb(138, 145, 162)",
+        "background-color": "rgb(22, 35, 69)",
+        "font-family": "Helvetica, sans-serif",
+        "font-size": "14.4px",
+        "line-height": "24.48px"
+      },
+      "buttons": [
+        {
+          "text": "Download",
+          "color": "rgb(255, 255, 255)",
+          "background-color": "rgb(90, 77, 199)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "16px",
+          "font-weight": "700",
+          "line-height": "24px",
+          "border-radius": "6px",
+          "border": "0px none rgb(255, 255, 255)",
+          "padding": "8px 16px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "Start Free (Desktop)",
+          "color": "rgb(0, 0, 0)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14.4px",
+          "font-weight": "400",
+          "line-height": "24.48px",
+          "border-radius": "4px",
+          "border": "1px solid rgb(255, 255, 255)",
+          "padding": "12px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "I Accept",
+          "color": "rgb(22, 35, 69)",
+          "background-color": "rgb(63, 241, 239)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14px",
+          "font-weight": "500",
+          "line-height": "21px",
+          "border-radius": "6px",
+          "border": "0px none rgb(22, 35, 69)",
+          "padding": "14px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        }
+      ],
+      "link": {
+        "color": "rgb(138, 145, 162)",
+        "font-weight": "400",
+        "text-decoration-line": "none"
+      },
+      "colorFreq": [
+        [
+          "rgb(138, 145, 162)",
+          541
+        ],
+        [
+          "rgb(34, 34, 34)",
+          496
+        ],
+        [
+          "rgb(33, 37, 41)",
+          222
+        ],
+        [
+          "rgb(0, 0, 0)",
+          134
+        ],
+        [
+          "rgb(255, 255, 255)",
+          117
+        ],
+        [
+          "rgba(255, 255, 255, 0.9)",
+          78
+        ],
+        [
+          "rgb(111, 128, 160)",
+          78
+        ],
+        [
+          "rgb(136, 136, 136)",
+          78
+        ],
+        [
+          "rgb(230, 233, 238)",
+          31
+        ],
+        [
+          "rgb(31, 51, 93)",
+          10
+        ],
+        [
+          "rgb(63, 241, 239)",
+          9
+        ],
+        [
+          "rgb(90, 77, 199)",
+          7
+        ],
+        [
+          "rgb(26, 26, 46)",
+          6
+        ],
+        [
+          "rgb(22, 35, 69)",
+          5
+        ],
+        [
+          "rgb(10, 10, 10)",
+          5
+        ],
+        [
+          "rgb(204, 71, 71)",
+          5
+        ],
+        [
+          "rgb(238, 238, 238)",
+          4
+        ],
+        [
+          "rgba(26, 24, 139, 0.3)",
+          1
+        ],
+        [
+          "rgba(255, 255, 255, 0.1)",
+          1
+        ],
+        [
+          "rgb(15, 25, 50)",
+          1
+        ]
+      ]
+    }
+  },
+  "pricing": {
+    "source": "wayback",
+    "screenshot": "screenshots/pricing.png",
+    "styles": {
+      "url": "https://web.archive.org/web/20251226215222/https://calliope.ai/pricing/",
+      "body": {
+        "color": "rgb(138, 145, 162)",
+        "background-color": "rgb(22, 35, 69)",
+        "font-family": "Helvetica, sans-serif",
+        "font-size": "14.4px",
+        "line-height": "24.48px"
+      },
+      "buttons": [
+        {
+          "text": "Download",
+          "color": "rgb(255, 255, 255)",
+          "background-color": "rgb(90, 77, 199)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "16px",
+          "font-weight": "700",
+          "line-height": "24px",
+          "border-radius": "6px",
+          "border": "0px none rgb(255, 255, 255)",
+          "padding": "8px 16px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "Choose the Plan That Scales with Your Te",
+          "color": "rgb(22, 35, 69)",
+          "background-color": "rgb(63, 241, 239)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14px",
+          "font-weight": "700",
+          "line-height": "21px",
+          "border-radius": "6px",
+          "border": "0px none rgb(22, 35, 69)",
+          "padding": "14px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "Choose the Plan That Scales with Your Te",
+          "color": "rgb(0, 0, 0)",
+          "background-color": "rgba(255, 255, 255, 0.05)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14px",
+          "font-weight": "500",
+          "line-height": "21px",
+          "border-radius": "6px",
+          "border": "1px solid rgb(0, 0, 0)",
+          "padding": "14px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "Choose the Plan That Scales with Your Te",
+          "color": "rgb(0, 0, 0)",
+          "background-color": "rgba(255, 255, 255, 0.05)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14px",
+          "font-weight": "500",
+          "line-height": "21px",
+          "border-radius": "6px",
+          "border": "1px solid rgb(0, 0, 0)",
+          "padding": "14px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "SUBSCRIBE",
+          "color": "rgb(63, 241, 239)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14.4px",
+          "font-weight": "700",
+          "line-height": "24.48px",
+          "border-radius": "4px",
+          "border": "1px solid rgb(63, 241, 239)",
+          "padding": "8px 32px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "SUBSCRIBE",
+          "color": "rgb(63, 241, 239)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14.4px",
+          "font-weight": "700",
+          "line-height": "24.48px",
+          "border-radius": "4px",
+          "border": "1px solid rgb(63, 241, 239)",
+          "padding": "8px 32px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "CONTACT SALES",
+          "color": "rgb(63, 241, 239)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14.4px",
+          "font-weight": "700",
+          "line-height": "24.48px",
+          "border-radius": "4px",
+          "border": "1px solid rgb(63, 241, 239)",
+          "padding": "8px 32px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "Explore Calliope",
+          "color": "rgb(0, 0, 0)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14.4px",
+          "font-weight": "400",
+          "line-height": "24.48px",
+          "border-radius": "4px",
+          "border": "1px solid rgb(255, 255, 255)",
+          "padding": "12px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "I Accept",
+          "color": "rgb(22, 35, 69)",
+          "background-color": "rgb(63, 241, 239)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14px",
+          "font-weight": "500",
+          "line-height": "21px",
+          "border-radius": "6px",
+          "border": "0px none rgb(22, 35, 69)",
+          "padding": "14px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        }
+      ],
+      "link": {
+        "color": "rgb(138, 145, 162)",
+        "font-weight": "400",
+        "text-decoration-line": "none"
+      },
+      "colorFreq": [
+        [
+          "rgb(138, 145, 162)",
+          670
+        ],
+        [
+          "rgb(34, 34, 34)",
+          502
+        ],
+        [
+          "rgb(255, 255, 255)",
+          377
+        ],
+        [
+          "rgb(33, 37, 41)",
+          262
+        ],
+        [
+          "rgb(0, 0, 0)",
+          149
+        ],
+        [
+          "rgb(63, 241, 239)",
+          98
+        ],
+        [
+          "rgba(255, 255, 255, 0.8)",
+          96
+        ],
+        [
+          "rgb(228, 228, 228)",
+          93
+        ],
+        [
+          "rgb(136, 136, 136)",
+          42
+        ],
+        [
+          "rgba(255, 255, 255, 0.4)",
+          26
+        ],
+        [
+          "rgba(255, 255, 255, 0.9)",
+          20
+        ],
+        [
+          "rgba(255, 255, 255, 0.05)",
+          9
+        ],
+        [
+          "rgb(22, 35, 69)",
+          6
+        ],
+        [
+          "rgba(255, 255, 255, 0.1)",
+          4
+        ],
+        [
+          "rgb(238, 238, 238)",
+          4
+        ],
+        [
+          "rgb(90, 77, 199)",
+          2
+        ],
+        [
+          "rgba(26, 24, 139, 0.3)",
+          1
+        ],
+        [
+          "rgb(15, 25, 50)",
+          1
+        ]
+      ]
+    }
+  },
+  "solutions": {
+    "error": "page.goto: Timeout 45000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://web.archive.org/web/20251226215539/https://calliope.ai/solutions/\", waiting until \"networkidle\"\u001b[22m\n"
+  },
+  "industries": {
+    "source": "wayback",
+    "screenshot": "screenshots/industries.png",
+    "styles": {
+      "url": "https://web.archive.org/web/20251226215235/https://calliope.ai/industries/",
+      "body": {
+        "color": "rgb(138, 145, 162)",
+        "background-color": "rgb(22, 35, 69)",
+        "font-family": "Helvetica, sans-serif",
+        "font-size": "14.4px",
+        "line-height": "24.48px"
+      },
+      "buttons": [
+        {
+          "text": "Download",
+          "color": "rgb(255, 255, 255)",
+          "background-color": "rgb(90, 77, 199)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "16px",
+          "font-weight": "700",
+          "line-height": "24px",
+          "border-radius": "6px",
+          "border": "0px none rgb(255, 255, 255)",
+          "padding": "8px 16px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "I Accept",
+          "color": "rgb(22, 35, 69)",
+          "background-color": "rgb(63, 241, 239)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14px",
+          "font-weight": "500",
+          "line-height": "21px",
+          "border-radius": "6px",
+          "border": "0px none rgb(22, 35, 69)",
+          "padding": "14px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        }
+      ],
+      "link": {
+        "color": "rgb(138, 145, 162)",
+        "font-weight": "400",
+        "text-decoration-line": "none"
+      },
+      "colorFreq": [
+        [
+          "rgb(34, 34, 34)",
+          496
+        ],
+        [
+          "rgb(138, 145, 162)",
+          431
+        ],
+        [
+          "rgb(33, 37, 41)",
+          222
+        ],
+        [
+          "rgb(0, 0, 0)",
+          132
+        ],
+        [
+          "rgb(255, 255, 255)",
+          87
+        ],
+        [
+          "rgba(255, 255, 255, 0.9)",
+          58
+        ],
+        [
+          "rgb(136, 136, 136)",
+          18
+        ],
+        [
+          "rgb(22, 35, 69)",
+          4
+        ],
+        [
+          "rgb(238, 238, 238)",
+          4
+        ],
+        [
+          "rgb(63, 241, 239)",
+          3
+        ],
+        [
+          "rgb(90, 77, 199)",
+          2
+        ],
+        [
+          "rgba(26, 24, 139, 0.3)",
+          1
+        ],
+        [
+          "rgb(15, 25, 50)",
+          1
+        ]
+      ]
+    }
+  },
+  "team": {
+    "source": "wayback",
+    "screenshot": "screenshots/team.png",
+    "styles": {
+      "url": "https://web.archive.org/web/20251226215259/https://calliope.ai/team/",
+      "body": {
+        "color": "rgb(138, 145, 162)",
+        "background-color": "rgb(22, 35, 69)",
+        "font-family": "Helvetica, sans-serif",
+        "font-size": "14.4px",
+        "line-height": "24.48px"
+      },
+      "h2": {
+        "color": "rgb(255, 255, 255)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "background-image": "none",
+        "font-family": "Helvetica, sans-serif",
+        "font-size": "36px",
+        "font-weight": "400",
+        "line-height": "41.656px",
+        "border-radius": "0px",
+        "border": "0px none rgb(255, 255, 255)",
+        "padding": "0px",
+        "letter-spacing": "normal",
+        "box-shadow": "none"
+      },
+      "buttons": [
+        {
+          "text": "Download",
+          "color": "rgb(255, 255, 255)",
+          "background-color": "rgb(90, 77, 199)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "16px",
+          "font-weight": "700",
+          "line-height": "24px",
+          "border-radius": "6px",
+          "border": "0px none rgb(255, 255, 255)",
+          "padding": "8px 16px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "www.weareconflict.com",
+          "color": "rgb(255, 255, 255)",
+          "background-color": "rgb(219, 57, 76)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14px",
+          "font-weight": "700",
+          "line-height": "23.8px",
+          "border-radius": "4px",
+          "border": "0px none rgb(255, 255, 255)",
+          "padding": "12px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "I Accept",
+          "color": "rgb(22, 35, 69)",
+          "background-color": "rgb(63, 241, 239)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "14px",
+          "font-weight": "500",
+          "line-height": "21px",
+          "border-radius": "6px",
+          "border": "0px none rgb(22, 35, 69)",
+          "padding": "14px 24px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        },
+        {
+          "text": "",
+          "color": "rgb(138, 145, 162)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "background-image": "none",
+          "font-family": "Helvetica, sans-serif",
+          "font-size": "18px",
+          "font-weight": "400",
+          "line-height": "44.8px",
+          "border-radius": "33.6px",
+          "border": "1px solid rgb(238, 238, 238)",
+          "padding": "0px",
+          "letter-spacing": "normal",
+          "box-shadow": "none"
+        }
+      ],
+      "link": {
+        "color": "rgb(138, 145, 162)",
+        "font-weight": "400",
+        "text-decoration-line": "none"
+      },
+      "colorFreq": [
+        [
+          "rgb(34, 34, 34)",
+          496
+        ],
+        [
+          "rgb(138, 145, 162)",
+          475
+        ],
+        [
+          "rgb(33, 37, 41)",
+          222
+        ],
+        [
+          "rgb(0, 0, 0)",
+          132
+        ],
+        [
+          "rgb(255, 255, 255)",
+          79
+        ],
+        [
+          "rgba(255, 255, 255, 0.9)",
+          26
+        ],
+        [
+          "rgb(136, 136, 136)",
+          18
+        ],
+        [
+          "rgb(22, 35, 69)",
+          4
+        ],
+        [
+          "rgb(63, 241, 239)",
+          4
+        ],
+        [
+          "rgb(238, 238, 238)",
+          4
+        ],
+        [
+          "rgb(90, 77, 199)",
+          2
+        ],
+        [
+          "rgba(26, 24, 139, 0.3)",
+          1
+        ],
+        [
+          "rgba(255, 255, 255, 0.05)",
+          1
+        ],
+        [
+          "rgb(219, 57, 76)",
+          1
+        ],
+        [
+          "rgb(15, 25, 50)",
+          1
+        ]
+      ]
+    }
+  }
+}

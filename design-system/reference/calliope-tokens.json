@@ -1,0 +1,27 @@
+{
+  "_note": "Curated design tokens extracted from calliope.ai (live home + Wayback 2025-12-26). Source of truth for the Storybook design system.",
+  "brand": {
+    "navy":        "#162345",
+    "navyDeep":    "#0E1730",
+    "navyCard":    "#1B2A52",
+    "navyMuted":   "#223155",
+    "cyan":        "#3FF1EF",
+    "purple":      "#5A4DC7",
+    "white":       "#FFFFFF",
+    "mutedText":   "#8A91A2",
+    "headingDark": "#1A1D3A"
+  },
+  "typography": {
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "baseSize": "14.4px",
+    "h2": { "size": "28px", "weight": 700, "lineHeight": "36.4px" }
+  },
+  "radius": { "button": "6px", "alt": "4px", "pill": "999px" },
+  "buttons": {
+    "primaryCyan":   { "bg": "#3FF1EF", "fg": "#162345", "radius": "6px", "padding": "14px 24px" },
+    "primaryPurple": { "bg": "#5A4DC7", "fg": "#FFFFFF", "radius": "6px", "padding": "8px 16px" },
+    "ghost":         { "bg": "rgba(255,255,255,0.05)", "fg": "#3FF1EF", "radius": "6px" },
+    "outline":       { "bg": "transparent", "fg": "inherit", "radius": "4px", "padding": "12px 24px" }
+  },
+  "pricingObserved": { "teams": "$2,550", "business": "$5,750", "enterprise": "Custom" }
+}
