@@ -1,58 +1,276 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calliope</title>
-  <meta name="description" content="Calliope — landing page" />
+  <title>Calliope — The Secure AI Development Platform</title>
+  <meta name="description" content="Build, run, observe, control, and secure enterprise AI on one platform. Governance and security built in — not bolted on. Deploy in the cloud, on-prem, or air-gapped." />
   <link rel="icon" href="data:," />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
+  <!-- ============ HEADER ============ -->
   <header class="site-header">
-    <a class="brand" href="/">Calliope</a>
-    <nav class="nav">
-      <a href="#features">Funkcje</a>
-      <a href="#about">O nas</a>
-      <a href="#contact">Kontakt</a>
-    </nav>
+    <div class="container header-inner">
+      <a class="brand" href="/">Calliope</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#platform">Platform</a>
+        <a href="#products">Products</a>
+        <a href="#deploy">Deploy</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#security">Security</a>
+      </nav>
+      <div class="header-cta">
+        <a class="btn btn-ghost" href="#login">Sign in</a>
+        <a class="btn btn-primary" href="#contact">Talk to sales</a>
+      </div>
+    </div>
   </header>
 
   <main>
+    <!-- ============ HERO ============ -->
     <section class="hero">
-      <h1>Twój nowy landing page</h1>
-      <p>Statyczna strona gotowa do wdrożenia na Cloudflare Pages.</p>
-      <a class="cta" href="#contact">Zaczynamy</a>
-    </section>
-
-    <section id="features" class="features">
-      <div class="card">
-        <h2>Szybko</h2>
-        <p>Czysty HTML/CSS bez zbędnych zależności.</p>
-      </div>
-      <div class="card">
-        <h2>Globalnie</h2>
-        <p>Serwowane z sieci brzegowej Cloudflare.</p>
-      </div>
-      <div class="card">
-        <h2>Prosto</h2>
-        <p>Jeden katalog, jedno polecenie deploy.</p>
+      <div class="container">
+        <p class="eyebrow">The Secure AI Development Platform</p>
+        <h1>Ship enterprise AI<br />without choosing between<br /><span class="grad">speed and security</span>.</h1>
+        <p class="hero-sub">
+          Calliope lets your teams build, run, observe, control, and secure AI on one platform —
+          with governance built in, not bolted on. Move at startup speed with enterprise-grade control.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#contact">Talk to sales</a>
+          <a class="btn btn-ghost btn-lg" href="#platform">See it in action →</a>
+        </div>
+        <p class="hero-foot">Deploy in the cloud, on-prem, or fully air-gapped.</p>
       </div>
     </section>
 
-    <section id="about" class="about">
-      <h2>O projekcie</h2>
-      <p>Tutaj wstaw treść swojej strony.</p>
+    <!-- ============ TRUST STRIP ============ -->
+    <section class="trust">
+      <div class="container">
+        <p class="trust-label">Audit-ready by default</p>
+        <ul class="trust-badges">
+          <li>SOC&nbsp;2</li>
+          <li>HIPAA</li>
+          <li>GDPR</li>
+          <li>EU&nbsp;AI&nbsp;Act</li>
+          <li>FedRAMP&nbsp;path</li>
+        </ul>
+      </div>
     </section>
 
-    <section id="contact" class="contact">
-      <h2>Kontakt</h2>
-      <p>Napisz do nas: <a href="mailto:hello@example.com">hello@example.com</a></p>
+    <!-- ============ PROBLEM ============ -->
+    <section class="problem" id="platform">
+      <div class="container narrow">
+        <p class="section-eyebrow">The problem</p>
+        <h2>Most enterprises face an impossible choice.</h2>
+        <p class="lead">
+          Lock into vendor ecosystems that limit what your teams can build — or spend 18 months
+          building secure AI infrastructure from scratch, then maintain it forever. Meanwhile:
+        </p>
+        <ul class="pain-list">
+          <li>Innovation happens in the shadows, on unsanctioned tools.</li>
+          <li>Security reviews kill momentum before launch.</li>
+          <li>Compliance frameworks block progress instead of enabling it.</li>
+        </ul>
+        <p class="lead">Calliope changes the equation.</p>
+      </div>
+    </section>
+
+    <!-- ============ FRAMEWORK: build/run/observe/control/secure ============ -->
+    <section class="framework">
+      <div class="container">
+        <p class="section-eyebrow">One platform, five capabilities</p>
+        <h2>Build. Run. Observe. Control. Secure.</h2>
+        <p class="lead center">
+          Everything an enterprise needs to take AI from idea to production — governed end to end.
+        </p>
+        <div class="grid-5">
+          <article class="pillar">
+            <span class="pillar-num">01</span>
+            <h3>Build</h3>
+            <p>Visual workflow builders, IDEs, notebooks, and agents. Prototype fast in browser-based environments — no local security risk.</p>
+          </article>
+          <article class="pillar">
+            <span class="pillar-num">02</span>
+            <h3>Run</h3>
+            <p>Deploy and scale anywhere: cloud, dedicated, on-prem, or air-gapped. Built for high-performance AI workloads and hundreds of users.</p>
+          </article>
+          <article class="pillar">
+            <span class="pillar-num">03</span>
+            <h3>Observe</h3>
+            <p>Every prompt, response, and policy decision logged and auditable. Full visibility into what your AI is actually doing.</p>
+          </article>
+          <article class="pillar">
+            <span class="pillar-num">04</span>
+            <h3>Control</h3>
+            <p>Define and enforce AI policies across the org with granular access controls and anomaly detection.</p>
+          </article>
+          <article class="pillar">
+            <span class="pillar-num">05</span>
+            <h3>Secure</h3>
+            <p>Content scanning, managed secrets, and defense-in-depth isolation catch sensitive data and threats before they become incidents.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCTS ============ -->
+    <section class="products" id="products">
+      <div class="container">
+        <p class="section-eyebrow">The product family</p>
+        <h2>Three products. One governed platform.</h2>
+        <div class="grid-3">
+          <article class="product-card">
+            <h3>Workbench</h3>
+            <p class="product-tag">Build</p>
+            <p>The AI development surface — IDE, notebooks, Chat Studio, and visual agent workflows. Where your teams build, sanctioned and secure.</p>
+          </article>
+          <article class="product-card">
+            <h3>Astralift</h3>
+            <p class="product-tag">Run</p>
+            <p>Deploy, host, and scale models and agents anywhere your security requirements demand — from managed cloud to fully air-gapped.</p>
+          </article>
+          <article class="product-card">
+            <h3>Sentinel</h3>
+            <p class="product-tag">Observe · Control · Secure</p>
+            <p>GRC for AI: audit trails, policy enforcement, risk management, and compliance frameworks — governing every product on the platform.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DEPLOY ANYWHERE ============ -->
+    <section class="deploy" id="deploy">
+      <div class="container">
+        <p class="section-eyebrow">Deploy anywhere</p>
+        <h2>Your security requirements shouldn't limit where you innovate.</h2>
+        <div class="grid-4">
+          <div class="deploy-item"><h3>Cloud Hosted</h3><p>Multi-tenant SaaS. Start immediately — we manage everything.</p></div>
+          <div class="deploy-item"><h3>Dedicated Cloud</h3><p>Single-tenant with dedicated resources and enhanced isolation.</p></div>
+          <div class="deploy-item"><h3>VPC Gateway</h3><p>VPC-peered. Data stays in your network; users work through the browser.</p></div>
+          <div class="deploy-item"><h3>On-Prem / Air-Gapped</h3><p>Maximum isolation in your datacenter. Air-gap capable.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY ============ -->
+    <section class="why" id="security">
+      <div class="container">
+        <p class="section-eyebrow">Why enterprises choose Calliope</p>
+        <div class="grid-3">
+          <div class="why-item">
+            <h3>Enable sanctioned innovation</h3>
+            <p>Give teams approved AI tools they'll actually want to use — with guardrails that keep data secure.</p>
+          </div>
+          <div class="why-item">
+            <h3>Deploy without restrictions</h3>
+            <p>Cloud, on-prem, or air-gapped. One platform that meets you where your compliance lives.</p>
+          </div>
+          <div class="why-item">
+            <h3>Audit-ready by default</h3>
+            <p>SOC 2, HIPAA, GDPR, and EU AI Act frameworks built in — so security reviews don't slow launches.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <p class="section-eyebrow">Pricing</p>
+        <h2>Start small. Scale to the whole enterprise.</h2>
+        <div class="grid-3 price-grid">
+          <article class="price-card">
+            <h3>Starter</h3>
+            <p class="price"><span class="amount">$30</span><span class="per">/user / mo</span></p>
+            <p class="price-desc">For small teams getting started with governed AI.</p>
+            <ul class="price-feats">
+              <li>Workbench + cloud hosting</li>
+              <li>Core audit & observability</li>
+              <li>Standard compliance frameworks</li>
+            </ul>
+            <a class="btn btn-ghost btn-block" href="#contact">Start free trial</a>
+          </article>
+          <article class="price-card price-card--featured">
+            <p class="price-flag">Most popular</p>
+            <h3>Business</h3>
+            <p class="price"><span class="amount">Custom</span></p>
+            <p class="price-desc">For growing orgs that need dedicated isolation and policy control.</p>
+            <ul class="price-feats">
+              <li>Everything in Starter</li>
+              <li>Dedicated cloud or VPC gateway</li>
+              <li>Sentinel policy & risk management</li>
+              <li>SSO, role-based access control</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="#contact">Talk to sales</a>
+          </article>
+          <article class="price-card">
+            <h3>Enterprise</h3>
+            <p class="price"><span class="amount">Custom</span></p>
+            <p class="price-desc">For large, regulated orgs deploying AI at scale.</p>
+            <ul class="price-feats">
+              <li>On-prem / air-gapped deployment</li>
+              <li>Full GRC suite + content scanning</li>
+              <li>FedRAMP path, data residency</li>
+              <li>Dedicated support & onboarding</li>
+            </ul>
+            <a class="btn btn-ghost btn-block" href="#contact">Contact sales</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="cta-final" id="contact">
+      <div class="container narrow center">
+        <h2>Start saying <em>yes</em> to AI — safely.</h2>
+        <p class="lead">
+          See how Calliope lets your teams launch faster, stay compliant, and keep control.
+        </p>
+        <div class="hero-actions center">
+          <a class="btn btn-primary btn-lg" href="mailto:sales@calliope.ai">Talk to sales</a>
+          <a class="btn btn-ghost btn-lg" href="#platform">See governance →</a>
+        </div>
+      </div>
     </section>
   </main>
 
+  <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
-    <p>&copy; 2026 Calliope. Wszelkie prawa zastrzeżone.</p>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand">Calliope</span>
+        <p>The secure AI development platform. Build and govern enterprise AI that enables innovation while managing risk.</p>
+        <p class="footer-addr">Calliope Labs Inc · 80 SW 8th St, STE 2000 · Miami, FL 33130 · USA</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h4>Product</h4>
+          <a href="#products">Workbench</a>
+          <a href="#products">Astralift</a>
+          <a href="#products">Sentinel</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+        <div>
+          <h4>Platform</h4>
+          <a href="#framework">Build &amp; Run</a>
+          <a href="#security">Governance</a>
+          <a href="#deploy">Deployment</a>
+          <a href="#security">Security</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Team</a>
+          <a href="#">Careers</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Calliope Labs Inc. All rights reserved.</p>
+    </div>
   </footer>
 
   <script src="/script.js"></script>
