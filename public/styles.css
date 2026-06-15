@@ -62,7 +62,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.08; letter-spacin
 /* ---------- buttons ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
-  padding: .8rem 1.3rem; border-radius: 999px; font-weight: 600; font-size: .98rem;
+  padding: .8rem 1.3rem; border-radius: 10px; font-weight: 600; font-size: .98rem;
   border: 1px solid transparent; cursor: pointer; white-space: nowrap;
   transition: transform .12s ease, background .15s ease, border-color .15s, color .15s, box-shadow .15s;
 }
@@ -82,7 +82,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.08; letter-spacin
 /* glow button — dark body with a brand-accent halo on the right edge */
 .btn-glow {
   position: relative; isolation: isolate;
-  padding: .92rem 1.6rem; border-radius: 13px; color: #fff; font-weight: 600;
+  padding: .92rem 1.6rem; border-radius: 10px; color: #fff; font-weight: 600;
   border: 1px solid rgba(63,241,239,.45);
   background:
     radial-gradient(135% 200% at 116% 50%, rgba(63,241,239,.6), rgba(90,77,199,.35) 38%, rgba(13,20,38,0) 60%),
@@ -230,7 +230,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.08; letter-spacin
 .vframe::after { right: max(1.5rem, calc(50% - 588px)); }
 
 .lead-inline { display: flex; gap: .5rem; max-width: 520px; }
-.lead-inline input { flex: 1; min-width: 0; padding: .85rem 1rem; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.05); color: var(--fg); font-size: 1rem; font-family: inherit; }
+.lead-inline input { flex: 1; min-width: 0; padding: .85rem 1rem; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.05); color: var(--fg); font-size: 1rem; font-family: inherit; }
 .lead-inline input::placeholder { color: var(--muted); }
 .lead-inline input:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px var(--ring); }
 .lead-inline.center { margin: 0 auto; }
