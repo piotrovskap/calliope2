@@ -230,6 +230,9 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.08; letter-spacin
 .hero-creds-label { display: block; font-size: .78rem; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); margin-bottom: .9rem; }
 .hero-creds-row { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
 .cred { border: 1px solid var(--line); border-radius: 999px; padding: .4rem 1rem; font-size: .9rem; font-weight: 600; color: var(--fg-soft); background: var(--navy-card); }
+/* Calliope muse — line-art watermark in the hero background */
+.hero-muse { position: absolute; top: 50%; right: -1%; transform: translateY(-46%); height: 116%; width: auto; color: var(--cyan); opacity: .13; z-index: 0; pointer-events: none; }
+@media (max-width: 720px) { .hero-muse { right: -28%; opacity: .07; } }
 /* vertical frame lines around the content column (orchestra-style) */
 .vframe { position: fixed; inset: 0; z-index: 2; pointer-events: none; }
 .vframe::before, .vframe::after { content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,.09); }
