@@ -2,7 +2,7 @@ import pkg from '/Users/patrycjapiotrowska/.npm/_npx/e41f203b7505f1fb/node_modul
 const { chromium } = pkg;
 import path from 'node:path';
 
-const file = 'http://localhost:8899/';
+const file = 'http://localhost:4321/';
 const browser = await chromium.launch();
 const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, deviceScaleFactor: 2 });
 const page = await ctx.newPage();
