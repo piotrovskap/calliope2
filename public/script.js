@@ -635,3 +635,51 @@
     if (e.target === lb) close();           // click backdrop closes
   });
 })();
+
+/* ===== Smooth (eased) wheel scrolling — up and down ===== */
+(function () {
+  var mq = window.matchMedia;
+  if (mq && mq("(prefers-reduced-motion: reduce)").matches) return;  // accessibility
+  if (mq && mq("(pointer: coarse)").matches) return;                 // touch keeps native momentum
+  var docEl = document.documentElement;
+  var target = window.scrollY, current = target, running = false;
+  var EASE = 0.12;
+
+  function maxScroll() { return (document.body.scrollHeight || docEl.scrollHeight) - window.innerHeight; }
+  function clamp(v) { return Math.max(0, Math.min(v, maxScroll())); }
+
+  // keep target synced when the user scrolls some other way (keyboard, scrollbar, anchors)
+  window.addEventListener("scroll", function () {
+    if (!running) { target = current = window.scrollY; }
+  }, { passive: true });
+
+  // let inner scrollable areas (search results, modals, code panels) scroll natively
+  function innerScrollable(node, dir) {
+    while (node && node.nodeType === 1 && node !== document.body && node !== docEl) {
+      var st = getComputedStyle(node), oy = st.overflowY;
+      if ((oy === "auto" || oy === "scroll") && node.scrollHeight > node.clientHeight + 1) {
+        if (dir < 0 && node.scrollTop > 0) return true;
+        if (dir > 0 && node.scrollTop + node.clientHeight < node.scrollHeight - 1) return true;
+      }
+      node = node.parentNode;
+    }
+    return false;
+  }
+
+  function loop() {
+    current += (target - current) * EASE;
+    if (Math.abs(target - current) < 0.4) { current = target; running = false; }
+    window.scrollTo(0, Math.round(current));
+    if (running) requestAnimationFrame(loop);
+  }
+
+  window.addEventListener("wheel", function (e) {
+    if (e.ctrlKey) return;                                   // pinch-zoom
+    if (getComputedStyle(document.body).overflow === "hidden") return;  // a modal locked scroll
+    if (innerScrollable(e.target, e.deltaY)) return;         // nested scroller handles it
+    e.preventDefault();
+    var delta = e.deltaMode === 1 ? e.deltaY * 16 : (e.deltaMode === 2 ? e.deltaY * window.innerHeight : e.deltaY);
+    target = clamp((running ? target : window.scrollY) + delta);
+    if (!running) { running = true; current = window.scrollY; requestAnimationFrame(loop); }
+  }, { passive: false });
+})();
