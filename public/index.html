@@ -11,214 +11,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235B3DF5'/%3E%3Ctext x='16' y='22' font-size='18' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="/img/favicon.png" />
+  <link rel="stylesheet" href="/styles.css?v=41" />
+  <script src="/site-header.js?v=11"></script>
+  <script src="/site-footer.js?v=16"></script>
 </head>
 <body>
   <!-- vertical frame lines around the content column + brand light running down each -->
   <div class="vframe" aria-hidden="true"></div>
 
-  <div class="topbar">
-  <!-- ===== Announcement / scarcity bar ===== -->
-  <div class="announce" id="announce">
-    <span>Onboarding a limited number of private deployments this quarter.</span>
-    <a href="#demo" class="announce-link">Request access&nbsp;→</a>
-    <button class="announce-close" aria-label="Dismiss" data-close-announce>&times;</button>
-  </div>
+  <!-- ===== Shared navigation (single component) ===== -->
+  <site-header data-active="home"></site-header>
 
-  <!-- ===== Header ===== -->
-  <header class="header" id="header">
-    <div class="wrap header-inner">
-      <a class="brand" href="/">
-        <span class="brand-mark">C</span> Calliope
-      </a>
-
-      <nav class="nav" aria-label="Primary">
-        <!-- Product mega -->
-        <div class="nav-item has-mega">
-          <button class="nav-link" aria-expanded="false">Product <span class="caret">▾</span></button>
-          <div class="mega">
-            <div class="wrap mega-grid">
-              <div class="mega-col">
-                <h4>Build · The Hub</h4>
-                <a href="#studio">AI Lab</a>
-                <a href="#studio">AI IDE</a>
-                <a href="#studio">Chat Studio</a>
-                <a href="#studio">Deep Agent</a>
-                <a href="#studio">Langflow</a>
-                <a href="#studio">Secure Browser</a>
-              </div>
-              <div class="mega-col">
-                <h4>Core building blocks</h4>
-                <a href="#studio">Agents</a>
-                <a href="#studio">Agent Coding</a>
-                <a href="#studio">Code Assist</a>
-                <a href="#studio">Data Agents</a>
-                <a href="#studio">Datasets</a>
-                <a href="#studio">Model Hosting</a>
-                <a href="#studio">Notebook Chat</a>
-                <a href="#studio">Notebook Generation</a>
-                <a href="#studio">Prompt Engineering</a>
-              </div>
-              <div class="mega-col">
-                <h4>Run · Astrolift</h4>
-                <a href="#deploy">Cloud Hosted</a>
-                <a href="#deploy">Dedicated Cloud</a>
-                <a href="#deploy">VPC Gateway</a>
-                <a href="#deploy">On-prem / Air-gapped</a>
-                <a href="#deploy">Free Desktop</a>
-              </div>
-              <div class="mega-col mega-feature">
-                <h4>What's new</h4>
-                <a href="#blueprint" class="mega-card">
-                  <span class="mega-card-tag">Free guide</span>
-                  <span class="mega-card-title">Private-AI Deployment Blueprint</span>
-                  <span class="mega-card-desc">Reference architecture + GRC checklist.</span>
-                </a>
-                <ul class="mega-posts">
-                  <li><a href="#"><span class="mp-date">Jun 2026</span>Self-hosting AI in your VPC: a reference architecture</a></li>
-                  <li><a href="#"><span class="mp-date">May 2026</span>Mapping AI controls to the EU AI Act</a></li>
-                  <li><a href="#"><span class="mp-date">May 2026</span>Private vs multi-tenant AI for regulated teams</a></li>
-                </ul>
-                <a href="#" class="mega-posts-all">View all posts →</a>
-              </div>
-            </div>
-            <a href="#demo" class="mega-cta wrap-cta"><span>See Calliope running in your cloud</span><span class="mega-cta-go">Book a demo →</span></a>
-          </div>
-        </div>
-
-        <!-- Governance & Security mega -->
-        <div class="nav-item has-mega">
-          <button class="nav-link" aria-expanded="false">Governance <span class="caret">▾</span></button>
-          <div class="mega">
-            <div class="wrap mega-grid mega-grid--2">
-              <div class="mega-col">
-                <h4>Govern · Zemtino</h4>
-                <a href="#govern">GRC overview</a>
-                <a href="#govern">Audit &amp; Observability</a>
-                <a href="#govern">Policy management</a>
-                <a href="#govern">Risk management</a>
-                <a href="#govern">Compliance frameworks</a>
-                <a href="#govern">Content scanning</a>
-                <a href="#govern">Secrets &amp; credentials</a>
-              </div>
-              <div class="mega-col">
-                <h4>Security</h4>
-                <a href="#govern">Security overview</a>
-                <a href="#govern">Security architecture</a>
-                <a href="#govern">Data protection</a>
-                <a href="#govern">Compliance &amp; certifications</a>
-              </div>
-              <div class="mega-col mega-feature">
-                <h4>Outcome</h4>
-                <a href="#deploy" class="mega-card">
-                  <span class="mega-card-tag">Deploy anywhere</span>
-                  <span class="mega-card-title">Runs in your account</span>
-                  <span class="mega-card-desc">Cloud, on-prem, or air-gapped — your data never egresses.</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Solutions mega -->
-        <div class="nav-item has-mega">
-          <button class="nav-link" aria-expanded="false">Solutions <span class="caret">▾</span></button>
-          <div class="mega">
-            <div class="wrap mega-grid mega-grid--2">
-              <div class="mega-col">
-                <h4>By use case</h4>
-                <a href="#studio">Agent platforms</a>
-                <a href="#studio">AI applications</a>
-                <a href="#studio">Chatbots</a>
-                <a href="#studio">Data exploration</a>
-                <a href="#studio">Internal automation</a>
-                <a href="#studio">Knowledge base</a>
-                <a href="#studio">Research tools</a>
-              </div>
-              <div class="mega-col">
-                <h4>By industry</h4>
-                <a href="#demo">Financial services</a>
-                <a href="#demo">Healthcare &amp; pharma</a>
-                <a href="#demo">Government &amp; defense</a>
-                <a href="#demo">Energy &amp; utilities</a>
-                <a href="#demo">Life sciences &amp; biotech</a>
-                <a href="#demo">Manufacturing</a>
-                <a href="#demo">Research &amp; academia</a>
-                <a href="#demo">Climate &amp; environment</a>
-              </div>
-              <div class="mega-col mega-feature">
-                <h4>Get started</h4>
-                <a href="#demo" class="mega-card">
-                  <span class="mega-card-tag">30 min</span>
-                  <span class="mega-card-title">Book a private demo</span>
-                  <span class="mega-card-desc">A walkthrough with an engineer — not a sales script.</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <a class="nav-link nav-link--solo" href="#pricing">Pricing</a>
-
-        <!-- Resources mega -->
-        <div class="nav-item has-mega">
-          <button class="nav-link" aria-expanded="false">Resources <span class="caret">▾</span></button>
-          <div class="mega">
-            <div class="wrap mega-grid mega-grid--2">
-              <div class="mega-col">
-                <h4>Learn</h4>
-                <a href="#how">How it works</a>
-                <a href="#blueprint">Deployment blueprint</a>
-                <a href="#">Developer resources</a>
-                <a href="#">Blog</a>
-              </div>
-              <div class="mega-col">
-                <h4>Company</h4>
-                <a href="#">About Calliope</a>
-                <a href="#">Team</a>
-                <a href="#">Careers</a>
-                <a href="#demo">Contact</a>
-              </div>
-              <div class="mega-col mega-feature">
-                <h4>Get the guide</h4>
-                <a href="#blueprint" class="mega-card">
-                  <span class="mega-card-tag">Free PDF</span>
-                  <span class="mega-card-title">Deployment Blueprint</span>
-                  <span class="mega-card-desc">Self-host enterprise AI in days, not 18 months.</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      <div class="header-cta">
-        <button class="search-btn" id="searchBtn" aria-label="Search" title="Search (⌘K)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.5" y2="16.5" /></svg>
-        </button>
-        <a href="#login" class="nav-link nav-link--solo">Sign in</a>
-        <a href="#demo" class="btn btn-primary btn-sm">Book a demo</a>
-        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-
-    <!-- mobile menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#studio">Product</a>
-      <a href="#govern">Governance</a>
-      <a href="#studio">Solutions</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#blueprint">Resources</a>
-      <a href="#login">Sign in</a>
-      <a href="#demo" class="btn btn-primary btn-block">Book a demo</a>
-    </div>
-  </header>
-  </div><!-- /topbar -->
-
-  <main>
+  <main id="main">
     <!-- ===== Hero (centered aurora, Arden-style) ===== -->
     <section class="hero hero--center">
       <span class="vspark vspark-l"></span>
@@ -227,13 +32,13 @@
         <span class="hero-pill"><span class="hero-pill-dot"></span> The private-AI studio</span>
         <h1 class="hero-title">One secure AI workspace<br />for your <em>technical team</em>.</h1>
         <p class="hero-sub">
-          Give developers, data teams, and analysts one place to code with AI, explore data,
+          <strong>Calliope.ai</strong> gives developers, data teams, and analysts one place to code with AI, explore data,
           build agents, run notebooks, access databases, and work in isolated cloud environments —
           with <strong>security and governance built in</strong>.
         </p>
 
         <div class="hero-actions center">
-          <a href="#demo" class="btn btn-primary btn-lg">Book a demo</a>
+          <a href="#demo" class="btn btn-primary btn-lg btn-shine">Book a demo</a>
           <a href="#how" class="btn btn-ghost btn-lg">See how it works →</a>
         </div>
         <p class="lead-note">or <a href="#blueprint" class="hero-textlink">get the free deployment blueprint →</a></p>
@@ -264,93 +69,71 @@
           </div>
         </div>
       </div>
+
+      <div class="hero-hand-wrap" aria-hidden="true">
+        <img class="hero-hand" src="img/calliope-img/hand.png" alt="" loading="eager" />
+      </div>
     </section>
 
     <!-- ===== Proof bar (metrics, à la StableBrowse) ===== -->
     <section class="proof">
       <div class="wrap proof-grid">
-        <div class="proof-item"><span class="proof-num">0</span><span class="proof-lbl">bytes leave your perimeter</span></div>
-        <div class="proof-item"><span class="proof-num">Days</span><span class="proof-lbl">to deploy — not 18 months</span></div>
-        <div class="proof-item"><span class="proof-num">9</span><span class="proof-lbl">compliance frameworks mapped</span></div>
-        <div class="proof-item"><span class="proof-num">5+</span><span class="proof-lbl">targets: AWS · GCP · Azure · on-prem · air-gapped</span></div>
+        <div class="proof-item"><span class="proof-num">100%</span><span class="proof-lbl">of your data stays in <strong>your</strong> cloud — nothing leaves your VPC</span></div>
+        <div class="proof-item"><span class="proof-num">6-in-1</span><span class="proof-lbl">IDE, notebooks, chat, agents &amp; secure browser — one governed stack</span></div>
+        <div class="proof-item"><span class="proof-num">24</span><span class="proof-lbl">policy controls enforced in real time — rate limits, tools, models, budgets</span></div>
+        <div class="proof-item"><span class="proof-num">Few days</span><span class="proof-lbl">from contract to production — not 18-month build cycles</span></div>
       </div>
     </section>
 
-    <!-- ===== Problem ===== -->
-    <section class="problem" id="problem">
-      <div class="wrap narrow">
-        <p class="section-eyebrow">The problem</p>
-        <h2 class="section-title">Stop choosing between security and speed.</h2>
-        <p class="lead">
-          Most enterprises face an impossible choice: lock into a vendor's multi-tenant platform,
-          or spend 18 months building secure AI infrastructure from scratch — then maintain it forever.
-          Meanwhile:
-        </p>
-        <ul class="pain-list">
-          <li>Innovation happens in the shadows, on unsanctioned tools.</li>
-          <li>Security reviews kill momentum before launch.</li>
-          <li>Compliance frameworks block progress instead of enabling it.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== Solution (with UI screenshot) ===== -->
-    <section class="solution" id="solution">
-      <div class="wrap solution-inner">
-        <div class="solution-copy">
-          <p class="section-eyebrow">The solution</p>
-          <h2 class="section-title">Own your AI. Run it on your cloud.</h2>
-          <p class="lead">
-            Calliope is a full, production-grade AI studio you <em>own</em> — deployed inside your cloud
-            in days, governed by your controls. Governance built in, not bolted on. No multi-tenant SaaS;
-            your data, models and keys never leave your perimeter.
-          </p>
-          <ul class="row-list">
-            <li>Live in your account in days, not 18 months</li>
-            <li>Your data, models and keys never egress</li>
-            <li>Audit, access control &amp; compliance built in</li>
-          </ul>
-          <a href="#how" class="browse-link">See how it works →</a>
-        </div>
-        <div class="mock-aura" aria-hidden="true">
-          <div class="mock-panel">
-            <div class="mock-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="mock-title">deploy to your-vpc</span></div>
-            <pre class="mock-body"><code><span class="c-mut">$</span> calliope deploy <span class="c-acc">--cloud</span> aws://acme-prod-vpc
-<span class="c-ok">✓</span> Provisioning in <span class="c-acc">your</span> account (us-east-1)
-<span class="c-ok">✓</span> Studio + Astrolift runtime up
-<span class="c-ok">✓</span> Zemtino GRC policies applied
-<span class="c-ok">✓</span> 0 bytes egress to Calliope
-<span class="c-mut">→</span> https://ai.acme.internal  <span class="c-ok">ready</span></code></pre>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== How it works: Buy → Deploy → Govern ===== -->
-    <section class="how" id="how">
+    <!-- ===== Industry focus carousel ===== -->
+    <section class="indfocus band-light" aria-label="Industry focus">
       <div class="wrap">
-        <p class="section-eyebrow">How it works</p>
-        <h2 class="section-title">Three moves to private AI.</h2>
-        <div class="steps">
-          <article class="step">
-            <span class="step-no">01</span>
-            <h3>Buy the studio</h3>
-            <p>License the full Calliope stack — the Hub of AI tools, agents, and pipelines. The code is yours to run.</p>
-            <span class="step-tag">Calliope</span>
-          </article>
-          <article class="step">
-            <span class="step-no">02</span>
-            <h3>Deploy to your cloud</h3>
-            <p>Astrolift runtime stands it up inside your VPC — AWS, GCP, Azure, on-prem, or fully air-gapped.</p>
-            <span class="step-tag">Astrolift runtime</span>
-          </article>
-          <article class="step">
-            <span class="step-no">03</span>
-            <h3>Govern your way</h3>
-            <p>Wire in your security and GRC. Add Zemtino for agent monitoring, policy, audit and compliance — optional.</p>
-            <span class="step-tag">Zemtino · optional</span>
-          </article>
+        <p class="section-eyebrow">Industry focus</p>
+        <h2 class="section-title">Prepared for your industry's specific challenges.</h2>
+      </div>
+      <div class="indfocus-viewport">
+        <div class="indfocus-track" data-ind-track>
+          <a class="indcard" href="/industry-financial-services.html">
+            <div class="indcard-media img-ph"><span>Financial services<br>(image)</span></div>
+            <div class="indcard-cap"><span>Financial services</span></div>
+          </a>
+          <a class="indcard" href="/industry-healthcare-pharma.html">
+            <div class="indcard-media img-ph"><span>Healthcare &amp; pharma<br>(image)</span></div>
+            <div class="indcard-cap"><span>Healthcare &amp; pharma</span></div>
+          </a>
+          <a class="indcard" href="/industry-government-defense.html">
+            <div class="indcard-media img-ph"><span>Government &amp; defense<br>(image)</span></div>
+            <div class="indcard-cap"><span>Government &amp; defense</span></div>
+          </a>
+          <a class="indcard" href="/industry-energy-utilities.html">
+            <div class="indcard-media img-ph"><span>Energy &amp; utilities<br>(image)</span></div>
+            <div class="indcard-cap"><span>Energy &amp; utilities</span></div>
+          </a>
+          <a class="indcard" href="/industry-life-sciences.html">
+            <div class="indcard-media img-ph"><span>Life sciences<br>(image)</span></div>
+            <div class="indcard-cap"><span>Life sciences &amp; biotech</span></div>
+          </a>
+          <a class="indcard" href="/industry-manufacturing.html">
+            <div class="indcard-media img-ph"><span>Manufacturing<br>(image)</span></div>
+            <div class="indcard-cap"><span>Manufacturing</span></div>
+          </a>
+          <a class="indcard" href="/industry-research-academia.html">
+            <div class="indcard-media img-ph"><span>Research &amp; academia<br>(image)</span></div>
+            <div class="indcard-cap"><span>Research &amp; academia</span></div>
+          </a>
+          <a class="indcard" href="/industry-climate-environment.html">
+            <div class="indcard-media img-ph"><span>Climate &amp; environment<br>(image)</span></div>
+            <div class="indcard-cap"><span>Climate &amp; environment</span></div>
+          </a>
         </div>
+      </div>
+      <div class="wrap indfocus-nav">
+        <button class="ind-arrow" data-ind-prev aria-label="Previous industries">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        </button>
+        <button class="ind-arrow" data-ind-next aria-label="Next industries">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
       </div>
     </section>
 
@@ -359,8 +142,43 @@
       <div class="wrap">
         <p class="section-eyebrow">Inside the studio</p>
         <h2 class="section-title">Everything your team needs to build AI — in one stack you control.</h2>
+        <p class="section-lead">From notebooks to agents to governed deployment — one workspace your team owns end to end.</p>
 
-        <div class="showcase">
+        <div class="journey">
+          <div class="jcol">
+            <span class="jico j1" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 2h6v2h-1v4.2l5.3 9.2A2.5 2.5 0 0 1 17.1 21H6.9a2.5 2.5 0 0 1-2.2-3.6L10 8.2V4H9V2zm3 9.5L8.7 17h6.6L12 11.5z"/></svg></span>
+            <h3>AI Lab</h3>
+            <p>JupyterLab with an AI copilot — ask in plain English, get the query and the chart, over data that never leaves your cloud.</p>
+          </div>
+          <div class="jcol">
+            <span class="jico j2" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm6.7 6.3L7 12l2.7 2.7-1.4 1.4L4.2 12l4.1-4.1 1.4 1.4zm5.6 0 1.4-1.4L20.8 12l-4.1 4.1-1.4-1.4L17 12l-2.7-2.7z"/></svg></span>
+            <h3>AI IDE &amp; Agents</h3>
+            <p>Five editor modes, 12+ model providers, background agents that plan and execute — every edit staged for human review.</p>
+          </div>
+          <div class="jcol">
+            <span class="jico j3" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 3h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H9l-5 4V4a1 1 0 0 1 1-1zm3 5v2h10V8H7zm0 4v2h7v-2H7z"/></svg></span>
+            <h3>Chat Studio</h3>
+            <p>Business users chat with governed data — no SQL, no waiting on the data team, every answer policy-checked and logged.</p>
+          </div>
+          <div class="jcol">
+            <span class="jico j4" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 1 0 4.9 14.3l4.8 4.8 1.4-1.4-4.8-4.8A8 8 0 0 0 10 2zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></svg></span>
+            <h3>Deep Agent</h3>
+            <p>Autonomous research with RAG pipelines over your own sources. Go deep, not shallow — grounded in your data.</p>
+          </div>
+          <div class="jcol">
+            <span class="jico j5" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5a3 3 0 1 1-1.2 5.74A3 3 0 0 1 6 3.5zM18 7a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm-8 8a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/><path d="M8.4 7.6l5.6 1.8M8.6 16.4l4.6-4.6" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></span>
+            <h3>Langflow</h3>
+            <p>Drag-and-drop builder for agents and pipelines. Ship complex AI workflows without writing glue code.</p>
+          </div>
+          <div class="jcol">
+            <span class="jico j6" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3zm0 4.2 1.5 3 3.3.5-2.4 2.3.6 3.3L12 17.8 9 19.6l.6-3.3L7.2 14l3.3-.5L12 6.2z"/></svg></span>
+            <h3>Secure Browser</h3>
+            <p>Web access from inside air-gapped and isolated environments — research and tools without breaking isolation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="showcase bleed-frame">
           <!-- Row 1: AI Lab -->
           <article class="show-row">
             <div class="show-copy">
@@ -394,7 +212,7 @@
             <div class="show-copy">
               <p class="row-kicker">AI IDE &amp; Agents</p>
               <h3>Autonomous agents that ship real work.</h3>
-              <p>Five modes, nine model providers, background agents that plan and execute — with every edit staged for human review.</p>
+              <p>Five modes, 12+ model providers, background agents that plan and execute — with every edit staged for human review.</p>
               <ul class="row-list">
                 <li>Agent · Ask · Plan · Debug · Council modes</li>
                 <li>Staged changes, accept/reject</li>
@@ -416,22 +234,22 @@
             </div>
           </article>
 
-          <!-- Row 3: Zemtino governance -->
+          <!-- Row 3: Zentinelle governance -->
           <article class="show-row">
             <div class="show-copy">
-              <p class="row-kicker">Zemtino GRC · optional</p>
+              <p class="row-kicker">Zentinelle GRC · optional</p>
               <h3>See — and control — every agent action.</h3>
               <p>Observability, real-time policy enforcement, and compliance mapping. Catch violations before they become incidents.</p>
               <ul class="row-list">
-                <li>18+ policy types, real-time</li>
+                <li>24 policy types, real-time</li>
                 <li>PII / injection content scanning</li>
                 <li>Audit trail → your SIEM</li>
               </ul>
-              <a href="#govern" class="browse-link">Browse governance →</a>
+              <a href="#products" class="browse-link">Browse governance →</a>
             </div>
             <div class="mock-aura" aria-hidden="true">
               <div class="mock-panel">
-                <div class="mp-bar"><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-title">Zemtino — policy violations</span></div>
+                <div class="mp-bar"><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-title">Zentinelle — policy violations</span></div>
                 <div class="mp-body">
                   <table class="viol">
                     <tr><td>agent-prod-42</td><td>Budget limit</td><td><span class="sev sev-crit">Critical</span></td></tr>
@@ -443,79 +261,157 @@
               </div>
             </div>
           </article>
-        </div>
+      </div>
+    </section>
 
-        <!-- And the rest of the toolkit -->
-        <p class="more-label">…and the rest of the studio</p>
-        <div class="feature-grid">
-          <div class="feature"><h3>Chat Studio</h3><p>Business users chat with governed data — no SQL, no waiting on the data team.</p></div>
-          <div class="feature"><h3>Deep Agent</h3><p>Autonomous research with RAG pipelines over your own sources. Go deep, not shallow.</p></div>
-          <div class="feature"><h3>Langflow</h3><p>Drag-and-drop builder for agents and pipelines. Ship complex AI without glue code.</p></div>
-          <div class="feature"><h3>Secure Browser</h3><p>Web access from inside air-gapped and isolated environments. No broken isolation.</p></div>
+    <!-- ===== Use cases (bento grid) ===== -->
+    <section class="usecases" id="use-cases">
+      <div class="wrap">
+        <p class="section-eyebrow">Use cases</p>
+        <h2 class="section-title">One stack. Every AI workflow your team runs.</h2>
+        <p class="section-lead">From autonomous agents to governed chatbots — build it once, on infrastructure you own.</p>
+
+        <div class="bento">
+          <!-- Lead / large tile -->
+          <article class="bento-card bento-lg">
+            <div class="bento-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3" /><path d="M8 12h8M8 8h8M8 16h5" /></svg>
+            </div>
+            <h3>Agent platforms</h3>
+            <p>Stand up multi-agent systems with RAG, tools and memory — Deep Agent and Langflow on top of your own models and data. Ship autonomous workflows without the glue code.</p>
+            <span class="bento-tag">Deep Agent · Langflow</span>
+            <div class="bento-shot"><img src="img/screen3.png" alt="Calliope AI Agent mapping a multi-service architecture" loading="lazy" /></div>
+          </article>
+
+          <article class="bento-card">
+            <div class="bento-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10" /></svg>
+            </div>
+            <h3>Data exploration</h3>
+            <p>Analysts query governed databases in JupyterLab + AI — notebooks that write and explain their own code.</p>
+            <span class="bento-tag">AI Lab</span>
+            <div class="bento-shot"><img src="img/screen14.png" alt="Generated notebook visualizations in Calliope AI Lab" loading="lazy" /></div>
+          </article>
+
+          <article class="bento-card">
+            <div class="bento-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.6 8.6 0 0 1-3.9-.9L3 21l1.9-5.6A8.5 8.5 0 1 1 21 11.5z" /></svg>
+            </div>
+            <h3>Governed chatbots</h3>
+            <p>Business users chat with your data in Chat Studio — no SQL, every answer policy-checked and logged.</p>
+            <span class="bento-tag">Chat Studio</span>
+            <div class="bento-shot"><img src="img/screen12.png" alt="Calliope chat assistant in JupyterLab" loading="lazy" /></div>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <!-- ===== Deploy + integrations ===== -->
-    <section class="deploy" id="deploy">
-      <div class="wrap deploy-inner">
-        <div class="deploy-copy">
-          <p class="section-eyebrow on-dark">Deploy anywhere you already run</p>
-          <h2 class="section-title on-dark">It runs in your account — not ours.</h2>
-          <p class="on-dark-muted">
-            Single control plane, your infrastructure. Customer-managed encryption keys, VPC peering,
-            data residency by region, and air-gap support for the strictest environments.
-          </p>
-          <ul class="deploy-list">
-            <li>Cloud Hosted in your account</li>
-            <li>Dedicated &amp; isolated single-tenant</li>
-            <li>VPC gateway — data never egresses</li>
-            <li>On-prem / air-gapped datacenter</li>
+    <!-- ===== Problem ===== -->
+    <section class="problem" id="problem">
+      <div class="wrap problem-inner">
+        <div class="problem-visual">
+          <div class="pv-stage">
+            <span class="pv-bulb" aria-hidden="true"></span>
+            <img class="pv-statue" src="img/calliope-img/1.png" alt="Calliope, the muse, at a modern workstation" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="problem-copy">
+          <p class="section-eyebrow">The problem</p>
+          <h2 class="section-title">Every team hits the same walls.</h2>
+
+          <ul class="prob-list">
+            <li>
+              <span class="prob-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 7v6"/><circle cx="12" cy="16.5" r=".4" fill="currentColor" stroke="none"/></svg></span>
+              <div><h3>Your team rebuilds the same setup every project</h3><p>Environment config, model integrations, secrets management — done from scratch each time a new initiative starts.</p></div>
+            </li>
+            <li>
+              <span class="prob-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 7v6"/><circle cx="12" cy="16.5" r=".4" fill="currentColor" stroke="none"/></svg></span>
+              <div><h3>Your developers are waiting on DevOps</h3><p>Standing up an AI development environment takes weeks of infrastructure work before a line of AI code gets written.</p></div>
+            </li>
+            <li>
+              <span class="prob-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 7v6"/><circle cx="12" cy="16.5" r=".4" fill="currentColor" stroke="none"/></svg></span>
+              <div><h3>Security can't see what's happening</h3><p>Who launched what? Who accessed which environment? What tools are running? Without centralized access and launch logs, nobody knows until something goes wrong.</p></div>
+            </li>
+            <li>
+              <span class="prob-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 7v6"/><circle cx="12" cy="16.5" r=".4" fill="currentColor" stroke="none"/></svg></span>
+              <div><h3>New AI tools keep landing on developer laptops</h3><p>Unapproved AI tools spreading across the org — each one with a different security posture, different credentials, no centralized visibility.</p></div>
+            </li>
           </ul>
-        </div>
-        <div class="deploy-targets">
-          <span class="target">AWS</span><span class="target">GCP</span><span class="target">Azure</span>
-          <span class="target">On-prem</span><span class="target">Air-gapped</span><span class="target">Okta / SAML</span>
-          <span class="target">Splunk</span><span class="target">Datadog</span><span class="target">BYO models</span>
+
+          <div class="prob-cta">
+            <span class="prob-cta-q">Sounds familiar?</span>
+            <a href="#studio" class="btn btn-primary">See the workbench →</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== Govern / GRC (Zemtino optional) ===== -->
-    <section class="govern" id="govern">
+    <!-- ===== How it works: Buy → Deploy → Govern ===== -->
+    <section class="how" id="how">
       <div class="wrap">
-        <p class="section-eyebrow">Governance, optional but built for it</p>
-        <h2 class="section-title">Add Zemtino when you want full control of your agents.</h2>
-        <div class="govern-grid">
-          <div class="govern-item"><h3>Observe</h3><p>Every prompt, response, tool call and data access — logged, attributed, queryable.</p></div>
-          <div class="govern-item"><h3>Control</h3><p>18+ policy types. Rate limits, budget caps, model and tool permissions, enforced in real time.</p></div>
-          <div class="govern-item"><h3>Comply</h3><p>Mapped to SOC 2, GDPR, HIPAA, EU AI Act, NIST AI RMF, ISO 27001/42001 and more.</p></div>
+        <p class="section-eyebrow">How it works</p>
+        <h2 class="section-title">Three moves to private AI.</h2>
+        <div class="steps">
+          <article class="step">
+            <span class="step-no">01</span>
+            <h3>Buy the studio</h3>
+            <p>License the full Calliope stack — the Hub of AI tools, agents, and pipelines. The code is yours to run.</p>
+            <span class="step-tag">Calliope</span>
+          </article>
+          <article class="step">
+            <span class="step-no">02</span>
+            <h3>Deploy to your cloud</h3>
+            <p>Astrolift runtime stands it up inside your VPC — AWS, GCP, Azure, on-prem, or fully air-gapped.</p>
+            <span class="step-tag">Astrolift runtime</span>
+          </article>
+          <article class="step">
+            <span class="step-no">03</span>
+            <h3>Govern your way</h3>
+            <p>Wire in your security and GRC. Add Zentinelle for agent monitoring, policy, audit and compliance — optional.</p>
+            <span class="step-tag">Zentinelle · optional</span>
+          </article>
         </div>
-        <p class="badges">SOC 2 · HIPAA · GDPR · EU AI Act · NIST AI RMF · ISO 27001 / 42001</p>
       </div>
     </section>
 
-    <!-- ===== Testimonials / social proof carousel (Webflow pattern) ===== -->
-    <section class="testimonials band-light">
+    <!-- ===== Product family: Calliope · Zentinelle · Astrolift ===== -->
+    <section class="products" id="products">
       <div class="wrap">
-        <p class="section-eyebrow">Why teams choose Calliope</p>
-        <h2 class="section-title">Built for security teams. Loved by builders.</h2>
-        <div class="tcards">
-          <article class="tcard">
-            <span class="tmetric">Days<span>not 18 months</span></span>
-            <p>"We needed enterprise AI our security team would actually approve. Calliope deployed inside our VPC in days."</p>
-            <div class="tby"><strong>Placeholder</strong> · Head of Platform, regulated enterprise</div>
-          </article>
-          <article class="tcard">
-            <span class="tmetric">0<span>bytes egress</span></span>
-            <p>"Our data never leaves our account. That single fact got the whole program past compliance."</p>
-            <div class="tby"><strong>Placeholder</strong> · CISO, financial services</div>
-          </article>
-          <article class="tcard">
-            <span class="tmetric">9<span>frameworks mapped</span></span>
-            <p>"Audit evidence that used to take weeks is now a report we export. Zemtino paid for itself at the first audit."</p>
-            <div class="tby"><strong>Placeholder</strong> · GRC Lead, healthcare</div>
-          </article>
+        <h2 class="rt-heading">One platform, three products.</h2>
+        <div class="rt-bento">
+
+          <!-- Calliope — big feature card (image + caption below) -->
+          <a href="#studio" class="rt-feature">
+            <div class="rt-img rt-img--calliope">
+              <img src="img/calliope logo.png" alt="Calliope" loading="lazy" />
+            </div>
+            <div class="rt-cap">
+              <h3 class="rt-cap-title">Calliope — code, notebooks, chat &amp; agents in one studio you own.</h3>
+              <p class="rt-byline">Build · The studio</p>
+            </div>
+          </a>
+
+          <!-- Zentinelle — prose + solid color panel -->
+          <div class="rt-cell rt-prose">
+            <p>The governance layer that makes private AI auditable — every prompt, tool call, and data access logged and enforced. 24 policy controls, mapped to SOC 2, HIPAA &amp; the EU AI Act.</p>
+            <a href="#demo" class="product-link">Talk to us about governance →</a>
+          </div>
+          <a href="#demo" class="rt-cell rt-color rt-color--zen">
+            <h3 class="rt-color-title">Govern every agent with Zentinelle</h3>
+            <img class="rt-color-logo" src="img/zentinelle logo.png" alt="Zentinelle" loading="lazy" />
+          </a>
+
+          <!-- Astrolift — prose + solid color panel (mirrors Zentinelle) -->
+          <div class="rt-cell rt-prose">
+            <p>The deploy layer that puts the whole stack in your account — no AWS cluster to stand up, no DevOps tickets, no waiting. AWS, GCP, Azure &amp; on-prem, with BYOC and VPC peering.</p>
+            <a href="#demo" class="product-link">Explore deployment →</a>
+          </div>
+          <a href="#demo" class="rt-cell rt-color rt-color--astro">
+            <h3 class="rt-color-title">Ship to your own cloud with Astrolift</h3>
+            <img class="rt-color-logo" src="img/astroliftlogo.png" alt="Astrolift" loading="lazy" />
+          </a>
         </div>
       </div>
     </section>
@@ -550,90 +446,35 @@
       </div>
     </section>
 
-    <!-- ===== Packaging ===== -->
-    <section class="pricing" id="pricing">
-      <div class="wrap">
-        <p class="section-eyebrow">Packaging</p>
-        <h2 class="section-title">Buy the stack. Add what you need.</h2>
-        <div class="plans">
-          <article class="plan">
-            <h3>Studio</h3>
-            <p class="plan-desc">The Calliope stack, self-hosted in your cloud.</p>
-            <ul class="plan-feats">
-              <li>Full Hub of AI tools</li>
-              <li>Deploy in your account</li>
-              <li>Bring your own models &amp; keys</li>
-            </ul>
-            <a href="#demo" class="btn btn-ghost btn-block">Talk to us</a>
-          </article>
-          <article class="plan plan--featured">
-            <span class="plan-flag">Most teams start here</span>
-            <h3>Studio + Runtime</h3>
-            <p class="plan-desc">Calliope + Astrolift managed deployment runtime.</p>
-            <ul class="plan-feats">
-              <li>Everything in Studio</li>
-              <li>Astrolift deploy &amp; upgrade runtime</li>
-              <li>Multi-cloud &amp; on-prem targets</li>
-              <li>Priority onboarding</li>
-            </ul>
-            <a href="#demo" class="btn btn-primary btn-block">Book a private demo</a>
-          </article>
-          <article class="plan">
-            <h3>Enterprise + GRC</h3>
-            <p class="plan-desc">Add Zemtino governance and a dedicated team.</p>
-            <ul class="plan-feats">
-              <li>Everything in Studio + Runtime</li>
-              <li>Zemtino GRC &amp; agent monitoring</li>
-              <li>Air-gapped &amp; custom compliance</li>
-              <li>SLA &amp; named support</li>
-            </ul>
-            <a href="#demo" class="btn btn-ghost btn-block">Contact sales</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Final CTA / demo ===== -->
-    <section class="cta-final" id="demo">
-      <div class="wrap narrow center">
-        <h2 class="section-title">See Calliope running in your cloud.</h2>
-        <p class="cta-sub">Book a private demo, or grab the blueprint and explore on your own terms.</p>
-        <form class="lead-inline center" data-lead-form data-source="demo">
-          <input type="email" name="email" required placeholder="you@company.com" aria-label="Work email" autocomplete="email" />
-          <button type="submit" class="btn btn-primary">Book a private demo</button>
-        </form>
-        <p class="lead-note">A 30-minute walkthrough with an engineer — not a sales script.</p>
-      </div>
-    </section>
+    <!-- ===== Final CTA — animated line + demo form (merged) ===== -->
   </main>
 
   <!-- ===== Footer ===== -->
-  <footer class="footer">
-    <div class="wrap footer-inner">
-      <div class="footer-brand">
-        <a class="brand" href="/"><span class="brand-mark">C</span> Calliope</a>
-        <p>The private-AI studio. Own your AI, run it on your cloud.</p>
-        <p class="footer-fine">By Calliope Labs / CONFLICT · Miami, FL</p>
-      </div>
-      <div class="footer-cols">
-        <div><h4>Product</h4><a href="#studio">The studio</a><a href="#deploy">Deploy</a><a href="#govern">Zemtino GRC</a><a href="#pricing">Packaging</a></div>
-        <div><h4>Resources</h4><a href="#blueprint">Deployment blueprint</a><a href="#how">How it works</a><a href="#demo">Book a demo</a></div>
-        <div class="footer-sub">
-          <h4>Stay in the loop</h4>
-          <form class="lead-inline footer-form" data-lead-form data-source="footer">
-            <input type="email" name="email" required placeholder="you@company.com" aria-label="Work email" />
-            <button type="submit" class="btn btn-dark btn-sm">Subscribe</button>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="wrap footer-bottom"><p>© 2026 Calliope Labs. All rights reserved.</p></div>
-  </footer>
+  <!-- ===== Shared footer (single component, includes the marble hand) ===== -->
+  <site-footer data-page="home"></site-footer>
+
+  <!-- ===== Side demo tab (sticky, right edge) ===== -->
+  <a href="#demo" class="side-demo" aria-label="Book a demo">
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    <span>Book a demo</span>
+  </a>
 
   <!-- ===== Sticky mobile CTA bar ===== -->
   <div class="sticky-bar" id="stickyBar">
     <span>Self-host enterprise AI in days.</span>
     <a href="#demo" class="btn btn-primary btn-sm">Book demo</a>
+  </div>
+
+  <!-- ===== Lightbox (screenshot gallery) ===== -->
+  <div class="lightbox" id="lightbox" hidden aria-hidden="true" role="dialog" aria-label="Screenshot viewer">
+    <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+    <figure class="lb-figure">
+      <img class="lb-img" id="lbImg" src="" alt="" />
+      <figcaption class="lb-cap" id="lbCap"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+    <div class="lb-counter" id="lbCounter"></div>
   </div>
 
   <!-- ===== Search (command palette) ===== -->
@@ -664,6 +505,31 @@
     </div>
   </div>
 
-  <script src="/script.js"></script>
+  <script src="/script.js?v=9"></script>
+
+  <!-- live-reload (localhost only, never affects production) -->
+  <script>
+  (function () {
+    var host = location.hostname;
+    if (host !== 'localhost' && host !== '127.0.0.1') return;
+    var watch = ['/index.html', '/styles.css', '/script.js'];
+    var stamps = {};
+    async function tag(url) {
+      try {
+        var r = await fetch(url + '?_=' + Date.now(), { method: 'HEAD', cache: 'no-store' });
+        return r.headers.get('last-modified') || r.headers.get('etag') || '';
+      } catch (e) { return ''; }
+    }
+    async function poll() {
+      for (var i = 0; i < watch.length; i++) {
+        var t = await tag(watch[i]);
+        if (stamps[watch[i]] === undefined) { stamps[watch[i]] = t; continue; }
+        if (t && t !== stamps[watch[i]]) { location.reload(); return; }
+      }
+      setTimeout(poll, 1000);
+    }
+    poll();
+  })();
+  </script>
 </body>
 </html>

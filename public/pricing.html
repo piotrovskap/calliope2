@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Calliope AI. One platform, every tool, simple per-user pricing.</title>
+  <meta name="description" content="Calliope AI pricing — 19 integrated tools, no per-tool licensing, per-user flat rate. Bring your own cloud ($39/user/mo) or let us manage it ($199/user/mo). Enterprise custom." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/img/favicon.png" />
+  <link rel="stylesheet" href="/styles.css?v=41" />
+  <script src="/site-header.js?v=11"></script>
+  <script src="/site-footer.js?v=16"></script>
+</head>
+<body>
+  <div class="vframe" aria-hidden="true"></div>
+
+  <!-- ===== Shared navigation (single component) ===== -->
+  <site-header data-active="pricing"></site-header>
+
+  <main id="main">
+    <!-- ===== Pricing hero ===== -->
+    <section class="pricing-hero">
+      <div class="wrap center">
+        <p class="section-eyebrow">Pricing</p>
+        <h1 class="pricing-h1">One platform. Every tool. <span class="accent">Simple per-user pricing.</span></h1>
+        <p class="pricing-hero-sub">19 integrated tools. No per-tool licensing. 10-user minimum. Bring your own cloud or let us manage it — either way, you get the full platform.</p>
+      </div>
+    </section>
+
+    <!-- ===== Deployment plan cards ===== -->
+    <section class="pricing" id="pricing">
+      <div class="wrap center">
+        <div class="bill-toggle" role="group" aria-label="Billing period" data-bill-toggle>
+          <button type="button" class="bill-opt is-active" data-bill="annual" aria-pressed="true">Annual <span class="bill-save">Save 13%</span></button>
+          <button type="button" class="bill-opt" data-bill="monthly" aria-pressed="false">Monthly</button>
+        </div>
+      </div>
+
+      <div class="dep-cards bleed-frame">
+        <article class="dep-card dep-card--feat">
+          <span class="dep-flag">Most popular</span>
+          <h3 class="dep-name">Deploy in Your Cloud</h3>
+          <p class="dep-desc">Run Calliope AI in your own AWS. You own the data, you own the bill.</p>
+          <p class="dep-price">
+            <span class="dep-amount" data-annual="$39" data-monthly="$45">$39</span>
+            <span class="dep-unit">/ user / mo</span>
+          </p>
+          <p class="dep-billed" data-annual="billed annually · or $45/mo monthly" data-monthly="billed monthly · or $39/mo annually">billed annually · or $45/mo monthly</p>
+          <ul class="dep-feats">
+            <li>Your AWS account, your VPC</li>
+            <li>Automated provisioning — up and running in under an hour</li>
+            <li>All 19 integrated tools included</li>
+            <li>BYOK — bring your own AI model keys, zero markup</li>
+            <li>SSO integration (SAML, OIDC)</li>
+            <li>Full audit logging</li>
+            <li>Community + docs support</li>
+          </ul>
+          <a href="/#demo" class="btn btn-primary btn-block dep-select">Select plan</a>
+        </article>
+
+        <article class="dep-card">
+          <h3 class="dep-name">Deployed in Our Cloud</h3>
+          <p class="dep-desc">We host the infrastructure. You focus on the work.</p>
+          <p class="dep-price">
+            <span class="dep-amount" data-annual="$199" data-monthly="$229">$199</span>
+            <span class="dep-unit">/ user / mo</span>
+          </p>
+          <p class="dep-billed" data-annual="billed annually · or $229/mo monthly" data-monthly="billed monthly · or $199/mo annually">billed annually · or $229/mo monthly</p>
+          <ul class="dep-feats">
+            <li>Dedicated AWS account, managed by Calliope AI</li>
+            <li>Automated provisioning — up and running in under an hour</li>
+            <li>All 19 integrated tools included</li>
+            <li>BYOK — your own keys, zero markup</li>
+            <li>AI token usage available as an add-on (pay-as-you-go)</li>
+            <li>SSO integration (SAML, OIDC)</li>
+            <li>Full audit logging</li>
+            <li>Priority support + dedicated CSM</li>
+            <li>Managed upgrades, monitoring, patching</li>
+          </ul>
+          <a href="/#demo" class="btn btn-ghost btn-block dep-select">Select plan</a>
+        </article>
+      </div>
+
+      <div class="wrap center">
+        <p class="pricing-trust">🔒 No long-term contract · secure checkout via Stripe · 10-user minimum</p>
+      </div>
+    </section>
+
+    <!-- ===== Cloud support ===== -->
+    <section class="cloud-support">
+      <div class="wrap">
+        <p class="section-eyebrow center">Cloud support</p>
+        <div class="cloud-grid">
+          <div class="cloud-item cloud-item--ok">
+            <span class="cloud-name">AWS</span>
+            <span class="cloud-status">Fully supported</span>
+          </div>
+          <div class="cloud-item cloud-item--wip">
+            <span class="cloud-name">Google Cloud · GCP</span>
+            <span class="cloud-status">In progress — reach out</span>
+          </div>
+          <div class="cloud-item cloud-item--planned">
+            <span class="cloud-name">Microsoft Azure</span>
+            <span class="cloud-status">Planned — reach out</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Enterprise band ===== -->
+    <section class="ent-band-sec">
+      <div class="wrap">
+        <div class="ent-band">
+          <div class="ent-band-copy">
+            <h3>Enterprise — custom pricing for complex deployments</h3>
+            <p>Everything in Our Cloud, plus advanced deployment options and dedicated support. Optionally add a Forward Deployed Engineer embedded with your team.</p>
+          </div>
+          <a href="/#demo" class="btn btn-ghost">Contact sales →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Plan comparison (full-bleed to frame lines) ===== -->
+    <section class="pricing-compare">
+      <div class="wrap"><h2 class="section-title center">Compare plans</h2></div>
+      <div class="cmp bleed-frame">
+        <div class="cmp-h cmp-h--feature">Feature</div>
+        <div class="cmp-h">BYOC</div>
+        <div class="cmp-h cmp-h--feat">Managed</div>
+        <div class="cmp-h">Enterprise</div>
+
+        <div class="cmp-l">Price (annual)</div><div class="cmp-c">$39/user/mo</div><div class="cmp-c cmp-c--feat">$199/user/mo</div><div class="cmp-c">Custom</div>
+        <div class="cmp-l">Price (monthly)</div><div class="cmp-c">$45/user/mo</div><div class="cmp-c cmp-c--feat">$229/user/mo</div><div class="cmp-c">Custom</div>
+        <div class="cmp-l">Deployment</div><div class="cmp-c">Your AWS account</div><div class="cmp-c cmp-c--feat">Dedicated (Calliope-managed)</div><div class="cmp-c">Multi-region / on-prem / air-gapped</div>
+        <div class="cmp-l">Setup time</div><div class="cmp-c">Under 1 hour (automated)</div><div class="cmp-c cmp-c--feat">Under 1 hour (automated)</div><div class="cmp-c">Custom</div>
+        <div class="cmp-l">Integrated tools</div><div class="cmp-c">All 19</div><div class="cmp-c cmp-c--feat">All 19</div><div class="cmp-c">All 19</div>
+        <div class="cmp-l">BYOK (bring your own keys)</div><div class="cmp-c yes">✓</div><div class="cmp-c yes cmp-c--feat">✓</div><div class="cmp-c yes">✓</div>
+        <div class="cmp-l">Zero AI token markup</div><div class="cmp-c yes">✓</div><div class="cmp-c yes cmp-c--feat">✓</div><div class="cmp-c yes">✓</div>
+        <div class="cmp-l">AI token packs (add-on)</div><div class="cmp-c yes">✓</div><div class="cmp-c yes cmp-c--feat">✓</div><div class="cmp-c yes">✓</div>
+        <div class="cmp-l">SSO (SAML, OIDC)</div><div class="cmp-c yes">✓</div><div class="cmp-c yes cmp-c--feat">✓</div><div class="cmp-c yes">✓</div>
+        <div class="cmp-l">Full audit logging</div><div class="cmp-c yes">✓</div><div class="cmp-c yes cmp-c--feat">✓</div><div class="cmp-c yes">✓</div>
+        <div class="cmp-l">GPU instances</div><div class="cmp-c no">—</div><div class="cmp-c no cmp-c--feat">—</div><div class="cmp-c yes">✓</div>
+        <div class="cmp-l">Managed upgrades &amp; patching</div><div class="cmp-c no">—</div><div class="cmp-c yes cmp-c--feat">✓</div><div class="cmp-c yes">✓</div>
+        <div class="cmp-l">Dedicated CSM</div><div class="cmp-c no">—</div><div class="cmp-c yes cmp-c--feat">✓</div><div class="cmp-c yes">✓</div>
+        <div class="cmp-l">Priority support</div><div class="cmp-c no">—</div><div class="cmp-c yes cmp-c--feat">✓</div><div class="cmp-c yes">✓</div>
+        <div class="cmp-l">Custom SLA</div><div class="cmp-c no">—</div><div class="cmp-c no cmp-c--feat">—</div><div class="cmp-c yes">✓</div>
+        <div class="cmp-l">Forward Deployed Engineer</div><div class="cmp-c no">—</div><div class="cmp-c no cmp-c--feat">—</div><div class="cmp-c">Add-on</div>
+        <div class="cmp-l">Security reviews &amp; compliance mappings</div><div class="cmp-c no">—</div><div class="cmp-c no cmp-c--feat">—</div><div class="cmp-c yes">✓</div>
+        <div class="cmp-l">Multi-region / on-prem / air-gapped</div><div class="cmp-c no">—</div><div class="cmp-c no cmp-c--feat">—</div><div class="cmp-c yes">✓</div>
+        <div class="cmp-l">Custom contract / invoicing</div><div class="cmp-c no">—</div><div class="cmp-c cmp-c--feat">Optional</div><div class="cmp-c yes">✓</div>
+        <div class="cmp-l">Minimum users</div><div class="cmp-c">10</div><div class="cmp-c cmp-c--feat">10</div><div class="cmp-c">Custom</div>
+      </div>
+    </section>
+
+    <!-- ===== Calliope AI vs. Tool Sprawl ===== -->
+    <section class="vs-sprawl">
+      <div class="wrap">
+        <h2 class="section-title center">Calliope AI vs. tool sprawl</h2>
+        <p class="vs-lead center">See what you're really paying when you license each tool separately.</p>
+        <div class="sprawl-wrap">
+          <table class="sprawl-table">
+            <thead><tr><th scope="col">Tool</th><th scope="col">Market rate</th></tr></thead>
+            <tbody>
+              <tr><td>Virtual Desktop (VDI)</td><td>$200 – $400/user/mo</td></tr>
+              <tr><td>Cloud IDE license</td><td>$19 – $49/user/mo</td></tr>
+              <tr><td>Hosted notebooks</td><td>$20 – $99/user/mo</td></tr>
+              <tr><td>AI chat / copilot</td><td>$20 – $55/user/mo</td></tr>
+              <tr><td>Pipeline / workflow tool</td><td>$36 – $100/user/mo</td></tr>
+              <tr><td>Agent framework</td><td>$25 – $75/user/mo</td></tr>
+              <tr><td>SQL / data tool</td><td>$15 – $50/user/mo</td></tr>
+              <tr><td>File manager / storage</td><td>$10 – $30/user/mo</td></tr>
+              <tr><td>SSO / identity (per app)</td><td>$5 – $15/user/mo</td></tr>
+              <tr class="sprawl-total"><td>Total (typical stack)</td><td>$350 – $640/user/mo</td></tr>
+              <tr class="sprawl-us"><td>Calliope AI (BYOC)</td><td>$39/user/mo</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Why Calliope ===== -->
+    <section class="pricing-why">
+      <div class="wrap">
+        <p class="section-eyebrow">Why Calliope</p>
+        <h2 class="section-title">Stop paying for tool sprawl.</h2>
+        <p class="pricing-why-lead">Most teams cobble together 6–10 separate tools for notebooks, IDEs, agents, chat, pipelines, and governance — each with its own license, SSO config, and security reviews. Calliope AI replaces all of them with one platform, one login, one bill. 19 tools, deployed in under an hour.</p>
+        <div class="why-cards">
+          <div class="why-card"><h3>Per-user flat rate</h3><p>No per-tool licensing, no hidden fees. One predictable price per seat.</p></div>
+          <div class="why-card"><h3>BYOK, zero markup</h3><p>Bring your own API keys with zero markup on AI tokens.</p></div>
+          <div class="why-card"><h3>Annual billing default</h3><p>Annual by default. Monthly available at a +15% premium.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Add-ons for our cloud ===== -->
+    <section class="pricing-addons-sec">
+      <div class="wrap">
+        <h2 class="section-title">Add-ons for Our Cloud</h2>
+        <p class="vs-lead">Available for managed deployments. Your Cloud customers use their own AWS resources and BYOK keys.</p>
+        <ul class="addons-list addons-list--3">
+          <li>AI token packs — pay-as-you-go, metered usage</li>
+          <li>Compute hours — Medium / Large / GPU instances</li>
+          <li>Additional storage</li>
+          <li>Onboarding package — $2,500 one-time</li>
+          <li>Private model hosting</li>
+          <li>Fine-tuning services</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="pricing-faq">
+      <div class="wrap">
+        <p class="section-eyebrow center">FAQ</p>
+        <h2 class="section-title center">Frequently asked questions</h2>
+        <div class="faq-list">
+          <details class="faq-q">
+            <summary>What are the 19 integrated tools?<span class="faq-ico" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>One platform bundles the full stack — AI Lab (notebooks), AI IDE, Chat Studio, Deep Agent, Langflow, secure browser, AGTerm, DB Loadr, File Manager, model hosting, data agents, datasets, prompt engineering and more — all under one login and one bill.</p></div>
+          </details>
+          <details class="faq-q">
+            <summary>Are AI tokens included in the base price?<span class="faq-ico" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>No. You bring your own AI model keys (BYOK) with zero markup on tokens. For managed deployments, AI token packs are available as a pay-as-you-go add-on.</p></div>
+          </details>
+          <details class="faq-q">
+            <summary>What does BYOC mean?<span class="faq-ico" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Bring Your Own Cloud. Calliope AI runs in your own AWS account and VPC — you own the data and the bill. We provision it automatically, up and running in under an hour.</p></div>
+          </details>
+          <details class="faq-q">
+            <summary>What is the minimum commitment?<span class="faq-ico" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>A 10-user minimum on the BYOC and Managed plans, with no long-term contract. Enterprise pricing is custom.</p></div>
+          </details>
+          <details class="faq-q">
+            <summary>Can I start with BYOC and move to Managed later?<span class="faq-ico" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Yes. You can start in your own cloud and move to a Calliope-managed deployment — or to Enterprise — at any time.</p></div>
+          </details>
+          <details class="faq-q">
+            <summary>What support is included?<span class="faq-ico" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>BYOC includes community and docs support. Managed adds priority support and a dedicated CSM, plus managed upgrades, monitoring and patching. Enterprise adds a custom SLA.</p></div>
+          </details>
+          <details class="faq-q">
+            <summary>Do you support on-premises or air-gapped deployments?<span class="faq-ico" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Yes, on Enterprise — multi-region, on-prem and air-gapped deployments are supported, with security reviews and custom compliance mappings.</p></div>
+          </details>
+          <details class="faq-q">
+            <summary>Who is Calliope Labs Inc?<span class="faq-ico" aria-hidden="true"></span></summary>
+            <div class="faq-a"><p>Calliope Labs Inc is the company behind Calliope AI — based in Miami, FL and built by CONFLICT.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Final CTA ===== -->
+  </main>
+
+  <!-- ===== Shared footer (single component, includes the marble hand) ===== -->
+  <site-footer data-page="pricing"></site-footer>
+
+  <script src="/script.js?v=9"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SECURITY | Calliope AI</title>
+  <meta name="description" content="Calliope was architected for security from day one. Every layer—from infrastructure to application to runtime—implements defense in depth." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/img/favicon.png" />
+  <link rel="stylesheet" href="/styles.css?v=41" />
+  <script src="/site-header.js?v=11"></script>
+  <script src="/site-footer.js?v=16"></script>
+</head>
+<body>
+  <div class="vframe" aria-hidden="true"></div>
+  <site-header data-active="governance"></site-header>
+  <main id="main">
+    <section class="hero hero--center subhero">
+      <div class="wrap hero-center">
+        <a href="/security.html" class="subhero-back">← Security</a>
+        <p class="section-eyebrow">SECURITY</p>
+        <h1 class="hero-title">Security by Design</h1>
+        <p class="hero-sub">Calliope was architected for security from day one. Every layer—from infrastructure to application to runtime—implements defense in depth.</p>
+        <div class="hero-actions center">
+          <a href="/#demo" class="btn btn-primary btn-lg">Book a demo</a>
+          <a href="/pricing.html" class="btn btn-ghost btn-lg">See pricing →</a>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap"><h2 class="section-title">Defense in Depth</h2></div>
+      <div class="orch-rows">
+        <article class="orch-row">
+          <div class="orch-copy">
+            <span class="orch-no">01</span>
+            <h3 class="orch-title">Network Isolation</h3>
+            <p class="orch-desc">Every customer environment operates in isolated network segments. No shared networking between tenants. VPC-level separation with strict ingress/egress controls.</p>
+          </div>
+          <div class="orch-visual"><div class="img-ph"><span>Network Isolation<br>(screenshot)</span></div></div>
+        </article>
+        <article class="orch-row">
+          <div class="orch-copy">
+            <span class="orch-no">02</span>
+            <h3 class="orch-title">Compute Isolation</h3>
+            <p class="orch-desc">Workloads run in dedicated containers with resource limits and security contexts. No shared compute resources between customers. Namespace-level isolation enforced.</p>
+          </div>
+          <div class="orch-visual"><div class="img-ph"><span>Compute Isolation<br>(screenshot)</span></div></div>
+        </article>
+        <article class="orch-row">
+          <div class="orch-copy">
+            <span class="orch-no">03</span>
+            <h3 class="orch-title">Storage Isolation</h3>
+            <p class="orch-desc">Customer data is encrypted and segregated. No shared storage volumes between tenants. Encryption keys are customer-specific where applicable.</p>
+          </div>
+          <div class="orch-visual"><div class="img-ph"><span>Storage Isolation<br>(screenshot)</span></div></div>
+        </article>
+        <article class="orch-row">
+          <div class="orch-copy">
+            <span class="orch-no">04</span>
+            <h3 class="orch-title">Identity &amp; Access</h3>
+            <p class="orch-desc">Role-based access control (RBAC) at every layer. SSO integration with your identity provider. Fine-grained permissions down to individual resources.</p>
+          </div>
+          <div class="orch-visual"><div class="img-ph"><span>Identity &amp; Access<br>(screenshot)</span></div></div>
+        </article>
+        <article class="orch-row">
+          <div class="orch-copy">
+            <span class="orch-no">05</span>
+            <h3 class="orch-title">Zero Trust Networking</h3>
+            <p class="orch-desc">All internal communication is encrypted and authenticated. Service-to-service communication requires mutual TLS. No implicit trust based on network location.</p>
+          </div>
+          <div class="orch-visual"><div class="img-ph"><span>Zero Trust Networking<br>(screenshot)</span></div></div>
+        </article>
+        <article class="orch-row">
+          <div class="orch-copy">
+            <span class="orch-no">06</span>
+            <h3 class="orch-title">Immutable Infrastructure</h3>
+            <p class="orch-desc">Infrastructure is defined as code and deployed via CI/CD. No manual changes to production systems. All changes are versioned, reviewed, and auditable.</p>
+          </div>
+          <div class="orch-visual"><div class="img-ph"><span>Immutable Infrastructure<br>(screenshot)</span></div></div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <site-footer data-page="security"></site-footer>
+  <script src="/script.js?v=9"></script>
+</body>
+</html>

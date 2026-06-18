@@ -1,0 +1,1316 @@
+{
+ "product-ai-lab": {
+  "slug": "product-ai-lab",
+  "path": "/product/ai-lab/",
+  "archetype": "tool",
+  "active": "product",
+  "dataPage": "product",
+  "back": {
+   "href": "/product.html",
+   "label": "The Hub"
+  },
+  "eyebrow": "Product · AI Lab",
+  "h1": "Your AI-Powered Data Science & Desktop application that brings the power of AI directly into your coding workflow.",
+  "sub": "Built on JupyterLab, it combines the industry-standard notebook environment with an intelligent AI assistant that understands your code, your data, and your goals. Available for macOS, Windows, and Linux — plus a cloud-hosted version for teams. Download Free T",
+  "features": [
+   {
+    "title": "AI Chat Assistant",
+    "desc": "Conversational AI that understands your codebase context. Get help with debugging, code explanations, and best practices"
+   },
+   {
+    "title": "One-Shot Notebook Generation",
+    "desc": "Describe what you want, get a complete notebook. Toolbar button, File menu, or keyboard shortcut"
+   },
+   {
+    "title": "Natural language to SQL",
+    "desc": "Describe what you want, get the query. No syntax memorization"
+   },
+   {
+    "title": "Query any data source",
+    "desc": "PostgreSQL, MySQL, Snowflake, BigQuery, S3, APIs. Connect once, query forever"
+   },
+   {
+    "title": "Build any report",
+    "desc": "Charts, dashboards, exports. From question to deliverable in minutes"
+   },
+   {
+    "title": "Complete Python stack",
+    "desc": "pandas, numpy, scipy, scikit-learn, matplotlib. 300+ packages bundled"
+   }
+  ],
+  "_body": "AI LAB Your AI-Powered Data Science & Desktop application that brings the power of AI directly into your coding workflow. Built on JupyterLab, it combines the industry-standard notebook environment with an intelligent AI assistant that understands your code, your data, and your goals. Available for macOS, Windows, and Linux — plus a cloud-hosted version for teams. Download Free Try Cloud Version FREE DOWNLOAD Desktop version available No accounts needed. No signup. No nonsense. No strings attached. Download Calliope AI Lab and start working immediately. Use it for personal projects, professional work, or commercial applications — completely free. Bring your own API keys — Use your existing Claude, OpenAI, or other AI subscriptions. No markup, no middleman. The actual analysis? That’s the 20% they squeeze in between firefighting. Runs entirely local — Your code, your data, your machine. Nothing sent anywhere except to your chosen AI provider. What AI Lab delivers: The complete data science environment, AI-enhanced. Download Now **AI Chat Assistant** — Conversational AI that understands your codebase context. Get help with debugging, code explanations, and best practices. **One-Shot Notebook Generation** — Describe what you want, get a complete notebook. Toolbar button, File menu, or keyboard shortcut. **Natural language to SQL** — Describe what you want, get the query. No syntax memorization. **Query any data source** — PostgreSQL, MySQL, Snowflake, BigQuery, S3, APIs. Connect once, query forever. **Build any report** — Charts, dashboards, exports. From question to deliverable in minutes. **Complete Python stack** — pandas, numpy, scipy, scikit-learn, matplotlib. 300+ packages bundled. **Reproducible environments** — Same setup every time. No 'works on my machine.' **Governed access** *(cloud only)* — Role-based permissions. Audit trails. Data stays where it belongs. AI Lab Capabilities AI Chat Assistant Conversational AI that understands your codebase context. Get h"
+ },
+ "product-chat-studio": {
+  "slug": "product-chat-studio",
+  "path": "/product/chat/",
+  "archetype": "tool",
+  "active": "product",
+  "dataPage": "product",
+  "back": {
+   "href": "/product.html",
+   "label": "The Hub"
+  },
+  "eyebrow": "Product · Chat Studio",
+  "h1": "Ask Questions.",
+  "sub": "Conversational AI that connects to your data, your code, and your documents. The interface for humans who think in questions.",
+  "features": [
+   {
+    "title": "Register from Lab",
+    "desc": "Data scientists expose curated datasets from AI Lab. One-time setup"
+   },
+   {
+    "title": "Business-user friendly",
+    "desc": "Non-technical users chat with data. No SQL required"
+   },
+   {
+    "title": "Governed access",
+    "desc": "Users only see what they're authorized to see. Role-based permissions"
+   },
+   {
+    "title": "Multi-model",
+    "desc": "Claude, GPT-4, Gemini, or local models. Use what works for each use case"
+   },
+   {
+    "title": "SQL transparency",
+    "desc": "See the SQL generated for your questions. Learn, verify, and trust the results"
+   },
+   {
+    "title": "Always audited",
+    "desc": "Every conversation logged. Compliance-ready. Chat Studio Capabilities Context-Aware Conversations Chat Studio remembers context. Multi-turn conversations that build on previous questions. No repeating"
+   }
+  ],
+  "_body": "CHAT STUDIO Ask Questions. Conversational AI that connects to your data, your code, and your documents. The interface for humans who think in questions. THE PROBLEM You know what you want to know. You just can't get there. The data exists. The answer is in there somewhere. But between you and the insight is a wall of SQL, Python, and context-switching. Chat Studio removes the wall. Ask questions in plain English. Get answers from your actual data. The AI handles the translation — you stay focused on the thinking. + ⚙️ U You 3:52 PM How do I create a 3D scatter plot in matplotlib? Calliope 3:52 PM Here's how to create a 3D scatter plot in matplotlib: import matplotlib.pyplot as plt from mpl_toolkits.mplot3d import Axes3D import numpy as np fig = plt . figure () ax = fig . add_subplot ( 111 , projection = '3d' ) # Generate random data x = np . random . rand ( 100 ) y = np . random . rand ( 100 ) z = np . random . rand ( 100 ) ax . scatter ( x , y , z ) plt . show () U You 3:53 PM Can you add colors based on the z value? Calliope is typing... Calliope 3:53 PM Just add the c parameter to map colors: ax . scatter ( x , y , z , c = z , cmap = 'viridis' ) The viridis colormap will show lower z values in purple and higher values in yellow. Ask Calliope... Data scientists create. Business users consume. Register data sources once. Everyone can chat with them. Try Chat Studio **Register from Lab** — Data scientists expose curated datasets from AI Lab. One-time setup. **Business-user friendly** — Non-technical users chat with data. No SQL required. **Governed access** — Users only see what they're authorized to see. Role-based permissions. **Multi-model** — Claude, GPT-4, Gemini, or local models. Use what works for each use case. **SQL transparency** — See the SQL generated for your questions. Learn, verify, and trust the results. **Always audited** — Every conversation logged. Compliance-ready. Chat Studio Capabilities Context-Aware Conversations Chat Studio remembers context"
+ },
+ "product-deep-agent": {
+  "slug": "product-deep-agent",
+  "path": "/product/deep-agent/",
+  "archetype": "tool",
+  "active": "product",
+  "dataPage": "product",
+  "back": {
+   "href": "/product.html",
+   "label": "The Hub"
+  },
+  "eyebrow": "Product · Deep Agent",
+  "h1": "Research Agent With Standalone AI research agent.",
+  "sub": "Connect your own data sources. Deep analysis.",
+  "features": [
+   {
+    "title": "Independent data connections",
+    "desc": "Connect sources directly to Deep Agent. Separate from Lab datasets"
+   },
+   {
+    "title": "RAG pipelines",
+    "desc": "Retrieval-augmented generation for document-heavy research and analysis"
+   },
+   {
+    "title": "Multi-step reasoning",
+    "desc": "Breaks complex questions into sub-queries, synthesizes results"
+   },
+   {
+    "title": "Knowledge management",
+    "desc": "Build persistent knowledge bases. Accumulate research over time"
+   },
+   {
+    "title": "Deep research",
+    "desc": "Literature review, competitive analysis, due diligence investigations"
+   },
+   {
+    "title": "Governed & audited",
+    "desc": "Full logging. Policy enforcement. Enterprise-ready. Deep Agent Capabilities Multi-Source Connectivity Connect to SQL databases, NoSQL stores, REST APIs, file systems, and vector databases. Deep Agent "
+   }
+  ],
+  "_body": "DEEP AGENT Research Agent With Standalone AI research agent. Connect your own data sources. Deep analysis. RAG pipelines. Knowledge management. Independent from Lab — purpose-built for research. SEPARATE & SPECIALIZED Not just another chat. A research environment. Deep Agent is a standalone research tool — separate from Chat Studio and AI Lab. Connect your own data sources directly. Build RAG pipelines. Conduct deep investigations. Purpose-built for research: Document analysis, knowledge synthesis, competitive intelligence, literature review, due diligence. When you need to go deep, not just query. 🧠 Training Knowledge Base Teaching Calliope about your data Files Being Learned 📄 schema_documentation.md 24 KB • Markdown ✓ 📊 example_queries.sql 18 KB • SQL ✓ 📋 business_glossary.csv 8 KB • CSV ✓ 📝 api_documentation.json 156 KB • JSON ⟳ Processing Documents 0% 0 Chunks Created 0 Embeddings 0 Concepts Learned Knowledge Graph users table orders relation product schema inventory FK analytics views date partitions customer_id index revenue metrics What Deep Agent provides: Your dedicated AI research environment. Try Deep Agent **Independent data connections** — Connect sources directly to Deep Agent. Separate from Lab datasets. **RAG pipelines** — Retrieval-augmented generation for document-heavy research and analysis. **Multi-step reasoning** — Breaks complex questions into sub-queries, synthesizes results. **Knowledge management** — Build persistent knowledge bases. Accumulate research over time. **Deep research** — Literature review, competitive analysis, due diligence investigations. **Governed & audited** — Full logging. Policy enforcement. Enterprise-ready. Deep Agent Capabilities Multi-Source Connectivity Connect to SQL databases, NoSQL stores, REST APIs, file systems, and vector databases. Deep Agent queries them all to find answers. Iterative Analysis Deep Agent doesn’t stop at the first answer. It validates findings, tests alternatives, and refines conclusions thr"
+ },
+ "product-langflow": {
+  "slug": "product-langflow",
+  "path": "/product/langflow/",
+  "archetype": "tool",
+  "active": "product",
+  "dataPage": "product",
+  "back": {
+   "href": "/product.html",
+   "label": "The Hub"
+  },
+  "eyebrow": "Product · Langflow",
+  "h1": "Build AI Pipelines Drag-and-drop workflow builder",
+  "sub": "for",
+  "features": [
+   {
+    "title": "RAG pipelines",
+    "desc": "Connect documents, vector stores, and LLMs. Retrieval-augmented generation made simple"
+   },
+   {
+    "title": "Agent workflows",
+    "desc": "Build multi-step agent systems with tool use, memory, and conditional logic"
+   },
+   {
+    "title": "Chatbot applications",
+    "desc": "Customer service bots, internal assistants, knowledge base interfaces"
+   },
+   {
+    "title": "Data processing",
+    "desc": "Transform, enrich, and analyze data with AI in the loop"
+   },
+   {
+    "title": "API integrations",
+    "desc": "Connect to external services, databases, and internal tools"
+   },
+   {
+    "title": "Evaluation pipelines",
+    "desc": "Test prompts, compare models, measure performance. Langflow Capabilities Visual Canvas Drag-and-drop interface for building AI workflows. See the entire pipeline at a glance. Debug visually. Instant T"
+   }
+  ],
+  "_body": "LANGFLOW Build AI Pipelines Drag-and-drop workflow builder for LLM applications. Connect models, data sources, and tools. Build complex AI pipelines without writing code. VISUAL BUILDER AI pipelines shouldn’t require a Building AI applications usually means stitching together APIs, managing prompts, handling context windows, and writing glue code. It’s fragile, slow, and requires deep expertise. Langflow makes it visual. Drag components onto a canvas. Connect them. Test and iterate. Deploy when ready. Complex AI pipelines — without the complexity. What you can build: From simple chains to complex agent systems. Try Langflow **RAG pipelines** — Connect documents, vector stores, and LLMs. Retrieval-augmented generation made simple. **Agent workflows** — Build multi-step agent systems with tool use, memory, and conditional logic. **Chatbot applications** — Customer service bots, internal assistants, knowledge base interfaces. **Data processing** — Transform, enrich, and analyze data with AI in the loop. **API integrations** — Connect to external services, databases, and internal tools. **Evaluation pipelines** — Test prompts, compare models, measure performance. Langflow Capabilities Visual Canvas Drag-and-drop interface for building AI workflows. See the entire pipeline at a glance. Debug visually. Instant Testing Test pipelines in real-time as you build. Iterate quickly. See results immediately. One-Click Deploy Export to API endpoints, embed in applications, or run on schedule. Production-ready deployment. Stop writing glue code. Langflow gives your team the power to build sophisticated AI pipelines — without the infrastructure headaches. Get Started See Examples"
+ },
+ "product-browser": {
+  "slug": "product-browser",
+  "path": "/product/browser/",
+  "archetype": "tool",
+  "active": "product",
+  "dataPage": "product",
+  "back": {
+   "href": "/product.html",
+   "label": "The Hub"
+  },
+  "eyebrow": "Product · Secure Browser",
+  "h1": "Access A browser inside your Calliope environment.",
+  "sub": "Access the web from isolated networks, air-gapped deployments, and remote environments.",
+  "features": [
+   {
+    "title": "Air-gapped environments",
+    "desc": "Access external resources without breaking network isolation"
+   },
+   {
+    "title": "Remote deployments",
+    "desc": "Browse from inside jump servers and remote environments"
+   },
+   {
+    "title": "Isolated workspaces",
+    "desc": "Look up docs and resources without leaving your secure environment"
+   },
+   {
+    "title": "Restricted networks",
+    "desc": "Web access where direct browsing isn't available. Browser Features Inside Your Environment Browser runs inside your Calliope deployment. Access the web from wherever Calliope runs — cloud, on-prem, or"
+   }
+  ],
+  "_body": "BROWSER Access A browser inside your Calliope environment. Access the web from isolated networks, air-gapped deployments, and remote environments. THE UTILITY Sometimes you just need Working in an isolated environment? Air-gapped deployment? Remote jump server? You still need to look things up, read docs, access external resources. The Browser gives you web access from inside. No VPN gymnastics. No breaking isolation. Just a browser where you need it. When you need it: Web access from inside isolated environments. Get Started **Air-gapped environments** — Access external resources without breaking network isolation. **Remote deployments** — Browse from inside jump servers and remote environments. **Isolated workspaces** — Look up docs and resources without leaving your secure environment. **Restricted networks** — Web access where direct browsing isn't available. Browser Features Inside Your Environment Browser runs inside your Calliope deployment. Access the web from wherever Calliope runs — cloud, on-prem, or air-gapped. Session Logging Browsing activity logged for audit purposes. Know what was accessed and when. Policy-Governed Zentinelle policies can control which sites are accessible. Allowlists, blocklists, and access controls. Need web access The Browser is included with The Hub. Access the web from wherever your Calliope environment runs. Get Started See The Hub"
+ },
+ "product-agents": {
+  "slug": "product-agents",
+  "path": "/product/core/agents/",
+  "archetype": "tool",
+  "active": "product",
+  "dataPage": "product",
+  "back": {
+   "href": "/product.html",
+   "label": "The Hub"
+  },
+  "eyebrow": "Product · Agents",
+  "h1": "Agents That Don’t Just Chat - Launch memory-backed, reasoning-driven, tool-using agents",
+  "sub": "that operate inside governed environments — at scale. Most “AI agents” today are glorified They can answer trivia. Maybe run a canned",
+  "features": [],
+  "_body": "Agents That Don’t Just Chat - Launch memory-backed, reasoning-driven, tool-using agents that operate inside governed environments — at scale. Most “AI agents” today are glorified They can answer trivia. Maybe run a canned API call. But ask them to reason, act, adapt, and ship real work — and they fall apart. You need agents that don’t just mimic intelligence — you need agents that deliver it. If you’re wrestling with: You’re building with toys, not tools. Contact us Agents that hallucinate steps, mismanage tasks, or crash under complexity Scripting fragile, brittle workflows that break when scaled No control over what agents can access, modify, or spend CALLIOPE AI Calliope Agents operate inside production-grade environments, with real memory models, controlled tool use, dynamic goal decomposition, and auditability from first action to final output. Define capabilities, enforce permissions, and scale agents horizontally — without giving up observability or governance. Features Smarter Autonomous Reasoning Internal long-short term memory models (vectorized and structured) for evolving context Dynamic task decomposition: adaptive planning and subtask optimization at runtime Native tool-use chaining: API calls, database queries, file manipulations — securely orchestrated Production-Ready Agent Environments Ephemeral, ephemeral+persistent, and persistent workspace modes for task-specific needs Containerized, audited execution — every agent action, tool invocation, and data access logged Fine-grained resource allocation: CPU, GPU, network bandwidth, query budgets — controlled dynamically Governance, Control, and Scaling Build RBAC-bound capabilities and scoped credential passing Automated agent scaling: one agent, one cluster, or one thousand — fully orchestrated Real-time tracing, failover recovery, and progressive rollout strategies built in Calliope Agents are already reshaping how teams build multi-agent workflows, RAG systems, automated research assistants, and auto"
+ },
+ "product-agent-coding": {
+  "slug": "product-agent-coding",
+  "path": "/product/core/agent-coding/",
+  "archetype": "tool",
+  "active": "product",
+  "dataPage": "product",
+  "back": {
+   "href": "/product.html",
+   "label": "The Hub"
+  },
+  "eyebrow": "Product · Agent Coding",
+  "h1": "Autonomous Agents That Code, Think, and Build — Deploy structured AI agents that",
+  "sub": "decompose goals, orchestrate tasks, and deliver real outcomes — with governance, memory, and safety. Single prompts only get you so far. Real innovation needs agents that can plan, execute, adapt, and reason — not just guess. Calliope brings true agentic devel",
+  "features": [],
+  "_body": "Autonomous Agents That Code, Think, and Build — Deploy structured AI agents that decompose goals, orchestrate tasks, and deliver real outcomes — with governance, memory, and safety. Single prompts only get you so far. Real innovation needs agents that can plan, execute, adapt, and reason — not just guess. Calliope brings true agentic development directly into your notebooks — turning them into live, evolving engineering environments. If you’re stuck with: You’re building faster — but breaking smarter workflows. Static chat that injects one-off code with no persistence or strategy Fragile experiments stitched together by guesswork instead of orchestration No way to govern what AI executes, modifies, or explores inside your projects Calliope AI Calliope Agent Coding deploys autonomous agents inside your notebooks who plan multi-step workflows, break down complex tasks, refactor intelligently, and execute changes All while respecting governance, memory, and reproducibility. Features Dynamic Goal Decomposition and Planning Convert user prompts into structured, executable subtasks with semantic linking Hierarchical planning trees: agents map dependencies, intermediate goals, and fallback strategies Real-time adaptation: agents reprioritize based on execution feedback and experiment state Safe, Audited Execution Flows Guardrails enforce allowed actions, kernel access scope, runtime quotas, and rollback protections Inline approval checkpoints: humans can review/refine/override agent plans before execution Full traceability: every agent decision, execution, result stored and replayable Collaborative Multi-Agent Architectures Specialized agent roles (Planner, Executor, Validator, Optimizer) collaborating in coordinated task chains Dynamic role reassignment based on project phase and goal evolution Memory models maintain state across agents, workflows, and sessions Calliope Agent Coding doesn’t just help you generate code — it helps you engineer outcomes. From exploratory dat"
+ },
+ "product-code-assist": {
+  "slug": "product-code-assist",
+  "path": "/product/core/code-assist/",
+  "archetype": "tool",
+  "active": "product",
+  "dataPage": "product",
+  "back": {
+   "href": "/product.html",
+   "label": "The Hub"
+  },
+  "eyebrow": "Product · Code Assist",
+  "h1": "Smarter Code Reviews.",
+  "sub": "Safer Refactors. AI-driven code optimization, restructuring, and enhancement — governed, explainable, and production-grade. Calliope AI Most AI coding tools can autocomplete — Calliope Code Assist moves beyond token prediction. It analyzes structure, evaluates",
+  "features": [],
+  "_body": "Smarter Code Reviews. Safer Refactors. AI-driven code optimization, restructuring, and enhancement — governed, explainable, and production-grade. Calliope AI Most AI coding tools can autocomplete — Calliope Code Assist moves beyond token prediction. It analyzes structure, evaluates patterns, and proposes improvements with architectural awareness — accelerating not just code, but code quality. If you’re slowed down by: You’re wasting time — and adding hidden risk. Review cycles that catch style issues but miss deep architectural risks Refactors that feel more like breaking things than making them better AI tools that generate noisy changes without context or responsibility Calliope AI Calliope Code Assist elevates AI code collaboration into a trusted engineering asset. Analyze, refactor, optimize — with context, safety, reproducibility, and control. Features Architectural Code Analysis AST (Abstract Syntax Tree) parsing and semantic graph construction for full structural understanding Detects smells: coupling, repetition, complexity hotspots, dependency violations Code flow analysis integrated with dynamic experiment memory for real-time recommendations Safe Refactoring and Optimization AI-driven modularization: extract methods, reduce cognitive load, isolate concerns Performance optimization: loop unrolling, vectorization, memory access improvement suggestions Validation agents: ensure refactors preserve functional correctness, coverage, and reproducibility Governed, Explainable Changes Inline diffs paired with rationale explanations (e.g., “Refactored for single-responsibility principle adherence”) Rollback snapshots and session memory persistence for reproducibility Configurable review modes: “Conservative Refactor,” “Performance Tuning,” “Maintainability Boost” Calliope Code Assist isn’t just trying to finish your sentences — it’s elevating your entire codebase with informed, intelligent enhancements. It’s what happens when AI respects architecture, scalability, "
+ },
+ "product-data-agents": {
+  "slug": "product-data-agents",
+  "path": "/product/core/data-agents/",
+  "archetype": "tool",
+  "active": "product",
+  "dataPage": "product",
+  "back": {
+   "href": "/product.html",
+   "label": "The Hub"
+  },
+  "eyebrow": "Product · Data Agents",
+  "h1": "Talk to Your Data Calliope Data Agents make your databases, notebooks, and datasets conversational, governable, and deeply usable.",
+  "sub": "Your data holds the answers you need — But traditional exploration workflows bury insight under fragile queries, disconnected tools, and slow manual analysis. Exploration shouldn’t feel like excavation. It should feel like conversation — governed, optimized, a",
+  "features": [],
+  "_body": "Talk to Your Data Calliope Data Agents make your databases, notebooks, and datasets conversational, governable, and deeply usable. Your data holds the answers you need — But traditional exploration workflows bury insight under fragile queries, disconnected tools, and slow manual analysis. Exploration shouldn’t feel like excavation. It should feel like conversation — governed, optimized, and built for scale. If you’re stuck with: You’re moving slower than you have to — and leaving insights buried. Contact us SQL queries you tweak endlessly just to find simple patterns Notebooks you manually update, rerun, and patch to follow a new idea Blind spots because your tooling can’t surface multi-layered relationships on demand CALLIOPE AI Calliope Data Agents transform your databases, notebooks, and datasets into live, conversational systems. Query relational databases (Postgres, MySQL), NoSQL stores (MongoDB, DynamoDB), and vector indices (Pinecone, FAISS) seamlessly Generate intelligent queries, optimize execution paths, visualize emerging patterns — all from a single unified agent interface. Features Live, Intelligent Data Interaction Connect directly to SQL, NoSQL, and vector stores with fine-tuned connectors and dynamic schema discovery Ask natural language questions; receive optimized, explainable queries mapped to real datasets Surface joins, aggregations, and latent patterns in seconds — no manual stitching Notebook-Integrated Discovery Conversational agents embedded into Jupyter, Colab, and VSCode notebooks Auto-generate experiments, reparameterize models, visualize outputs dynamically Refactor experimental workflows on demand without breaking reproducibility guarantees Governed Access and Auditability Build RBAC-bound capabilities and scoped credential passing Automated agent scaling: one agent, one cluster, or one thousand — fully orchestrated Real-time tracing, failover recovery, and progressive rollout strategies built in Calliope Agents are already reshaping ho"
+ },
+ "product-datasets": {
+  "slug": "product-datasets",
+  "path": "/product/core/datasets/",
+  "archetype": "tool",
+  "active": "product",
+  "dataPage": "product",
+  "back": {
+   "href": "/product.html",
+   "label": "The Hub"
+  },
+  "eyebrow": "Product · Datasets",
+  "h1": "Capture More.",
+  "sub": "Store Smarter. Host your datasets, ingest external sources, and govern how AI systems use data — securely and flexibly. Calliope AI Great AI starts with great data — It’s fragmented across storage systems, APIs, and ad-hoc pipelines. Calliope Datasets unify yo",
+  "features": [],
+  "_body": "Capture More. Store Smarter. Host your datasets, ingest external sources, and govern how AI systems use data — securely and flexibly. Calliope AI Great AI starts with great data — It’s fragmented across storage systems, APIs, and ad-hoc pipelines. Calliope Datasets unify your data layer — so agents, models, retrieval pipelines, and workflows can move faster, smarter, and safer. If you’re stuck with: You’re slowing down your entire AI pipeline before it even starts. Scattered datasets split across object stores, spreadsheets, APIs, and local files Slow, manual ingestion processes every time a new dataset appears No central governance over how data is accessed, cached, transformed, or consumed Calliope AI Calliope Datasets offer dynamic ingestion, managed hosting, and secure integration for every data asset your AI workflows touch structured, semi-structured, and unstructured — without building another ad-hoc pipeline from scratch. Features Dynamic Ingestion and Hosting Upload local datasets or ingest external data via APIs, S3 buckets, GCS, Azure Blobs, databases, or custom connectors Automate parsing, schema discovery, validation, deduplication, and versioning Host datasets securely with scalable object storage, fine-grained access control, and replication options Governance and Access Management Role-based access control (RBAC) at dataset, field, or record granularity Audit trails for every dataset interaction — who accessed what, when, and how Data usage policies enforce downstream agent/model retrieval governance automatically Integrated Into Every Workflow Expose datasets dynamically inside notebooks, agent actions, RAG pipelines, or training flows Lazy loading and smart caching strategies for massive datasets Cross-pipeline dataset references with version tracking and reproducibility metadata Calliope Datasets let builders and organizations unify, govern, and operationalize their data — without losing control or velocity. Because in the age of intelligent syste"
+ },
+ "product-model-hosting": {
+  "slug": "product-model-hosting",
+  "path": "/product/core/model-hosting/",
+  "archetype": "tool",
+  "active": "product",
+  "dataPage": "product",
+  "back": {
+   "href": "/product.html",
+   "label": "The Hub"
+  },
+  "eyebrow": "Product · Model Hosting",
+  "h1": "Host Smarter.",
+  "sub": "Serve Faster. Deploy, manage, and govern your own models — single-tenant, multi-tenant, hybrid cloud, or on-prem. Calliope AI If your models are trapped behind slow APIs, SaaS vendor lock-in, or scaling walls, Real AI applications need real control — over late",
+  "features": [],
+  "_body": "Host Smarter. Serve Faster. Deploy, manage, and govern your own models — single-tenant, multi-tenant, hybrid cloud, or on-prem. Calliope AI If your models are trapped behind slow APIs, SaaS vendor lock-in, or scaling walls, Real AI applications need real control — over latency, cost, architecture, and security. Calliope Model Hosting gives you ownership without the overhead. If you’re constrained by: You’re trusting your core IP to systems you can’t tune. Contact us Model endpoints throttled by third-party service limits Cost blowouts from per-token overages you can’t control No governance over where and how your models are stored, scaled, and secured CALLIOPE AI Calliope Model Hosting puts your models — tuned, fine-tuned, or fully custom — back under your control. Deploy and manage models as first-class citizens inside your AI platform, with flexible resource allocation, dynamic scaling, cost optimization, and fine-grained security. Features Flexible Deployment Models Single-tenant managed hosting on AWS, GCP, or hybrid environments Multi-tenant cluster deployments with resource pooling and isolation Full on-premises deployment support for airgapped or highly regulated environments Operational Excellence and Scaling Autoscaling inference clusters based on real-time usage telemetry Hot-swappable models and runtime upgrades with zero downtime Integrated caching, batching, and dynamic throttling to optimize token and compute cost per request Governance, Security, and Observability Role-based access control (RBAC) and per-model permission scopes Full telemetry: request tracing, model usage stats, latency/throughput dashboards BYO encryption keys, VPC peering, and private endpoint options Calliope Model Hosting enables organizations to deploy and operate AI models with the same control, visibility, and agility they expect from their core infrastructure. Because when models are your competitive advantage, you don’t rent — you own, govern, and scale them your way. Deploy "
+ },
+ "product-notebook-chat": {
+  "slug": "product-notebook-chat",
+  "path": "/product/core/notebook-chat/",
+  "archetype": "tool",
+  "active": "product",
+  "dataPage": "product",
+  "back": {
+   "href": "/product.html",
+   "label": "The Hub"
+  },
+  "eyebrow": "Product · Notebook Chat",
+  "h1": "Your Notebook, Now with a Brain — Conversational AI inside Jupyter, Colab, and VSCode —",
+  "sub": "with dynamic memory, task orchestration, and governed execution. Calliope AI AI inside notebooks shouldn’t just It should accelerate experiments, organize workflows, and intelligently refactor your ideas on the fly. Calliope Notebook Chat goes beyond surface-l",
+  "features": [],
+  "_body": "Your Notebook, Now with a Brain — Conversational AI inside Jupyter, Colab, and VSCode — with dynamic memory, task orchestration, and governed execution. Calliope AI AI inside notebooks shouldn’t just It should accelerate experiments, organize workflows, and intelligently refactor your ideas on the fly. Calliope Notebook Chat goes beyond surface-level chat — it turns your notebooks into live, intelligent collaborators. If you’re stuck with: You’re not collaborating — you’re gambling. One-shot chat responses that forget your workflow after every prompt Magics that inject code without understanding your project structure Zero control over what AI modifies, runs, or consumes in your environment CALLIOPE AI Calliope embeds structured, governed, memory-aware agents directly into your notebooks. Chat naturally with your environment. Request code generation, dynamic refactoring, experiment retries, visualization suggestions — all scoped, versioned, and fully auditable. Features Live Contextual Collaboration Dynamic conversational agents integrated with Jupyter, Colab, and VSCode Multi-turn memory aware of variables, models, datasets, and past outputs Conversational control over re-running, annotating, refactoring, or parameterizing cells Safe, Governed Code Execution Scoped kernel access with resource guards and operation policies Action logging and rollback diffs for every AI-initiated notebook change Configurable permissions: allow suggestions, executions, or fully autonomous task runs — your choice Multi-Model Orchestration Hot-swap between OpenAI, Anthropic, HuggingFace, and custom LLMs contextually Fine-tuned model routing based on task type (e.g., code generation, data summarization, query optimization) Embed retrieval augmentation mid-conversation for smarter code and analysis suggestions Calliope Notebook Chat brings structured autonomy to the heart of your experiments — combining the flexibility of open-ended conversation with the rigor of governed, reproducible ex"
+ },
+ "product-notebook-generation": {
+  "slug": "product-notebook-generation",
+  "path": "/product/core/notebook-generation/",
+  "archetype": "tool",
+  "active": "product",
+  "dataPage": "product",
+  "back": {
+   "href": "/product.html",
+   "label": "The Hub"
+  },
+  "eyebrow": "Product · Notebook Generation",
+  "h1": "Skip the Blank Page.",
+  "sub": "Auto-generate modular, reproducible, production-grade notebooks — from datasets, prompts, or goal-driven experiments. Calliope AI Starting a new experiment shouldn’t mean reinventing your workflow scaffolding. Boilerplate imports. Dataset loaders. Initial anal",
+  "features": [],
+  "_body": "Skip the Blank Page. Auto-generate modular, reproducible, production-grade notebooks — from datasets, prompts, or goal-driven experiments. Calliope AI Starting a new experiment shouldn’t mean reinventing your workflow scaffolding. Boilerplate imports. Dataset loaders. Initial analyses. Documentation templates. Calliope turns the slowest part of ideation into your fastest accelerator — without compromising structure or reproducibility. If you’re wasting time on: You’re fighting your tools — not testing your ideas. Manually wiring imports, plotting scaffolds, or retyping exploratory code Copy-pasting old notebooks into fragile new projects Losing track of experiments because of inconsistent structure and metadata CALLIOPE AI Calliope Notebook Generation creates clean, modular, production-ready notebooks from natural prompts, dataset schemas, or experimental goals. Not just raw text injection — structured code, optimized workflows, embedded metadata, and full version control by design. Features Prompt-to-Production Notebook Creation Generate full notebooks from simple prompts (“Build an EDA notebook for customer churn prediction”) Include standard imports, environment setup, exploratory data analysis, model scaffolds, visualizations, and documentation Integrated auto-commentary to explain generated sections and pipeline steps Dataset-Driven Context Awareness Connect local, cloud, or API-based datasets to auto-generate schema-aware workflows Suggest preprocessing, feature engineering, visualization, and modeling paths based on dataset type Optimize for scale: lazy loading, batch processing, in-notebook caching patterns included Reproducibility and Governance Built In Structured metadata embedding (dataset IDs, model versions, environment specs) Versioned notebooks with rollback snapshots and environment hash tagging Configurable template libraries: extend with team standards, corporate compliance, or task-specific blueprints Calliope Notebook Generation gives builders a"
+ },
+ "product-prompt-engineering": {
+  "slug": "product-prompt-engineering",
+  "path": "/product/core/prompt-engineering/",
+  "archetype": "tool",
+  "active": "product",
+  "dataPage": "product",
+  "back": {
+   "href": "/product.html",
+   "label": "The Hub"
+  },
+  "eyebrow": "Product · Prompt Engineering",
+  "h1": "Design Smarter Prompts.",
+  "sub": "Create, manage, evaluate, and optimize prompts — dynamically, programmatically, and at production scale. Caliope AI Great AI doesn’t happen by magic — In a world flooded with quick prompts and cut-paste hacks, the teams that win are the ones who build structur",
+  "features": [],
+  "_body": "Design Smarter Prompts. Create, manage, evaluate, and optimize prompts — dynamically, programmatically, and at production scale. Caliope AI Great AI doesn’t happen by magic — In a world flooded with quick prompts and cut-paste hacks, the teams that win are the ones who build structured, tested, evolving prompt systems. Calliope turns prompt engineering into a first-class, governed, reproducible discipline — not a guessing game. If you’re still: You’re turning one of your most critical assets into your biggest liability. Contact us Manually hacking prompts with no versioning, tracking, or reuse Guessing whether changes actually improve outputs or performance Scaling systems where prompts evolve uncontrollably across environments CALLIOPE AI From early experiments to full production deployments: Calliope Prompt Engineering gives builders full control over prompt creation, optimization, evaluation, and dynamic management Features Structured Prompt Development and Versioning Build prompts as first-class artifacts: version-controlled, metadata-tagged, environment-scoped Parameterize prompts for dynamic runtime insertion and role-based customization Embed prompt generation flows inside agents, chatflows, retrieval pipelines, and notebooks Evaluation, Testing, and Optimization A/B test prompts across live datasets and synthetic evaluation sets Track hallucination rates, grounding scores, output consistency, and task success metrics Auto-suggest improvements based on retrieval context shifts or fine-tuning updates Governed Deployment and Runtime Adaptation Associate prompts with environments, agents, workflows, and user roles dynamically Runtime prompt selection, injection, and fallback strategies based on context-aware triggers Full telemetry: prompt performance over time, drift detection, anomaly alerts In Calliope, prompts aren’t static text blobs. They’re dynamic, governed, evolving building blocks — architected as seriously as the models they power. Engineer Your AI’s "
+ },
+ "governance-audit": {
+  "slug": "governance-audit",
+  "path": "/governance/audit/",
+  "archetype": "child",
+  "active": "governance",
+  "dataPage": "governance",
+  "back": {
+   "href": "/governance.html",
+   "label": "Governance"
+  },
+  "eyebrow": "Governance · Audit & Observability",
+  "h1": "Every Action.",
+  "sub": "Complete visibility into what your AI systems are doing.",
+  "features": [
+   {
+    "title": "Interactions",
+    "desc": "Every prompt and response, with user attribution"
+   },
+   {
+    "title": "Policy Decisions",
+    "desc": "Every allow, block, and warning with reason"
+   },
+   {
+    "title": "Data Access",
+    "desc": "Every database query, API call, file read"
+   },
+   {
+    "title": "Secrets Access",
+    "desc": "Every credential request with context"
+   },
+   {
+    "title": "Configuration Changes",
+    "desc": "Every policy update with author"
+   },
+   {
+    "title": "Content Violations",
+    "desc": "Every PII detection, toxicity flag, injection attempt How It Works Structured Event Pipeline Events flow through a structured pipeline: telemetry (high-volume, aggregated), audit (durable, ordered), a"
+   }
+  ],
+  "_body": "ZENTINELLE Every Action. Complete visibility into what your AI systems are doing. OBSERVABILITY When something goes wrong, ‘I don’t know’ isn’t acceptable. AI made a decision. Data was accessed. A response was generated. Now you need to explain what happened. Without an audit trail, you’re guessing. With Zentinelle, you have the answer. Every prompt. Every response. Every policy evaluation. Every data access. Timestamped, attributed, and queryable. Retained as long as your compliance requirements demand. What gets logged: Complete audit trail for AI operations. Talk to Us **Interactions** — Every prompt and response, with user attribution **Policy Decisions** — Every allow, block, and warning with reason **Data Access** — Every database query, API call, file read **Secrets Access** — Every credential request with context **Configuration Changes** — Every policy update with author **Content Violations** — Every PII detection, toxicity flag, injection attempt How It Works Structured Event Pipeline Events flow through a structured pipeline: telemetry (high-volume, aggregated), audit (durable, ordered), and alerts (priority, violations). Different retention policies for different event types. Cold storage for long-term compliance. Hot storage for real-time queries. SIEM Integration Feed events to your existing security stack. Splunk. Datadog. Elastic. Your SOC sees AI events alongside everything else. Standard formats. Webhook delivery. Real-time streaming. Dashboards & Alerts Real-time dashboards show usage patterns, policy violations, and anomalies. Alert on thresholds. Catch unusual behavior. Respond before incidents escalate. Observability isn’t optional. Zentinelle gives you the audit infrastructure your compliance team requires — and the visibility your security team demands. Talk to Sales Back to Governance"
+ },
+ "governance-compliance": {
+  "slug": "governance-compliance",
+  "path": "/governance/compliance/",
+  "archetype": "child",
+  "active": "governance",
+  "dataPage": "governance",
+  "back": {
+   "href": "/governance.html",
+   "label": "Governance"
+  },
+  "eyebrow": "Governance · Compliance Frameworks",
+  "h1": "Compliance Map directly to the frameworks your auditors care about.",
+  "sub": "",
+  "features": [
+   {
+    "title": "SOC 2 Type II",
+    "desc": "Security, availability, confidentiality controls"
+   },
+   {
+    "title": "GDPR",
+    "desc": "Data protection and privacy rights"
+   },
+   {
+    "title": "HIPAA",
+    "desc": "Healthcare data safeguards"
+   },
+   {
+    "title": "EU AI Act",
+    "desc": "Risk-based AI governance"
+   },
+   {
+    "title": "NIST AI RMF",
+    "desc": "AI risk management framework"
+   },
+   {
+    "title": "ISO 27001 / ISO 42001",
+    "desc": "Information security and AI management"
+   }
+  ],
+  "_body": "ZENTINELLE Compliance Map directly to the frameworks your auditors care about. COMPLIANCE Your auditor is going to ask about AI. SOC 2 Type II. GDPR. HIPAA. EU AI Act. ISO 27001. Your auditors are adding AI governance to their checklists. “How do you control AI usage?” is no longer a hypothetical question. Zentinelle maps directly to 9 compliance frameworks. Every policy, every log, every control — tied to specific requirements. When audit season comes, you’re ready. Frameworks we support: Continuous monitoring. Gap analysis. Audit-ready reports. Talk to Us **SOC 2 Type II** — Security, availability, confidentiality controls **GDPR** — Data protection and privacy rights **HIPAA** — Healthcare data safeguards **EU AI Act** — Risk-based AI governance **NIST AI RMF** — AI risk management framework **ISO 27001 / ISO 42001** — Information security and AI management **CCPA** — California consumer privacy **PCI-DSS** — Payment card data security How It Works Control Mapping Every Zentinelle policy maps to specific framework controls. Rate limits → SOC 2 access controls. Content scanning → GDPR data protection. Audit logs → everything. See exactly which controls are satisfied and which have gaps. Continuous Monitoring Compliance isn’t a point-in-time snapshot. Zentinelle continuously monitors policy compliance. Drift detection. Real-time alerts. Remediation tracking. Your compliance posture is always current. Audit-Ready Reporting Generate evidence packages for auditors. Export logs, policies, and control mappings in auditor-friendly formats. Less scrambling before audits. Less back-and-forth with auditors. Less billable hours. Don’t scramble for AI governance evidence. Zentinelle gives you the compliance infrastructure your organization needs — mapped to the frameworks your auditors actually use. Talk to Sales Back to Governance"
+ },
+ "governance-content-scanning": {
+  "slug": "governance-content-scanning",
+  "path": "/governance/content-scanning/",
+  "archetype": "child",
+  "active": "governance",
+  "dataPage": "governance",
+  "back": {
+   "href": "/governance.html",
+   "label": "Governance"
+  },
+  "eyebrow": "Governance · Content Scanning",
+  "h1": "Catch It Real-time scanning for PII, toxicity, and prompt injection across all AI interactions.",
+  "sub": "",
+  "features": [
+   {
+    "title": "PII Detection",
+    "desc": "Credit cards, SSNs, emails, phone numbers, names, addresses"
+   },
+   {
+    "title": "Toxicity Scoring",
+    "desc": "Hate speech, harassment, profanity, threatening language"
+   },
+   {
+    "title": "Prompt Injection",
+    "desc": "Attempts to override system prompts or escape constraints"
+   },
+   {
+    "title": "Data Exfiltration",
+    "desc": "Patterns that suggest intentional data extraction"
+   },
+   {
+    "title": "Custom Patterns",
+    "desc": "Your own regex rules for proprietary data formats How It Works Real-Time Scanning Every prompt and response passes through Zentinelle’s content scanner. Detection happens in milliseconds — no noticeab"
+   }
+  ],
+  "_body": "ZENTINELLE Catch It Real-time scanning for PII, toxicity, and prompt injection across all AI interactions. CONTENT SAFETY Your AI just sent a customer’s SSN to OpenAI. It was an accident. An engineer pasted some test data. The AI helpfully included it in the response. Now it’s in a third-party’s logs. This isn’t hypothetical. It’s happening right now in organizations without content controls. Zentinelle scans every prompt and response. Detects PII before it leaves your perimeter. Catches toxicity before it reaches users. Blocks prompt injection before it compromises your agents. What gets scanned: Real-time detection across all AI interactions. See It In Action **PII Detection** — Credit cards, SSNs, emails, phone numbers, names, addresses **Toxicity Scoring** — Hate speech, harassment, profanity, threatening language **Prompt Injection** — Attempts to override system prompts or escape constraints **Data Exfiltration** — Patterns that suggest intentional data extraction **Custom Patterns** — Your own regex rules for proprietary data formats How It Works Real-Time Scanning Every prompt and response passes through Zentinelle’s content scanner. Detection happens in milliseconds — no noticeable latency for users. Scan on input, output, or both. Configure thresholds. Define what triggers action. Configurable Enforcement Block — Stop the interaction. User sees an error. Warn — Allow but flag for review. User may not notice. Log — Record for audit. No user impact. Different policies for different contexts. Stricter for production, looser for development. Incident Response When violations occur, Zentinelle creates an incident. Who, what, when, severity. Route to your existing ticketing system. Trigger Slack alerts. Feed your SIEM. Data leaks are preventable. Zentinelle gives you the content safety layer your AI systems need — before an incident makes headlines. Talk to Sales Back to Governance"
+ },
+ "governance-policies": {
+  "slug": "governance-policies",
+  "path": "/governance/policies/",
+  "archetype": "child",
+  "active": "governance",
+  "dataPage": "governance",
+  "back": {
+   "href": "/governance.html",
+   "label": "Governance"
+  },
+  "eyebrow": "Governance · Policy Management",
+  "h1": "Policy-Based Define rules once.",
+  "sub": "Enforce them everywhere. Override when you need to.",
+  "features": [
+   {
+    "title": "Rate Limits",
+    "desc": "Requests per minute, hour, day. Per user, team, or org"
+   },
+   {
+    "title": "Budget Caps",
+    "desc": "Monthly spend limits with alerts and hard stops"
+   },
+   {
+    "title": "Model Restrictions",
+    "desc": "Allowlist or blocklist specific models. GPT-4 for analysts, Claude for engineers"
+   },
+   {
+    "title": "Tool Permissions",
+    "desc": "Which agents can access which APIs, databases, filesystems"
+   },
+   {
+    "title": "Content Filters",
+    "desc": "Block PII, toxicity, prompt injection attempts"
+   },
+   {
+    "title": "Data Access Controls",
+    "desc": "Row-level, column-level, database-level restrictions. How It Works Inheritance Model Policies cascade: Organization → Team → Deployment → Endpoint → User Set org-wide defaults. Let teams tighten or (w"
+   }
+  ],
+  "_body": "ZENTINELLE Policy-Based Define rules once. Enforce them everywhere. Override when you need to. POLICY ENGINE AI governance shouldn’t mean AI prohibition. Your security team says no. Your engineering team says they need it. The result? Shadow AI that nobody controls. Zentinelle policies let you say yes — with guardrails. Define what’s allowed, what’s limited, and what’s blocked. Set org-wide defaults, let teams customize within bounds, and give specific users the access they need. 18+ policy types. Inheritance from org to user. Real-time enforcement. Full audit trail. Policy types you can define: Every policy cascades through the inheritance chain. See It In Action **Rate Limits** — Requests per minute, hour, day. Per user, team, or org. **Budget Caps** — Monthly spend limits with alerts and hard stops. **Model Restrictions** — Allowlist or blocklist specific models. GPT-4 for analysts, Claude for engineers. **Tool Permissions** — Which agents can access which APIs, databases, filesystems. **Content Filters** — Block PII, toxicity, prompt injection attempts. **Data Access Controls** — Row-level, column-level, database-level restrictions. How It Works Inheritance Model Policies cascade: Organization → Team → Deployment → Endpoint → User Set org-wide defaults. Let teams tighten or (with permission) loosen. Grant specific users elevated access. The most specific policy wins. No manual per-user configuration. No policy sprawl. No gaps. Real-Time Evaluation Agents call the /evaluate endpoint before taking action. Zentinelle resolves the effective policy in milliseconds. Allow, block, or warn — you choose the enforcement model. Blocked actions are logged. Warnings are surfaced. Everything is auditable. Policy Versioning Every policy change is versioned. See who changed what, when. Roll back if needed. Git-like version control for your AI governance. Because “who approved that?” should have an answer. Stop writing exceptions. Zentinelle gives you the granularity to say yes "
+ },
+ "governance-risk": {
+  "slug": "governance-risk",
+  "path": "/governance/risk/",
+  "archetype": "child",
+  "active": "governance",
+  "dataPage": "governance",
+  "back": {
+   "href": "/governance.html",
+   "label": "Governance"
+  },
+  "eyebrow": "Governance · Risk Management",
+  "h1": "Risk Identify.",
+  "sub": "Detect. Respond. Mitigate. Before incidents become headlines.",
+  "features": [
+   {
+    "title": "Prompt injection",
+    "desc": "Malicious inputs that override system prompts"
+   },
+   {
+    "title": "Data exfiltration",
+    "desc": "Sensitive data extracted through carefully crafted queries"
+   },
+   {
+    "title": "PII leakage",
+    "desc": "Personal data in prompts or responses"
+   },
+   {
+    "title": "Hallucination",
+    "desc": "Confidently wrong outputs that look correct"
+   },
+   {
+    "title": "Cost explosion",
+    "desc": "Runaway token usage or compute costs"
+   },
+   {
+    "title": "Model drift",
+    "desc": "Behavior changes as models update"
+   }
+  ],
+  "_body": "ZENTINELLE AI Risk Identify. Detect. Respond. Mitigate. Before incidents become headlines. RISK MANAGEMENT AI systems fail in ways you haven’t imagined yet. Prompt injection. Data exfiltration. Hallucination cascades. Model drift. Cost explosions. Credential leaks. Traditional risk frameworks weren’t built for AI. They don’t account for autonomous systems that learn, adapt, and sometimes do things nobody expected. Zentinelle brings control theory to AI risk. Treat your AI systems like the dynamic systems they are — with observability, controllability, and feedback loops that catch problems before they cascade. AI-specific risks you need to manage: These aren't hypotheticals. They're happening now. Talk to Us **Prompt injection** — Malicious inputs that override system prompts **Data exfiltration** — Sensitive data extracted through carefully crafted queries **PII leakage** — Personal data in prompts or responses **Hallucination** — Confidently wrong outputs that look correct **Cost explosion** — Runaway token usage or compute costs **Model drift** — Behavior changes as models update **Credential exposure** — API keys and secrets in logs or outputs Risk Capabilities Risk Register Catalog AI-specific risks. Prompt injection. PII leakage. Hallucination. Cost overrun. Model drift. Assign owners. Track mitigation. Map to controls. Know your exposure. Anomaly Detection Baseline normal behavior. Detect deviations. Alert on: Usage spikes (token consumption, API calls) Cost anomalies (unexpected spend patterns) Latency changes (model performance shifts) Error rate increases (failure patterns) Behavioral drift (output characteristic changes) Incident Management When policies are violated, Zentinelle creates incidents. Track: What happened (full context) Root cause analysis Remediation actions SLA tracking Post-incident review Don’t wait for the breach. Zentinelle gives you the risk management infrastructure AI systems require — built on control theory, not checkbox compliance"
+ },
+ "governance-secrets": {
+  "slug": "governance-secrets",
+  "path": "/governance/secrets/",
+  "archetype": "child",
+  "active": "governance",
+  "dataPage": "governance",
+  "back": {
+   "href": "/governance.html",
+   "label": "Governance"
+  },
+  "eyebrow": "Governance · Secrets & Credentials",
+  "h1": "No keys in code or config.",
+  "sub": "Manage AI provider credentials securely — without secrets scattered across notebooks and config files.",
+  "features": [
+   {
+    "title": "AI Provider Keys",
+    "desc": "OpenAI, Anthropic, Google, Cohere, Mistral, and more"
+   },
+   {
+    "title": "Database Credentials",
+    "desc": "Connection strings for SQL, NoSQL, vector stores"
+   },
+   {
+    "title": "API Tokens",
+    "desc": "Internal and external API authentication"
+   },
+   {
+    "title": "Service Accounts",
+    "desc": "Cloud provider credentials (AWS, GCP, Azure)"
+   },
+   {
+    "title": "Custom Secrets",
+    "desc": "Any key-value pair your agents need How It Works Centralized Storage Secrets stored in AWS Secrets Manager (or your vault of choice). Encrypted at rest and in transit. Agents request secrets through Z"
+   }
+  ],
+  "_body": "ZENTINELLE No API Keys Centralize, rotate, and audit every credential your AI systems need. SECRETS MANAGEMENT Right now, your OpenAI key is in 47 places. Environment variables. Config files. Slack messages. That one engineer’s .bashrc . Maybe even committed to git. When that key leaks — and it will — you have no idea what accessed it, what data it touched, or how to rotate it without breaking everything. Zentinelle centralizes secrets management for AI. Store keys once. Grant scoped access. Rotate automatically. Know exactly who used what, when. Secrets Zentinelle manages: One control plane for all your AI credentials. See It In Action **AI Provider Keys** — OpenAI, Anthropic, Google, Cohere, Mistral, and more **Database Credentials** — Connection strings for SQL, NoSQL, vector stores **API Tokens** — Internal and external API authentication **Service Accounts** — Cloud provider credentials (AWS, GCP, Azure) **Custom Secrets** — Any key-value pair your agents need How It Works Centralized Storage Secrets stored in AWS Secrets Manager (or your vault of choice). Encrypted at rest and in transit. Agents request secrets through Zentinelle. Keys are never exposed in logs, environment variables, or code. Access is scoped by policy. Automatic Rotation Schedule rotation. Get notified before expiry. Rotate on-demand when keys are compromised. Rotation happens without breaking running agents. No manual updates. No downtime. Full Audit Trail Every secret access is logged. Who requested it. When. From where. For what purpose. When your security team asks “who has access to production credentials?” — you have the answer. Credentials should be managed. Zentinelle gives you the secrets management your AI infrastructure needs — without building it yourself. Talk to Sales Back to Governance"
+ },
+ "security-architecture": {
+  "slug": "security-architecture",
+  "path": "/security/architecture/",
+  "archetype": "child",
+  "active": "governance",
+  "dataPage": "security",
+  "back": {
+   "href": "/security.html",
+   "label": "Security"
+  },
+  "eyebrow": "Security · Security Architecture",
+  "h1": "Security by Design Calliope was architected for security from day one.",
+  "sub": "Every layer—from infrastructure to application to runtime—implements defense in depth. Defense in Depth Security isn’t a single control—it’s layers of protection that work together. Even if one layer is compromised, others prevent breach escalation. Network Is",
+  "features": [],
+  "_body": "SECURITY Security by Design Calliope was architected for security from day one. Every layer—from infrastructure to application to runtime—implements defense in depth. Defense in Depth Security isn’t a single control—it’s layers of protection that work together. Even if one layer is compromised, others prevent breach escalation. Network Isolation Every customer environment operates in isolated network segments. No shared networking between tenants. VPC-level separation with strict ingress/egress controls. Compute Isolation Workloads run in dedicated containers with resource limits and security contexts. No shared compute resources between customers. Namespace-level isolation enforced. Storage Isolation Customer data is encrypted and segregated. No shared storage volumes between tenants. Encryption keys are customer-specific where applicable. Identity & Access Role-based access control (RBAC) at every layer. SSO integration with your identity provider. Fine-grained permissions down to individual resources. Zero Trust Networking All internal communication is encrypted and authenticated. Service-to-service communication requires mutual TLS. No implicit trust based on network location. Immutable Infrastructure Infrastructure is defined as code and deployed via CI/CD. No manual changes to production systems. All changes are versioned, reviewed, and auditable. Security architecture that scales Get Started Talk to Security Team"
+ },
+ "security-data-protection": {
+  "slug": "security-data-protection",
+  "path": "/security/data-protection/",
+  "archetype": "child",
+  "active": "governance",
+  "dataPage": "security",
+  "back": {
+   "href": "/security.html",
+   "label": "Security"
+  },
+  "eyebrow": "Security · Data Protection",
+  "h1": "Your Data Your data is encrypted, isolated, and under your control.",
+  "sub": "We implement defense in depth to protect data throughout its lifecycle. Data is the Asset Your code, your queries, your analysis—this is what matters. Calliope treats your data as the critical asset it is. Encryption in Transit All data in transit is encrypted",
+  "features": [],
+  "_body": "SECURITY Your Data Your data is encrypted, isolated, and under your control. We implement defense in depth to protect data throughout its lifecycle. Data is the Asset Your code, your queries, your analysis—this is what matters. Calliope treats your data as the critical asset it is. Encryption in Transit All data in transit is encrypted using TLS 1.3. No exceptions. This includes browser connections, API calls, and internal service communication. Encryption at Rest All data at rest is encrypted using AES-256. This includes databases, file storage, backups, and logs. Encryption keys are managed securely. Customer Data Isolation Your data is logically and physically separated from other customers. No shared databases, no shared storage volumes, no data commingling. Secrets Management API keys, database credentials, and other secrets are stored in dedicated secrets management systems. Never in code, never in plain text, never in logs. Data Residency Options Need data to stay in a specific region? We offer deployment options that keep your data where your compliance requirements demand. Data Retention & Deletion You control your data lifecycle. Delete your data when you choose. We don’t retain customer data beyond what’s needed for service operation. Questions about data protection? Contact Security Team View Security Overview"
+ },
+ "deployment-cloud-hosted": {
+  "slug": "deployment-cloud-hosted",
+  "path": "/deployment/cloud-hosted/",
+  "archetype": "child",
+  "active": "product",
+  "dataPage": "deployment",
+  "back": {
+   "href": "/deployment.html",
+   "label": "Deployment"
+  },
+  "eyebrow": "Deployment · Cloud Hosted",
+  "h1": "Start Building Fully-managed cloud deployment.",
+  "sub": "No infrastructure to provision, no servers to maintain.",
+  "features": [
+   {
+    "title": "Instant provisioning",
+    "desc": "Workspace ready in under 5 minutes"
+   },
+   {
+    "title": "AI Lab",
+    "desc": "Browser-based IDE with notebooks and AI assistance"
+   },
+   {
+    "title": "AI Agents",
+    "desc": "Build and deploy autonomous agents"
+   },
+   {
+    "title": "Data connectivity",
+    "desc": "Connect to your databases and APIs"
+   },
+   {
+    "title": "Zentinelle governance",
+    "desc": "Full policy and compliance controls"
+   },
+   {
+    "title": "Automatic updates",
+    "desc": "Always on the latest version Technical Details Security & Isolation Multi-tenant architecture with strict isolation. Your data is encrypted at rest and in transit. SOC 2 Type II controls. Regular pene"
+   }
+  ],
+  "_body": "DEPLOYMENT Start Building Fully-managed cloud deployment. No infrastructure to provision, no servers to maintain. CLOUD HOSTED You need AI tools. You don’t need another infrastructure project. Provisioning servers. Managing certificates. Patching security vulnerabilities. That’s not why you’re here. Calliope Cloud gets you building in minutes. Sign up, configure your workspace, invite your team. We handle the infrastructure — security, scaling, backups, updates. Enterprise-grade security. SOC 2 controls. Encryption everywhere. Your data isolated from other customers. What you get: Full Calliope platform, zero infrastructure overhead. Get Started **Instant provisioning** — Workspace ready in under 5 minutes **AI Lab** — Browser-based IDE with notebooks and AI assistance **AI Agents** — Build and deploy autonomous agents **Data connectivity** — Connect to your databases and APIs **Zentinelle governance** — Full policy and compliance controls **Automatic updates** — Always on the latest version Technical Details Security & Isolation Multi-tenant architecture with strict isolation. Your data is encrypted at rest and in transit. SOC 2 Type II controls. Regular penetration testing. 24/7 security monitoring. Availability & Performance 99.9% uptime SLA. Global CDN for fast access. Auto-scaling compute for demand spikes. Your AI workloads scale with your usage — no capacity planning required. Compliance Ready Full Zentinelle governance included. Policy controls, audit logging, content scanning. Meet your compliance requirements without building the infrastructure. Start fast. Cloud Hosted is the fastest path to productive AI. Move to Dedicated Cloud or On-Premise when your requirements demand it — your work migrates seamlessly. Sign Up Free Talk to Sales"
+ },
+ "deployment-dedicated-cloud": {
+  "slug": "deployment-dedicated-cloud",
+  "path": "/deployment/dedicated-cloud/",
+  "archetype": "child",
+  "active": "product",
+  "dataPage": "deployment",
+  "back": {
+   "href": "/deployment.html",
+   "label": "Deployment"
+  },
+  "eyebrow": "Deployment · Dedicated Cloud",
+  "h1": "Your Environment.",
+  "sub": "Single-tenant deployment with dedicated resources. Calliope manages it. You own it.",
+  "features": [
+   {
+    "title": "Dedicated compute",
+    "desc": "Your workloads don't share resources with anyone"
+   },
+   {
+    "title": "Network isolation",
+    "desc": "Private VPC with your CIDR ranges"
+   },
+   {
+    "title": "Data residency",
+    "desc": "Choose your region (US, EU, APAC)"
+   },
+   {
+    "title": "Custom domain",
+    "desc": "ai.yourcompany.com instead of calliope.ai"
+   },
+   {
+    "title": "SSO integration",
+    "desc": "Connect to your identity provider (Okta, Azure AD, etc.)"
+   },
+   {
+    "title": "Dedicated support",
+    "desc": "Named account team, priority response Technical Details Architecture Dedicated EKS/ECS cluster in your preferred region. Private subnets. Your own load balancers. No noisy neighbors. No shared resourc"
+   }
+  ],
+  "_body": "DEPLOYMENT Your Environment. Single-tenant deployment with dedicated resources. Calliope manages it. You own it. DEDICATED CLOUD Cloud speed. Enterprise isolation. Your security team isn’t comfortable with multi-tenant. Your compliance requirements demand isolation. But you don’t want to manage infrastructure. Dedicated Cloud gives you the best of both. Your own isolated environment — dedicated compute, dedicated storage, dedicated network. Calliope manages the infrastructure while you focus on building. Same platform. Same capabilities. Complete isolation. What's different from Cloud Hosted: Enhanced isolation and control for enterprise requirements. Talk to Sales **Dedicated compute** — Your workloads don't share resources with anyone **Network isolation** — Private VPC with your CIDR ranges **Data residency** — Choose your region (US, EU, APAC) **Custom domain** — ai.yourcompany.com instead of calliope.ai **SSO integration** — Connect to your identity provider (Okta, Azure AD, etc.) **Dedicated support** — Named account team, priority response Technical Details Architecture Dedicated EKS/ECS cluster in your preferred region. Private subnets. Your own load balancers. No noisy neighbors. No shared resources. Performance SLAs guaranteed. Identity & Access SAML 2.0 and OIDC integration. Connect to Okta, Azure AD, Google Workspace, or any SAML provider. Groups and roles sync from your directory. Users authenticate against your identity provider. Data & Compliance Choose your data residency region. Customer-managed encryption keys available. Full Zentinelle governance with enhanced audit logging and retention options. Enterprise isolation. Dedicated Cloud gives you the security posture your compliance team requires — without building or maintaining the infrastructure yourself. Contact Sales Compare Options"
+ },
+ "deployment-jump-server": {
+  "slug": "deployment-jump-server",
+  "path": "/deployment/jump-server/",
+  "archetype": "child",
+  "active": "product",
+  "dataPage": "deployment",
+  "back": {
+   "href": "/deployment.html",
+   "label": "Deployment"
+  },
+  "eyebrow": "Deployment · Jump Server / VPC Gateway",
+  "h1": "Your Data Stays Home.",
+  "sub": "Gateway to your infrastructure. Data never leaves your VPC.",
+  "features": [
+   {
+    "title": "Remote engineers in the field",
+    "desc": "Work from anywhere on a clean laptop. Code and data stay in your VPC"
+   },
+   {
+    "title": "Offshore development",
+    "desc": "Contractors access through browser. No local copies. Full audit trail"
+   },
+   {
+    "title": "Client work",
+    "desc": "Access client environments without client data on your machines"
+   },
+   {
+    "title": "Regulated workloads",
+    "desc": "Data residency requirements met. All compute in your region"
+   },
+   {
+    "title": "Vendor access",
+    "desc": "Give vendors scoped access to specific systems. Nothing more. How It Works Architecture VPC peering or PrivateLink connection between Calliope management plane and your cloud. Your compute runs in you"
+   }
+  ],
+  "_body": "DEPLOYMENT Your Data Stays Home. Gateway to your infrastructure. Data never leaves your VPC. JUMP SERVER Access without egress. You have data that can’t leave your network. Regulatory requirements. Contractual obligations. Security policies. But your team needs AI-powered tools. And they need to work from anywhere. The Jump Server model solves both. Calliope’s gateway peers to your VPC. Users connect through HTTPS. They see the AI Lab, the notebooks, the agents. But the compute happens in your network. The data stays in your perimeter. Remote access without data egress. Common use cases: When data must stay in your network but users work remotely. Talk to Sales **Remote engineers in the field** — Work from anywhere on a clean laptop. Code and data stay in your VPC. **Offshore development** — Contractors access through browser. No local copies. Full audit trail. **Client work** — Access client environments without client data on your machines. **Regulated workloads** — Data residency requirements met. All compute in your region. **Vendor access** — Give vendors scoped access to specific systems. Nothing more. How It Works Architecture VPC peering or PrivateLink connection between Calliope management plane and your cloud. Your compute runs in your VPC. Your data stays in your network. Users authenticate through Calliope and work through browser. Data Flow Inbound: User connects to Calliope → authenticates → session proxied to your VPC Compute: Notebooks, agents, queries execute in your network Outbound: Only screen updates travel back. Data stays put. Security Controls All Zentinelle governance applies. Policies enforced at the gateway. Audit logs capture everything. Network-level isolation. No lateral movement. Session recording available. Offshore Development Without Risk Your offshore team needs access to production-like environments. But you can’t let code leave your network. Jump Server model: Developers work through browser IDE. Code is in your VPC. They write, "
+ },
+ "deployment-on-premise": {
+  "slug": "deployment-on-premise",
+  "path": "/deployment/on-premise/",
+  "archetype": "child",
+  "active": "product",
+  "dataPage": "deployment",
+  "back": {
+   "href": "/deployment.html",
+   "label": "Deployment"
+  },
+  "eyebrow": "Deployment · On-Premise / Air-Gapped",
+  "h1": "Complete Isolation.",
+  "sub": "Full Calliope deployment in your infrastructure. Air-gapped when required. ON-PREMISE Some networks can’t touch the internet. Yours is one of them. Defense. Government. Critical infrastructure. Financial systems. Some environments have no external connectivity",
+  "features": [
+   {
+    "title": "Defense & Intelligence",
+    "desc": "Classified environments, SCIF-compatible"
+   },
+   {
+    "title": "Government",
+    "desc": "FedRAMP High, IL4/IL5 environments"
+   },
+   {
+    "title": "Critical Infrastructure",
+    "desc": "Energy, utilities, transportation"
+   },
+   {
+    "title": "Financial Services",
+    "desc": "Trading systems, core banking"
+   },
+   {
+    "title": "Healthcare",
+    "desc": "Medical devices, research data"
+   },
+   {
+    "title": "Manufacturing",
+    "desc": "Factory floor, OT networks Deployment Options Kubernetes Deployment Helm charts for Kubernetes. Works on OpenShift, Rancher, vanilla K8s. Bring your own cluster. We provide the manifests. You control "
+   }
+  ],
+  "_body": "DEPLOYMENT Complete Isolation. Full Calliope deployment in your infrastructure. Air-gapped when required. ON-PREMISE Some networks can’t touch the internet. Yours is one of them. Defense. Government. Critical infrastructure. Financial systems. Some environments have no external connectivity — by design. Calliope deploys fully on-premise. Complete platform in your datacenter or private cloud. No callbacks to Calliope servers. No external dependencies. Air-gap capable. Your infrastructure. Your network. Your AI platform. When on-premise is required: For environments where external connectivity isn't an option. Talk to Sales **Defense & Intelligence** — Classified environments, SCIF-compatible **Government** — FedRAMP High, IL4/IL5 environments **Critical Infrastructure** — Energy, utilities, transportation **Financial Services** — Trading systems, core banking **Healthcare** — Medical devices, research data **Manufacturing** — Factory floor, OT networks Deployment Options Kubernetes Deployment Helm charts for Kubernetes. Works on OpenShift, Rancher, vanilla K8s. Bring your own cluster. We provide the manifests. You control everything. Bare Metal / VM Docker Compose or VM-based deployment for environments without Kubernetes. Runs on RHEL, Ubuntu, or any Linux distribution. Minimal dependencies. Air-Gap Support Complete offline operation. No external connectivity required. Offline model hosting. Local LLM deployment (Ollama, vLLM). Air-gapped updates via secure transfer. Deployment & Operations Initial deployment: Calliope engineers work with your team to deploy and configure. Ongoing support: Choose self-managed (with documentation and training) or Calliope-managed (remote operations through secure channel). Updates: Offline update packages for air-gapped environments. Tested in our labs before reaching you. Your infrastructure. On-premise deployment gives you the AI development platform your teams need — in the secure environment your security policy demands. Contact "
+ },
+ "deployment-desktop": {
+  "slug": "deployment-desktop",
+  "path": "/deployment/desktop/",
+  "archetype": "child",
+  "active": "product",
+  "dataPage": "deployment",
+  "back": {
+   "href": "/deployment.html",
+   "label": "Deployment"
+  },
+  "eyebrow": "Deployment · Desktop App",
+  "h1": "Free. Local.",
+  "sub": "Full AI Lab on your machine. No cloud. No subscription. Just your",
+  "features": [
+   {
+    "title": "AI Lab",
+    "desc": "Browser-based IDE with notebooks and code assistance"
+   },
+   {
+    "title": "Multi-model support",
+    "desc": "OpenAI, Anthropic, Google, Mistral, Ollama (local)"
+   },
+   {
+    "title": "Bring your own keys",
+    "desc": "Use your existing API subscriptions"
+   },
+   {
+    "title": "Local execution",
+    "desc": "Everything runs on your machine"
+   },
+   {
+    "title": "No account required",
+    "desc": "Download and go"
+   },
+   {
+    "title": "Upgrade path",
+    "desc": "Move to cloud or enterprise when ready Technical Details System Requirements macOS: 12.0+ (Intel or Apple Silicon) Windows: 10/11 (64-bit) Linux: Ubuntu 22.04+, Fedora 38+ 8GB RAM minimum. 16GB recomm"
+   }
+  ],
+  "_body": "DEPLOYMENT Free. Local. Full AI Lab on your machine. No cloud. No subscription. Just your API keys. DESKTOP Start for free. Upgrade when you’re ready. You want to try AI-powered development. You’re not ready for an enterprise commitment. Maybe you’re evaluating options. Maybe you’re a solo developer. Calliope Desktop is free. Download. Install. Add your OpenAI or Anthropic key. Start building. All the AI Lab capabilities. Notebooks, code assist, agents. Running locally on your machine. When you’re ready for teams, governance, or cloud — upgrade seamlessly. What's included: Full AI development environment, no subscription required. Join Waitlist **AI Lab** — Browser-based IDE with notebooks and code assistance **Multi-model support** — OpenAI, Anthropic, Google, Mistral, Ollama (local) **Bring your own keys** — Use your existing API subscriptions **Local execution** — Everything runs on your machine **No account required** — Download and go **Upgrade path** — Move to cloud or enterprise when ready Technical Details System Requirements macOS: 12.0+ (Intel or Apple Silicon) Windows: 10/11 (64-bit) Linux: Ubuntu 22.04+, Fedora 38+ 8GB RAM minimum. 16GB recommended for larger models. Local Models Run models locally with Ollama integration. No API costs. No data leaving your machine. Llama, Mistral, CodeLlama, and more. Your data stays local. Upgrade Path When you’re ready for teams, governance, or cloud deployment — your work migrates. Export notebooks. Move to cloud. Add team members. Enable Zentinelle governance. Seamless transition. Join the Waitlist Calliope Desktop is currently in development. Join the waitlist to be notified when it’s available for download. Early access for waitlist members. Provide feedback and shape the product. Join Waitlist Start free. Calliope Desktop gives individual developers the AI-powered environment they need — without enterprise overhead. Try it, love it, upgrade when you're ready. Join Waitlist See Enterprise Options"
+ },
+ "solution-agent-platforms": {
+  "slug": "solution-agent-platforms",
+  "path": "/solutions/agent-platforms/",
+  "archetype": "solution",
+  "active": "solutions",
+  "dataPage": "solutions",
+  "back": {
+   "href": "/solutions.html",
+   "label": "Solutions"
+  },
+  "eyebrow": "Solutions · Agent Platforms",
+  "h1": "Build, Orchestrate, and Scale Calliope is the foundation for deploying fleets of agents —",
+  "sub": "structured, governable, and production-ready.",
+  "features": [],
+  "_body": "Build, Orchestrate, and Scale Calliope is the foundation for deploying fleets of agents — structured, governable, and production-ready. CALLIOPE AI One agent answering one question is a toy. Real systems coordinate teams of specialized agents — planning, retrieving, building, validating — working together across data, apps, and users. Calliope lets you build real agentic systems: autonomous, modular, memory-backed, retrieval-augmented, and safely governed — ready for scale. If you’re stuck with: You’re not scaling intelligence — you’re scaling risk. Contact us Single agents that collapse when tasks become multi-step or multi-modal No coordination between retrieval, reasoning, execution, and validation agents Fragile, untraceable workflows when agents interact across different services No governance over agent behavior, resource usage, or memory CALLIOPE AI Calliope gives you structured tools to build, manage, and evolve agent platforms: Orchestrate multiple agent roles, capabilities, and interaction models Embed retrieval, notebook exploration, API integration, and model hosting into agent workflows Govern agent memory, execution rights, telemetry, and scaling rules from day one Features Modular Agent Orchestration Build planners, retrievers, validators, coders, optimizers — as specialized, composable agent roles Manage inter-agent communication with structured message passing and shared memory scopes Dynamic goal decomposition, fallback strategies, and result validation flows Deployment-Ready Infrastructure Integrated notebook orchestration, retrieval pipelines, model hosting, and system telemetry Deploy internally for team copilots, externally for user-facing AI applications, or hybrid Full CI/CD provenance and audit trails for all agent updates and deployments Calliope isn’t just about building smarter agents — it’s about building smarter systems. Because the future of AI isn’t one agent talking to a user — it’s a symphony of agents working together to solve real"
+ },
+ "solution-ai-applications": {
+  "slug": "solution-ai-applications",
+  "path": "/solutions/ai-applications/",
+  "archetype": "solution",
+  "active": "solutions",
+  "dataPage": "solutions",
+  "back": {
+   "href": "/solutions.html",
+   "label": "Solutions"
+  },
+  "eyebrow": "Solutions · AI Applications",
+  "h1": "From Idea to Intelligence — Calliope accelerates real AI product development — with",
+  "sub": "dynamic agents, smart retrieval, governed orchestration, and seamless data workflows. Building AI-powered applications shouldn’t feel like gambling. Today, too many projects stall between messy proofs-of-concept and unscalable production systems — because they",
+  "features": [],
+  "_body": "From Idea to Intelligence — Calliope accelerates real AI product development — with dynamic agents, smart retrieval, governed orchestration, and seamless data workflows. Building AI-powered applications shouldn’t feel like gambling. Today, too many projects stall between messy proofs-of-concept and unscalable production systems — because they’re duct-taping LLM APIs to fragile frontend scripts. Calliope changes that. With Calliope, you move from prototype to production inside a unified environment: dynamic agent orchestration, real retrieval pipelines, integrated data agents, model hosting, and governed notebook collaboration — all modular, all extensible. If you’re stuck with: You’re slowing down innovation — and increasing failure risk. Contact us APIs that work in demos but collapse under real load Agents that can’t coordinate complex workflows Retrieval that’s brittle, inconsistent, or absent entirely Manual notebook experimentation that never cleanly transitions into apps CALLIOPE AI Calliope unifies AI development workflows into structured, scalable application backbones: Agents with memory, autonomy, and tool use Live data access for retrieval-augmented reasoning Notebook-based experimentation that flows into real services Model hosting, scaling, and governance baked in from day zero End-to-end telemetry, tracing, and auditability Features Dynamic Agent-Centric Applications Dynamic Agent-Centric Applications Build stateful agents that reason, explore, and act across user sessions Coordinate multi-agent workflows for complex application backends Govern execution, memory scoping, and API integrations natively Production-Ready Retrieval and Memory Embed real-time RAG pipelines to ground agents with dynamic knowledge Connect vector stores, databases, and custom APIs seamlessly Manage context condensation, query reranking, and memory persistence Smarter Deployment and Observability Launch apps with dynamic scaling based on user interaction patterns Monitor agent d"
+ },
+ "solution-chatbots": {
+  "slug": "solution-chatbots",
+  "path": "/solutions/chatbots/",
+  "archetype": "solution",
+  "active": "solutions",
+  "dataPage": "solutions",
+  "back": {
+   "href": "/solutions.html",
+   "label": "Solutions"
+  },
+  "eyebrow": "Solutions · Chatbots",
+  "h1": "Build Chatbots That Think — Calliope powers dynamic, context-aware, retrieval-augmented",
+  "sub": "chat agents with real reasoning, tool use, and governance.",
+  "features": [],
+  "_body": "Build Chatbots That Think — Calliope powers dynamic, context-aware, retrieval-augmented chat agents with real reasoning, tool use, and governance. CALLIOPE AI Most chatbots are glorified FAQ wrappers. They answer static questions. They fail under real complexity. They leave users frustrated instead of empowered. If you want conversational AI that actually helps, you need agents that reason, retrieve, adapt, and learn on the fly. That’s what Calliope enables — chat systems built for intelligence, not just interaction. If you’re facing: You’re delivering conversations — but not value. Contact us Chatbots that hallucinate confidently but fail basic queries Static workflows that can’t adapt to real user needs Retrieval systems that either return noise or collapse under load Zero observability into why conversations succeed or fail CALLIOPE AI Calliope brings modular, dynamic chatflow design together with agentic planning, live retrieval pipelines, multi-model orchestration, and full observability. From simple Q&A to complex multi-agent conversations, you build systems that adapt, reason, escalate, and evolve — reliably. Features Retrieval-Augmented Conversational Intelligence Seamlessly integrate SQL, NoSQL, object storage, and vector retrieval into live conversations Dynamically ground agent responses with up-to-date, governed knowledge bases Prioritize, rerank, or fallback based on query confidence and retrieval scores Multi-Agent Chatflow Orchestration Design modular conversation flows with dynamic branching, escalation, and agent handoffs Embed multiple specialized agents (e.g., planner agent, retriever agent, validator agent) into a single session Route messages between agents, external APIs, and retrieval layers automatically Governance, Observability, and Scaling Track every agent decision, retrieval source, and conversation state across sessions Dynamically inject memory, context, and tool use based on user roles and permissions Scale horizontally with autoscali"
+ },
+ "solution-data-exploration": {
+  "slug": "solution-data-exploration",
+  "path": "/solutions/data-exploration/",
+  "archetype": "solution",
+  "active": "solutions",
+  "dataPage": "solutions",
+  "back": {
+   "href": "/solutions.html",
+   "label": "Solutions"
+  },
+  "eyebrow": "Solutions · Data Exploration",
+  "h1": "Turn Your Data into Answers — Calliope transforms notebooks and databases into dynamic, conversational data exploration copilots.",
+  "sub": "",
+  "features": [],
+  "_body": "Turn Your Data into Answers — Calliope transforms notebooks and databases into dynamic, conversational data exploration copilots. CALLIOPE AI Data shouldn’t be locked behind endless SQL debugging, brittle dashboards, or fragmented pipelines. Exploration should feel fluid, conversational, and intelligent — where discovering insights is as simple as asking the right question. Calliope makes it real: smarter agents embedded directly inside your data environments, powering dynamic queries, live experimentation, and governed analysis — at scale. If you’re struggling with: You’re moving slower than your ideas — and leaving insights undiscovered. Contact us Manual query writing just to validate simple hypotheses Static dashboards that can’t answer new questions Lost context between data prep, exploration, modeling, and reporting No governed, safe way to explore sensitive or dynamic datasets interactively CALLIOPE AI Calliope reimagines data exploration: Conversational agents, live dataset access, governed kernel execution, and reproducibility built directly into your notebooks, APIs, and agent workflows. Features Conversational Data Agents Talk directly to SQL, NoSQL, and object stores — no fragile queries, no context loss Surface relationships, aggregations, trends, and outliers dynamically Auto-generate visualizations, EDA reports, and experiment scaffolds inside notebooks or live sessions Safe, Governed Exploration Role-based access control on datasets, queries, and result sets Ephemeral execution kernels with session scoping, rollback, and memory isolation Full audit logging of every agent action, data access, and transformation From Exploration to Execution Transition seamlessly from exploration to experiment workflows - no rework Embed dynamic retrieval pipelines and agent orchestration directly from exploratory sessions Export insights to production models, apps, or dashboards with full reproducibility Calliope transforms your datasets from static assets into living"
+ },
+ "solution-internal-automation": {
+  "slug": "solution-internal-automation",
+  "path": "/solutions/internal-automation/",
+  "archetype": "solution",
+  "active": "solutions",
+  "dataPage": "solutions",
+  "back": {
+   "href": "/solutions.html",
+   "label": "Solutions"
+  },
+  "eyebrow": "Solutions · Internal Automation",
+  "h1": "Automate Smarter.",
+  "sub": "Calliope powers internal agents that automate workflows, orchestrate tools, and scale operations — securely and intelligently. Scaling operations shouldn’t mean scaling technical debt. Most internal automation today feels like a patchwork of brittle scripts, f",
+  "features": [],
+  "_body": "Automate Smarter. Calliope powers internal agents that automate workflows, orchestrate tools, and scale operations — securely and intelligently. Scaling operations shouldn’t mean scaling technical debt. Most internal automation today feels like a patchwork of brittle scripts, fragile bots, and disconnected systems. With Calliope, you build intelligent internal automation — structured, modular, governed — with agents that think, adapt, and deliver. If you’re facing: You’re scaling effort — not scaling impact. Contact us Manual workflows slowing down your teams Fragile internal bots that collapse outside narrow scripts Lack of visibility, traceability, and governance across automation flows Endless rebuilds every time a tool, API, or process changes CALLIOPE AI Built to evolve, not break. Calliope internal automation connects agents, workflows, APIs, and data systems into governed, adaptive, scalable automation frameworks. Features Agentic Workflow Orchestration Build multi-step, conditional workflows powered by intelligent agents Connect internal APIs, databases, SaaS platforms, and legacy systems dynamically Design adaptive pipelines: fallback handling, escalation logic, self-healing retries Governance, Observability, and Resilience Full tracing of agent actions, system interactions, and decision chains Scoped permissions, resource limits, and access control at every integration point Audit-ready automation: reproducible, explainable, versioned Scale Without Silos Horizontal agent scaling for workload bursts and multi-department support Shared memory and context across workflows for smarter decision-making Cross-platform orchestration without vendor lock-in Calliope internal automation isn’t about stitching tools together faster — it’s about building operational intelligence that grows with you. Because the future of scale isn’t just more workflows — it’s smarter, safer systems. Automate Smarter Build Internal Systems with Calliope"
+ },
+ "solution-knowledge-base": {
+  "slug": "solution-knowledge-base",
+  "path": "/solutions/knowledge-base/",
+  "archetype": "solution",
+  "active": "solutions",
+  "dataPage": "solutions",
+  "back": {
+   "href": "/solutions.html",
+   "label": "Solutions"
+  },
+  "eyebrow": "Solutions · Knowledge Base",
+  "h1": "Learn From Your Documents.",
+  "sub": "Calliope turns your internal knowledge into dynamic, governed, retrievable intelligence — ready to power agents, apps, and automation. Your documents, datasets, and wikis contain answers. But static files don’t teach, adapt, or scale — they rot. Calliope chang",
+  "features": [],
+  "_body": "Learn From Your Documents. Calliope turns your internal knowledge into dynamic, governed, retrievable intelligence — ready to power agents, apps, and automation. Your documents, datasets, and wikis contain answers. But static files don’t teach, adapt, or scale — they rot. Calliope changes that. Ingest your internal knowledge. Transform it into structured, retrievable intelligence. Query it live through notebooks, chatflows, or agents. Build workflows that learn as fast as your organization does. If you’re stuck with: You’re leaving critical knowledge locked behind complexity. Contact us Disconnected documents and datasets no one can search reliably Rebuilding analysis every time a new report or API lands Static wikis that fall behind product evolution No way to ask questions and get structured answers dynamically CALLIOPE AI Calliope lets you ingest, structure, govern, and explore your internal knowledge — dynamically and safely. Auto-ingest internal documentation, papers, reports, wiki articles, and structured datasets Vectorize and enrich content automatically for smarter retrieval Query knowledge bases directly from inside Jupyter, VSCode, or Colab notebooks — using natural language Embed dynamic retrieval into agents, apps, chatflows, or research workflows Features Learn Smarter From Your Data and Docs Automate parsing, chunking, vectorization, and semantic enrichment across multiple data types Build governed retrieval pipelines scoped by dataset, namespace, project, or user role Dynamically update indexes, context retrieval logic, and embedding strategies over time Explore Inside Notebooks and Chatflows Native notebook chat integration: query datasets, documents, or wikis conversationally Live retrieval agents embedded inside experimental workflows Retrieve, visualize, and reason about knowledge without leaving your build environment Calliope doesn’t just store your knowledge. It learns from it — and gives you structured, dynamic access to it — everywhere you w"
+ },
+ "solution-research-tools": {
+  "slug": "solution-research-tools",
+  "path": "/solutions/research-tools/",
+  "archetype": "solution",
+  "active": "solutions",
+  "dataPage": "solutions",
+  "back": {
+   "href": "/solutions.html",
+   "label": "Solutions"
+  },
+  "eyebrow": "Solutions · Research Tools",
+  "h1": "Accelerate Discovery.",
+  "sub": "Calliope powers dynamic research workflows — combining agents, notebooks, data pipelines, and reproducible systems. Research is messy — but your systems don’t have to be. Real innovation comes from faster experiments, cleaner iteration, dynamic exploration, an",
+  "features": [],
+  "_body": "Accelerate Discovery. Calliope powers dynamic research workflows — combining agents, notebooks, data pipelines, and reproducible systems. Research is messy — but your systems don’t have to be. Real innovation comes from faster experiments, cleaner iteration, dynamic exploration, and trustworthy reproducibility. Calliope gives researchers agent-augmented notebooks, retrieval-enhanced data discovery, and governed pipelines that scale curiosity into impact. If you’re struggling with: You’re slowing down discovery — and risking irreproducibility. Fragile notebooks that collapse under real experimentation Manual rework every time datasets, hypotheses, or models shift No reproducible link between exploration and results Lack of dynamic retrieval or live data integration during research workflows CALLIOPE AI Calliope makes research dynamic, structured, and auditable: Agents that assist in exploration, hypothesis generation, experiment planning, and result validation Live data retrieval inside notebooks Structured memory for experiment state, parameter tracking, and evolution history Features Agent-Augmented Research Workflows Autonomous or semi-autonomous research assistants embedded into notebooks Dynamic literature search, dataset exploration, experiment structuring Conversational planning and experimental design augmentation Structured Reproducibility and Governance Full session memory tracking: parameters, data versions, code paths Auto-generated documentation and reporting pipelines CI-linked reproducibility pipelines: validate experiments at scale Integrated Knowledge Discovery RAG pipelines sourcing papers, datasets, and prior results Multi-agent validation and cross-experiment result comparisons Dynamic hypothesis testing based on evolving data and insights Calliope turns research from isolated experiments into scalable, intelligent discovery engines. Because the future of breakthroughs isn’t just working harder — it’s building smarter. Power Research Systems Accel"
+ },
+ "industry-healthcare-pharma": {
+  "slug": "industry-healthcare-pharma",
+  "path": "/industries/healthcare-pharma/",
+  "archetype": "industry",
+  "active": "solutions",
+  "dataPage": "industries",
+  "back": {
+   "href": "/industries.html",
+   "label": "Industries"
+  },
+  "eyebrow": "Industries · Healthcare & Pharma",
+  "h1": "AI for healthcare research.",
+  "sub": "Accelerate research. Protect patient data. Meet compliance requirements.",
+  "features": [
+   {
+    "title": "HIPAA alignment",
+    "desc": "Access controls, encryption, audit logging for PHI"
+   },
+   {
+    "title": "Research isolation",
+    "desc": "Clinical trial data stays in approved environments"
+   },
+   {
+    "title": "Content scanning",
+    "desc": "PHI detection before data leaves perimeter"
+   },
+   {
+    "title": "Model governance",
+    "desc": "Approved AI services only. No shadow AI with patient data"
+   },
+   {
+    "title": "Audit trails",
+    "desc": "Every query, every result, every access logged"
+   },
+   {
+    "title": "Air-gap capable",
+    "desc": "Lab systems and research data fully isolated Use Cases Research Analytics Natural language queries against research databases. Literature review. Data exploration. Governed access. Reproducible analys"
+   }
+  ],
+  "_body": "HEALTHCARE & PHARMA AI for Research Accelerate research. Protect patient data. Meet compliance requirements. INDUSTRY Healthcare data requires healthcare-grade protection. PHI. Clinical trial data. Research results. Patient records. Healthcare organizations can’t use consumer AI tools. HIPAA doesn’t care that it’s convenient. IRBs don’t accept “we used ChatGPT.” Calliope provides AI with healthcare governance. HIPAA-aligned controls. Research data isolation. Audit trails that satisfy compliance. Deployment options that keep sensitive data where it belongs. Healthcare & pharma requirements: AI with the protections patient data demands. Talk to Us **HIPAA alignment** — Access controls, encryption, audit logging for PHI **Research isolation** — Clinical trial data stays in approved environments **Content scanning** — PHI detection before data leaves perimeter **Model governance** — Approved AI services only. No shadow AI with patient data. **Audit trails** — Every query, every result, every access logged **Air-gap capable** — Lab systems and research data fully isolated Use Cases Research Analytics Natural language queries against research databases. Literature review. Data exploration. Governed access. Reproducible analysis. Compliant data handling. Lab Automation AI agents for lab data analysis. Experiment tracking. Protocol assistance. Deploy in isolated lab networks. Air-gapped when required. Clinical Documentation AI-assisted documentation and analysis. Administrative automation. PHI scanning ensures sensitive data stays protected. AI for healthcare. Calliope gives healthcare and pharma organizations the AI platform they need — with the governance patient data requires. Contact Sales See HIPAA Controls"
+ },
+ "industry-government-defense": {
+  "slug": "industry-government-defense",
+  "path": "/industries/government-defense/",
+  "archetype": "industry",
+  "active": "solutions",
+  "dataPage": "industries",
+  "back": {
+   "href": "/industries.html",
+   "label": "Industries"
+  },
+  "eyebrow": "Industries · Government & Defense",
+  "h1": "AI for government & defense.",
+  "sub": "Air-gapped, FedRAMP path, classified support — built for the strictest environments.",
+  "features": [
+   {
+    "title": "Air-gapped operation",
+    "desc": "Zero external network connectivity"
+   },
+   {
+    "title": "Local model hosting",
+    "desc": "Bring your own models. Run on your hardware"
+   },
+   {
+    "title": "FedRAMP path",
+    "desc": "Working toward FedRAMP authorization"
+   },
+   {
+    "title": "Classified support",
+    "desc": "Architecture designed for classified environments"
+   },
+   {
+    "title": "Full audit",
+    "desc": "Every action logged for security review"
+   },
+   {
+    "title": "No dependencies",
+    "desc": "Operates completely independently Capabilities Air-Gapped AI Complete platform running on your infrastructure. No external API calls. No cloud dependencies. Local LLMs (Llama, Mistral, custom models)."
+   }
+  ],
+  "_body": "GOVERNMENT & DEFENSE AI for Secure Environments. Air-gapped deployment. Local models. Complete isolation. INDUSTRY Some networks don’t touch the internet. By design. SCIF requirements. IL4/IL5 environments. Classified networks. Air-gapped operations. Government and defense organizations need AI capabilities. But they can’t use cloud AI services. They can’t send data to external APIs. They can’t rely on external connectivity. Calliope deploys fully on-premise and air-gapped. Local model hosting. Zero external dependencies. Complete isolation. Your hardware, your network, your control. Government & defense requirements: AI with maximum isolation and control. Talk to Us **Air-gapped operation** — Zero external network connectivity **Local model hosting** — Bring your own models. Run on your hardware. **FedRAMP path** — Working toward FedRAMP authorization **Classified support** — Architecture designed for classified environments **Full audit** — Every action logged for security review **No dependencies** — Operates completely independently Capabilities Air-Gapped AI Complete platform running on your infrastructure. No external API calls. No cloud dependencies. Local LLMs (Llama, Mistral, custom models). Offline updates via secure transfer. Analyst Tools AI Lab for intelligence analysis. Data connectivity to internal sources. Natural language queries. Document analysis. Pattern recognition. Governed Operations Zentinelle governance applies even in air-gapped deployments. Policy controls. Audit logging. Access management. All local. AI for secure environments. Calliope gives government and defense organizations AI capabilities — with the isolation and control secure environments require. Contact Sales See Air-Gap Deployment"
+ },
+ "industry-energy-utilities": {
+  "slug": "industry-energy-utilities",
+  "path": "/industries/energy-utilities/",
+  "archetype": "industry",
+  "active": "solutions",
+  "dataPage": "industries",
+  "back": {
+   "href": "/industries.html",
+   "label": "Industries"
+  },
+  "eyebrow": "Industries · Energy & Utilities",
+  "h1": "AI for energy & utilities.",
+  "sub": "SCADA integration, seismic analysis and operational data governance.",
+  "features": [
+   {
+    "title": "SCADA integration",
+    "desc": "Connect to operational technology data with strict access controls. No exposure to public internet"
+   },
+   {
+    "title": "Air-gapped deployment",
+    "desc": "Run entirely on-premise for critical infrastructure environments"
+   },
+   {
+    "title": "NERC CIP alignment",
+    "desc": "Audit trails and access controls that support compliance requirements"
+   },
+   {
+    "title": "AI-powered analysis",
+    "desc": "Turn your engineers into 10x analysts. Natural language queries on operational data"
+   },
+   {
+    "title": "Multi-source correlation",
+    "desc": "Grid data, weather, market prices, maintenance logs. Query anything, build any report"
+   },
+   {
+    "title": "Local models",
+    "desc": "Use Ollama for completely private operation. No data leaves your network. Ever. OPERATIONAL INTELLIGENCE The question-answering machine for your operational data. Connect your data sources: SCADA and "
+   }
+  ],
+  "_body": "ENERGY & UTILITIES Critical Infrastructure. Grid operations. Pipeline monitoring. Renewable forecasting. Energy sector data is sensitive, operational, and increasingly AI-ready — if you can govern access properly. THE CHALLENGE Your operational data is a goldmine. And a liability. SCADA systems. Grid telemetry. Pipeline sensors. Weather feeds. Market data. You’re drowning in data that could optimize operations — but exposing it is a security nightmare. The problem: Analysts need access to operational data. But OT/IT convergence creates attack surfaces. Consumer AI tools are out of the question. The solution: Governed AI analysis that stays in your perimeter. Query SCADA data without exposing it. Get insights without creating vulnerabilities. Built for energy sector realities: Critical infrastructure requires critical security. Talk to Us **SCADA integration** — Connect to operational technology data with strict access controls. No exposure to public internet. **Air-gapped deployment** — Run entirely on-premise for critical infrastructure environments. **NERC CIP alignment** — Audit trails and access controls that support compliance requirements. **AI-powered analysis** — Turn your engineers into 10x analysts. Natural language queries on operational data. **Multi-source correlation** — Grid data, weather, market prices, maintenance logs. Query anything, build any report. **Local models** — Use Ollama for completely private operation. No data leaves your network. Ever. OPERATIONAL INTELLIGENCE The question-answering machine for your operational data. Connect your data sources: SCADA and historian systems Grid telemetry and sensor networks Weather and forecasting feeds Market and pricing data Maintenance and work order systems Ask questions in plain English: “Show me all transformer temperature anomalies in the last 30 days” “Correlate outage patterns with weather events by region” “Which substations are approaching maintenance thresholds?” Get actionable insights: You"
+ },
+ "industry-life-sciences": {
+  "slug": "industry-life-sciences",
+  "path": "/industries/life-sciences/",
+  "archetype": "industry",
+  "active": "solutions",
+  "dataPage": "industries",
+  "back": {
+   "href": "/industries.html",
+   "label": "Industries"
+  },
+  "eyebrow": "Industries · Life Sciences & Biotech",
+  "h1": "AI for life sciences & biotech.",
+  "sub": "Compliance-ready infrastructure for R&D and computational biology.",
+  "features": [
+   {
+    "title": "HIPAA-ready",
+    "desc": "PHI stays protected. Access controls. Audit trails. Encryption at rest and in transit"
+   },
+   {
+    "title": "21 CFR Part 11",
+    "desc": "Electronic records with full audit trails for FDA-regulated research"
+   },
+   {
+    "title": "Genomics at scale",
+    "desc": "Connect to sequencing pipelines, LIMS, and genomic databases. Query anything"
+   },
+   {
+    "title": "AI multiplier",
+    "desc": "Turn your bioinformaticians into 10x analysts. Natural language to SQL. Instant insights"
+   },
+   {
+    "title": "Multi-model flexibility",
+    "desc": "Use Claude for literature review. Local models for proprietary compound data"
+   },
+   {
+    "title": "Reproducible research",
+    "desc": "Same environment, every run. No dependency conflicts. No 'worked on my laptop.' COMPUTATIONAL BIOLOGY The question-answering machine for your research data. Connect your data: Sequencing platforms and"
+   }
+  ],
+  "_body": "LIFE SCIENCES & BIOTECH Accelerate Discovery. Drug discovery. Genomics. Clinical research. Computational biology moves fast — but compliance doesn’t sleep. Get the AI-powered analysis you need with the governance regulators require. THE CHALLENGE Life sciences data is sensitive. Period. Patient data. Genomic sequences. Proprietary compounds. Clinical trial results. Your data is valuable, regulated, and a target. The old way: Researchers using consumer AI tools. Data leaving your perimeter. No audit trail. Compliance nightmares. The Calliope way: AI-powered analysis where your data stays yours. Every query logged. Every access governed. Compliance built in. Built for life sciences realities: Real compliance. Real governance. Real productivity gains. Talk to Us **HIPAA-ready** — PHI stays protected. Access controls. Audit trails. Encryption at rest and in transit. **21 CFR Part 11** — Electronic records with full audit trails for FDA-regulated research. **Genomics at scale** — Connect to sequencing pipelines, LIMS, and genomic databases. Query anything. **AI multiplier** — Turn your bioinformaticians into 10x analysts. Natural language to SQL. Instant insights. **Multi-model flexibility** — Use Claude for literature review. Local models for proprietary compound data. **Reproducible research** — Same environment, every run. No dependency conflicts. No 'worked on my laptop.' COMPUTATIONAL BIOLOGY The question-answering machine for your research data. Connect your data: Sequencing platforms and LIMS systems Clinical trial databases Literature and patent databases Internal compound libraries Ask questions: “Show me expression patterns for gene X across all cell lines” “Which compounds showed >50% inhibition in the last quarter?” “Summarize recent literature on target Y” Get answers: Natural language in, actionable insights out. Your data scientists become 10x more productive. Life Sciences Capabilities Drug Discovery Compound screening analysis. ADMET prediction. Target i"
+ },
+ "industry-manufacturing": {
+  "slug": "industry-manufacturing",
+  "path": "/industries/manufacturing/",
+  "archetype": "industry",
+  "active": "solutions",
+  "dataPage": "industries",
+  "back": {
+   "href": "/industries.html",
+   "label": "Industries"
+  },
+  "eyebrow": "Industries · Manufacturing",
+  "h1": "AI for the factory floor.",
+  "sub": "Operational intelligence. Vendor access control. OT network protection.",
+  "features": [
+   {
+    "title": "OT/IT separation",
+    "desc": "AI runs in OT network, isolated from IT"
+   },
+   {
+    "title": "Vendor access",
+    "desc": "Scoped access to specific systems. Full audit trail"
+   },
+   {
+    "title": "SCADA integration",
+    "desc": "Query operational data. Build reporting interfaces"
+   },
+   {
+    "title": "Edge deployment",
+    "desc": "Deploy close to production. Minimize latency"
+   },
+   {
+    "title": "IP protection",
+    "desc": "Manufacturing processes stay internal"
+   },
+   {
+    "title": "Hard-to-reach networks",
+    "desc": "Works in isolated factory environments Use Cases Telemetry Analytics Build reporting interfaces for operational data. Energy usage. Production metrics. Equipment health. Natural language queries again"
+   }
+  ],
+  "_body": "MANUFACTURING AI for the Factory Floor. Operational intelligence. Vendor access control. OT network protection. INDUSTRY Your vendors need access. Your OT network needs protection. Manufacturing runs on data — telemetry, SCADA, production metrics, quality data. You need AI to analyze it. But you can’t expose OT networks to IT risks. And vendors need access to your systems for maintenance, support, and optimization. But you can’t give them VPN access to your entire network. Calliope solves both problems. Deploy AI in your OT environment — isolated, air-gapped if needed. Give vendors scoped access to exactly what they need — nothing more. Manufacturing requirements: AI that works in production environments. Talk to Us **OT/IT separation** — AI runs in OT network, isolated from IT **Vendor access** — Scoped access to specific systems. Full audit trail. **SCADA integration** — Query operational data. Build reporting interfaces. **Edge deployment** — Deploy close to production. Minimize latency. **IP protection** — Manufacturing processes stay internal **Hard-to-reach networks** — Works in isolated factory environments Use Cases Telemetry Analytics Build reporting interfaces for operational data. Energy usage. Production metrics. Equipment health. Natural language queries against time-series data. Anomaly detection. Trend visualization. Vendor Access Control Vendors work through browser. Access scoped to specific systems. No VPN required. See exactly what vendors accessed. Time-limited permissions. Full audit trail. Quality Analysis AI-powered analysis of quality data. Defect pattern recognition. Process optimization. Connects to your data sources. Runs in your environment. IP stays internal. AI for manufacturing. Calliope gives manufacturing organizations the AI platform they need — with the OT protection and vendor controls production requires. Contact Sales See Edge Deployment"
+ },
+ "industry-research-academia": {
+  "slug": "industry-research-academia",
+  "path": "/industries/research-academia/",
+  "archetype": "industry",
+  "active": "solutions",
+  "dataPage": "industries",
+  "back": {
+   "href": "/industries.html",
+   "label": "Industries"
+  },
+  "eyebrow": "Industries · Research & Academia",
+  "h1": "AI for research & academia.",
+  "sub": "Governed research environments for academic and research institutions.",
+  "features": [
+   {
+    "title": "Multi-tenant isolation",
+    "desc": "Each lab group gets their own environment. No cross-contamination"
+   },
+   {
+    "title": "Grant compliance",
+    "desc": "Demonstrate data governance for NIH, NSF, DOE, and international funders"
+   },
+   {
+    "title": "AI-assisted analysis",
+    "desc": "Turn your average researcher into a 10x data scientist. Natural language to SQL. Instant visualizations"
+   },
+   {
+    "title": "Reproducible environments",
+    "desc": "Same environment, every time. No more 'works on my machine.'"
+   },
+   {
+    "title": "Collaboration without compromise",
+    "desc": "Share notebooks, not credentials. Collaborate without exposing raw data"
+   },
+   {
+    "title": "Any data source",
+    "desc": "Connect to institutional databases, cloud storage, APIs. Query anything, build any report. THE AI LAB The perfect question-answering machine for your research data. Hook it up to your data. Ask questi"
+   }
+  ],
+  "_body": "RESEARCH & ACADEMIA Research Infrastructure Universities, national labs, and research institutions need computational environments that enable collaboration without compromising data governance or intellectual property. THE CHALLENGE Research computing is chaos. Every PhD student spinning up their own Python environment. Postdocs with API keys in plaintext. No audit trail on who accessed what data. Grants requiring data governance you can’t demonstrate. The result? Reproducibility crises. Security incidents. Failed audits. IP disputes. Calliope brings order. Governed JupyterLab environments with AI assistance that makes every researcher more productive — while keeping data where it belongs. Built for research realities: Real solutions for real research challenges. Talk to Us **Multi-tenant isolation** — Each lab group gets their own environment. No cross-contamination. **Grant compliance** — Demonstrate data governance for NIH, NSF, DOE, and international funders. **AI-assisted analysis** — Turn your average researcher into a 10x data scientist. Natural language to SQL. Instant visualizations. **Reproducible environments** — Same environment, every time. No more 'works on my machine.' **Collaboration without compromise** — Share notebooks, not credentials. Collaborate without exposing raw data. **Any data source** — Connect to institutional databases, cloud storage, APIs. Query anything, build any report. THE AI LAB The perfect question-answering machine for your research data. Hook it up to your data. Ask questions in plain English. Get answers. For computational researchers: Natural language to SQL — describe what you want, get the query AI-assisted code generation — scaffolding, debugging, optimization Built-in Python stack — pandas, numpy, scipy, matplotlib, scikit-learn For research administrators: Full audit trails on data access Policy-based governance by department, grant, or project No API keys floating around in notebooks Your researchers become more produ"
+ },
+ "industry-climate-environment": {
+  "slug": "industry-climate-environment",
+  "path": "/industries/climate-environment/",
+  "archetype": "industry",
+  "active": "solutions",
+  "dataPage": "industries",
+  "back": {
+   "href": "/industries.html",
+   "label": "Industries"
+  },
+  "eyebrow": "Industries · Climate & Environment",
+  "h1": "AI for climate & environmental science.",
+  "sub": "Climate modeling, environmental monitoring and sustainability research.",
+  "features": [
+   {
+    "title": "Scale to your data",
+    "desc": "From gigabytes to petabytes. Same environment, same tools, more compute"
+   },
+   {
+    "title": "Multi-institution collaboration",
+    "desc": "Share analyses without sharing credentials. Governed access across organizations"
+   },
+   {
+    "title": "Reproducibility built-in",
+    "desc": "Containerized environments. Version-controlled notebooks. No more 'worked on my cluster.'"
+   },
+   {
+    "title": "AI-powered analysis",
+    "desc": "Turn your climate scientists into 10x data analysts. Natural language queries on model output"
+   },
+   {
+    "title": "Any data source",
+    "desc": "NetCDF, GRIB, satellite imagery, station data, reanalysis. Query anything, build any visualization"
+   },
+   {
+    "title": "Grant compliance",
+    "desc": "Demonstrate data governance for NSF, DOE, NOAA, and international funding agencies. EARTH SCIENCE DATA The question-answering machine for your climate data. Connect your data sources: Climate model ou"
+   }
+  ],
+  "_body": "CLIMATE & ENVIRONMENT Big Data. Climate models generate petabytes. Sensor networks stream continuously. Satellite imagery arrives daily. You need AI-powered analysis that scales — with governance that enables collaboration without compromising data integrity. THE CHALLENGE Climate science is a data problem. And a collaboration problem. Multi-institution collaborations. Terabytes of model output. Decades of observational data. Multiple funding agencies with different requirements. The chaos: Every researcher with their own environment. Dependencies that don’t match. Results that can’t be reproduced. Data scattered across institutions. The solution: Governed, reproducible analysis environments that scale from laptop to cluster — with AI assistance that makes every researcher more productive. Built for climate science realities: Massive data. Complex collaboration. Reproducible results. Talk to Us **Scale to your data** — From gigabytes to petabytes. Same environment, same tools, more compute. **Multi-institution collaboration** — Share analyses without sharing credentials. Governed access across organizations. **Reproducibility built-in** — Containerized environments. Version-controlled notebooks. No more 'worked on my cluster.' **AI-powered analysis** — Turn your climate scientists into 10x data analysts. Natural language queries on model output. **Any data source** — NetCDF, GRIB, satellite imagery, station data, reanalysis. Query anything, build any visualization. **Grant compliance** — Demonstrate data governance for NSF, DOE, NOAA, and international funding agencies. EARTH SCIENCE DATA The question-answering machine for your climate data. Connect your data sources: Climate model output (CMIP, CESM, WRF) Satellite and remote sensing data Observational networks and station data Reanalysis products (ERA5, MERRA-2) Your institution’s data archives Ask questions in plain English: “Show me temperature anomalies for 2024 vs 1990-2020 baseline” “Which CMIP6 models best m"
+ },
+ "about": {
+  "slug": "about",
+  "path": "/about-calliope/",
+  "archetype": "about",
+  "active": "",
+  "dataPage": "home",
+  "back": null,
+  "eyebrow": "Company · About Calliope",
+  "h1": "Built From Frustration.",
+  "sub": "Calliope was born from a simple question: Why is it so hard to build smart AI workflows that actually work? Founder's story Calliope started the way a lot of real breakthroughs do — from painful experience. Calliope brings modular, dynamic chatflow design toge",
+  "features": [],
+  "_body": "CALLIOPE AI Built From Frustration. Calliope was born from a simple question: Why is it so hard to build smart AI workflows that actually work? Founder's story Calliope started the way a lot of real breakthroughs do — from painful experience. Calliope brings modular, dynamic chatflow design together with agentic planning, live retrieval pipelines, multi-model orchestration, and full observability. Our founder needed to run A/B tests across multiple AI models to figure out which approach would perform best for a live application. Simple idea, right? But the tooling landscape was a mess — fragmented, manual, slow, and brittle. Testing different prompts, models, data sources, and retrieval setups all at once? Practically impossible without endless duct-tape engineering. After spending way too long patching together custom scripts, ad-hoc pipelines, and fragile workflows just to run basic experiments, it became clear: There had to be a better, easier way. But there wasn’t. So we built it. Calliope exists because real AI development deserves real tools — not toys, not hacks, not hope. Structured, scalable, elegant — built by engineers who know what it feels like to wrestle with brittle systems and still want to ship something smarter. Why the name Calliope? Calliope was the muse of epic poetry — the force that helped creators turn ideas into stories that moved civilizations. We think great AI systems deserve the same. What We Believe: Intelligence without structure is chaos. Systems should help you build faster, not slow you down. Every good idea deserves a real shot at reality — not endless infrastructure duct-tape. Built by builders. For builders who refuse to settle. agents, retrieval, notebooks, model hosting, and more — into a structured, governable flow that gets real work done. Build Smarter Start with Calliope"
+ },
+ "team": {
+  "slug": "team",
+  "path": "/team/",
+  "archetype": "team",
+  "active": "",
+  "dataPage": "home",
+  "back": null,
+  "eyebrow": "Company · Team",
+  "h1": "Meet the humans The team building Calliope AI — engineers, designers, and operators",
+  "sub": "obsessed with performance, control, and elegance. Meet the humans behind the AI",
+  "features": [],
+  "_body": "OUR TEAM Meet the humans The team building Calliope AI — engineers, designers, and operators obsessed with performance, control, and elegance. Meet the humans behind the AI LEO Founder CRAIG Chief Revenue Officer & GTM EDDIE Staff SRE & InfoSec GREGORIO Machine Learning & AI HIRAM Sr Fullstack & AI JAVIER Staff SRE & AI JULIO Sr Fullstack & AI MAGDA QUALITY & SDET PATRYCJA STAFF UX/UI PIOTR WEB, MOBILE & AI RAFAL FrontEnd, MOBILE & AI TOMASZ WEB, MOBILE & AI Built by the engineers at CONFLICT, Calliope is grounded in real-world needs and relentless precision. It’s not theory—it’s the tooling we wish existed, battle-tested in production. From idea to inference, every detail reflects our obsession with performance, control, and elegance. This is software by people who ship. www.weareconflict.com"
+ },
+ "careers": {
+  "slug": "careers",
+  "path": "/careers/",
+  "archetype": "careers",
+  "active": "",
+  "dataPage": "home",
+  "back": null,
+  "eyebrow": "Company · Careers",
+  "h1": "Build the Future.",
+  "sub": "Shape Intelligence with Us We’re always looking for exceptional builders, thinkers, and explorers — even if we’re not hiring right now.",
+  "features": [],
+  "_body": "CALLIOPE AI Build the Future. Shape Intelligence with Us We’re always looking for exceptional builders, thinkers, and explorers — even if we’re not hiring right now. CALLIOPE AI Calliope is an engineering-first company built by people who believe in solving hard problems elegantly. We don’t just build AI workflows — we build infrastructure for the next generation of intelligent systems. If you’re passionate about applied AI, distributed systems, agent orchestration, and building clean, scalable technology, we’d love to hear from you. Current Openings None at this time. Stay Connected: If you believe you’d be a strong fit for our mission, feel free to introduce yourself. We’re always open to connecting with talented engineers, researchers, and builders for future roles. Full Name Email Address LinkedIn/GitHub/Personal Site (optional) Tell us a little about what you’re passionate about building. Send Message I agree to the use and processing of my data to address my inquiry and to provide updates on related products and services. More details in our Privacy Policy. Be the First to Know When We’re Hiring."
+ },
+ "contact": {
+  "slug": "contact",
+  "path": "/contact/",
+  "archetype": "contact",
+  "active": "",
+  "dataPage": "home",
+  "back": null,
+  "eyebrow": "Company · Contact",
+  "h1": "Schedule a consultation If you have a project idea...",
+  "sub": "Book a demo",
+  "features": [],
+  "_body": "Schedule a consultation If you have a project idea... Book a demo"
+ },
+ "developer-resources": {
+  "slug": "developer-resources",
+  "path": "/developer-resources/",
+  "archetype": "posts",
+  "active": "",
+  "dataPage": "home",
+  "back": null,
+  "eyebrow": "Company · Developer Resources",
+  "h1": "Build With Documentation, community, and support for builders on Calliope.",
+  "sub": "Everything you need to get started and scale up.",
+  "features": [
+   {
+    "title": "Documentation",
+    "desc": "Complete guides, API reference, and tutorials at [docs.calliope.ai](https://docs.calliope.ai)"
+   },
+   {
+    "title": "Zentinelle SDK",
+    "desc": "Govern any AI agent. Add policy enforcement, audit logging, and compliance to your own agents"
+   },
+   {
+    "title": "Discord Community",
+    "desc": "Ask questions, share projects, get help from the community and team"
+   },
+   {
+    "title": "GitHub",
+    "desc": "Open source components, examples, and issue tracking"
+   },
+   {
+    "title": "API Reference",
+    "desc": "Complete API documentation for all Calliope services"
+   },
+   {
+    "title": "Tutorials",
+    "desc": "Step-by-step guides for common use cases Resources Documentation Complete documentation for The Hub, AI Lab, IDE, Chat Studio, Deep Agent, Langflow, Browser, and Zentinelle governance. Start at docs.c"
+   }
+  ],
+  "_body": "DEVELOPER RESOURCES Build With Documentation, community, and support for builders on Calliope. Everything you need to get started and scale up. GET STARTED Resources for every stage of your journey. Whether you’re just getting started or scaling to production, we have resources to help. Documentation, tutorials, community support, and direct access to the team. Quick Links: Jump to what you need. Join Discord **Documentation** — Complete guides, API reference, and tutorials at [docs.calliope.ai](https://docs.calliope.ai) **Zentinelle SDK** — Govern any AI agent. Add policy enforcement, audit logging, and compliance to your own agents. **Discord Community** — Ask questions, share projects, get help from the community and team **GitHub** — Open source components, examples, and issue tracking **API Reference** — Complete API documentation for all Calliope services **Tutorials** — Step-by-step guides for common use cases Resources Documentation Complete documentation for The Hub, AI Lab, IDE, Chat Studio, Deep Agent, Langflow, Browser, and Zentinelle governance. Start at docs.calliope.ai Discord Community Join hundreds of builders using Calliope. Get help, share what you’re building, and connect with the team. Join Discord Enterprise Support Enterprise customers get dedicated support channels, SLAs, and direct access to engineering. Contact Sales for enterprise support options. Getting Started New to Calliope? Here’s the fastest path to getting started: Sign up at calliope.ai/signup — free tier available Read the quickstart in docs.calliope.ai Join Discord to ask questions and connect with the community Explore examples in our GitHub repositories Documentation Our documentation covers everything from getting started to advanced governance configuration: Platform Overview — Understanding The Hub and its components AI Lab Guide — Setting up notebooks, connecting data sources, building pipelines AI IDE Guide — Configuring Completions, Chat, and Agent modes Chat Studio Guid"
+ },
+ "blog": {
+  "slug": "blog",
+  "path": "/blog/",
+  "archetype": "posts",
+  "active": "",
+  "dataPage": "home",
+  "back": null,
+  "eyebrow": "Company · Blog",
+  "h1": "From the Calliope blog.",
+  "sub": "Notes on building private AI — governance, deployment and the path to production.",
+  "features": [],
+  "_body": ""
+ }
+}

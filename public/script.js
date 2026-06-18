@@ -70,7 +70,7 @@
     { t: "Langflow", h: "Studio", a: "#studio", k: "pipeline visual builder workflow no-code" },
     { t: "Secure Browser", h: "Studio", a: "#studio", k: "browser air-gapped web isolated" },
     { t: "Deployment — Astrolift", h: "Run", a: "#deploy", k: "deploy cloud on-prem vpc air-gapped runtime aws gcp azure" },
-    { t: "Governance — Zemtino", h: "Govern", a: "#govern", k: "grc governance policy risk compliance audit observability secrets" },
+    { t: "Governance — Zentinelle", h: "Govern", a: "#govern", k: "grc governance policy risk compliance audit observability secrets" },
     { t: "Security & compliance", h: "Govern", a: "#govern", k: "soc2 hipaa gdpr eu ai act security" },
     { t: "Pricing & packaging", h: "Pricing", a: "#pricing", k: "price cost plan packaging studio runtime enterprise" },
     { t: "Deployment Blueprint", h: "Resource", a: "#blueprint", k: "blueprint guide pdf download architecture" },
@@ -265,5 +265,373 @@
       }
       submitLead(form);
     });
+  });
+})();
+
+/* ===== Pricing billing toggle (monthly / annual) ===== */
+(function () {
+  var toggle = document.querySelector("[data-bill-toggle]");
+  if (!toggle) return;
+  var opts = toggle.querySelectorAll(".bill-opt");
+  function apply(bill) {
+    opts.forEach(function (b) {
+      var on = b.getAttribute("data-bill") === bill;
+      b.classList.toggle("is-active", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    document.querySelectorAll("[data-" + bill + "]").forEach(function (el) {
+      var v = el.getAttribute("data-" + bill);
+      if (v != null) el.textContent = v;
+      // retrigger the roll animation
+      el.classList.remove("num-roll");
+      void el.offsetWidth;
+      el.classList.add("num-roll");
+    });
+  }
+  opts.forEach(function (b) {
+    b.addEventListener("click", function () { apply(b.getAttribute("data-bill")); });
+  });
+})();
+
+/* ===== Tab "come back" — gentle title swap when the tab loses focus ===== */
+(function () {
+  var original = document.title;
+  var away = ["Your private-AI workspace is waiting", "← Come back to Calliope"];
+  var timer = null, i = 0;
+  function start() {
+    if (timer) return;
+    i = 0;
+    document.title = away[0];
+    timer = setInterval(function () { i = (i + 1) % away.length; document.title = away[i]; }, 1400);
+  }
+  function stop() {
+    if (timer) { clearInterval(timer); timer = null; }
+    document.title = original;
+  }
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) start(); else stop();
+  });
+})();
+
+/* ===== Industry focus carousel (arrows + auto-rotate right) ===== */
+(function () {
+  var track = document.querySelector("[data-ind-track]");
+  if (!track) return;
+  var prev = document.querySelector("[data-ind-prev]");
+  var next = document.querySelector("[data-ind-next]");
+  function step() {
+    var card = track.querySelector(".indcard");
+    return card ? card.getBoundingClientRect().width + 16 : 300;
+  }
+  function go(dir) { track.scrollBy({ left: dir * step(), behavior: "smooth" }); }
+  if (prev) prev.addEventListener("click", function () { go(-1); });
+  if (next) next.addEventListener("click", function () { go(1); });
+
+  /* drag-to-scroll with mouse (touch uses native swipe) */
+  var down = false, moved = false, startX = 0, startScroll = 0;
+  track.addEventListener("pointerdown", function (e) {
+    if (e.pointerType !== "mouse") return;
+    down = true; moved = false; startX = e.clientX; startScroll = track.scrollLeft;
+    track.classList.add("dragging");
+    track.setPointerCapture(e.pointerId);
+  });
+  track.addEventListener("pointermove", function (e) {
+    if (!down) return;
+    var dx = e.clientX - startX;
+    if (Math.abs(dx) > 5) moved = true;
+    track.scrollLeft = startScroll - dx;
+  });
+  function endDrag() { down = false; track.classList.remove("dragging"); }
+  track.addEventListener("pointerup", endDrag);
+  track.addEventListener("pointercancel", endDrag);
+  /* swallow the click that follows a drag so cards don't navigate */
+  track.addEventListener("click", function (e) {
+    if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+  }, true);
+
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var paused = false;
+  ["mouseenter", "focusin", "touchstart"].forEach(function (e) { track.addEventListener(e, function () { paused = true; }); });
+  ["mouseleave", "focusout"].forEach(function (e) { track.addEventListener(e, function () { paused = false; }); });
+  if (!reduce) {
+    setInterval(function () {
+      if (paused) return;
+      var max = track.scrollWidth - track.clientWidth - 4;
+      if (track.scrollLeft >= max) track.scrollTo({ left: 0, behavior: "smooth" });
+      else go(1);
+    }, 3200);
+  }
+})();
+
+/* ===== Interactive Calliope IDE mock ===== */
+(function () {
+  var code = document.getElementById("ideCode");
+  if (!code) return;
+  var tab = document.getElementById("ideTab");
+  var crumb = document.getElementById("ideCrumb");
+  var lang = document.getElementById("ideLang");
+  var loc = document.getElementById("ideLoc");
+
+  var FILES = {
+    "index.ts": {
+      icon: "fi-ts", lang: "TypeScript",
+      crumb: "src › index.ts › replaceJupyternautWithCalliope()",
+      lines: [
+        '<span class="tk">import</span> {',
+        "  JupyterFrontEnd,",
+        "  JupyterFrontEndPlugin",
+        '} <span class="tk">from</span> <span class="ts">\'@jupyterlab/application\'</span>;',
+        '<span class="tk">import</span> { IThemeManager, NotificationManager } <span class="tk">from</span> <span class="ts">\'@jupyterlab/apputils\'</span>;',
+        '<span class="tk">import</span> { ISettingRegistry } <span class="tk">from</span> <span class="ts">\'@jupyterlab/settingregistry\'</span>;',
+        "",
+        '<span class="tc">/**</span>',
+        '<span class="tc"> * Function to replace "Jupyternaut" with "Calliope" in markdown</span>',
+        '<span class="tc"> */</span>',
+        '<span class="tk">function</span> <span class="tf">replaceJupyternautWithCalliope</span>() {',
+        '  <span class="tk">const</span> paragraphs = <span class="tpl">document</span>.<span class="tf">querySelectorAll</span>(',
+        '    <span class="ts">\'.lm-Widget.jp-RenderedHTMLCommon.jp-RenderedMarkdown>p\'</span>',
+        "  );",
+        "",
+        '  paragraphs.<span class="tf">forEach</span>(p => {',
+        '    <span class="tk">if</span> (p.<span class="tprop">textContent</span> &amp;&amp; p.<span class="tprop">textContent</span>.<span class="tf">includes</span>(<span class="ts">\'Jupyternaut\'</span>)) {',
+        '      p.<span class="tprop">textContent</span> = p.<span class="tprop">textContent</span>.<span class="tf">replace</span>(<span class="ts">/Jupyternaut/g</span>, <span class="ts">\'Calliope\'</span>);',
+        "    }",
+        "  });",
+        "}"
+      ]
+    },
+    "package.json": {
+      icon: "fi-js", lang: "JSON", crumb: "pergamon › package.json",
+      lines: [
+        "{",
+        '  <span class="tprop">"name"</span>: <span class="ts">"pergamon_theme"</span>,',
+        '  <span class="tprop">"version"</span>: <span class="ts">"0.1.0"</span>,',
+        '  <span class="tprop">"description"</span>: <span class="ts">"Pergamon Theme Extension."</span>,',
+        '  <span class="tprop">"keywords"</span>: [<span class="ts">"jupyter"</span>, <span class="ts">"jupyterlab"</span>, <span class="ts">"calliope"</span>],',
+        '  <span class="tprop">"license"</span>: <span class="ts">"BSD-3-Clause"</span>,',
+        '  <span class="tprop">"scripts"</span>: {',
+        '    <span class="tprop">"build"</span>: <span class="ts">"jlpm build:lib"</span>,',
+        '    <span class="tprop">"watch"</span>: <span class="ts">"run-p watch:src watch:labextension"</span>',
+        "  },",
+        '  <span class="tprop">"dependencies"</span>: {',
+        '    <span class="tprop">"@jupyterlab/application"</span>: <span class="ts">"^4.0.0"</span>,',
+        '    <span class="tprop">"@jupyterlab/apputils"</span>: <span class="ts">"^4.0.0"</span>',
+        "  }",
+        "}"
+      ]
+    },
+    "README.md": {
+      icon: "fi-md", lang: "Markdown", crumb: "pergamon › README.md",
+      lines: [
+        '<span class="tt"># Pergamon Theme</span>',
+        "",
+        'A clean JupyterLab theme, governed by <span class="tk">**Calliope**</span>.',
+        "",
+        '<span class="tt">## Features</span>',
+        '<span class="tf">-</span> Light &amp; dark modes',
+        '<span class="tf">-</span> Calliope AI Agent integration',
+        '<span class="tf">-</span> One-click deploy to your own cloud',
+        "",
+        '<span class="tt">## Install</span>',
+        '<span class="tc">```bash</span>',
+        "pip install pergamon-theme",
+        '<span class="tc">```</span>'
+      ]
+    },
+    "tsconfig.json": {
+      icon: "fi-ts", lang: "JSON", crumb: "pergamon › tsconfig.json",
+      lines: [
+        "{",
+        '  <span class="tprop">"compilerOptions"</span>: {',
+        '    <span class="tprop">"target"</span>: <span class="ts">"ES2018"</span>,',
+        '    <span class="tprop">"module"</span>: <span class="ts">"esnext"</span>,',
+        '    <span class="tprop">"moduleResolution"</span>: <span class="ts">"node"</span>,',
+        '    <span class="tprop">"jsx"</span>: <span class="ts">"react"</span>,',
+        '    <span class="tprop">"strict"</span>: <span class="tk">true</span>,',
+        '    <span class="tprop">"declaration"</span>: <span class="tk">true</span>,',
+        '    <span class="tprop">"outDir"</span>: <span class="ts">"lib"</span>,',
+        '    <span class="tprop">"rootDir"</span>: <span class="ts">"src"</span>',
+        "  },",
+        '  <span class="tprop">"include"</span>: [<span class="ts">"src/*"</span>]',
+        "}"
+      ]
+    },
+    "CHANGELOG.md": {
+      icon: "fi-md", lang: "Markdown", crumb: "pergamon › CHANGELOG.md",
+      lines: [
+        '<span class="tt"># Changelog</span>',
+        "",
+        '<span class="tt">## 0.1.0</span>',
+        '<span class="tf">-</span> Initial Pergamon theme release',
+        '<span class="tf">-</span> Rebranded Jupyternaut → Calliope',
+        '<span class="tf">-</span> Added Calliope AI Agent panel'
+      ]
+    }
+  };
+
+  function render(name) {
+    var f = FILES[name];
+    if (!f) return;
+    var html = "";
+    for (var i = 0; i < f.lines.length; i++) {
+      html += '<div class="cl"><span class="lnum">' + (i + 1) + '</span><span class="ltext">' + (f.lines[i] || "&nbsp;") + "</span></div>";
+    }
+    code.innerHTML = html;
+    if (tab) tab.innerHTML = '<span class="fi ' + f.icon + '">' + (f.icon === "fi-ts" ? "TS" : f.icon === "fi-js" ? "{}" : "M↓") + "</span> " + name + ' <span class="tab-x">×</span>';
+    if (crumb) crumb.textContent = f.crumb;
+    if (lang) lang.textContent = f.lang;
+    if (loc) loc.textContent = "Ln 1, Col 1";
+  }
+
+  document.querySelectorAll(".ide-tree .file").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll(".ide-tree .file").forEach(function (b) { b.classList.remove("is-active"); });
+      btn.classList.add("is-active");
+      render(btn.getAttribute("data-file"));
+    });
+  });
+  render("index.ts");
+
+  /* dropdown pills cycle */
+  var CYCLES = {
+    mode: ["💬 Chat ⌄", "⚡ Agent ⌄", "🔍 Ask ⌄"],
+    model: ["Claude Sonnet 4.5 ⌄", "Claude Opus 4.1 ⌄", "Claude Haiku 4.5 ⌄", "Gemini 2.5 Pro ⌄", "GPT-5 ⌄"]
+  };
+  document.querySelectorAll(".agent-pill[data-cycle]").forEach(function (pill) {
+    var key = pill.getAttribute("data-cycle"), idx = 0;
+    pill.addEventListener("click", function () {
+      idx = (idx + 1) % CYCLES[key].length;
+      pill.textContent = CYCLES[key][idx];
+    });
+  });
+
+  /* agent chat */
+  var form = document.getElementById("agentForm");
+  var field = document.getElementById("agentField");
+  var body = document.getElementById("agentBody");
+  var REPLIES = [
+    "Good question. I traced it through the codebase — the rename runs on every Markdown render, so it stays consistent across notebooks. Want me to add a unit test?",
+    "Done. I mapped the dependency graph for this module — no circular imports, and every call is policy-checked. Shall I generate a sequence diagram?",
+    "I scanned the repo: 3 files reference this symbol. I can refactor all of them in one commit, fully logged for audit. Proceed?",
+    "Here's the gist: it replaces 'Jupyternaut' with 'Calliope' in rendered output. I can extend it to cover tooltips and menus too."
+  ];
+  var rIdx = 0;
+  function add(cls, html) {
+    var d = document.createElement("div");
+    d.className = "msg " + cls;
+    d.innerHTML = html;
+    body.appendChild(d);
+    body.scrollTop = body.scrollHeight;
+    return d;
+  }
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var q = (field.value || "").trim();
+      if (!q) return;
+      add("msg-user", q.replace(/</g, "&lt;"));
+      field.value = "";
+      var typing = add("msg-bot", '<span class="typing"><i></i><i></i><i></i></span>');
+      setTimeout(function () {
+        typing.innerHTML = REPLIES[rIdx % REPLIES.length];
+        rIdx++;
+        body.scrollTop = body.scrollHeight;
+      }, 900);
+    });
+  }
+})();
+
+/* ===== Smooth scroll reveal (fade + slide, both directions) ===== */
+(function () {
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!("IntersectionObserver" in window)) return;
+
+  var SEL = [
+    ".section-eyebrow", ".section-title", ".section-lead", ".cta-sub",
+    ".proof-item", ".feature", ".bento-card", ".step", ".govern-item",
+    ".tcard", ".plan", ".tf-step", ".show-row", ".logo-chip", ".target",
+    ".deploy-copy", ".deploy-targets", ".teamflow-visual", ".valley-line",
+    ".blueprint-inner", ".footer-top", ".cta-final .lead-inline"
+  ].join(",");
+
+  var els = Array.prototype.slice.call(document.querySelectorAll(SEL));
+  // skip anything inside the hero (it has its own intro)
+  els = els.filter(function (el) { return !el.closest(".hero"); });
+
+  // stagger siblings that share a parent
+  var seen = new Map();
+  els.forEach(function (el) {
+    el.classList.add("reveal");
+    var p = el.parentElement;
+    var i = seen.get(p) || 0;
+    if (i) el.style.transitionDelay = Math.min(i * 70, 350) + "ms";
+    seen.set(p, i + 1);
+  });
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) e.target.classList.add("in");
+      else e.target.classList.remove("in");
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+  els.forEach(function (el) { io.observe(el); });
+})();
+
+/* ===== Screenshot lightbox / gallery ===== */
+(function () {
+  var lb = document.getElementById("lightbox");
+  if (!lb) return;
+  var lbImg = document.getElementById("lbImg");
+  var lbCap = document.getElementById("lbCap");
+  var lbCounter = document.getElementById("lbCounter");
+  var shots = Array.prototype.slice.call(document.querySelectorAll(".bento-shot"));
+  if (!shots.length) return;
+
+  var items = shots.map(function (s) {
+    var img = s.querySelector("img");
+    return { src: img.getAttribute("src"), alt: img.getAttribute("alt") || "" };
+  });
+  var idx = 0;
+
+  function show(i) {
+    idx = (i + items.length) % items.length;
+    lbImg.src = items[idx].src;
+    lbImg.alt = items[idx].alt;
+    lbCap.textContent = items[idx].alt;
+    lbCounter.textContent = (idx + 1) + " / " + items.length;
+  }
+  function open(i) {
+    show(i);
+    lb.hidden = false;
+    void lb.offsetWidth;
+    lb.classList.add("open");
+    document.addEventListener("keydown", onKey);
+  }
+  function close() {
+    lb.classList.remove("open");
+    document.removeEventListener("keydown", onKey);
+    setTimeout(function () { lb.hidden = true; lbImg.src = ""; }, 200);
+  }
+  function onKey(e) {
+    if (e.key === "Escape") close();
+    else if (e.key === "ArrowRight") show(idx + 1);
+    else if (e.key === "ArrowLeft") show(idx - 1);
+  }
+
+  shots.forEach(function (s, i) {
+    s.setAttribute("role", "button");
+    s.setAttribute("tabindex", "0");
+    s.addEventListener("click", function () { open(i); });
+    s.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(i); }
+    });
+  });
+
+  document.getElementById("lbClose").addEventListener("click", close);
+  document.getElementById("lbPrev").addEventListener("click", function () { show(idx - 1); });
+  document.getElementById("lbNext").addEventListener("click", function () { show(idx + 1); });
+  lb.addEventListener("click", function (e) {
+    if (e.target === lb) close();           // click backdrop closes
   });
 })();
