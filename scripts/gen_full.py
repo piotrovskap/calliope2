@@ -3,7 +3,7 @@
 faithfully reproducing calliope.ai copy inside our design system."""
 import json, html, re, os
 
-V_CSS, V_HDR, V_FTR, V_JS = 41, 11, 16, 9
+V_CSS, V_HDR, V_FTR, V_JS = 43, 12, 16, 9
 OUT = "public"
 
 def e(s): return html.escape(s or "", quote=True)
@@ -21,14 +21,16 @@ def meta(slug):
     def m(active,dp,back=None,eyebrow=''):
         return {'active':active,'dataPage':dp,'back':back,'eyebrow':eyebrow}
     if slug in ('product','governance','security','deployment','solutions','industries'):
-        return m(  {'security':'governance','deployment':'product','industries':'solutions'}.get(slug,slug),
+        return m(  {'product':'platform','governance':'','security':'security',
+                    'deployment':'deployment','industries':'industries'}.get(slug,slug),
                    slug, None)
-    if slug.startswith('product-'):    return m('product','product',  ('/product.html','The Hub'))
-    if slug.startswith('governance-'): return m('governance','governance',('/governance.html','Zentinelle GRC'))
-    if slug.startswith('security-'):   return m('governance','security',('/security.html','Security'))
-    if slug.startswith('deployment-'): return m('product','deployment',('/deployment.html','Deployment'))
+    if slug.startswith('product-'):    return m('platform','product',  ('/product.html','The Workbench'))
+    if slug == 'governance-secrets':   return m('security','security',('/security.html','Security'))
+    if slug.startswith('governance-'): return m('','governance',('/governance.html','Governance'))
+    if slug.startswith('security-'):   return m('security','security',('/security.html','Security'))
+    if slug.startswith('deployment-'): return m('deployment','deployment',('/deployment.html','Deployment'))
     if slug.startswith('solution-'):   return m('solutions','solutions',('/solutions.html','Solutions'))
-    if slug.startswith('industry-'):   return m('solutions','industries',('/industries.html','Industries'))
+    if slug.startswith('industry-'):   return m('industries','industries',('/industries.html','Industries'))
     if slug in ('about','team','careers','contact','developer-resources'):
         return m('', 'home', ('/','Home'))
     return m('', 'home', None)

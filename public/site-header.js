@@ -1,7 +1,8 @@
 /* Shared site navigation — one component for every page.
-   Usage: <site-header data-active="product|governance|solutions|pricing"></site-header>
-   Renders into light DOM so the existing script.js handlers (#hamburger,
-   #searchBtn, #announce, …) bind exactly as before. */
+   Structure mirrors calliope.ai (Platform / Industries / Solutions / Deployment /
+   Security megas + How It Works & Support links, utility bar with About / Pricing /
+   Blog / Contact / Log In / Download), rendered in our design-system style.
+   Usage: <site-header data-active="platform|industries|solutions|deployment|security"></site-header> */
 (function () {
   var CHEVRON =
     '<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
@@ -19,66 +20,66 @@
     );
   }
 
-  var PRODUCT_INNER =
+  var FEATURE_CARD =
+    '<div class="mega-col mega-feature"><h4>Get started</h4>' +
+      '<a href="/#demo" class="mega-card"><span class="mega-card-tag">30 min</span>' +
+      '<span class="mega-card-title">Book a private demo</span>' +
+      '<span class="mega-card-desc">A walkthrough with an engineer — not a sales script.</span></a></div>';
+
+  var PLATFORM_INNER =
     '<div class="wrap mega-grid">' +
-      '<div class="mega-col"><h4>Build · The Hub</h4>' +
-        '<a href="/product-ai-lab.html">AI Lab</a><a href="/product-ide.html">AI IDE</a><a href="/product-chat-studio.html">Chat Studio</a>' +
-        '<a href="/product-deep-agent.html">Deep Agent</a><a href="/product-langflow.html">Langflow</a><a href="/product-browser.html">Secure Browser</a></div>' +
-      '<div class="mega-col"><h4>Core building blocks</h4>' +
-        '<a href="/product-agents.html">Agents</a><a href="/product-agent-coding.html">Agent Coding</a><a href="/product-code-assist.html">Code Assist</a>' +
-        '<a href="/product-data-agents.html">Data Agents</a><a href="/product-datasets.html">Datasets</a><a href="/product-model-hosting.html">Model Hosting</a>' +
-        '<a href="/product-notebook-chat.html">Notebook Chat</a><a href="/product-notebook-generation.html">Notebook Generation</a><a href="/product-prompt-engineering.html">Prompt Engineering</a></div>' +
-      '<div class="mega-col"><h4>Run · Astrolift</h4>' +
-        '<a href="/deployment-cloud-hosted.html">Cloud Hosted</a><a href="/deployment-dedicated-cloud.html">Dedicated Cloud</a><a href="/deployment-jump-server.html">VPC Gateway</a>' +
-        '<a href="/deployment-on-premise.html">On-prem / Air-gapped</a><a href="/deployment-desktop.html">Download Desktop</a></div>' +
+      '<div class="mega-col"><h4>Platform</h4>' +
+        '<a href="/product.html">The Workbench</a><a href="/product-integrations.html">Integrations</a></div>' +
+      '<div class="mega-col"><h4>Tools</h4>' +
+        '<a href="/product-agterm.html">AGTerm — AI Terminal</a><a href="/product-ide.html">Calliope AI IDE</a><a href="/product-chat-studio.html">Chat Studio</a>' +
+        '<a href="/product-deep-agent.html">Deep Data Agent</a><a href="/product-browser.html">Web Browser</a></div>' +
+      '<div class="mega-col"><h4>Tools</h4>' +
+        '<a href="/product-desktop.html">Calliope AI Desktop</a><a href="/product-ai-lab.html">Calliope AI Lab</a><a href="/product-db-loadr.html">DB Loadr — Database Studio</a>' +
+        '<a href="/product-file-manager.html">File Manager</a></div>' +
       '<div class="mega-col mega-feature"><h4>What\'s new</h4>' +
         '<a href="/#blueprint" class="mega-card"><span class="mega-card-tag">Free guide</span>' +
         '<span class="mega-card-title">Private-AI Deployment Blueprint</span>' +
         '<span class="mega-card-desc">Reference architecture + GRC checklist.</span></a></div>' +
     '</div>' +
-    '<a href="/product.html" class="mega-cta wrap-cta"><span>See the full platform — 19 tools, one workspace</span><span class="mega-cta-go">Explore the Hub →</span></a>';
+    '<a href="/product.html" class="mega-cta wrap-cta"><span>Purpose-built tools plus curated add-ons — one secured Workbench</span><span class="mega-cta-go">Explore the platform →</span></a>';
 
-  var GOV_INNER =
+  var INDUSTRIES_INNER =
     '<div class="wrap mega-grid mega-grid--2">' +
-      '<div class="mega-col"><h4>Govern · Zentinelle</h4>' +
-        '<a href="/governance.html">GRC overview</a><a href="/governance-audit.html">Audit &amp; Observability</a><a href="/governance-policies.html">Policy management</a>' +
-        '<a href="/governance-risk.html">Risk management</a><a href="/governance-compliance.html">Compliance frameworks</a><a href="/governance-content-scanning.html">Content scanning</a>' +
-        '<a href="/governance-secrets.html">Secrets &amp; credentials</a></div>' +
+      '<div class="mega-col"><h4>Industries</h4>' +
+        '<a href="/industries.html">Industries Overview</a><a href="/industry-climate-environment.html">Climate &amp; Environmental Science</a><a href="/industry-energy-utilities.html">Energy, Utilities &amp; Oil/Gas</a>' +
+        '<a href="/industry-financial-services.html">Financial Services</a><a href="/industry-government-defense.html">Government &amp; Defense</a></div>' +
+      '<div class="mega-col"><h4>&nbsp;</h4>' +
+        '<a href="/industry-healthcare-pharma.html">Healthcare &amp; Pharma</a><a href="/industry-life-sciences.html">Life Sciences &amp; Biotech</a><a href="/industry-manufacturing.html">Manufacturing</a>' +
+        '<a href="/industry-research-academia.html">Research &amp; Academia</a></div>' +
+      FEATURE_CARD +
+    '</div>';
+
+  var SOLUTIONS_INNER =
+    '<div class="wrap mega-grid mega-grid--2">' +
+      '<div class="mega-col"><h4>Solutions</h4>' +
+        '<a href="/solutions.html">Solutions Overview</a><a href="/solution-agent-platforms.html">Agent Platforms</a><a href="/solution-ai-applications.html">AI Applications</a></div>' +
+      '<div class="mega-col"><h4>&nbsp;</h4>' +
+        '<a href="/solution-data-exploration.html">Data Exploration</a><a href="/solution-internal-automation.html">Internal Automation</a><a href="/solution-research-tools.html">Research Tools</a></div>' +
+      FEATURE_CARD +
+    '</div>';
+
+  var DEPLOYMENT_INNER =
+    '<div class="wrap mega-grid mega-grid--2">' +
+      '<div class="mega-col"><h4>Deployment</h4>' +
+        '<a href="/deployment.html">Deployment Overview</a><a href="/deployment-cloud-hosted.html">Cloud Hosted</a><a href="/deployment-dedicated-cloud.html">Dedicated Cloud</a>' +
+        '<a href="/deployment-desktop.html">Desktop App</a></div>' +
+      '<div class="mega-col"><h4>&nbsp;</h4>' +
+        '<a href="/deployment-jump-server.html">Jump Server / VPC Gateway</a><a href="/deployment-on-premise.html">On-Premise / Air-Gapped</a></div>' +
+      FEATURE_CARD +
+    '</div>';
+
+  var SECURITY_INNER =
+    '<div class="wrap mega-grid mega-grid--2">' +
       '<div class="mega-col"><h4>Security</h4>' +
-        '<a href="/security.html">Security overview</a><a href="/security-architecture.html">Security architecture</a>' +
-        '<a href="/security-data-protection.html">Data protection</a><a href="/security-compliance.html">Compliance &amp; certifications</a></div>' +
-      '<div class="mega-col mega-feature"><h4>Outcome</h4>' +
-        '<a href="/deployment.html" class="mega-card"><span class="mega-card-tag">Deploy anywhere</span>' +
-        '<span class="mega-card-title">Runs in your account</span>' +
-        '<span class="mega-card-desc">Cloud, on-prem, or air-gapped — your data never egresses.</span></a></div>' +
-    '</div>';
-
-  var SOL_INNER =
-    '<div class="wrap mega-grid mega-grid--2">' +
-      '<div class="mega-col"><h4>By use case</h4>' +
-        '<a href="/solution-agent-platforms.html">Agent platforms</a><a href="/solution-ai-applications.html">AI applications</a><a href="/solution-chatbots.html">Chatbots</a>' +
-        '<a href="/solution-data-exploration.html">Data exploration</a><a href="/solution-internal-automation.html">Internal automation</a><a href="/solution-knowledge-base.html">Knowledge base</a>' +
-        '<a href="/solution-research-tools.html">Research tools</a></div>' +
-      '<div class="mega-col"><h4>By industry</h4>' +
-        '<a href="/industries.html">All industries</a><a href="/industry-financial-services.html">Financial services</a><a href="/industry-healthcare-pharma.html">Healthcare &amp; pharma</a><a href="/industry-government-defense.html">Government &amp; defense</a>' +
-        '<a href="/industry-energy-utilities.html">Energy &amp; utilities</a><a href="/industry-life-sciences.html">Life sciences &amp; biotech</a><a href="/industry-manufacturing.html">Manufacturing</a>' +
-        '<a href="/industry-research-academia.html">Research &amp; academia</a><a href="/industry-climate-environment.html">Climate &amp; environment</a></div>' +
-      '<div class="mega-col mega-feature"><h4>Get started</h4>' +
-        '<a href="/#demo" class="mega-card"><span class="mega-card-tag">30 min</span>' +
-        '<span class="mega-card-title">Book a private demo</span>' +
-        '<span class="mega-card-desc">A walkthrough with an engineer — not a sales script.</span></a></div>' +
-    '</div>';
-
-  var RES_INNER =
-    '<div class="wrap mega-grid mega-grid--2">' +
-      '<div class="mega-col"><h4>Learn</h4>' +
-        '<a href="/how-it-works.html">How it works</a><a href="/#blueprint">Deployment blueprint</a><a href="/developer-resources.html">Developer resources</a><a href="/support.html">Support</a><a href="/blog.html">Blog</a></div>' +
-      '<div class="mega-col"><h4>Company</h4>' +
-        '<a href="/about.html">About Calliope</a><a href="/team.html">Team</a><a href="/careers.html">Careers</a><a href="/contact.html">Contact</a></div>' +
-      '<div class="mega-col mega-feature"><h4>Get the guide</h4>' +
-        '<a href="/#blueprint" class="mega-card"><span class="mega-card-tag">Free PDF</span>' +
-        '<span class="mega-card-title">Deployment Blueprint</span>' +
-        '<span class="mega-card-desc">Self-host enterprise AI in days, not 18 months.</span></a></div>' +
+        '<a href="/security.html">Security Overview</a><a href="/security-compliance.html">Compliance &amp; Certifications</a><a href="/security-data-protection.html">Data Protection</a></div>' +
+      '<div class="mega-col"><h4>&nbsp;</h4>' +
+        '<a href="/governance-secrets.html">Secrets Management</a><a href="/security-architecture.html">Security Architecture</a></div>' +
+      FEATURE_CARD +
     '</div>';
 
   function markup(active) {
@@ -91,33 +92,60 @@
           '<a href="/#demo" class="announce-link">Request access&nbsp;→</a>' +
           '<button class="announce-close" aria-label="Dismiss" data-close-announce>&times;</button>' +
         '</div>' +
+        '<div class="utilbar">' +
+          '<div class="wrap utilbar-inner">' +
+            '<nav class="util-nav" aria-label="Secondary">' +
+              '<div class="util-dd">' +
+                '<a class="util-link" href="/about.html">About ' + CHEVRON + '</a>' +
+                '<div class="util-menu">' +
+                  '<a href="/about.html">About Calliope</a><a href="/developer-resources.html">Developer Resources</a>' +
+                  '<a href="/team.html">Team</a><a href="/careers.html">Careers</a>' +
+                '</div>' +
+              '</div>' +
+              '<a class="util-link" href="/pricing.html">Pricing</a>' +
+              '<a class="util-link" href="/blog.html">Blog</a>' +
+              '<a class="util-link" href="/contact.html">Contact</a>' +
+              '<span class="util-sep"></span>' +
+              '<a class="util-link" href="/#login">Log In</a>' +
+              '<a class="util-download btn btn-primary btn-sm" href="/deployment-desktop.html">Download</a>' +
+            '</nav>' +
+          '</div>' +
+        '</div>' +
         '<header class="header" id="header">' +
           '<div class="wrap header-inner">' +
             '<a class="brand" href="/" aria-label="Calliope"><img class="brand-logo" src="/img/calliope%20logo.png" alt="Calliope" /></a>' +
             '<nav class="nav" aria-label="Primary">' +
-              mega('Product', 'product', '/product.html', PRODUCT_INNER, active) +
-              mega('Governance', 'governance', '/governance.html', GOV_INNER, active) +
-              mega('Solutions', 'solutions', '/solutions.html', SOL_INNER, active) +
-              '<a class="nav-link nav-link--solo" href="/pricing.html"' + cur('pricing') + '>Pricing</a>' +
-              mega('Resources', 'resources', '/#blueprint', RES_INNER, active) +
+              '<a class="nav-link nav-link--solo" href="/how-it-works.html"' + cur('how') + '>How It Works</a>' +
+              mega('Platform', 'platform', '/product.html', PLATFORM_INNER, active) +
+              mega('Industries', 'industries', '/industries.html', INDUSTRIES_INNER, active) +
+              mega('Solutions', 'solutions', '/solutions.html', SOLUTIONS_INNER, active) +
+              mega('Deployment', 'deployment', '/deployment.html', DEPLOYMENT_INNER, active) +
+              mega('Security', 'security', '/security.html', SECURITY_INNER, active) +
+              '<a class="nav-link nav-link--solo" href="/support.html"' + cur('support') + '>Support</a>' +
             '</nav>' +
             '<div class="header-cta">' +
               '<button class="search-btn" id="searchBtn" aria-label="Search" title="Search (⌘K)">' +
                 '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>' +
               '</button>' +
-              '<a href="/#login" class="nav-link nav-link--solo">Sign in</a>' +
               '<a href="/#demo" class="btn btn-primary btn-sm">Book a demo</a>' +
               '<button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
             '</div>' +
           '</div>' +
           '<div class="mobile-menu" id="mobileMenu">' +
-            '<a href="/product.html">Product</a>' +
-            '<a href="/governance.html">Governance</a>' +
+            '<a href="/how-it-works.html">How It Works</a>' +
+            '<a href="/product.html">Platform</a>' +
+            '<a href="/industries.html">Industries</a>' +
             '<a href="/solutions.html">Solutions</a>' +
+            '<a href="/deployment.html">Deployment</a>' +
+            '<a href="/security.html">Security</a>' +
+            '<a href="/support.html">Support</a>' +
+            '<a href="/about.html">About</a>' +
             '<a href="/pricing.html">Pricing</a>' +
-            '<a href="/#blueprint">Resources</a>' +
-            '<a href="/#login">Sign in</a>' +
-            '<a href="/#demo" class="btn btn-primary btn-block">Book a demo</a>' +
+            '<a href="/blog.html">Blog</a>' +
+            '<a href="/contact.html">Contact</a>' +
+            '<a href="/#login">Log In</a>' +
+            '<a href="/deployment-desktop.html" class="btn btn-primary btn-block">Download</a>' +
+            '<a href="/#demo" class="btn btn-ghost btn-block">Book a demo</a>' +
           '</div>' +
         '</header>' +
       '</div>';

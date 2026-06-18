@@ -134,6 +134,23 @@ select:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
 .announce-close:hover { opacity: 1; }
 .announce.hide { display: none; }
 
+/* ---------- utility bar (About / Pricing / Blog / Contact / Log In / Download) ---------- */
+.utilbar { background: var(--navy-deep); border-bottom: 1px solid var(--line); }
+.utilbar-inner { display: flex; justify-content: flex-end; align-items: center; height: 38px; }
+.util-nav { display: flex; align-items: center; gap: 1.25rem; }
+.util-link { color: var(--fg-soft); font-size: .82rem; text-decoration: none; display: inline-flex; align-items: center; gap: .2rem; transition: color .15s; }
+.util-link:hover { color: var(--fg); }
+.util-link .caret { width: 13px; height: 13px; }
+.util-sep { width: 1px; height: 16px; background: var(--line); }
+.util-dd { position: relative; }
+.util-menu { position: absolute; top: 100%; right: 0; min-width: 210px; margin-top: .4rem; padding: .45rem; display: none; flex-direction: column; gap: .05rem;
+  background: var(--navy-card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 16px 40px -22px rgba(0,0,0,.8); z-index: 60; }
+.util-dd:hover .util-menu, .util-dd:focus-within .util-menu { display: flex; }
+.util-menu a { padding: .5rem .7rem; border-radius: 6px; color: var(--fg-soft); font-size: .9rem; text-decoration: none; white-space: nowrap; transition: background .15s, color .15s; }
+.util-menu a:hover { background: rgba(255,255,255,.05); color: var(--fg); }
+.util-download { padding: .3rem .85rem; font-size: .82rem; }
+@media (max-width: 980px) { .utilbar { display: none; } }
+
 /* ---------- header ---------- */
 .topbar { position: sticky; top: 0; z-index: 50; }
 .header { position: relative; z-index: 1; background: rgba(22,35,69,.8); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s, box-shadow .2s; }
@@ -143,13 +160,13 @@ select:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
 .brand-mark { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 5px; background: var(--cyan); color: var(--navy); font-size: .95rem; font-weight: 800; }
 .brand-logo { display: block; height: 26px; width: auto; }
 .footer .brand-logo { height: 28px; }
-.nav { display: flex; gap: .4rem; margin-right: auto; margin-left: 1.5rem; }
+.nav { display: flex; gap: .2rem; margin-right: auto; margin-left: 1.25rem; }
 .nav-item { display: flex; align-items: center; }
 .nav-link {
-  display: inline-flex; align-items: center; gap: .35rem;
+  display: inline-flex; align-items: center; gap: .3rem; white-space: nowrap;
   background: none; border: 0; cursor: pointer;
-  color: var(--fg-soft); font-size: .94rem; font-weight: 500; font-family: inherit;
-  padding: .5rem .7rem; border-radius: 5px; transition: color .15s, background .15s;
+  color: var(--fg-soft); font-size: .92rem; font-weight: 500; font-family: inherit;
+  padding: .5rem .6rem; border-radius: 5px; transition: color .15s, background .15s;
 }
 .nav-link:hover, .nav-item:hover .nav-link { color: #fff; background: rgba(255,255,255,.05); }
 .nav-link--solo:hover { background: none; color: var(--cyan); }

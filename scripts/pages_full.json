@@ -3829,5 +3829,194 @@
     "bullets": []
    }
   ]
+ },
+ "product-integrations": {
+  "slug": "product-integrations",
+  "hero": {
+   "eyebrow": "Platform · Integrations",
+   "h1": "Connect everything to your Workbench.",
+   "sub": "22+ databases, 10+ AI providers, CLI tools, and open source add-ons — all wired into your Workbench and governed by the same access controls."
+  },
+  "sections": [
+   {
+    "eyebrow": "",
+    "heading": "What connects",
+    "paras": [],
+    "cards": [
+     {
+      "title": "Databases",
+      "desc": "PostgreSQL, MySQL, Snowflake, BigQuery, S3, and 22+ more. Connect once, query everywhere — inside your perimeter."
+     },
+     {
+      "title": "AI providers",
+      "desc": "Claude, OpenAI, Gemini, Mistral, or local models via Ollama. Bring your own keys — zero markup."
+     },
+     {
+      "title": "CLI tools",
+      "desc": "Claude Code, Gemini CLI, and OpenAI Codex CLI come pre-configured in AGTerm, keys inherited from your session."
+     },
+     {
+      "title": "Open source add-ons",
+      "desc": "Langflow, Magentic UI, MLflow, Apache Superset, and more — provisioned and secured by the same controls."
+     }
+    ],
+    "bullets": []
+   },
+   {
+    "eyebrow": "",
+    "heading": "Governed by default.",
+    "paras": [],
+    "cards": [],
+    "bullets": []
+   }
+  ]
+ },
+ "product-agterm": {
+  "slug": "product-agterm",
+  "hero": {
+   "eyebrow": "Platform · AGTerm",
+   "h1": "AGTerm — the AI terminal.",
+   "sub": "An AI terminal with Claude Code, Gemini CLI, and OpenAI Codex CLI built in. API keys are inherited from your Workbench session automatically."
+  },
+  "sections": [
+   {
+    "eyebrow": "",
+    "heading": "What it does",
+    "paras": [],
+    "cards": [
+     {
+      "title": "Coding agents built in",
+      "desc": "Claude Code, Gemini CLI, and OpenAI Codex CLI pre-configured — no setup, no key juggling."
+     },
+     {
+      "title": "Session-inherited keys",
+      "desc": "Credentials come from your Workbench session and never touch the terminal or logs."
+     },
+     {
+      "title": "Full shell, governed",
+      "desc": "A real terminal inside your isolated workspace, with every action audited by Zentinelle."
+     }
+    ],
+    "bullets": []
+   },
+   {
+    "eyebrow": "",
+    "heading": "A terminal for people who build.",
+    "paras": [],
+    "cards": [],
+    "bullets": []
+   }
+  ]
+ },
+ "product-db-loadr": {
+  "slug": "product-db-loadr",
+  "hero": {
+   "eyebrow": "Platform · DB Loadr",
+   "h1": "Query, manage, and load data.",
+   "sub": "A database studio with 22+ connectors. Query, manage, and load data — all inside your Workbench, never leaving your perimeter."
+  },
+  "sections": [
+   {
+    "eyebrow": "",
+    "heading": "What it does",
+    "paras": [],
+    "cards": [
+     {
+      "title": "22+ connectors",
+      "desc": "PostgreSQL, MySQL, Snowflake, BigQuery, S3, and more — one studio for every source."
+     },
+     {
+      "title": "Query & manage",
+      "desc": "Browse schemas, run queries, and manage data with AI assistance, right in the browser."
+     },
+     {
+      "title": "Load anywhere",
+      "desc": "Move data into notebooks, datasets, and pipelines without copying it out of your environment."
+     }
+    ],
+    "bullets": []
+   },
+   {
+    "eyebrow": "",
+    "heading": "All inside your Workbench.",
+    "paras": [],
+    "cards": [],
+    "bullets": []
+   }
+  ]
+ },
+ "product-file-manager": {
+  "slug": "product-file-manager",
+  "hero": {
+   "eyebrow": "Platform · File Manager",
+   "h1": "Your Workbench files, in the browser.",
+   "sub": "A browser-based file manager for your Workbench shared storage. No SSH required."
+  },
+  "sections": [
+   {
+    "eyebrow": "",
+    "heading": "What it does",
+    "paras": [],
+    "cards": [
+     {
+      "title": "Shared storage, organized",
+      "desc": "Browse, upload, move, and manage your Workbench shared storage from any browser."
+     },
+     {
+      "title": "No SSH required",
+      "desc": "Full file access without keys, tunnels, or a terminal — governed by the same permissions."
+     },
+     {
+      "title": "Shared with every tool",
+      "desc": "The same filesystem the IDE, Lab, and agents use — one source of truth."
+     }
+    ],
+    "bullets": []
+   },
+   {
+    "eyebrow": "",
+    "heading": "No SSH. No friction.",
+    "paras": [],
+    "cards": [],
+    "bullets": []
+   }
+  ]
+ },
+ "product-desktop": {
+  "slug": "product-desktop",
+  "hero": {
+   "eyebrow": "Platform · Calliope AI Desktop",
+   "h1": "A full Linux desktop in your browser.",
+   "sub": "Calliope AI Desktop brings a Linux desktop into your isolated workspace — six specialized flavors, air-gapped and remote-environment friendly."
+  },
+  "sections": [
+   {
+    "eyebrow": "",
+    "heading": "What it does",
+    "paras": [],
+    "cards": [
+     {
+      "title": "Linux in the browser",
+      "desc": "A complete desktop streamed into your isolated workspace — nothing installed locally."
+     },
+     {
+      "title": "Six specialized flavors",
+      "desc": "Pre-built environments for data science, engineering, research, and more."
+     },
+     {
+      "title": "Air-gapped friendly",
+      "desc": "Runs inside your perimeter for the strictest, fully-isolated environments."
+     }
+    ],
+    "bullets": []
+   },
+   {
+    "eyebrow": "",
+    "heading": "Your desktop, in your perimeter.",
+    "paras": [],
+    "cards": [],
+    "bullets": []
+   }
+  ]
  }
 }
