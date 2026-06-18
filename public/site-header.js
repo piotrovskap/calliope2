@@ -148,6 +148,16 @@
             '<a href="/#demo" class="btn btn-ghost btn-block">Book a demo</a>' +
           '</div>' +
         '</header>' +
+      '</div>' +
+      '<div class="search-overlay" id="searchOverlay" hidden>' +
+        '<div class="search-box" role="dialog" aria-modal="true" aria-label="Search Calliope">' +
+          '<div class="search-input-row">' +
+            '<svg class="search-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.5" y2="16.5" /></svg>' +
+            '<input id="searchInput" type="text" placeholder="Search Calliope — products, deploy, governance…" autocomplete="off" spellcheck="false" />' +
+            '<kbd class="search-esc">Esc</kbd>' +
+          '</div>' +
+          '<ul class="search-results" id="searchResults" role="listbox"></ul>' +
+        '</div>' +
       '</div>';
   }
 
