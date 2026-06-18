@@ -107,7 +107,7 @@
               '<a class="util-link" href="/contact.html">Contact</a>' +
               '<span class="util-sep"></span>' +
               '<a class="util-link" href="/#login">Log In</a>' +
-              '<a class="util-download btn btn-primary btn-sm" href="/deployment-desktop.html">Download</a>' +
+              '<a class="util-download" href="/deployment-desktop.html">Download</a>' +
             '</nav>' +
           '</div>' +
         '</div>' +
