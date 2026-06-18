@@ -643,7 +643,7 @@
   if (mq && mq("(pointer: coarse)").matches) return;                 // touch keeps native momentum
   var docEl = document.documentElement;
   var target = window.scrollY, current = target, running = false;
-  var EASE = 0.12;
+  var EASE = 0.22, BOOST = 1.5;   // higher EASE = snappier catch-up, BOOST = more travel per wheel tick
 
   function maxScroll() { return (document.body.scrollHeight || docEl.scrollHeight) - window.innerHeight; }
   function clamp(v) { return Math.max(0, Math.min(v, maxScroll())); }
@@ -679,7 +679,7 @@
     if (innerScrollable(e.target, e.deltaY)) return;         // nested scroller handles it
     e.preventDefault();
     var delta = e.deltaMode === 1 ? e.deltaY * 16 : (e.deltaMode === 2 ? e.deltaY * window.innerHeight : e.deltaY);
-    target = clamp((running ? target : window.scrollY) + delta);
+    target = clamp((running ? target : window.scrollY) + delta * BOOST);
     if (!running) { running = true; current = window.scrollY; requestAnimationFrame(loop); }
   }, { passive: false });
 })();
