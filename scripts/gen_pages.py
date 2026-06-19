@@ -3,7 +3,7 @@
 reusing the existing design-system classes."""
 import json, html, re, os
 
-V_CSS, V_HDR, V_FTR, V_JS = 45, 14, 16, 12
+V_CSS, V_HDR, V_FTR, V_JS = 47, 14, 16, 13
 DATA = "scripts/pages_content.json"
 OUT = "public"
 

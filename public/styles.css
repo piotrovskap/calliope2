@@ -597,6 +597,50 @@ a.feature:hover .feat-go { transform: translateX(3px); opacity: 1; }
   .howsplit-aside { position: static; }
   .howsplit-main { border-left: 0; padding-left: 0; }
 }
+
+/* ===========================================================================
+   .split — two-column section with a clean center divider line.
+   USE for every section shaped like: eyebrow + heading on the LEFT, supporting
+   copy/bullets on the RIGHT, separated by a single vertical line at the centre.
+   Markup:
+     <section class="split [band-light]">
+       <div class="wrap split-grid">
+         <div class="split-aside"><p class="section-eyebrow">EYEBROW</p><h2 class="section-title">Heading</h2></div>
+         <div class="split-main"> …paragraphs / .copy-list / link… </div>
+       </div>
+     </section>
+   SPEC:
+   • columns are exactly 50/50 (1fr 1fr) → the divider sits dead-centre.
+   • the divider is ONE 1px line at 50%, spanning the FULL section height
+     (top edge → bottom edge): no gaps, and NO padding on the line itself.
+   • the TEXT carries the padding (each column inset from the line + frame),
+     never the line.
+   • collapses to one column < 860px (line hidden).
+   =========================================================================== */
+.split { position: relative; }
+.split > .wrap.split-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+.split::after { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
+  transform: translateX(-50%); background: var(--line); pointer-events: none; }
+.split.band-light::after { background: var(--l-line); }
+.split-aside { padding-right: clamp(1.6rem, 3.5vw, 3rem); }
+.split-aside .section-title { margin-bottom: 0; }
+.split-main { padding-left: clamp(1.6rem, 3.5vw, 3rem); }
+.split-main > :last-child { margin-bottom: 0; }
+@media (max-width: 860px) {
+  .split > .wrap.split-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .split::after { display: none; }
+  .split-aside { padding-right: 0; }
+  .split-main { padding-left: 0; }
+}
+/* .split--figure — figure variant: subtitle → title → animated code field → Calliope
+   figure in the LEFT column, flush to the section bottom; centre line runs full height. */
+.split--figure { overflow: hidden; padding-bottom: 0; }
+.split--figure .split-aside { display: flex; flex-direction: column; }
+.split-figwrap { position: relative; flex: 1 1 auto; min-height: 340px; margin-top: 1.6rem; }
+.split-ascii { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.split-stage { position: absolute; left: 50%; transform: translateX(-50%); top: 0; width: min(360px, 92%); z-index: 1; }
+.split-stage img { display: block; width: 100%; height: auto; }
+@media (max-width: 860px) { .split--figure { padding-bottom: 3rem; } .split-figwrap { display: none; } }
 /* numbered option cards (reuses the orchestra number badge look) */
 .opt-no { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px;
   border-radius: 50%; background: rgba(63,241,239,.08); border: 1px solid var(--cyan); color: var(--cyan);

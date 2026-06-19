@@ -635,3 +635,41 @@
     if (e.target === lb) close();           // click backdrop closes
   });
 })();
+
+/* ===== Animated code field behind .split--figure Calliope figures (.split-ascii) ===== */
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var glyphs = "CALLIOPEai01<>/\\*=+-#·".split("");
+  [].forEach.call(document.querySelectorAll(".split-ascii"), function (cv) {
+    if (!cv.getContext) return;
+    var ctx = cv.getContext("2d");
+    var STEP = 13, CW, CH, cols, rows, t = 0;
+    function size() {
+      CW = cv.clientWidth; CH = cv.clientHeight;
+      cv.width = CW; cv.height = CH;
+      cols = Math.ceil(CW / STEP); rows = Math.ceil(CH / STEP);
+      ctx.font = STEP + "px ui-monospace, SFMono-Regular, Menlo, monospace";
+      ctx.textBaseline = "top";
+    }
+    window.addEventListener("resize", size);
+    function frame() {
+      if (!CW || cv.clientWidth !== CW) size();
+      if (!CW) { requestAnimationFrame(frame); return; }
+      t++;
+      ctx.clearRect(0, 0, CW, CH);
+      for (var r = 0; r < rows; r++) {
+        var yy = r / rows, dens = 0.28 + 0.72 * yy;
+        for (var c = 0; c < cols; c++) {
+          var fl = 0.5 + 0.5 * Math.sin(t * 0.06 - r * 0.55 + c * 0.32);
+          var on = fl * dens;
+          if (on < 0.1) continue;
+          ctx.globalAlpha = Math.min(0.72, on);
+          ctx.fillStyle = (fl > 0.9 && yy > 0.55) ? "rgba(63,241,239,.95)" : "rgb(122,131,156)";
+          ctx.fillText(glyphs[(r * cols + c + (t >> 2)) % glyphs.length], c * STEP, r * STEP);
+        }
+      }
+      if (!reduce) requestAnimationFrame(frame);
+    }
+    frame();
+  });
+})();

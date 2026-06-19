@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
   <link rel="icon" href="/img/favicon.png" />
-  <link rel="stylesheet" href="/styles.css?v=45" />
+  <link rel="stylesheet" href="/styles.css?v=47" />
   <script src="/site-header.js?v=14"></script>
   <script src="/site-footer.js?v=16"></script>
 </head>
@@ -29,12 +29,17 @@
       </div>
     </section>
 
-    <section class="band-light">
-      <div class="wrap howsplit">
-        <div class="howsplit-aside">
+    <section class="split band-light split--figure">
+      <div class="wrap split-grid">
+        <div class="split-aside">
+          <p class="section-eyebrow">The problem</p>
           <h2 class="section-title">Your data is in hard-to-reach places.</h2>
+          <div class="split-figwrap">
+            <canvas class="split-ascii" aria-hidden="true"></canvas>
+            <div class="split-stage"><img src="/img/calliope-img/6.png" alt="" loading="lazy" /></div>
+          </div>
         </div>
-        <div class="howsplit-main">
+        <div class="split-main">
           <p class="section-lead">Your security team blocks every new SaaS tool that requires data egress. Your compliance requirements say PHI can't leave the country. Your OT network is air-gapped for a reason. Your team in Frankfurt needs AI tools, but your data has to stay in Frankfurt.</p>
           <p class="section-lead"><strong>Most AI platforms can't even get past your security review.</strong> They need your data on their servers, their cloud, their terms. That's a non-starter for regulated industries, distributed teams, and organizations with real data sovereignty requirements.</p>
           <p class="section-lead">Calliope AI takes a different approach. We deploy inside your perimeter — as close to your data as you need us to be. Minimal infrastructure footprint. Choose local models for complete isolation, or use hosted providers with your existing API agreements. Your IT reviews once, your security team signs off once, and your team is productive in days.</p>
@@ -61,13 +66,13 @@
       </div>
     </section>
 
-    <section class="band-light">
-      <div class="wrap howsplit">
-        <div class="howsplit-aside">
+    <section class="split band-light">
+      <div class="wrap split-grid">
+        <div class="split-aside">
           <p class="section-eyebrow">What your team gets</p>
           <h2 class="section-title">Purpose-built tools. Plus the best add-ons.</h2>
         </div>
-        <div class="howsplit-main">
+        <div class="split-main">
           <p class="section-lead">When we deploy inside your perimeter, your team gets a complete AI development environment — not a collection of loosely connected services.</p>
           <ul class="copy-list">
             <li><strong>Nine tools built by us</strong> — AI Lab, AI IDE, Deep Data Agent, Chat Studio, AGTerm, DB Loadr, File Manager, Desktop, and Browser. All sharing the same authentication, the same filesystem, the same access logs.</li>
@@ -102,6 +107,6 @@
     </section>
   </main>
   <site-footer data-page="how"></site-footer>
-  <script src="/script.js?v=12"></script>
+  <script src="/script.js?v=13"></script>
 </body>
 </html>
