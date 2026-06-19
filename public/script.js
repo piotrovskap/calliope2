@@ -660,12 +660,12 @@
       for (var r = 0; r < rows; r++) {
         var yy = r / rows, dens = 0.28 + 0.72 * yy;
         for (var c = 0; c < cols; c++) {
-          var fl = 0.5 + 0.5 * Math.sin(t * 0.06 - r * 0.55 + c * 0.32);
+          var fl = 0.5 + 0.5 * Math.sin(t * 0.022 - r * 0.55 + c * 0.32);
           var on = fl * dens;
           if (on < 0.1) continue;
           ctx.globalAlpha = Math.min(0.72, on);
           ctx.fillStyle = (fl > 0.9 && yy > 0.55) ? "rgba(63,241,239,.95)" : "rgb(122,131,156)";
-          ctx.fillText(glyphs[(r * cols + c + (t >> 2)) % glyphs.length], c * STEP, r * STEP);
+          ctx.fillText(glyphs[(r * cols + c + (t >> 4)) % glyphs.length], c * STEP, r * STEP);
         }
       }
       if (!reduce) requestAnimationFrame(frame);

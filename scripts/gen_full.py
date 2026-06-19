@@ -3,7 +3,7 @@
 faithfully reproducing calliope.ai copy inside our design system."""
 import json, html, re, os
 
-V_CSS, V_HDR, V_FTR, V_JS = 47, 14, 16, 13
+V_CSS, V_HDR, V_FTR, V_JS = 47, 14, 17, 13
 OUT = "public"
 
 def e(s): return html.escape(s or "", quote=True)

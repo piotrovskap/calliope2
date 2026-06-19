@@ -6,6 +6,7 @@
      Each page selects via <site-footer data-page="..."> (defaults to "home"). */
   var CTAS = {
     home:        { h: 'Stop saying no to AI.', a: 'Start saying YES, safely.', s: 'A secure AI development platform that enables innovation instead of blocking it — launch faster, stay compliant, keep control.', p: ['Talk to sales', '/#demo'], sec: ['See governance', '/governance.html'] },
+    home2:       { h: 'Self-host enterprise AI', a: 'in days.', s: 'Stop choosing between moving fast and staying in control.', p: ['Book a demo', '/#demo'], sec: ['See how it works', '/how-it-works.html'] },
     product:     { h: 'Stop managing', a: 'tools.', s: 'The Hub gives your team everything they need to develop, deploy and govern AI systems — in one platform that works the way enterprises require.', p: ['Get started', '/#demo'], sec: ['Talk to us', '/#demo'] },
     ide:         { h: 'The most capable', a: 'AI IDE.', s: 'Available for macOS, Windows and Linux. No accounts, no signup — free for personal, professional and commercial use.', p: ['Download AI IDE', '/#demo'], sec: ['Try cloud version', '/#demo'] },
     governance:  { h: 'Stop treating AI like', a: 'traditional IT.', s: 'Zentinelle gives you the GRC infrastructure AI systems require — observability, controllability and feedback loops that keep autonomous systems under control.', p: ['Talk to sales', '/#demo'], sec: ['See risk management', '/governance.html'] },
@@ -38,6 +39,7 @@
             '<a href="' + c.sec[1] + '" class="precta-textlink">' + c.sec[0] + ' →</a>' +
           '</div>' +
           '<div class="precta-figure">' +
+            '<canvas class="split-ascii" aria-hidden="true"></canvas>' +
             '<img src="' + (c.fig || '/img/calliope-img/2.png') + '" alt="" loading="lazy" />' +
           '</div>' +
         '</div>' +

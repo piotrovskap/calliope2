@@ -12,9 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
   <link rel="icon" href="/img/favicon.png" />
-  <link rel="stylesheet" href="/styles.css?v=47" />
+  <link rel="stylesheet" href="/styles.css?v=49" />
   <script src="/site-header.js?v=14"></script>
-  <script src="/site-footer.js?v=16"></script>
+  <script src="/site-footer.js?v=18"></script>
   <style>
     /* homepage2-only bits (kept inline to avoid touching global styles) */
     /* taller hero — takes more of the viewport, content vertically centered */
@@ -40,6 +40,38 @@
     .sp-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1.6rem; }
     .sp-chip { display: inline-flex; align-items: center; gap: .55rem; padding: .7rem 1.2rem; border: 1px solid var(--l-line); border-radius: 4px; background: #fff; color: var(--l-ink); font-weight: 600; font-size: .98rem; }
     .sp-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--l-accent); }
+    /* §2 social proof — Ramp-style connected logo board.
+       Board bleeds to the vframe lines (50% ± 588px) so those lines are its L/R frame. */
+    .proofgrid .wrap { max-width: none; margin: 0; padding-left: max(1.5rem, calc(50% - 588px)); padding-right: max(1.5rem, calc(50% - 588px)); }
+    .proofgrid.band-light { margin-top: 0; padding-top: clamp(6rem, 9vw, 9rem); padding-bottom: clamp(4.5rem, 6vw, 6rem); }
+    /* headline + link inset from the vframe lines, aligned with the tile text (cells stay flush to the frame) */
+    .proofgrid .pg-head, .proofgrid .pg-link { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .pg-head { max-width: calc(38ch + 3rem); }
+    .pg-head .pg-grey { color: var(--l-soft); font-weight: 700; }
+    .pg-link { display: inline-block; margin: .9rem 0 2rem; color: var(--l-accent); font-weight: 600; font-size: .96rem; text-decoration: none; }
+    .pg-link:hover { text-decoration: underline; }
+    .pg-board { display: grid; grid-template-columns: repeat(4, 1fr) 1.55fr; grid-template-rows: repeat(2, 1fr); gap: 0; background: transparent; border-top: 1px solid var(--l-line); border-bottom: 1px solid var(--l-line); border-left: 0; border-right: 0; border-radius: 0; }
+    /* tiles blend with the band; thin lines come from cell borders, not a board fill */
+    .pg-cell { background: transparent; min-height: 168px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; position: relative; text-decoration: none; transition: background .2s ease; padding: 1.5rem 1.5rem; border-right: 1px solid var(--l-line); border-bottom: 1px solid var(--l-line); }
+    .pg-cell:nth-last-child(-n+5) { border-bottom: 0; }   /* last row (4 tiles + feature) */
+    a.pg-cell:hover { background: rgba(255,255,255,.4); }
+    .pg-logo { color: var(--l-ink); font-weight: 700; font-size: 1.06rem; letter-spacing: -.01em; line-height: 1.2; }
+    .pg-cap { color: var(--l-soft); font-size: .82rem; line-height: 1.4; margin-top: .35rem; }
+    .pg-arrow { position: absolute; top: .9rem; right: 1rem; color: #b3bccd; font-size: 1.05rem; line-height: 1; transition: color .2s ease; }
+    a.pg-cell:hover .pg-arrow { color: var(--l-accent); }
+    .pg-feature { grid-column: 5; grid-row: 1 / 3; position: relative; overflow: hidden; text-decoration: none; display: flex; min-height: 337px; }
+    .pg-feature-media { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 0; }
+    .pg-feature::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,14,28,0) 42%, rgba(8,14,28,.88)); z-index: 1; }
+    .pg-feature-cap { position: relative; z-index: 2; align-self: flex-end; padding: 1.5rem 1.6rem; color: #fff; }
+    .pg-feature-name { display: block; font-size: .82rem; letter-spacing: .04em; text-transform: uppercase; opacity: .82; margin-bottom: .45rem; }
+    .pg-stat { display: block; font-family: var(--font-head); font-size: 2.8rem; font-weight: 700; line-height: 1; letter-spacing: -.03em; }
+    .pg-stat-lbl { display: block; font-size: .94rem; opacity: .88; margin-top: .35rem; max-width: 24ch; }
+    @media (max-width: 860px) {
+      .pg-board { grid-template-columns: repeat(3, 1fr); grid-template-rows: none; grid-auto-rows: 116px; }
+      .pg-cell { min-height: 0; }
+      .pg-feature { grid-column: 1 / -1; grid-row: auto; min-height: 240px; }
+    }
+    @media (max-width: 520px) { .pg-board { grid-template-columns: 1fr 1fr; } }
     .brocs-grid .feature h3 .b { color: var(--cyan); }
     .brocs-hl { color: var(--cyan); }
     /* §7 product bento bleeds out to the vframe lines (those lines = L/R border) */
@@ -125,8 +157,8 @@
     /* §8 use cases — Shade-style timeline (mono labels, two-tone headline, faded steps, node line) */
     .uc-eyebrow { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .76rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--l-accent); margin: 0 0 1.4rem; display: inline-flex; align-items: center; gap: .5rem; }
     .uc-eyebrow::before { content: "▶"; font-size: .68em; }
-    .uc-head { font-family: var(--font-head); font-size: clamp(1.7rem, 3.6vw, 2.7rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; color: var(--l-ink); margin: 0; max-width: 24ch; }
-    .uc-head .uc-sub { color: #0b8ea8; }   /* darker teal — visible on the light band */
+    .uc-head { font-family: var(--font-head); font-size: clamp(1.7rem, 3.6vw, 2.7rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.15; color: var(--l-ink); margin: 0; max-width: 22ch; }
+    .uc-sub { font-size: clamp(1.1rem, 1.5vw, 1.32rem); font-weight: 500; line-height: 1.5; color: var(--l-soft); margin: .85rem 0 0; max-width: 42ch; }
     .uc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1.4rem, 3vw, 2.6rem); margin-top: clamp(2.4rem, 4vw, 3.8rem); }
     .uc-step { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; color: #8a93a8; }
     .uc-title { font-size: 1.32rem; font-weight: 700; color: var(--l-ink); margin: .9rem 0 .55rem; line-height: 1.28; }
@@ -205,55 +237,30 @@
       </div>
     </section>
 
-    <!-- ===== §2 SOCIAL PROOF (with industry carousel) ===== -->
-    <section class="indfocus band-light" aria-label="Trusted in production where data can't leave">
-      <div class="wrap" style="text-align:center;">
-        <h2 class="section-title">Trusted in production where data can't leave.</h2>
-        <p class="section-lead" style="margin-left:auto;margin-right:auto;">Teams in regulated and security-conscious industries run Calliope AI inside their own perimeter — because their data never can.</p>
-      </div>
-      <div class="indfocus-viewport">
-        <div class="indfocus-track" data-ind-track>
-          <a class="indcard" href="/industry-financial-services.html">
-            <div class="indcard-media img-ph"><span>Financial services<br>(image)</span></div>
-            <div class="indcard-cap"><span>Financial services</span></div>
-          </a>
-          <a class="indcard" href="/industry-healthcare-pharma.html">
-            <div class="indcard-media img-ph"><span>Healthcare &amp; pharma<br>(image)</span></div>
-            <div class="indcard-cap"><span>Healthcare &amp; pharma</span></div>
-          </a>
-          <a class="indcard" href="/industry-government-defense.html">
-            <div class="indcard-media img-ph"><span>Government &amp; defense<br>(image)</span></div>
-            <div class="indcard-cap"><span>Government &amp; defense</span></div>
-          </a>
-          <a class="indcard" href="/industry-energy-utilities.html">
-            <div class="indcard-media img-ph"><span>Energy &amp; utilities<br>(image)</span></div>
-            <div class="indcard-cap"><span>Energy &amp; utilities</span></div>
-          </a>
-          <a class="indcard" href="/industry-life-sciences.html">
-            <div class="indcard-media img-ph"><span>Life sciences<br>(image)</span></div>
-            <div class="indcard-cap"><span>Life sciences &amp; biotech</span></div>
-          </a>
-          <a class="indcard" href="/industry-manufacturing.html">
-            <div class="indcard-media img-ph"><span>Manufacturing<br>(image)</span></div>
-            <div class="indcard-cap"><span>Manufacturing</span></div>
-          </a>
-          <a class="indcard" href="/industry-research-academia.html">
-            <div class="indcard-media img-ph"><span>Research &amp; academia<br>(image)</span></div>
-            <div class="indcard-cap"><span>Research &amp; academia</span></div>
-          </a>
-          <a class="indcard" href="/industry-climate-environment.html">
-            <div class="indcard-media img-ph"><span>Climate &amp; environment<br>(image)</span></div>
-            <div class="indcard-cap"><span>Climate &amp; environment</span></div>
+    <!-- ===== §2 SOCIAL PROOF (Ramp-style logo board) ===== -->
+    <section class="proofgrid band-light" aria-label="Trusted in production where data can't leave">
+      <div class="wrap">
+        <h2 class="section-title pg-head">Trusted in production where data can't leave. <span class="pg-grey">Teams in regulated and security-conscious industries run Calliope AI inside their own perimeter — because their data never can.</span></h2>
+        <a href="/how-it-works.html" class="pg-link">See how deployments work →</a>
+        <!-- Placeholder logos & feature: swap to named customer logos / photo as references clear. -->
+        <div class="pg-board">
+          <a class="pg-cell" href="/industry-healthcare-pharma.html"><span class="pg-arrow" aria-hidden="true">↗</span><span class="pg-logo">Healthcare &amp; pharma</span><span class="pg-cap">HIPAA-aligned · PHI stays in</span></a>
+          <a class="pg-cell" href="/industry-financial-services.html"><span class="pg-arrow" aria-hidden="true">↗</span><span class="pg-logo">Financial services</span><span class="pg-cap">SOC 2 · data residency</span></a>
+          <a class="pg-cell" href="/industry-government-defense.html"><span class="pg-arrow" aria-hidden="true">↗</span><span class="pg-logo">Gov &amp; defense</span><span class="pg-cap">Air-gapped · on-prem</span></a>
+          <a class="pg-cell" href="/industry-energy-utilities.html"><span class="pg-arrow" aria-hidden="true">↗</span><span class="pg-logo">Energy &amp; utilities</span><span class="pg-cap">OT / SCADA networks</span></a>
+          <a class="pg-cell" href="/industry-manufacturing.html"><span class="pg-arrow" aria-hidden="true">↗</span><span class="pg-logo">Manufacturing</span><span class="pg-cap">Edge &amp; shop-floor</span></a>
+          <a class="pg-cell" href="/industry-life-sciences.html"><span class="pg-arrow" aria-hidden="true">↗</span><span class="pg-logo">Life sciences</span><span class="pg-cap">Genomic &amp; clinical data</span></a>
+          <a class="pg-cell" href="/industry-research-academia.html"><span class="pg-arrow" aria-hidden="true">↗</span><span class="pg-logo">Research &amp; academia</span><span class="pg-cap">Secure compute enclaves</span></a>
+          <a class="pg-cell" href="/industry-climate-environment.html"><span class="pg-arrow" aria-hidden="true">↗</span><span class="pg-logo">Climate &amp; environment</span><span class="pg-cap">Sovereign datasets</span></a>
+          <a class="pg-feature" href="/how-it-works.html">
+            <div class="pg-feature-media img-ph"></div>
+            <div class="pg-feature-cap">
+              <span class="pg-feature-name">Regulated deployment</span>
+              <span class="pg-stat">100%</span>
+              <span class="pg-stat-lbl">of data stays inside the customer perimeter</span>
+            </div>
           </a>
         </div>
-      </div>
-      <div class="wrap indfocus-nav">
-        <button class="ind-arrow" data-ind-prev aria-label="Previous industries">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
-        </button>
-        <button class="ind-arrow" data-ind-next aria-label="Next industries">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
       </div>
     </section>
 
@@ -439,7 +446,8 @@
       <div class="uc-pin">
         <div class="wrap uc-inner">
           <p class="uc-eyebrow">Use cases</p>
-          <h2 class="uc-head">One stack. Every AI workflow your team runs.<br /><span class="uc-sub">Build it once, on infrastructure you own.</span></h2>
+          <h2 class="uc-head">One stack. Every AI workflow your team runs.</h2>
+          <p class="uc-sub">Build it once, on infrastructure you own.</p>
           <div class="uc-grid">
             <div class="uc-col is-active">
               <span class="uc-step">01</span>
@@ -526,8 +534,8 @@
     </div>
   </div>
 
-  <site-footer data-page="home"></site-footer>
-  <script src="/script.js?v=13"></script>
+  <site-footer data-page="home2"></site-footer>
+  <script src="/script.js?v=14"></script>
   <script>
     /* hero: rotate eyebrow theme + highlighted BROCS verb on each load */
     (function () {
