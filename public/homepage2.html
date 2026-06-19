@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calliope AI — Private AI your team can actually Build · Run · Observe · Control · Secure</title>
+  <meta name="description" content="Your team wants AI. Your data can't leave. Calliope AI makes private AI real — secure, governed, in your own cloud." />
+  <meta property="og:title" content="Calliope AI — AI enablement for grown-ups." />
+  <meta property="og:description" content="We make private AI real — secure, governed, in your own cloud." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/img/favicon.png" />
+  <link rel="stylesheet" href="/styles.css?v=45" />
+  <script src="/site-header.js?v=14"></script>
+  <script src="/site-footer.js?v=16"></script>
+  <style>
+    /* homepage2-only bits (kept inline to avoid touching global styles) */
+    /* smaller hero headline */
+    .hero--center .hero-title { font-size: clamp(1.9rem, 4.4vw, 3.2rem); letter-spacing: -.035em; line-height: 1.12; }
+    .hero--center .hero-sub { font-size: clamp(1rem, 1.5vw, 1.12rem); }
+    /* Linear-style reveal: headline rises word-by-word out of blur, then sub + CTAs */
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes heroReveal { from { opacity: 0; filter: blur(8px); transform: translateY(16px); } to { opacity: 1; filter: blur(0); transform: none; } }
+      @keyframes heroWord  { from { opacity: 0; filter: blur(10px); transform: translateY(18px); } to { opacity: 1; filter: blur(0); transform: none; } }
+      .hero-center > *:not(.hero-title) { animation: heroReveal .8s cubic-bezier(.16,.84,.34,1) both; }
+      .hero-center > *:nth-child(1) { animation-delay: .02s; }   /* eyebrow */
+      .hero-center > *:nth-child(3) { animation-delay: .95s; }   /* sub */
+      .hero-center > *:nth-child(4) { animation-delay: 1.05s; }  /* CTAs */
+      .hero-center > *:nth-child(5) { animation-delay: 1.15s; }  /* note */
+      .hp-reveal .hpw, .hp-reveal .brocs-dot, .hp-reveal .hpend { display: inline-block; animation: heroWord .7s cubic-bezier(.16,.84,.34,1) both; }
+      .hero-hand-wrap { animation: heroReveal 1.2s ease both; animation-delay: .4s; }
+    }
+    .brocs-verb { color: #fff; transition: color .3s ease; white-space: nowrap; }
+    .brocs-verb.is-hi { color: var(--cyan); font-style: italic; }
+    .brocs-dot { color: var(--muted); margin: 0 .15em; }
+    .sp-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1.6rem; }
+    .sp-chip { display: inline-flex; align-items: center; gap: .55rem; padding: .7rem 1.2rem; border: 1px solid var(--l-line); border-radius: 4px; background: #fff; color: var(--l-ink); font-weight: 600; font-size: .98rem; }
+    .sp-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--l-accent); }
+    .brocs-grid .feature h3 .b { color: var(--cyan); }
+    /* product deep-dive visuals: aurora image fills 100% of the cell (no inset) */
+    .orch-visual { padding: 0; }
+    .orch-visual .img-ph { width: 100%; height: 100%; min-height: 400px; }
+    /* all CTAs in brand aqua: ghost buttons get cyan text + border */
+    .btn-ghost { color: var(--cyan); border-color: rgba(63,241,239,.55); }
+    .btn-ghost:hover { color: var(--cyan); border-color: var(--cyan); background: rgba(63,241,239,.08); }
+    .band-light .btn-ghost { color: var(--cyan); border-color: rgba(63,241,239,.6); }
+    /* §3 problem — Firecrawl-style blueprint bento (light, connected grid + crosshairs) */
+    /* bleed the grid out to the existing vframe lines; those lines are the L/R border */
+    .fc { position: relative; border-top: 1px solid var(--l-line); border-bottom: 1px solid var(--l-line); overflow: hidden;
+      margin: 2rem max(1.5rem, calc(50% - 588px)) 0; }
+    .fc-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--l-line); }
+    .fc-cell { position: relative; background: #fff; display: flex; flex-direction: column; min-height: 360px; }
+    .fc-text { padding: clamp(1.6rem, 3vw, 2.6rem) clamp(1.6rem, 3vw, 2.6rem) 1.3rem; }
+    .fc-label { display: inline-flex; align-items: center; gap: .55rem; color: #98a1b2; font-size: .82rem; font-weight: 600; letter-spacing: .01em; margin-bottom: 1.1rem; }
+    .fc-label svg { width: 16px; height: 16px; stroke: #98a1b2; }
+    .fc-text p { margin: 0; color: var(--l-soft); font-size: 1.04rem; line-height: 1.6; }
+    .fc-text p b { color: var(--l-ink); font-weight: 700; }
+    /* visual area below the text (light placeholder — drop graphics in later) */
+    .fc-media { margin-top: auto; min-height: 180px; border-top: 1px solid var(--l-line); display: flex; align-items: center; justify-content: center; overflow: hidden; background: none; }
+    .fc-media svg { width: 60px; height: 60px; stroke: #bcc6d8; opacity: .95; }
+    @media (max-width: 720px) { .fc-grid { grid-template-columns: 1fr; } }
+    /* §4 solution — Calliope figure under the title */
+    .sol-fig { display: block; width: min(300px, 80%); height: auto; margin-top: 1.8rem; }
+  </style>
+</head>
+<body>
+  <div class="vframe" aria-hidden="true"></div>
+  <site-header data-active=""></site-header>
+  <main id="main">
+
+    <!-- ===== §1 HERO ===== -->
+    <section class="hero hero--center">
+      <span class="vspark vspark-l"></span>
+      <span class="vspark vspark-r"></span>
+      <div class="wrap hero-center">
+        <span class="hero-pill"><span class="hero-pill-dot"></span> <span id="hpEyebrow">AI enablement for grown-ups.</span></span>
+        <h1 class="hero-title hp-reveal"><span class="hpw">Private</span> <span class="hpw">AI</span> <span class="hpw">your</span> <span class="hpw">team</span> <span class="hpw">can</span> <span class="hpw">actually</span><br /><span class="hpw brocs-verb is-hi">Build</span><span class="brocs-dot">·</span><span class="hpw brocs-verb">Run</span><span class="brocs-dot">·</span><span class="hpw brocs-verb">Observe</span><span class="brocs-dot">·</span><span class="hpw brocs-verb">Control</span><span class="brocs-dot">·</span><span class="hpw brocs-verb">Secure</span><span class="hpend">.</span></h1>
+        <p class="hero-sub">Your team wants AI. Your data can't leave.<br />We make private AI real — secure, governed, in your own cloud.</p>
+        <div class="hero-actions center">
+          <a href="/#demo" class="btn btn-primary btn-lg btn-shine">Book a demo</a>
+          <a href="/how-it-works.html" class="btn btn-ghost btn-lg">See how it works →</a>
+        </div>
+        <p class="lead-note">or <a href="#blueprint" class="hero-textlink">get the deployment blueprint →</a></p>
+      </div>
+      <div class="hero-hand-wrap" aria-hidden="true">
+        <img class="hero-hand" src="img/calliope-img/hand.png" alt="" loading="eager" />
+      </div>
+    </section>
+
+    <!-- ===== §2 SOCIAL PROOF (with industry carousel) ===== -->
+    <section class="indfocus band-light" aria-label="Trusted in production where data can't leave">
+      <div class="wrap" style="text-align:center;">
+        <h2 class="section-title">Trusted in production where data can't leave.</h2>
+        <p class="section-lead" style="margin-left:auto;margin-right:auto;">Teams in regulated and security-conscious industries run Calliope AI inside their own perimeter — because their data never can.</p>
+      </div>
+      <div class="indfocus-viewport">
+        <div class="indfocus-track" data-ind-track>
+          <a class="indcard" href="/industry-financial-services.html">
+            <div class="indcard-media img-ph"><span>Financial services<br>(image)</span></div>
+            <div class="indcard-cap"><span>Financial services</span></div>
+          </a>
+          <a class="indcard" href="/industry-healthcare-pharma.html">
+            <div class="indcard-media img-ph"><span>Healthcare &amp; pharma<br>(image)</span></div>
+            <div class="indcard-cap"><span>Healthcare &amp; pharma</span></div>
+          </a>
+          <a class="indcard" href="/industry-government-defense.html">
+            <div class="indcard-media img-ph"><span>Government &amp; defense<br>(image)</span></div>
+            <div class="indcard-cap"><span>Government &amp; defense</span></div>
+          </a>
+          <a class="indcard" href="/industry-energy-utilities.html">
+            <div class="indcard-media img-ph"><span>Energy &amp; utilities<br>(image)</span></div>
+            <div class="indcard-cap"><span>Energy &amp; utilities</span></div>
+          </a>
+          <a class="indcard" href="/industry-life-sciences.html">
+            <div class="indcard-media img-ph"><span>Life sciences<br>(image)</span></div>
+            <div class="indcard-cap"><span>Life sciences &amp; biotech</span></div>
+          </a>
+          <a class="indcard" href="/industry-manufacturing.html">
+            <div class="indcard-media img-ph"><span>Manufacturing<br>(image)</span></div>
+            <div class="indcard-cap"><span>Manufacturing</span></div>
+          </a>
+          <a class="indcard" href="/industry-research-academia.html">
+            <div class="indcard-media img-ph"><span>Research &amp; academia<br>(image)</span></div>
+            <div class="indcard-cap"><span>Research &amp; academia</span></div>
+          </a>
+          <a class="indcard" href="/industry-climate-environment.html">
+            <div class="indcard-media img-ph"><span>Climate &amp; environment<br>(image)</span></div>
+            <div class="indcard-cap"><span>Climate &amp; environment</span></div>
+          </a>
+        </div>
+      </div>
+      <div class="wrap indfocus-nav">
+        <button class="ind-arrow" data-ind-prev aria-label="Previous industries">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        </button>
+        <button class="ind-arrow" data-ind-next aria-label="Next industries">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== §3 PROBLEM (Firecrawl-style blueprint bento) ===== -->
+    <section class="band-light">
+      <div class="wrap">
+        <p class="section-eyebrow">The problem</p>
+        <h2 class="section-title">You're stuck between moving fast and staying in control.</h2>
+        <p class="section-lead" style="max-width:760px;">Your team wants to build with AI. Your data can't leave, your security team can't see what's running, and standing it up yourself takes months. So AI either stalls or sprawls.</p>
+        <p class="section-lead" style="max-width:760px;">Both ways out are expensive. Stall, and you fall behind. Sprawl, and the next incident is yours to explain.</p>
+        <div class="hero-actions" style="margin-bottom:.5rem;"><a href="/product.html" class="btn btn-ghost btn-lg">See the Workbench →</a></div>
+      </div>
+      <div class="fc">
+          <div class="fc-grid">
+            <div class="fc-cell">
+              <div class="fc-text">
+                <span class="fc-label"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Repetition</span>
+                <p><b>Rebuilding the same setup every project.</b> Environment config, model integrations, secrets — from scratch each new initiative.</p>
+              </div>
+              <div class="fc-media"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></div>
+            </div>
+            <div class="fc-cell">
+              <div class="fc-text">
+                <span class="fc-label"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Bottleneck</span>
+                <p><b>Developers waiting on DevOps.</b> Standing up an AI environment takes weeks before a line of AI code gets written.</p>
+              </div>
+              <div class="fc-media"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            </div>
+            <div class="fc-cell">
+              <div class="fc-text">
+                <span class="fc-label"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/><line x1="3" y1="3" x2="21" y2="21"/></svg>Blind spots</span>
+                <p><b>Security can't see what's happening.</b> Who launched what, who accessed which environment, what's running — nobody knows until something breaks.</p>
+              </div>
+              <div class="fc-media"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/><line x1="3" y1="3" x2="21" y2="21"/></svg></div>
+            </div>
+            <div class="fc-cell">
+              <div class="fc-text">
+                <span class="fc-label"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Sprawl</span>
+                <p><b>New AI tools keep landing on laptops.</b> Unapproved tools spreading, each with a different security posture and its own credentials.</p>
+              </div>
+              <div class="fc-media"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- ===== §4 SOLUTION ===== -->
+    <section class="band-light">
+      <div class="wrap howsplit">
+        <div class="howsplit-aside">
+          <p class="section-eyebrow">The solution</p>
+          <h2 class="section-title">The AI advantage only you can build.</h2>
+          <img class="sol-fig" src="/img/calliope-img/2.png" alt="" loading="lazy" />
+        </div>
+        <div class="howsplit-main">
+          <p class="section-lead">Calliope AI brings AI to your data, not your data to the AI. Your team puts it to work on the proprietary code, data, and knowledge that actually set you apart — without any of it leaving your perimeter.</p>
+          <p class="section-lead">Calliope AI gives every team a complete, isolated AI environment — purpose-built by us, plus curated open-source add-ons.</p>
+          <ul class="copy-list">
+            <li>Everything your team does with AI in one place — code with AI, explore data, build and run agents, ship internal apps, automate work</li>
+            <li>Your cloud, your network, your region — BYOC, VPC peering, on-premise, air-gapped, Kasm Workspaces, or desktop</li>
+            <li>One login, one filesystem, one set of access logs across all of it</li>
+            <li>Minimal footprint — deploys inside your perimeter without a major infrastructure lift</li>
+          </ul>
+          <a href="/product.html" class="feat-go">Explore the full Workbench →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== §5 PRODUCT — Inside the Workbench (demoted) ===== -->
+    <section>
+      <div class="wrap">
+        <p class="section-eyebrow">Inside the Workbench</p>
+        <h2 class="section-title">Everything your team needs to build with AI — in one stack you control.</h2>
+      </div>
+      <div class="orch-rows">
+        <article class="orch-row">
+          <div class="orch-copy">
+            <span class="orch-no">01</span>
+            <h3 class="orch-title">Analysis at the speed of thought.</h3>
+            <p class="orch-desc">AI Lab — JupyterLab with an AI copilot. Ask in plain English, get the query, get the chart — over data that never leaves your cloud.</p>
+            <ul class="copy-list"><li>Natural language → SQL</li><li>300+ packages bundled</li><li>Governed access &amp; audit</li></ul>
+            <a href="/product-ai-lab.html" class="feat-go">Browse AI Lab →</a>
+          </div>
+          <div class="orch-visual"><div class="img-ph"><span>AI Lab<br>(demo)</span></div></div>
+        </article>
+        <article class="orch-row">
+          <div class="orch-copy">
+            <span class="orch-no">02</span>
+            <h3 class="orch-title">Autonomous agents that ship real work.</h3>
+            <p class="orch-desc">AI IDE &amp; Agents — five modes, 12+ model providers, background agents that plan and execute — every edit staged for human review.</p>
+            <ul class="copy-list"><li>Agent · Ask · Plan · Debug · Council modes</li><li>Staged changes, accept/reject</li><li>Runs local or air-gapped</li></ul>
+            <a href="/product-ide.html" class="feat-go">Browse AI IDE →</a>
+          </div>
+          <div class="orch-visual"><div class="img-ph"><span>AI IDE &amp; Agents<br>(demo)</span></div></div>
+        </article>
+        <article class="orch-row">
+          <div class="orch-copy">
+            <span class="orch-no">03</span>
+            <h3 class="orch-title">See — and control — every agent action.</h3>
+            <p class="orch-desc">Governance (Zentinelle) — observability, real-time policy enforcement, compliance mapping. Catch violations before they become incidents.</p>
+            <ul class="copy-list"><li>24 policy types, real-time</li><li>PII / injection scanning</li><li>Audit trail → your SIEM</li></ul>
+            <a href="/governance.html" class="feat-go">Browse governance →</a>
+          </div>
+          <div class="orch-visual"><div class="img-ph"><span>Zentinelle<br>(demo)</span></div></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== §6 BENEFITS ===== -->
+    <section class="band-light">
+      <div class="wrap">
+        <h2 class="section-title">What your team actually gets.</h2>
+        <div class="feature-grid">
+          <div class="feature"><h3>100% of your data stays in your cloud</h3><p>Nothing leaves your VPC.</p></div>
+          <div class="feature"><h3>Same tools, any backend</h3><p>Switch clouds, models, or deployment targets — AWS · GCP · Azure · on-prem · air-gapped — without retraining your team or rewriting a line. No vendor lock-in.</p></div>
+          <div class="feature"><h3>One login, one bill, one governed stack</h3><p>Not a toolchain to assemble and reconcile.</p></div>
+          <div class="feature"><h3>Every agent action enforced in real time</h3><p>Models, tools, budgets, rate limits — all under policy.</p></div>
+          <div class="feature"><h3>Days from contract to production</h3><p>Not 18-month build cycles.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== §7 BROCS — the platform (v1 product bento, BROCS copy) ===== -->
+    <section class="products">
+      <div class="wrap">
+        <h2 class="rt-heading">One platform. Build · Run · Observe · Control · Secure.</h2>
+        <div class="rt-bento">
+
+          <!-- Build — Calliope AI Workbench (big card) -->
+          <a href="/product.html" class="rt-feature">
+            <div class="rt-img rt-img--calliope">
+              <img src="/img/calliope%20logo.png" alt="Calliope AI" loading="lazy" />
+            </div>
+            <div class="rt-cap">
+              <h3 class="rt-cap-title">Build — code, notebooks, chat &amp; agents in one governed Workbench you own.</h3>
+              <p class="rt-byline">Build · Calliope AI Workbench</p>
+            </div>
+          </a>
+
+          <!-- Run — Astrolift -->
+          <div class="rt-cell rt-prose">
+            <p>The run layer puts the whole stack in your account — deploy across AWS, GCP, Azure &amp; on-prem. Multi-cloud + on-prem Kubernetes PaaS, with BYOC and VPC peering.</p>
+            <a href="/deployment.html" class="product-link">Explore deployment →</a>
+          </div>
+          <a href="/deployment.html" class="rt-cell rt-color rt-color--astro">
+            <h3 class="rt-color-title">Run — ship to your own cloud with Astrolift</h3>
+            <img class="rt-color-logo" src="/img/astroliftlogo.png" alt="Astrolift" loading="lazy" />
+          </a>
+
+          <!-- Observe + Control — Zentinelle -->
+          <div class="rt-cell rt-prose">
+            <p>The governance layer — observability and real-time policy enforcement. 24 policy controls mapped to SOC 2, HIPAA &amp; the EU AI Act, with every agent action audited.</p>
+            <a href="/governance.html" class="product-link">See governance →</a>
+          </div>
+          <a href="/governance.html" class="rt-cell rt-color rt-color--zen">
+            <h3 class="rt-color-title">Observe + control every agent with Zentinelle</h3>
+            <img class="rt-color-logo" src="/img/zentinelle%20logo.png" alt="Zentinelle" loading="lazy" />
+          </a>
+        </div>
+        <p class="section-lead" style="max-width:820px;margin-top:1.6rem;"><strong>Secure</strong> wraps all of it — private deployment and real-time enforcement, in your cloud or colo, inside your perimeter, under your security controls.</p>
+      </div>
+    </section>
+
+    <!-- ===== §8 USE CASES ===== -->
+    <section class="band-light">
+      <div class="wrap">
+        <h2 class="section-title">One stack. Every AI workflow your team runs.</h2>
+        <p class="section-lead" style="max-width:680px;">Build it once, on infrastructure you own.</p>
+        <div class="feature-grid">
+          <div class="feature"><h3>Build and run agents</h3><p>Autonomous agents that plan and execute, inside your perimeter.</p></div>
+          <div class="feature"><h3>Explore your data</h3><p>Ask in plain English over data that never leaves your cloud.</p></div>
+          <div class="feature"><h3>Ship governed chatbots and copilots</h3><p>Internal assistants with policy and audit built in.</p></div>
+          <div class="feature"><h3>Automate internal work</h3><p>Wire workflows across the stack, all logged.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== §9 BLUEPRINT / lead magnet ===== -->
+    <section id="blueprint">
+      <div class="wrap howsplit">
+        <div class="howsplit-aside">
+          <p class="section-eyebrow">Free download</p>
+          <h2 class="section-title">The Private-AI Deployment Blueprint</h2>
+        </div>
+        <div class="howsplit-main">
+          <p class="section-lead">The guide we use with enterprise teams: reference architecture for self-hosting AI in your VPC, a security &amp; GRC checklist, and the path from zero to governed production.</p>
+          <ul class="copy-list">
+            <li>Reference architecture for AWS / GCP / Azure / air-gapped</li>
+            <li>Security &amp; compliance control mapping (9 frameworks)</li>
+            <li>Buy-vs-build cost model</li>
+          </ul>
+          <form class="lead-inline" data-lead-form data-source="homepage2-blueprint" style="max-width:460px;">
+            <input type="email" name="email" required placeholder="you@company.com" aria-label="Work email" />
+            <button type="submit" class="btn btn-primary">Get the blueprint</button>
+          </form>
+          <p class="lead-note">No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Side demo tab (sticky, right edge) ===== -->
+  <a href="/#demo" class="side-demo" aria-label="Book a demo">
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    <span>Book a demo</span>
+  </a>
+
+  <!-- ===== Sticky mobile CTA bar ===== -->
+  <div class="sticky-bar" id="stickyBar">
+    <span>Self-host enterprise AI in days.</span>
+    <a href="/#demo" class="btn btn-primary btn-sm">Book demo</a>
+  </div>
+
+  <site-footer data-page="home"></site-footer>
+  <script src="/script.js?v=12"></script>
+  <script>
+    /* hero: rotate eyebrow theme + highlighted BROCS verb on each load */
+    (function () {
+      var themes = [
+        "AI enablement for grown-ups.",
+        "Own the tools that own your context.",
+        "Same tools. Any backend. No lock-in.",
+        "Sovereignty by design, not a checklist."
+      ];
+      var ey = document.getElementById("hpEyebrow");
+      if (ey) ey.textContent = themes[Math.floor(Math.random() * themes.length)];
+      var verbs = document.querySelectorAll(".brocs-verb");
+      if (verbs.length) {
+        verbs.forEach(function (v) { v.classList.remove("is-hi"); });
+        verbs[Math.floor(Math.random() * verbs.length)].classList.add("is-hi");
+      }
+      // Linear-style word cascade: stagger each headline unit's reveal
+      var hp = document.querySelector(".hp-reveal");
+      if (hp) {
+        var units = hp.querySelectorAll(".hpw, .brocs-dot, .hpend");
+        units.forEach(function (u, i) { u.style.animationDelay = (0.18 + i * 0.05) + "s"; });
+      }
+    })();
+  </script>
+</body>
+</html>
