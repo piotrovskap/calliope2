@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome — Calliope AI</title>
+  <meta name="description" content="Sign in to your Calliope AI Workbench — private AI, secure, governed, in your own cloud." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/img/favicon.png" />
+  <link rel="stylesheet" href="/styles.css?v=49" />
+  <script src="/site-header.js?v=14"></script>
+  <script src="/site-footer.js?v=18"></script>
+  <style>
+    /* welcome / auth — reuses the homepage2 hero shell (.hero--center) verbatim;
+       only the auth card + chip styling is page-specific. */
+    .hero--center { min-height: 86vh; display: flex; align-items: center;
+      padding-top: clamp(3rem, 6vh, 5.5rem); padding-bottom: clamp(3rem, 6vh, 5rem); }
+    .hero--center .hero-title { font-size: clamp(2.2rem, 4.4vw, 3.2rem); letter-spacing: -.045em; margin-bottom: 1.1rem; }
+    .hero--center .hero-sub { margin-left: 0; margin-right: 0; }
+
+    /* two-column "sign in to the system" layout: marketing left, login panel right */
+    .auth-layout { max-width: 1040px; width: 100%; margin: 0 auto; display: grid;
+      grid-template-columns: 1.02fr .98fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; text-align: left; }
+    .auth-intro { min-width: 0; }
+    .auth-layout .hero-pill { margin-bottom: 1.4rem; }
+
+    /* chips styled exactly like the v2 hero-pill */
+    .auth-chips { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: flex-start; margin: .2rem 0 0; }
+    .auth-chip { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem 1rem; border-radius: 6px;
+      border: 1px solid var(--line); background: rgba(255,255,255,.04); color: var(--fg-soft);
+      font-size: .85rem; font-weight: 500; }
+    .auth-chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+
+    .auth-card { width: 100%; max-width: 460px; margin-left: auto; text-align: left; border: 1px solid var(--l-line); border-radius: 10px;
+      background: var(--l-card);
+      box-shadow: 0 1px 2px rgba(0,0,0,.18), 0 30px 60px -28px rgba(0,0,0,.6); padding: 2rem 1.9rem 1.6rem; }
+    .auth-card h2 { color: var(--l-ink); font-size: 1.45rem; letter-spacing: -.02em; margin: 0 0 .35rem; }
+    .auth-card .ac-lead { color: var(--l-soft); font-size: .95rem; margin: 0 0 1.4rem; }
+    .ac-divider { height: 1px; background: var(--l-line); margin: 1.4rem 0; border: 0; }
+
+    .auth-card .btn-block { width: 100%; }
+    .ac-secure { display: block; text-align: center; color: var(--l-muted); font-size: .82rem; margin-top: .9rem; }
+
+    .ac-list { list-style: none; margin: 1.4rem 0 0; padding: 1.1rem 1.2rem; border: 1px solid var(--l-line);
+      border-radius: 8px; background: rgba(19,26,46,.03); display: grid; gap: .7rem; }
+    .ac-list li { display: flex; align-items: center; gap: .7rem; color: var(--l-soft); font-size: .92rem; }
+    .ac-list svg { flex: none; color: var(--l-accent); }
+
+    .ac-status { display: flex; align-items: center; justify-content: center; gap: .55rem; margin: 1.4rem 0 .25rem;
+      color: #0f8f86; font-size: .82rem; font-weight: 600; }
+    .ac-status .pulse { width: 8px; height: 8px; border-radius: 50%; background: #16b3a6;
+      box-shadow: 0 0 0 0 rgba(22,179,166,.5); animation: acPulse 2s ease-out infinite; }
+    @keyframes acPulse { 0% { box-shadow: 0 0 0 0 rgba(22,179,166,.5); } 70% { box-shadow: 0 0 0 7px rgba(22,179,166,0); } 100% { box-shadow: 0 0 0 0 rgba(22,179,166,0); } }
+
+    .ac-terms { text-align: center; color: var(--l-muted); font-size: .78rem; line-height: 1.5; margin: 0; }
+    .ac-terms a { color: var(--l-accent); }
+    .ac-terms a:hover { text-decoration: underline; }
+
+    /* same word-by-word reveal cadence as the homepage2 hero */
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes heroReveal { from { opacity: 0; filter: blur(8px); transform: translateY(16px); } to { opacity: 1; filter: blur(0); transform: none; } }
+      .auth-intro > * { animation: heroReveal .8s cubic-bezier(.16,.84,.34,1) both; }
+      .auth-intro > *:nth-child(1) { animation-delay: .02s; }
+      .auth-intro > *:nth-child(2) { animation-delay: .12s; }
+      .auth-intro > *:nth-child(3) { animation-delay: .22s; }
+      .auth-intro > *:nth-child(4) { animation-delay: .32s; }
+      .auth-card { animation: heroReveal .9s cubic-bezier(.16,.84,.34,1) both; animation-delay: .3s; }
+    }
+    @media (max-width: 880px) {
+      .auth-layout { grid-template-columns: 1fr; gap: 2.2rem; text-align: center; max-width: 520px; }
+      .auth-chips { justify-content: center; }
+      .auth-card { margin: 0 auto; }
+      .hero--center .hero-sub { margin-left: auto; margin-right: auto; }
+    }
+    @media (max-width: 520px) { .auth-card { padding: 1.6rem 1.3rem 1.3rem; } }
+
+    /* §2 "Trusted in production" board — same component as homepage2 §2 (.proofgrid).
+       Board bleeds to the vframe lines (50% ± 588px); tiles blend with the band. */
+    .proofgrid .wrap { max-width: none; margin: 0; padding-left: max(1.5rem, calc(50% - 588px)); padding-right: max(1.5rem, calc(50% - 588px)); }
+    .proofgrid.band-light { padding-top: clamp(4.5rem, 7vw, 7rem); padding-bottom: clamp(4.5rem, 6vw, 6rem); }
+    .proofgrid .pg-head, .proofgrid .pg-link { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .pg-head { max-width: calc(38ch + 3rem); }
+    .pg-head .pg-grey { color: var(--l-soft); font-weight: 700; }
+    .pg-link { display: inline-block; margin: .9rem 0 2rem; color: var(--l-accent); font-weight: 600; font-size: .96rem; text-decoration: none; }
+    .pg-link:hover { text-decoration: underline; }
+    .pg-board { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0; background: transparent; border-top: 1px solid var(--l-line); border-bottom: 1px solid var(--l-line); border-left: 0; border-right: 0; border-radius: 0; }
+    .pg-cell { background: transparent; min-height: 208px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; position: relative; text-decoration: none; transition: background .2s ease; padding: 1.5rem 1.5rem; border-right: 1px solid var(--l-line); border-bottom: 1px solid var(--l-line); }
+    .pg-cell:nth-last-child(-n+3) { border-bottom: 0; }    /* last row */
+    .pg-cell:nth-child(3n) { border-right: 0; }            /* right column: vframe line is the border */
+    a.pg-cell:hover { background: rgba(255,255,255,.4); }
+    .pg-ico { width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: auto; color: var(--l-accent); background: rgba(90,77,199,.10); border: 1px solid var(--l-line); }
+    .pg-ico svg { width: 19px; height: 19px; }
+    .pg-logo { color: var(--l-ink); font-weight: 700; font-size: 1.06rem; letter-spacing: -.01em; line-height: 1.2; margin-top: 1.1rem; }
+    .pg-cap { color: var(--l-soft); font-size: .82rem; line-height: 1.4; margin-top: .35rem; }
+    .pg-arrow { position: absolute; top: .9rem; right: 1rem; color: #b3bccd; font-size: 1.05rem; line-height: 1; transition: color .2s ease; }
+    a.pg-cell:hover .pg-arrow { color: var(--l-accent); }
+    @media (max-width: 860px) {
+      .pg-board { grid-template-columns: repeat(2, 1fr); grid-template-rows: none; }
+      .pg-cell { min-height: 180px; }
+      .pg-cell:nth-child(3n) { border-right: 1px solid var(--l-line); }
+      .pg-cell:nth-child(2n) { border-right: 0; }
+      .pg-cell:nth-last-child(-n+3) { border-bottom: 1px solid var(--l-line); }
+      .pg-cell:nth-last-child(-n+2) { border-bottom: 0; }
+    }
+    @media (max-width: 520px) { .pg-board { grid-template-columns: 1fr; } .pg-cell { border-right: 0 !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="vframe" aria-hidden="true"></div>
+  <site-header data-active=""></site-header>
+
+  <main id="main">
+    <section class="hero hero--center">
+      <div class="wrap hero-center auth-layout">
+        <div class="auth-intro">
+          <span class="hero-pill"><span class="hero-pill-dot"></span> Sovereignty by design, not a checklist.</span>
+          <h1 class="hero-title">Welcome to private AI<br />for <em>grown-ups</em>.</h1>
+          <p class="hero-sub">Sign in to your Workbench — private AI, secure, governed, in your own cloud.</p>
+
+          <div class="auth-chips">
+            <span class="auth-chip"><span class="dot"></span> On-demand AI Workbench</span>
+            <span class="auth-chip"><span class="dot"></span> AI-powered tools</span>
+            <span class="auth-chip"><span class="dot"></span> Zero setup</span>
+          </div>
+        </div>
+
+        <div class="auth-card">
+          <h2>Access your AI Workbench</h2>
+          <p class="ac-lead">Join the teams building private AI inside their own perimeter.</p>
+
+          <hr class="ac-divider" />
+
+          <a href="#" class="btn btn-primary btn-lg btn-shine btn-block">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+            Sign in to Calliope AI
+          </a>
+          <span class="ac-secure">Secure authentication powered by Calliope AI</span>
+
+          <ul class="ac-list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Zero setup required</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> AI-powered tools, in your cloud</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Governed, secure access</li>
+          </ul>
+
+          <div class="ac-status"><span class="pulse"></span> All systems operational</div>
+
+          <hr class="ac-divider" />
+
+          <p class="ac-terms">By continuing, you agree to our <a href="#">terms of service</a> and <a href="#">acceptable usage policy</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="proofgrid band-light" aria-label="Everything in your AI Workbench">
+      <div class="wrap">
+        <h2 class="section-title pg-head">Everything in your AI Workbench. <span class="pg-grey">Notebooks, an AI-powered IDE, agents and a sandbox — one platform, in your own perimeter.</span></h2>
+        <a href="/product.html" class="pg-link">Explore the full Workbench →</a>
+        <div class="pg-board">
+          <a class="pg-cell" href="/product-ai-lab.html">
+            <span class="pg-arrow" aria-hidden="true">↗</span>
+            <span class="pg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v6l-5 8a2 2 0 0 0 1.7 3h12.6a2 2 0 0 0 1.7-3l-5-8V3"/><path d="M7 3h10"/></svg></span>
+            <span class="pg-logo">Jupyter notebooks</span><span class="pg-cap">Interactive data science &amp; ML environments with AI-powered assistance.</span>
+          </a>
+          <a class="pg-cell" href="/product-ide.html">
+            <span class="pg-arrow" aria-hidden="true">↗</span>
+            <span class="pg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+            <span class="pg-logo">AI-powered IDE</span><span class="pg-cap">Full-featured development environment with intelligent code completion.</span>
+          </a>
+          <a class="pg-cell" href="/product-agents.html">
+            <span class="pg-arrow" aria-hidden="true">↗</span>
+            <span class="pg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="2"/><path d="M12 8V4"/><circle cx="12" cy="3" r="1"/><path d="M9 13h.01M15 13h.01"/></svg></span>
+            <span class="pg-logo">AI agents</span><span class="pg-cap">Build &amp; deploy intelligent agents for automation, analysis and complex problem-solving.</span>
+          </a>
+          <a class="pg-cell" href="/product.html">
+            <span class="pg-arrow" aria-hidden="true">↗</span>
+            <span class="pg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></span>
+            <span class="pg-logo">Agentic workbench</span><span class="pg-cap">Design, test and deploy multi-agent systems with our visual development toolkit.</span>
+          </a>
+          <a class="pg-cell" href="/product-chat-studio.html">
+            <span class="pg-arrow" aria-hidden="true">↗</span>
+            <span class="pg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l2.1-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg></span>
+            <span class="pg-logo">Agentic chat</span><span class="pg-cap">Interact with AI agents through natural conversation for coding, analysis and automation.</span>
+          </a>
+          <a class="pg-cell" href="/product-deep-agent.html">
+            <span class="pg-arrow" aria-hidden="true">↗</span>
+            <span class="pg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2"/><path d="M16 3l5 5"/></svg></span>
+            <span class="pg-logo">Agent playground</span><span class="pg-cap">Experiment with AI models and test agent behaviors in a sandboxed environment.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <site-footer data-page="home2"></site-footer>
+  <script src="/script.js?v=14"></script>
+</body>
+</html>
