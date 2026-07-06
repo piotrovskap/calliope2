@@ -643,6 +643,8 @@
   [].forEach.call(document.querySelectorAll(".split-ascii"), function (cv) {
     if (!cv.getContext) return;
     var ctx = cv.getContext("2d");
+    /* "hot" glyph colour is themeable per page via --ascii-hot (falls back to Calliope cyan) */
+    var HOT = (getComputedStyle(cv).getPropertyValue("--ascii-hot") || "").trim() || "rgba(63,241,239,.95)";
     var STEP = 13, CW, CH, cols, rows, t = 0;
     function size() {
       CW = cv.clientWidth; CH = cv.clientHeight;
@@ -664,7 +666,7 @@
           var on = fl * dens;
           if (on < 0.1) continue;
           ctx.globalAlpha = Math.min(0.72, on);
-          ctx.fillStyle = (fl > 0.9 && yy > 0.55) ? "rgba(63,241,239,.95)" : "rgb(122,131,156)";
+          ctx.fillStyle = (fl > 0.9 && yy > 0.55) ? HOT : "rgb(122,131,156)";
           ctx.fillText(glyphs[(r * cols + c + (t >> 4)) % glyphs.length], c * STEP, r * STEP);
         }
       }
