@@ -92,7 +92,6 @@
     @media (max-width: 560px) { .abar-badge { display: none; } }
     .afoot-by { display: inline-flex; align-items: center; gap: .5rem; color: var(--muted); font-size: .9rem; }
     .afoot-by img { height: 18px; width: auto; opacity: .92; }
-    @media (max-width: 640px) { .byline { display: none; } }
 
     /* ---- version / license pills ---- */
     .pillrow { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin-bottom: 1.5rem; }
@@ -188,6 +187,36 @@
     .famswitch-tx em { font-style: normal; font-size: .76rem; color: var(--muted); margin-top: .4rem; }
     .famswitch-here { margin-left: auto; font-size: .62rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--cyan); white-space: nowrap; }
     @media (max-width: 560px) { .famswitch-btn span { display: none; } .famswitch-btn { padding: .85rem; } }
+
+    /* ===================== responsive (RWD) ===================== */
+    /* reusable responsive grids (replace inline repeat(4,1fr) that broke on mobile) */
+    .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .cloud4 { grid-template-columns: repeat(4, 1fr); }
+    .how-split { display: grid; grid-template-columns: 1.05fr 1fr; gap: 2.4rem; align-items: start; }
+    .codecard--sticky { position: sticky; top: 90px; }
+    /* let grid/flex children actually shrink + wrap long mono strings */
+    .feature, .install, .step, .cloud-item, .fam, .repo-tech { min-width: 0; }
+    .repo-path, .install pre, .term-body, .codecard pre { overflow-wrap: anywhere; }
+    .term, .codecard { max-width: 100%; }
+
+    @media (max-width: 980px) {
+      .grid4 { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 860px) {
+      .cloud4 { grid-template-columns: 1fr 1fr; }
+      .how-split { grid-template-columns: 1fr; }
+      .codecard--sticky { position: static; }
+    }
+    @media (max-width: 760px) {
+      /* header collapses to logo + primary CTA (all links live in the footer) */
+      .header-inner .nav, .header-cta .a-ghost-link { display: none; }
+      .header-inner { gap: 1rem; }
+    }
+    @media (max-width: 560px) {
+      .grid4, .cloud4 { grid-template-columns: 1fr; }
+      .famswitch-panel { width: min(272px, calc(100vw - 2.2rem)); }
+      .famswitch { right: 1rem; bottom: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -258,7 +287,7 @@
         </div>
 
         <!-- live-feel terminal -->
-        <div class="term" style="max-width:680px;margin:3rem auto 0;">
+        <div class="term" style="max-width:680px;width:100%;margin:3rem auto 0;">
           <div class="term-bar"><span class="d d1"></span><span class="d d2"></span><span class="d d3"></span><span class="term-title">astro — deploy</span></div>
           <div class="term-body"><span class="l cmd">astro deploy --app payments</span><span class="l tok-d"># reading astrolift.toml … building image …</span><span class="l"><span class="tok-g">→</span> pushing to your registry            <span class="tok-ok">ok</span></span><span class="l"><span class="tok-g">→</span> applying to cluster <span class="tok-y">prod-eu</span> (your AWS)  <span class="tok-ok">ok</span></span><span class="l"><span class="tok-g">→</span> preview env per PR ready            <span class="tok-ok">ok</span></span><span class="l tok-d"># live in your account — nothing left ours.</span></div>
         </div>
@@ -283,7 +312,7 @@
         <p class="section-eyebrow">Why Astrolift</p>
         <h2 class="section-title">One way to ship — on infrastructure you own.</h2>
         <p class="section-lead">No bespoke deploy scripts per cloud, no DevOps bottleneck. Declare once, ship anywhere.</p>
-        <div class="feature-grid card-grid-4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;">
+        <div class="grid4">
           <div class="feature">
             <span class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span>
             <h3>One manifest, any cloud</h3>
@@ -314,7 +343,7 @@
         <p class="section-eyebrow">What's inside</p>
         <h2 class="section-title">Four open components, one PaaS.</h2>
         <p class="section-lead">Astrolift is open source under <strong>calliopeai</strong> on GitHub. Read it, run it, fork it.</p>
-        <div class="feature-grid card-grid-4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;">
+        <div class="grid4">
           <a class="feature" href="https://github.com/calliopeai/astrolift-backend" rel="noopener">
             <h3>Control plane</h3>
             <p>The service that owns tenants, projects, workloads and policy — backed by Postgres &amp; Temporal.</p>
@@ -353,7 +382,7 @@
         <p class="section-eyebrow">How it works</p>
         <h2 class="section-title">Install. Declare. Deploy.</h2>
         <p class="section-lead">Three steps from an empty cluster to PR-preview deploys in your own account.</p>
-        <div class="split-grid" style="display:grid;grid-template-columns:1.05fr 1fr;gap:2.4rem;align-items:start;">
+        <div class="how-split">
           <div class="steps" style="grid-template-columns:1fr;">
             <div class="step">
               <span class="step-no">1</span>
@@ -371,7 +400,7 @@
               <p>Ship through the <code>astro</code> CLI, the operator UI, or the GraphQL API — with a preview env on every pull request.</p>
             </div>
           </div>
-          <div class="codecard" style="position:sticky;top:90px;">
+          <div class="codecard codecard--sticky">
             <div class="codecard-head"><span class="fileico">◇</span> astrolift.toml</div>
 <pre><span class="t"># one manifest — any cloud</span>
 <span class="k">[app]</span>
@@ -431,7 +460,7 @@
         <p class="section-eyebrow">Run it where you already are</p>
         <h2 class="section-title">Your cloud, your account, your keys.</h2>
         <p class="section-lead">Astrolift runs the control plane inside your own cloud — data and workloads never egress.</p>
-        <div class="cloud-grid" style="grid-template-columns:repeat(4,1fr);">
+        <div class="cloud-grid cloud4">
           <div class="cloud-item cloud-item--ok"><span class="cloud-name">AWS</span><span class="cloud-status">Supported</span></div>
           <div class="cloud-item cloud-item--ok"><span class="cloud-name">Microsoft Azure</span><span class="cloud-status">Supported</span></div>
           <div class="cloud-item cloud-item--ok"><span class="cloud-name">Google Cloud · GCP</span><span class="cloud-status">Supported</span></div>
