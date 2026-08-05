@@ -251,13 +251,14 @@
     input[type="checkbox"].figma-checkbox { appearance: none !important; -webkit-appearance: none; width: 16px; height: 16px; flex: 0 0 16px; margin: 2px 0 0; border: 1px solid #bbbbbd; border-radius: 3px; background: #fff; cursor: pointer; }
     input[type="checkbox"].figma-checkbox:checked { border-color: #dd6000; background-color: #dd6000; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='m2 6 2.3 2.3L10 2.7' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-position: center; background-repeat: no-repeat; background-size: 11px 11px; box-shadow: none; }
     .figma-merge-row-choice { cursor: pointer; }
-    .figma-result-value + .figma-result-value { margin-top: 4px; }
+    .figma-result-value { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; min-height: 24px; }
+    .figma-result-value + .figma-result-value { margin-top: 8px; }
     .figma-field-label { display: block; margin-bottom: 2px; color: #828282; font-size: 12px; line-height: 16px; }
     .figma-field-text { display: block; color: #4d4d4d; font-size: 14px; line-height: 20px; overflow-wrap: anywhere; }
     .figma-source { align-self: center; padding: 3px 9px; border: 1px solid #eaecf0; border-radius: 999px; background: #f9fafb; color: #344054; font-size: 14px; white-space: nowrap; }
-    .figma-result-list .figma-field-row { display: block; }
-    .figma-result-list .figma-field-label { margin-bottom: 2px; }
-    .figma-result-list .figma-source { float: right; margin-top: -20px; }
+    .figma-result-list .figma-field-row { display: flex; flex-direction: column; align-items: stretch; gap: 8px; min-height: 76px; padding-top: 14px; padding-bottom: 14px; }
+    .figma-result-list .figma-field-label { margin-bottom: 0; }
+    .figma-result-list .figma-source { float: none; margin-top: 0; justify-self: end; }
     .full-review-footer { padding: 15px 16px; }
     .full-review-footer small { color: #717171; font-size: 12px; }
     .candidate-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 14px; }
