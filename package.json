@@ -4,6 +4,7 @@
   "description": "DAS CDP portal worker — static knowledge base + chat agent endpoint",
   "type": "module",
   "scripts": {
+    "build": "npm run predeploy",
     "build:customers:css": "tailwindcss -i ./customers/daisyui.css -o ./customers/daisyui.generated.css --minify",
     "dev": "node scripts/dev-local.mjs",
     "predeploy": "npm run build:customers:css && make portal-site",
