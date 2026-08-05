@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Database Schema Docs — DAS CDP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Roboto:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#1D1D1D; --surface:rgba(255,255,255,.05); --surface2:rgba(255,255,255,.1);
+    --border:rgba(168,168,167,.2); --border2:rgba(236,239,245,.1);
+    --red:#DB394C; --red-dim:rgba(219,57,76,.1);
+    --text:#FFFFFF; --muted:#A8A8A7; --dim:rgba(255,255,255,.3);
+    --green:#4CAF50; --green-dim:rgba(76,175,80,.1);
+    --yellow:#F5A623; --yellow-dim:rgba(245,166,35,.08);
+    --blue:#4A7FA5; --blue-dim:rgba(74,127,165,.1);
+    --radius:6px;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:'Roboto',sans-serif; font-size:13px; line-height:1.6; min-height:100vh; display:flex; flex-direction:column; }
+
+  /* ─── Topbar ─── */
+  .topbar { border-bottom:1px solid var(--border); padding:0 32px; height:54px; display:flex; align-items:center; justify-content:space-between; gap:20px; position:sticky; top:0; background:var(--bg); z-index:100; }
+  .brand { display:flex; align-items:center; gap:8px; flex-shrink:0; }
+  .brand svg { display:block; }
+  .brand-divider { color:var(--dim); margin:0 4px; }
+  .brand-name { font-family:'Unica One',sans-serif; font-size:13px; color:var(--muted); letter-spacing:.06em; }
+  .topnav { display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+  .topnav a { font-family:'Roboto Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--dim); text-decoration:none; transition:color .15s; }
+  .topnav a:hover { color:var(--muted); }
+  .topnav a.active { color:var(--text); }
+  .phase-badge { font-family:'Unica One',sans-serif; font-size:11px; letter-spacing:.1em; color:var(--red); border:1px solid var(--red); border-radius:3px; padding:2px 10px; background:var(--red-dim); flex-shrink:0; }
+
+  /* ─── Layout ─── */
+  .page { max-width:1100px; margin:0 auto; width:100%; padding:40px 32px 64px; flex:1; }
+  .crumb { font-family:'Roboto Mono',monospace; font-size:11px; color:var(--dim); margin-bottom:18px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .crumb a { color:var(--muted); text-decoration:none; }
+  .crumb a:hover { color:var(--red); }
+  .crumb .sep { color:var(--border2); }
+
+  .head-label { display:inline-block; font-family:'Roboto Mono',monospace; font-size:9px; text-transform:uppercase; letter-spacing:.14em; color:var(--red); background:var(--red-dim); border:1px solid rgba(219,57,76,.3); border-radius:3px; padding:3px 9px; margin-bottom:14px; }
+  h1 { font-family:'Unica One',sans-serif; font-size:36px; letter-spacing:.04em; text-transform:uppercase; color:var(--text); line-height:1; margin-bottom:10px; }
+  .head-desc { font-size:14px; color:var(--muted); max-width:640px; line-height:1.7; }
+
+  /* ─── Roll-up stats ─── */
+  .stats { display:flex; gap:10px; flex-wrap:wrap; margin:22px 0 6px; }
+  .stat { border:1px solid var(--border); background:var(--surface); border-radius:var(--radius); padding:10px 16px; min-width:96px; }
+  .stat-n { font-family:'Unica One',sans-serif; font-size:24px; line-height:1; color:var(--text); }
+  .stat-l { font-family:'Roboto Mono',monospace; font-size:9px; text-transform:uppercase; letter-spacing:.08em; color:var(--dim); margin-top:5px; }
+
+  /* ─── Roll-up table ─── */
+  .table-wrap { margin-top:18px; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+  table.rollup { width:100%; border-collapse:collapse; font-size:13px; }
+  table.rollup thead th { font-family:'Roboto Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); background:var(--surface2); text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); white-space:nowrap; }
+  table.rollup tbody tr { cursor:pointer; transition:background .12s; border-bottom:1px solid var(--border); }
+  table.rollup tbody tr:last-child { border-bottom:none; }
+  table.rollup tbody tr:hover { background:var(--surface); }
+  table.rollup td { padding:11px 14px; vertical-align:middle; color:var(--muted); }
+  table.rollup td.db { color:var(--text); }
+  .db-name { font-weight:500; color:var(--text); }
+  .db-src { font-family:'Roboto Mono',monospace; font-size:10px; color:var(--dim); margin-top:2px; }
+  .yn-yes { color:var(--green); }
+  .yn-no { color:var(--dim); }
+  .mono { font-family:'Roboto Mono',monospace; font-size:11px; }
+  .rowarrow { color:var(--dim); text-align:right; }
+  table.rollup tbody tr:hover .rowarrow { color:var(--red); }
+
+  /* ─── Badges ─── */
+  .badge { font-family:'Roboto Mono',monospace; font-size:10px; font-weight:500; text-transform:uppercase; letter-spacing:.05em; padding:3px 9px; border-radius:3px; border:1px solid; white-space:nowrap; display:inline-block; }
+  .st-in-progress { color:var(--red); border-color:rgba(219,57,76,.4); background:var(--red-dim); }
+  .st-pending { color:var(--yellow); border-color:rgba(245,166,35,.4); background:var(--yellow-dim); }
+  .st-complete { color:var(--green); border-color:rgba(76,175,80,.4); background:var(--green-dim); }
+  .ac-granted { color:var(--green); border-color:rgba(76,175,80,.4); background:var(--green-dim); }
+  .ac-committed { color:var(--blue); border-color:rgba(74,127,165,.4); background:var(--blue-dim); }
+  .ac-pending { color:var(--yellow); border-color:rgba(245,166,35,.4); background:var(--yellow-dim); }
+  .st-partial, .ac-partial { color:var(--yellow); border-color:rgba(245,166,35,.4); background:var(--yellow-dim); }
+  .st-blocked, .ac-blocked { color:var(--red); border-color:rgba(219,57,76,.4); background:var(--red-dim); }
+  .st-na, .ac-na { color:#9aa0a6; border-color:rgba(154,160,166,.4); background:rgba(154,160,166,.12); }
+
+  /* ─── Detail view ─── */
+  .detail-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .detail-meta { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin:14px 0 4px; }
+  .chip { font-family:'Roboto Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); background:var(--surface); border:1px solid var(--border); border-radius:3px; padding:3px 9px; }
+  .chip b { color:var(--text); font-weight:500; }
+
+  .section-h { font-family:'Unica One',sans-serif; font-size:15px; letter-spacing:.1em; text-transform:uppercase; color:var(--dim); margin:36px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .section-h .h-actions { display:flex; gap:8px; align-items:center; }
+
+  .open-link { font-family:'Roboto Mono',monospace; font-size:11px; color:var(--red); text-decoration:none; border:1px solid rgba(219,57,76,.4); border-radius:4px; padding:4px 11px; transition:background .12s; }
+  .open-link:hover { background:var(--red-dim); }
+
+  /* doc iframe */
+  .doc-frame { width:100%; height:620px; border:1px solid var(--border); border-radius:var(--radius); background:var(--bg); }
+
+  /* ERD container — graphviz SVGs are tall; pan via scroll, zoom via buttons */
+  .erd-box { border:1px solid var(--border); border-radius:var(--radius); background:#fff; overflow:auto; max-height:680px; position:relative; }
+  .erd-inner { transform-origin:top left; transition:transform .08s ease-out; padding:12px; }
+  .erd-inner svg { display:block; }
+  .zoom-btn { font-family:'Roboto Mono',monospace; font-size:12px; color:var(--muted); background:var(--surface); border:1px solid var(--border); border-radius:4px; width:28px; height:24px; cursor:pointer; line-height:1; transition:border-color .12s,color .12s; }
+  .zoom-btn:hover { border-color:var(--red); color:var(--red); }
+  .zoom-lvl { font-family:'Roboto Mono',monospace; font-size:10px; color:var(--dim); min-width:38px; text-align:center; }
+
+  /* mermaid */
+  .mermaid-box { border:1px solid var(--border); border-radius:var(--radius); background:#fff; padding:16px; overflow:auto; margin-bottom:14px; }
+
+  /* dump browser */
+  .dump-bar { display:flex; gap:10px; align-items:center; margin-bottom:10px; flex-wrap:wrap; }
+  .dump-filter { flex:1; min-width:200px; font-family:'Roboto Mono',monospace; font-size:12px; color:var(--text); background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:7px 11px; }
+  .dump-filter:focus { outline:none; border-color:var(--red); }
+  .dump-filter::placeholder { color:var(--dim); }
+  .dump-count { font-family:'Roboto Mono',monospace; font-size:10px; color:var(--dim); white-space:nowrap; }
+  .dump-pre { background:#161616; border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px; overflow:auto; max-height:560px; font-family:'Roboto Mono',monospace; font-size:12px; line-height:1.55; color:var(--text); white-space:pre; }
+  .dump-pre .ct { color:var(--yellow); }
+  .dump-pre .hit { background:rgba(219,57,76,.35); color:#fff; border-radius:2px; }
+  mark.jump { scroll-margin-top:60px; }
+
+  /* states */
+  .statebox { border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); padding:36px 28px; text-align:center; color:var(--muted); font-size:13px; }
+  .statebox.warn { border-left:3px solid var(--yellow); text-align:left; }
+  .statebox.error { border-color:rgba(219,57,76,.4); }
+  .statebox .st-title { font-family:'Unica One',sans-serif; font-size:18px; letter-spacing:.08em; text-transform:uppercase; color:var(--text); margin-bottom:6px; }
+  .statebox.error .st-title { color:var(--red); }
+  .statebox code { font-family:'Roboto Mono',monospace; font-size:12px; color:var(--muted); background:var(--surface2); border:1px solid var(--border); border-radius:3px; padding:2px 6px; }
+  .spinner { display:inline-block; width:20px; height:20px; border:2px solid var(--border); border-top-color:var(--red); border-radius:50%; animation:spin .7s linear infinite; margin-bottom:12px; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+
+  footer { margin-top:auto; border-top:1px solid var(--border); padding:16px 32px; font-size:11px; color:var(--dim); font-family:'Roboto Mono',monospace; }
+
+  @media (max-width:720px) {
+    .topbar { height:auto; flex-wrap:wrap; padding:12px 20px; }
+    .page { padding:28px 18px 48px; }
+    h1 { font-size:30px; }
+    .db-src { display:none; }
+    table.rollup .col-opt { display:none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <a href="/" aria-label="Home" style="display:inline-flex;line-height:0"><svg width="100" height="26" viewBox="0 0 141 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.76011 3.9038C5.92786 3.74184 4.10895 4.35124 2.69056 5.6021C2.11733 6.19678 1.66843 6.91459 1.37363 7.70833C1.07884 8.50207 0.944757 9.35363 0.980235 10.2068V25.8829C0.944276 26.744 1.08103 27.6033 1.38128 28.4032C1.68152 29.203 2.13834 29.9249 2.72104 30.5204C4.16802 31.7349 5.9866 32.3289 7.82125 32.186C9.65242 32.3376 11.4679 31.7295 12.8909 30.4878C13.4641 29.8931 13.9129 29.1752 14.2077 28.3814C14.5025 27.5877 14.6366 26.7361 14.6011 25.8829V22.911H10.5088V25.8829C10.5269 26.1963 10.4816 26.5101 10.3763 26.8031C10.2709 27.0962 10.1077 27.3615 9.89795 27.5811C9.29929 28.0511 8.56102 28.2717 7.82125 28.2016C7.06115 28.2882 6.29829 28.0668 5.68342 27.5811C5.47026 27.3642 5.30488 27.0992 5.19924 26.8055C5.0936 26.5118 5.05041 26.1967 5.07267 25.8829V10.2068C5.05065 9.89591 5.09096 9.58361 5.19104 9.29072C5.29111 8.99783 5.44865 8.73115 5.65294 8.50864C6.25972 8.0309 7.01016 7.80989 7.76011 7.88813C8.52022 7.80157 9.28308 8.023 9.89795 8.50864C10.1077 8.72828 10.2709 8.99361 10.3763 9.28663C10.4816 9.57966 10.5269 9.89349 10.5088 10.2068V14.7464H14.6011V10.2068C14.6348 9.34798 14.4939 8.49156 14.1881 7.69657C13.8823 6.90158 13.4188 6.18702 12.8298 5.6021C11.4067 4.3604 9.59128 3.7522 7.76011 3.9038Z" fill="white"/><path d="M55.2655 21.0496L48.4551 4.52451H44.7598V31.631H48.8521V15.0732L55.632 31.631H59.3579V4.52451H55.2655V21.0496Z" fill="white"/><path d="M64.1953 31.631H68.2877V19.8739H74.3346V15.8896H68.2877V8.47617H75.8005V4.52451H64.1953V31.631Z" fill="white"/><path d="M84.731 4.52451H80.6387V31.631H91.4498V27.6466H84.731V4.52451Z" fill="white"/><path d="M96.2871 8.47617H98.1195V27.6466H96.2871V31.631H104.044V27.6466H102.212V8.47617H104.044V4.52451H96.2871V8.47617Z" fill="white"/><path d="M115.64 3.90374C113.817 3.74697 112.01 4.35626 110.601 5.60204C110.022 6.19287 109.57 6.91008 109.275 7.70478C108.98 8.49948 108.849 9.35285 108.89 10.2068V25.8829C108.854 26.7439 108.991 27.6032 109.291 28.4031C109.592 29.203 110.048 29.9248 110.631 30.5203C112.075 31.7406 113.896 32.3352 115.731 32.1859C117.562 32.3375 119.378 31.7294 120.801 30.4877C121.374 29.893 121.823 29.1751 122.118 28.3814C122.412 27.5876 122.547 26.7361 122.511 25.8829V22.9109H118.419V25.8829C118.437 26.1962 118.392 26.51 118.286 26.8031C118.181 27.0961 118.018 27.3614 117.808 27.5811C117.209 28.051 116.471 28.2716 115.731 28.2016C114.971 28.2881 114.208 28.0667 113.593 27.5811C113.38 27.3641 113.215 27.0992 113.109 26.8055C113.004 26.5118 112.96 26.1966 112.983 25.8829V10.2068C112.961 9.89584 113.001 9.58355 113.101 9.29066C113.201 8.99777 113.359 8.73109 113.563 8.50858C114.162 8.0386 114.9 7.818 115.64 7.88806C116.41 7.79306 117.185 8.01491 117.808 8.50858C118.018 8.72822 118.181 8.99354 118.286 9.28657C118.392 9.5796 118.437 9.89342 118.419 10.2068V14.7463H122.511V10.2068C122.545 9.34791 122.404 8.4915 122.098 7.69651C121.792 6.90152 121.329 6.18696 120.74 5.60204C119.307 4.35529 117.481 3.74697 115.64 3.90374Z" fill="white"/><path d="M127.354 4.52451V8.47617H132.118V31.631H136.21V8.47617H140.974V4.52451H127.354Z" fill="white"/><path d="M19.3984 36.1741H26.9709V32.4944H22.9871V3.85375H27.0368V0.174088H19.3984V36.1741Z" fill="#DB394C"/><path d="M32.2717 0.174088V3.85375H36.2884V32.4944H32.2388V36.1741H39.8771V0.174088H32.2717Z" fill="#DB394C"/><path d="M31.4486 10.5303H27.827V25.5524H31.4486V10.5303Z" fill="#DB394C"/></svg></a>
+    <span class="brand-divider">×</span>
+    <span class="brand-name">DAS CDP</span>
+  </div>
+  <nav class="topnav">
+    <a href="/analysis/">Sessions</a>
+    <a href="/knowledge/">Intelligence</a>
+    <a href="/tracker/">Status</a>
+    <a href="/reference/" class="active">Reference</a>
+    <a href="/deliverables/">Deliverables</a>
+    <a href="/docs/">Docs</a>
+  </nav>
+  <span class="phase-badge">PHASE 0</span>
+</header>
+
+<div class="page" id="page">
+  <div class="statebox"><div class="spinner"></div><div class="st-title">Loading</div><div>Fetching database catalog…</div></div>
+</div>
+
+<footer>DAS CDP · CONFLICT · Phase 0</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+(function () {
+  var page = document.getElementById('page');
+  var DOC_BASE = 'docs/databases/'; // repo-root-relative; reader.html wants this prefix
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c];
+    });
+  }
+
+  function statusBadge(s) {
+    s = s || 'pending';
+    return '<span class="badge st-' + esc(s) + '">' + esc(s.replace('-', ' ')) + '</span>';
+  }
+  function accessBadge(a) {
+    a = a || 'pending';
+    return '<span class="badge ac-' + esc(a) + '">' + esc(a) + '</span>';
+  }
+  function yesno(v) {
+    return v ? '<span class="yn-yes">yes</span>' : '<span class="yn-no">—</span>';
+  }
+  function researcher(r) {
+    if (!r || /^(tbd|unclaimed)$/i.test(r)) return '<span class="yn-no">—</span>';
+    return esc(r);
+  }
+
+  function showError(title, detail) {
+    page.innerHTML = '<div class="statebox error"><div class="st-title">' + esc(title) +
+      '</div><div>' + detail + '</div></div>';
+  }
+
+  // ─── Roll-up (index) ───────────────────────────────────────────────
+  function renderIndex(data) {
+    document.title = 'Database Schema Docs — DAS CDP';
+    var dbs = data.databases || [];
+    var counts = { 'in-progress': 0, 'partial': 0, 'pending': 0, 'complete': 0, 'blocked': 0 };
+    var erds = 0, dumps = 0;
+    dbs.forEach(function (d) {
+      if (counts[d.status] != null) counts[d.status]++;
+      if (d.erd) erds++;
+      if (d.dump) dumps++;
+    });
+
+    var rows = dbs.map(function (d) {
+      return '<tr data-id="' + esc(d.id) + '">' +
+        '<td class="db"><div class="db-name">' + esc(d.database) + '</div>' +
+          (d.source ? '<div class="db-src">' + esc(d.source) + '</div>' : '') + '</td>' +
+        '<td>' + statusBadge(d.status) + '</td>' +
+        '<td>' + accessBadge(d.access) + '</td>' +
+        '<td class="col-opt">' + researcher(d.researcher) + '</td>' +
+        '<td class="col-opt mono">' + (esc(d.updated) || '<span class="yn-no">—</span>') + '</td>' +
+        '<td>' + yesno(d.erd) + '</td>' +
+        '<td>' + yesno(d.dump) + '</td>' +
+        '<td class="rowarrow">→</td>' +
+      '</tr>';
+    }).join('');
+
+    page.innerHTML =
+      '<div class="crumb"><a href="/">Command Center</a><span class="sep">/</span>' +
+        '<a href="/reference/">Reference</a><span class="sep">/</span>' +
+        '<span style="color:var(--muted)">Database Schema Docs</span></div>' +
+      '<span class="head-label">Reference · Source Databases</span>' +
+      '<h1>Database Schema Docs</h1>' +
+      '<p class="head-desc">Per-database schema documentation for the DAS source systems the CDP ingests from. ' +
+        'Each entry renders the analysis doc, the ERD, and the raw DDL dump — driven by each doc\'s frontmatter, ' +
+        'no external tools. Click a database to open it.</p>' +
+      '<div class="stats">' +
+        '<div class="stat"><div class="stat-n">' + dbs.length + '</div><div class="stat-l">Databases</div></div>' +
+        '<div class="stat"><div class="stat-n">' + counts['in-progress'] + '</div><div class="stat-l">In progress</div></div>' +
+        (counts['partial'] ? '<div class="stat"><div class="stat-n">' + counts['partial'] + '</div><div class="stat-l">Partial</div></div>' : '') +
+        '<div class="stat"><div class="stat-n">' + counts['pending'] + '</div><div class="stat-l">Pending</div></div>' +
+        (counts['blocked'] ? '<div class="stat"><div class="stat-n">' + counts['blocked'] + '</div><div class="stat-l">Blocked</div></div>' : '') +
+        '<div class="stat"><div class="stat-n">' + counts['complete'] + '</div><div class="stat-l">Complete</div></div>' +
+        '<div class="stat"><div class="stat-n">' + erds + '</div><div class="stat-l">ERDs</div></div>' +
+        '<div class="stat"><div class="stat-n">' + dumps + '</div><div class="stat-l">Dumps</div></div>' +
+      '</div>' +
+      '<div class="table-wrap"><table class="rollup">' +
+        '<thead><tr>' +
+          '<th>Database</th><th>Status</th><th>Access</th>' +
+          '<th class="col-opt">Researcher</th><th class="col-opt">Updated</th>' +
+          '<th>ERD</th><th>Dump</th><th></th>' +
+        '</tr></thead><tbody>' + rows + '</tbody>' +
+      '</table></div>';
+
+    page.querySelectorAll('tr[data-id]').forEach(function (tr) {
+      tr.addEventListener('click', function () {
+        location.search = '?db=' + encodeURIComponent(tr.getAttribute('data-id'));
+      });
+    });
+  }
+
+  // ─── Detail ────────────────────────────────────────────────────────
+  function renderDetail(data, id) {
+    var d = (data.databases || []).find(function (x) { return x.id === id; });
+    if (!d) { showError('Unknown database', 'No database with id <code>' + esc(id) + '</code> in databases.json.'); return; }
+    document.title = d.database + ' — Database Schema Docs · DAS CDP';
+
+    var docUrl = '../reader.html?f=' + encodeURIComponent(DOC_BASE + d.doc);
+
+    var html =
+      '<div class="crumb"><a href="/">Command Center</a><span class="sep">/</span>' +
+        '<a href="/reference/">Reference</a><span class="sep">/</span>' +
+        '<a href="?">Database Schema Docs</a><span class="sep">/</span>' +
+        '<span style="color:var(--muted)">' + esc(d.database) + '</span></div>' +
+      '<div class="detail-head"><div>' +
+        '<span class="head-label">Schema · ' + esc(d.database) + '</span>' +
+        '<h1>' + esc(d.database) + '</h1>' +
+        (d.source ? '<p class="head-desc">' + esc(d.source) + '</p>' : '') +
+      '</div></div>' +
+      '<div class="detail-meta">' +
+        statusBadge(d.status) + accessBadge(d.access) +
+        (d.owner ? '<span class="chip">Owner <b>' + esc(d.owner) + '</b></span>' : '') +
+        (d.researcher && !/^(tbd|unclaimed)$/i.test(d.researcher) ? '<span class="chip">Researcher <b>' + esc(d.researcher) + '</b></span>' : '') +
+        (d.updated ? '<span class="chip">Updated <b>' + esc(d.updated) + '</b></span>' : '') +
+      '</div>' +
+
+      // Doc
+      '<div class="section-h">Documentation' +
+        '<span class="h-actions"><a class="open-link" href="' + docUrl + '" target="_blank" rel="noopener">Open full doc ↗</a></span>' +
+      '</div>' +
+      '<iframe class="doc-frame" src="' + docUrl + '" title="' + esc(d.database) + ' schema documentation"></iframe>' +
+
+      // ERD
+      '<div class="section-h">Entity Relationship Diagram' +
+        (d.erd ? '<span class="h-actions">' +
+          '<button class="zoom-btn" id="erdOut" title="Zoom out">&minus;</button>' +
+          '<span class="zoom-lvl" id="erdLvl">100%</span>' +
+          '<button class="zoom-btn" id="erdIn" title="Zoom in">+</button>' +
+          '<a class="open-link" href="' + esc(d.erd) + '" target="_blank" rel="noopener" style="margin-left:6px">SVG ↗</a>' +
+        '</span>' : '') +
+      '</div>' +
+      '<div id="mermaidHost"></div>' +
+      (d.erd
+        ? '<div class="erd-box" id="erdBox"><div class="erd-inner" id="erdInner">' +
+            '<div class="statebox"><div class="spinner"></div><div>Loading ERD…</div></div>' +
+          '</div></div>'
+        : '<div class="statebox warn" id="erdFallback"><div class="st-title">No ERD yet</div>' +
+            'No <code>' + esc(d.id) + '.svg</code> has been generated for this database. ' +
+            'Inline <code>erDiagram</code> blocks in the doc (if any) render above.</div>') +
+
+      // Dump
+      '<div class="section-h">Schema Dump (DDL)' +
+        (d.dump ? '<span class="h-actions"><a class="open-link" href="' + esc(d.dump) + '" target="_blank" rel="noopener">Raw .sql ↗</a></span>' : '') +
+      '</div>' +
+      (d.dump
+        ? '<div class="dump-bar">' +
+            '<input class="dump-filter" id="dumpFilter" type="text" placeholder="Jump to CREATE TABLE… (type a table name)" autocomplete="off" spellcheck="false">' +
+            '<span class="dump-count" id="dumpCount"></span>' +
+          '</div>' +
+          '<pre class="dump-pre" id="dumpPre"><div class="statebox"><div class="spinner"></div><div>Loading DDL…</div></div></pre>'
+        : '<div class="statebox warn"><div class="st-title">No dump yet</div>' +
+            'No <code>dumps/' + esc(d.id) + '.sql</code> has been captured for this database.</div>');
+
+    page.innerHTML = html;
+
+    renderMermaid(d);
+    if (d.erd) loadErd(d);
+    if (d.dump) loadDump(d);
+  }
+
+  // ─── ERD: inline the SVG, strip fixed pt dimensions so the viewBox scales ──
+  function loadErd(d) {
+    var box = document.getElementById('erdBox');
+    var inner = document.getElementById('erdInner');
+    fetch('../databases/' + d.erd, { cache: 'no-cache' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+      .then(function (svgText) {
+        var doc = new DOMParser().parseFromString(svgText, 'image/svg+xml');
+        var svg = doc.querySelector('svg');
+        if (!svg) throw new Error('no <svg> root');
+        // graphviz emits width/height in pt; drop them so width:100% + viewBox drive sizing
+        svg.removeAttribute('width');
+        svg.removeAttribute('height');
+        svg.setAttribute('width', '100%');
+        svg.style.height = 'auto';
+        inner.innerHTML = '';
+        inner.appendChild(svg);
+        wireZoom(inner);
+      })
+      .catch(function (e) {
+        box.innerHTML = '<div class="statebox error" style="margin:0;border:none"><div class="st-title">ERD failed to load</div>' +
+          'Could not render <code>' + esc(d.erd) + '</code> (' + esc(e.message) + '). ' +
+          'Use the <strong>SVG ↗</strong> link above to open it directly.</div>';
+      });
+  }
+
+  function wireZoom(inner) {
+    var lvl = document.getElementById('erdLvl');
+    var z = 1;
+    function apply() {
+      inner.style.transform = 'scale(' + z + ')';
+      if (lvl) lvl.textContent = Math.round(z * 100) + '%';
+    }
+    var inBtn = document.getElementById('erdIn');
+    var outBtn = document.getElementById('erdOut');
+    if (inBtn) inBtn.addEventListener('click', function () { z = Math.min(3, z + 0.25); apply(); });
+    if (outBtn) outBtn.addEventListener('click', function () { z = Math.max(0.25, z - 0.25); apply(); });
+    apply();
+  }
+
+  // ─── Mermaid: render inline ```mermaid``` erDiagram blocks from the doc ──
+  // Wait briefly for the UMD bundle to define window.mermaid (the doc fetch can
+  // resolve before the CDN script finishes parsing).
+  function whenMermaid(cb, tries) {
+    if (typeof window.mermaid !== 'undefined') return cb(window.mermaid);
+    if ((tries || 0) > 40) return cb(null); // ~4s ceiling
+    setTimeout(function () { whenMermaid(cb, (tries || 0) + 1); }, 100);
+  }
+
+  function renderMermaid(d) {
+    var host = document.getElementById('mermaidHost');
+    if (!host) return;
+    fetch('../databases/' + d.doc, { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.text() : ''; })
+      .then(function (md) {
+        if (!md) return;
+        var re = /```mermaid\s*\n([\s\S]*?)```/g, m, blocks = [];
+        while ((m = re.exec(md)) !== null) blocks.push(m[1].trim());
+        if (!blocks.length) return;
+        whenMermaid(function (mermaid) {
+          if (!mermaid) {
+            host.innerHTML = '<div class="statebox warn"><div class="st-title">Mermaid unavailable</div>' +
+              'This doc has ' + blocks.length + ' inline diagram block(s) but the Mermaid CDN did not load.</div>';
+            return;
+          }
+          mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'strict' });
+          blocks.forEach(function (code, i) {
+            var div = document.createElement('div');
+            div.className = 'mermaid-box';
+            host.appendChild(div);
+            mermaid.render('mmd-' + d.id + '-' + i, code)
+              .then(function (out) { div.innerHTML = out.svg; })
+              .catch(function () {
+                div.innerHTML = '<pre class="dump-pre" style="margin:0">' + esc(code) + '</pre>';
+              });
+          });
+        });
+      })
+      .catch(function () { /* doc fetch optional; iframe still shows it */ });
+  }
+
+  // ─── Dump: load DDL, highlight CREATE TABLE, filter jumps to a table ──
+  var dumpState = { tables: [] };
+  function loadDump(d) {
+    var pre = document.getElementById('dumpPre');
+    var filter = document.getElementById('dumpFilter');
+    var count = document.getElementById('dumpCount');
+    fetch('../databases/' + d.dump, { cache: 'no-cache' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+      .then(function (sql) {
+        // Collect table names and anchor each CREATE TABLE so the filter can jump to it.
+        var names = [];
+        var htmlOut = esc(sql).replace(
+          /CREATE\s+TABLE\s+((?:\[[^\]]+\]|&quot;[^&]+&quot;|[\w.]+)(?:\.(?:\[[^\]]+\]|&quot;[^&]+&quot;|[\w]+))*)/gi,
+          function (full, name) {
+            var clean = name.replace(/\[|\]|&quot;|`/g, '');
+            var bare = clean.split('.').pop();
+            names.push(bare);
+            var anchor = 'ct-' + bare.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            return '<mark class="jump ct" id="' + anchor + '" style="background:none">' + full + '</mark>';
+          }
+        );
+        pre.innerHTML = htmlOut;
+        dumpState.tables = names;
+        if (count) count.textContent = names.length + ' tables';
+
+        if (filter) {
+          filter.addEventListener('input', function () {
+            var q = filter.value.trim().toLowerCase();
+            if (!q) { if (count) count.textContent = dumpState.tables.length + ' tables'; return; }
+            var hits = dumpState.tables.filter(function (n) { return n.toLowerCase().indexOf(q) !== -1; });
+            if (count) count.textContent = hits.length + ' / ' + dumpState.tables.length + ' match';
+            if (hits.length) {
+              var anchor = 'ct-' + hits[0].toLowerCase().replace(/[^a-z0-9]+/g, '-');
+              var el = document.getElementById(anchor);
+              if (el) {
+                el.scrollIntoView({ block: 'center' });
+                pre.querySelectorAll('mark.flash').forEach(function (m) { m.classList.remove('flash'); m.style.background = 'none'; });
+                el.classList.add('flash');
+                el.style.background = 'rgba(219,57,76,.35)';
+              }
+            }
+          });
+          filter.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') { e.preventDefault(); filter.dispatchEvent(new Event('input')); }
+          });
+        }
+      })
+      .catch(function (e) {
+        pre.innerHTML = '<div class="statebox error" style="margin:0;border:none"><div class="st-title">DDL failed to load</div>' +
+          'Could not fetch <code>' + esc(d.dump) + '</code> (' + esc(e.message) + ').</div>';
+      });
+  }
+
+  // ─── Boot ──────────────────────────────────────────────────────────
+  fetch('../databases.json', { cache: 'no-cache' })
+    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(function (data) {
+      var id = new URLSearchParams(location.search).get('db');
+      if (id) renderDetail(data, id);
+      else renderIndex(data);
+    })
+    .catch(function (e) {
+      showError('Catalog unavailable', 'Could not load <code>databases.json</code> (' + esc(e.message) +
+        '). Run <code>python3 scripts/gen-databases.py</code> to generate it.');
+    });
+})();
+</script>
+
+</body>
+</html>

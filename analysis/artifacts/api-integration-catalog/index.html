@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Integration Catalog — DAS CDP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Roboto:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1D1D1D; --surface: #111; --surface2: #1a1a1a;
+    --border: #2a2a2a; --border2: #333;
+    --red: #DB394C; --red-dim: rgba(219,57,76,0.1);
+    --text: #F8F8F8; --muted: #888; --dim: #444;
+    --green: #4CAF50; --green-dim: rgba(76,175,80,0.12);
+    --yellow: #F5A623; --yellow-dim: rgba(245,166,35,0.1);
+    --blue: #4A7FA5; --blue-dim: rgba(74,127,165,0.12);
+    --radius: 6px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Roboto', sans-serif; font-size: 13px; line-height: 1.6; }
+
+  .portal-nav { height: 34px; background: var(--bg); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 24px; gap: 20px; font-size: 11px; position: sticky; top: 0; z-index: 100; }
+  .portal-nav a { color: var(--dim); text-decoration: none; font-family: 'Roboto Mono', monospace; }
+  .portal-nav a:hover { color: var(--muted); }
+  .nav-sep { color: var(--border2); }
+
+  .page-header { max-width: 1180px; margin: 0 auto; padding: 36px 32px 24px; border-bottom: 1px solid var(--border); }
+  .artifact-label { font-family: 'Roboto Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: .1em; color: var(--red); background: var(--red-dim); border: 1px solid rgba(219,57,76,.3); border-radius: 3px; padding: 2px 8px; display: inline-block; }
+  h1 { font-family: 'Unica One', sans-serif; font-size: 28px; letter-spacing: .04em; text-transform: uppercase; color: var(--text); line-height: 1; margin-top: 8px; }
+  .header-desc { font-size: 13px; color: var(--muted); max-width: 720px; line-height: 1.6; margin-top: 8px; }
+  .header-meta { display: flex; gap: 8px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+  .meta-chip { font-family: 'Roboto Mono', monospace; font-size: 9px; color: var(--muted); background: var(--surface2); border: 1px solid var(--border); border-radius: 2px; padding: 2px 8px; }
+
+  .summary-strip { display: flex; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 24px auto; max-width: calc(1180px - 64px); }
+  .sum-item { flex: 1; padding: 14px 20px; text-align: center; border-right: 1px solid var(--border); background: var(--surface); }
+  .sum-item:last-child { border-right: none; }
+  .sum-num { font-family: 'Unica One', sans-serif; font-size: 22px; line-height: 1; margin-bottom: 3px; }
+  .sum-label { font-size: 9px; text-transform: uppercase; letter-spacing: .07em; color: var(--dim); }
+
+  .content { max-width: 1180px; margin: 0 auto; padding: 0 32px 48px; }
+  .section { margin-bottom: 36px; }
+  .section-label {
+    font-family: 'Unica One', sans-serif; font-size: 11px; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--dim); margin-bottom: 14px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: baseline; gap: 10px;
+  }
+  .section-note { font-family: 'Roboto Mono', monospace; font-size: 9px; color: var(--dim); letter-spacing: .03em; text-transform: none; font-weight: normal; opacity: .8; }
+
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    font-family: 'Roboto Mono', monospace; font-size: 9px; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--dim); padding: 8px 12px;
+    border-bottom: 1px solid var(--border); text-align: left; background: var(--surface);
+  }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--surface); }
+  tbody td { padding: 10px 12px; vertical-align: top; font-size: 12px; }
+
+  .api-name { font-weight: 500; color: var(--text); }
+  .api-sub  { font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--dim); margin-top: 2px; }
+  .cell-muted { color: var(--muted); font-size: 12px; }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-family: 'Roboto Mono', monospace; font-size: 9px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .06em;
+    padding: 2px 7px; border-radius: 3px; border: 1px solid; white-space: nowrap;
+  }
+  .badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+  /* research status */
+  .s-pending    { color: var(--muted);  border-color: var(--border2);       background: var(--surface2); }
+  .s-inprogress { color: var(--blue);   border-color: rgba(74,127,165,.4);  background: var(--blue-dim); }
+  .s-researched { color: var(--green);  border-color: rgba(76,175,80,.4);   background: var(--green-dim); }
+  .s-blocked    { color: var(--red);    border-color: rgba(219,57,76,.4);   background: var(--red-dim); }
+
+  .tag { font-family: 'Roboto Mono', monospace; font-size: 9px; color: var(--muted); background: var(--surface2); border: 1px solid var(--border); border-radius: 2px; padding: 1px 6px; white-space: nowrap; display: inline-block; margin: 1px 2px 1px 0; }
+  .tag-auth { color: var(--blue); border-color: rgba(74,127,165,.3); background: var(--blue-dim); }
+
+  .ref-link { display: block; font-size: 10px; font-family: 'Roboto Mono', monospace; color: var(--blue); text-decoration: none; line-height: 1.7; }
+  .ref-link:hover { text-decoration: underline; }
+  .ref-link::before { content: '↗ '; color: var(--dim); }
+
+  .exclusions { max-width: calc(1180px - 64px); margin: 0 auto 48px; padding: 14px 18px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-size: 11px; color: var(--dim); line-height: 1.7; }
+  .exclusions strong { color: var(--muted); font-weight: 500; }
+
+  .page-footer { border-top: 1px solid var(--border); padding: 16px 32px; font-size: 10px; color: var(--dim); font-family: 'Roboto Mono', monospace; display: flex; justify-content: space-between; max-width: 1180px; margin: 0 auto; }
+</style>
+</head>
+<body>
+
+<nav class="portal-nav">
+  <a href="../../../reference/">← Technical Reference</a>
+  <span class="nav-sep">/</span>
+  <span style="color:var(--muted);font-family:'Roboto Mono',monospace">API Integration Catalog</span>
+</nav>
+
+<div class="page-header">
+  <span class="artifact-label">Catalog</span>
+  <h1>API Integration Catalog</h1>
+  <p class="header-desc">All 41 APIs DAS integrates with — operational APIs and API datasources — across 10 categories, sourced from the DAS Integration Explorer v5 (May 2026). Each entry lists its research references (Confluence). Status tracks our CDP research per API.</p>
+  <div class="header-meta">
+    <span class="meta-chip">Updated: 2026-06-16</span>
+    <span class="meta-chip">Source: Integration Explorer v5</span>
+    <span class="meta-chip">dastechnology</span>
+    <span class="meta-chip">3birdsmarketing</span>
+    <span class="meta-chip">EngageToSellLLC</span>
+    <span class="meta-chip">legacy / Azure DevOps</span>
+  </div>
+</div>
+
+<div class="summary-strip">
+  <div class="sum-item"><div class="sum-num" style="color:var(--text)">41</div><div class="sum-label">Total APIs</div></div>
+  <div class="sum-item"><div class="sum-num" style="color:var(--muted)">4</div><div class="sum-label">Pending</div></div>
+  <div class="sum-item"><div class="sum-num" style="color:var(--blue)">0</div><div class="sum-label">In Progress</div></div>
+  <div class="sum-item"><div class="sum-num" style="color:var(--green)">37</div><div class="sum-label">Researched</div></div>
+  <div class="sum-item"><div class="sum-num" style="color:var(--red)">0</div><div class="sum-label">Blocked</div></div>
+  <div class="sum-item"><div class="sum-num" style="color:var(--dim)">10</div><div class="sum-label">Categories</div></div>
+</div>
+
+<div class="content">
+
+  <!-- ── AI / ML ── -->
+  <div class="section">
+    <div class="section-label">AI / ML <span class="section-note">2 apis</span></div>
+    <table>
+      <thead><tr>
+        <th style="width:20%">API</th>
+        <th style="width:15%">Used By</th>
+        <th style="width:8%">Auth</th>
+        <th style="width:17%">Repos</th>
+        <th style="width:31%">Research References</th>
+        <th style="width:9%">Research</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="api-name">OpenAI</div><div class="api-sub">Chat completions, review responses, TTS</div></td>
+          <td class="cell-muted">Radar, AI Engage, Media Logix AI</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">central-apis-aiservice</span><span class="tag">media-logix-ai-workflow-engine</span></td>
+          <td>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3025469445" target="_blank" rel="noopener">Das Central AI Services</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3190816811" target="_blank" rel="noopener">AI Micro Service API</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3404791818" target="_blank" rel="noopener">Spike: AI Touchpoints in RADAR</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Google Gemini</div><div class="api-sub">AI generation fallback to OpenAI</div></td>
+          <td class="cell-muted">Central AI Service</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">central-apis-aiservice</span></td>
+          <td>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3025469445" target="_blank" rel="noopener">Das Central AI Services</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/DPD/pages/3687743489" target="_blank" rel="noopener">NSL-1349: AI-Generated Review Invitation Videos</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Ad Platforms ── -->
+  <div class="section">
+    <div class="section-label">Ad Platforms <span class="section-note">7 apis</span></div>
+    <table>
+      <thead><tr>
+        <th style="width:20%">API</th>
+        <th style="width:15%">Used By</th>
+        <th style="width:8%">Auth</th>
+        <th style="width:17%">Repos</th>
+        <th style="width:31%">Research References</th>
+        <th style="width:9%">Research</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="api-name">Meta / Facebook Marketing API</div><div class="api-sub">Campaigns, offline conversions, vehicle catalog, page reviews</div></td>
+          <td class="cell-muted">Media Logix, Social Logix, LotVantage</td>
+          <td><span class="tag tag-auth">oauth2</span></td>
+          <td><span class="tag">media-logix-metaads-processor</span><span class="tag">social-logix-review-surge-review-site-publish</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FMeta-Facebook-Marketing-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://github.com/ConflictHQ/das-tech/blob/main/artifacts/phase-0/confluence/facebook-api-info.md" target="_blank" rel="noopener">Facebook API Info (on-disk artifact)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/PROD/pages/3827957773" target="_blank" rel="noopener">Research Spike: Offline Conversions (Google/Meta)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/316539055" target="_blank" rel="noopener">Facebook API Info (Confluence)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2221604865" target="_blank" rel="noopener">Facebook — Media Logix Overview</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Google Ads API</div><div class="api-sub">Campaigns, offline conversions, performance reporting · v17</div></td>
+          <td class="cell-muted">Media Logix</td>
+          <td><span class="tag tag-auth">oauth2</span></td>
+          <td><span class="tag">media-logix-googleads-processor</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FGoogle-Ads-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://github.com/ConflictHQ/das-tech/blob/main/artifacts/phase-0/confluence/google-ads-performance-max.md" target="_blank" rel="noopener">Direct Integration with Google for Performance Max (on-disk artifact)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/PROD/pages/3827957773" target="_blank" rel="noopener">Research Spike: Offline Conversions (Google/Meta)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2749661212" target="_blank" rel="noopener">Direct Integration with Google for Performance Max (Confluence)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2907176970" target="_blank" rel="noopener">Linking Merchant Center and Google Ads</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Microsoft / Bing Ads API</div><div class="api-sub">Campaign management and performance reporting</div></td>
+          <td class="cell-muted">Media Logix</td>
+          <td><span class="tag tag-auth">oauth2</span></td>
+          <td><span class="tag">media-logix-bing-processor</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FBing-Ads-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/PROD/pages/3827957773" target="_blank" rel="noopener">Research Spike: Offline Conversions (Bing Phase 2)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2872344590" target="_blank" rel="noopener">3rd Party Services and App Integrations</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Amazon Ads API</div><div class="api-sub">Sponsored products campaigns</div></td>
+          <td class="cell-muted">Media Logix</td>
+          <td><span class="tag tag-auth">oauth2</span></td>
+          <td><span class="tag">media-logix-adcenter</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FAmazon-Ads-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2118975495" target="_blank" rel="noopener">Awareness Solutions Overview</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2872344590" target="_blank" rel="noopener">3rd Party Services and App Integrations</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">TikTok Ads API</div><div class="api-sub">Inventory video campaigns · launched Dec 2025</div></td>
+          <td class="cell-muted">Media Logix</td>
+          <td><span class="tag tag-auth">oauth2</span></td>
+          <td><span class="tag">media-logix-tiktokads-processor</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FTikTok-Ads-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3366322186" target="_blank" rel="noopener">TikTok Setup and Overview — Media Logix Portal</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">YouTube Data / Analytics API</div><div class="api-sub">Inventory video posts and analytics</div></td>
+          <td class="cell-muted">Media Logix, LotVantage</td>
+          <td><span class="tag tag-auth">oauth2</span></td>
+          <td><span class="tag">media-logix-youtube-processor</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FYouTube-Data-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2129526790" target="_blank" rel="noopener">LotVantage Overview</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2872344590" target="_blank" rel="noopener">3rd Party Services and App Integrations</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Reddit Ads</div><div class="api-sub">Automotive community targeting · integration in progress (Jira NML-1804)</div></td>
+          <td class="cell-muted">Media Logix</td>
+          <td><span class="tag tag-auth">oauth2</span></td>
+          <td><span class="tag">media-logix-adcenter</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FReddit-Ads-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2872344590" target="_blank" rel="noopener">3rd Party Services and App Integrations</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Communications ── -->
+  <div class="section">
+    <div class="section-label">Communications <span class="section-note">9 apis</span></div>
+    <table>
+      <thead><tr>
+        <th style="width:20%">API</th>
+        <th style="width:15%">Used By</th>
+        <th style="width:8%">Auth</th>
+        <th style="width:17%">Repos</th>
+        <th style="width:31%">Research References</th>
+        <th style="width:9%">Research</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="api-name">Twilio</div><div class="api-sub">SMS send / receive</div></td>
+          <td class="cell-muted">CDXP, ETS, Mobile Review Surge</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">shared-svcs-communication-api</span><span class="tag">CDXP-Mautic</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FTwilio-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://github.com/ConflictHQ/das-tech/blob/main/artifacts/phase-0/confluence/twilio-api-info.md" target="_blank" rel="noopener">Twilio API Info (on-disk artifact)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3179642911" target="_blank" rel="noopener">Twilio and SendGrid — Introduction</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3242328102" target="_blank" rel="noopener">Communications API — Application Support</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2981232673" target="_blank" rel="noopener">CDXP Twilio Integration Guide</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3179970629" target="_blank" rel="noopener">Twilio — Account Information Essentials</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3426025479" target="_blank" rel="noopener">Setting Up TwiML Bins for Custom SMS Responses</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3510730771" target="_blank" rel="noopener">LiveJoin System Architecture (Twilio role)</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">SendGrid</div><div class="api-sub">Transactional email send</div></td>
+          <td class="cell-muted">shared-svcs, Response Logix, ETS</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">shared-svcs-communication-api</span><span class="tag">LiveJoin3</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FSendGrid-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://github.com/ConflictHQ/das-tech/blob/main/artifacts/phase-0/confluence/sendgrid-api-info.md" target="_blank" rel="noopener">SendGrid API Info (on-disk artifact)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3179642911" target="_blank" rel="noopener">Twilio and SendGrid — Introduction</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3242328102" target="_blank" rel="noopener">Communications API — Application Support</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3510730771" target="_blank" rel="noopener">LiveJoin System Architecture (SendGrid role)</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Mailgun</div><div class="api-sub">Bulk campaign email</div></td>
+          <td class="cell-muted">CDXP</td>
+          <td><span class="tag tag-auth">api-key</span><span class="tag tag-auth">hmac-webhook</span></td>
+          <td><span class="tag">CDXP-Mautic</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FMailgun-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://github.com/ConflictHQ/das-tech/blob/main/artifacts/phase-0/confluence/mailgun-api-info.md" target="_blank" rel="noopener">Mailgun API Info (on-disk artifact)</a>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FMailgun-API.md" target="_blank" rel="noopener">Mailgun API — Detailed CDP Research</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2981232673" target="_blank" rel="noopener">CDXP Twilio Integration Guide</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2872344590" target="_blank" rel="noopener">3rd Party Services and App Integrations</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Mandrill (Mailchimp Transactional)</div><div class="api-sub">Lead alert emails</div></td>
+          <td class="cell-muted">Response Path / Response Logix</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">shared-svcs-communication-api</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FMandrill-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://github.com/ConflictHQ/das-tech/blob/main/artifacts/phase-0/confluence/mandrill-api-info.md" target="_blank" rel="noopener">Mandrill API Info (on-disk artifact)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2872344590" target="_blank" rel="noopener">3rd Party Services and App Integrations</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">ETS Dashboard API</div><div class="api-sub">Dealer account config, joiner rules, dept management · PHP/Phalcon</div></td>
+          <td class="cell-muted">ETS</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">EngageToSellLLC/Dashboard</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FETS-Dashboard-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://github.com/ConflictHQ/das-tech/blob/main/artifacts/phase-0/confluence/ets-dashboard-api-info.md" target="_blank" rel="noopener">ETS Dashboard API Info (on-disk artifact)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3514073090" target="_blank" rel="noopener">Configuring Hoppscotch for ETS</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3510730771" target="_blank" rel="noopener">LiveJoin System Architecture and Components</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Rocket.Chat (ETS Instance)</div><div class="api-sub">Live chat engine + custom Lead Plugin · MongoDB backend</div></td>
+          <td class="cell-muted">ETS, AI Engage Messaging, Response Path</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">EngageToSellLLC/RocketChat-LeadPlugin</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FRocket.Chat-ETS-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://github.com/ConflictHQ/das-tech/blob/main/artifacts/phase-0/confluence/rocketchat-ets-api-info.md" target="_blank" rel="noopener">Rocket.Chat (ETS) API Info (on-disk artifact)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3490054151" target="_blank" rel="noopener">Rocket.Chat and Response Path — Front-end Activation</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3677913089" target="_blank" rel="noopener">AI Messaging Hybrid — FAQ</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3393355779" target="_blank" rel="noopener">Enabling Facebook and SMS Channels in RocketChat</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">LiveJoin3 Service</div><div class="api-sub">Real-time joiner invite orchestration — rule eval, sockets, invites</div></td>
+          <td class="cell-muted">ETS LiveJoin</td>
+          <td><span class="tag tag-auth">jwt</span></td>
+          <td><span class="tag">EngageToSellLLC/LiveJoin3</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FLiveJoin3-Service-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://github.com/ConflictHQ/das-tech/blob/main/artifacts/phase-0/confluence/livejoin3-service-api-info.md" target="_blank" rel="noopener">LiveJoin3 Service API Info (on-disk artifact)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3510730771" target="_blank" rel="noopener">LiveJoin System Architecture and Components</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3509878789" target="_blank" rel="noopener">LiveJoin Invite Troubleshooting — Engage To Sell</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">ETS Facebook Messenger + SMS Proxy</div><div class="api-sub">FB Messenger and SMS routing into Rocket.Chat · BCProxy</div></td>
+          <td class="cell-muted">ETS</td>
+          <td><span class="tag tag-auth">oauth2</span></td>
+          <td><span class="tag">EngageToSellLLC/Dashboard</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FETS-Facebook-SMS-Proxy-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://github.com/ConflictHQ/das-tech/blob/main/artifacts/phase-0/confluence/ets-facebook-sms-proxy-api-info.md" target="_blank" rel="noopener">ETS Facebook/SMS Proxy API Info (on-disk artifact)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3168960514" target="_blank" rel="noopener">Configuring Account for FB Messenger on ETS APP</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3168534582" target="_blank" rel="noopener">Permissions and Admin Access for ETS Facebook Setup</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Microsoft Graph / Outlook</div><div class="api-sub">Email integration for Radar · spike stage (RadarMail class)</div></td>
+          <td class="cell-muted">Radar</td>
+          <td><span class="tag tag-auth">oauth2</span></td>
+          <td><span class="tag">legacy / Azure DevOps</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FMicrosoft-Graph-Outlook-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://github.com/ConflictHQ/das-tech/blob/main/artifacts/phase-0/confluence/microsoft-graph-outlook-api-info.md" target="_blank" rel="noopener">Microsoft Graph/Outlook API Info (on-disk artifact)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3525541894" target="_blank" rel="noopener">SPIKE — Review Outlook and RADAR Integration</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── DMS / CRM ── -->
+  <div class="section">
+    <div class="section-label">DMS / CRM <span class="section-note">3 apis</span></div>
+    <table>
+      <thead><tr>
+        <th style="width:20%">API</th>
+        <th style="width:15%">Used By</th>
+        <th style="width:8%">Auth</th>
+        <th style="width:17%">Repos</th>
+        <th style="width:31%">Research References</th>
+        <th style="width:9%">Research</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="api-name">Salesforce (SFDC)</div><div class="api-sub">Account management, review records, dealer data sync</div></td>
+          <td class="cell-muted">Account Mgmt API, Social Logix, TheWire</td>
+          <td><span class="tag tag-auth">oauth2</span></td>
+          <td><span class="tag">shared-svcs-account-management-api</span><span class="tag">3birdsmarketing/TheWire.Data</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FSalesforce-SFDC-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2872344590" target="_blank" rel="noopener">3rd Party Services and App Integrations</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Microsoft Dynamics 365</div><div class="api-sub">Dealer account data, product flags, SMRM reporting</div></td>
+          <td class="cell-muted">Social Logix</td>
+          <td><span class="tag tag-auth">oauth2</span></td>
+          <td><span class="tag">social-logix-process</span><span class="tag">sl-dynamics-process-fa-prod</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FMicrosoft-Dynamics-365-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2872344590" target="_blank" rel="noopener">3rd Party Services and App Integrations</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Tekion DMS</div><div class="api-sub">Deals + repair orders for Review Surge triggers and CDXP enrichment</div></td>
+          <td class="cell-muted">Social Logix Review Surge, CDXP</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">social-logix-review-surge-transaction-ingestion-tekion</span><span class="tag">3birds_etl_process</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FTekion-DMS-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/DPD/pages/2353856523" target="_blank" rel="noopener">NSL-159 — Tekion API Investigation</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3807739905" target="_blank" rel="noopener">CDXP: Tekion Onboarding (Development)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/CAST/pages/3630268417" target="_blank" rel="noopener">2026 Tekion DMS Integration Setup for Review Surge</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Data Enrichment ── -->
+  <div class="section">
+    <div class="section-label">Data Enrichment <span class="section-note">3 apis</span></div>
+    <table>
+      <thead><tr>
+        <th style="width:20%">API</th>
+        <th style="width:15%">Used By</th>
+        <th style="width:8%">Auth</th>
+        <th style="width:17%">Repos</th>
+        <th style="width:31%">Research References</th>
+        <th style="width:9%">Research</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="api-name">MaxMind GeoIP2</div><div class="api-sub">IP geolocation + Do Not Sell compliance purge</div></td>
+          <td class="cell-muted">CDXP</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">CDXP-Mautic</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FMaxMind-GeoIP2-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://github.com/ConflictHQ/das-tech/blob/main/artifacts/phase-0/confluence/maxmind-geoip2-api-info.md" target="_blank" rel="noopener">MaxMind GeoIP2 API Info (on-disk artifact)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3141435473" target="_blank" rel="noopener">Mautic Deep Dive (MaxMind GeoIP2 dependency)</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Experian Conquest</div><div class="api-sub">In-market consumer lists for bulk conquest campaigns · Jira CDXP-7471</div></td>
+          <td class="cell-muted">CDXP</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">CDXP-Mautic</span><span class="tag">3birds_etl_process</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FExperian-Conquest-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://github.com/ConflictHQ/das-tech/blob/main/artifacts/phase-0/confluence/experian-conquest-api-info.md" target="_blank" rel="noopener">Experian Conquest API Info (on-disk artifact)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2872344590" target="_blank" rel="noopener">3rd Party Services and App Integrations</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">NeverBounce</div><div class="api-sub">Email validation — invalid results suppress Mautic contact</div></td>
+          <td class="cell-muted">CDXP</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">3birdsmarketing/Main</span><span class="tag">CDXP-Mautic</span></td>
+          <td>
+            <a class="ref-link" href="wiki/NeverBounce-API.md" target="_blank" rel="noopener">NeverBounce API Research (wiki)</a>
+            <a class="ref-link" href="artifacts/phase-0/confluence/neverbounce-api-info.md" target="_blank" rel="noopener">NeverBounce API Info (artifact)</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Vehicle Valuation ── -->
+  <div class="section">
+    <div class="section-label">Vehicle Valuation <span class="section-note">2 apis</span></div>
+    <table>
+      <thead><tr>
+        <th style="width:20%">API</th>
+        <th style="width:15%">Used By</th>
+        <th style="width:8%">Auth</th>
+        <th style="width:17%">Repos</th>
+        <th style="width:31%">Research References</th>
+        <th style="width:9%">Research</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="api-name">BlackBook API</div><div class="api-sub">Wholesale &amp; trade-in vehicle valuations · equity email pipeline · CDP fields 23–24</div></td>
+          <td class="cell-muted">CDXP</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">3birds_etl_process</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FBlackBook-API.md" target="_blank" rel="noopener">BlackBook API — Detailed CDP Research</a>
+            <a class="ref-link" href="https://developer.blackbookcloud.com/Documentation" target="_blank" rel="noopener">BlackBook Developer Portal</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Kelley Blue Book (KBB)</div><div class="api-sub">Consumer-facing trade-in valuations</div></td>
+          <td class="cell-muted">CDXP</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">—</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FKelley-Blue-Book-KBB-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Marketplace ── -->
+  <div class="section">
+    <div class="section-label">Marketplace <span class="section-note">3 apis</span></div>
+    <table>
+      <thead><tr>
+        <th style="width:20%">API</th>
+        <th style="width:15%">Used By</th>
+        <th style="width:8%">Auth</th>
+        <th style="width:17%">Repos</th>
+        <th style="width:31%">Research References</th>
+        <th style="width:9%">Research</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="api-name">eBay API</div><div class="api-sub">Vehicle inventory listings · eBay Trading API</div></td>
+          <td class="cell-muted">LotVantage</td>
+          <td><span class="tag tag-auth">oauth2</span></td>
+          <td><span class="tag">legacy / Azure DevOps</span></td>
+          <td>
+            <a class="ref-link" href="wiki/eBay-API.md" target="_blank" rel="noopener">eBay API Research (wiki)</a>
+            <a class="ref-link" href="artifacts/phase-0/confluence/ebay-api-info.md" target="_blank" rel="noopener">eBay API Info (artifact)</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Facebook Marketplace</div><div class="api-sub">Inventory datafeed · 60% Craigslist / 40% FB Marketplace split</div></td>
+          <td class="cell-muted">LotVantage</td>
+          <td><span class="tag tag-auth">oauth2</span></td>
+          <td><span class="tag">legacy / Azure DevOps</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FFacebook-Marketplace-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/CAST/pages/3773956099" target="_blank" rel="noopener">FeedHub and LotVantage Training (Facebook Catalog)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2370338890" target="_blank" rel="noopener">LotVantage Account Creation and Feed URL Generation</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Craigslist</div><div class="api-sub">Vehicle inventory postings via Bulk Posting Interface</div></td>
+          <td class="cell-muted">LotVantage</td>
+          <td><span class="tag tag-auth">none</span></td>
+          <td><span class="tag">legacy / Azure DevOps</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FCraigslist-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/CAST/pages/3072098305" target="_blank" rel="noopener">LotVantage: Craigslist General Overview</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2499149825" target="_blank" rel="noopener">Craigslist and eBay Limitations</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Reviews ── -->
+  <div class="section">
+    <div class="section-label">Reviews <span class="section-note">7 apis</span></div>
+    <table>
+      <thead><tr>
+        <th style="width:20%">API</th>
+        <th style="width:15%">Used By</th>
+        <th style="width:8%">Auth</th>
+        <th style="width:17%">Repos / Function App</th>
+        <th style="width:31%">Research References</th>
+        <th style="width:9%">Research</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="api-name">CallRevu</div><div class="api-sub">Dynamic call tracking + VOI signals · launched Oct 2025 (CDXP-7307)</div></td>
+          <td class="cell-muted">CDXP</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">CDXP-Mautic</span><span class="tag">3birds_etl_process</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FCallRevu-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3537829890" target="_blank" rel="noopener">10/2/2025 — CDXP Product Update (CallRevu launch)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/CAST/pages/3521740801" target="_blank" rel="noopener">CallRevu Set-up Instructions</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">CarGurus</div><div class="api-sub">Dealer review ingestion · 200 req/min rate limit</div></td>
+          <td class="cell-muted">Social Logix</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">sl-reviews-cargurus-fa-prod</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FCarGurus-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2661515285" target="_blank" rel="noopener">Shared Services (APIs) — Review Providers</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Cars.com</div><div class="api-sub">Dealer review ingestion · 25 req/sec rate limit</div></td>
+          <td class="cell-muted">Social Logix</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">sl-reviews-cardotcom-fa-prod</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FCars.com-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2661515285" target="_blank" rel="noopener">Shared Services (APIs) — Review Providers</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Carfax</div><div class="api-sub">Vehicle history reports + dealer reviews</div></td>
+          <td class="cell-muted">Social Logix, LotVantage</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">sl-reviews-carfax-fa-prod</span></td>
+          <td>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2661515285" target="_blank" rel="noopener">Shared Services (APIs) — Review Providers</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2129526790" target="_blank" rel="noopener">LotVantage Overview</a>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FCarfax-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">DealerRater + Edmunds</div><div class="api-sub">Dealer review ingestion</div></td>
+          <td class="cell-muted">Social Logix</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">sl-reviews-dealerater-fa-prod</span><span class="tag">sl-reviews-edmunds-fa-prod</span></td>
+          <td>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2661515285" target="_blank" rel="noopener">Shared Services (APIs) — Review Providers</a>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FDealerRater-API.md" target="_blank" rel="noopener">CDP Research Page — DealerRater (wiki)</a>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FEdmunds-API.md" target="_blank" rel="noopener">CDP Research Page — Edmunds (wiki)</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Vendasta + Mozenda</div><div class="api-sub">Aggregated + scraped review fallback</div></td>
+          <td class="cell-muted">Social Logix</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">sl-reviews-vendasta-fa-prod</span><span class="tag">sl-reviews-mozenda-fa-prod</span></td>
+          <td>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2661515285" target="_blank" rel="noopener">Shared Services (APIs) — Review Providers</a>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FVendasta-Reputation-API.md" target="_blank" rel="noopener">CDP Research Page — Vendasta (wiki)</a>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FMozenda-Scraping-API.md" target="_blank" rel="noopener">CDP Research Page — Mozenda (wiki)</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Recall Masters</div><div class="api-sub">Active vehicle recall data sync — sets c_has_recall on contacts</div></td>
+          <td class="cell-muted">CDXP</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">CDXP-Mautic</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FRecall-Masters-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3699048472" target="_blank" rel="noopener">CDXP Dealership Advantage (Retention Accelerator)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3747053571" target="_blank" rel="noopener">Video Generation Process Overview</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Social / Listings ── -->
+  <div class="section">
+    <div class="section-label">Social / Listings <span class="section-note">2 apis</span></div>
+    <table>
+      <thead><tr>
+        <th style="width:20%">API</th>
+        <th style="width:15%">Used By</th>
+        <th style="width:8%">Auth</th>
+        <th style="width:17%">Repos</th>
+        <th style="width:31%">Research References</th>
+        <th style="width:9%">Research</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="api-name">Soci</div><div class="api-sub">Social publishing + engagement · Facebook, Instagram, Google Business Profile</div></td>
+          <td class="cell-muted">Social Logix</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">social-logix-app-api</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FSoci-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2872344590" target="_blank" rel="noopener">3rd Party Services and App Integrations</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Yext</div><div class="api-sub">Local business directory listings · Google, Yelp, Apple, Facebook</div></td>
+          <td class="cell-muted">Social Logix (Local)</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">social-logix-app-api</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FYext-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/2872344590" target="_blank" rel="noopener">3rd Party Services and App Integrations</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Billing ── -->
+  <div class="section">
+    <div class="section-label">Billing <span class="section-note">3 apis</span></div>
+    <table>
+      <thead><tr>
+        <th style="width:20%">API</th>
+        <th style="width:15%">Used By</th>
+        <th style="width:8%">Auth</th>
+        <th style="width:17%">Repos</th>
+        <th style="width:31%">Research References</th>
+        <th style="width:9%">Research</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="api-name">CyberSource</div><div class="api-sub">Payment gateway for dealer billing</div></td>
+          <td class="cell-muted">LotVantage</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">legacy / Azure DevOps</span></td>
+          <td>
+            <a class="ref-link" href="https://das.conflict.media/docs/reader?f=wiki%2FCyberSource-API.md" target="_blank" rel="noopener">CDP Research Page (wiki)</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3522428937" target="_blank" rel="noopener">LV Billing Discovery Executive Summary</a>
+            <a class="ref-link" href="https://digitalairstrike.atlassian.net/wiki/spaces/Technology/pages/3282173959" target="_blank" rel="noopener">LotVantage Fields and Functions</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">Zuora</div><div class="api-sub">Subscription billing · feeds the DWRPT zuora schema for reporting</div></td>
+          <td class="cell-muted">LotVantage, DWRPT reporting</td>
+          <td><span class="tag tag-auth">api-key</span></td>
+          <td><span class="tag">legacy / Azure DevOps</span></td>
+          <td>
+            <a class="ref-link" href="wiki/Zuora-API.md" target="_blank" rel="noopener">Zuora API Research (wiki)</a>
+            <a class="ref-link" href="artifacts/phase-0/confluence/zuora-api-info.md" target="_blank" rel="noopener">Zuora API Info (artifact)</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+        <tr>
+          <td><div class="api-name">QuickBooks</div><div class="api-sub">Invoice sync for dealer billing</div></td>
+          <td class="cell-muted">LotVantage</td>
+          <td><span class="tag tag-auth">oauth2</span></td>
+          <td><span class="tag">legacy / Azure DevOps</span></td>
+          <td>
+            <a class="ref-link" href="wiki/QuickBooks-API.md" target="_blank" rel="noopener">QuickBooks API Research (wiki)</a>
+            <a class="ref-link" href="artifacts/phase-0/confluence/quickbooks-api-info.md" target="_blank" rel="noopener">QuickBooks API Info (artifact)</a>
+          </td>
+          <td><span class="badge s-researched">Researched</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="exclusions">
+  <strong>Excluded from this catalog</strong> (present in the Integration Explorer but not APIs):
+  internal data stores (Azure CosmosDB, Apache Solr, Elasticsearch) ·
+  infrastructure (AWS Lambda/S3/SES hosting, HostedFTP, ETS CloudFront CDN) ·
+  FTP / flat-file DMS feeds (VinSolutions, CDK Global/DMI/IntegraLink, Authenticom/DealerVault, and the DealerSocket / DriveCentric / eLeads / Reynolds &amp; Reynolds / ProMax / Momentum / OpLogic group) — those feeds are covered by the ETL Process Catalog.
+</div>
+
+<footer class="page-footer">
+  <span>DAS CDP · Conflict · Phase 0</span>
+  <span>Source: DAS Integration Explorer v5 · 2026-06-10</span>
+</footer>
+
+</body>
+</html>

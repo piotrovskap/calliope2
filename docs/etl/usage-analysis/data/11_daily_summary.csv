@@ -1,0 +1,17 @@
+database,schema,table,ts_column,role,total_rows,days_with_data,span_days,gap_pct,p50_per_day,p95_per_day,p99_per_day,max_per_day,max_day,date_range,error
+Megatron,dbo,ListingImageDownload_ReDownload,lid_created,image_dl_queue,298130232,2798,2801,0.1,99497,162581,191137,254553,2020-12-28,2018-10-14 → 2026-06-14,
+RedDawn,dbo,ListingImageDownload_Queue_History,lid_Created,image_dl_history,0,0,0,0,0,0,0,0,,,"('42S22', ""[42S22] [FreeTDS][SQL Server]Invalid column name 'lid_Created'. (207) (SQLExecDirectW)"")"
+MegatronRepository,dbo,ListingRepository,lst_Created,listings_warehouse,24341637,2043,2046,0.1,9371,27855,63270,189203,2021-04-09,2018-01-01 → 2023-08-08,
+MegatronRepository,dbo,ListingVehicleRepository,lvh_Created,vehicle_warehouse,0,0,0,0,0,0,0,0,,,"('42S22', ""[42S22] [FreeTDS][SQL Server]Invalid column name 'lvh_Created'. (207) (SQLExecDirectW)"")"
+Megatron,dbo,Listing,lst_Created,listings_live,7413699,2237,3087,27.5,1036,12641,14963,40085,2024-07-18,2018-01-01 → 2026-06-14,
+Prime,dbo,grail_srpactions_daily,event_date,srp_actions_daily,98884098,2674,2721,1.7,40436,61831,69040,78459,2020-07-21,2019-01-01 → 2026-06-13,
+Prime,dbo,DisplayGEO,disgeo_date,display_geo,16204784,1706,3086,44.7,4527,27160,31469,38485,2023-05-30,2018-01-01 → 2026-06-13,
+RedDawn,dbo,SmartVDPClicks,event_date,vdp_clicks,23311156,2124,2125,0.0,10976,15901,18534,37083,2023-03-07,2020-08-20 → 2026-06-14,
+WEB,dbo,FEEDADS,faCREATED,feed_ads,8032284,1822,2247,18.9,3116,13520,16135,44770,2026-06-05,2020-04-20 → 2026-06-14,
+WEB,dbo,FEEDEXTRAS,fxDateInStock,feed_extras,476969,1912,3236,40.9,127,712,1708,3360,2026-06-12,2018-01-26 → 2026-12-05,
+Megatron,dbo,PhyronVideos,created,phyron_videos,106055,212,222,4.5,257,2084,4020,10817,2026-02-11,2025-11-05 → 2026-06-14,
+OutboundFeeds,dbo,obf_CarFax_Data,llst_created,outbound_carfax,464287,792,1266,37.4,20,3776,9274,12618,2023-10-06,2020-04-20 → 2023-10-07,
+Megatron,dbo,ActivityLog,LogDateTime,META_activity,4716201,354,354,0.0,13114,16173,17792,18800,2026-03-09,2025-06-26 → 2026-06-14,
+Megatron,dbo,FileDetails_Log,fileLogged,META_file_ingest,232076,2660,2661,0.0,97,108,134,297,2021-09-17,2018-01-01 → 2025-04-14,
+Megatron,dbo,BackupLog,BackupFinishDate,META_backups,238711,340,354,4.0,718,806,837,927,2026-03-19,2025-06-26 → 2026-06-14,
+RedDawn,dbo,ListingImageDownload_Queue_History,lid_Received,image_dl_queue_received,147097980,530,532,0.4,129796,635168,683568,720991,2024-12-14,2024-10-03 → 2026-03-18,

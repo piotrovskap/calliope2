@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session Synthesis — 2026-06-08 · DAS CDP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+  :root {
+    --bg: #1D1D1D;
+    --surface: rgba(255,255,255,.05);
+    --surface2: rgba(255,255,255,.08);
+    --border: rgba(168,168,167,.2);
+    --border2: rgba(236,239,245,.15);
+    --red: #DB394C;
+    --red-dim: rgba(219,57,76,.1);
+    --text: #FFFFFF;
+    --muted: #A8A8A7;
+    --dim: rgba(255,255,255,.3);
+    --green: #4CAF50;
+    --yellow: #F5A623;
+    --blue: #4A7FA5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Roboto', -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    padding-top: 54px;
+  }
+
+  /* ── Topbar ── */
+  .topbar {
+    position: fixed; top: 0; left: 0; right: 0; height: 54px; z-index: 200;
+    background: var(--bg); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between; padding: 0 32px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-div { color: var(--dim); margin: 0 4px; font-size: 14px; }
+  .brand-sub { font-family: 'Unica One', sans-serif; font-size: 13px; color: var(--muted); letter-spacing: .06em; }
+  .back-btn {
+    font-family: 'Roboto Mono', monospace; font-size: 11px; color: var(--muted);
+    text-decoration: none; border: 1px solid var(--border); border-radius: 4px; padding: 5px 13px;
+    transition: border-color .12s, color .12s;
+  }
+  .back-btn:hover { color: var(--red); border-color: var(--red); }
+
+  /* ── Breadcrumb ── */
+  .breadcrumb {
+    position: sticky; top: 54px; z-index: 100; background: var(--bg);
+    border-bottom: 1px solid var(--border); height: 40px;
+    display: flex; align-items: center; padding: 0 32px;
+    font-family: 'Roboto Mono', monospace; font-size: 11px; gap: 8px;
+  }
+  .breadcrumb a { color: var(--dim); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--muted); }
+  .breadcrumb .sep { color: var(--border2); }
+  .breadcrumb .cur { color: var(--red); }
+
+  /* ── Content ── */
+  .wrapper {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 32px 80px;
+  }
+  h1 {
+    font-family: 'Unica One', sans-serif; font-size: 28px; letter-spacing: .04em;
+    text-transform: uppercase; border-bottom: 1px solid var(--border);
+    padding-bottom: 12px; margin: 0 0 28px; color: var(--text);
+  }
+  h2 {
+    font-family: 'Unica One', sans-serif; font-size: 18px; letter-spacing: .06em;
+    text-transform: uppercase; border-bottom: 1px solid var(--border);
+    padding-bottom: 8px; margin: 40px 0 16px; color: var(--red);
+  }
+  h3 { font-family: 'Unica One', sans-serif; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; margin: 28px 0 12px; color: var(--muted); }
+  h4 { font-size: 13px; font-weight: 600; margin: 20px 0 8px; color: var(--text); letter-spacing: .02em; }
+  p { margin: 0 0 14px; }
+  ul, ol { margin: 0 0 14px 22px; }
+  li { margin: 5px 0; }
+  a { color: var(--red); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  strong { color: var(--text); font-weight: 600; }
+  code {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1px 6px;
+    font-family: 'Roboto Mono', monospace; font-size: .85em; color: var(--yellow);
+  }
+  pre {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 16px; overflow-x: auto; margin: 0 0 18px;
+  }
+  pre code { background: none; border: none; padding: 0; color: var(--text); font-size: 12.5px; }
+  table { width: 100%; border-collapse: collapse; margin: 0 0 20px; font-size: 13px; display: block; overflow-x: auto; }
+  th {
+    background: var(--surface2); border: 1px solid var(--border); padding: 8px 12px;
+    text-align: left; font-family: 'Roboto Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 500;
+  }
+  td { border: 1px solid var(--border); padding: 7px 12px; vertical-align: top; }
+  tr:nth-child(even) td { background: var(--surface); }
+  blockquote {
+    border-left: 3px solid var(--red); margin: 0 0 14px;
+    padding: 10px 16px; color: var(--muted); background: var(--red-dim);
+    border-radius: 0 6px 6px 0;
+  }
+  hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+  .mermaid {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 24px; margin: 16px 0 24px;
+    overflow-x: auto; text-align: center;
+  }
+  .mermaid svg { max-width: 100%; height: auto; }
+  .toc {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 16px 20px; margin-bottom: 32px; font-size: 13px;
+  }
+  .toc-title { font-family: 'Roboto Mono', monospace; font-size: 10px; text-transform: uppercase;
+    letter-spacing: .1em; color: var(--dim); margin-bottom: 10px; }
+  .toc a { color: var(--muted); }
+  .toc a:hover { color: var(--red); }
+  .toc ul { margin: 0; list-style: none; padding-left: 0; }
+  .toc li { margin: 4px 0; }
+  .toc li li { padding-left: 16px; }
+
+  @media (max-width: 600px) {
+    .topbar, .breadcrumb, .wrapper { padding-left: 18px; padding-right: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <a href="/" aria-label="Home" style="display:inline-flex;line-height:0"><svg width="80" height="21" viewBox="0 0 141 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.76011 3.9038C5.92786 3.74184 4.10895 4.35124 2.69056 5.6021C2.11733 6.19678 1.66843 6.91459 1.37363 7.70833C1.07884 8.50207 0.944757 9.35363 0.980235 10.2068V25.8829C0.944276 26.744 1.08103 27.6033 1.38128 28.4032C1.68152 29.203 2.13834 29.9249 2.72104 30.5204C4.16802 31.7349 5.9866 32.3289 7.82125 32.186C9.65242 32.3376 11.4679 31.7295 12.8909 30.4878C13.4641 29.8931 13.9129 29.1752 14.2077 28.3814C14.5025 27.5877 14.6366 26.7361 14.6011 25.8829V22.911H10.5088V25.8829C10.5269 26.1963 10.4816 26.5101 10.3763 26.8031C10.2709 27.0962 10.1077 27.3615 9.89795 27.5811C9.29929 28.0511 8.56102 28.2717 7.82125 28.2016C7.06115 28.2882 6.29829 28.0668 5.68342 27.5811C5.47026 27.3642 5.30488 27.0992 5.19924 26.8055C5.0936 26.5118 5.05041 26.1967 5.07267 25.8829V10.2068C5.05065 9.89591 5.09096 9.58361 5.19104 9.29072C5.29111 8.99783 5.44865 8.73115 5.65294 8.50864C6.25972 8.0309 7.01016 7.80989 7.76011 7.88813C8.52022 7.80157 9.28308 8.023 9.89795 8.50864C10.1077 8.72828 10.2709 8.99361 10.3763 9.28663C10.4816 9.57966 10.5269 9.89349 10.5088 10.2068V14.7464H14.6011V10.2068C14.6348 9.34798 14.4939 8.49156 14.1881 7.69657C13.8823 6.90158 13.4188 6.18702 12.8298 5.6021C11.4067 4.3604 9.59128 3.7522 7.76011 3.9038Z" fill="white"/><path d="M55.2655 21.0496L48.4551 4.52451H44.7598V31.631H48.8521V15.0732L55.632 31.631H59.3579V4.52451H55.2655V21.0496Z" fill="white"/><path d="M64.1953 31.631H68.2877V19.8739H74.3346V15.8896H68.2877V8.47617H75.8005V4.52451H64.1953V31.631Z" fill="white"/><path d="M84.731 4.52451H80.6387V31.631H91.4498V27.6466H84.731V4.52451Z" fill="white"/><path d="M96.2871 8.47617H98.1195V27.6466H96.2871V31.631H104.044V27.6466H102.212V8.47617H104.044V4.52451H96.2871V8.47617Z" fill="white"/><path d="M115.64 3.90374C113.817 3.74697 112.01 4.35626 110.601 5.60204C110.022 6.19287 109.57 6.91008 109.275 7.70478C108.98 8.49948 108.849 9.35285 108.89 10.2068V25.8829C108.854 26.7439 108.991 27.6032 109.291 28.4031C109.592 29.203 110.048 29.9248 110.631 30.5203C112.075 31.7406 113.896 32.3352 115.731 32.1859C117.562 32.3375 119.378 31.7294 120.801 30.4877C121.374 29.893 121.823 29.1751 122.118 28.3814C122.412 27.5876 122.547 26.7361 122.511 25.8829V22.9109H118.419V25.8829C118.437 26.1962 118.392 26.51 118.286 26.8031C118.181 27.0961 118.018 27.3614 117.808 27.5811C117.209 28.051 116.471 28.2716 115.731 28.2016C114.971 28.2881 114.208 28.0667 113.593 27.5811C113.38 27.3641 113.215 27.0992 113.109 26.8055C113.004 26.5118 112.96 26.1966 112.983 25.8829V10.2068C112.961 9.89584 113.001 9.58355 113.101 9.29066C113.201 8.99777 113.359 8.73109 113.563 8.50858C114.162 8.0386 114.9 7.818 115.64 7.88806C116.41 7.79306 117.185 8.01491 117.808 8.50858C118.018 8.72822 118.181 8.99354 118.286 9.28657C118.392 9.5796 118.437 9.89342 118.419 10.2068V14.7463H122.511V10.2068C122.545 9.34791 122.404 8.4915 122.098 7.69651C121.792 6.90152 121.329 6.18696 120.74 5.60204C119.307 4.35529 117.481 3.74697 115.64 3.90374Z" fill="white"/><path d="M127.354 4.52451V8.47617H132.118V31.631H136.21V8.47617H140.974V4.52451H127.354Z" fill="white"/><path d="M19.3984 36.1741H26.9709V32.4944H22.9871V3.85375H27.0368V0.174088H19.3984V36.1741Z" fill="#DB394C"/><path d="M32.2717 0.174088V3.85375H36.2884V32.4944H32.2388V36.1741H39.8771V0.174088H32.2717Z" fill="#DB394C"/><path d="M31.4486 10.5303H27.827V25.5524H31.4486V10.5303Z" fill="#DB394C"/></svg></a>
+    <span class="brand-div">×</span>
+    <span class="brand-sub">DAS CDP</span>
+  </div>
+  <a class="back-btn" href="../../analysis/">← Sessions</a>
+</header>
+
+<nav class="breadcrumb">
+  <a href="/">Home</a><span class="sep">/</span>
+  <a href="../../analysis/">Sessions</a><span class="sep">/</span>
+  <span class="cur">Session Synthesis — 2026-06-08</span>
+</nav>
+
+<div class="wrapper">
+  <div id="content"></div>
+</div>
+<script>
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'dark',
+  themeVariables: {
+    primaryColor: '#2a1a1d',
+    primaryTextColor: '#FFFFFF',
+    primaryBorderColor: 'rgba(219,57,76,.4)',
+    lineColor: '#DB394C',
+    secondaryColor: 'rgba(255,255,255,.05)',
+    tertiaryColor: '#1D1D1D',
+    edgeLabelBackground: 'rgba(29,29,29,.9)',
+    clusterBkg: 'rgba(255,255,255,.05)',
+    clusterBorder: 'rgba(168,168,167,.2)',
+    titleColor: '#FFFFFF',
+    nodeTextColor: '#FFFFFF',
+    fontFamily: "'Roboto', -apple-system, sans-serif"
+  }
+});
+
+const raw = "# Session Synthesis \u2014 2026-06-08\n\nTwo sessions analyzed: SSIS infrastructure review (morning) and Juicebox/reporting review (afternoon).\n\n---\n\n## Session 1: SSIS Review\n\n**Time:** 2026-06-08 16:01 UTC  \n**Attendees:** Rick Sorich (Eng Manager, DAS), Leo Mata, Luis Hernandez, Alicia Salazar, Hiram Gonzalez, Julio Rojas  \n**Organized by:** Daniel Aston\n\n### What Was Shown\n\n#### 1. CDXP Job Status Dashboard (`localhost:3000/cdxp-job-status`)\n\nA new monitoring dashboard (built ~1 week ago) tracking all 13 SSIS jobs in a 30-day window.\n\n**Dashboard header KPIs (as of 2026-06-08 ~9am MST):**\n- Currently Running: 1 (ThreeBirds.Analytics.CRM)\n- Failed (last 24h): 1\n- 7-day Success Rate: 93% \u2014 Healthy\n- Persistent Failures: 2 jobs critical\n\n**All 13 Jobs:**\n\n| Job | Package | Last Run | Status | 30-day Runs | Success % | Avg Duration |\n|-----|---------|----------|--------|-------------|-----------|--------------|\n| Mileone_reward_member | ThreeBirds.Analytics.Mileone.reward | May 28, 11pm | **FAILED** | 20 | **0%** | 4s |\n| ThreeBirds.Analytics.BlueSky | ThreeBirds.Analytics.BlueSky | Jun 7, 6:30pm | **FAILED** | 30 | 93% | 2h 37m |\n| JuiceReporting_CDXPCustomers | JuiceReporting_CDXPCustomers | Jun 7, 9pm | Succeeded | 7 | 71% | 7m 7s |\n| ThreeBirds.Analytics.CRM | ThreeBirds.Analytics.CRM | Jun 8, 8:01am | **Running** | 30 | 93% | 3h 20m |\n| appointment-process | ThreeBirds.Analytics.Appointment | Jun 8, 5:30am | Succeeded | 31 | 97% | 2h 53m |\n| Conquest_Mailing | ThreeBirds.Analytics.Conquest | Jun 7, 12pm | Succeeded | 30 | 100% | 57s |\n| MileOne Weekly Unsubscribe | MileOne Weekly Unsubscribe | Jun 8, 6am | Succeeded | 60 | 100% | 2m 54s |\n| ThreeBirds.Analytics.CustomerValue | ThreeBirds.Analytics.CustomerValue | Jun 7, 11:30pm | Succeeded | 30 | 100% | 8m 41s |\n| ThreeBirds.Analytics.CVH | ThreeBirds.Analytics.CVH | Jun 7, 4pm | Succeeded | 30 | 100% | 2h 4m |\n| ThreeBirds.Analytics.DDE | ThreeBirds.Analytics.DDE | Jun 8, 3am | Succeeded | 31 | 97% | 1h 54m |\n| ThreeBirds.Analytics.Email | ThreeBirds.Analytics.Email | Jun 7, 12:30pm | Succeeded | 30 | \u2014 | 4h 25m |\n| ThreeBirds.Analytics.LeadSource_LeadPerformance | ThreeBirds.Analytics.LeadSource_LeadPerformance | Jun 7, 11pm | Succeeded | \u2014 | \u2014 | 1h 28m |\n| ThreeBirds.Analytics.SmartSuppression | ThreeBirds.Analytics.SmartSuppression | \u2014 | \u2014 | \u2014 | \u2014 | \u2014 |\n\n**Critical failure \u2014 BlueSky last error:**\n```\nsp_juice_data_sync_bluesky_ssis: Error: Executing the query \"EXEC\nsp_juice_data_sync_bluesky_ssis\" failed with the following error:\n\"There is already an object named 'JuiceReporting_CDXPCustomers'\nin the database.\"\n```\nRoot cause: job drops/rebuilds table but the table already exists from a prior partial run. A known SSIS truncate-rebuild failure mode.\n\n**Daily Timeline view:** Gantt-style chart showing job schedule slots across a 24h day. Jobs run in waves from ~midnight through morning (~3am\u20139am window). CRM is the longest-running job (~3h avg), appointment-process is the most reliable long-runner.\n\n#### 2. AWS Infrastructure (from Lucidchart at lucid.app)\n\nThree EC2 instances + two RDS instances:\n\n```\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 3BHS001 (r7l.2xlarge) \u2014 10.254.210.10                              \u2502\n\u2502  EC2 + SQL Server databases:                                        \u2502\n\u2502  Auth | Automobiles | BirdBath | ClientDB | Lift                    \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 SQL01 (r6i.4xlarge) \u2014 10.254.210.28                                \u2502\n\u2502  EC2 + SQL Server databases:                                        \u2502\n\u2502  ActivityLog | DmsWarehouse | DigitalBundle | Inventory | Tracking  \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 ETL01 (r5a.8xlarge) \u2014 10.254.210.32                                \u2502\n\u2502  EC2 + SQL Server databases:                                        \u2502\n\u2502  EDW_Staging | EDW_Target | SSISDB                                  \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 db.m6g.2xlarge (RDS)                \u2502\n\u2502  MySQL: Analytics                   \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 db.m6g.2xlarge (RDS)                \u2502\n\u2502  MySQL: Analytics-Mautic            \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n```\n\n**Key observations from diagram:**\n- ETL01 is the SSIS execution server (hosts SSISDB, EDW_Staging, EDW_Target)\n- 3BHS001 holds application-facing DBs including BirdBath and Lift (legacy; modified cautiously, dependencies not fully mapped)\n- SQL01 holds DmsWarehouse (DMS data ingestion target)\n- Mautic (open-source email/segmentation) runs on its own RDS \u2014 decoupled from main SSIS\n- No arrows/connections shown in the diagram \u2014 relationships exist only in SSIS job logic, not documented\n\n### Key Insights\n\n1. **Mileone_reward_member has never succeeded** \u2014 0% over 20 runs, last run was May 28. Its continued role in the pipeline is unclear and worth reviewing.\n\n2. **BlueSky failure is a structural defect** \u2014 the job tries to recreate `JuiceReporting_CDXPCustomers` which already exists. This is the exact drop-and-rebuild pattern Rick described. Fix requires either `DROP IF EXISTS` + recreate, or incremental upsert logic.\n\n3. **3\u20134 offshore data engineers** manually monitor and remediate daily failures, with limited documentation \u2014 the new monitoring dashboard is the pipeline's first centralized visibility layer.\n\n4. **12-year-old codebase, multiple ownership changes** \u2014 BirdBath, DigitalBundle, and other DBs appear unused but are retained because their downstream dependencies (blast radius) aren't yet mapped.\n\n5. **AWS Glue was considered but rejected** \u2014 moving to Glue would relocate the workload without addressing the underlying architecture (truncate-rebuild, undocumented dependencies).\n\n6. **SFTP ingestion is dual-sided** \u2014 sometimes DAS hosts the SFTP (customer pushes to DAS), sometimes the customer hosts it (DAS pulls). AWS monitors SFTP and triggers SSIS on new file arrival.\n\n### Action Items\n\n| Priority | Action | Owner |\n|----------|--------|-------|\n| HIGH | Investigate why Mileone_reward_member has 0% success rate and never runs | Rick / Eng team |\n| HIGH | Fix BlueSky \"already an object\" failure \u2014 add DROP IF EXISTS or switch to upsert | Eng team |\n| HIGH | Implement alerting for SSIS failures \u2014 engineers fixing silently with no notification | Rick / Leo's team |\n| MEDIUM | Get accurate job descriptions from engineers for all 13 SSIS jobs | Rick |\n| MEDIUM | Formal evaluation: AWS Glue vs. Airflow for ETL modernization | Eng team |\n| LOW | Audit unused databases (BirdBath, DigitalBundle, etc.) \u2014 dependency-map before deleting | Eng team |\n\n---\n\n## Session 2: Review of Reporting (Juice)\n\n**Time:** 2026-06-08 21:33 UTC  \n**Attendees:** Daniel Aston, Ron Mulder, Leo Mata, Luis Hernandez, Hiram Gonzalez, Alicia Salazar  \n**Organized by:** Daniel Aston\n\n### What Was Shown\n\n#### 1. Juicebox Reporting Platform (`das-technology.myjuicebox.io`)\n\nJuicebox (referred to as \"Juice\") is the primary client-facing reporting tool \u2014 drag-and-drop, no-code, similar to Power BI. Built within the product team using its no-code interface, without engineering involvement.\n\n**Report library stats:**\n- Total reports: 221\n- Sign-in required: 111\n- Public link: 119\n- Custom label groups: CDXP-Live (14), CDXP-Old (17), CDXP-Working (4), DDE (32), Non-CDXP-Live (2), Non-CDXP-Old (2), Non-CDXP-Working (5)\n\n**Key reports visible:**\n- GST DDE - Sample Dashboard (has public link)\n- Hyundai DDE - Sample Dashboard\n- DDE Roll-up Report v4 (DB)\n- Reputation Management Reporting\n- Dealership Data Dashboard\n- Service Performance v2\n- Lead Response (working)\n- CDXP Customers\n- Website Vendor Performance\n- INFINITI DDE Individual Dealer\n- Nissan DDE Individual Dealer\n- CDXP Enterprise Summary\n\n**Reputation Management Reporting (1,728 clients):**\n- All-Time Reviews: 13,246,317 total, 4.34 avg rating\n- All-Time Legacy Surveys: 69,563,400 sent, 6,521,406 responses (9.37%), 4.64 avg\n- All-Time Review Surge X: 362,371 sent, 39,734 responses (10.97%)\n\nJuicebox embeds reports in the DAS portal via iframe with auth/security rules.\n\n**Critical limitation:** Juicebox cannot perform SQL JOINs. All multi-source data must be pre-joined in SQL within the DWRPT database before being exposed as a view for Juicebox consumption.\n\n#### 2. DWRPT Database Views (SQL Server Management Studio)\n\nRon showed the DWRPT (Data Warehouse Reporting) database views in SSMS \u2014 this is the SQL layer that pre-joins data before Juicebox picks it up.\n\n**View schema prefixes observed:**\n\n| Prefix | Schema | Purpose |\n|--------|--------|---------|\n| `AL` | Application Layer | Primary reporting views |\n| `ALGVACampaign*` | GVA campaigns | Campaign data by VIN |\n| `ALJuiceReporting_*` | Juice reporting | BSR equity views |\n| `ALMAIA*` | MAIA campaigns | Campaign data |\n| `ALML*` | MediaLogic | Campaign level performance, vehicle performance daily, VDP data (Google, Google2) |\n| `ALTikTok*` | TikTok | Campaign data |\n| `ALv_CDXP_*` | CDXP | BlueSky (overview, recommendations, service perf), CDXPCustomers, CDXPTransactionsOverview, DataMiningTool, HiddenTable_MarketingSummary, LeadPerformance, LeadPerformance_LeadSourceIndex, Marketing_Summary, Marketing_Summary_Contact_eng, MarketingPerformance, MatchBacks, mv_contact_stats, NEW_RECIPIENTS, RecipientLoss, TRANSACTION_SUMMARY, ZipCode_Geo |\n| `ALv_ML_*` | MediaLogic | CampaignLevelPerformance, VehiclePerformanceDaily |\n| `ALv_RL_*` | ReviewLogic | Leads, Leads_Reactivations, Smart_Follow |\n| `ALv_SL_*` | Social Logic | Accounts, MRSReviewRequest, Reviews, SurveyResponseGen2, Surveys |\n| `ALv_SurveySendSummary` | Core | Survey send tracking |\n| `ALVDPData_ML_*` | VDP data | Google, Google2 |\n| `core_v_*` | Core | AllTimePerformance, MRSReviewRequest, Reviews, SocialAdsCampaign, SurveyResponseGen2, Surveys, SurveySendSummary |\n| `dbo.` | Default | RL_Leads, RL_Leads_dev |\n| `zuora.` | Zuora billing | AccountStage |\n\n**Application schemas observed:** SL (Social Logic), ML (MediaLogic), RL (ReviewLogic/RepLogic), CDXP \u2014 organized to prevent cross-app data conflation.\n\n#### 3. 3Birds Portal (`admin.3birdsmarketing.com`)\n\nCDXP Summary report for 195 clients \u2014 shows how CDXP is impacting dealerships by connecting campaign engagement to DMS sales/service results. This is Juicebox embedded inside the 3Birds portal via iframe.\n\nNavigation includes: Reports, Admin Tools, Evaluations, Vendor Dashboard, Reputation Management, CDXP (Summary, Enterprise), Dealership Insights, Applications (Digital 360 Dashboard, Builder, Clients, Library, Reports, List Management, Social Media, 3 Birds Academy, Calendar, Assess).\n\n#### 4. DAS AI Agent Interface (`ai.das-technology.com`)\n\nLive AI agent system shown in action \u2014 Microsoft Copilot-style interface with multiple specialized agents:\n\n**Agents visible:**\n- DAS AI - Lead Response Client Results Analysis\n- QuickChart Analytics\n- [DRAFT] DAS AI - CDXP Performance Dashboard\n- [DRAFT] DAS AI - CDXP & RL Lead Nurture\n- Dan Test Agent\n- DAS AI - Client Review Sentiment Analysis\n- Bug Report Data\n\n**Demo 1 \u2014 Toyota Walnut Creek Client Review Sentiment Analysis:**\n- 1,679 Total Reviews (12-month window, June 2025 \u2013 June 2026)\n- 4.77\u2605 Average Rating\n- 4.7% Negative Reviews (79 at 1\u20132 stars)\n- 94.7% Positive Reviews (1,590 at 4\u20135 stars)\n- Agent queried: structure check \u2192 available views \u2192 dealership data \u2192 review data \u2014 4 tool calls, all `execute_sql` against `mssqlclient`\n\n**Demo 2 \u2014 Bob Poynter GM Lead Response Analysis (July\u2013September 2025):**\n- 2,007 total leads, 88.3% quote sent rate (1,773 quotes)\n- Strong used vehicle performance at 94.6% quote rate\n- Monthly Performance Trending:\n  | Month | Leads | Quotes Sent | Quotes Opened | Reactivations | SmartFollow | Payment Drivers |\n  |-------|-------|-------------|---------------|---------------|-------------|-----------------|\n  | July | 802 | 714 (89.0%) | 319 (44.7%) | 96 | 0 | 66 |\n  | August | 644 | 575 (89.3%) | 238 (41.4%) | 59 | 15,792 | 44 |\n  | September | 561 | 484 (86.3%) | 203 (41.9%) | 45 | 11,504 | 38 |\n- Reactivation Rate: 11.3% | Payment Driver Engagement Rate: 19.5%\n\n### Key Insights\n\n1. **Juicebox is a reporting endpoint, not a build foundation** \u2014 team explicitly said it's not on the long-term roadmap. The 221 reports in Juicebox represent institutional knowledge that needs to be migrated to whatever replaces it. The CDP build should NOT add more Juicebox dependencies.\n\n2. **DWRPT is the real data layer** \u2014 the database is well-structured with schema-prefixed views (SL, ML, RL, CDXP, core). This is the integration point. For CDP, access to DWRPT is more valuable than access to Juicebox.\n\n3. **Common Client ID was implemented** \u2014 this is the cross-source join key. It's recent and not fully validated yet (data cleanliness issues discovered). Critical to understand before building CDP identity resolution.\n\n4. **DAS AI agent is already in production** \u2014 the `ai.das-technology.com` interface is live, running SQL queries against mssqlclient, building reports dynamically. Several agents in DRAFT state. This is parallel to CDP work, not a replacement for it.\n\n5. **Power BI is available but staffing-constrained** \u2014 they have access but no internal Power BI developers. Offshore team is being utilized. This is a real option for replacing Juicebox if CDP reporting needs scale.\n\n6. **Raw SSIS data preferred for CDP** \u2014 explicitly stated: don't consume Juicebox output or post-processed SSIS results. Pull raw data from SSIS source tables to preserve flexibility for CDP-specific transformations.\n\n### Action Items\n\n| Priority | Action | Owner |\n|----------|--------|-------|\n| HIGH | Get DWRPT database access for Conflict team | Ron |\n| HIGH | Evaluate Juicebox replacement (Power BI, Metabase, custom) for CDP reporting layer | Team |\n| HIGH | Audit Common Client ID implementation \u2014 understand join quality before CDP identity resolution | Ron |\n| MEDIUM | Determine which SSIS jobs produce raw vs. manipulated data for CDP sourcing strategy | Team |\n\n---\n\n## Cross-Session Synthesis\n\n### Architecture as Understood\n\n```mermaid\nflowchart TD\n    subgraph Sources[\"Data Sources\"]\n        SFTP[\"Customer SFTPs\\n(AWS-monitored)\"]\n        DMS[\"DMS Systems\\n(Dealership DMS)\"]\n        Email[\"Email/SMS\\nWebhooks\"]\n    end\n\n    subgraph EC2[\"EC2 \u2014 ETL01 (r5a.8xlarge \u00b7 10.254.210.32)\"]\n        SSIS[\"SSIS Jobs\\n(13 jobs, daily schedule)\"]\n        EDW_S[\"EDW_Staging DB\"]\n        EDW_T[\"EDW_Target DB\"]\n        SSISDB[\"SSISDB\"]\n    end\n\n    subgraph EC2_BHS[\"EC2 \u2014 3BHS001 (r7l.2xlarge \u00b7 10.254.210.10)\"]\n        Auth[\"Auth DB\"]\n        Autos[\"Automobiles DB\"]\n        ClientDB[\"ClientDB\"]\n        Lift[\"Lift DB\"]\n        BirdBath[\"BirdBath DB (legacy)\"]\n    end\n\n    subgraph EC2_SQL[\"EC2 \u2014 SQL01 (r6i.4xlarge \u00b7 10.254.210.28)\"]\n        ActivityLog[\"ActivityLog DB\"]\n        DmsWH[\"DmsWarehouse DB\"]\n        DigiBun[\"DigitalBundle DB (legacy)\"]\n        Inventory[\"Inventory DB\"]\n        Tracking[\"Tracking DB\"]\n    end\n\n    subgraph RDS[\"RDS Instances\"]\n        Analytics[\"Analytics DB\\n(MySQL \u00b7 db.m6g.2xlarge)\"]\n        Mautic[\"Analytics-Mautic\\n(MySQL \u00b7 db.m6g.2xlarge)\"]\n    end\n\n    subgraph Reporting[\"Reporting Layer\"]\n        DWRPT[\"DWRPT DB\\n(pre-joined views\\nSL/ML/RL/CDXP schemas)\"]\n        Juice[\"Juicebox\\n(221 reports)\"]\n        Portal[\"3Birds Portal\\n(admin.3birdsmarketing.com)\"]\n        DASAI[\"DAS AI Agents\\n(ai.das-technology.com)\"]\n    end\n\n    subgraph Monitor[\"Monitoring\"]\n        Dashboard[\"CDXP Job Status Dashboard\\n(localhost:3000)\"]\n    end\n\n    SFTP --> SSIS\n    DMS --> SSIS\n    Email --> RDS\n\n    SSIS --> EDW_S\n    SSIS --> EDW_T\n    SSIS --> EC2_BHS\n    SSIS --> EC2_SQL\n\n    EDW_T --> DWRPT\n    EC2_BHS --> DWRPT\n    EC2_SQL --> DWRPT\n    Analytics --> DWRPT\n\n    DWRPT --> Juice\n    DWRPT --> DASAI\n    Juice --> Portal\n\n    SSIS --> Dashboard\n\n    Mautic --> Portal\n```\n\n### Reporting Data Flow (Juicebox-specific)\n\n```mermaid\nflowchart LR\n    SSIS[\"SSIS Jobs\\n(truncate + rebuild)\"] --> EDW[\"EDW_Target\\n(raw ETL output)\"]\n    EDW --> DWRPT[\"DWRPT Views\\n(pre-joined SQL views\\nby schema: SL/ML/RL/CDXP)\"]\n    DWRPT --> Juice[\"Juicebox\\n(drag-and-drop, no SQL joins)\"]\n    Juice --> iframe[\"iframe embed\\nin DAS Portal\"]\n    iframe --> Client[\"Client-facing\\ndealership reports\"]\n\n    DWRPT --> DASAI[\"DAS AI Agents\\n(execute_sql against mssqlclient)\"]\n    DASAI --> HTML[\"Dynamic HTML\\nanalysis reports\"]\n```\n\n### What CDP Needs from These Sessions\n\n1. **Direct DWRPT access** \u2014 this is the cleanest, most join-ready data layer. Request read access for CDP development.\n2. **SSIS raw source tables, not ETL outputs** \u2014 consume from EDW_Staging or source DBs, not the DWRPT views which may include manipulated/summarized data.\n3. **Job dependency map** \u2014 before modernizing ETL, need to understand which SSIS jobs feed which downstream tables. The monitoring dashboard shows job health but not DAG relationships.\n4. **Common Client ID schema** \u2014 this is the identity key across sources. Need to understand its structure before CDP identity resolution design.\n5. **Juicebox migration inventory** \u2014 the 221 reports (especially the 14 CDXP-Live ones) represent client commitments that CDP reporting must eventually cover.\n6. **DAS AI agent architecture** \u2014 the agents at `ai.das-technology.com` are already querying the same DWRPT views. CDP AI features should reuse this infrastructure, not build parallel.\n";
+
+marked.use({ gfm: true, breaks: false });
+let html = marked.parse(raw);
+
+// Convert <pre><code class="language-mermaid">...</code></pre> → <div class="mermaid">...</div>
+html = html.replace(
+  /<pre><code class="language-mermaid">([\s\S]*?)<\/code><\/pre>/g,
+  (_, code) => `<div class="mermaid">${code.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'")}</div>`
+);
+
+document.getElementById('content').innerHTML = html;
+
+// Run mermaid on all diagram divs
+mermaid.run({ nodes: document.querySelectorAll('.mermaid') });
+</script>
+</body>
+</html>

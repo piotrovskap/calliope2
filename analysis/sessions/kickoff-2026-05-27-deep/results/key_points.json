@@ -1,0 +1,82 @@
+[
+  {
+    "point": "Dask Technology operates in the automotive SaaS space with multiple solutions",
+    "topic": "Company Overview",
+    "details": "Daniel Aston (SVP Engineering, 6 years) and Alex English (SVP Product, 14 years) lead the Dask team which provides various SaaS solutions for automotive industry",
+    "timestamp": null,
+    "source": null,
+    "related_diagrams": []
+  },
+  {
+    "point": "Daniel Aston is SVP of Engineering at Dask",
+    "topic": "Team Background",
+    "details": "Daniel Aston has been with Dask for over 6 years and has 13-15 years of engineering experience, transitioning from coding to management",
+    "timestamp": null,
+    "source": null,
+    "related_diagrams": []
+  },
+  {
+    "point": "Alex English has strong operational and product background",
+    "topic": "Team Background",
+    "details": "Previously led account management, support, onboarding, and deactivations teams before moving to product leadership 4 years ago",
+    "timestamp": null,
+    "source": null,
+    "related_diagrams": []
+  },
+  {
+    "point": "Mike Paylor is a long-term technology and product consultant",
+    "topic": "Team Background",
+    "details": "Working with Dask for 3 years, known them for 13 years; has VP Engineering and CTO experience at PayPal, Upwork, and startups; focused on infrastructure, DevOps, and cost savings",
+    "timestamp": null,
+    "source": null,
+    "related_diagrams": []
+  },
+  {
+    "point": "Conflict team consists of experienced engineers and data specialists",
+    "topic": "Team Background",
+    "details": "Luis Hernandez (30 years experience, distributed systems), Alicia (20+ years data engineering), Oscar (13+ years software development), Byron (8 years engineering), Hiram (full stack, e-commerce/cybersecurity background), Julio (8 years, full stack, DevOps to UI)",
+    "timestamp": null,
+    "source": null,
+    "related_diagrams": []
+  },
+  {
+    "point": "Leo is the project coordinator and leader",
+    "topic": "Project Leadership",
+    "details": "20+ years in tech across ops, data, coding, AI, infrastructure; serving as central coordinator for the engagement",
+    "timestamp": null,
+    "source": null,
+    "related_diagrams": []
+  },
+  {
+    "point": "CDP (Customer Data Platform) implementation is the main initiative",
+    "topic": "Project Objective",
+    "details": "Long-discussed project between Dask and Conflict teams; importance will become apparent through product breadth discussion",
+    "timestamp": null,
+    "source": null,
+    "related_diagrams": []
+  },
+  {
+    "point": "Meeting agenda focuses on purpose, objectives, and duration",
+    "topic": "Meeting Structure",
+    "details": "50 minutes available; Leo has hard stop for another meeting; includes overview, discussion, guiding questions, data sharing and access basics",
+    "timestamp": null,
+    "source": null,
+    "related_diagrams": []
+  },
+  {
+    "point": "Dask has developed data silos across multiple applications",
+    "topic": "Problem Statement",
+    "details": "Broad portfolio spanning media/advertisement services, lead response, and reputation management for car dealerships; need to consolidate sources of record beyond existing data lake and reporting engine",
+    "timestamp": null,
+    "source": null,
+    "related_diagrams": []
+  },
+  {
+    "point": "Scope alignment and goal definition needed",
+    "topic": "Next Steps",
+    "details": "Need to hear from Dask on goals, what they're building, and requirements for success; common language and understanding essential for all participants",
+    "timestamp": null,
+    "source": null,
+    "related_diagrams": []
+  }
+]

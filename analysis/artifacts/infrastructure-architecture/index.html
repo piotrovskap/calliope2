@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infrastructure Architecture — DAS CDP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+  :root {
+    --bg:#1D1D1D; --surface:#111; --surface2:#1a1a1a; --border:#2a2a2a; --border2:#333;
+    --red:#DB394C; --red-dim:rgba(219,57,76,0.1);
+    --text:#F8F8F8; --muted:#888; --dim:#555; --green:#4CAF50; --yellow:#F5A623;
+    --blue:#4A7FA5; --purple:#7A5BA8; --radius:6px;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:'Roboto',sans-serif; font-size:13px; line-height:1.6; min-height:100vh; }
+
+  .header { border-bottom:1px solid var(--border); padding:0 28px; height:54px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; background:var(--bg); z-index:100; }
+  .brand { display:flex; align-items:center; gap:14px; }
+  .wordmark { font-family:'Unica One',sans-serif; font-size:16px; color:var(--red); letter-spacing:.1em; text-transform:uppercase; line-height:1; }
+  .wordmark-sub { font-size:10px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-top:2px; }
+  .back-link { font-size:11px; color:var(--muted); text-decoration:none; border:1px solid var(--border); border-radius:4px; padding:4px 10px; }
+  .back-link:hover { color:var(--text); border-color:var(--border2); }
+  .artifact-badge { font-family:'Unica One',sans-serif; font-size:11px; letter-spacing:.1em; color:var(--green); border:1px solid var(--green); border-radius:3px; padding:2px 8px; background:rgba(76,175,80,.1); }
+
+  .page { max-width:1200px; margin:0 auto; padding:32px 28px 80px; }
+
+  .artifact-header { margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+  .artifact-icon { font-size:28px; margin-bottom:8px; }
+  .artifact-title { font-family:'Unica One',sans-serif; font-size:28px; letter-spacing:.03em; color:var(--text); line-height:1.1; margin-bottom:8px; }
+  .artifact-meta { display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
+  .meta-item { font-family:'Roboto Mono',monospace; font-size:11px; color:var(--dim); }
+  .meta-source { font-size:11px; color:var(--muted); background:var(--surface2); border:1px solid var(--border); border-radius:3px; padding:1px 7px; }
+
+  .section { margin-bottom:40px; }
+  .section-title { font-family:'Unica One',sans-serif; font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+  .section-desc { font-size:12px; color:var(--muted); line-height:1.6; margin-bottom:16px; }
+
+  .diagram-wrap { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; overflow-x:auto; }
+  .diagram-wrap .mermaid { min-width:600px; }
+
+  /* Instance cards */
+  .instance-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px; }
+  .instance-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+  .instance-header { padding:10px 14px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+  .instance-name { font-family:'Unica One',sans-serif; font-size:15px; letter-spacing:.02em; color:var(--text); }
+  .instance-type { font-family:'Roboto Mono',monospace; font-size:10px; color:var(--blue); background:rgba(74,127,165,.1); border:1px solid rgba(74,127,165,.3); border-radius:3px; padding:1px 6px; }
+  .instance-type.rds { color:var(--purple); background:rgba(122,91,168,.1); border-color:rgba(122,91,168,.3); }
+  .instance-body { padding:10px 14px; }
+  .instance-meta { font-family:'Roboto Mono',monospace; font-size:10px; color:var(--dim); margin-bottom:10px; }
+  .db-list { display:flex; flex-wrap:wrap; gap:4px; }
+  .db-chip { font-family:'Roboto Mono',monospace; font-size:10px; color:var(--muted); background:var(--surface2); border:1px solid var(--border); border-radius:3px; padding:2px 7px; }
+  .db-chip.etl { color:var(--red); border-color:rgba(219,57,76,.3); background:var(--red-dim); }
+  .db-chip.legacy { color:var(--dim); text-decoration:line-through; }
+  .db-chip.mysql { color:var(--blue); border-color:rgba(74,127,165,.3); background:rgba(74,127,165,.1); }
+
+  .captures-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px; }
+  .capture-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; cursor:pointer; transition:border-color .15s; }
+  .capture-card:hover { border-color:var(--border2); }
+  .capture-img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; background:#000; }
+  .capture-meta { padding:8px 12px; border-top:1px solid var(--border); }
+  .capture-label { font-family:'Roboto Mono',monospace; font-size:10px; color:var(--muted); }
+  .capture-desc { font-size:11px; color:var(--dim); margin-top:2px; }
+  .capture-session { font-family:'Roboto Mono',monospace; font-size:9px; color:var(--red); background:var(--red-dim); border:1px solid rgba(219,57,76,.2); border-radius:2px; padding:1px 5px; display:inline-block; margin-top:4px; }
+  .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.94); z-index:1000; align-items:center; justify-content:center; flex-direction:column; gap:10px; }
+  .lightbox.open { display:flex; }
+  .lightbox img { max-width:92vw; max-height:87vh; border:1px solid var(--border2); border-radius:4px; }
+  .lightbox-close { position:absolute; top:18px; right:22px; background:none; border:none; color:var(--muted); font-size:22px; cursor:pointer; }
+  .lightbox-close:hover { color:var(--text); }
+  .lightbox-caption { font-family:'Roboto Mono',monospace; font-size:11px; color:var(--muted); }
+</style>
+</head>
+<body>
+<nav style="height:34px;background:#000;border-bottom:1px solid #2a2a2a;display:flex;align-items:center;padding:0 24px;gap:16px;font-size:11px;font-family:Roboto,sans-serif;position:sticky;top:0;z-index:200"><a href="../../../" style="color:#444;text-decoration:none">← Command Center</a><span style="color:#333">/</span><a href="../../" style="color:#444;text-decoration:none">Repository</a><span style="color:#333">/</span><span style="color:#888">Infrastructure Architecture</span></nav>
+
+<header class="header">
+  <div class="brand">
+    <svg width="30" height="30" viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="38" stroke="#DB394C" stroke-width="7" fill="none"/>
+      <circle cx="50" cy="50" r="22" stroke="#DB394C" stroke-width="7" fill="none"/>
+      <rect x="46.5" y="46.5" width="7" height="7" fill="#DB394C"/>
+      <rect x="46.5" y="4" width="7" height="20" fill="#DB394C"/>
+      <rect x="46.5" y="76" width="7" height="20" fill="#DB394C"/>
+      <rect x="4" y="46.5" width="20" height="7" fill="#DB394C"/>
+      <rect x="76" y="46.5" width="20" height="7" fill="#DB394C"/>
+    </svg>
+    <div>
+      <div class="wordmark">DAS CDP</div>
+      <div class="wordmark-sub">Artifact · Knowledge Base</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <span class="artifact-badge">DIAGRAM</span>
+    <a class="back-link" href="../../index.html">← Repository</a>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="artifact-header">
+    <div class="artifact-icon">ARCH</div>
+    <div class="artifact-title">DAS Infrastructure Architecture</div>
+    <div class="artifact-meta">
+      <span class="meta-item">Updated: 2026-06-08</span>
+      <span class="meta-source">ssis-review-2026-06-08</span>
+    </div>
+  </div>
+
+  <!-- Topology diagram -->
+  <div class="section">
+    <div class="section-title">AWS Topology</div>
+    <div class="section-desc">Three EC2 instances and two RDS MySQL instances. Source: Lucidchart diagram reviewed during SSIS session. Note: no inter-node arrows existed in the original diagram — relationships inferred from SSIS job logic.</div>
+    <div class="diagram-wrap">
+      <div class="mermaid">
+graph TD
+    subgraph AWS["AWS VPC"]
+        subgraph EC2_BHS["3BHS001 · r7l.2xlarge · 10.254.210.10"]
+            Auth["Auth"]
+            Autos["Automobiles"]
+            ClientDB["ClientDB"]
+            Lift["Lift"]
+            BirdBath["BirdBath (legacy)"]
+        end
+        subgraph EC2_SQL["SQL01 · r6i.4xlarge · 10.254.210.28"]
+            ActivityLog["ActivityLog"]
+            DmsWH["DmsWarehouse"]
+            DigiBun["DigitalBundle (legacy)"]
+            Inventory["Inventory"]
+            Tracking["Tracking"]
+        end
+        subgraph EC2_ETL["ETL01 · r5a.8xlarge · 10.254.210.32"]
+            EDW_S["EDW_Staging"]
+            EDW_T["EDW_Target"]
+            SSISDB["SSISDB"]
+        end
+        subgraph RDS1["RDS · db.m6g.2xlarge"]
+            Analytics["Analytics (MySQL)"]
+        end
+        subgraph RDS2["RDS · db.m6g.2xlarge"]
+            Mautic["Analytics-Mautic (MySQL)"]
+        end
+    end
+      </div>
+    </div>
+  </div>
+
+  <!-- Instance inventory -->
+  <div class="section">
+    <div class="section-title">Instance Inventory</div>
+    <div class="instance-grid">
+      <div class="instance-card">
+        <div class="instance-header">
+          <div class="instance-name">ETL01</div>
+          <span class="instance-type">EC2</span>
+        </div>
+        <div class="instance-body">
+          <div class="instance-meta">r5a.8xlarge · 10.254.210.32</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Primary ETL server. Runs SSIS, hosts the data warehouse staging and target databases. This is the critical path for all downstream reporting.</div>
+          <div class="db-list">
+            <span class="db-chip etl">EDW_Staging</span>
+            <span class="db-chip etl">EDW_Target</span>
+            <span class="db-chip etl">SSISDB</span>
+          </div>
+        </div>
+      </div>
+      <div class="instance-card">
+        <div class="instance-header">
+          <div class="instance-name">3BHS001</div>
+          <span class="instance-type">EC2</span>
+        </div>
+        <div class="instance-body">
+          <div class="instance-meta">r7l.2xlarge · 10.254.210.10</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Application-facing databases. BirdBath and Lift are legacy — modified cautiously, as their blast radius (downstream dependencies) isn't yet mapped.</div>
+          <div class="db-list">
+            <span class="db-chip">Auth</span>
+            <span class="db-chip">Automobiles</span>
+            <span class="db-chip">ClientDB</span>
+            <span class="db-chip legacy">BirdBath</span>
+            <span class="db-chip legacy">Lift</span>
+          </div>
+        </div>
+      </div>
+      <div class="instance-card">
+        <div class="instance-header">
+          <div class="instance-name">SQL01</div>
+          <span class="instance-type">EC2</span>
+        </div>
+        <div class="instance-body">
+          <div class="instance-meta">r6i.4xlarge · 10.254.210.28</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">DMS data ingestion target. DigitalBundle is legacy and likely unused, pending dependency audit.</div>
+          <div class="db-list">
+            <span class="db-chip">ActivityLog</span>
+            <span class="db-chip">DmsWarehouse</span>
+            <span class="db-chip">Inventory</span>
+            <span class="db-chip">Tracking</span>
+            <span class="db-chip legacy">DigitalBundle</span>
+          </div>
+        </div>
+      </div>
+      <div class="instance-card">
+        <div class="instance-header">
+          <div class="instance-name">Analytics RDS</div>
+          <span class="instance-type rds">RDS MySQL</span>
+        </div>
+        <div class="instance-body">
+          <div class="instance-meta">db.m6g.2xlarge</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Primary MySQL RDS. Feeds into DWRPT views.</div>
+          <div class="db-list">
+            <span class="db-chip mysql">Analytics</span>
+          </div>
+        </div>
+      </div>
+      <div class="instance-card">
+        <div class="instance-header">
+          <div class="instance-name">Mautic RDS</div>
+          <span class="instance-type rds">RDS MySQL</span>
+        </div>
+        <div class="instance-body">
+          <div class="instance-meta">db.m6g.2xlarge</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Mautic open-source email/segmentation platform. Decoupled from main SSIS pipeline — feeds directly to 3Birds portal.</div>
+          <div class="db-list">
+            <span class="db-chip mysql">Analytics-Mautic</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key observations -->
+  <div class="section">
+    <div class="section-title">Key Observations</div>
+    <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
+      <li style="padding-left:16px;position:relative;font-size:12px;color:var(--muted);line-height:1.5;">
+        <span style="position:absolute;left:0;color:var(--red);font-weight:700;">›</span>
+        <strong style="color:var(--text)">No documented inter-node relationships</strong> — the original Lucidchart diagram showed instances with no arrows. Dependencies exist only in SSIS job logic.
+      </li>
+      <li style="padding-left:16px;position:relative;font-size:12px;color:var(--muted);line-height:1.5;">
+        <span style="position:absolute;left:0;color:var(--red);font-weight:700;">›</span>
+        <strong style="color:var(--text)">12-year-old codebase</strong> — multiple ownership changes. BirdBath, DigitalBundle, and Lift appear unused but are retained because their downstream dependencies (blast radius) aren't yet mapped.
+      </li>
+      <li style="padding-left:16px;position:relative;font-size:12px;color:var(--muted);line-height:1.5;">
+        <span style="position:absolute;left:0;color:var(--red);font-weight:700;">›</span>
+        <strong style="color:var(--text)">SFTP ingestion is dual-sided</strong> — sometimes DAS hosts the SFTP (customer pushes), sometimes the customer hosts it (DAS pulls). AWS monitors SFTP and triggers SSIS on new file arrival.
+      </li>
+      <li style="padding-left:16px;position:relative;font-size:12px;color:var(--muted);line-height:1.5;">
+        <span style="position:absolute;left:0;color:var(--red);font-weight:700;">›</span>
+        <strong style="color:var(--text)">Mautic is decoupled</strong> — email/segmentation runs on its own RDS, feeds the portal independently of the main SSIS ETL pipeline.
+      </li>
+    </ul>
+  </div>
+
+  <!-- Source Captures -->
+  <div class="section">
+    <div class="section-title">Source Captures</div>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.6;">Screencaps extracted from the session recording by Planopticon. The Lucidchart diagram was shown live during the SSIS review. Click to view full resolution.</p>
+    <div class="captures-grid">
+      <div class="capture-card" onclick="openLightbox('frame_0025.jpg','AWS architecture — Lucidchart diagram, ssis-review-2026-06-08')">
+        <img class="capture-img" src="../../sessions/ssis-review-2026-06-08/frames/frame_0025.jpg" onerror="this.closest(\'.capture-card\')&&(this.closest(\'.capture-card\').style.display=\'none\')" alt="AWS architecture diagram" loading="lazy">
+        <div class="capture-meta">
+          <div class="capture-label">frame_0025 · Lucidchart AWS topology</div>
+          <div class="capture-desc">Three EC2 instances (3BHS001, SQL01, ETL01) and two RDS nodes shown in Lucidchart. Source for the instance inventory above.</div>
+          <span class="capture-session">ssis-review-2026-06-08</span>
+        </div>
+      </div>
+      <div class="capture-card" onclick="openLightbox('frame_0040.jpg','AWS architecture detail — ssis-review-2026-06-08')">
+        <img class="capture-img" src="../../sessions/ssis-review-2026-06-08/frames/frame_0040.jpg" onerror="this.closest(\'.capture-card\')&&(this.closest(\'.capture-card\').style.display=\'none\')" alt="AWS architecture detail" loading="lazy">
+        <div class="capture-meta">
+          <div class="capture-label">frame_0040 · Architecture with detail panel</div>
+          <div class="capture-desc">Same Lucidchart diagram with a detail panel open, showing instance specs and database assignments.</div>
+          <span class="capture-session">ssis-review-2026-06-08</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lightbox-caption" id="lb-caption"></div>
+</div>
+
+<script>
+mermaid.initialize({ startOnLoad: false, theme: 'dark' });
+document.addEventListener('DOMContentLoaded', () => mermaid.run());
+
+const BASE_FRAMES = '../../sessions/ssis-review-2026-06-08/frames/';
+function openLightbox(file, caption) {
+  document.getElementById('lb-img').src = BASE_FRAMES + file;
+  document.getElementById('lb-caption').textContent = caption;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>

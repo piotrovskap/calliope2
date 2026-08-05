@@ -1,0 +1,13 @@
+{
+  "id": "ssis-job-catalog",
+  "title": "SSIS Job Catalog (v1 \u00b7 superseded)",
+  "description": "Superseded \u2014 point-in-time snapshot from the 2026-06-08 SSIS review meeting. Current catalog (etl-enriched): SSIS Job Catalog. All 13 SSIS jobs with status, 30-day success rates, average runtimes, known failure modes. Mileone_reward_member at 0% success. BlueSky failing on duplicate table object.",
+  "type": "catalog",
+  "icon": "CTLG",
+  "href": "artifacts/ssis-job-catalog/index.html",
+  "source_sessions": [
+    "ssis-review-2026-06-08"
+  ],
+  "updated": "2026-06-08",
+  "superseded_by": "ssis-job-catalog-v2"
+}

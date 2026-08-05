@@ -1,0 +1,15 @@
+database,samples,distinct_sessions,distinct_logins,avg_logical_reads,sum_cpu_minutes
+RedDawn,759044,202,3,355779836,43232759
+msdb,198676,188,9,138893,6467
+Megatron,158412,206,9,3057909,28295
+Prime,59117,158,6,5614719,25528
+master,24606,145,10,82660,173
+WEB,13854,159,5,284942,445
+scheduler,6912,180,2,19,0
+DataManager,4231,142,3,77,0
+OutboundFeeds,293,68,5,1252,0
+EndeavorCentral,134,80,2,1239,0
+MegatronRepository,5,4,2,0,0
+tempdb,5,5,2,0,0
+Trax,2,2,1,0,0
+model,1,1,1,0,0

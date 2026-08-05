@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAS CDP — CONFLICT Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Roboto:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #1D1D1D;
+    --surface:  rgba(255,255,255,0.05);
+    --surface2: rgba(255,255,255,0.08);
+    --border:   rgba(168,168,167,0.2);
+    --border2:  rgba(236,239,245,0.15);
+    --red:      #DB394C;
+    --red-dim:  rgba(219,57,76,0.1);
+    --red-dark: #9C2633;
+    --text:     #FFFFFF;
+    --muted:    #A8A8A7;
+    --dim:      rgba(255,255,255,0.3);
+    --green:    #4CAF50; --green-dim: rgba(76,175,80,0.1);
+    --yellow:   #F5A623; --yellow-dim: rgba(245,166,35,0.08);
+    --blue:     #4A7FA5; --blue-dim: rgba(74,127,165,0.1);
+    --purple:   #7A5BA8; --purple-dim: rgba(122,91,168,0.1);
+    --radius:   6px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Roboto', sans-serif; font-size: 13px; line-height: 1.6; min-height: 100vh; }
+
+  /* ── Topbar ── */
+  .topbar {
+    height: 54px; background: var(--bg); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 32px; position: sticky; top: 0; z-index: 200;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-logo { display: inline-flex; line-height: 0; transition: opacity .15s; }
+  .brand-logo:hover { opacity: .75; }
+  .brand-divider { color: var(--border2); font-size: 16px; }
+  .brand-name { font-family: 'Unica One', sans-serif; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .topnav { display: flex; align-items: center; gap: 4px; }
+  .topnav a {
+    font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--dim); text-decoration: none;
+    padding: 5px 10px; border-radius: 3px; transition: color .15s, background .15s;
+  }
+  .topnav a:hover { color: var(--text); background: var(--surface); }
+  .phase-pill {
+    font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: .1em;
+    color: var(--red); border: 1px solid rgba(219,57,76,.4); background: var(--red-dim);
+    padding: 3px 10px; border-radius: 3px;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    max-width: 860px; margin: 0 auto; padding: 72px 32px 60px;
+    text-align: center; position: relative;
+  }
+  .hero-eyebrow {
+    font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--red); margin-bottom: 24px;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  .hero-eyebrow-line { width: 40px; height: 1px; background: var(--red); opacity: .5; }
+  .hero-crosshair { margin: 0 auto 28px; display: block; }
+  .hero-title {
+    font-family: 'Unica One', sans-serif; font-size: 64px; letter-spacing: .04em;
+    text-transform: uppercase; line-height: 1; color: var(--text); margin-bottom: 10px;
+  }
+  .hero-subtitle {
+    font-family: 'Unica One', sans-serif; font-size: 16px; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--red); margin-bottom: 24px;
+  }
+  .hero-desc { font-size: 14px; color: var(--muted); max-width: 540px; margin: 0 auto 24px; line-height: 1.75; }
+  .hero-meta { font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: .08em; color: var(--dim); }
+  .hero-meta span { color: var(--text); }
+
+  /* ── Stats strip ── */
+  .stats-strip {
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    display: flex; justify-content: center;
+  }
+  .stat { padding: 16px 32px; text-align: center; border-right: 1px solid var(--border); }
+  .stat:last-child { border-right: none; }
+  .stat-val { font-family: 'Unica One', sans-serif; font-size: 20px; color: var(--text); line-height: 1; margin-bottom: 4px; }
+  .stat-val.accent { color: var(--red); }
+  .stat-key { font-family: 'Roboto Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); }
+
+  /* ── Navigate section ── */
+  .nav-section { max-width: 1100px; margin: 0 auto; padding: 52px 32px 0; }
+  .section-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+  }
+  .section-label { font-family: 'Unica One', sans-serif; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
+
+  .nav-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+  .nav-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 24px; text-decoration: none; color: inherit;
+    display: flex; flex-direction: column; gap: 10px;
+    transition: border-color .15s, background .15s; position: relative; overflow: hidden;
+  }
+  .nav-card:hover { border-color: var(--border2); background: var(--surface2); }
+  .nav-card.primary { border-color: rgba(219,57,76,.3); }
+  .nav-card.primary:hover { border-color: rgba(219,57,76,.6); background: rgba(219,57,76,.05); }
+
+  .nav-card-top { display: flex; align-items: flex-start; justify-content: space-between; }
+  .nav-type-badge {
+    font-family: 'Roboto Mono', monospace; font-size: 9px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: .08em;
+    padding: 2px 7px; border-radius: 3px; border: 1px solid; white-space: nowrap;
+  }
+  .nt-sessions  { color: var(--red);    border-color: rgba(219,57,76,.4);  background: var(--red-dim); }
+  .nt-intel     { color: var(--purple); border-color: rgba(122,91,168,.4); background: var(--purple-dim); }
+  .nt-status    { color: var(--blue);   border-color: rgba(74,127,165,.4); background: var(--blue-dim); }
+  .nt-reference { color: var(--yellow); border-color: rgba(245,166,35,.4); background: var(--yellow-dim); }
+  .nt-deliver   { color: var(--green);  border-color: rgba(76,175,80,.4);  background: var(--green-dim); }
+  .nt-docs      { color: var(--muted);  border-color: var(--border);       background: var(--surface); }
+
+  .nav-arrow { font-size: 16px; color: var(--dim); transition: color .15s, transform .15s; }
+  .nav-card:hover .nav-arrow { color: var(--text); transform: translateX(3px); }
+
+  .nav-title { font-family: 'Unica One', sans-serif; font-size: 21px; letter-spacing: .02em; text-transform: uppercase; color: var(--text); line-height: 1.1; }
+  .nav-desc { font-size: 12px; color: var(--muted); line-height: 1.65; flex: 1; }
+  .nav-tags { display: flex; gap: 5px; flex-wrap: wrap; padding-top: 10px; border-top: 1px solid var(--border); }
+  .nav-tag { font-family: 'Roboto Mono', monospace; font-size: 9px; color: var(--dim); background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 2px; padding: 1px 5px; }
+
+  /* ── Recent activity ── */
+  .recent-section { max-width: 1100px; margin: 0 auto; padding: 40px 32px 56px; }
+  .recent-list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow-y: auto; overflow-x: hidden; max-height: 420px; scrollbar-width: thin; scrollbar-color: var(--border2) transparent; }
+  .recent-list::-webkit-scrollbar { width: 8px; }
+  .recent-list::-webkit-scrollbar-track { background: transparent; }
+  .recent-list::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 4px; }
+  .recent-list::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+  .recent-count { font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--dim); letter-spacing: .04em; margin-left: 10px; }
+  .recent-item {
+    display: flex; align-items: center; gap: 16px; padding: 12px 16px;
+    border-bottom: 1px solid var(--border); background: var(--surface);
+    transition: background .1s;
+  }
+  .recent-item:last-child { border-bottom: none; }
+  .recent-item:hover { background: var(--surface2); }
+  .recent-date { font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--dim); white-space: nowrap; width: 80px; flex-shrink: 0; }
+  .recent-hash { font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--dim); white-space: nowrap; width: 56px; flex-shrink: 0; }
+  .recent-type { font-family: 'Roboto Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); width: 72px; flex-shrink: 0; }
+  .recent-title { font-size: 12px; color: var(--muted); flex: 1; }
+  .recent-type.t-feature { color: var(--green); }
+  .recent-type.t-fix     { color: var(--red); }
+  .recent-type.t-chore   { color: var(--dim); }
+  .recent-type.t-docs    { color: var(--blue); }
+  .recent-item { cursor: pointer; flex-wrap: wrap; }
+  .recent-row  { display: flex; align-items: center; gap: 16px; width: 100%; }
+  .recent-chevron { font-size: 9px; color: var(--dim); margin-left: auto; flex-shrink: 0; transition: transform .15s; }
+  .recent-item.open .recent-chevron { transform: rotate(90deg); }
+  .recent-detail {
+    display: none; width: 100%;
+    border-top: 1px solid var(--border); background: rgba(0,0,0,.15);
+  }
+  .recent-item.open .recent-detail { display: block; }
+  .recent-body {
+    font-family: 'Roboto Mono', monospace; font-size: 11px; color: var(--muted);
+    line-height: 1.6; white-space: pre-wrap; padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .recent-body:last-child { border-bottom: none; }
+  .recent-files {
+    width: 100%; padding: 10px 16px 12px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 3px 24px;
+  }
+  .recent-file { font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .recent-file .fs { width: 52px; display: inline-block; }
+  .recent-file .fs.added    { color: var(--green); }
+  .recent-file .fs.modified { color: var(--blue); }
+  .recent-file .fs.deleted  { color: var(--red); }
+
+  /* ── Footer ── */
+  .footer {
+    border-top: 1px solid var(--border); padding: 20px 32px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .footer-left { display: flex; align-items: center; gap: 16px; }
+  .footer-text { font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--dim); }
+  .footer-links { display: flex; gap: 16px; }
+  .footer-link { font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--dim); text-decoration: none; }
+  .footer-link:hover { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<header class="topbar">
+  <div class="brand">
+    <!-- CONFLICT logo → home -->
+    <a href="/" class="brand-logo" aria-label="Home">
+    <svg width="90" height="24" viewBox="0 0 141 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.76011 3.9038C5.92786 3.74184 4.10895 4.35124 2.69056 5.6021C2.11733 6.19678 1.66843 6.91459 1.37363 7.70833C1.07884 8.50207 0.944757 9.35363 0.980235 10.2068V25.8829C0.944276 26.744 1.08103 27.6033 1.38128 28.4032C1.68152 29.203 2.13834 29.9249 2.72104 30.5204C4.16802 31.7349 5.9866 32.3289 7.82125 32.186C9.65242 32.3376 11.4679 31.7295 12.8909 30.4878C13.4641 29.8931 13.9129 29.1752 14.2077 28.3814C14.5025 27.5877 14.6366 26.7361 14.6011 25.8829V22.911H10.5088V25.8829C10.5269 26.1963 10.4816 26.5101 10.3763 26.8031C10.2709 27.0962 10.1077 27.3615 9.89795 27.5811C9.29929 28.0511 8.56102 28.2717 7.82125 28.2016C7.06115 28.2882 6.29829 28.0668 5.68342 27.5811C5.47026 27.3642 5.30488 27.0992 5.19924 26.8055C5.0936 26.5118 5.05041 26.1967 5.07267 25.8829V10.2068C5.05065 9.89591 5.09096 9.58361 5.19104 9.29072C5.29111 8.99783 5.44865 8.73115 5.65294 8.50864C6.25972 8.0309 7.01016 7.80989 7.76011 7.88813C8.52022 7.80157 9.28308 8.023 9.89795 8.50864C10.1077 8.72828 10.2709 8.99361 10.3763 9.28663C10.4816 9.57966 10.5269 9.89349 10.5088 10.2068V14.7464H14.6011V10.2068C14.6348 9.34798 14.4939 8.49156 14.1881 7.69657C13.8823 6.90158 13.4188 6.18702 12.8298 5.6021C11.4067 4.3604 9.59128 3.7522 7.76011 3.9038Z" fill="white"/>
+      <path d="M55.2655 21.0496L48.4551 4.52451H44.7598V31.631H48.8521V15.0732L55.632 31.631H59.3579V4.52451H55.2655V21.0496Z" fill="white"/>
+      <path d="M64.1953 31.631H68.2877V19.8739H74.3346V15.8896H68.2877V8.47617H75.8005V4.52451H64.1953V31.631Z" fill="white"/>
+      <path d="M84.731 4.52451H80.6387V31.631H91.4498V27.6466H84.731V4.52451Z" fill="white"/>
+      <path d="M96.2871 8.47617H98.1195V27.6466H96.2871V31.631H104.044V27.6466H102.212V8.47617H104.044V4.52451H96.2871V8.47617Z" fill="white"/>
+      <path d="M115.64 3.90374C113.817 3.74697 112.01 4.35626 110.601 5.60204C110.022 6.19287 109.57 6.91008 109.275 7.70478C108.98 8.49948 108.849 9.35285 108.89 10.2068V25.8829C108.854 26.7439 108.991 27.6032 109.291 28.4031C109.592 29.203 110.048 29.9248 110.631 30.5203C112.075 31.7406 113.896 32.3352 115.731 32.1859C117.562 32.3375 119.378 31.7294 120.801 30.4877C121.374 29.893 121.823 29.1751 122.118 28.3814C122.412 27.5876 122.547 26.7361 122.511 25.8829V22.9109H118.419V25.8829C118.437 26.1962 118.392 26.51 118.286 26.8031C118.181 27.0961 118.018 27.3614 117.808 27.5811C117.209 28.051 116.471 28.2716 115.731 28.2016C114.971 28.2881 114.208 28.0667 113.593 27.5811C113.38 27.3641 113.215 27.0992 113.109 26.8055C113.004 26.5118 112.96 26.1966 112.983 25.8829V10.2068C112.961 9.89584 113.001 9.58355 113.101 9.29066C113.201 8.99777 113.359 8.73109 113.563 8.50858C114.162 8.0386 114.9 7.818 115.64 7.88806C116.41 7.79306 117.185 8.01491 117.808 8.50858C118.018 8.72822 118.181 8.99354 118.286 9.28657C118.392 9.5796 118.437 9.89342 118.419 10.2068V14.7463H122.511V10.2068C122.545 9.34791 122.404 8.4915 122.098 7.69651C121.792 6.90152 121.329 6.18696 120.74 5.60204C119.307 4.35529 117.481 3.74697 115.64 3.90374Z" fill="white"/>
+      <path d="M127.354 4.52451V8.47617H132.118V31.631H136.21V8.47617H140.974V4.52451H127.354Z" fill="white"/>
+      <path d="M19.3984 36.1741H26.9709V32.4944H22.9871V3.85375H27.0368V0.174088H19.3984V36.1741Z" fill="#DB394C"/>
+      <path d="M32.2717 0.174088V3.85375H36.2884V32.4944H32.2388V36.1741H39.8771V0.174088H32.2717Z" fill="#DB394C"/>
+      <path d="M31.4486 10.5303H27.827V25.5524H31.4486V10.5303Z" fill="#DB394C"/>
+    </svg>
+    </a>
+    <span class="brand-divider">×</span>
+    <span class="brand-name">DAS CDP</span>
+  </div>
+  <nav class="topnav">
+    <a href="analysis/">Sessions</a>
+    <a href="analysis/artifacts/">Artifacts</a>
+    <a href="knowledge/">Intelligence</a>
+    <a href="specs/">Project Plan</a>
+    <a href="tracker/">Status</a>
+    <a href="raid/">RAID</a>
+    <a href="reference/">Reference</a>
+    <a href="deliverables/">Deliverables</a>
+    <a href="docs/">Docs</a>
+  </nav>
+  <span class="phase-pill">PHASE 0</span>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <span class="hero-eyebrow-line"></span>
+    CONFLICT for DAS Technology
+    <span class="hero-eyebrow-line"></span>
+  </div>
+  <!-- DAS crosshair logo, matched to digitalairstrike.com mark; DAS orange #DD6000 set once via currentColor -->
+  <svg class="hero-crosshair" width="72" height="72" viewBox="0 0 100 100" fill="none" style="color:#DD6000">
+    <!-- two uninterrupted concentric rings -->
+    <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width="5" fill="none"/>
+    <circle cx="50" cy="50" r="25.5" stroke="currentColor" stroke-width="5" fill="none"/>
+    <!-- square aim point -->
+    <rect x="46.5" y="46.5" width="7" height="7" fill="currentColor"/>
+    <!-- single solid arms: cross both rings, stop short of center -->
+    <line x1="50" y1="0"   x2="50" y2="33"  stroke="currentColor" stroke-width="6"/>
+    <line x1="50" y1="67"  x2="50" y2="100" stroke="currentColor" stroke-width="6"/>
+    <line x1="0"  y1="50"  x2="33" y2="50"  stroke="currentColor" stroke-width="6"/>
+    <line x1="67" y1="50"  x2="100" y2="50" stroke="currentColor" stroke-width="6"/>
+  </svg>
+  <h1 class="hero-title">DAS CDP</h1>
+  <div class="hero-subtitle">Customer Data Platform</div>
+  <p class="hero-desc">A living project command center for the DAS Technology CDP engagement. Direct access to session intelligence, architecture analysis, deliverables, and <span id="hero-docs">—</span> indexed source documents — continuously updated as discovery progresses.</p>
+  <div class="hero-meta">Phase 0 · Discovery · Active since <span>May 2026</span></div>
+</section>
+
+<!-- Stats strip -->
+<div class="stats-strip">
+  <div class="stat"><div class="stat-val accent" id="stat-phase">Phase 0</div><div class="stat-key">Current Phase</div></div>
+  <div class="stat"><div class="stat-val" id="stat-sessions">—</div><div class="stat-key">Sessions Recorded</div></div>
+  <div class="stat"><div class="stat-val" id="stat-artifacts">—</div><div class="stat-key">Artifacts</div></div>
+  <div class="stat"><div class="stat-val" id="stat-docs">—</div><div class="stat-key">Documents Indexed</div></div>
+  <div class="stat"><div class="stat-val" id="stat-entities">—</div><div class="stat-key">Graph Entities</div></div>
+  <div class="stat"><div class="stat-val">DAS × CONFLICT</div><div class="stat-key">Teams</div></div>
+</div>
+
+<!-- Navigate -->
+<div class="nav-section">
+  <div class="section-header">
+    <span class="section-label">Navigate</span>
+  </div>
+  <div class="nav-grid">
+
+    <a class="nav-card primary" href="analysis/">
+      <div class="nav-card-top">
+        <span class="nav-type-badge nt-sessions">Sessions</span>
+        <span class="nav-arrow">→</span>
+      </div>
+      <div class="nav-title">Discovery Sessions</div>
+      <div class="nav-desc"><span id="desc-sessions">3</span> recorded working sessions with video playback, AI-extracted transcripts, key points, action items, and per-session knowledge graphs.</div>
+      <div class="nav-tags">
+        <span class="nav-tag" id="tag-sessions">— sessions</span>
+        <span class="nav-tag">video</span>
+        <span class="nav-tag">transcripts</span>
+        <span class="nav-tag">AI analysis</span>
+      </div>
+    </a>
+
+    <a class="nav-card" href="knowledge/">
+      <div class="nav-card-top">
+        <span class="nav-type-badge nt-intel">Intelligence</span>
+        <span class="nav-arrow">→</span>
+      </div>
+      <div class="nav-title">Intelligence</div>
+      <div class="nav-desc">Entity-relationship knowledge graph spanning <span id="desc-nodes">1,491</span> nodes and <span id="desc-edges">2,026</span> connections, extracted across all sessions. Session synthesis and per-session analysis reports.</div>
+      <div class="nav-tags">
+        <span class="nav-tag" id="tag-entities">— entities</span>
+        <span class="nav-tag" id="tag-edges">— edges</span>
+        <span class="nav-tag">D3 force graph</span>
+        <span class="nav-tag">synthesis</span>
+      </div>
+    </a>
+
+    <a class="nav-card" href="tracker/">
+      <div class="nav-card-top">
+        <span class="nav-type-badge nt-status">Status</span>
+        <span class="nav-arrow">→</span>
+      </div>
+      <div class="nav-title">Project Status</div>
+      <div class="nav-desc">Live engagement tracker. Phase 0 milestone timeline, system access requests across databases and tools, and unresolved discovery questions requiring DAS input.</div>
+      <div class="nav-tags">
+        <span class="nav-tag">Phase 0 active</span>
+        <span class="nav-tag" id="tag-access">11 access items</span>
+        <span class="nav-tag">open questions</span>
+      </div>
+    </a>
+
+    <a class="nav-card" href="raid/">
+      <div class="nav-card-top">
+        <span class="nav-type-badge nt-status">RAID</span>
+        <span class="nav-arrow">→</span>
+      </div>
+      <div class="nav-title">RAID Log</div>
+      <div class="nav-desc">Strategic risk register — risks, assumptions, issues, and dependencies for the CDP engagement, each with owner, severity, status, and mitigation.</div>
+      <div class="nav-tags">
+        <span class="nav-tag">risks</span>
+        <span class="nav-tag">assumptions</span>
+        <span class="nav-tag">issues · dependencies</span>
+      </div>
+    </a>
+
+    <a class="nav-card" href="analysis/artifacts/golden-record/">
+      <div class="nav-card-top">
+        <span class="nav-type-badge nt-reference">Golden Record</span>
+        <span class="nav-arrow">→</span>
+      </div>
+      <div class="nav-title">Golden Record (v1.0)</div>
+      <div class="nav-desc">The verifiable system of record: the unified consumer entity-relationship model, every field traced to its real sources, the identity-resolution machinery, and a worked example — as an interactive explorer.</div>
+      <div class="nav-tags">
+        <span class="nav-tag">entity model</span>
+        <span class="nav-tag">field provenance</span>
+        <span class="nav-tag">identity machinery</span>
+      </div>
+    </a>
+
+    <a class="nav-card" href="docs/reader.html?f=docs/cdp-architecture.md">
+      <div class="nav-card-top">
+        <span class="nav-type-badge nt-reference">Data Flow</span>
+        <span class="nav-arrow">→</span>
+      </div>
+      <div class="nav-title">CDP Data Flow</div>
+      <div class="nav-desc">End-to-end dataflow diagram: 100+ sources → raw parquet buffer → validate/normalize/resolve/survive/load → golden record → serving. Storage tiers (active/raw/archived/dehydrated/erasure) and where each ETL step happens.</div>
+      <div class="nav-tags">
+        <span class="nav-tag">storage tiers</span>
+        <span class="nav-tag">ETL steps</span>
+        <span class="nav-tag">dehydration</span>
+      </div>
+    </a>
+
+    <a class="nav-card" href="reference/">
+      <div class="nav-card-top">
+        <span class="nav-type-badge nt-reference">Reference</span>
+        <span class="nav-arrow">→</span>
+      </div>
+      <div class="nav-title">Technical Reference</div>
+      <div class="nav-desc">Architecture diagrams, infrastructure maps, SSIS job catalog, and DWRPT view inventory extracted from Phase 0 discovery sessions.</div>
+      <div class="nav-tags">
+        <span class="nav-tag">4 artifacts</span>
+        <span class="nav-tag">SSIS · 13 jobs</span>
+        <span class="nav-tag">DWRPT views</span>
+        <span class="nav-tag">AWS topology</span>
+      </div>
+    </a>
+
+    <a class="nav-card" href="deliverables/">
+      <div class="nav-card-top">
+        <span class="nav-type-badge nt-deliver">Deliverables</span>
+        <span class="nav-arrow">→</span>
+      </div>
+      <div class="nav-title">Deliverables</div>
+      <div class="nav-desc">Phase 0 outputs: formal proposal, CDP architecture plan, MVP specification, stakeholder presentation, and kickoff documentation.</div>
+      <div class="nav-tags">
+        <span class="nav-tag">proposals</span>
+        <span class="nav-tag">specs</span>
+        <span class="nav-tag">stakeholder deck</span>
+      </div>
+    </a>
+
+    <a class="nav-card" href="docs/">
+      <div class="nav-card-top">
+        <span class="nav-type-badge nt-docs">Documentation</span>
+        <span class="nav-arrow">→</span>
+      </div>
+      <div class="nav-title">Documentation</div>
+      <div class="nav-desc"><span id="desc-docs">102</span> source documents indexed and searchable — DAS Confluence exports, CONFLICT working wiki, and engagement specs. Full markdown rendering.</div>
+      <div class="nav-tags">
+        <span class="nav-tag" id="tag-docs">— docs</span>
+        <span class="nav-tag">Confluence</span>
+        <span class="nav-tag">wiki</span>
+        <span class="nav-tag">searchable</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- Recent activity -->
+<div class="recent-section">
+  <div class="section-header">
+    <span class="section-label">Recent Activity</span>
+    <span class="recent-count" id="recent-count"></span>
+  </div>
+  <div class="recent-list" id="recent-list">
+    <div class="recent-item"><span class="recent-title" style="color:var(--dim)">Loading…</span></div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-left">
+    <svg width="64" height="17" viewBox="0 0 141 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.76011 3.9038C5.92786 3.74184 4.10895 4.35124 2.69056 5.6021C2.11733 6.19678 1.66843 6.91459 1.37363 7.70833C1.07884 8.50207 0.944757 9.35363 0.980235 10.2068V25.8829C0.944276 26.744 1.08103 27.6033 1.38128 28.4032C1.68152 29.203 2.13834 29.9249 2.72104 30.5204C4.16802 31.7349 5.9866 32.3289 7.82125 32.186C9.65242 32.3376 11.4679 31.7295 12.8909 30.4878C13.4641 29.8931 13.9129 29.1752 14.2077 28.3814C14.5025 27.5877 14.6366 26.7361 14.6011 25.8829V22.911H10.5088V25.8829C10.5269 26.1963 10.4816 26.5101 10.3763 26.8031C10.2709 27.0962 10.1077 27.3615 9.89795 27.5811C9.29929 28.0511 8.56102 28.2717 7.82125 28.2016C7.06115 28.2882 6.29829 28.0668 5.68342 27.5811C5.47026 27.3642 5.30488 27.0992 5.19924 26.8055C5.0936 26.5118 5.05041 26.1967 5.07267 25.8829V10.2068C5.05065 9.89591 5.09096 9.58361 5.19104 9.29072C5.29111 8.99783 5.44865 8.73115 5.65294 8.50864C6.25972 8.0309 7.01016 7.80989 7.76011 7.88813C8.52022 7.80157 9.28308 8.023 9.89795 8.50864C10.1077 8.72828 10.2709 8.99361 10.3763 9.28663C10.4816 9.57966 10.5269 9.89349 10.5088 10.2068V14.7464H14.6011V10.2068C14.6348 9.34798 14.4939 8.49156 14.1881 7.69657C13.8823 6.90158 13.4188 6.18702 12.8298 5.6021C11.4067 4.3604 9.59128 3.7522 7.76011 3.9038Z" fill="white" opacity=".4"/>
+      <path d="M55.2655 21.0496L48.4551 4.52451H44.7598V31.631H48.8521V15.0732L55.632 31.631H59.3579V4.52451H55.2655V21.0496Z" fill="white" opacity=".4"/>
+      <path d="M64.1953 31.631H68.2877V19.8739H74.3346V15.8896H68.2877V8.47617H75.8005V4.52451H64.1953V31.631Z" fill="white" opacity=".4"/>
+      <path d="M84.731 4.52451H80.6387V31.631H91.4498V27.6466H84.731V4.52451Z" fill="white" opacity=".4"/>
+      <path d="M96.2871 8.47617H98.1195V27.6466H96.2871V31.631H104.044V27.6466H102.212V8.47617H104.044V4.52451H96.2871V8.47617Z" fill="white" opacity=".4"/>
+      <path d="M115.64 3.90374C113.817 3.74697 112.01 4.35626 110.601 5.60204C110.022 6.19287 109.57 6.91008 109.275 7.70478C108.98 8.49948 108.849 9.35285 108.89 10.2068V25.8829C108.854 26.7439 108.991 27.6032 109.291 28.4031C109.592 29.203 110.048 29.9248 110.631 30.5203C112.075 31.7406 113.896 32.3352 115.731 32.1859C117.562 32.3375 119.378 31.7294 120.801 30.4877C121.374 29.893 121.823 29.1751 122.118 28.3814C122.412 27.5876 122.547 26.7361 122.511 25.8829V22.9109H118.419V25.8829C118.437 26.1962 118.392 26.51 118.286 26.8031C118.181 27.0961 118.018 27.3614 117.808 27.5811C117.209 28.051 116.471 28.2716 115.731 28.2016C114.971 28.2881 114.208 28.0667 113.593 27.5811C113.38 27.3641 113.215 27.0992 113.109 26.8055C113.004 26.5118 112.96 26.1966 112.983 25.8829V10.2068C112.961 9.89584 113.001 9.58355 113.101 9.29066C113.201 8.99777 113.359 8.73109 113.563 8.50858C114.162 8.0386 114.9 7.818 115.64 7.88806C116.41 7.79306 117.185 8.01491 117.808 8.50858C118.018 8.72822 118.181 8.99354 118.286 9.28657C118.392 9.5796 118.437 9.89342 118.419 10.2068V14.7463H122.511V10.2068C122.545 9.34791 122.404 8.4915 122.098 7.69651C121.792 6.90152 121.329 6.18696 120.74 5.60204C119.307 4.35529 117.481 3.74697 115.64 3.90374Z" fill="white" opacity=".4"/>
+      <path d="M127.354 4.52451V8.47617H132.118V31.631H136.21V8.47617H140.974V4.52451H127.354Z" fill="white" opacity=".4"/>
+      <path d="M19.3984 36.1741H26.9709V32.4944H22.9871V3.85375H27.0368V0.174088H19.3984V36.1741Z" fill="#DB394C" opacity=".4"/>
+      <path d="M32.2717 0.174088V3.85375H36.2884V32.4944H32.2388V36.1741H39.8771V0.174088H32.2717Z" fill="#DB394C" opacity=".4"/>
+      <path d="M31.4486 10.5303H27.827V25.5524H31.4486V10.5303Z" fill="#DB394C" opacity=".4"/>
+    </svg>
+    <span class="footer-text">DAS CDP · Phase 0 Discovery · 2026</span>
+  </div>
+  <div class="footer-links">
+    <a class="footer-link" href="tracker/">Project Status</a>
+    <a class="footer-link" href="analysis/artifacts/open-questions/">Open Questions</a>
+    <a class="footer-link" href="docs/">Documentation</a>
+  </div>
+</footer>
+
+<script>
+async function loadStats() {
+  const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  const fmt = n => n >= 1000 ? (n/1000).toFixed(1).replace(/\.0$/,'') + 'k' : String(n);
+  const comma = n => Number(n).toLocaleString('en-US');
+
+  // Catalog: sessions + artifacts + phase
+  try {
+    const cat = await fetch('analysis/catalog.json').then(r => r.json());
+    const sessions = (cat.sessions || []).length;
+    const artifacts = (cat.artifacts || []).length;
+    const phase = 'Phase ' + (cat.project?.phase ?? '0');
+    set('stat-phase', phase);
+    set('stat-sessions', sessions);
+    set('stat-artifacts', artifacts);
+    set('tag-sessions', sessions + ' session' + (sessions !== 1 ? 's' : ''));
+    set('desc-sessions', sessions);
+  } catch(e) {}
+
+  // Docs manifest: total doc count
+  try {
+    const manifest = await fetch('docs/manifest.json').then(r => r.json());
+    let total = 0;
+    for (const sec of (manifest.sections || [])) {
+      if (sec.docs) total += sec.docs.length;
+      for (const grp of (sec.groups || [])) total += (grp.docs || []).length;
+    }
+    set('stat-docs', total);
+    set('tag-docs', total + ' docs');
+    set('desc-docs', comma(total));
+    set('hero-docs', comma(total));
+  } catch(e) {}
+
+  // Knowledge graph: nodes + edges
+  try {
+    const kg = await fetch('app/knowledge_graph.json').then(r => r.json());
+    const nodes = (kg.nodes || []).length;
+    const edges = (kg.edges || kg.relationships || []).length;
+    set('stat-entities', fmt(nodes));
+    set('tag-entities', fmt(nodes) + ' entities');
+    set('tag-edges', fmt(edges) + ' edges');
+    set('desc-nodes', comma(nodes));
+    set('desc-edges', comma(edges));
+  } catch(e) {}
+
+  // Access tracker: total tracked access items
+  try {
+    const access = await fetch('analysis/artifacts/access-tracker/access.json').then(r => r.json());
+    const items = (access.sections || []).reduce((n, s) => n + (s.items || []).length, 0);
+    set('tag-access', items + ' access item' + (items !== 1 ? 's' : ''));
+  } catch(e) {}
+}
+loadStats();
+
+function esc(s){ return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+async function loadActivity() {
+  const list = document.getElementById('recent-list');
+  const typeClass = t => ({'Feature':'t-feature','Fix':'t-fix','Chore':'t-chore','Docs':'t-docs'}[t] || '');
+  try {
+    const entries = await fetch('activity.json').then(r => r.json());
+    list.innerHTML = entries.map(e => {
+      const files = (e.files || []).map(f =>
+        `<span class="recent-file"><span class="fs ${esc(f.status)}">${esc(f.status)}</span>${esc(f.path)}</span>`
+      ).join('');
+      const hasBody = e.body && e.body.trim();
+      const hasFiles = e.files && e.files.length;
+      const expandable = hasBody || hasFiles;
+      const bodyHtml = hasBody ? `<div class="recent-body">${esc(e.body)}</div>` : '';
+      return `<div class="recent-item" ${expandable ? 'onclick="this.classList.toggle(\'open\')"' : ''}>
+        <div class="recent-row">
+          <span class="recent-date">${esc(e.date)}</span>
+          <span class="recent-hash">${esc(e.hash)}</span>
+          <span class="recent-type ${typeClass(e.type)}">${esc(e.type)}</span>
+          <span class="recent-title">${esc(e.title)}</span>
+          ${expandable ? `<span class="recent-chevron">▶</span>` : ''}
+        </div>
+        ${expandable ? `<div class="recent-detail">${bodyHtml}${hasFiles ? `<div class="recent-files">${files}</div>` : ''}</div>` : ''}
+      </div>`;
+    }).join('');
+    const count = document.getElementById('recent-count');
+    if (count) count.textContent = entries.length + ' commits';
+  } catch(err) {
+    list.innerHTML = '<div class="recent-item"><span class="recent-title" style="color:var(--dim)">Activity unavailable</span></div>';
+  }
+}
+loadActivity();
+</script>
+</body>
+</html>

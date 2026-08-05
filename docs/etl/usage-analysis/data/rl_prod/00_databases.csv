@@ -1,0 +1,5 @@
+database,has_access
+DataOne,0
+DBATools,0
+oltp,1
+oltp_Archive,1

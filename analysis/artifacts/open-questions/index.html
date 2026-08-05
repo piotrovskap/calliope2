@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Questions — DAS CDP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#1D1D1D; --surface:#111; --surface2:#1a1a1a; --border:#2a2a2a; --border2:#333;
+    --red:#DB394C; --red-dim:rgba(219,57,76,0.1);
+    --text:#F8F8F8; --muted:#888; --dim:#555; --green:#4CAF50; --yellow:#F5A623;
+    --blue:#4A7FA5; --purple:#7A5BA8; --radius:6px;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:'Roboto',sans-serif; font-size:13px; line-height:1.6; min-height:100vh; }
+
+  .header { border-bottom:1px solid var(--border); padding:0 28px; height:54px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; background:var(--bg); z-index:100; }
+  .brand { display:flex; align-items:center; gap:14px; }
+  .wordmark { font-family:'Unica One',sans-serif; font-size:16px; color:var(--red); letter-spacing:.1em; text-transform:uppercase; line-height:1; }
+  .wordmark-sub { font-size:10px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-top:2px; }
+  .back-link { font-size:11px; color:var(--muted); text-decoration:none; border:1px solid var(--border); border-radius:4px; padding:4px 10px; }
+  .back-link:hover { color:var(--text); border-color:var(--border2); }
+  .artifact-badge { font-family:'Unica One',sans-serif; font-size:11px; letter-spacing:.1em; color:var(--red); border:1px solid var(--red); border-radius:3px; padding:2px 8px; background:var(--red-dim); }
+
+  .page { max-width:900px; margin:0 auto; padding:32px 28px 80px; }
+
+  .artifact-header { margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+  .artifact-icon { font-size:28px; margin-bottom:8px; }
+  .artifact-title { font-family:'Unica One',sans-serif; font-size:28px; letter-spacing:.03em; color:var(--text); line-height:1.1; margin-bottom:8px; }
+  .artifact-meta { display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
+  .meta-item { font-family:'Roboto Mono',monospace; font-size:11px; color:var(--dim); }
+  .meta-source { font-size:11px; color:var(--muted); background:var(--surface2); border:1px solid var(--border); border-radius:3px; padding:1px 7px; }
+
+  .section { margin-bottom:36px; }
+  .section-title { font-family:'Unica One',sans-serif; font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--border); cursor:pointer; user-select:none; display:flex; align-items:center; gap:8px; }
+  .section-title .caret { font-size:11px; transition:transform .15s ease; color:var(--muted); }
+  .section-title .section-count { margin-left:auto; font-size:10px; letter-spacing:.06em; color:var(--green); text-transform:none; }
+  .section.collapsed .section-title .caret { transform:rotate(-90deg); }
+  .section.collapsed .section-title { margin-bottom:0; }
+  .section.collapsed .q-list { display:none; }
+
+  .q-list { display:flex; flex-direction:column; gap:10px; }
+  .q-item { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px; border-left:3px solid; }
+  .q-item.blocker { border-left-color:var(--red); }
+  .q-item.high { border-left-color:var(--yellow); }
+  .q-item.medium { border-left-color:var(--blue); }
+  .q-item.resolved { border-left-color:var(--green); opacity:.6; }
+  .q-status { font-family:'Roboto Mono',monospace; font-size:9px; font-weight:700; text-transform:uppercase; margin-bottom:4px; }
+  .q-status.blocker { color:var(--red); }
+  .q-status.high { color:var(--yellow); }
+  .q-status.medium { color:var(--blue); }
+  .q-status.resolved { color:var(--green); }
+  .q-text { font-size:13px; color:var(--text); font-weight:500; margin-bottom:4px; line-height:1.4; }
+  .q-context { font-size:11px; color:var(--muted); line-height:1.5; }
+  .q-owner { display:inline-block; font-size:10px; color:var(--blue); font-style:italic; margin-top:4px; }
+  .q-session { display:inline-block; font-family:'Roboto Mono',monospace; font-size:9px; color:var(--dim); background:var(--surface2); border:1px solid var(--border); border-radius:2px; padding:0 5px; margin-top:4px; margin-left:6px; }
+  .load-error { color:var(--red); font-family:'Roboto Mono',monospace; font-size:11px; padding:20px 0; }
+</style>
+</head>
+<body>
+<nav style="height:34px;background:#000;border-bottom:1px solid #2a2a2a;display:flex;align-items:center;padding:0 24px;gap:16px;font-size:11px;font-family:Roboto,sans-serif;position:sticky;top:0;z-index:200"><a href="../../../" style="color:#444;text-decoration:none">← Command Center</a><span style="color:#333">/</span><a href="../../" style="color:#444;text-decoration:none">Repository</a><span style="color:#333">/</span><span style="color:#888">Open Questions</span></nav>
+
+<header class="header">
+  <div class="brand">
+    <svg width="30" height="30" viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="38" stroke="#DB394C" stroke-width="7" fill="none"/>
+      <circle cx="50" cy="50" r="22" stroke="#DB394C" stroke-width="7" fill="none"/>
+      <rect x="46.5" y="46.5" width="7" height="7" fill="#DB394C"/>
+      <rect x="46.5" y="4" width="7" height="20" fill="#DB394C"/>
+      <rect x="46.5" y="76" width="7" height="20" fill="#DB394C"/>
+      <rect x="4" y="46.5" width="20" height="7" fill="#DB394C"/>
+      <rect x="76" y="46.5" width="20" height="7" fill="#DB394C"/>
+    </svg>
+    <div>
+      <div class="wordmark">DAS CDP</div>
+      <div class="wordmark-sub">Artifact · Knowledge Base</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <span class="artifact-badge">OPEN</span>
+    <a class="back-link" href="../../index.html">← Repository</a>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="artifact-header">
+    <div class="artifact-icon">?</div>
+    <div class="artifact-title">Open Questions</div>
+    <div class="artifact-meta" id="meta"></div>
+  </div>
+
+  <div id="sections"><noscript><div class="load-error">This page renders questions.json — JavaScript required.</div></noscript></div>
+
+</div>
+
+<script>
+(async () => {
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const root = document.getElementById('sections');
+  let data;
+  try {
+    data = await (await fetch('questions.json', {cache: 'no-cache'})).json();
+  } catch (e) {
+    root.innerHTML = '<div class="load-error">Failed to load questions.json</div>';
+    return;
+  }
+
+  const items = data.sections.flatMap(s => s.items);
+  const open = items.filter(q => q.status !== 'resolved').length;
+  const sessions = [...new Set(items.map(q => q.session).filter(Boolean))];
+  document.getElementById('meta').innerHTML =
+    `<span class="meta-item">${open} open · ${items.length - open} resolved · updated ${esc(data.updated)} · v${data.version}</span>` +
+    sessions.map(s => `<span class="meta-source">${esc(s)}</span>`).join('');
+
+  const isDone = q => q.status === 'resolved';
+  root.innerHTML = data.sections.map(sec => {
+    const allDone = sec.items.length > 0 && sec.items.every(isDone);
+    return `
+    <div class="section${allDone ? ' collapsed' : ''}">
+      <div class="section-title">
+        <span class="caret">▾</span>${esc(sec.label)}
+        ${allDone ? `<span class="section-count">${sec.items.length} resolved</span>` : ''}
+      </div>
+      <div class="q-list">
+        ${sec.items.map(q => `
+        <div class="q-item ${esc(q.status)}">
+          <div class="q-status ${esc(q.status)}">${esc(q.status)}</div>
+          <div class="q-text">${esc(q.question)}</div>
+          <div class="q-context">${q.context}</div>
+          <span class="q-owner">${esc(q.owner || '')}</span>
+          ${q.session ? `<span class="q-session">${esc(q.session)}</span>` : ''}
+        </div>`).join('')}
+      </div>
+    </div>`;
+  }).join('');
+
+  // collapse/expand a section by clicking its title (all-resolved sections start collapsed)
+  root.querySelectorAll('.section-title').forEach(t =>
+    t.addEventListener('click', () => t.parentElement.classList.toggle('collapsed')));
+})();
+</script>
+</body>
+</html>

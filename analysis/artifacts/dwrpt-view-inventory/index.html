@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DWRPT View Inventory — DAS CDP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#1D1D1D; --surface:#111; --surface2:#1a1a1a; --border:#2a2a2a; --border2:#333;
+    --red:#DB394C; --red-dim:rgba(219,57,76,0.1);
+    --text:#F8F8F8; --muted:#888; --dim:#555; --green:#4CAF50; --yellow:#F5A623;
+    --blue:#4A7FA5; --purple:#7A5BA8; --radius:6px;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:'Roboto',sans-serif; font-size:13px; line-height:1.6; min-height:100vh; }
+
+  .header { border-bottom:1px solid var(--border); padding:0 28px; height:54px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; background:var(--bg); z-index:100; }
+  .brand { display:flex; align-items:center; gap:14px; }
+  .wordmark { font-family:'Unica One',sans-serif; font-size:16px; color:var(--red); letter-spacing:.1em; text-transform:uppercase; line-height:1; }
+  .wordmark-sub { font-size:10px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-top:2px; }
+  .back-link { font-size:11px; color:var(--muted); text-decoration:none; border:1px solid var(--border); border-radius:4px; padding:4px 10px; }
+  .back-link:hover { color:var(--text); border-color:var(--border2); }
+  .artifact-badge { font-family:'Unica One',sans-serif; font-size:11px; letter-spacing:.1em; color:var(--yellow); border:1px solid var(--yellow); border-radius:3px; padding:2px 8px; background:rgba(245,166,35,.1); }
+
+  .page { max-width:1100px; margin:0 auto; padding:32px 28px 80px; }
+
+  .artifact-header { margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+  .artifact-icon { font-size:28px; margin-bottom:8px; }
+  .artifact-title { font-family:'Unica One',sans-serif; font-size:28px; letter-spacing:.03em; color:var(--text); line-height:1.1; margin-bottom:8px; }
+  .artifact-meta { display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
+  .meta-item { font-family:'Roboto Mono',monospace; font-size:11px; color:var(--dim); }
+  .meta-source { font-size:11px; color:var(--muted); background:var(--surface2); border:1px solid var(--border); border-radius:3px; padding:1px 7px; }
+
+  .section { margin-bottom:36px; }
+  .section-title { font-family:'Unica One',sans-serif; font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+
+  /* Schema cards */
+  .schema-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px; margin-bottom:24px; }
+  .schema-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:14px; }
+  .schema-prefix { font-family:'Roboto Mono',monospace; font-size:18px; font-weight:500; color:var(--red); margin-bottom:4px; }
+  .schema-name { font-family:'Unica One',sans-serif; font-size:13px; color:var(--text); margin-bottom:4px; }
+  .schema-desc { font-size:11px; color:var(--muted); line-height:1.5; }
+  .schema-views { margin-top:10px; display:flex; flex-wrap:wrap; gap:3px; }
+  .view-chip { font-family:'Roboto Mono',monospace; font-size:9px; color:var(--dim); background:var(--surface2); border:1px solid var(--border); border-radius:2px; padding:1px 5px; }
+
+  /* Table */
+  .data-table { width:100%; border-collapse:collapse; font-size:12px; }
+  .data-table th { font-family:'Roboto Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--dim); padding:8px 10px; text-align:left; border-bottom:1px solid var(--border2); background:var(--surface2); }
+  .data-table td { padding:8px 10px; border-bottom:1px solid var(--border); vertical-align:top; font-family:'Roboto Mono',monospace; font-size:11px; }
+  .data-table tr:last-child td { border-bottom:none; }
+  .data-table tr:hover td { background:var(--surface2); }
+
+  .note { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px; font-size:12px; color:var(--muted); line-height:1.5; }
+  .note strong { color:var(--text); }
+</style>
+</head>
+<body>
+<nav style="height:34px;background:#000;border-bottom:1px solid #2a2a2a;display:flex;align-items:center;padding:0 24px;gap:16px;font-size:11px;font-family:Roboto,sans-serif;position:sticky;top:0;z-index:200"><a href="../../../" style="color:#444;text-decoration:none">← Command Center</a><span style="color:#333">/</span><a href="../../" style="color:#444;text-decoration:none">Repository</a><span style="color:#333">/</span><span style="color:#888">Dwrpt View Inventory</span></nav>
+
+<header class="header">
+  <div class="brand">
+    <svg width="30" height="30" viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="38" stroke="#DB394C" stroke-width="7" fill="none"/>
+      <circle cx="50" cy="50" r="22" stroke="#DB394C" stroke-width="7" fill="none"/>
+      <rect x="46.5" y="46.5" width="7" height="7" fill="#DB394C"/>
+      <rect x="46.5" y="4" width="7" height="20" fill="#DB394C"/>
+      <rect x="46.5" y="76" width="7" height="20" fill="#DB394C"/>
+      <rect x="4" y="46.5" width="20" height="7" fill="#DB394C"/>
+      <rect x="76" y="46.5" width="20" height="7" fill="#DB394C"/>
+    </svg>
+    <div>
+      <div class="wordmark">DAS CDP</div>
+      <div class="wordmark-sub">Artifact · Knowledge Base</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <span class="artifact-badge">CATALOG</span>
+    <a class="back-link" href="../../index.html">← Repository</a>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="artifact-header">
+    <div class="artifact-icon">DATA</div>
+    <div class="artifact-title">DWRPT View Inventory</div>
+    <div class="artifact-meta">
+      <span class="meta-item">Updated: 2026-06-08</span>
+      <span class="meta-source">reporting-juice-2026-06-08</span>
+    </div>
+  </div>
+
+  <div class="note" style="margin-bottom:28px;">
+    <strong>DWRPT</strong> is the Data Warehouse Reporting database on ETL01. It holds schema-prefixed pre-joined SQL views consumed by Juicebox, the DAS AI agents, and potentially the CDP. Juicebox cannot perform SQL JOINs — all multi-source data must be pre-joined here before exposure.
+  </div>
+
+  <!-- Schema overview -->
+  <div class="section">
+    <div class="section-title">Application Schemas</div>
+    <div class="schema-grid">
+      <div class="schema-card">
+        <div class="schema-prefix">SL</div>
+        <div class="schema-name">Social Logic</div>
+        <div class="schema-desc">Social media and survey management.</div>
+        <div class="schema-views">
+          <span class="view-chip">Accounts</span>
+          <span class="view-chip">MRSReviewRequest</span>
+          <span class="view-chip">Reviews</span>
+          <span class="view-chip">SurveyResponseGen2</span>
+          <span class="view-chip">Surveys</span>
+        </div>
+      </div>
+      <div class="schema-card">
+        <div class="schema-prefix">ML</div>
+        <div class="schema-name">MediaLogic</div>
+        <div class="schema-desc">Campaign performance, vehicle data, VDP analytics.</div>
+        <div class="schema-views">
+          <span class="view-chip">CampaignLevelPerformance</span>
+          <span class="view-chip">VehiclePerformanceDaily</span>
+          <span class="view-chip">VDPData_Google</span>
+          <span class="view-chip">VDPData_Google2</span>
+        </div>
+      </div>
+      <div class="schema-card">
+        <div class="schema-prefix">RL</div>
+        <div class="schema-name">ReviewLogic / RepLogic</div>
+        <div class="schema-desc">Lead management and reactivation.</div>
+        <div class="schema-views">
+          <span class="view-chip">Leads</span>
+          <span class="view-chip">Leads_Reactivations</span>
+          <span class="view-chip">Smart_Follow</span>
+        </div>
+      </div>
+      <div class="schema-card">
+        <div class="schema-prefix">CDXP</div>
+        <div class="schema-name">CDXP Platform</div>
+        <div class="schema-desc">Core CDP/CRM platform views — most extensive schema.</div>
+        <div class="schema-views">
+          <span class="view-chip">BlueSky_Overview</span>
+          <span class="view-chip">BlueSky_Recommendations</span>
+          <span class="view-chip">CDXPCustomers</span>
+          <span class="view-chip">CDXPTransactionsOverview</span>
+          <span class="view-chip">DataMiningTool</span>
+          <span class="view-chip">LeadPerformance</span>
+          <span class="view-chip">Marketing_Summary</span>
+          <span class="view-chip">MarketingPerformance</span>
+          <span class="view-chip">MatchBacks</span>
+          <span class="view-chip">NEW_RECIPIENTS</span>
+          <span class="view-chip">TRANSACTION_SUMMARY</span>
+          <span class="view-chip">ZipCode_Geo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full prefix table -->
+  <div class="section">
+    <div class="section-title">All View Prefixes (from SSMS)</div>
+    <div style="overflow-x:auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Prefix</th>
+            <th>Schema</th>
+            <th>Purpose</th>
+            <th>Notable Views</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>AL</td><td>Application Layer</td><td style="font-family:'Roboto',sans-serif;color:var(--muted)">Primary reporting views root namespace</td><td>—</td></tr>
+          <tr><td>ALGVACampaign*</td><td>GVA Campaigns</td><td style="font-family:'Roboto',sans-serif;color:var(--muted)">Campaign data by VIN</td><td>—</td></tr>
+          <tr><td>ALJuiceReporting_*</td><td>Juice Reporting</td><td style="font-family:'Roboto',sans-serif;color:var(--muted)">BSR equity views for Juicebox</td><td>—</td></tr>
+          <tr><td>ALMAIA*</td><td>MAIA Campaigns</td><td style="font-family:'Roboto',sans-serif;color:var(--muted)">MAIA campaign data</td><td>—</td></tr>
+          <tr><td>ALML*</td><td>MediaLogic</td><td style="font-family:'Roboto',sans-serif;color:var(--muted)">Campaign level, vehicle perf, VDP data</td><td>Google, Google2</td></tr>
+          <tr><td>ALTikTok*</td><td>TikTok</td><td style="font-family:'Roboto',sans-serif;color:var(--muted)">TikTok campaign data</td><td>—</td></tr>
+          <tr><td>ALv_CDXP_*</td><td>CDXP</td><td style="font-family:'Roboto',sans-serif;color:var(--muted)">BlueSky, customer, transaction, marketing, lead, geo data</td><td>BlueSky_Overview, CDXPCustomers, MarketingPerformance, MatchBacks</td></tr>
+          <tr><td>ALv_ML_*</td><td>MediaLogic</td><td style="font-family:'Roboto',sans-serif;color:var(--muted)">Campaign and vehicle daily</td><td>CampaignLevelPerformance, VehiclePerformanceDaily</td></tr>
+          <tr><td>ALv_RL_*</td><td>ReviewLogic</td><td style="font-family:'Roboto',sans-serif;color:var(--muted)">Lead reactivations, smart follow</td><td>Leads, Leads_Reactivations, Smart_Follow</td></tr>
+          <tr><td>ALv_SL_*</td><td>Social Logic</td><td style="font-family:'Roboto',sans-serif;color:var(--muted)">Review requests, survey responses</td><td>Accounts, Reviews, Surveys</td></tr>
+          <tr><td>ALv_SurveySendSummary</td><td>Core</td><td style="font-family:'Roboto',sans-serif;color:var(--muted)">Survey send tracking</td><td>—</td></tr>
+          <tr><td>ALVDPData_ML_*</td><td>VDP Data</td><td style="font-family:'Roboto',sans-serif;color:var(--muted)">Vehicle detail page analytics</td><td>Google, Google2</td></tr>
+          <tr><td>core_v_*</td><td>Core</td><td style="font-family:'Roboto',sans-serif;color:var(--muted)">Shared cross-app views</td><td>AllTimePerformance, Reviews, SocialAdsCampaign, Surveys</td></tr>
+          <tr><td>dbo.*</td><td>Default</td><td style="font-family:'Roboto',sans-serif;color:var(--muted)">Unschema'd legacy views</td><td>RL_Leads, RL_Leads_dev</td></tr>
+          <tr><td>zuora.*</td><td>Zuora Billing</td><td style="font-family:'Roboto',sans-serif;color:var(--muted)">Billing account data</td><td>AccountStage</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CDP implications -->
+  <div class="section">
+    <div class="section-title">CDP Implications</div>
+    <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
+      <li style="padding-left:16px;position:relative;font-size:12px;color:var(--muted);line-height:1.5;">
+        <span style="position:absolute;left:0;color:var(--red);font-weight:700;">›</span>
+        <strong style="color:var(--text)">DWRPT is the correct integration layer</strong> — access to DWRPT gives more value than access to Juicebox. Schemas are organized to prevent cross-app conflation.
+      </li>
+      <li style="padding-left:16px;position:relative;font-size:12px;color:var(--muted);line-height:1.5;">
+        <span style="position:absolute;left:0;color:var(--red);font-weight:700;">›</span>
+        <strong style="color:var(--text)">Common Client ID</strong> is the cross-source join key, recently implemented. Cleanliness issues discovered — must be audited before CDP identity resolution design.
+      </li>
+      <li style="padding-left:16px;position:relative;font-size:12px;color:var(--muted);line-height:1.5;">
+        <span style="position:absolute;left:0;color:var(--red);font-weight:700;">›</span>
+        <strong style="color:var(--text)">DAS AI agents already query DWRPT directly</strong> — via execute_sql against mssqlclient at ai.das-technology.com. CDP AI should reuse this path, not build parallel infrastructure.
+      </li>
+      <li style="padding-left:16px;position:relative;font-size:12px;color:var(--muted);line-height:1.5;">
+        <span style="position:absolute;left:0;color:var(--red);font-weight:700;">›</span>
+        <strong style="color:var(--text)">Read access requested</strong> — Ron Mulder is the DAS contact responsible for granting DWRPT access to the Conflict team. High priority blocker.
+      </li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1296 @@
+{
+  "generated": "2026-07-01",
+  "sections": [
+    {
+      "id": "wiki",
+      "label": "CONFLICT Working Wiki",
+      "description": "CONFLICT team notes, decisions, and running documentation",
+      "count": 63,
+      "docs": [
+        {
+          "title": "Architecture",
+          "path": "wiki/Architecture.md",
+          "updated": "2026-06-14"
+        },
+        {
+          "title": "Confluence Findings",
+          "path": "wiki/Confluence-Findings.md",
+          "updated": "2026-06-12"
+        },
+        {
+          "title": "Data Model",
+          "path": "wiki/Data-Model.md",
+          "updated": "2026-06-12"
+        },
+        {
+          "title": "Data Source Inventory",
+          "path": "wiki/Data-Source-Inventory.md",
+          "updated": "2026-06-14"
+        },
+        {
+          "title": "Follow Up Notes",
+          "path": "wiki/Follow-Up-Notes.md",
+          "updated": "2026-05-29"
+        },
+        {
+          "title": "Home",
+          "path": "wiki/Home.md",
+          "updated": "2026-06-16"
+        },
+        {
+          "title": "Identity Resolution",
+          "path": "wiki/Identity-Resolution.md",
+          "updated": "2026-06-17"
+        },
+        {
+          "title": "Ingestion Channels",
+          "path": "wiki/Ingestion-Channels.md",
+          "updated": "2026-06-13"
+        },
+        {
+          "title": "Kickoff Notes",
+          "path": "wiki/Kickoff-Notes.md",
+          "updated": "2026-06-14"
+        },
+        {
+          "title": "Kickoff Questions",
+          "path": "wiki/Kickoff-Questions.md",
+          "updated": "2026-06-12"
+        },
+        {
+          "title": "Multi Tenancy",
+          "path": "wiki/Multi-Tenancy.md",
+          "updated": "2026-05-29"
+        },
+        {
+          "title": "Phase 0",
+          "path": "wiki/Phase-0.md",
+          "updated": "2026-05-29"
+        },
+        {
+          "title": "Project Overview",
+          "path": "wiki/Project-Overview.md",
+          "updated": "2026-06-12"
+        },
+        {
+          "title": "Roadmap",
+          "path": "wiki/Roadmap.md",
+          "updated": "2026-06-13"
+        },
+        {
+          "title": "Sources",
+          "path": "wiki/Sources.md",
+          "updated": "2026-06-12"
+        },
+        {
+          "title": "Stakeholders",
+          "path": "wiki/Stakeholders.md",
+          "updated": "2026-06-14"
+        },
+        {
+          "title": "Tech Stack",
+          "path": "wiki/Tech-Stack.md",
+          "updated": "2026-06-17"
+        },
+        {
+          "title": "Amazon Ads Api",
+          "path": "wiki/Amazon-Ads-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Bing Ads Api",
+          "path": "wiki/Bing-Ads-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Blackbook Api",
+          "path": "wiki/BlackBook-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Callrevu Api",
+          "path": "wiki/CallRevu-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Cargurus Api",
+          "path": "wiki/CarGurus-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Carfax Api",
+          "path": "wiki/Carfax-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Craigslist Api",
+          "path": "wiki/Craigslist-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Cybersource Api",
+          "path": "wiki/CyberSource-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Database Inventory",
+          "path": "wiki/Database-Inventory.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Dealerrater Api",
+          "path": "wiki/DealerRater-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Ets Dashboard Api",
+          "path": "wiki/ETS-Dashboard-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Ets Facebook Sms Proxy Api",
+          "path": "wiki/ETS-Facebook-SMS-Proxy-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Edmunds Api",
+          "path": "wiki/Edmunds-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Experian Conquest Api",
+          "path": "wiki/Experian-Conquest-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Facebook Marketplace Api",
+          "path": "wiki/Facebook-Marketplace-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Frontend",
+          "path": "wiki/Frontend.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Google Ads Api",
+          "path": "wiki/Google-Ads-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Kelley Blue Book Kbb Api",
+          "path": "wiki/Kelley-Blue-Book-KBB-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Livejoin3 Service Api",
+          "path": "wiki/LiveJoin3-Service-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Mailgun Api",
+          "path": "wiki/Mailgun-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Mandrill Api",
+          "path": "wiki/Mandrill-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Maxmind Geoip2 Api",
+          "path": "wiki/MaxMind-GeoIP2-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Meta Facebook Marketing Api",
+          "path": "wiki/Meta-Facebook-Marketing-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Microsoft Dynamics 365 Api",
+          "path": "wiki/Microsoft-Dynamics-365-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Microsoft Graph Outlook Api",
+          "path": "wiki/Microsoft-Graph-Outlook-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Mozenda Scraping Api",
+          "path": "wiki/Mozenda-Scraping-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Neverbounce Api",
+          "path": "wiki/NeverBounce-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Quickbooks Api",
+          "path": "wiki/QuickBooks-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Recall Masters Api",
+          "path": "wiki/Recall-Masters-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Reddit Ads Api",
+          "path": "wiki/Reddit-Ads-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Rocket.Chat Ets Api",
+          "path": "wiki/Rocket.Chat-ETS-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Salesforce Sfdc Api",
+          "path": "wiki/Salesforce-SFDC-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Sendgrid Api",
+          "path": "wiki/SendGrid-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Soci Api",
+          "path": "wiki/Soci-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Tekion Dms Api",
+          "path": "wiki/Tekion-DMS-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Tiktok Ads Api",
+          "path": "wiki/TikTok-Ads-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Vendasta Reputation Api",
+          "path": "wiki/Vendasta-Reputation-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Yext Api",
+          "path": "wiki/Yext-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Youtube Data Api",
+          "path": "wiki/YouTube-Data-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Zuora Api",
+          "path": "wiki/Zuora-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Ebay Api",
+          "path": "wiki/eBay-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Cars.Com Api",
+          "path": "wiki/Cars.com-API.md",
+          "updated": "2026-06-19"
+        },
+        {
+          "title": "Privacy By Design",
+          "path": "wiki/Privacy-by-Design.md",
+          "updated": "2026-06-21"
+        },
+        {
+          "title": "Gemini Api",
+          "path": "wiki/Gemini-API.md",
+          "updated": "2026-06-21"
+        },
+        {
+          "title": "Openai Api",
+          "path": "wiki/OpenAI-API.md",
+          "updated": "2026-06-21"
+        },
+        {
+          "title": "Twilio Api",
+          "path": "wiki/Twilio-API.md",
+          "updated": "2026-06-21"
+        }
+      ]
+    },
+    {
+      "id": "das-source",
+      "label": "DAS Source Documentation",
+      "description": "Documentation exported from DAS Technology Confluence",
+      "count": 99,
+      "groups": [
+        {
+          "label": "DAS Specs & Reference",
+          "docs": [
+            {
+              "title": "CDP Architecture Plan v3",
+              "path": "artifacts/phase-0/source-docs/das-cdp-architecture-plan-v3.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDP MVP Spec v4",
+              "path": "artifacts/phase-0/source-docs/das-cdp-mvp-spec-v4.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "VSS Spec v2 — Microservices",
+              "path": "artifacts/phase-0/source-docs/vss-spec-v2-microservices.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "VSS Data Mapping",
+              "path": "artifacts/phase-0/source-docs/vss-data-mapping.md",
+              "updated": "2026-06-09"
+            }
+          ]
+        },
+        {
+          "id": "cdxp",
+          "label": "CDXP Platform",
+          "docs": [
+            {
+              "title": "CDXP Bug Summaries",
+              "path": "artifacts/phase-0/confluence/cdxp-bug-summaries.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Company Sync Process",
+              "path": "artifacts/phase-0/confluence/cdxp-company-sync-process.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Consolidated Report Dashboard",
+              "path": "artifacts/phase-0/confluence/cdxp-consolidated-report-dashboard.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP CRM Integrations",
+              "path": "artifacts/phase-0/confluence/cdxp-crm-integrations.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Customers Dashboard",
+              "path": "artifacts/phase-0/confluence/cdxp-customers-dashboard.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Data",
+              "path": "artifacts/phase-0/confluence/cdxp-data.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Dealership Advantage",
+              "path": "artifacts/phase-0/confluence/cdxp-dealership-advantage.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP DMS Integrations",
+              "path": "artifacts/phase-0/confluence/cdxp-dms-integrations.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Driver Influence Dashboard",
+              "path": "artifacts/phase-0/confluence/cdxp-driver-influence-dashboard.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Feeds",
+              "path": "artifacts/phase-0/confluence/cdxp-feeds.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Integrations",
+              "path": "artifacts/phase-0/confluence/cdxp-integrations.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Inventory Integrations",
+              "path": "artifacts/phase-0/confluence/cdxp-inventory-integrations.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Leads Dashboard",
+              "path": "artifacts/phase-0/confluence/cdxp-leads-dashboard.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Legacy",
+              "path": "artifacts/phase-0/confluence/cdxp-legacy.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Links",
+              "path": "artifacts/phase-0/confluence/cdxp-links.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Mautic",
+              "path": "artifacts/phase-0/confluence/cdxp-mautic.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Overview Dashboard",
+              "path": "artifacts/phase-0/confluence/cdxp-overview-dashboard.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Platform Overview",
+              "path": "artifacts/phase-0/confluence/cdxp-platform-overview.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Product Overview",
+              "path": "artifacts/phase-0/confluence/cdxp-product-overview.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Recommendations Dashboard",
+              "path": "artifacts/phase-0/confluence/cdxp-recommendations-dashboard.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Reporting",
+              "path": "artifacts/phase-0/confluence/cdxp-reporting.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Summary Dashboard",
+              "path": "artifacts/phase-0/confluence/cdxp-summary-dashboard.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Support Howto",
+              "path": "artifacts/phase-0/confluence/cdxp-support-howto.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Tech Pedal SLA",
+              "path": "artifacts/phase-0/confluence/cdxp-tech-pedal-sla.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Tekion Onboarding Dev",
+              "path": "artifacts/phase-0/confluence/cdxp-tekion-onboarding-dev.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Twilio Integration Guide",
+              "path": "artifacts/phase-0/confluence/cdxp-twilio-integration-guide.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Twilio SMS",
+              "path": "artifacts/phase-0/confluence/cdxp-twilio-sms.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Vinsolutions Onboarding Dev",
+              "path": "artifacts/phase-0/confluence/cdxp-vinsolutions-onboarding-dev.md",
+              "updated": "2026-06-09"
+            }
+          ]
+        },
+        {
+          "id": "radar",
+          "label": "Radar Application",
+          "docs": [
+            {
+              "title": "Radar 20",
+              "path": "artifacts/phase-0/confluence/radar-20.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Radar 20 Architectural Overview",
+              "path": "artifacts/phase-0/confluence/radar-20-architectural-overview.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Radar 20 Codebase Overview",
+              "path": "artifacts/phase-0/confluence/radar-20-codebase-overview.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Radar Application",
+              "path": "artifacts/phase-0/confluence/radar-application.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Radar Architecture",
+              "path": "artifacts/phase-0/confluence/radar-architecture.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Radar Overview",
+              "path": "artifacts/phase-0/confluence/radar-overview.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "RP Architecture",
+              "path": "artifacts/phase-0/confluence/rp-architecture.md",
+              "updated": "2026-06-09"
+            }
+          ]
+        },
+        {
+          "id": "rl-br",
+          "label": "ReviewLogic & BuyerRate",
+          "docs": [
+            {
+              "title": "BR Application Architecture",
+              "path": "artifacts/phase-0/confluence/br-application-architecture.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "BR System Architecture",
+              "path": "artifacts/phase-0/confluence/br-system-architecture.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "RL Application Architecture",
+              "path": "artifacts/phase-0/confluence/rl-application-architecture.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "RL Cloud System Location",
+              "path": "artifacts/phase-0/confluence/rl-cloud-system-location.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "RL System Architecture",
+              "path": "artifacts/phase-0/confluence/rl-system-architecture.md",
+              "updated": "2026-06-09"
+            }
+          ]
+        },
+        {
+          "id": "mautic",
+          "label": "Mautic / Marketing",
+          "docs": [
+            {
+              "title": "Mautic Custom Events API",
+              "path": "artifacts/phase-0/confluence/mautic-custom-events-api.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Mautic Mysql DB",
+              "path": "artifacts/phase-0/confluence/mautic-mysql-db.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Mautic Product Overview",
+              "path": "artifacts/phase-0/confluence/mautic-product-overview.md",
+              "updated": "2026-06-09"
+            }
+          ]
+        },
+        {
+          "id": "workflow20",
+          "label": "Workflow 2.0",
+          "docs": [
+            {
+              "title": "Workflow 20 Docs",
+              "path": "artifacts/phase-0/confluence/workflow-20-docs.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Workflow20 DB Enhancements",
+              "path": "artifacts/phase-0/confluence/workflow20-db-enhancements.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Workflow20 Lead Exclusions",
+              "path": "artifacts/phase-0/confluence/workflow20-lead-exclusions.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Workflow20 Lead Source Mgmt",
+              "path": "artifacts/phase-0/confluence/workflow20-lead-source-mgmt.md",
+              "updated": "2026-06-09"
+            }
+          ]
+        },
+        {
+          "id": "arch",
+          "label": "Architecture & Infrastructure",
+          "docs": [
+            {
+              "title": "Architecture Diagram Questions",
+              "path": "artifacts/phase-0/confluence/architecture-diagram-questions.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Architecture Review Action Items",
+              "path": "artifacts/phase-0/confluence/architecture-review-action-items.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Communication API Architecture",
+              "path": "artifacts/phase-0/confluence/communication-api-architecture.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Livejoin System Architecture",
+              "path": "artifacts/phase-0/confluence/livejoin-system-architecture.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Lotvantage Architecture Data Flow",
+              "path": "artifacts/phase-0/confluence/lotvantage-architecture-data-flow.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "MC Infrastructure Diagram",
+              "path": "artifacts/phase-0/confluence/mc-infrastructure-diagram.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Reviews API Architecture",
+              "path": "artifacts/phase-0/confluence/reviews-api-architecture.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Solution Architecture",
+              "path": "artifacts/phase-0/confluence/solution-architecture.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "System Architecture Improvements",
+              "path": "artifacts/phase-0/confluence/system-architecture-improvements.md",
+              "updated": "2026-06-09"
+            }
+          ]
+        },
+        {
+          "id": "integrations",
+          "label": "Integrations",
+          "docs": [
+            {
+              "title": "CDK DMS Onboarding",
+              "path": "artifacts/phase-0/confluence/cdk-dms-onboarding.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Creating GA Measurement Id",
+              "path": "artifacts/phase-0/confluence/creating-ga-measurement-id.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CRM Data Onboarding Offboarding",
+              "path": "artifacts/phase-0/confluence/crm-data-onboarding-offboarding.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Elead CRM Setup",
+              "path": "artifacts/phase-0/confluence/elead-crm-setup.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Eleads CDXP",
+              "path": "artifacts/phase-0/confluence/eleads-cdxp.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "GA4 Access CDXP Integration",
+              "path": "artifacts/phase-0/confluence/ga4-access-cdxp-integration.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "GA4 Integration Process",
+              "path": "artifacts/phase-0/confluence/ga4-integration-process.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Integrations Description",
+              "path": "artifacts/phase-0/confluence/integrations-description.md",
+              "updated": "2026-06-16"
+            },
+            {
+              "title": "Integrations Leads Delivering",
+              "path": "artifacts/phase-0/confluence/integrations-leads-delivering.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Reynolds Reynolds CRM",
+              "path": "artifacts/phase-0/confluence/reynolds-reynolds-crm.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Rocket Chat Integration",
+              "path": "artifacts/phase-0/confluence/rocket-chat-integration.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Tekion CDXP",
+              "path": "artifacts/phase-0/confluence/tekion-cdxp.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Vinsolutions CDXP",
+              "path": "artifacts/phase-0/confluence/vinsolutions-cdxp.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Vinsolutions CRM Process",
+              "path": "artifacts/phase-0/confluence/vinsolutions-crm-process.md",
+              "updated": "2026-06-09"
+            }
+          ]
+        },
+        {
+          "id": "apis",
+          "label": "APIs & Services",
+          "docs": [
+            {
+              "title": "AI Micro Service API",
+              "path": "artifacts/phase-0/confluence/ai-micro-service-api.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "API Submit Lead Info",
+              "path": "artifacts/phase-0/confluence/api-submit-lead-info.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Client API",
+              "path": "artifacts/phase-0/confluence/client-api.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Consumer API Design",
+              "path": "artifacts/phase-0/confluence/consumer-api-design.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Reviews API",
+              "path": "artifacts/phase-0/confluence/reviews-api.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Shared Services API Overview",
+              "path": "artifacts/phase-0/confluence/shared-services-api-overview.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Shared Services APIS",
+              "path": "artifacts/phase-0/confluence/shared-services-apis.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Utilities API",
+              "path": "artifacts/phase-0/confluence/utilities-api.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Women Drivers Dealer API",
+              "path": "artifacts/phase-0/confluence/women-drivers-dealer-api.md",
+              "updated": "2026-06-09"
+            }
+          ]
+        },
+        {
+          "id": "data",
+          "label": "Data & Processing",
+          "docs": [
+            {
+              "title": "Background Processing Overview",
+              "path": "artifacts/phase-0/confluence/background-processing-overview.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Data Processing",
+              "path": "artifacts/phase-0/confluence/data-processing.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Data Pull Processes",
+              "path": "artifacts/phase-0/confluence/data-pull-processes.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Databases",
+              "path": "artifacts/phase-0/confluence/databases.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "MS SQL 10 DB Deep Dive",
+              "path": "artifacts/phase-0/confluence/ms-sql-10-db-deep-dive.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "MS SQL 32 DB Deep Dive",
+              "path": "artifacts/phase-0/confluence/ms-sql-32-db-deep-dive.md",
+              "updated": "2026-06-09"
+            }
+          ]
+        },
+        {
+          "id": "dev-docs",
+          "label": "Developer Docs",
+          "docs": [
+            {
+              "title": "CDXP Developer Documents",
+              "path": "artifacts/phase-0/confluence/cdxp-developer-documents.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Development Backlog",
+              "path": "artifacts/phase-0/confluence/cdxp-development-backlog.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Devops",
+              "path": "artifacts/phase-0/confluence/cdxp-devops.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "CDXP Qa",
+              "path": "artifacts/phase-0/confluence/cdxp-qa.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "How To Connect AWS VPN",
+              "path": "artifacts/phase-0/confluence/how-to-connect-aws-vpn.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Setup Main Repo Dev Env",
+              "path": "artifacts/phase-0/confluence/setup-main-repo-dev-env.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Webapps Product Overview",
+              "path": "artifacts/phase-0/confluence/webapps-product-overview.md",
+              "updated": "2026-06-09"
+            }
+          ]
+        },
+        {
+          "id": "general",
+          "label": "General",
+          "docs": [
+            {
+              "title": "Application Domain Overview",
+              "path": "artifacts/phase-0/confluence/application-domain-overview.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Lead Engagement Report",
+              "path": "artifacts/phase-0/confluence/lead-engagement-report.md",
+              "updated": "2026-06-09"
+            },
+            {
+              "title": "Leads Page",
+              "path": "artifacts/phase-0/confluence/leads-page.md",
+              "updated": "2026-06-09"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "specs",
+      "label": "Specs & Proposals",
+      "description": "CONFLICT final specs and the Phase 0 proposal.",
+      "count": 1,
+      "docs": [
+        {
+          "title": "Phase 0 Proposal (Final)",
+          "path": "artifacts/phase-0/das-cdp-phase0-proposal-final.md",
+          "updated": "2026-06-09"
+        }
+      ]
+    },
+    {
+      "id": "agendas",
+      "label": "Agendas",
+      "description": "Meeting agendas and notes.",
+      "count": 2,
+      "docs": [
+        {
+          "title": "Kickoff — Agenda & Notes",
+          "path": "artifacts/phase-0/kickoff/Kickoff - Agenda & Notes.md",
+          "updated": "2026-06-09"
+        },
+        {
+          "title": "Kickoff Agenda",
+          "path": "artifacts/phase-0/kickoff/kickoff-agenda.md",
+          "updated": "2026-06-09"
+        }
+      ]
+    },
+    {
+      "id": "api-references",
+      "label": "API References",
+      "description": "Per-API CDP research pages and supporting Confluence artifacts. One group per researched API — grows as catalog research progresses.",
+      "count": 17,
+      "groups": [
+        {
+          "id": "blackbook",
+          "label": "BlackBook API",
+          "docs": []
+        },
+        {
+          "id": "meta-facebook",
+          "label": "Meta / Facebook Marketing API",
+          "docs": [
+            {
+              "title": "Facebook API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/facebook-api-info.md",
+              "updated": "2026-06-10"
+            }
+          ]
+        },
+        {
+          "id": "google-ads",
+          "label": "Google Ads API",
+          "docs": [
+            {
+              "title": "Direct Integration with Google for Performance Max (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/google-ads-performance-max.md",
+              "updated": "2026-06-11"
+            }
+          ]
+        },
+        {
+          "id": "bing-ads",
+          "label": "Microsoft / Bing Ads API",
+          "docs": []
+        },
+        {
+          "id": "amazon-ads",
+          "label": "Amazon Ads API",
+          "docs": []
+        },
+        {
+          "id": "tiktok-ads",
+          "label": "TikTok Ads API",
+          "docs": []
+        },
+        {
+          "id": "sendgrid",
+          "label": "SendGrid (Email Delivery)",
+          "docs": [
+            {
+              "title": "SendGrid API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/sendgrid-api-info.md",
+              "updated": "2026-06-11"
+            }
+          ]
+        },
+        {
+          "id": "twilio",
+          "label": "Twilio (SMS Delivery)",
+          "docs": [
+            {
+              "title": "Twilio API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/twilio-api-info.md",
+              "updated": "2026-06-13"
+            }
+          ]
+        },
+        {
+          "id": "mailgun",
+          "label": "MailGun (Bulk Campaign Email)",
+          "docs": [
+            {
+              "title": "MailGun API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/mailgun-api-info.md",
+              "updated": "2026-06-13"
+            }
+          ]
+        },
+        {
+          "id": "mandrill",
+          "label": "Mandrill (Lead Alert Email)",
+          "docs": [
+            {
+              "title": "Mandrill API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/mandrill-api-info.md",
+              "updated": "2026-06-13"
+            }
+          ]
+        },
+        {
+          "id": "ets-dashboard",
+          "label": "ETS Dashboard API (Configuration)",
+          "docs": [
+            {
+              "title": "ETS Dashboard API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/ets-dashboard-api-info.md",
+              "updated": "2026-06-13"
+            }
+          ]
+        },
+        {
+          "id": "rocketchat-ets",
+          "label": "Rocket.Chat (ETS Instance) API",
+          "docs": [
+            {
+              "title": "Rocket.Chat (ETS) API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/rocketchat-ets-api-info.md",
+              "updated": "2026-06-13"
+            }
+          ]
+        },
+        {
+          "id": "livejoin3-service",
+          "label": "LiveJoin3 Service API",
+          "docs": [
+            {
+              "title": "LiveJoin3 Service API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/livejoin3-service-api-info.md",
+              "updated": "2026-06-13"
+            }
+          ]
+        },
+        {
+          "id": "ets-facebook-sms-proxy",
+          "label": "ETS Facebook Messenger + SMS Proxy",
+          "docs": [
+            {
+              "title": "ETS Facebook/SMS Proxy API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/ets-facebook-sms-proxy-api-info.md",
+              "updated": "2026-06-14"
+            }
+          ]
+        },
+        {
+          "id": "microsoft-graph-outlook",
+          "label": "Microsoft Graph / Outlook API",
+          "docs": [
+            {
+              "title": "Microsoft Graph / Outlook API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/microsoft-graph-outlook-api-info.md",
+              "updated": "2026-06-14"
+            }
+          ]
+        },
+        {
+          "id": "maxmind-geoip2",
+          "label": "MaxMind GeoIP2 API",
+          "docs": [
+            {
+              "title": "MaxMind GeoIP2 API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/maxmind-geoip2-api-info.md",
+              "updated": "2026-06-14"
+            }
+          ]
+        },
+        {
+          "id": "experian-conquest",
+          "label": "Experian Conquest API",
+          "docs": [
+            {
+              "title": "Experian Conquest API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/experian-conquest-api-info.md",
+              "updated": "2026-06-14"
+            }
+          ]
+        },
+        {
+          "id": "neverbounce",
+          "label": "NeverBounce API",
+          "docs": [
+            {
+              "title": "NeverBounce API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/neverbounce-api-info.md",
+              "updated": "2026-06-14"
+            }
+          ]
+        },
+        {
+          "id": "ebay",
+          "label": "eBay Trading API",
+          "docs": [
+            {
+              "title": "eBay API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/ebay-api-info.md",
+              "updated": "2026-06-15"
+            }
+          ]
+        },
+        {
+          "id": "quickbooks",
+          "label": "QuickBooks API",
+          "docs": [
+            {
+              "title": "QuickBooks API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/quickbooks-api-info.md",
+              "updated": "2026-06-15"
+            }
+          ]
+        },
+        {
+          "id": "zuora",
+          "label": "Zuora Subscription Billing API",
+          "docs": [
+            {
+              "title": "Zuora API Info (Confluence artifact)",
+              "path": "artifacts/phase-0/confluence/zuora-api-info.md",
+              "updated": "2026-06-15"
+            }
+          ]
+        },
+        {
+          "id": "youtube-data",
+          "label": "YouTube Data / Analytics API",
+          "docs": []
+        },
+        {
+          "id": "reddit-ads",
+          "label": "Reddit Ads API",
+          "docs": []
+        },
+        {
+          "id": "microsoft-dynamics-365",
+          "label": "Microsoft Dynamics 365 API",
+          "docs": []
+        },
+        {
+          "id": "facebook-marketplace",
+          "label": "Facebook Marketplace API",
+          "docs": []
+        },
+        {
+          "id": "craigslist",
+          "label": "Craigslist Bulk Posting Interface",
+          "docs": []
+        },
+        {
+          "id": "cargurus",
+          "label": "CarGurus API",
+          "docs": []
+        },
+        {
+          "id": "soci",
+          "label": "Soci API",
+          "docs": []
+        },
+        {
+          "id": "yext",
+          "label": "Yext API",
+          "docs": []
+        },
+        {
+          "id": "cybersource",
+          "label": "CyberSource API",
+          "docs": []
+        },
+        {
+          "id": "kelley-blue-book",
+          "label": "Kelley Blue Book (KBB) API",
+          "docs": []
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "label": "Research Notes",
+      "description": "CONFLICT research and options analysis informing CDP design (no decisions)",
+      "count": 18,
+      "docs": [
+        {
+          "title": "Consent & PII Erasure — Options & Cost Notes",
+          "path": "docs/consent-pii-erasure-options.md",
+          "updated": "2026-06-14"
+        },
+        {
+          "title": "API Edge Gateway — Options (Kong vs ALB)",
+          "path": "docs/api-edge-gateway-options.md",
+          "updated": "2026-06-14"
+        },
+        {
+          "title": "Api Integration Catalog",
+          "path": "docs/api-integration-catalog.md",
+          "updated": "2026-06-12"
+        },
+        {
+          "title": "Cdp Field Source Matrix",
+          "path": "docs/cdp-field-source-matrix.md",
+          "updated": "2026-06-12"
+        },
+        {
+          "title": "Client Agent Brief",
+          "path": "docs/client-agent-brief.md",
+          "updated": "2026-06-14"
+        },
+        {
+          "title": "Discovery Guide",
+          "path": "docs/discovery-guide.md",
+          "updated": "2026-06-12"
+        },
+        {
+          "title": "Etl Data Inventory",
+          "path": "docs/etl-data-inventory.md",
+          "updated": "2026-06-09"
+        },
+        {
+          "title": "Portal Data Inventory",
+          "path": "docs/portal-data-inventory.md",
+          "updated": "2026-06-14"
+        },
+        {
+          "title": "Source Of Truth",
+          "path": "docs/source-of-truth.md",
+          "updated": "2026-06-14"
+        },
+        {
+          "title": "Knowledge Engine",
+          "path": "docs/knowledge-engine.md",
+          "updated": "2026-06-14"
+        },
+        {
+          "title": "Cloud Aws Vs Azure Bakeoff",
+          "path": "docs/cloud-aws-vs-azure-bakeoff.md",
+          "updated": "2026-06-17"
+        },
+        {
+          "title": "Wiki Api Review",
+          "path": "docs/wiki-api-review.md",
+          "updated": "2026-06-17"
+        },
+        {
+          "title": "Status Glossary",
+          "path": "docs/status-glossary.md",
+          "updated": "2026-06-21"
+        },
+        {
+          "title": "Cdp Architecture",
+          "path": "docs/cdp-architecture.md",
+          "updated": "2026-06-23"
+        },
+        {
+          "title": "Cdp Reference Topology",
+          "path": "docs/cdp-reference-topology.md",
+          "updated": "2026-06-23"
+        },
+        {
+          "title": "Source Onboarding Ledger",
+          "path": "docs/source-onboarding-ledger.md",
+          "updated": "2026-06-23"
+        },
+        {
+          "title": "Build Readiness Traceability",
+          "path": "docs/build-readiness-traceability.md",
+          "updated": "2026-06-23"
+        },
+        {
+          "title": "Golden Record Examples",
+          "path": "docs/golden-record-examples.md",
+          "updated": "2026-06-26"
+        }
+      ]
+    }
+  ]
+}

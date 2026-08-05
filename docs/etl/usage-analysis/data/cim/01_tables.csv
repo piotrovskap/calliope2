@@ -1,0 +1,9 @@
+database,schema,table,row_count,total_mb,used_mb
+Central Inventory,FHD,vehicles_removed,40111876,411036.601562,410981.281250
+Central Inventory,FHD,vehicles_loc,2342115,30868.796875,25868.515625
+Central Inventory,stage,FHvehicles_new,2342115,24586.210937,24585.921875
+Central Inventory,stage,FHvehicles_Test,2239173,15461.632812,15459.789062
+Central Inventory,stage,incoming_dealer_feeds,16972,4.445312,4.437500
+Central Inventory,stage,FHvehicle_price_updates,0,0.000000,0.000000
+Central Inventory,stage,FHvehicles,0,0.000000,0.000000
+Central Inventory,stage,FHvehicles_Extra,0,0.000000,0.000000

@@ -1,0 +1,100 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   Additive rich-markdown styles for KBRender (app/render.js), issue #20.
+
+   ADDITIVE ONLY — the reader/page already themes base `.md` typography
+   (headings, paragraphs, code, tables, blockquotes, images). This file adds
+   ONLY the new capabilities: code language tags, GFM task lists, GitHub-style
+   callouts, footnotes, Mermaid diagrams, and responsive embeds. It never
+   restyles base typography, so existing page themes stay unchanged.
+
+   Scoped to `.md`. Uses the page's palette vars (--red/--green/--yellow/--blue,
+   --surface/--surface2, --border/--border2, --text/--muted/--dim, --radius) with
+   color-mix fallbacks for the *-dim variants a page may not define.
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Local aliases + graceful fallbacks for palette vars a page may not define. */
+.md {
+  --kb-r:     var(--red, #DB394C);
+  --kb-g:     var(--green, #4CAF50);
+  --kb-y:     var(--yellow, #F5A623);
+  --kb-b:     var(--blue, #4A7FA5);
+  --kb-r-dim: var(--red-dim,    color-mix(in srgb, var(--red, #DB394C) 12%, transparent));
+  --kb-g-dim: var(--green-dim,  color-mix(in srgb, var(--green, #4CAF50) 12%, transparent));
+  --kb-y-dim: var(--yellow-dim, color-mix(in srgb, var(--yellow, #F5A623) 14%, transparent));
+  --kb-b-dim: var(--blue-dim,   color-mix(in srgb, var(--blue, #4A7FA5) 12%, transparent));
+  --kb-rad:   var(--radius, 6px);
+}
+
+/* ─── Fenced-code language tag (set by render.js) ─── */
+.md pre[data-lang] { position: relative; }
+.md pre[data-lang]::before {
+  content: attr(data-lang);
+  position: absolute; top: 0; right: 0;
+  font-family: 'Roboto Mono', monospace; font-size: 9px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--dim); background: var(--surface2); border-left: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  border-radius: 0 var(--kb-rad) 0 var(--kb-rad); padding: 2px 7px;
+}
+
+/* ─── GFM task lists ─── */
+.md ul.contains-task-list,
+.md ul li.task-list-item { list-style: none; }
+.md ul.contains-task-list { padding-left: 4px; }
+.md li.task-list-item { padding-left: 2px; }
+.md li.task-list-item > input[type="checkbox"] {
+  -webkit-appearance: none; appearance: none; margin: 0 8px 0 0; vertical-align: -2px;
+  width: 15px; height: 15px; border: 1px solid var(--border2); border-radius: 3px;
+  background: var(--surface); cursor: default; position: relative; flex: none;
+}
+.md li.task-list-item > input[type="checkbox"]:checked {
+  background: var(--kb-g); border-color: var(--kb-g);
+}
+.md li.task-list-item > input[type="checkbox"]:checked::after {
+  content: ''; position: absolute; left: 4px; top: 1px; width: 4px; height: 8px;
+  border: solid var(--bg); border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+
+/* ─── Callouts / admonitions (GitHub-style [!NOTE] etc.) ─── */
+.md .callout {
+  border: 1px solid var(--border); border-left: 4px solid var(--kb-cl, var(--kb-b));
+  background: var(--kb-cl-bg, var(--kb-b-dim)); border-radius: var(--kb-rad);
+  padding: 12px 16px; margin: 0 0 18px;
+}
+.md .callout > .callout-title {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 6px;
+  font-family: 'Roboto Mono', monospace; font-size: 11px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--kb-cl, var(--kb-b));
+}
+.md .callout > .callout-title .callout-ico { font-size: 13px; line-height: 1; }
+.md .callout > .callout-body > *:last-child { margin-bottom: 0; }
+.md .callout > .callout-body p { color: var(--text); }
+.md .callout.callout-note      { --kb-cl: var(--kb-b); --kb-cl-bg: var(--kb-b-dim); }
+.md .callout.callout-tip       { --kb-cl: var(--kb-g); --kb-cl-bg: var(--kb-g-dim); }
+.md .callout.callout-important { --kb-cl: var(--kb-r); --kb-cl-bg: var(--kb-r-dim); }
+.md .callout.callout-warning   { --kb-cl: var(--kb-y); --kb-cl-bg: var(--kb-y-dim); }
+.md .callout.callout-caution   { --kb-cl: var(--kb-r); --kb-cl-bg: var(--kb-r-dim); }
+
+/* ─── Footnotes (marked-footnote extension) ─── */
+.md .footnotes { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
+.md .footnotes ol { padding-left: 20px; }
+.md .footnotes li { margin: 4px 0; }
+.md a.footnote-ref { border-bottom: none; font-size: .8em; vertical-align: super; }
+.md a.footnote-backref { border-bottom: none; }
+
+/* ─── Mermaid ─── */
+.md .mermaid {
+  margin: 0 0 18px; padding: 14px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--kb-rad);
+  overflow-x: auto; text-align: center;
+}
+.md .mermaid svg { max-width: 100%; height: auto; }
+.md .mermaid[data-failed] {
+  text-align: left; font-family: 'Roboto Mono', monospace; font-size: 12px;
+  color: var(--muted); white-space: pre-wrap;
+}
+
+/* ─── Responsive embeds ─── */
+.md .kb-embed {
+  position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 4px 0 18px;
+  border: 1px solid var(--border); border-radius: var(--kb-rad); overflow: hidden; background: var(--surface);
+}
+.md .kb-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }

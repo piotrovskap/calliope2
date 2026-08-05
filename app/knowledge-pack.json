@@ -1,0 +1,1946 @@
+{
+ "generated_for": "portal-chat-agent",
+ "count": 388,
+ "items": [
+  {
+   "path": "activity.json",
+   "title": "Recent activity feed",
+   "summary": "Versioned JSON data file \u2014 read directly for current values."
+  },
+  {
+   "path": "analysis/artifacts/access-tracker/access.json",
+   "title": "Access Tracker (live)",
+   "summary": "Versioned JSON data file \u2014 read directly for current values."
+  },
+  {
+   "path": "analysis/artifacts/golden-record/record.json",
+   "title": "Golden Record (v1.0, locked)",
+   "summary": "Versioned JSON data file \u2014 read directly for current values."
+  },
+  {
+   "path": "analysis/artifacts/identity-strategies/strategies.json",
+   "title": "Identity Strategy Options (experimental v0)",
+   "summary": "Versioned JSON data file \u2014 read directly for current values."
+  },
+  {
+   "path": "analysis/artifacts/open-questions/questions.json",
+   "title": "Open Questions (live tracker)",
+   "summary": "Versioned JSON data file \u2014 read directly for current values."
+  },
+  {
+   "path": "app/raid.json",
+   "title": "RAID Log \u2014 strategic risks, assumptions, issues, dependencies",
+   "summary": "Versioned JSON data file \u2014 read directly for current values."
+  },
+  {
+   "path": "artifacts/phase-0/das-cdp-phase0-proposal-final.md",
+   "title": "DAS Technology",
+   "summary": "**Prepared for:** Dan Aston | DAS Technology (Digital Air Strike)"
+  },
+  {
+   "path": "artifacts/phase-0/source-docs/das-cdp-architecture-plan-v3.md",
+   "title": "DAS Technology \u2014 Customer Data Platform: Architecture Plan, Technology Stack & Database Schema",
+   "summary": "1. Executive Summary"
+  },
+  {
+   "path": "artifacts/phase-0/source-docs/das-cdp-mvp-spec-v4.md",
+   "title": "DAS Technology \u2014 Customer Data Platform: MVP Specification",
+   "summary": "This document specifies the Minimum Viable Product for the DAS Technology CDP, organized into 4 stages: Stage 1 covers planning, architecture review, and setup of the AI-assisted development environment. Stages 2\u20134 are build, using AI coding tools (Claude Code) for accelerated development. The MVP c"
+  },
+  {
+   "path": "artifacts/phase-0/source-docs/vss-data-mapping.md",
+   "title": "VSS \u2014 Data Mapping",
+   "summary": "Converted from XLSX; original lives in the shared Drive folder. -->"
+  },
+  {
+   "path": "artifacts/phase-0/source-docs/vss-spec-v2-microservices.md",
+   "title": "VSS Spec v2 \u2014 Microservices",
+   "summary": "Converted from HTML; original lives in the shared Drive folder. -->"
+  },
+  {
+   "path": "docs/api-edge-gateway-options.md",
+   "title": "API Edge Gateway \u2014 Options (Kong vs ALB)",
+   "summary": "**Status: open decision \u2014 no pick.** Reopened 2026-06-14. The edge for the CDP API surface (REST + GraphQL + event webhook). The 2026-06-13 stack notes leaned ALB with Kong deferred; this note reopens it so the choice is explicit. Recorded as an open decision in `memory/decisions.md` (API ingress / "
+  },
+  {
+   "path": "docs/api-integration-catalog.md",
+   "title": "DAS API Integration Catalog",
+   "summary": "85 integrations across 19 categories. Primary use: CDP ingestion planning."
+  },
+  {
+   "path": "docs/build-readiness-traceability.md",
+   "title": "Build-Readiness & Traceability Matrix",
+   "summary": "Every critical Phase 1 build story, the acceptance bar that defines \"done,\" and the **locked"
+  },
+  {
+   "path": "docs/cdp-architecture.md",
+   "title": "DAS CDP \u2014 Architecture (Canonical)",
+   "summary": "**Status:** canonical architecture reference. Supersedes `wiki/Architecture.md` and `artifacts/phase-0/deliverables/das-cdp-revised-architecture-plan.md` (both retained for history, headed with a supersede note pointing here)."
+  },
+  {
+   "path": "docs/cdp-field-source-matrix.md",
+   "title": "CDP Field Source Matrix",
+   "summary": "For each field in **Field Catalog v1 (the initial 27 CDP data points \u2014 the bare-minimum MVP floor)**, where the data actually comes from in DAS's source/ETL layer \u2014 source table.column, provider coverage, the ETL ingestion path, and availability. Bridges three docs:"
+  },
+  {
+   "path": "docs/cdp-reference-topology.md",
+   "title": "DAS CDP \u2014 Reference Topology (Dev + Prod Sizing)",
+   "summary": "**Cloud-neutral.** The CDP runs an identical open-source core on Kubernetes (EKS or AKS); the substrate is interchangeable (see `docs/cloud-aws-vs-azure-bakeoff.md` for the per-cloud cost comparison). This doc fixes the **infrastructure sizing and workload placement** for two environments \u2014 a dev ba"
+  },
+  {
+   "path": "docs/client-agent-brief.md",
+   "title": "Client / Agent Review Brief",
+   "summary": "This repository is a structured Phase 0 discovery and architecture workspace for the DAS Customer Data Platform. The value delivered is not production code; it is the researched foundation for production code: source-system inventory, reverse-engineered ETL/data-flow knowledge, field-to-source mappi"
+  },
+  {
+   "path": "docs/cloud-aws-vs-azure-bakeoff.md",
+   "title": "Cloud Bake-Off \u2014 AWS vs Azure for the DAS CDP",
+   "summary": "**Status: analysis + gaps + verified costs as of 2026-06-22.** Unit prices re-verified against first-party rate catalogs \u2014 Azure via the live Azure Retail Prices API,[^az-retail] AWS via the official service pricing pages (referenced per line below). This pass corrects a material error in the prior "
+  },
+  {
+   "path": "docs/consent-pii-erasure-options.md",
+   "title": "Consent & PII Erasure \u2014 Architecture Options & Cost Notes",
+   "summary": "**Status: mechanism decided \u2014 tokenized PII vault + delete-the-row (Leo, 2026-06-21); see below. Policy values remain with Privacy-by-Design (Alicia + Luis).** Captured 2026-06-14 so the team can discover what was explored. Policy (retention, consent taxonomy, lawful basis, tenant-vs-global suppress"
+  },
+  {
+   "path": "docs/databases/_template.md",
+   "title": "<Database Name> \u2014 Schema Documentation",
+   "summary": "What this DB is, what it powers, where it sits in the data flow. 1\u20133 sentences."
+  },
+  {
+   "path": "docs/databases/cim.md",
+   "title": "CIM \u2014 Schema Documentation",
+   "summary": "Central Inventory is the **operational vehicle inventory store for the MediaLogix CIM (Car Inventory Management) platform**. It holds the full lifecycle of automotive listings: incoming dealer feeds land in the `stage` schema via SSIS ETL, are promoted into the `FHD` (FeedHub Dealer) production sche"
+  },
+  {
+   "path": "docs/databases/common-client-id.md",
+   "title": "Common Client ID \u2014 Audit Findings",
+   "summary": "**CCID is not functional in any of the 9 accessible databases.** The `Client.common_client_id` column exists but contains only the integer default `0` for all 5,328 rows. `CommonClientIdMapping` holds external-system GUIDs (`ref_id`) that may be the real cross-system identifier, but the table is not"
+  },
+  {
+   "path": "docs/databases/data-flow.md",
+   "title": "Data Flow \u2014 DAS Estate",
+   "summary": "How data moves across all discovered databases and systems"
+  },
+  {
+   "path": "docs/databases/dataone.md",
+   "title": "DataOne",
+   "summary": "`ConflictAI` login does not have access to the `DataOne` database on `20.65.216.199:49577`."
+  },
+  {
+   "path": "docs/databases/datastaging.md",
+   "title": "DataStaging",
+   "summary": "Central SQL Server staging and analytics database that consolidates inbound data from all major DAS product lines \u2014 Juice/BlueSky CXP, MediaLogix inventory advertising, ReviewRocket/Radar reputation, Response Logix lead management, Dynamics 365 CRM, Zuora billing, Google My Business, and LotVantage "
+  },
+  {
+   "path": "docs/databases/dwrpt-ai.md",
+   "title": "DWRPT_AI",
+   "summary": "Data warehouse / reporting database that consolidates output from all major DAS product lines into a single query surface. It is the primary data source for DAS's internal BI tools (ai.das-technology.com) and the JuiceReporting analytics layer."
+  },
+  {
+   "path": "docs/databases/dwrpt.md",
+   "title": "DWRPT \u2014 Schema Documentation",
+   "summary": "Live discovery probe against `40.83.161.93` (2026-06-14) returned the following databases:"
+  },
+  {
+   "path": "docs/databases/edw-staging.md",
+   "title": "EDW_Staging \u2014 Schema Documentation",
+   "summary": "SSIS ETL landing zone where raw `source_*` tables arrive from CRM, DMS, and other operational systems before being cleaned and promoted to `DataStaging`. Per the Confluence `.32` deep-dive, this server holds both `EDW_Staging` (~700 GB) and `EDW_Target` (~300 GB). It is the **primary raw source for "
+  },
+  {
+   "path": "docs/databases/endeavorcentral.md",
+   "title": "EndeavorCentral \u2014 Schema Documentation",
+   "summary": "Sales, billing, and campaign performance reporting database. Tracks advertising subscriptions, flight periods, revenue, and product assignments per advertiser. Used for financial reporting and sales channel analysis."
+  },
+  {
+   "path": "docs/databases/feedhub.md",
+   "title": "Feedhub",
+   "summary": "Automotive Car Inventory Management (CIM) system \u2014 ingests vehicle inventory listings from franchise and independent dealers, stores them as syndicated ad records, and distributes them as feed content to publisher editions (print, digital, and platform channels)."
+  },
+  {
+   "path": "docs/databases/megatron-repository.md",
+   "title": "MegatronRepository \u2014 Schema Documentation",
+   "summary": "Archive / cold-storage database mirroring key Megatron tables. Stores historical snapshots of leads, listings, listing vehicles, and receipts that have been removed or aged out of the live Megatron database."
+  },
+  {
+   "path": "docs/databases/megatron.md",
+   "title": "Megatron \u2014 Schema Documentation",
+   "summary": "Central advertising and inventory management database. Stores advertiser accounts, vehicle listings, lead queues, campaign data, display banners, outbound feed configurations, and geography lookups. Hub of the DAS platform \u2014 most other databases join back to Megatron account or listing IDs."
+  },
+  {
+   "path": "docs/databases/ml-production.md",
+   "title": "ML Production \u2014 Schema Documentation",
+   "summary": "Operational OLTP database for the **MediaLogix advertising platform** \u2014 the system that powers dealer inventory ad distribution (listings, campaigns, VDP performance). Migrating from SQL Server 2008 to a C#/PostgreSQL stack. SSIS pulls raw data from here to `EDW_Staging` before it reaches `DataStagi"
+  },
+  {
+   "path": "docs/databases/oltp-archive.md",
+   "title": "oltp_Archive",
+   "summary": "Historical archive of high-volume tables periodically moved from `oltp`. Contains ~1.9 billion rows of lead history, consumer transactions, and smart quotes."
+  },
+  {
+   "path": "docs/databases/oltp.md",
+   "title": "oltp",
+   "summary": "Lead response automation platform. Receives automotive purchase leads from all major lead providers (AutoTrader, Cars.com, Edmunds, etc.), matches them against known consumers, routes them to dealers, and drives follow-up campaigns (Smart Quote, Smart Follow, Smart Start). The **largest CDP signal s"
+  },
+  {
+   "path": "docs/databases/outbound-feeds.md",
+   "title": "OutboundFeeds \u2014 Schema Documentation",
+   "summary": "Outbound automotive feed distribution database. Manages account-level destination routing and per-partner ad/dealer snapshot tables for ~80 downstream feed partners (Cars.com, AutoTrader, TrueCar, Facebook, etc.). Each partner has an `obf_[Partner]_Ads` and `obf_[Partner]_Dealers` table."
+  },
+  {
+   "path": "docs/databases/petfinder.md",
+   "title": "PetFinder \u2014 Schema Documentation",
+   "summary": "Pet listing integration database. Syncs shelters, pets, and call/response data from the PetFinder API. Also contains Silverpop email marketing opt-in/opt-out status and URL logging utilities."
+  },
+  {
+   "path": "docs/databases/prime.md",
+   "title": "Prime \u2014 Schema Documentation",
+   "summary": "Performance advertising and analytics database. Stores campaign-level and dealer-level performance metrics (VDP views, SRP impressions, clicks, leads) from multiple advertising platforms (AutoTrader, Cars.com, CarGurus, etc.), as well as display geo data, platform mapping, and Yext location manageme"
+  },
+  {
+   "path": "docs/databases/reddawn.md",
+   "title": "RedDawn \u2014 Schema Documentation",
+   "summary": "Web crawling and data harvesting database. Orchestrates crawler jobs, stores raw results, manages import logs, and tracks smart VDP listing snapshots, image downloads, and TikTok feed listings. Feeds Megatron with third-party listing data scraped from external sources."
+  },
+  {
+   "path": "docs/databases/rl-production.md",
+   "title": "RL Production \u2014 Schema Documentation",
+   "summary": "Live discovery probe against `20.65.216.199:49577` (2026-06-14) returned the following databases:"
+  },
+  {
+   "path": "docs/databases/trax.md",
+   "title": "Trax \u2014 Schema Documentation",
+   "summary": "Traffic and analytics tracking database. Aggregates daily totals for ad impressions, clicks, and dealer captures, plus granular action tracking and FEEDADS mirrors for analytics queries. Feeds the DAS reporting layer and is a source for CDP engagement metrics."
+  },
+  {
+   "path": "docs/databases/web.md",
+   "title": "Web \u2014 Schema Documentation",
+   "summary": "Main website database. Powers the DAS classified listing portal with ~800 tables covering listings (FEEDADS \u2014 47.3 GB), dealers (FEEDDEALERS), members, publications, editions, feed management, and vendor-specific ad/dealer tables. The largest and most complex database in the platform."
+  },
+  {
+   "path": "docs/databases/zuora.md",
+   "title": "Zuora \u2014 Schema Documentation",
+   "summary": "Zuora is the subscription billing and accounts-receivable platform that manages DAS client invoicing, payment terms, and accounting-period lifecycle for the full dealer/client roster."
+  },
+  {
+   "path": "docs/discovery-guide.md",
+   "title": "Discovery Contribution Guide",
+   "summary": "How to extend the DAS CDP discovery corpus as the team clones this repo and brings in more data. Read [`bootstrap.md`](../bootstrap.md) first \u2014 it holds the non-negotiable conventions; this is the practical how-to for *adding* material."
+  },
+  {
+   "path": "docs/etl-data-inventory.md",
+   "title": "DAS Data Source & ETL Inventory",
+   "summary": "Descriptions authored by DAS / Simform Solutions (module READMEs), verified against the SQL."
+  },
+  {
+   "path": "docs/golden-record-examples.md",
+   "title": "Golden Record \u2014 Worked Examples",
+   "summary": "Sources: `docs/cdp-field-source-matrix.md` \u00b7 `wiki/Data-Model.md` \u00b7 `wiki/Identity-Resolution.md` \u00b7 `analysis/artifacts/golden-record/record.json` \u00b7 `specs/03-phase-1-build/06-identity-resolution-engine/` \u00b7 `specs/03-phase-1-build/07-identity-curation-data-quality/`"
+  },
+  {
+   "path": "docs/knowledge-engine.md",
+   "title": "Knowledge Engine (Brain) \u2014 Data Schema",
+   "summary": "The brain is a single compiled **knowledge graph** over everything structured in this repo. It models docs and data as **AST graphs**: every artifact parses into typed nodes whose leaves *reference source spans*, and a semantic overlay (the KG) weaves them together. It is encoded as JSON (portal/edi"
+  },
+  {
+   "path": "docs/portal-data-inventory.md",
+   "title": "Portal Data Inventory",
+   "summary": "**Goal:** Every number, status, and list shown in the portal must be driven by a data file \u2014 never hardcoded in HTML. This document is the canonical record of what is dynamic, where the source of truth lives, and how to update it."
+  },
+  {
+   "path": "docs/source-of-truth.md",
+   "title": "Source of Truth \u2014 Canonical Owners",
+   "summary": "One canonical owner per fact type. Read from the owner; do not duplicate a fact into a second file. Generated files are derived \u2014 never hand-edit them."
+  },
+  {
+   "path": "docs/source-onboarding-ledger.md",
+   "title": "DAS CDP \u2014 Source Onboarding & Long-Tail Decomposition Ledger",
+   "summary": "_Planning artifact (PR #177). The authoritative per-story list for decomposing the three bundled tickets \u2014 `initial-feeds`, `ssis-reimplementation` (EPIC), `report-migration` (EPIC) \u2014 into real, individually-pointed stories. **One ticket per unique integration type; multiple instances/connections ar"
+  },
+  {
+   "path": "docs/status-glossary.md",
+   "title": "Status Glossary",
+   "summary": "The status vocabulary used across the DAS CDP corpus \u2014 research pages, the research catalog, specs, RAID, and deliverables. Central caveat: **a \"researched\" status describes our research, not DAS's production reality.**"
+  },
+  {
+   "path": "docs/wiki-api-review.md",
+   "title": "Wiki API Research Review",
+   "summary": "**Purpose:** Systematic quality pass over all CDP Research Pages (wiki `*-API.md` files) and the API Integration Catalog to surface template deviations, standards gaps, and veracity problems before Phase 1 build work begins."
+  },
+  {
+   "path": "memory/MEMORY.md",
+   "title": "DAS CDP Workspace Memory",
+   "summary": "Cross-repo decisions and context. Read the linked files for detail \u2014 this index is the entry point."
+  },
+  {
+   "path": "memory/client.md",
+   "title": "das-project-context",
+   "summary": "DAS Technology CDP \u2014 project context, team, and engagement details"
+  },
+  {
+   "path": "memory/data-sources.md",
+   "title": "das-data-sources",
+   "summary": "DAS data source landscape \u2014 14 categories, 50+ sources, ingestion methods, identity keys"
+  },
+  {
+   "path": "memory/decisions.md",
+   "title": "das-cdp-decisions",
+   "summary": "Architectural and process decisions made during Phase 0 discovery"
+  },
+  {
+   "path": "memory/etl-repo-structure.md",
+   "title": "das-etl-repo-structure",
+   "summary": "Quick reference for DAS's (removed) etl/ submodule \u2014 where the SQL stored procedures lived; paths are historical, authoritative catalog is docs/etl-data-inventory.md"
+  },
+  {
+   "path": "memory/feedback-language.md",
+   "title": "das-language-policy",
+   "summary": "Language policy for DAS CDP \u2014 English for public/artifacts, Spanish for #das-digital Slack"
+  },
+  {
+   "path": "memory/feedback-no-emojis.md",
+   "title": "no-emojis",
+   "summary": "No emojis anywhere in the workspace \u2014 docs, wiki, artifacts, portal HTML, commit messages"
+  },
+  {
+   "path": "memory/objectives.md",
+   "title": "das-cdp-objectives",
+   "summary": "The engagement's north-star objectives, in the client's own words (Dan Aston + Mike Paylor, 2026-06-12). Read before designing or building anything \u2014 every artifact should trace to one of these."
+  },
+  {
+   "path": "memory/open-questions.md",
+   "title": "das-open-questions",
+   "summary": "Unresolved questions for Phase 0/1 \u2014 reconciled 2026-06-21 (resolved + legacy-infra-out-of-scope items moved to Historical/Closed so open status no longer drifts)"
+  },
+  {
+   "path": "memory/process.md",
+   "title": "das-cdp-process-extensions",
+   "summary": "Project-specific process rules that extend the standard CONFLICT primer \u2014 CDP and DAS-specific constraints"
+  },
+  {
+   "path": "memory/project-spec-system.md",
+   "title": "project-spec-system",
+   "summary": "Federated markdown spec system design \u2014 schema, folder conventions, export approach"
+  },
+  {
+   "path": "memory/sources.md",
+   "title": "das-sources-and-access",
+   "summary": "Where everything lives \u2014 repo, Drive, Confluence, recordings, KG"
+  },
+  {
+   "path": "memory/tech-stack.md",
+   "title": "das-current-tech-stack",
+   "summary": "DAS's existing technology landscape \u2014 infrastructure topology, databases, ETL, reporting, AI layer"
+  },
+  {
+   "path": "specs/01-phase-0-discovery/00-epic.md",
+   "title": "Phase 0 \u2014 Discovery & Assessment",
+   "summary": "Discovery and assessment phase for the DAS Customer Data Platform. ~1 month, started 2026-05-27. No code or infrastructure \u2014 the output is three documents: an Executive Summary, a Revised CDP Architecture Plan, and the DAS CDP Roadmap."
+  },
+  {
+   "path": "specs/01-phase-0-discovery/01-kickoff-sessions/00-feature.md",
+   "title": "Kickoff & Discovery Sessions",
+   "summary": "The opening sessions of the engagement: project kickoff, the SSIS infrastructure deep dive, and the reporting/Juicebox review. These sessions established scope, surfaced the existing data landscape, and produced the raw intelligence that the rest of Phase 0 builds on."
+  },
+  {
+   "path": "specs/01-phase-0-discovery/01-kickoff-sessions/01-kickoff.md",
+   "title": "Kickoff \u2014 Team introductions",
+   "summary": "Established project scope, team roles, and CDP objectives. Aligned DAS and CONFLICT on the Phase 0 deliverables and the forward-deployed engagement model."
+  },
+  {
+   "path": "specs/01-phase-0-discovery/01-kickoff-sessions/02-ssis-deep-dive.md",
+   "title": "SSIS Infrastructure Deep Dive",
+   "summary": "Reviewed the existing SSIS data integration landscape: 13 SSIS jobs, the monitoring dashboard, failure modes, and the underlying AWS EC2/RDS infrastructure."
+  },
+  {
+   "path": "specs/01-phase-0-discovery/01-kickoff-sessions/03-reporting-review.md",
+   "title": "Reporting & Juicebox Review",
+   "summary": "Reviewed the Juicebox reporting platform, the DWRPT view inventory, and the Common Client ID implementation. Included a live demo of the DAS AI agent."
+  },
+  {
+   "path": "specs/01-phase-0-discovery/02-access-provisioning/00-feature.md",
+   "title": "Access Provisioning",
+   "summary": "Securing system access required for discovery. DWRPT/Juicebox access was closed 2026-06-12 without provisioning \u2014 SSIS-side access covers the raw/ingestion side, and per DAS guidance the legacy reporting layer is to be replaced, not studied. Remaining: the Lucid architecture charts."
+  },
+  {
+   "path": "specs/01-phase-0-discovery/02-access-provisioning/01-dwrpt-edw-juicebox.md",
+   "title": "Provision DWRPT / EDW / Juicebox access",
+   "summary": "Provision system access for the CONFLICT team. DWRPT read access is granted (reporting-parity reference); Juicebox read access was not pursued \u2014 not needed for Phase 0 (see below)."
+  },
+  {
+   "path": "specs/01-phase-0-discovery/02-access-provisioning/02-lucid-charts.md",
+   "title": "Obtain Lucid architecture charts",
+   "summary": "**Closed 2026-06-18 (done):** closed out \u2014 charts not received and not needed; the ETL modernization plan is built from the `etl/` inventory + discovery, not DAS's legacy diagrams (replace-don't-improve). Not a blocker."
+  },
+  {
+   "path": "specs/01-phase-0-discovery/03-data-inventory/00-feature.md",
+   "title": "Data Inventory & Triage",
+   "summary": "Cataloging and triaging the existing data landscape: verified SSIS job descriptions, a Common Client ID coverage map across source systems, and a full triage of the 221 Juicebox reports. This inventory feeds the CDP data model and identity-resolution strategy in Phase 1."
+  },
+  {
+   "path": "specs/01-phase-0-discovery/03-data-inventory/01-ssis-job-descriptions.md",
+   "title": "Verified SSIS job descriptions",
+   "summary": "**Closed 2026-06-18 (done):** resolved as not-needed (Alicia) \u2014 the `etl/` inventory (231 objects, `docs/etl-data-inventory.md`) plus the field-source matrix cover CDP sourcing; per-job legacy descriptions are not on the critical path."
+  },
+  {
+   "path": "specs/01-phase-0-discovery/03-data-inventory/02-common-client-id-map.md",
+   "title": "Common Client ID coverage map",
+   "summary": "**Closed 2026-06-18 (done):** resolved \u2014 the CDP builds its own deterministic Common Client ID from first principles (Option A, locked 2026-06-17); DAS's CCID is at most a migration/backfill signal, never the foundation. Not a blocker."
+  },
+  {
+   "path": "specs/01-phase-0-discovery/03-data-inventory/03-juicebox-report-triage.md",
+   "title": "Juicebox report sampling",
+   "summary": "**Closed 2026-06-14 (done):** resolved \u2014 Juicebox replacement decided (Apache Superset, reporting-platform decision); reporting patterns captured. Full custom-report parity build is Phase 2 (`phase-2-build.reporting-parity`)."
+  },
+  {
+   "path": "specs/01-phase-0-discovery/04-phase-0-close/00-feature.md",
+   "title": "Phase 0 Close",
+   "summary": "The closing milestone of discovery: synthesize findings into the three Phase 0 deliverables, debrief leadership, and confirm Phase 1 scope. This gates the transition into architecture and design."
+  },
+  {
+   "path": "specs/01-phase-0-discovery/04-phase-0-close/01-synthesis-debrief.md",
+   "title": "Phase 0 synthesis & debrief",
+   "summary": "**Closed 2026-06-23 (done):** Phase 0 findings, recommendations, and Phase 1 scope delivered to DAS leadership (Dan + Mike); full deliverable set published, budget proposal to follow."
+  },
+  {
+   "path": "specs/01-phase-0-discovery/04-phase-0-close/02-portal-chat-agent.md",
+   "title": "Portal chat-agent bubble",
+   "summary": "Committed at the 2026-06-12 sync: a lightweight chat-agent bubble on the portal so Dan/Mike can ask questions against the knowledge base directly through the UI (instead of code access). Reuses the existing web/browser agent. Target: days, not weeks."
+  },
+  {
+   "path": "specs/02-phase-1-architecture/00-epic.md",
+   "title": "Phase 0 \u2014 Architecture & Design",
+   "summary": "Architecture and design phase, up next after discovery closes. Defines the CDP data model and identity-resolution strategy, and makes the two platform decisions that scope the build: the Juicebox reporting replacement and the ETL modernization approach."
+  },
+  {
+   "path": "specs/02-phase-1-architecture/01-data-model/00-feature.md",
+   "title": "Data Model & Identity",
+   "summary": "**Closed 2026-06-18 (done):** all data-model & identity design decisions locked; the schema DDL itself is a Phase 1 build story."
+  },
+  {
+   "path": "specs/02-phase-1-architecture/01-data-model/01-cdp-data-model-design.md",
+   "title": "Core entity model",
+   "summary": "**Closed 2026-06-18 (done):** 15-table data model locked (11 core + 4 AI/ML stubs) \u2014 Alicia + Luis. The remaining schema DDL is a Phase 1 build story."
+  },
+  {
+   "path": "specs/02-phase-1-architecture/01-data-model/02-identity-resolution-strategy.md",
+   "title": "Identity resolution strategy",
+   "summary": "**Closed 2026-06-17 (done):** identity strategy Option A locked (deterministic-first; ML earned in Phase 2)."
+  },
+  {
+   "path": "specs/02-phase-1-architecture/01-data-model/03-privacy-by-tenant.md",
+   "title": "Privacy by tenant",
+   "summary": "**Closed 2026-06-18 (done):** tenant isolation via Postgres RLS + DAS-global / dealer-isolated model."
+  },
+  {
+   "path": "specs/02-phase-1-architecture/01-data-model/04-golden-record-view.md",
+   "title": "Golden-record view (portal)",
+   "summary": "**Closed 2026-06-18 (done):** bitemporal as-of golden-record view designed; working record built from real DAS data."
+  },
+  {
+   "path": "specs/02-phase-1-architecture/01-data-model/05-survivorship-rules.md",
+   "title": "Survivorship & source-trust ranking",
+   "summary": "**Closed 2026-06-18 (done):** survivorship + source-trust ranking locked (DMS = ground truth)."
+  },
+  {
+   "path": "specs/02-phase-1-architecture/02-platform-decisions/00-feature.md",
+   "title": "Platform Decisions",
+   "summary": "**Closed (done):** platform/stack decisions recorded (reporting = Superset, ETL = Airflow rewrite, multi-tenant RLS, cloud bake-off)."
+  },
+  {
+   "path": "specs/02-phase-1-architecture/02-platform-decisions/01-reporting-platform-decision.md",
+   "title": "Reporting platform decision",
+   "summary": "**Decided (2026-06-14):** the reporting layer is **Apache Superset run as a headless/embedded engine** on an open, self-hosted baseline (per-tenant guest-token + RLS, dashboards-as-code). Full comparison in the Reporting Strategy artifact (`analysis/artifacts/reporting-strategy/`)."
+  },
+  {
+   "path": "specs/02-phase-1-architecture/02-platform-decisions/02-etl-modernization-plan.md",
+   "title": "ETL modernization plan",
+   "summary": "**Orchestration is decided (D-6): Apache Airflow (managed \u2014 Azure Managed Airflow / MWAA \u2014 or self-hosted)** \u2014 AWS Glue was evaluated and rejected, and SSIS is not carried forward (see `memory/decisions.md#d-015`). The platform question is settled; this story records the **delivery workflow** and ha"
+  },
+  {
+   "path": "specs/02-phase-1-architecture/02-platform-decisions/03-multitenant-architecture-strategy.md",
+   "title": "Multi-tenant architecture strategy",
+   "summary": "**Closed 2026-06-17 (done):** multi-tenant isolation via Postgres RLS decided; the resolver runs above tenant RLS, all serving stays tenant-scoped."
+  },
+  {
+   "path": "specs/02-phase-1-architecture/03-phase-1-close/00-feature.md",
+   "title": "Architecture Close",
+   "summary": "Closing milestone for architecture and design: review the design package with DAS and lock the scope for the Phase 1 build SOW."
+  },
+  {
+   "path": "specs/02-phase-1-architecture/03-phase-1-close/01-architecture-review.md",
+   "title": "Architecture review",
+   "summary": "**Closed 2026-06-23 (done):** architecture reviewed and approved \u2014 stable v1 (Alicia + Luis); harmonized canonical doc published."
+  },
+  {
+   "path": "specs/03-phase-1-build/00-epic.md",
+   "title": "Phase 1 \u2014 Build (Product P1: MVP + Full Backend)",
+   "summary": "The first build phase \u2014 product-build **P1** (MVP + full backend \u2192 productionized V1), distinct from the `specs/` engagement phases (this is the build that follows Phase 0 discovery and the Phase 1 architecture/design package). Naming follows the team's product-phase convention; see `memory/decision"
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/00-feature.md",
+   "title": "Foundation & Platform",
+   "summary": "The platform substrate: app repos, cloud org/accounts/identity (Azure / AWS), tiered permissions, CI/CD, modeled push-button prod deploy, base org auth + reproducible local dev. Everything else in Phase 1 depends on it. Portable OSS core (Azure-primary preferred; AWS alternative), Kubernetes (AKS / "
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/01-boilerworks-repos.md",
+   "title": "Boilerworks repos",
+   "summary": "Stand up the app repos: `boilerworks` services + `boilerworks-django-nextjs` frontend (Python/Django backend, Next.js frontend). Base structure, branch protection, README per repo. Needed by CI pipeline."
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/02-boilerworks-opscode-iac.md",
+   "title": "Boilerworks-opscode (IaC)",
+   "summary": "The Terraform IaC repo (`boilerworks-opscode`) for all cloud infra (Kubernetes \u2014 AKS/EKS \u2014 networking, accounts/subscriptions). Remote state backend, reusable module layout, naming conventions. Backs every infra-provisioning story."
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/03-aws-org-iam-identity-center.md",
+   "title": "Cloud org + identity (Azure Entra ID / AWS Organizations + IAM Identity Center)",
+   "summary": "Cloud org with management/bastion account and SSO for human access, plus org guardrails. On AWS: Organizations + IAM Identity Center + SCPs; on Azure: a management-group hierarchy + Entra ID + Azure Policy. Root of the account/permissions tree; blocks member-account and tiered-permission stories."
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/04-accounts-prod-dev-staging.md",
+   "title": "Prod / Dev / Staging accounts",
+   "summary": "Separate cloud member accounts/subscriptions for prod and dev (staging optional) \u2014 AWS accounts / Azure subscriptions \u2014 each baselined with guardrails. Provisioned via opscode under the org. Needed by CD/integration deploys."
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/05-tiered-permissions.md",
+   "title": "Tiered permissions",
+   "summary": "Tiered IAM permission sets, SCPs, and least-privilege roles across accounts, assigned through Identity Center groups. Enforces separation between prod and lower environments."
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/06-ci-pipeline.md",
+   "title": "CI pipeline",
+   "summary": "Build/test/lint CI for app repos and the IaC repo (Terraform validate/plan). Runs on every PR as a merge gate. Blocks CD."
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/07-cd-integration.md",
+   "title": "Auto CD to dev/integration",
+   "summary": "Automatic deploy to the dev/integration Kubernetes environment (AKS on Azure-primary; EKS on AWS) on merge to main, no manual steps. Builds on green CI and the provisioned dev account/subscription. Cloud-neutral \u2014 the pipeline targets whichever substrate the bake-off selects. Precedes the modeled pr"
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/08-push-button-prod-deploy.md",
+   "title": "Push-button prod deploy (modeled)",
+   "summary": "A modeled (designed, NOT stood up) push-button production deploy path: gates, approvals, rollback. Mirrors the dev/integration CD flow against the prod account, ready to provision later."
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/09-base-org-auth-local-dev.md",
+   "title": "Base org auth + local dev",
+   "summary": "Base org auth: Auth0 tenant with the four role groups (das_admin, das_analyst, dealer_admin, dealer_user), plus reproducible one-command local dev environments. Unblocks application feature work."
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/10-data-stores-provisioning.md",
+   "title": "Data stores provisioning",
+   "summary": "Provision the tiered data stores via Terraform (boilerworks-opscode): managed Postgres (Azure Database for PostgreSQL / RDS) + connection pooling + read replicas (Django read/write routing), object-store bronze (Azure Blob / S3, encrypted, replayable), the analytical warehouse (store-neutral: Redshi"
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/11-observability.md",
+   "title": "Observability (OTel / Prometheus / OpenSearch)",
+   "summary": "The `boilerworks-django-nextjs` boilerplate ships observability tooling \u2014 OpenTelemetry, Prometheus, Grafana, and OpenSearch with Elastic Common Schema (ECS) and SS4O (Simple Schema for Observability). This story wires and standardizes **metrics and logs** across services: consistent ECS/SS4O log sc"
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/12-disaster-recovery.md",
+   "title": "Disaster recovery & backups",
+   "summary": "Layered DR: managed backup (AWS Backup / Azure Backup) + a dump script for the canonical stores, cross-region replication, and Terraform for a cross-region **pilot-light** buildout (warm/hot standby as optional add-ons, with cutover). Offsite resilience via data sync to Azure; the path extends to a "
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/13-secrets-management.md",
+   "title": "Secrets & key management (+ pepper store)",
+   "summary": "Provision the managed secrets + key store (Azure Key Vault; AWS Secrets Manager + KMS) as a Foundation primitive, behind a cloud-neutral interface. Holds application secrets, at-rest encryption keys, and \u2014 critically \u2014 the **external pepper** that the PII-vault salt+pepper hardening and the privacy "
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/14-messaging-rabbitmq.md",
+   "title": "Application messaging queue (RabbitMQ)",
+   "summary": "Provision RabbitMQ as the application **work queue**, per the 2026-06-17 messaging split: NATS JetStream is the event-intake backbone, RabbitMQ is the app-layer work/task queue (aligns with DAS's existing CloudAMQP usage). Self-hosted on the node group (cloud-neutral), HA, behind a queue interface s"
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/15-workflow-temporal.md",
+   "title": "Workflow engine (Temporal)",
+   "summary": "Provision Temporal as the durable workflow engine for app-layer sagas \u2014 the erasure saga (delete vault row \u2192 confirm dereference \u2192 audit), identity merge/unmerge and curation sagas, and admin-utility orchestration. Self-hosted on the node group (cloud-neutral), backed by its own persistence; Airflow"
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/16-cache-redis.md",
+   "title": "Cache (Redis)",
+   "summary": "Provision the Redis cache tier (managed \u2014 Azure Cache for Redis / ElastiCache \u2014 or self-hosted; cloud-neutral behind a cache interface). Serves hot-read caching for the serving APIs and the optional isolated short-TTL cache for the PII-vault salt+pepper derived keys (separate instance / access-contr"
+  },
+  {
+   "path": "specs/03-phase-1-build/01-foundation/17-tracing-jaeger.md",
+   "title": "Distributed tracing (Jaeger)",
+   "summary": "Stand up distributed tracing on Jaeger, OpenSearch-backed (reuses the search/observability OpenSearch tier), receiving OTel traces from every service. Self-hosted on the node group; on AWS run hosted/managed Jaeger where possible. Jaeger is preferred over proprietary X-Ray / Application Insights to "
+  },
+  {
+   "path": "specs/03-phase-1-build/02-frontend/00-feature.md",
+   "title": "Frontend (Auth, RBAC, Admin, App Exposure)",
+   "summary": "The operator/dealer-facing Next.js web app: app shell, Auth0 authentication, frontend RBAC, and a custom web-UI admin with CRUD that is explicitly NOT Django admin. Includes an access/user management surface, the four read surfaces (Golden Record, Identity Map, Source Status, Data Health), and role-"
+  },
+  {
+   "path": "specs/03-phase-1-build/02-frontend/01-app-shell-nextjs.md",
+   "title": "Next.js app shell",
+   "summary": "Scaffold the Next.js (TypeScript) app on `boilerworks-django-nextjs`: base layout, navigation, and routes for the four read surfaces plus the admin. Wire the API client so the shell calls the Django backend."
+  },
+  {
+   "path": "specs/03-phase-1-build/02-frontend/02-auth-auth0.md",
+   "title": "Auth0 integration",
+   "summary": "Integrate Auth0 (federating EntraID) for login and session management. Pass the JWT to Django on every API call and handle silent token refresh."
+  },
+  {
+   "path": "specs/03-phase-1-build/02-frontend/03-frontend-rbac.md",
+   "title": "Frontend RBAC",
+   "summary": "Role-gated routes and components for the four roles (das_admin, das_analyst, dealer_admin, dealer_user), mirroring the backend permission model as the single source of truth. Enforce deny-by-default so unlisted access is denied."
+  },
+  {
+   "path": "specs/03-phase-1-build/02-frontend/04-admin-crud-ui.md",
+   "title": "Web-UI admin with CRUD (not Django admin)",
+   "summary": "A custom in-app admin for CRUD over managed entities and config, built in the Next.js UI. Explicitly NOT Django admin \u2014 Django admin is never exposed to operators. All actions RBAC-gated and tenant-scoped."
+  },
+  {
+   "path": "specs/03-phase-1-build/02-frontend/05-access-user-management-ui.md",
+   "title": "Access & user management UI",
+   "summary": "An admin surface to manage and check users, roles, and tenant access, and to audit current access state. Scoped to das_admin."
+  },
+  {
+   "path": "specs/03-phase-1-build/02-frontend/06-read-surfaces.md",
+   "title": "Read surfaces (Golden Record / Identity Map / Source Status / Data Health)",
+   "summary": "The four read views over the API: Golden Record, Identity Map, Source Status, and Data Health, served from the Strawberry GraphQL surface."
+  },
+  {
+   "path": "specs/03-phase-1-build/02-frontend/07-app-exposure.md",
+   "title": "Role-based app exposure",
+   "summary": "Wire the read surfaces and admin to the API with role- and tenant-scoped exposure, so each role and tenant sees only its permitted surfaces and data."
+  },
+  {
+   "path": "specs/03-phase-1-build/02-frontend/08-search-ui.md",
+   "title": "Search UI (OpenSearch)",
+   "summary": "The search surface in the web UI \u2014 a fuzzy person-search box and ranked results over the OpenSearch person-search API, with drill-through into the Golden Record. Role- and tenant-scoped exposure; doubles as the entry point for curation lookups."
+  },
+  {
+   "path": "specs/03-phase-1-build/02-frontend/09-design-system.md",
+   "title": "Design system (graphs, colors, layout)",
+   "summary": "Design-system bucket owned by the UX engineer: the shared visual language for the portal surfaces \u2014 color tokens, layout/grid, typography, and the chart/graph styling reused across the read surfaces (Golden Record / Identity Map / Source Status / Data Health) and the admin UIs. A reserved bucket (no"
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/00-feature.md",
+   "title": "Backend & Data Model",
+   "summary": "The Django backend: canonical schema, permissions, org/tenancy data, and the GraphQL + REST serving surfaces. PostgreSQL native model plus RLS as both canonical store and serving layer, with backend permissions as the single source of truth the frontend RBAC mirrors."
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/01-data-model-foundation.md",
+   "title": "Data model foundation",
+   "summary": "Implement the canonical entity schema as Django models + migrations per the design package: bitemporal provenance (valid-time + system-time, enabling as-of Golden Record queries), per-fact provenance, EAV+JSONB attributes, and temporal edges for the cross-tenant identity graph. EAV+JSONB keeps the a"
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/02-permissions.md",
+   "title": "Backend permissions (2a)",
+   "summary": "Authz model mapping the 4 roles (das_admin, das_analyst, dealer_admin, dealer_user) to object- and field-level permissions, deny-by-default. This is the single source of truth the frontend RBAC mirrors, so the matrix must be queryable by the frontend rather than duplicated there."
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/03-org-tenancy-data.md",
+   "title": "Org management & tenancy data (2b)",
+   "summary": "Tenant/org data model with the dealership as the privacy boundary, enforced by Postgres RLS so attributes and events stay dealer-isolated. The cross-tenant identity resolver runs in a privileged GLOBAL role above tenant RLS to span the DAS-global identity graph."
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/04-graphql-surface.md",
+   "title": "GraphQL surface (2c)",
+   "summary": "Strawberry GraphQL surface for consumer-360 queries, tenant-scoped and permission-aware, resolving the golden record over the bitemporal model. Queries respect RLS and the backend permission matrix so no field leaks outside a dealer's boundary."
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/05-rest-surface.md",
+   "title": "REST surface (2d)",
+   "summary": "DRF REST surface for ingestion/ops plus backing the web-UI admin CRUD, tenant-scoped and permission-aware. Endpoints enforce the backend permission matrix and Postgres RLS so ops and admin writes stay within the dealer boundary."
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/06-person-search-opensearch.md",
+   "title": "Person search (OpenSearch)",
+   "summary": "OpenSearch-backed fuzzy person search baked into the stack \u2014 an index pipeline kept in sync from the canonical model, plus a tenant-scoped search API (role- and dealer-scoped). Query logging captured for eval and data-quality signals. Powers the web-UI search surface and the curation lookups."
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/07-consent-store.md",
+   "title": "Consent store",
+   "summary": "Record consent per person x channel (email/SMS/phone/mail) x tenant \u2014 bitemporal and provenance-bearing (who/what captured it, when, lawful basis) so \"did we have consent at time T\" is answerable. The consent taxonomy, lawful basis, and retention policy are owned by the Privacy-by-Design design (Ali"
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/08-pii-vault-erasure.md",
+   "title": "PII erasure \u2014 tokenized reference vault",
+   "summary": "Tokenized PII reference vault + delete-the-row erasure. **Supersedes per-consumer crypto-shred / DEK (decided 2026-06-21, Leo \u2014 per-person keys rejected as too complex, brittle, expensive; see `memory/decisions.md#d-012` and `wiki/Privacy-by-Design.md`).**"
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/09-opt-out-suppression.md",
+   "title": "Opt-out suppression",
+   "summary": "A suppression service that computes effective suppression from consent state + explicit opt-outs (unsubscribe, DNC), most-restrictive-wins, at person/contact-point granularity. Enforced as a hard filter at the point of use \u2014 segmentation now, outbound activation in P2. On identity merge, suppression"
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/10-erasure-consent-audit.md",
+   "title": "Erasure & consent audit",
+   "summary": "An audit trail for every consent change and every erasure (delete request received, vault rows deleted + tombstoned, token references confirmed dereferenced) \u2014 enough to demonstrate compliance on request, without itself storing the erased PII."
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/11-tiered-data-lifecycle.md",
+   "title": "Tiered data lifecycle & storage policy",
+   "summary": "Policy-driven data lifecycle that moves records across storage tiers \u2014 **active records** (hot/serving) + **dehydrated raw** (reduced form, kept hot for a configurable window ~1-N months so it stays queryable/processable) -> **compress** -> **archival / cold** (lower-tier storage) -> **erasure** \u2014 w"
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/12-ai-context-schema-conventions.md",
+   "title": "AI-context schema conventions & knowledge-graph hooks",
+   "summary": "Make the CDP schema **self-describing** so any AI agent reading a table, schema, or DDL gets the meaning *along with* the structure \u2014 no external doc lookup, no tribal knowledge. Bake this in at Phase 1: every entity ships with machine-readable context, hooked into the project knowledge graph. The t"
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/13-semantic-glossary-term-registry.md",
+   "title": "Semantic glossary & term registry",
+   "summary": "A canonical term registry that turns scattered per-object descriptions into a single lookup: every business term used across the schema (Account, CommonClientID, golden record, suppression, tenant, VIN, household) has one authoritative definition plus its **synonyms and source aliases** \u2014 so an agen"
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/14-tool-access-api.md",
+   "title": "Governed access API for tools (transport-agnostic)",
+   "summary": "One **governed capability contract** over the golden record \u2014 typed, auth-scoped, consent-aware operations like `get_person`, `resolve_identity`, `query_events`, `search_people` \u2014 defined once and exposable through **multiple transports**: a CLI, an MCP server, and a direct API client all wrap the s"
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/15-embedding-vector-hook.md",
+   "title": "Embedding / vector hook",
+   "summary": "Reserve the vector slot in Phase 1 so Phase-3 RAG and embedding-assisted identity clustering need **no schema migration** later. Provision `pgvector` (extension + a nullable embedding column / sidecar embedding table keyed to the canonical entities and the schema-context artifact), unused at launch "
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/16-versioned-event-contract.md",
+   "title": "Versioned event contract & schema registry",
+   "summary": "Give the CDP event stream a **stable, versioned contract** so agents and models can replay and train against it without breaking on schema drift. Every emitted event (ingest, resolution, merge/split, consent change, curation decision) conforms to a registered, versioned schema; consumers pin a versi"
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/17-outcome-label-feature-capture.md",
+   "title": "Outcome-label & feature capture",
+   "summary": "Generalize the curation label store (`identity-curation-data-quality.curation-feedback-labels`, which captures identity *decisions* as labels) to also capture **outcome labels** and the **point-in-time features** behind them \u2014 so Phase 3 ML scoring (lead/intent/propensity, review sentiment, next-bes"
+  },
+  {
+   "path": "specs/03-phase-1-build/03-backend-data-model/18-policy-config-layer.md",
+   "title": "Privacy policy configuration layer",
+   "summary": "A configurable policy layer that maps privacy/data-handling policies to data, with deterministic resolution. We build the config layer + resolver + admin surface; **Alicia + Luis + DAS Legal populate the policy values** (raised 2026-06-21, Leo). See `wiki/Privacy-by-Design.md`."
+  },
+  {
+   "path": "specs/03-phase-1-build/04-ingest/00-feature.md",
+   "title": "Ingest (Batch + Event)",
+   "summary": "The ingestion stack on Apache Airflow (managed: Azure Managed Airflow / MWAA, or self-hosted), split from the app layer \u2014 Temporal stays off the ingest path. Provides a reusable DAG framework, base classes, and conventions; standard stepped flows (extract -> S3 bronze -> normalize -> resolve -> CDP "
+  },
+  {
+   "path": "specs/03-phase-1-build/04-ingest/01-airflow-split.md",
+   "title": "Airflow split (managed/self-hosted)",
+   "summary": "Stand up managed Airflow (Azure Managed Airflow / MWAA, or self-hosted) as the dedicated ingestion plane and establish the boundary between ingest (Airflow) and the app layer (Temporal), with Temporal kept entirely off the ingest path. All extract/backfill/file+API pulls and DMS-task orchestration r"
+  },
+  {
+   "path": "specs/03-phase-1-build/04-ingest/02-dag-framework.md",
+   "title": "DAG framework",
+   "summary": "A reusable framework for ingestion DAGs exposing extract/land/normalize/resolve building blocks, so a new feed is assembled from shared components rather than bespoke DAG code. Imperative Python transforms (no dbt); per-fact provenance carried through each block."
+  },
+  {
+   "path": "specs/03-phase-1-build/04-ingest/03-dag-base-conventions.md",
+   "title": "DAG base + conventions",
+   "summary": "Base classes plus conventions for ingestion DAGs \u2014 naming, retries, idempotency keys, provenance tagging at ingestion time, and the S3 bronze layout (raw, replayable, partitioned). Encodes the framework's defaults so every DAG inherits consistent, replay-safe behavior."
+  },
+  {
+   "path": "specs/03-phase-1-build/04-ingest/04-stepped-flows.md",
+   "title": "Stepped flows",
+   "summary": "The standard stepped flow \u2014 extract -> land (S3 bronze, parquet) -> normalize -> resolve -> CDP Postgres \u2014 built to be order-tolerant and replayable. Bronze (parquet, SSE-KMS) is the durable raw record; downstream steps re-run from bronze without re-hitting sources, and idempotency keys keep replays"
+  },
+  {
+   "path": "specs/03-phase-1-build/04-ingest/05-dag-documentation-design.md",
+   "title": "DAG documentation design",
+   "summary": "A documentation standard for every DAG capturing purpose, source, schedule, lineage, and downstream entities, so each feed is self-describing and its provenance is traceable. Docs surface alongside the DAG rather than living in a separate wiki."
+  },
+  {
+   "path": "specs/03-phase-1-build/04-ingest/06-source-registry.md",
+   "title": "Config-driven source registry",
+   "summary": "A declarative registry holding one entry per original source (app DBs, SFTP/CSV, vendor APIs, event publishers), driving DAG generation and adapter config off the framework. Sources are described as **data, not code**, so onboarding is additive and uniform \u2014 and the *same* registry declares batch an"
+  },
+  {
+   "path": "specs/03-phase-1-build/04-ingest/08-event-grid-webhook-adapter.md",
+   "title": "Event Grid webhook adapter (event intake)",
+   "summary": "The real-time event-intake path, co-primary with Airflow batch (decided Option A): DAS adds an Event Grid event-subscription pointed at a CDP webhook URL (config-only on the DAS side, no Azure compute we run). Our adapter validates, **fast-ACKs**, dedups on an idempotency key, and hands off into the"
+  },
+  {
+   "path": "specs/03-phase-1-build/04-ingest/09-nats-event-backbone.md",
+   "title": "NATS event backbone + raw replay",
+   "summary": "NATS JetStream is the internal event backbone and event log (retention + replay) \u2014 not a Postgres table. The webhook adapter fast-ACKs by publishing to NATS and landing the raw event to S3 bronze; downstream consumers (normalize, resolve) read from NATS; S3 bronze enables full replay."
+  },
+  {
+   "path": "specs/03-phase-1-build/04-ingest/10-cloudevents-contract.md",
+   "title": "CloudEvents contract + DLQ",
+   "summary": "Establish the event contract with DAS as **CloudEvents 1.0** \u2014 schema + versioning + delivery auth \u2014 so a future direct-publish path (bus-agnostic, off Event Grid) is a config swap, not a rewrite. S3 DLQ for events that fail validation/processing; idempotency-key dedup."
+  },
+  {
+   "path": "specs/03-phase-1-build/04-ingest/11-event-feed-liveness.md",
+   "title": "Event-feed liveness monitoring",
+   "summary": "The DAS-owned Event Grid subscription is a **monitored critical-path dependency** \u2014 if it stops publishing, the CDP silently starves. Track event-feed liveness (volume, lag, last-seen per source) and alert on starvation; surface it on the Data Source Status view. Ownership of the subscription docume"
+  },
+  {
+   "path": "specs/03-phase-1-build/04-ingest/12-cdc-capture-debezium.md",
+   "title": "Source CDC capture (Debezium)",
+   "summary": "Stand up change-data-capture from source databases via Debezium (preferred, portable OSS; cloud-native DMS is the managed alternative). CDC streams inserts/updates/deletes from the DAS source DBs (SQL Server on EC2, RDS MySQL) into the raw bronze landing + the NATS event backbone, so the CDP capture"
+  },
+  {
+   "path": "specs/03-phase-1-build/05-integration-etl-reporting/00-feature.md",
+   "title": "Integration, ETL & Reporting",
+   "summary": "The reporting layer: Apache Superset self-hosted (headless/embedded), a Django meta layer managing Superset via its REST API (Django -> API-generated, version-specific), dashboards-as-code in git, the per-tenant guest-token + RLS harness, and the warehouse reporting cutover (store-neutral) via zero-"
+  },
+  {
+   "path": "specs/03-phase-1-build/05-integration-etl-reporting/01-superset-deploy.md",
+   "title": "Superset self-hosted",
+   "summary": "Deploy Apache Superset on EKS with Postgres metadata, Redis, and Celery for async/cache, configured headless/embedded. Pin 6.0+ for white-labeling and enable embedding plus theming."
+  },
+  {
+   "path": "specs/03-phase-1-build/05-integration-etl-reporting/02-django-superset-meta-layer.md",
+   "title": "Django meta layer for Superset",
+   "summary": "The identified architecture gap to harmonize: a Django-managed control layer that drives Superset entirely via its REST API. Datasets, charts/widgets, dashboards, and RLS rules are generated FROM Django models and are version-specific (Django -> API-generated)."
+  },
+  {
+   "path": "specs/03-phase-1-build/05-integration-etl-reporting/03-dashboards-as-code.md",
+   "title": "Dashboards-as-code",
+   "summary": "Dashboard, chart, and dataset definitions live as YAML in git and deploy via CI through the meta layer / Superset import-export. Source of truth is the repo, not the Superset UI."
+  },
+  {
+   "path": "specs/03-phase-1-build/05-integration-etl-reporting/04-tenant-guest-token-rls-harness.md",
+   "title": "Per-tenant guest-token + RLS harness",
+   "summary": "Mint per-dealer guest tokens whose RLS clause derives from the CDP tenant model. GUEST_TOKEN_VALIDATOR_HOOK rejects any token missing a tenant predicate; embeds refresh tokens silently."
+  },
+  {
+   "path": "specs/03-phase-1-build/05-integration-etl-reporting/05-warehouse-reporting-cutover.md",
+   "title": "Warehouse reporting cutover",
+   "summary": "Stand up the analytical warehouse (store-neutral: Redshift / Fabric-Synapse, or Postgres-only) as the analytics layer via zero-ETL/mirroring from managed Postgres, replacing the DWRPT/EDW reporting role. Migrate Superset datasets to read from the warehouse."
+  },
+  {
+   "path": "specs/03-phase-1-build/06-identity-resolution-engine/00-feature.md",
+   "title": "Identity Resolution Engine",
+   "summary": "The engineering surface that EXECUTES identity resolution across its paths \u2014 automated (deterministic), heuristic (fuzzy / scored), and moderated (handoff to human curation), extensible to further modes. Runs as Temporal sagas in the app layer, off the ingest path."
+  },
+  {
+   "path": "specs/03-phase-1-build/06-identity-resolution-engine/01-resolution-engine-core.md",
+   "title": "Resolution engine core (automated / heuristic / moderated paths)",
+   "summary": "A configurable engine that runs a record through the resolution paths \u2014 automated deterministic matching, heuristic fuzzy scoring, and moderated handoff \u2014 driven by the strategy/rules supplied by the design (configuration, not hard-coded logic). Orchestrated as Temporal sagas. Extensible to addition"
+  },
+  {
+   "path": "specs/03-phase-1-build/06-identity-resolution-engine/02-association-provenance-justification.md",
+   "title": "Association provenance & justification",
+   "summary": "For every potential and actual association, capture the evidence behind it \u2014 contributing signals, score, source, and a human-readable justification \u2014 as provenance on the association. This is what makes fuzzy resolution defensible: a reviewer (or an audit) can see why two records were linked or pro"
+  },
+  {
+   "path": "specs/03-phase-1-build/06-identity-resolution-engine/03-threshold-positive-grouping.md",
+   "title": "Threshold-based positive grouping",
+   "summary": "A rules/threshold engine that turns scored candidates into grouping decisions: above the confirm threshold -> auto-confirm a positive identity grouping; within the ambiguous band -> route to moderation (the curation queue); below the floor -> reject. The threshold values and banding are policy owned"
+  },
+  {
+   "path": "specs/03-phase-1-build/06-identity-resolution-engine/04-orphan-identifier-handling.md",
+   "title": "Orphan identifier handling",
+   "summary": "Store identifiers that have nothing to resolve to yet (e.g. Facebook IDs arriving on reviews) as unresolved nodes that may resolve later, and re-evaluate them when new linking evidence arrives."
+  },
+  {
+   "path": "specs/03-phase-1-build/06-identity-resolution-engine/05-identity-record-event-sourcing.md",
+   "title": "Identity record event sourcing & replay",
+   "summary": "Event-source every change to an identity record \u2014 attribute facts, edges, resolution decisions, merges/splits \u2014 with full source attribution, so you can see how a record got to its current state, from which sources, and replay it to any point in time. The canonical bitemporal store is the live, quer"
+  },
+  {
+   "path": "specs/03-phase-1-build/06-identity-resolution-engine/06-survivorship-golden-value.md",
+   "title": "Survivorship / golden-value resolution",
+   "summary": "Implement the survivorship mechanism that selects the surviving (golden) value **per field** when records resolved to one consumer disagree. Applies the locked source-trust ladder (DMS \u2192 CRM \u2192 email/Twilio engagement \u2192 third-party enrichment) with most-recent-observation-wins as the tie-breaker with"
+  },
+  {
+   "path": "specs/03-phase-1-build/06-identity-resolution-engine/07-household-detection.md",
+   "title": "Household detection & membership",
+   "summary": "Build the household entity and its detection logic (locked Phase-1 decision). A household is a distinct entity; a consumer belongs to zero or one household; households are **detected, never asserted by the source**. Detection signal: canonical-address match + \u22651 of (shared phone, shared surname, co-"
+  },
+  {
+   "path": "specs/03-phase-1-build/07-identity-curation-data-quality/00-feature.md",
+   "title": "Identity Resolution Curation & Data Quality",
+   "summary": "Managing and curating identity resolution where humans are needed, plus tooling to assess data quality around identity resolution. Spans backend (curation queue fed by Temporal resolution sagas, DQ metrics) and frontend (curation/eval UI). Deterministic tiers resolve where signals suffice; ambiguous"
+  },
+  {
+   "path": "specs/03-phase-1-build/07-identity-curation-data-quality/01-curation-queue.md",
+   "title": "Human-in-the-loop curation queue",
+   "summary": "A queue of ambiguous and low-confidence identity matches surfaced for human review, fed by the Temporal resolution sagas in the app layer. Items carry priority and aging so stale or high-impact cases rise; reviewers are assigned or self-claim. Each item retains the evidence and per-fact provenance t"
+  },
+  {
+   "path": "specs/03-phase-1-build/07-identity-curation-data-quality/02-curation-ui.md",
+   "title": "Curation & eval UI",
+   "summary": "A web-UI surface in the Next.js frontend to review, confirm, merge, split, and evaluate identity matches. Each candidate shows the supporting evidence and per-fact provenance so curators can judge the recommendation. Actions write back to the resolution store and are recorded for audit."
+  },
+  {
+   "path": "specs/03-phase-1-build/07-identity-curation-data-quality/03-resolution-eval-tooling.md",
+   "title": "Resolution-quality eval tooling",
+   "summary": "Tools to evaluate resolution decisions against gold and labeled sets: precision/recall sampling, confusion review of false merges and missed matches, and threshold/model evaluation. Curator decisions feed an active-learning loop that refines thresholds and heuristics over time."
+  },
+  {
+   "path": "specs/03-phase-1-build/07-identity-curation-data-quality/04-data-quality-assessment.md",
+   "title": "Data-quality assessment (identity)",
+   "summary": "DQ tooling around identity resolution: match coverage, conflict and duplicate rates, orphan-identifier volume (e.g. unresolved Facebook IDs), and source-trust/survivorship signals. Great Expectations runs on the ingest path to validate incoming data; metrics surface to the Data Health view."
+  },
+  {
+   "path": "specs/03-phase-1-build/07-identity-curation-data-quality/05-merge-split-audit.md",
+   "title": "Merge/split history & audit",
+   "summary": "Record every merge and split with its driving evidence and a path to reversibility. Bitemporal history reattaches on merge so prior facts and timelines are preserved; a full audit trail captures who acted, when, and why."
+  },
+  {
+   "path": "specs/03-phase-1-build/07-identity-curation-data-quality/06-curation-feedback-labels.md",
+   "title": "Curation feedback & training labels",
+   "summary": "Persist every operator curation decision (confirm / reject / merge / split, with the candidate pair and the features the decision was made on) as a **labeled training record** \u2014 not just an audit entry. The curation queue captures the *action*; this captures it as a reusable ML label so Phase-3 mode"
+  },
+  {
+   "path": "specs/03-phase-1-build/08-segmentation-engine/00-feature.md",
+   "title": "Segmentation Engine",
+   "summary": "The capability to pull, group, and target swaths of identities across the resolved graph \u2014 by patterns, contact, purchase, media usage, demographics, and event signals. The CDP needs this in Phase 1 to be useful beyond a golden record: defining and retrieving audiences."
+  },
+  {
+   "path": "specs/03-phase-1-build/08-segmentation-engine/01-segment-definition-model.md",
+   "title": "Segment definition model",
+   "summary": "A model to define segments as composable predicates over the resolved identity graph plus attributes and events \u2014 patterns, contact, purchase, media usage, demographics. Versioned and tenant-scoped so a definition is reproducible and auditable."
+  },
+  {
+   "path": "specs/03-phase-1-build/08-segmentation-engine/02-segment-evaluation-engine.md",
+   "title": "Segment evaluation & materialization",
+   "summary": "Evaluate segment definitions against the data \u2014 Postgres serving for live predicates, the analytical warehouse for heavy aggregates, OpenSearch where fuzzy matching is needed \u2014 and materialize/refresh membership on a schedule or trigger, with performance for large swaths."
+  },
+  {
+   "path": "specs/03-phase-1-build/08-segmentation-engine/03-segment-retrieval-api.md",
+   "title": "Segment retrieval & targeting API",
+   "summary": "Pull, group, and target identities by segment via the API and web-UI surfaces \u2014 counts, paging, and member retrieval \u2014 tenant-scoped and RBAC-gated. Outbound activation to external platforms is deferred to P2; this is the internal retrieval/targeting surface."
+  },
+  {
+   "path": "specs/03-phase-1-build/08-segmentation-engine/04-segment-membership-explainability.md",
+   "title": "Segment membership explainability",
+   "summary": "Explain why an identity is (or is not) in a segment \u2014 which predicates and underlying signals/facts drove membership, tracing back through provenance. Parallels the association-justification model so segments are as defensible as the identities they group."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/00-feature.md",
+   "title": "Source Onboarding & Legacy Deprecation",
+   "summary": "The continuing path after the tracks stand up: onboard every remaining source via the config-driven registry until all core entities and data sources are ingested and processed, reimplement the SSIS logic against the original sources, migrate the legacy reports, and deprecate the old systems once th"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/04-legacy-deprecation.md",
+   "title": "Legacy system deprecation",
+   "summary": "Retire SSIS / CDXP / EDW once the CDP is the reliable source of truth: source-of-truth cutover, decommission of the old pipelines and stores, and stakeholder comms throughout."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/10-primitive-db.md",
+   "title": "Database / SQL source primitive",
+   "summary": "Scaffolding primitive. Reusable database-source intake: connection + auth, schema introspection, incremental/CDC extract, batched load into bronze via the config-driven registry. Onboarding a DB source becomes config, not code."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/100-source-greenflagcredit.md",
+   "title": "Onboard GreenFlagCredit",
+   "summary": "Onboard the **GreenFlagCredit** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke conn"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/101-source-cars-com.md",
+   "title": "Onboard Cars.com",
+   "summary": "Onboard the **Cars.com** source through the feed primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-feed` scaffold \u2014 no bespoke connector"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/102-source-cargurus.md",
+   "title": "Onboard CarGurus",
+   "summary": "Onboard the **CarGurus** source through the feed primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-feed` scaffold \u2014 no bespoke connector"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/103-source-women-drivers-com.md",
+   "title": "Onboard Women-Drivers.com",
+   "summary": "Onboard the **Women-Drivers.com** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke co"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/104-source-routeone.md",
+   "title": "Onboard RouteOne",
+   "summary": "Onboard the **RouteOne** source through the feed primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-feed` scaffold \u2014 no bespoke connector"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/105-source-capital-one.md",
+   "title": "Onboard Capital One",
+   "summary": "Onboard the **Capital One** source through the feed primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-feed` scaffold \u2014 no bespoke connec"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/106-source-meta-facebook.md",
+   "title": "Onboard Meta Facebook",
+   "summary": "Onboard the **Meta Facebook** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connec"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/107-source-lotvantage.md",
+   "title": "Onboard LotVantage",
+   "summary": "Onboard the **LotVantage** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connector"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/108-source-reconcile-cdp-vs-legacy-edw-dwrpt.md",
+   "title": "Onboard Reconcile CDP vs legacy EDW DWRPT",
+   "summary": "Onboard the **Reconcile CDP vs legacy EDW DWRPT** source through the db primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-db` scaffold \u2014"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/11-primitive-api.md",
+   "title": "REST / API source primitive",
+   "summary": "Scaffolding primitive. Reusable API-poll intake: auth (key/OAuth), pagination, rate-limit handling, schema mapping, scheduled pull into bronze. New API source = a registry entry."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/12-primitive-sftp.md",
+   "title": "SFTP / file-drop source primitive",
+   "summary": "Scaffolding primitive. Reusable file-drop intake: SFTP poll, file-pattern + manifest handling, decompress/parse (CSV/fixed-width), idempotent load. New feed = config."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/13-primitive-event.md",
+   "title": "Webhook / event source primitive",
+   "summary": "Scaffolding primitive. Reusable event intake: webhook adapter + CloudEvents normalization onto the NATS backbone with raw replay and DLQ. New event source plugs into the contract."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/14-primitive-feed.md",
+   "title": "CSV / flat-feed source primitive",
+   "summary": "Scaffolding primitive. Reusable flat-feed intake: schema-on-read for CSV/TSV/JSON drops, column mapping, validation, load. Shared by the long-tail file sources."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/20-source-cim.md",
+   "title": "Onboard CIM",
+   "summary": "Onboard the **CIM** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/21-source-dataone.md",
+   "title": "Onboard DataOne",
+   "summary": "Onboard the **DataOne** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/22-source-endeavorcentral.md",
+   "title": "Onboard endeavorcentral",
+   "summary": "Onboard the **endeavorcentral** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/23-source-feedhub.md",
+   "title": "Onboard Feedhub",
+   "summary": "Onboard the **Feedhub** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/24-source-megatron.md",
+   "title": "Onboard megatron",
+   "summary": "Onboard the **megatron** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/25-source-megatron-repository.md",
+   "title": "Onboard megatron-repository",
+   "summary": "Onboard the **megatron-repository** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/26-source-ml-production.md",
+   "title": "Onboard ML_Production",
+   "summary": "Onboard the **ML_Production** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/27-source-oltp.md",
+   "title": "Onboard oltp",
+   "summary": "Onboard the **oltp** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/28-source-outbound-feeds.md",
+   "title": "Onboard outbound-feeds",
+   "summary": "Onboard the **outbound-feeds** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/29-source-petfinder.md",
+   "title": "Onboard petfinder",
+   "summary": "Onboard the **petfinder** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/30-source-prime.md",
+   "title": "Onboard prime",
+   "summary": "Onboard the **prime** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/31-source-reddawn.md",
+   "title": "Onboard reddawn",
+   "summary": "Onboard the **reddawn** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/32-source-rl-production.md",
+   "title": "Onboard RL_Production",
+   "summary": "Onboard the **RL_Production** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/33-source-trax.md",
+   "title": "Onboard trax",
+   "summary": "Onboard the **trax** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/34-source-web.md",
+   "title": "Onboard web",
+   "summary": "Onboard the **web** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/35-source-zuora.md",
+   "title": "Onboard Zuora",
+   "summary": "Onboard the **Zuora** source through the database primitive: register the source, map its schema to core entities, validate tenant attribution, and land it through ingest to processed. No bespoke connector code \u2014 config + mapping against the db primitive."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/40-source-vinsolutions.md",
+   "title": "Onboard VinSolutions",
+   "summary": "Onboard the **VinSolutions** source through the sftp primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-sftp` scaffold \u2014 no bespoke conne"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/41-source-eleads.md",
+   "title": "Onboard eLeads",
+   "summary": "Onboard the **eLeads** source through the sftp primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-sftp` scaffold \u2014 no bespoke connector c"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/42-source-reynolds-and-reynolds.md",
+   "title": "Onboard Reynolds & Reynolds",
+   "summary": "Onboard the **Reynolds & Reynolds** source through the sftp primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-sftp` scaffold \u2014 no bespok"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/43-source-tekion.md",
+   "title": "Onboard Tekion",
+   "summary": "Onboard the **Tekion** source through the sftp primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-sftp` scaffold \u2014 no bespoke connector c"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/44-source-drivecentric.md",
+   "title": "Onboard DriveCentric",
+   "summary": "Onboard the **DriveCentric** source through the sftp primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-sftp` scaffold \u2014 no bespoke conne"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/45-source-dealersocket.md",
+   "title": "Onboard DealerSocket",
+   "summary": "Onboard the **DealerSocket** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connect"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/46-source-promax-momentum-oplogic.md",
+   "title": "Onboard ProMax Momentum OpLogic",
+   "summary": "Onboard the **ProMax Momentum OpLogic** source through the sftp primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-sftp` scaffold \u2014 no be"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/47-source-infusionsoft.md",
+   "title": "Onboard Infusionsoft",
+   "summary": "Onboard the **Infusionsoft** source through the event primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-event` scaffold \u2014 no bespoke con"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/53-source-cdk-global.md",
+   "title": "Onboard CDK Global",
+   "summary": "Onboard the **CDK Global** source through the sftp primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-sftp` scaffold \u2014 no bespoke connect"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/54-source-authenticom-dealervault.md",
+   "title": "Onboard Authenticom DealerVault",
+   "summary": "Onboard the **Authenticom DealerVault** source through the sftp primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-sftp` scaffold \u2014 no be"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/55-source-dealertrack.md",
+   "title": "Onboard DealerTrack",
+   "summary": "Onboard the **DealerTrack** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connecto"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/56-source-truecar.md",
+   "title": "Onboard TrueCar",
+   "summary": "Onboard the **TrueCar** source through the feed primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-feed` scaffold \u2014 no bespoke connector "
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/57-source-autotrader.md",
+   "title": "Onboard AutoTrader",
+   "summary": "Onboard the **AutoTrader** source through the feed primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-feed` scaffold \u2014 no bespoke connect"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/58-source-edmunds.md",
+   "title": "Onboard Edmunds",
+   "summary": "Onboard the **Edmunds** source through the feed primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-feed` scaffold \u2014 no bespoke connector "
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/59-source-carsdirect.md",
+   "title": "Onboard CarsDirect",
+   "summary": "Onboard the **CarsDirect** source through the feed primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-feed` scaffold \u2014 no bespoke connect"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/60-source-ebay.md",
+   "title": "Onboard eBay",
+   "summary": "Onboard the **eBay** source through the feed primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-feed` scaffold \u2014 no bespoke connector cod"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/61-source-google-business-profile.md",
+   "title": "Onboard Google Business Profile",
+   "summary": "Onboard the **Google Business Profile** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no besp"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/62-source-dealerrater.md",
+   "title": "Onboard DealerRater",
+   "summary": "Onboard the **DealerRater** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connecto"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/63-source-yelp.md",
+   "title": "Onboard Yelp",
+   "summary": "Onboard the **Yelp** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connector code."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/64-source-vendasta.md",
+   "title": "Onboard Vendasta",
+   "summary": "Onboard the **Vendasta** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connector c"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/65-source-mozenda.md",
+   "title": "Onboard Mozenda",
+   "summary": "Onboard the **Mozenda** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connector co"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/66-source-callrevu.md",
+   "title": "Onboard CallRevu",
+   "summary": "Onboard the **CallRevu** source through the event primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-event` scaffold \u2014 no bespoke connect"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/67-source-mailgun.md",
+   "title": "Onboard MailGun",
+   "summary": "Onboard the **MailGun** source through the event primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-event` scaffold \u2014 no bespoke connecto"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/68-source-twilio.md",
+   "title": "Onboard Twilio",
+   "summary": "Onboard the **Twilio** source through the event primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-event` scaffold \u2014 no bespoke connector"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/69-source-sendgrid.md",
+   "title": "Onboard SendGrid",
+   "summary": "Onboard the **SendGrid** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connector c"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/70-source-mandrill.md",
+   "title": "Onboard Mandrill",
+   "summary": "Onboard the **Mandrill** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connector c"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/71-source-mailchimp.md",
+   "title": "Onboard MailChimp",
+   "summary": "Onboard the **MailChimp** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connector "
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/72-source-google-analytics-4.md",
+   "title": "Onboard Google Analytics 4",
+   "summary": "Onboard the **Google Analytics 4** source through the event primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-event` scaffold \u2014 no bespo"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/73-source-mixpanel.md",
+   "title": "Onboard Mixpanel",
+   "summary": "Onboard the **Mixpanel** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connector c"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/74-source-dealer-website-crawler.md",
+   "title": "Onboard Dealer Website Crawler",
+   "summary": "Onboard the **Dealer Website Crawler** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespo"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/75-source-engage-to-sell-livejoin.md",
+   "title": "Onboard Engage to Sell LiveJoin",
+   "summary": "Onboard the **Engage to Sell LiveJoin** source through the event primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-event` scaffold \u2014 no "
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/76-source-das-response-path.md",
+   "title": "Onboard DAS Response Path",
+   "summary": "Onboard the **DAS Response Path** source through the feed primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-feed` scaffold \u2014 no bespoke "
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/77-source-homenet.md",
+   "title": "Onboard HomeNet",
+   "summary": "Onboard the **HomeNet** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connector co"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/78-source-revenue-lab.md",
+   "title": "Onboard Revenue Lab",
+   "summary": "Onboard the **Revenue Lab** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connecto"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/79-source-general-motors.md",
+   "title": "Onboard General Motors",
+   "summary": "Onboard the **General Motors** source through the feed primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-feed` scaffold \u2014 no bespoke con"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/80-source-ford.md",
+   "title": "Onboard Ford",
+   "summary": "Onboard the **Ford** source through the feed primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-feed` scaffold \u2014 no bespoke connector cod"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/81-source-toyota.md",
+   "title": "Onboard Toyota",
+   "summary": "Onboard the **Toyota** source through the feed primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-feed` scaffold \u2014 no bespoke connector c"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/82-source-honda.md",
+   "title": "Onboard Honda",
+   "summary": "Onboard the **Honda** source through the feed primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-feed` scaffold \u2014 no bespoke connector co"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/84-source-salesforce.md",
+   "title": "Onboard Salesforce",
+   "summary": "Onboard the **Salesforce** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connector"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/85-source-microsoft-dynamics-365.md",
+   "title": "Onboard Microsoft Dynamics 365",
+   "summary": "Onboard the **Microsoft Dynamics 365** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespo"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/86-source-commonclientid.md",
+   "title": "Onboard CommonClientID",
+   "summary": "Onboard the **CommonClientID** source through the db primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-db` scaffold \u2014 no bespoke connect"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/87-source-cdxp-3birds-mautic.md",
+   "title": "Onboard CDXP 3Birds Mautic",
+   "summary": "Onboard the **CDXP 3Birds Mautic** source through the db primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-db` scaffold \u2014 no bespoke con"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/88-source-radar.md",
+   "title": "Onboard Radar",
+   "summary": "Onboard the **Radar** source through the db primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-db` scaffold \u2014 no bespoke connector code."
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/89-source-mission-control.md",
+   "title": "Onboard Mission Control",
+   "summary": "Onboard the **Mission Control** source through the db primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-db` scaffold \u2014 no bespoke connec"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/90-source-bestride.md",
+   "title": "Onboard BestRide",
+   "summary": "Onboard the **BestRide** source through the db primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-db` scaffold \u2014 no bespoke connector cod"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/91-source-torpedo.md",
+   "title": "Onboard Torpedo",
+   "summary": "Onboard the **Torpedo** source through the db primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-db` scaffold \u2014 no bespoke connector code"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/92-source-blackbook.md",
+   "title": "Onboard BlackBook",
+   "summary": "Onboard the **BlackBook** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connector "
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/93-source-kelley-blue-book.md",
+   "title": "Onboard Kelley Blue Book",
+   "summary": "Onboard the **Kelley Blue Book** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke con"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/94-source-recall-masters.md",
+   "title": "Onboard Recall Masters",
+   "summary": "Onboard the **Recall Masters** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke conne"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/95-source-experian-conquest.md",
+   "title": "Onboard Experian Conquest",
+   "summary": "Onboard the **Experian Conquest** source through the feed primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-feed` scaffold \u2014 no bespoke "
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/96-source-maxmind-geoip2.md",
+   "title": "Onboard MaxMind GeoIP2",
+   "summary": "Onboard the **MaxMind GeoIP2** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke conne"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/97-source-neverbounce.md",
+   "title": "Onboard NeverBounce",
+   "summary": "Onboard the **NeverBounce** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connecto"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/98-source-carfax.md",
+   "title": "Onboard Carfax",
+   "summary": "Onboard the **Carfax** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connector cod"
+  },
+  {
+   "path": "specs/03-phase-1-build/09-long-tail/99-source-700credit.md",
+   "title": "Onboard 700Credit",
+   "summary": "Onboard the **700Credit** source through the api primitive: register it in the source registry, map its schema and identity keys to the canonical model, validate tenant attribution, and land it through ingest to processed. Config + mapping against the `primitive-api` scaffold \u2014 no bespoke connector "
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/00-feature.md",
+   "title": "SSIS Reimplementation",
+   "summary": "Reimplement the transform logic of DAS's 13 SSIS jobs / 20 ETL modules against the original sources \u2014 as Airflow DAGs + Python, **not a 1:1 port**. This feature decomposes what was a single EPIC into per-module stories so the real surface is visible and individually tracked. Container only \u2014 its siz"
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/01-dms-reconciliation.md",
+   "title": "DMS reconciliation (appts/sales/service)",
+   "summary": "Reimplement the **DMS reconciliation (appts/sales/service)** transform against the original sources as an Airflow DAG + Python \u2014 preserving the business logic (dedup / standardize / match / aggregate) the SSIS module performed, without carrying its truncate-and-rebuild fragility."
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/02-crm-consolidation.md",
+   "title": "CRM consolidation (21+ providers)",
+   "summary": "Reimplement the **CRM consolidation (21+ providers)** transform against the original sources as an Airflow DAG + Python \u2014 preserving the business logic (dedup / standardize / match / aggregate) the SSIS module performed, without carrying its truncate-and-rebuild fragility."
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/03-crm-dms-recipient-matching.md",
+   "title": "CRM-DMS recipient matching",
+   "summary": "Reimplement the **CRM-DMS recipient matching** transform against the original sources as an Airflow DAG + Python \u2014 preserving the business logic (dedup / standardize / match / aggregate) the SSIS module performed, without carrying its truncate-and-rebuild fragility."
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/04-address-geocoding.md",
+   "title": "Address geocoding",
+   "summary": "Reimplement the **Address geocoding** transform against the original sources as an Airflow DAG + Python \u2014 preserving the business logic (dedup / standardize / match / aggregate) the SSIS module performed, without carrying its truncate-and-rebuild fragility."
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/05-declined-service-tracking.md",
+   "title": "Declined-service tracking",
+   "summary": "Reimplement the **Declined-service tracking** transform against the original sources as an Airflow DAG + Python \u2014 preserving the business logic (dedup / standardize / match / aggregate) the SSIS module performed, without carrying its truncate-and-rebuild fragility."
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/06-marketing-attribution-engine.md",
+   "title": "Marketing attribution engine",
+   "summary": "Reimplement the **Marketing attribution engine** transform against the original sources as an Airflow DAG + Python \u2014 preserving the business logic (dedup / standardize / match / aggregate) the SSIS module performed, without carrying its truncate-and-rebuild fragility."
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/07-contact-stats-engagement-rollup.md",
+   "title": "Contact-stats / engagement rollup",
+   "summary": "Reimplement the **Contact-stats / engagement rollup** transform against the original sources as an Airflow DAG + Python \u2014 preserving the business logic (dedup / standardize / match / aggregate) the SSIS module performed, without carrying its truncate-and-rebuild fragility."
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/08-bluesky-lifecycle-position.md",
+   "title": "BlueSky lifecycle position",
+   "summary": "Reimplement the **BlueSky lifecycle position** transform against the original sources as an Airflow DAG + Python \u2014 preserving the business logic (dedup / standardize / match / aggregate) the SSIS module performed, without carrying its truncate-and-rebuild fragility."
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/09-vehicle-valuation-staging.md",
+   "title": "Vehicle valuation staging (BlackBook pipeline)",
+   "summary": "Reimplement the **Vehicle valuation staging (BlackBook pipeline)** transform against the original sources as an Airflow DAG + Python \u2014 preserving the business logic (dedup / standardize / match / aggregate) the SSIS module performed, without carrying its truncate-and-rebuild fragility."
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/10-inventory-staging.md",
+   "title": "Inventory staging",
+   "summary": "Reimplement the **Inventory staging** transform against the original sources as an Airflow DAG + Python \u2014 preserving the business logic (dedup / standardize / match / aggregate) the SSIS module performed, without carrying its truncate-and-rebuild fragility."
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/11-email-engagement-transform.md",
+   "title": "Email engagement transform (GA / MailGun)",
+   "summary": "Reimplement the **Email engagement transform (GA / MailGun)** transform against the original sources as an Airflow DAG + Python \u2014 preserving the business logic (dedup / standardize / match / aggregate) the SSIS module performed, without carrying its truncate-and-rebuild fragility."
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/12-lead-prestaging-standardization.md",
+   "title": "Lead prestaging / standardization",
+   "summary": "Reimplement the **Lead prestaging / standardization** transform against the original sources as an Airflow DAG + Python \u2014 preserving the business logic (dedup / standardize / match / aggregate) the SSIS module performed, without carrying its truncate-and-rebuild fragility."
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/13-cdxp-performance-transforms.md",
+   "title": "CDXP performance transforms",
+   "summary": "Reimplement the **CDXP performance transforms** transform against the original sources as an Airflow DAG + Python \u2014 preserving the business logic (dedup / standardize / match / aggregate) the SSIS module performed, without carrying its truncate-and-rebuild fragility."
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/14-review-sentiment-transforms.md",
+   "title": "Review / sentiment transforms",
+   "summary": "Reimplement the **Review / sentiment transforms** transform against the original sources as an Airflow DAG + Python \u2014 preserving the business logic (dedup / standardize / match / aggregate) the SSIS module performed, without carrying its truncate-and-rebuild fragility."
+  },
+  {
+   "path": "specs/03-phase-1-build/10-ssis-reimplementation/15-ssis-job-decommission-and-cutover.md",
+   "title": "SSIS job decommission & cutover",
+   "summary": "Reimplement the **SSIS job decommission & cutover** transform against the original sources as an Airflow DAG + Python \u2014 preserving the business logic (dedup / standardize / match / aggregate) the SSIS module performed, without carrying its truncate-and-rebuild fragility."
+  },
+  {
+   "path": "specs/03-phase-1-build/11-report-migration/00-feature.md",
+   "title": "Report Migration",
+   "summary": "Migrate the legacy DWRPT/Juicebox reports (221 reports across the DWRPT schema families) onto the new Superset + warehouse reporting platform, as dashboards-as-code. Decomposed from a single EPIC into per-family stories; per-report work is captured as subtasks. Container only \u2014 size is the roll-up o"
+  },
+  {
+   "path": "specs/03-phase-1-build/11-report-migration/01-cdxp-report-family.md",
+   "title": "CDXP report family (ALv_CDXP_*)",
+   "summary": "Rebuild the **CDXP report family (ALv_CDXP_*)** reports on Superset reading from the warehouse, as version-controlled dashboards-as-code, replacing the legacy DWRPT views. Per-report migration is tracked as subtasks under this story."
+  },
+  {
+   "path": "specs/03-phase-1-build/11-report-migration/02-medialogic-ads-family.md",
+   "title": "MediaLogic / ads family (ALv_ML_*)",
+   "summary": "Rebuild the **MediaLogic / ads family (ALv_ML_*)** reports on Superset reading from the warehouse, as version-controlled dashboards-as-code, replacing the legacy DWRPT views. Per-report migration is tracked as subtasks under this story."
+  },
+  {
+   "path": "specs/03-phase-1-build/11-report-migration/03-reviewlogic-family.md",
+   "title": "ReviewLogic family (ALv_RL_*)",
+   "summary": "Rebuild the **ReviewLogic family (ALv_RL_*)** reports on Superset reading from the warehouse, as version-controlled dashboards-as-code, replacing the legacy DWRPT views. Per-report migration is tracked as subtasks under this story."
+  },
+  {
+   "path": "specs/03-phase-1-build/11-report-migration/04-sociallogic-family.md",
+   "title": "SocialLogic family (ALv_SL_*)",
+   "summary": "Rebuild the **SocialLogic family (ALv_SL_*)** reports on Superset reading from the warehouse, as version-controlled dashboards-as-code, replacing the legacy DWRPT views. Per-report migration is tracked as subtasks under this story."
+  },
+  {
+   "path": "specs/03-phase-1-build/11-report-migration/05-core-shared-views.md",
+   "title": "Core shared views (core_v_*)",
+   "summary": "Rebuild the **Core shared views (core_v_*)** reports on Superset reading from the warehouse, as version-controlled dashboards-as-code, replacing the legacy DWRPT views. Per-report migration is tracked as subtasks under this story."
+  },
+  {
+   "path": "specs/03-phase-1-build/11-report-migration/06-dwrpt-parity-validation-spot-check.md",
+   "title": "DWRPT parity validation / spot-check",
+   "summary": "Rebuild the **DWRPT parity validation / spot-check** reports on Superset reading from the warehouse, as version-controlled dashboards-as-code, replacing the legacy DWRPT views. Per-report migration is tracked as subtasks under this story."
+  },
+  {
+   "path": "specs/04-phase-2-build/00-epic.md",
+   "title": "Phase 2 \u2014 Applications, Utilities & Activation",
+   "summary": "Application layer on top of live CDP data. Scope is refined after Phase 1 proves the productionized V1, but the expected shape is dealer/DAS utilities, activation workflows, analytics dashboards, source-onboarding operations, and downstream product surfaces."
+  },
+  {
+   "path": "specs/04-phase-2-build/01-source-onboarding/00-feature.md",
+   "title": "Source Onboarding & Activation Feeds",
+   "summary": "Phase 2 extends the Phase 1 ingestion spine where application, activation, analytics, and operational surfaces need additional sources. This is continuous source onboarding, not a second standalone ingestion build."
+  },
+  {
+   "path": "specs/04-phase-2-build/01-source-onboarding/01-application-driven-source-onboarding.md",
+   "title": "Application-driven source onboarding",
+   "summary": "Onboard additional CDP sources as Phase 2 applications and activation workflows require them. Acceptance criteria should be tied to concrete downstream uses: audience activation, dashboards, utility workflows, source status, or product surfaces. The Phase 1 ingestion framework remains the platform f"
+  },
+  {
+   "path": "specs/04-phase-2-build/01-source-onboarding/02-context-metadata-management.md",
+   "title": "Context & semantic-metadata management",
+   "summary": "Applications manage, use, and **expand** the schema-context references established in Phase 1 (`ai-context-schema-conventions`). The context layer becomes a living, app-managed surface rather than a one-time annotation: as new sources onboard and the field catalog grows past v1, every new field acqu"
+  },
+  {
+   "path": "specs/04-phase-2-build/02-application-use-cases/00-feature.md",
+   "title": "Applications on the CDP",
+   "summary": "The **applications that build on top of the Phase-1 CDP** (the application layer over the golden record). These validate the CDP's purpose: every app consumes the unified record/events/consent instead of re-solving identity and aggregation from scratch (objective 1). The flagship/known apps are pull"
+  },
+  {
+   "path": "specs/04-phase-2-build/02-application-use-cases/01-vss-retool.md",
+   "title": "VSS retool on the CDP (flagship)",
+   "summary": "Rebuild the Vehicle Smart Score (VSS) \u2014 the app the engagement is named against \u2014 to consume the Phase-1 golden record instead of re-aggregating consumer+vehicle data and re-solving identity itself. See the rationale catalog (`00-feature.md` \u00a73): the Field Catalog v1 came directly from the VSS data "
+  },
+  {
+   "path": "specs/04-phase-2-build/02-application-use-cases/02-maintenance-service-app.md",
+   "title": "Maintenance & service app (CarPlay / mobile)",
+   "summary": "The Maintenance Cycle Tracker / Service Upseller as a dealer-facing app on the CDP \u2014 see the rationale catalog (`00-feature.md` \u00a71). Tracks each consumer's vehicle maintenance cycle and surfaces due/overdue services and the right upsell, with an in-vehicle **CarPlay** surface and a mobile surface al"
+  },
+  {
+   "path": "specs/04-phase-2-build/02-application-use-cases/03-marketing-activation-app.md",
+   "title": "Marketing activation app",
+   "summary": "The marketing application over the unified, consent-gated record \u2014 see the rationale catalog (`00-feature.md` \u00a72). The app layer that drives campaigns, lifecycle/journey orchestration, personalization, and reputation, sending through the Phase-2 outbound activation connectors."
+  },
+  {
+   "path": "specs/04-phase-2-build/02-application-use-cases/04-consumer-dealer-mobile-app.md",
+   "title": "Consumer / dealer mobile app",
+   "summary": "A mobile surface over the CDP \u2014 the consumer/dealer app layer that consumes the Phase-1 consumer-360 (GraphQL) surface rather than re-solving identity per app. Native/mobile companion to the read surfaces, scoped to the same Phase-1 RBAC + tenant boundaries."
+  },
+  {
+   "path": "specs/04-phase-2-build/02-application-use-cases/05-data-enrichment-tools.md",
+   "title": "Data-enrichment tools",
+   "summary": "Tools for additional data enrichment on top of the CDP \u2014 apps/operators that add third-party or derived signals to the golden record through the Phase-1 ingestion framework and source registry, rather than bespoke enrichment pipelines."
+  },
+  {
+   "path": "specs/04-phase-2-build/02-application-use-cases/06-reputation-management.md",
+   "title": "Reputation management app",
+   "summary": "The reputation app over the unified, consent-gated record \u2014 the \"ReviewSurge\" surface in the rationale catalog (`00-feature.md` \u00a72e). Replaces the dealer's third-party reputation stack (DealerRater, Vendasta, Soci) by driving review-request campaigns from the golden record instead of a siloed list, "
+  },
+  {
+   "path": "specs/04-phase-2-build/02-application-use-cases/07-lead-handling.md",
+   "title": "Lead handling app",
+   "summary": "The lead-handling app over the CDP \u2014 replaces the dealer's Acceptor lead workflow. Lead intake itself is Phase-1 event ingest (leads land via the Event Grid webhook adapter like any other source); this app does dedupe, enrich, route, and assign on top of the resolved record rather than treating each"
+  },
+  {
+   "path": "specs/04-phase-2-build/02-application-use-cases/08-communications-app.md",
+   "title": "Communications app",
+   "summary": "The communications app over the unified, consent-gated record \u2014 replaces the dealer's outreach/telephony stack (Comms API, CallRevu, Twilio). Consent-aware multi-channel outreach (email/SMS/phone) plus call/text logging tied back to the golden record, so every interaction attaches to the resolved co"
+  },
+  {
+   "path": "specs/04-phase-2-build/02-application-use-cases/09-recall-management.md",
+   "title": "Recall management app",
+   "summary": "The recall app over the unified, consent-gated record \u2014 replaces the dealer's RecallMasters surface. Detects open recalls against the resolved consumer's vehicles and drives recall outreach campaigns, so the dealer reaches the right owner of an affected VIN instead of working from a disconnected rec"
+  },
+  {
+   "path": "specs/04-phase-2-build/02-application-use-cases/10-service-support-console.md",
+   "title": "Service & support console",
+   "summary": "A dealer-facing customer-service/support surface over the CDP: a unified consumer 360 for service advisors and support reps, so a rep handling a call or visit sees one resolved consumer \u2014 history, vehicles, consent, interactions \u2014 instead of pivoting across DMS/CRM/tool silos."
+  },
+  {
+   "path": "specs/04-phase-2-build/03-activation-delivery/00-feature.md",
+   "title": "Activation & Delivery",
+   "summary": "The outbound delivery layer \u2014 the capability Phase 1 explicitly defers (see `phase-1-build.segmentation-engine`: \"Outbound activation to external platforms is deferred to P2\"). Phase 1 builds and serves segments, the event backbone, and the consent/suppression engine; this feature pushes them **outb"
+  },
+  {
+   "path": "specs/04-phase-2-build/03-activation-delivery/01-outbound-activation-connectors.md",
+   "title": "Outbound activation connectors",
+   "summary": "Per-destination connectors that push audiences and events outbound \u2014 Meta, TikTok, email ESP, and CRM \u2014 over the **NATS outbound backbone built in Phase 1** (`nats-event-backbone`). The segments, the backbone, and the consent/suppression engine are Phase-1 infrastructure; this story builds the conne"
+  },
+  {
+   "path": "specs/04-phase-2-build/03-activation-delivery/02-web-pixel-js-sdk.md",
+   "title": "Website pixel / JS SDK",
+   "summary": "A first-party website pixel / JavaScript SDK that captures dealer-site web events (page/VDP views, form submits, identity hints) and emits them into the **Phase-1 event intake** as CloudEvents (`cloudevents-contract`, via the webhook adapter). The intake, contract, and normalization are Phase-1 infr"
+  },
+  {
+   "path": "specs/04-phase-2-build/03-activation-delivery/03-event-stream-activation.md",
+   "title": "Event-stream activation",
+   "summary": "Activate the CDP event stream for external/real-time consumers. The NATS event backbone and the versioned event contract are **built in Phase 1** but kept internal (built-then-disabled for outbound); this story turns on governed outbound event subscription so downstream apps and partners can consume"
+  },
+  {
+   "path": "specs/04-phase-2-build/04-reporting-parity/00-feature.md",
+   "title": "Reporting Parity (Custom Reports / Juicebox Replacement)",
+   "summary": "Service parity for DAS's existing custom-reporting offering. Phase 1 builds the reporting **platform** (`phase-1-build.integration-etl-reporting`: Apache Superset self-hosted, the Django meta layer, dashboards-as-code, per-tenant guest-token + RLS, and the analytical SQL store) and the operational r"
+  },
+  {
+   "path": "specs/04-phase-2-build/04-reporting-parity/01-custom-report-catalog-parity.md",
+   "title": "Custom report catalog parity (Juicebox replacement)",
+   "summary": "Recreate the report catalog DAS dealers rely on today (the Juicebox reporting set) as portable dashboards-as-code on the Phase-1 Superset platform, so DAS keeps service parity for its dealers when the legacy reporting layer is retired."
+  },
+  {
+   "path": "specs/04-phase-2-build/04-reporting-parity/02-self-serve-custom-reports.md",
+   "title": "Self-serve custom reports",
+   "summary": "Let dealers build and save their own custom reports \u2014 the self-serve half of reporting parity \u2014 on the Phase-1 Superset platform, within tenant-scoped, RLS-enforced boundaries."
+  },
+  {
+   "path": "specs/04-phase-2-build/04-reporting-parity/03-agency-reseller-reporting.md",
+   "title": "Agency / reseller reporting",
+   "summary": "Multi-dealer rollup reporting for DAS's agency/reseller customers on the Phase-1 platform \u2014 so an agency that manages many dealers sees cross-dealer aggregates within its own boundary, matching the rollup reporting DAS provides resellers today. Builds on the catalog parity reports, raising them from"
+  },
+  {
+   "path": "specs/04-phase-2-build/05-data-exposure/00-feature.md",
+   "title": "Data Exposure & Syndication",
+   "summary": "The data-out side of Phase 2 \u2014 exposing the unified CDP data for downstream consumption over the Phase-1 golden record + governed surfaces. **No reverse-ETL / writeback to legacy systems:** the CDP is the replacement for those systems, not a bridge that keeps feeding them \u2014 DAS is retiring them, not"
+  },
+  {
+   "path": "specs/04-phase-2-build/05-data-exposure/01-inventory-syndication.md",
+   "title": "Inventory syndication feeds",
+   "summary": "Expose unified dealer + inventory data as outbound syndication feeds to publishers \u2014 replaces the dealer's feed stack (Feedhub, OutboundFeeds). Publish per-dealer inventory to the major marketplaces (Cars.com, CarGurus, Craigslist, Facebook Marketplace, eBay) from the CDP's unified data over the Pha"
+  },
+  {
+   "path": "specs/04-phase-2-build/05-data-exposure/02-embeddable-widgets.md",
+   "title": "Embeddable widgets",
+   "summary": "Golden-record-backed embeddable components for dealer websites \u2014 drop-in surfaces (equity / trade-in, service-due) that render a consumer's own data from the CDP on the dealer's site, consent- and tenant-scoped. The embeddable half of data exposure: the unified record surfaced where the consumer alr"
+  },
+  {
+   "path": "specs/04-phase-2-build/05-data-exposure/03-self-serve-data-export.md",
+   "title": "Self-serve data export",
+   "summary": "Let dealers export and download their own tenant data from the CDP \u2014 both a portability/ownership story and a practical bulk-pull, tenant- and RLS-scoped. The export half of data exposure: a dealer can take its golden-record data out without a custom extract job."
+  },
+  {
+   "path": "specs/05-phase-3-ai-ml/00-epic.md",
+   "title": "Phase 3 \u2014 AI + Machine Learning",
+   "summary": "AI and machine learning phase. Scope TBD. Likely covers predictive analytics, lead scoring, churn modeling, and intelligent automation on top of the CDP data layer built in Phases 1 and 2."
+  },
+  {
+   "path": "specs/05-phase-3-ai-ml/01-ai-ml-enhancements/00-feature.md",
+   "title": "AI/ML Enhancements",
+   "summary": "Advanced intelligence layer on top of a live CDP \u2014 **AI, ML, and RAG features built on the clean Phase-2 data.** Phase 1 builds the deterministic engine and stubs the ML extension points; Phase 2 produces clean, structured operating data (resolved records, activation outcomes, operator decisions); P"
+  },
+  {
+   "path": "specs/05-phase-3-ai-ml/01-ai-ml-enhancements/01-model-assisted-identity-and-agentic-apps.md",
+   "title": "Model-assisted identity and agentic applications",
+   "summary": "Use production CDP data to improve identity resolution and unlock AI/agentic application behavior. Likely scope includes pairwise match classifiers, embedding/GNN-assisted identity clustering, LLM-assisted conflict review, predictive scoring, and reuse of DAS's existing AI layer against the CDP gold"
+  },
+  {
+   "path": "specs/05-phase-3-ai-ml/01-ai-ml-enhancements/02-custom-models-rag-on-cdp.md",
+   "title": "Custom models & RAG on the CDP corpus",
+   "summary": "With a large enough, **well-structured, labeled, and contextualized** dataset \u2014 which the Phase 1 schema conventions and Phase 2 context management guarantee \u2014 train or finetune custom models on DAS's own data, and/or build RAG systems over the CDP golden record and its semantic catalog. The data be"
+  },
+  {
+   "path": "specs/05-phase-3-ai-ml/01-ai-ml-enhancements/03-data-labeling-and-training-data.md",
+   "title": "Data labeling and training data",
+   "summary": "Labeling and annotation tooling that turns operator decisions and application outcomes into labeled training data for the downstream ML models \u2014 the supervised-signal source built on clean Phase-2 data. The CDP already produces the right human and outcome signals; this captures them as labels rather"
+  },
+  {
+   "path": "specs/05-phase-3-ai-ml/01-ai-ml-enhancements/04-ml-scoring-and-personalization.md",
+   "title": "ML scoring and personalization",
+   "summary": "The ML models that enhance the Phase-2 apps, trained on clean Phase-2 data: lead/intent/propensity scoring, lookalike, personalization/recommendations, review sentiment, and next-best-action. This is the Phase-3 intelligence layer the deterministic P2 apps were built to receive \u2014 each model plugs in"
+  },
+  {
+   "path": "specs/STORY-STANDARD.md",
+   "title": "Spec Story Standard",
+   "summary": "Every story (`type: story`) follows this shape so a ticket says **what to build, when it's done, and why/when it was decided** \u2014 not just a description."
+  },
+  {
+   "path": "specs/manifest.json",
+   "title": "Project plan manifest (epics/features/stories + statuses)",
+   "summary": "Versioned JSON data file \u2014 read directly for current values."
+  },
+  {
+   "path": "specs/sprint-1-issue-batch.md",
+   "title": "Sprint 1 \u2014 Issue Batch (Foundation slice)",
+   "summary": "The first sprint's work, **ready to open as GitHub issues**. Each entry below is a complete issue"
+  },
+  {
+   "path": "wiki/Amazon-Ads-API.md",
+   "title": "Amazon Ads API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-14"
+  },
+  {
+   "path": "wiki/Architecture.md",
+   "title": "Architecture",
+   "summary": "The CDP is a multi-tenant data platform with four functional layers. The stack that implements each layer is recommended as of Phase 0 (2026-06-13) \u2014 see [[Tech-Stack]]. The architecture below describes what each layer does; the technology that runs it is in [[Tech-Stack]]."
+  },
+  {
+   "path": "wiki/Bing-Ads-API.md",
+   "title": "Microsoft / Bing Ads API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-14 (primary sources: Microsoft Advertising API documentation fetched 2026-06-14, DAS Integration Explorer v5 May 2026, DAS API catalog)"
+  },
+  {
+   "path": "wiki/BlackBook-API.md",
+   "title": "BlackBook API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-11 (sourced from BlackBook developer portal, public API references, DAS ETL inventory, and API integration catalog)"
+  },
+  {
+   "path": "wiki/CallRevu-API.md",
+   "title": "CallRevu API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-18"
+  },
+  {
+   "path": "wiki/CarGurus-API.md",
+   "title": "CarGurus API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-18 (sourced from DAS integration catalog, Data-Source-Inventory wiki, Shared Services APIs artifact, wiki/Mailgun-API.md (structural precedent), and CarGurus public documentation fetched 2026-06-18)"
+  },
+  {
+   "path": "wiki/Carfax-API.md",
+   "title": "Carfax API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-21. Verified: provider/ownership and the gated B2B access model (web-grounded 2026-06-21); table schemas and row counts (in-repo schema dumps + usage analysis). **ACTION REQUIRED (unverified \u2014 needs DAS confirmation):** all three inbound b"
+  },
+  {
+   "path": "wiki/Cars.com-API.md",
+   "title": "Cars.com API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-19 (sourced from DAS Integration Explorer v5, Confluence Shared Services doc, API integration catalog, `wiki/Data-Source-Inventory.md`, and `artifacts/phase-0/confluence/sendgrid-api-info.md`)"
+  },
+  {
+   "path": "wiki/Confluence-Findings.md",
+   "title": "Confluence Discovery Findings",
+   "summary": "**Source:** DAS Technology Confluence \u2014 Technology space (986 pages)"
+  },
+  {
+   "path": "wiki/Craigslist-API.md",
+   "title": "Craigslist Bulk Posting Interface",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-18"
+  },
+  {
+   "path": "wiki/CyberSource-API.md",
+   "title": "CyberSource API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-16, upgraded 2026-06-18 (sourced from DAS Integration Explorer v5, LV Billing Discovery Confluence, LotVantage Fields and Functions Confluence, and CyberSource developer documentation fetched 2026-06-16)"
+  },
+  {
+   "path": "wiki/Data-Model.md",
+   "title": "Data Model",
+   "summary": "Exact field definitions from `artifacts/phase-0/source-docs/das-cdp-mvp-spec-v4.md` \u00a72. These 27 are **Field Catalog v1 \u2014 the bare-minimum MVP floor, not the data model and not the design target**. The catalog is designed to grow past MVP; expansion candidates accrue in `docs/cdp-field-source-matrix"
+  },
+  {
+   "path": "wiki/Data-Source-Inventory.md",
+   "title": "Data Source Inventory",
+   "summary": "**Status:** Phase 0 draft \u2014 to be validated and expanded during discovery sessions"
+  },
+  {
+   "path": "wiki/Database-Inventory.md",
+   "title": "Database Inventory",
+   "summary": "This page captures the **physical databases** that the CDP must ingest from or coexist with. It complements [[Data-Source-Inventory]] (which catalogs sources by business category \u2014 CRM, DMS, lead providers, etc.) by mapping each business source to the actual database engine, server, and schema that "
+  },
+  {
+   "path": "wiki/DealerRater-API.md",
+   "title": "DealerRater (Cars Commerce Reputation Services) API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-15 (sourced from DAS Integration Explorer v5, Confluence Shared Services doc, API integration catalog, and public DealerRater / Cars Commerce partner documentation)"
+  },
+  {
+   "path": "wiki/ETS-Dashboard-API.md",
+   "title": "ETS Dashboard API",
+   "summary": "**Status:** Phase 0 research \u2014 researched 2026-06-13; CDP sections added 2026-06-17; upgraded to CDP research template 2026-06-21. **Internal DAS / EngageToSell control plane \u2014 no public vendor documentation exists.** Architecture and CDP-relevance analysis are grounded in DAS internal docs (Conflue"
+  },
+  {
+   "path": "wiki/ETS-Facebook-SMS-Proxy-API.md",
+   "title": "ETS Facebook Messenger + SMS Proxy API",
+   "summary": "**Status:** Phase 0 research \u2014 researched 2026-06-14; CDP sections added 2026-06-17; upgraded to CDP research template 2026-06-21. Internal DAS/ETS service \u2014 **no public API documentation exists**; external channel components (Facebook Messenger Platform, Twilio SMS) are public and cited where used."
+  },
+  {
+   "path": "wiki/Edmunds-API.md",
+   "title": "Edmunds API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-15 (sourced from DAS Integration Explorer v5, Confluence Shared Services doc, API integration catalog, Data Source Inventory, and public Edmunds developer documentation fetched 2026-06-15)"
+  },
+  {
+   "path": "wiki/Experian-Conquest-API.md",
+   "title": "Experian Conquest API",
+   "summary": "**Status:** Phase 0 research \u2014 template upgraded 2026-06-21. Provider, product framing, and official developer portal are web-verified (see inline sources). DAS-internal integration specifics (REST endpoint URL, CSV column schema, Mautic CLI/import endpoints, 90-day purge policy, production status, "
+  },
+  {
+   "path": "wiki/Facebook-Marketplace-API.md",
+   "title": "Facebook Marketplace API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-18"
+  },
+  {
+   "path": "wiki/Follow-Up-Notes.md",
+   "title": "Follow-Up Notes \u2014 2026-03-09",
+   "summary": "**Meeting:** DAS | CONFLICT | Calliope AI \u2014 Follow Up Discussion"
+  },
+  {
+   "path": "wiki/Frontend.md",
+   "title": "Frontend",
+   "summary": "Next.js application surfaces for the CDP. Captured 2026-06-13 as build-direction notes \u2014 to be specified per surface during Phase 1. The Consumer 360 / Golden Record surface is the only one with an existing spec (`specs/02-phase-1-architecture/01-data-model/04-golden-record-view` in the das-tech rep"
+  },
+  {
+   "path": "wiki/Gemini-API.md",
+   "title": "Gemini API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-21 (public API facts \u2014 surface, auth, models, data-retention \u2014 web-verified 2026-06-21; all DAS-internal state (models in prod, the fallback wiring, usage) is unverified pending DAS confirmation)"
+  },
+  {
+   "path": "wiki/Google-Ads-API.md",
+   "title": "Google Ads API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-21. Public API facts (current version v24, v17 sunset, auth scheme, official docs) web-verified 2026-06-21; DAS production state (deployed API version in `media-logix-googleads-processor`, migration status) is **ACTION REQUIRED \u2014 unverifie"
+  },
+  {
+   "path": "wiki/Home.md",
+   "title": "DAS CDP \u2014 Knowledge Base",
+   "summary": "**Client:** DAS Technology (Digital Air Strike) \u2014 Dan Aston"
+  },
+  {
+   "path": "wiki/Identity-Resolution.md",
+   "title": "Identity Resolution",
+   "summary": "Consumers appear across 100+ DAS systems with inconsistent identifiers. The same person is in the CRM as \"John Smith\" with one email, in the DMS as \"J. Smith\" with a different phone number, and in a Meta ad as a hashed email. The CDP needs to recognize all three as one golden record."
+  },
+  {
+   "path": "wiki/Ingestion-Channels.md",
+   "title": "Ingestion Channels",
+   "summary": "All four channels feed a single universal ingestion pipeline: normalize \u2192 validate \u2192 resolve identity \u2192 store \u2192 return `consumer_id`."
+  },
+  {
+   "path": "wiki/Kelley-Blue-Book-KBB-API.md",
+   "title": "Kelley Blue Book (KBB) API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-21 (publicly-verifiable facts checked 2026-06-21; the KBB valuation API is partner/dealer-gated via Cox Automotive \u2014 surface/auth/schema details are not publicly documented and are flagged unverified; DAS usage unverified)"
+  },
+  {
+   "path": "wiki/Kickoff-Notes.md",
+   "title": "Kickoff Notes \u2014 2026-05-27",
+   "summary": "**Meeting:** DAS CDP Phase 0 Kickoff"
+  },
+  {
+   "path": "wiki/Kickoff-Questions.md",
+   "title": "Kickoff Questions \u2014 Status Tracker",
+   "summary": "Questions from the 2026-05-27 Phase 0 kickoff. Tracked against what was actually answered in the meeting vs. what remains open for Phase 0 discovery."
+  },
+  {
+   "path": "wiki/LiveJoin3-Service-API.md",
+   "title": "LiveJoin3 Service API",
+   "summary": "**Status:** Phase 0 research \u2014 researched 2026-06-13; CDP-template upgrade 2026-06-21. LiveJoin3 is an **internal DAS / Engage To Sell service with no public API documentation** \u2014 no facts on this page are externally web-verifiable. All content is sourced from DAS Confluence and the Integration Expl"
+  },
+  {
+   "path": "wiki/Mailgun-API.md",
+   "title": "Mailgun API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-11 (sourced from Mailgun official documentation, DAS ETL inventory, API integration catalog, and CDXP-Mautic integration documentation)"
+  },
+  {
+   "path": "wiki/Mandrill-API.md",
+   "title": "Mandrill API",
+   "summary": "**Status:** Phase 0 research \u2014 upgraded to CDP research template 2026-06-21; original Stage-5 research 2026-06-13, second pass 2026-06-17 (CDP sections added). External Mandrill facts (provider, endpoint, auth) verified against Mailchimp Transactional docs 2026-06-21; DAS-internal usage, identity-ke"
+  },
+  {
+   "path": "wiki/MaxMind-GeoIP2-API.md",
+   "title": "MaxMind GeoIP2 API",
+   "summary": "**Status:** Phase 0 research \u2014 upgraded to CDP research template & public API facts verified 2026-06-21 (provider, API version v2.1, auth scheme, City/Insights endpoints, and Privacy Exclusions / Do Not Sell endpoint confirmed against MaxMind developer docs). DAS-internal integration state (deployme"
+  },
+  {
+   "path": "wiki/Meta-Facebook-Marketing-API.md",
+   "title": "Meta / Facebook Marketing API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-10 (adversarial fact-check against primary sources; corrections applied)"
+  },
+  {
+   "path": "wiki/Microsoft-Dynamics-365-API.md",
+   "title": "Microsoft Dynamics 365 API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-18"
+  },
+  {
+   "path": "wiki/Microsoft-Graph-Outlook-API.md",
+   "title": "Microsoft Graph / Outlook API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-21 (public Microsoft Graph facts \u2014 endpoints, auth/scopes, throttling, subscriptions \u2014 verified against Microsoft Learn 2026-06-21; the DAS Radar-Outlook \"RadarMail\" spike state is DAS-internal and unverified pending DAS confirmation)"
+  },
+  {
+   "path": "wiki/Mozenda-Scraping-API.md",
+   "title": "Mozenda Web Scraping API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-15 (sourced from DAS Integration Explorer v5, Confluence Shared Services doc, API integration catalog, and Mozenda official documentation fetched 2026-06-15)"
+  },
+  {
+   "path": "wiki/Multi-Tenancy.md",
+   "title": "Multi-Tenancy",
+   "summary": "The CDP is multi-tenant from the ground up. Every dealership is a tenant. DAS is the super-tenant with a global view."
+  },
+  {
+   "path": "wiki/NeverBounce-API.md",
+   "title": "NeverBounce API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-21 (sourced from `3birdsmarketing/Main`, `CDXP-Mautic`, API integration catalog, on-disk artifact `neverbounce-api-info.md`, and NeverBounce official documentation). Public API facts verified against vendor docs: v4.2 current, endpoint pat"
+  },
+  {
+   "path": "wiki/OpenAI-API.md",
+   "title": "OpenAI API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-21 (public API facts \u2014 surface, auth, models, data-retention \u2014 web-verified 2026-06-21; all DAS-internal state (which models in prod, usage, deployment) is unverified pending DAS confirmation)"
+  },
+  {
+   "path": "wiki/Phase-0.md",
+   "title": "Phase 0 \u2014 Discovery & Scoping",
+   "summary": "**Status:** Complete \u2014 awaiting DAS sign-off (started 2026-05-27)"
+  },
+  {
+   "path": "wiki/Privacy-by-Design.md",
+   "title": "Privacy by Design",
+   "summary": "The privacy framework for the CDP, built for the dealer-tenant context specifically \u2014 not generic compliance boilerplate. It covers tenant isolation, dealer data segregation, consent and access boundaries, PII handling, deletion/erasure, and audit/lineage. Mechanisms are decided here; the policy lay"
+  },
+  {
+   "path": "wiki/Project-Overview.md",
+   "title": "Project Overview",
+   "summary": "**DAS Technology** (Digital Air Strike) \u2014 automotive SaaS company. Products include lead management, reputation management, and digital advertising for auto dealerships across the US."
+  },
+  {
+   "path": "wiki/QuickBooks-API.md",
+   "title": "QuickBooks API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-21. Public Intuit facts verified against developer.intuit.com (current API version v3, production/sandbox base-URL hosts, OAuth 2.0). DAS-internal facts pending confirmation against the LotVantage Azure DevOps source: which API version/hos"
+  },
+  {
+   "path": "wiki/Recall-Masters-API.md",
+   "title": "Recall Masters API",
+   "summary": "**Status:** Phase 0 research \u2014 researched 2026-06-16 (sourced from Recall Masters public product documentation, NHTSA Vehicle Recalls API reference, `docs/cdp-field-source-matrix.md`, `docs/cdp-field-catalog.json`, and `wiki/Carfax-API.md` recall gap analysis)"
+  },
+  {
+   "path": "wiki/Reddit-Ads-API.md",
+   "title": "Reddit Ads API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-21 (public API facts \u2014 provider, v3 base URL, OAuth scopes, allow-list model, Conversions API / Pixel \u2014 web-verified 2026-06-21; the `conversion_pixel_id` requirement \u2014 mandatory on all ad groups + CBO campaigns from **July 13, 2026** \u2014 is"
+  },
+  {
+   "path": "wiki/Roadmap.md",
+   "title": "Roadmap",
+   "summary": "**Started:** 2026-05-27"
+  },
+  {
+   "path": "wiki/Rocket.Chat-ETS-API.md",
+   "title": "Rocket.Chat (ETS Instance) API",
+   "summary": "**Status:** Phase 0 research \u2014 template upgraded 2026-06-21 (CL-4). Internal ETS service: no public API; not web-verifiable. API surface and auth verified against the on-disk Confluence artifact and Integration Catalog; **DAS-internal state (deployment, row counts, identity-key coverage, rate limits"
+  },
+  {
+   "path": "wiki/Salesforce-SFDC-API.md",
+   "title": "Salesforce (SFDC) API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-15 (sourced from Salesforce official documentation, DAS ETL inventory, API integration catalog, Meta/Facebook Marketing API wiki page, and Facebook API Info Confluence artifact)"
+  },
+  {
+   "path": "wiki/SendGrid-API.md",
+   "title": "SendGrid API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-11; CDP-template upgrade + public-fact verification 2026-06-21. Public SendGrid facts (provider, v3 API, auth, event-webhook signature header/algorithm, official-docs URLs) verified against Twilio docs 2026-06-21. DAS-internal facts (webho"
+  },
+  {
+   "path": "wiki/Soci-API.md",
+   "title": "Soci API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-16, upgraded 2026-06-18 (sourced from DAS Integration Explorer v5, 3rd Party Services and App Integrations Confluence, and Soci website)"
+  },
+  {
+   "path": "wiki/Sources.md",
+   "title": "Source Catalog",
+   "summary": "Where to find original data, documents, recordings, and systems for the DAS CDP engagement. Use this when you need more detail than what's in the wiki."
+  },
+  {
+   "path": "wiki/Stakeholders.md",
+   "title": "Stakeholders",
+   "summary": "**Route:** Dan for technical questions. Alex for product/scope questions."
+  },
+  {
+   "path": "wiki/Tech-Stack.md",
+   "title": "Technology",
+   "summary": "The CDP stack is a **cloud-agnostic core** \u2014 open-source, self-hosted, identical on any Kubernetes \u2014 plus a thin **per-cloud substrate layer** (\"flavorings\"). The cloud target (AWS vs Azure) is a client choice driven by a cost/benefit bake-off, not a built-in assumption: see `docs/cloud-aws-vs-azure"
+  },
+  {
+   "path": "wiki/Tekion-DMS-API.md",
+   "title": "Tekion DMS API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-15 (sourced from DAS Integration Explorer v5, Confluence artifacts, DAS ETL inventory, API integration catalog, and Tekion public documentation fetched 2026-06-15)"
+  },
+  {
+   "path": "wiki/TikTok-Ads-API.md",
+   "title": "TikTok Ads API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-14"
+  },
+  {
+   "path": "wiki/Twilio-API.md",
+   "title": "Twilio API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-21; re-verified (2nd pass) 2026-06-21 (public API facts \u2014 surface, auth, webhook/status events, opt-out, toll-free/10DLC compliance \u2014 web-verified 2026-06-21 against current Twilio docs; all DAS-internal state (CDXP SMS-proxy wiring, deplo"
+  },
+  {
+   "path": "wiki/Vendasta-Reputation-API.md",
+   "title": "Vendasta Reputation Intelligence API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-15 (sourced from DAS Integration Explorer v5, Confluence Shared Services doc, API integration catalog, and Vendasta Reputation Intelligence API documentation fetched 2026-06-15)"
+  },
+  {
+   "path": "wiki/Yext-API.md",
+   "title": "Yext API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-16, upgraded 2026-06-18 (sourced from DAS Integration Explorer v5, 3rd Party Services and App Integrations Confluence, Yext Hitchhikers developer docs, and Yext Listings product page)"
+  },
+  {
+   "path": "wiki/YouTube-Data-API.md",
+   "title": "YouTube Data / Analytics API Research",
+   "summary": "**Status:** Phase 0 research \u2014 public API facts (version, auth, quota, upload-privacy policy) verified 2026-06-21 against official Google docs; **DAS-internal state ACTION REQUIRED \u2014 unverified** (LotVantage GCP API project verification status, VIN \u2192 `videoId` mapping surface; both need DAS confirma"
+  },
+  {
+   "path": "wiki/Zuora-API.md",
+   "title": "Zuora API",
+   "summary": "**Status:** Phase 0 research \u2014 upgraded to CDP research template & partially verified 2026-06-21. **Verified against public Zuora docs (2026-06-21):** REST API base path `/v1`, production base URL `https://rest.zuora.com`, OAuth 2.0 client-credentials token endpoint, auth scheme. **Pending DAS confi"
+  },
+  {
+   "path": "wiki/eBay-API.md",
+   "title": "eBay API",
+   "summary": "**Status:** Phase 0 research \u2014 researched & verified 2026-06-21 (outbound LotVantage listing path + eBay public Trading API facts verified; all DAS-internal state \u2014 active dealer count, token storage location, DataStaging tables, ResponseLogix ADF-lead path \u2014 pending DAS confirmation)"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+  "version": 2,
+  "updated": "2026-06-15",
+  "note": "Owner assignment + role dimension for the activity timetable. Each activity's effort is split across owners by pct (must sum to 100). 'who' is a person OR a role label (a role = an unstaffed pool, person picked later). Resolution: activity_assignment -> workstream_assignment -> phase_assignment -> default_assignment. gen-estimates.py splits low/high by pct and rolls up by person and by role. DRAFT — confirm the splits.",
+  "roles": {
+    "Principal": ["Leo"],
+    "Staff": ["Luis"],
+    "Staff Data Eng": ["Alicia"],
+    "Sr Engineer": ["Oscar", "Hiram", "Byron", "Julio"],
+    "Sr Engineer - Frontend": ["Rafal", "Piotr", "Tomasz"],
+    "UX Engineer": ["Patrycja"],
+    "QA": ["Magda"]
+  },
+  "person_role": {
+    "Leo": "Principal", "Luis": "Staff", "Alicia": "Staff Data Eng",
+    "Oscar": "Sr Engineer", "Hiram": "Sr Engineer", "Byron": "Sr Engineer", "Julio": "Sr Engineer",
+    "Rafal": "Sr Engineer - Frontend", "Piotr": "Sr Engineer - Frontend", "Tomasz": "Sr Engineer - Frontend",
+    "Patrycja": "UX Engineer", "Magda": "QA"
+  },
+  "exclude_phases": ["phase-0-discovery"],
+  "_exclude_phases_note": "Phase 0 discovery is complete — excluded from the forward effort estimate (the work still exists in the backlog).",
+  "default_assignment": [{ "who": "Sr Engineer", "pct": 90 }, { "who": "Luis", "pct": 10 }],
+  "phase_assignment": {
+    "phase-0-discovery": [{ "who": "Leo", "pct": 100 }],
+    "phase-3-ai-ml": [{ "who": "Alicia", "pct": 100 }]
+  },
+  "workstream_assignment": {
+    "phase-1-architecture.data-model": [{ "who": "Alicia", "pct": 60 }, { "who": "Luis", "pct": 30 }, { "who": "Leo", "pct": 10 }],
+    "phase-1-architecture.platform-decisions": [{ "who": "Leo", "pct": 100 }],
+    "phase-1-architecture.phase-1-close": [{ "who": "Leo", "pct": 100 }],
+    "phase-1-build.foundation": [{ "who": "Leo", "pct": 70 }, { "who": "Luis", "pct": 30 }],
+    "phase-1-build.backend-data-model": [{ "who": "Sr Engineer", "pct": 90 }, { "who": "Luis", "pct": 10 }],
+    "phase-1-build.frontend": [{ "who": "Sr Engineer - Frontend", "pct": 90 }, { "who": "Luis", "pct": 10 }],
+    "phase-1-build.ingest": [{ "who": "Sr Engineer", "pct": 90 }, { "who": "Luis", "pct": 10 }],
+    "phase-1-build.integration-etl-reporting": [{ "who": "Sr Engineer", "pct": 80 }, { "who": "Alicia", "pct": 20 }],
+    "phase-1-build.identity-resolution-engine": [{ "who": "Sr Engineer", "pct": 90 }, { "who": "Luis", "pct": 10 }],
+    "phase-1-build.identity-curation-data-quality": [{ "who": "Sr Engineer", "pct": 90 }, { "who": "Luis", "pct": 10 }],
+    "phase-1-build.segmentation-engine": [{ "who": "Sr Engineer", "pct": 90 }, { "who": "Luis", "pct": 10 }],
+    "phase-1-build.long-tail": [{ "who": "Sr Engineer", "pct": 90 }, { "who": "Luis", "pct": 10 }],
+    "phase-2-build.source-onboarding": [{ "who": "Sr Engineer", "pct": 90 }, { "who": "Luis", "pct": 10 }]
+  },
+  "activity_assignment": {
+    "phase-1-build.foundation.boilerworks-opscode-iac": [{ "who": "Leo", "pct": 100 }],
+    "phase-1-build.foundation.aws-org-iam-identity-center": [{ "who": "Leo", "pct": 100 }],
+    "phase-1-build.foundation.accounts-prod-dev-staging": [{ "who": "Leo", "pct": 100 }],
+    "phase-1-build.foundation.tiered-permissions": [{ "who": "Leo", "pct": 100 }],
+    "phase-1-build.foundation.cd-integration": [{ "who": "Leo", "pct": 100 }],
+    "phase-1-build.foundation.push-button-prod-deploy": [{ "who": "Leo", "pct": 100 }],
+    "phase-1-build.foundation.data-stores-provisioning": [{ "who": "Leo", "pct": 100 }],
+    "phase-1-build.foundation.observability": [{ "who": "Leo", "pct": 100 }],
+    "phase-1-build.foundation.disaster-recovery": [{ "who": "Leo", "pct": 100 }],
+    "phase-1-build.backend-data-model.data-model-foundation": [{ "who": "Alicia", "pct": 60 }, { "who": "Luis", "pct": 30 }, { "who": "Leo", "pct": 10 }],
+    "phase-1-build.backend-data-model.graphql-surface": [{ "who": "Luis", "pct": 100 }],
+    "phase-1-build.backend-data-model.rest-surface": [{ "who": "Luis", "pct": 100 }],
+    "phase-1-build.ingest.airflow-split": [{ "who": "Leo", "pct": 100 }],
+    "phase-1-build.frontend.design-system": [{ "who": "Patrycja", "pct": 100 }]
+  },
+  "overhead": [
+    { "label": "QA — SDET (automated)", "who": "Magda", "pct": 5, "base": ["phase-1-build.frontend", "phase-1-build.backend-data-model.permissions"], "note": "5% of frontend + Django-admin permissions effort" },
+    { "label": "QA — manual", "who": "Magda", "pct": 2, "base": ["phase-1-build.frontend", "phase-1-build.backend-data-model.permissions"], "note": "2% of frontend + Django-admin permissions effort" }
+  ]
+}

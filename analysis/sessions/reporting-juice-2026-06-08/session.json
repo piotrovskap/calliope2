@@ -1,0 +1,15 @@
+{
+  "id": "reporting-juice-2026-06-08",
+  "title": "Reporting & Juicebox Review",
+  "date": "2026-06-08",
+  "type": "technical-review",
+  "description": "Review of the Juicebox reporting platform, DWRPT data warehouse views, and live demo of DAS AI agents querying dealership analytics.",
+  "attendees": ["Daniel Aston", "Ron Mulder", "Leo Mata", "Luis Hernandez", "Hiram Gonzalez", "Alicia Salazar"],
+  "video": "../../media/reporting-juice-2026-06-08.mp4",
+  "tags": ["reporting", "juicebox", "dwrpt", "data-warehouse", "das-ai"],
+  "synthesis": "sessions/session-synthesis-2026-06-08.html",
+  "kg": "results/analysis.html",
+  "video_drive": "https://drive.google.com/file/d/1PrfLjyDIc-Plujka2OCmkL5u9kwOEA4m/view?usp=drive_link",
+  "notes": null,
+  "artifacts": ["reporting-data-flow", "dwrpt-view-inventory"]
+}

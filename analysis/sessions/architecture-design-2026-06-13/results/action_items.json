@@ -1,0 +1,100 @@
+[
+  {
+    "action": "Define survivorship / source-trust ranking for the golden record",
+    "assignee": "Conflict (Alicia Salazar, Luis Hernandez)",
+    "priority": "High",
+    "deadline": "2026-06-19",
+    "context": "DMS is the de facto ground truth (transactions, dollars attached) per Dan/kickoff; lead and social signals rank lower. Field-level provenance records every source's value, but selecting the winning golden value needs explicit trust-ranking + survivorship rules. Input to the identity-resolution strategy and the golden-record view. Raised in the 2026-06-13 architecture design review."
+  },
+  {
+    "action": "Design household / family identity resolution",
+    "assignee": "Conflict (Alicia Salazar, Luis Hernandez)",
+    "priority": "High",
+    "deadline": "2026-06-19",
+    "context": "Dan named families as the hardest identity case. The strategy must handle household grouping (shared address/phone, related consumers) as distinct from individual resolution; feeds the Identity & Relationship Map surface. Raised 2026-06-13 architecture design review."
+  },
+  {
+    "action": "Design the bitemporal provenance data model and confirm schema + API surface",
+    "assignee": "Conflict (Alicia Salazar, Luis Hernandez)",
+    "priority": "High",
+    "deadline": "2026-06-19",
+    "context": "Append-only, field-level provenance with valid-time + system-time (tstzrange + GiST exclusion), scoped to the observation layer; EAV+JSONB for attributes; 'as-of' time-travel powers the Golden Record evolution view. Settles the actual table set (incl. the 4 AI/ML stubs; the '19-table' figure is NOT yet fixed) and confirms whether the REST+GraphQL dual surface stands. The 2026-06-13 review recommended direction; the data model is theirs to finalize."
+  },
+  {
+    "action": "Define consent model and opt-out enforcement",
+    "assignee": "Conflict (Alicia Salazar, Luis Hernandez)",
+    "priority": "Medium",
+    "deadline": "",
+    "context": "Per-consumer, per-dealership consent; opt-out suppression at ingest and serving (not only erasure). Reconcile with KMS per-consumer crypto-shred erasure, soft-deletes-only, and append-only history. Pairs with the Privacy-by-Design Framework deliverable. Raised 2026-06-13."
+  },
+  {
+    "action": "Specify AI / agentic-readiness in the data model",
+    "assignee": "Conflict (Alicia Salazar, Luis Hernandez)",
+    "priority": "Medium",
+    "deadline": "",
+    "context": "Mike's requirement: the CDP must be 'good for AI and good for application lifecycle / agentic events.' Confirm the 4 AI/ML stub tables, the event-log shape (NATS + bitemporal) for agentic/lifecycle consumption, and Redshift/OpenSearch serving; CDP AI features reuse DAS's existing AI layer (ai.das-technology.com), not a parallel build. Raised 2026-06-13."
+  },
+  {
+    "action": "Confirm config-driven source-onboarding registry design",
+    "assignee": "Conflict (Alicia Salazar, Luis Hernandez)",
+    "priority": "Medium",
+    "deadline": "",
+    "context": "Declarative per-source mapping + provenance classification (DAS-global/shareable vs dealer-isolated); mirrors the generic event-adapter pattern for batch so 100+ sources onboard without touching the resolution engine. Raised 2026-06-13."
+  },
+  {
+    "action": "Provide CDP data-profile inputs (volume, formats, change rates, frequency, latency tolerance, consumption patterns)",
+    "assignee": "DAS (via Leo Mata)",
+    "priority": "Medium",
+    "deadline": "",
+    "context": "Outstanding since the 2026-03-09 follow-up. Gates serving-tier sizing (RDS instance class, read replicas, ingestion throughput), currently assumed not validated. Not an Alicia/Luis item — a DAS discovery input. Re-surfaced 2026-06-13."
+  },
+  {
+    "action": "Event Grid -> CDP delivery wiring (Phase 1 build-time, not a Phase 0 blocker)",
+    "assignee": "Conflict (Phase 1) — DAS provides catalog + subscription",
+    "priority": "Low",
+    "deadline": "",
+    "context": "Not needed to complete Phase 0: the CDP event intake is bus-agnostic by design (generic webhook/adapter), so the architecture stands regardless of DAS's answer — Event Grid is just the first adapter (Option A: config-only subscription -> CDP webhook; Option B direct-publish absorbs identically). The four details (catalog, subscription ownership, CloudEvents 1.0, delivery auth) are Phase 1 build inputs. The only Phase-0-relevant piece is the Event Grid event catalog (which apps publish / schemas), which rides along with the existing 'Finish documenting the DAS APIs' discovery. Raised then reframed 2026-06-13."
+  },
+  {
+    "action": "Real-data golden-record proof — validate against actual DAS data",
+    "assignee": "Alicia Salazar + Luis Hernandez (review/approval: Leo Mata)",
+    "priority": "High",
+    "deadline": "",
+    "context": "Mike's #1: prove the golden record is achievable from ACTUAL data ('all the people that could be Mike'), not just structure/field analysis. Must reconcile with the closed Phase 0/1 data-access decision (only DWRPT granted) — determine what data and access enable the proof, and whether access needs reopening. Was unowned until 2026-06-13; now owned. Distinct from the golden-record VIEW (the UI) — this is the real-data validation behind it."
+  },
+  {
+    "action": "Draft the Privacy-by-Design Framework deliverable",
+    "assignee": "Luis Hernandez",
+    "priority": "Medium",
+    "deadline": "",
+    "context": "Phase 0 deliverable. Tenant isolation (RLS), DAS-global vs dealer-isolated segregation, consent + opt-out enforcement, KMS crypto-shred PII handling, bitemporal audit/lineage. Owner assigned 2026-06-13."
+  },
+  {
+    "action": "Draft the Detailed Phase 1 & 2 Plans deliverable",
+    "assignee": "Leo Mata",
+    "priority": "Medium",
+    "deadline": "",
+    "context": "Phase 0 deliverable. Stage-by-stage scope, sequencing, dependencies, effort for Phase 1 (full backend) and Phase 2 (apps + utilities). Owner assigned 2026-06-13."
+  },
+  {
+    "action": "Draft the CDP Scoping Document deliverable",
+    "assignee": "Alicia Salazar + Luis Hernandez + Leo Mata",
+    "priority": "Medium",
+    "deadline": "",
+    "context": "Phase 0 deliverable. Source mappings, unified data model, integration analysis, infrastructure assessment, risk register — converts to build backlog. Data-model half depends on the identity/schema design (due 2026-06-19). Owner assigned 2026-06-13."
+  },
+  {
+    "action": "Draft the Executive Summary deliverable",
+    "assignee": "Leo Mata",
+    "priority": "Medium",
+    "deadline": "",
+    "context": "Phase 0 deliverable, written last — distills the Architecture Plan, Roadmap, and findings for DAS leadership. Owner assigned 2026-06-13."
+  },
+  {
+    "action": "Field prioritization — valuable-now vs interesting-later",
+    "assignee": "Alicia Salazar",
+    "priority": "Medium",
+    "deadline": "",
+    "context": "Mike's progressive-build framing: which record elements are valuable now vs interesting-but-not-yet, driving Field Catalog v1 growth (the initial 27 are the floor). Feeds the golden-record view and the catalog (docs/cdp-field-source-matrix.md, Candidate Fields). Broken out as its own tracked item with owner 2026-06-13; was previously embedded in the golden-record view work."
+  }
+]

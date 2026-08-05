@@ -1,0 +1,638 @@
+[
+  {
+    "page": "Amazon-Ads-API.md",
+    "title": "Amazon Ads",
+    "category": "ads",
+    "tags": [
+      "ads",
+      "retail-media",
+      "attribution",
+      "conversions",
+      "outbound"
+    ],
+    "status": "researched",
+    "cdp_relevance": "campaign performance metrics + offline conversion upload (largely untapped: AMC, CAPI, audiences)",
+    "summary": "Amazon's umbrella ad API (Sponsored Ads, DSP, Attribution/CAPI, AMC) that DAS uses via Media Logix for Sponsored Products campaign config and performance pull only."
+  },
+  {
+    "page": "Google-Ads-API.md",
+    "title": "Google Ads",
+    "category": "ads",
+    "tags": [
+      "ads",
+      "pmax",
+      "attribution",
+      "gclid",
+      "outbound"
+    ],
+    "status": "researched",
+    "cdp_relevance": "campaign performance + gclid-matched offline conversion upload from DMS deals",
+    "summary": "Google Ads API driving DAS's Media Logix Performance Max automation (account creation, campaigns, gclid offline conversions, reporting into AdCenter)."
+  },
+  {
+    "page": "Meta-Facebook-Marketing-API.md",
+    "title": "Meta / Facebook Marketing",
+    "category": "ads",
+    "tags": [
+      "ads",
+      "social",
+      "leads",
+      "catalog",
+      "conversions"
+    ],
+    "status": "researched",
+    "cdp_relevance": "campaign metrics, lead/review webhooks, vehicle catalog, hashed-PII conversions",
+    "summary": "Meta's Marketing API spanning five DAS surfaces (Media Logix, DAS API, Social Logix/Radar, LotVantage, ETS) as both data source (metrics, reviews, leads) and destination (catalog, conversions)."
+  },
+  {
+    "page": "Bing-Ads-API.md",
+    "title": "Microsoft / Bing Ads",
+    "category": "ads",
+    "tags": [
+      "ads",
+      "search",
+      "attribution",
+      "msclkid",
+      "outbound"
+    ],
+    "status": "researched",
+    "cdp_relevance": "campaign metrics + MSCLKID offline conversion upload (planned, not yet live)",
+    "summary": "Microsoft Advertising (Bing Ads) API that DAS uses via Media Logix for Search campaign management and reporting, with offline conversions flagged as a future phase."
+  },
+  {
+    "page": "Reddit-Ads-API.md",
+    "title": "Reddit Ads",
+    "category": "ads",
+    "tags": [
+      "ads",
+      "community-targeting",
+      "attribution",
+      "in-progress",
+      "outbound"
+    ],
+    "status": "researched",
+    "cdp_relevance": "campaign metrics from automotive-subreddit targeting (Conversions/Audiences untapped)",
+    "summary": "Reddit Ads API v3 that Media Logix is integrating (in progress, no prod code confirmed) for automotive community/interest targeting with outbound campaign config and inbound reporting."
+  },
+  {
+    "page": "TikTok-Ads-API.md",
+    "title": "TikTok Ads",
+    "category": "ads",
+    "tags": [
+      "ads",
+      "video",
+      "social",
+      "conversions",
+      "outbound"
+    ],
+    "status": "researched",
+    "cdp_relevance": "video campaign performance metrics (Events API, AIA, audiences untapped)",
+    "summary": "TikTok Marketing API that DAS uses via Media Logix for inventory video campaign config and performance/engagement reporting into AdCenter."
+  },
+  {
+    "page": "YouTube-Data-API.md",
+    "title": "YouTube Data / Analytics",
+    "category": "ads",
+    "tags": [
+      "ads",
+      "video",
+      "analytics",
+      "inventory",
+      "outbound"
+    ],
+    "status": "researched",
+    "cdp_relevance": "per-video ad analytics plus VIN-based vehicle video syndication",
+    "summary": "YouTube Data/Analytics/Reporting APIs that DAS uses via Media Logix for ad analytics and via LotVantage to upload one video per in-stock vehicle to dealer channels."
+  },
+  {
+    "page": "Microsoft-Dynamics-365-API.md",
+    "title": "Microsoft Dynamics 365",
+    "category": "crm",
+    "tags": [
+      "crm",
+      "dealer-master",
+      "dataverse",
+      "inbound",
+      "subscriptions"
+    ],
+    "status": "researched",
+    "cdp_relevance": "dealer account + product/subscription records (Contact/Lead/Opportunity untapped)",
+    "summary": "Dynamics 365 Web API (OData) that Social Logix/SMRM pulls dealer Account and SalesOrderDetail records from; consumer CRM entities are not yet ingested."
+  },
+  {
+    "page": "Salesforce-SFDC-API.md",
+    "title": "Salesforce (SFDC)",
+    "category": "crm",
+    "tags": [
+      "crm",
+      "dealer-master",
+      "campaigns",
+      "leads",
+      "cases"
+    ],
+    "status": "researched",
+    "cdp_relevance": "authoritative dealer account master plus Facebook campaign/lead/review records",
+    "summary": "Salesforce serving DAS as both dealer-of-record master (Account product flags/config) and a Facebook campaign-data and lead repository for DAS.sln."
+  },
+  {
+    "page": "Tekion-DMS-API.md",
+    "title": "Tekion DMS",
+    "category": "dms",
+    "tags": [
+      "dms",
+      "crm",
+      "deals",
+      "repair-orders",
+      "leads"
+    ],
+    "status": "researched",
+    "cdp_relevance": "closed deals + closed ROs (Review Surge) and CRM lead data (manual CSV today)",
+    "summary": "Tekion ARC cloud DMS/CRM API: Review Surge consumes closed deals/ROs via API while CDXP ingests CRM leads through a manual 10k-row CSV-to-FTP bottleneck."
+  },
+  {
+    "page": "ETS-Facebook-SMS-Proxy-API.md",
+    "title": "ETS Facebook Messenger + SMS Proxy",
+    "category": "email-messaging",
+    "tags": [
+      "messaging",
+      "sms",
+      "facebook",
+      "omnichannel",
+      "internal"
+    ],
+    "status": "researched",
+    "cdp_relevance": "inbound consumer Messenger/SMS conversation routing signals",
+    "summary": "ETS multi-channel gateway routing inbound Facebook Messenger and SMS messages into Rocket.Chat omnichannel via the BCProxy DB and Animator config."
+  },
+  {
+    "page": "Mailgun-API.md",
+    "title": "Mailgun",
+    "category": "email-messaging",
+    "tags": [
+      "email",
+      "transactional",
+      "engagement",
+      "webhooks",
+      "cdxp"
+    ],
+    "status": "researched",
+    "cdp_relevance": "per-consumer email engagement events (delivered/open/click/bounce) keyed by c_hashkey",
+    "summary": "Mailgun is the CDXP/3Birds transactional email layer; HMAC-signed webhooks land lifecycle events in marketing.engagement keyed to consumers by c_hashkey."
+  },
+  {
+    "page": "Mandrill-API.md",
+    "title": "Mandrill",
+    "category": "email-messaging",
+    "tags": [
+      "email",
+      "transactional",
+      "lead-alerts",
+      "engagement",
+      "responselogix"
+    ],
+    "status": "researched",
+    "cdp_relevance": "lead-alert email engagement (opens/clicks) with lead metadata",
+    "summary": "Mandrill (Mailchimp Transactional) sends real-time lead-alert emails for Response Path / Response Logix with open/click tracking and lead metadata."
+  },
+  {
+    "page": "Microsoft-Graph-Outlook-API.md",
+    "title": "Microsoft Graph / Outlook",
+    "category": "email-messaging",
+    "tags": [
+      "email",
+      "outlook",
+      "radar",
+      "spike",
+      "inbound"
+    ],
+    "status": "researched",
+    "cdp_relevance": "inbound dealer-mailbox email content + customer intent extraction (spike stage)",
+    "summary": "Researched & verified 2026-06-21 (double pass). Microsoft Graph/Outlook API as Radar's email read/send layer, currently a spike with a foundational RadarMail class implemented."
+  },
+  {
+    "page": "NeverBounce-API.md",
+    "title": "NeverBounce",
+    "category": "email-messaging",
+    "tags": [
+      "email",
+      "validation",
+      "deliverability",
+      "suppression",
+      "cdxp"
+    ],
+    "status": "researched",
+    "cdp_relevance": "email-address validity/quality signals for suppression",
+    "summary": "NeverBounce validates email addresses before Mautic import for CDXP, filtering invalid/disposable addresses and feeding suppression lists."
+  },
+  {
+    "page": "SendGrid-API.md",
+    "title": "SendGrid",
+    "category": "email-messaging",
+    "tags": [
+      "email",
+      "sms",
+      "transactional",
+      "shared-services",
+      "engagement"
+    ],
+    "status": "researched",
+    "cdp_relevance": "transactional email/SMS delivery + engagement across multiple DAS products",
+    "summary": "SendGrid is DAS's primary transactional email/SMS delivery platform serving the Communications API, LiveJoin3, Response Logix, and CDXP."
+  },
+  {
+    "page": "QuickBooks-API.md",
+    "title": "QuickBooks",
+    "category": "finance-billing",
+    "tags": [
+      "billing",
+      "invoicing",
+      "accounting",
+      "lotvantage",
+      "oauth"
+    ],
+    "status": "researched",
+    "cdp_relevance": "dealer invoice/AR billing records (LotVantage)",
+    "summary": "QuickBooks API powering LotVantage invoice creation, billing sync, and AR integration for dealer billing."
+  },
+  {
+    "page": "Zuora-API.md",
+    "title": "Zuora",
+    "category": "finance-billing",
+    "tags": [
+      "billing",
+      "subscriptions",
+      "mrr",
+      "lotvantage",
+      "recurring"
+    ],
+    "status": "researched",
+    "cdp_relevance": "dealer subscription/MRR billing state (LotVantage)",
+    "summary": "Zuora API managing LotVantage dealer subscription lifecycle, recurring invoices, and MRR as the billing source of truth."
+  },
+  {
+    "page": "Experian-Conquest-API.md",
+    "title": "Experian Conquest",
+    "category": "identity-enrichment",
+    "tags": [
+      "conquest",
+      "in-market",
+      "prospects",
+      "cdxp",
+      "demographics"
+    ],
+    "status": "researched",
+    "cdp_relevance": "in-market consumer prospect lists with buyer-intent + demographics",
+    "summary": "Experian Conquest supplies pre-identified in-market automotive consumer lists for CDXP bulk conquest campaigns, ingested via Mautic ETL with 90-day purge."
+  },
+  {
+    "page": "MaxMind-GeoIP2-API.md",
+    "title": "MaxMind GeoIP2",
+    "category": "identity-enrichment",
+    "tags": [
+      "geolocation",
+      "ip",
+      "enrichment",
+      "ccpa",
+      "cdxp"
+    ],
+    "status": "researched",
+    "cdp_relevance": "IP-based geolocation (city/region/timezone) + Do-Not-Sell compliance signals",
+    "summary": "MaxMind GeoIP2 powers IP-based location enrichment of CDXP-Mautic contacts and CCPA Do-Not-Sell compliance workflows."
+  },
+  {
+    "page": "ETS-Dashboard-API.md",
+    "title": "ETS Dashboard",
+    "category": "internal-ets",
+    "tags": [
+      "ets",
+      "control-plane",
+      "config",
+      "joiner-rules",
+      "internal"
+    ],
+    "status": "researched",
+    "cdp_relevance": "dealer account/joiner-rule configuration for ETS chat coordination",
+    "summary": "ETS Dashboard API is the control plane for Engage To Sell managing dealer account config, joiner rules, and departments, syncing with LiveJoin3 and Rocket.Chat."
+  },
+  {
+    "page": "LiveJoin3-Service-API.md",
+    "title": "LiveJoin3 Service",
+    "category": "internal-ets",
+    "tags": [
+      "ets",
+      "orchestration",
+      "joiner",
+      "real-time",
+      "internal"
+    ],
+    "status": "researched",
+    "cdp_relevance": "real-time joiner-invitation events and chat-engagement signals",
+    "summary": "LiveJoin3 is the ETS processing/orchestration engine evaluating joiner rules and coordinating SMS/email invites and WebSocket joiner notifications from Rocket.Chat events."
+  },
+  {
+    "page": "Rocket.Chat-ETS-API.md",
+    "title": "Rocket.Chat (ETS Instance)",
+    "category": "internal-ets",
+    "tags": [
+      "ets",
+      "chat",
+      "omnichannel",
+      "lead-plugin",
+      "internal"
+    ],
+    "status": "researched",
+    "cdp_relevance": "live-chat lead events + omnichannel consumer conversation signals",
+    "summary": "Rocket.Chat (ETS instance) is the ETS live-chat engine hosting the Lead Plugin that detects qualifying chat events and coordinates LiveJoin3 joiner invitations across web/Facebook/SMS."
+  },
+  {
+    "page": "CallRevu-API.md",
+    "title": "CallRevu",
+    "category": "lead-provider",
+    "tags": [
+      "call-tracking",
+      "attribution",
+      "intent",
+      "voi",
+      "dni"
+    ],
+    "status": "researched",
+    "cdp_relevance": "call attribution + VOI signals (disposition, intent score, vehicle of interest)",
+    "summary": "CallRevu is an automotive call-intelligence platform using Dynamic Number Insertion plus AI call analysis (disposition, intent, vehicle of interest) exposed via a REST API."
+  },
+  {
+    "page": "Craigslist-API.md",
+    "title": "Craigslist Bulk Posting Interface",
+    "category": "marketplace-listings",
+    "tags": [
+      "listings",
+      "syndication",
+      "write-only",
+      "xml",
+      "outbound"
+    ],
+    "status": "researched",
+    "cdp_relevance": "vehicle listing syndication only (no inbound/consumer data path)",
+    "summary": "Craigslist's write-only Bulk Posting Interface accepts XML vehicle listings for approved dealers/partners with no read, analytics, or inbound consumer data."
+  },
+  {
+    "page": "eBay-API.md",
+    "title": "eBay",
+    "category": "marketplace-listings",
+    "tags": [
+      "listings",
+      "marketplace",
+      "syndication",
+      "leads",
+      "lotvantage"
+    ],
+    "status": "researched",
+    "cdp_relevance": "vehicle listing syndication + order/lead routing via LotVantage",
+    "summary": "eBay Trading API powering LotVantage dealer inventory syndication to eBay Motors with fixed-price listings, inventory sync, and lead routing."
+  },
+  {
+    "page": "Facebook-Marketplace-API.md",
+    "title": "Facebook Marketplace",
+    "category": "marketplace-listings",
+    "tags": [
+      "listings",
+      "catalog",
+      "marketplace",
+      "leads",
+      "outbound"
+    ],
+    "status": "researched",
+    "cdp_relevance": "vehicle catalog publishing + Marketplace lead-form consumer contact/interest",
+    "summary": "Meta Catalog API publishing dealer vehicle inventory to Facebook Marketplace (and AIA) with Marketplace lead forms capturing consumer contact and vehicle interest."
+  },
+  {
+    "page": "Mozenda-Scraping-API.md",
+    "title": "Mozenda",
+    "category": "scraping",
+    "tags": [
+      "scraping",
+      "reviews",
+      "aggregation",
+      "review-service",
+      "inbound"
+    ],
+    "status": "researched",
+    "cdp_relevance": "scraped reviews from platforms lacking official APIs (review service)",
+    "summary": "Mozenda is DAS's web-scraping source in the Review Service, scraping reviews from platforms without official APIs (paired with Vendasta's API aggregation)."
+  },
+  {
+    "page": "DealerRater-API.md",
+    "title": "DealerRater",
+    "category": "social-reputation",
+    "tags": [
+      "reviews",
+      "reputation",
+      "social-logix",
+      "radar",
+      "inbound"
+    ],
+    "status": "researched",
+    "cdp_relevance": "per-dealer reviews + multi-dimensional rating aggregates",
+    "summary": "DealerRater (Cars Commerce Reputation Services) API feeds the DAS Review Service via sl-reviews-dealerater-fa-prod, supplying structured dealer reviews into the Radar reputation dashboard."
+  },
+  {
+    "page": "Soci-API.md",
+    "title": "Soci",
+    "category": "social-reputation",
+    "tags": [
+      "social",
+      "publishing",
+      "reputation",
+      "social-logix",
+      "outbound"
+    ],
+    "status": "researched",
+    "cdp_relevance": "social content publishing + AI review responses (engagement-ingest unknown)",
+    "summary": "Soci is Social Logix's social publishing and reputation execution layer (content publishing, Genius Reputation responses, NAP sync), primarily outbound via social-logix-app-api."
+  },
+  {
+    "page": "Vendasta-Reputation-API.md",
+    "title": "Vendasta Reputation Intelligence",
+    "category": "social-reputation",
+    "tags": [
+      "reviews",
+      "reputation",
+      "aggregation",
+      "review-service",
+      "inbound"
+    ],
+    "status": "researched",
+    "cdp_relevance": "normalized cross-platform review aggregation (100+ directories)",
+    "summary": "Vendasta's Reputation Intelligence API aggregates reviews/listings/mentions across 100+ directories into the DAS Review Service for Social Logix and Radar (paired with Mozenda)."
+  },
+  {
+    "page": "Yext-API.md",
+    "title": "Yext",
+    "category": "social-reputation",
+    "tags": [
+      "listings",
+      "nap-sync",
+      "reviews",
+      "social-logix-local",
+      "outbound"
+    ],
+    "status": "researched",
+    "cdp_relevance": "dealer NAP/listing sync across 200+ directories (Social Logix Local)",
+    "summary": "Yext is the NAP/listing synchronization layer for Social Logix Local, pushing dealer business entity data to 200+ publisher directories (Google, Apple Maps, Yelp, Facebook)."
+  },
+  {
+    "page": "BlackBook-API.md",
+    "title": "BlackBook",
+    "category": "vehicle-data",
+    "tags": [
+      "valuation",
+      "equity",
+      "wholesale",
+      "vin",
+      "cdxp"
+    ],
+    "status": "researched",
+    "cdp_relevance": "per-vehicle equity position + market value (CDP fields 23/24)",
+    "summary": "BlackBook wholesale valuation API used in the CDXP/3Birds equity email pipeline, supplying the only confirmed working enrichment fields (EquityAmount, MarketValue) in the MVP spec."
+  },
+  {
+    "page": "Carfax-API.md",
+    "title": "Carfax",
+    "category": "vehicle-data",
+    "tags": [
+      "vehicle-history",
+      "badges",
+      "vin",
+      "listings",
+      "radar"
+    ],
+    "status": "researched",
+    "cdp_relevance": "VIN-level vehicle history + listing badges (1-Owner, FreeCarfax)",
+    "summary": "Carfax bidirectional file/API integration: DAS sends listing XML for VHR badge attachment and receives VIN-level badge eligibility, used by Radar, LotVantage, and Social Logix."
+  },
+  {
+    "page": "CarGurus-API.md",
+    "title": "CarGurus",
+    "category": "vehicle-data",
+    "tags": [
+      "reviews",
+      "leads",
+      "adf",
+      "marketplace",
+      "dual-role"
+    ],
+    "status": "researched",
+    "cdp_relevance": "dealer reviews/ratings plus ADF lead consumer identity",
+    "summary": "CarGurus plays two roles in the DAS surface: a review/ratings platform ingested by Social Logix and a lead provider delivering consumer vehicle inquiries via ADF/XML email."
+  },
+  {
+    "page": "Edmunds-API.md",
+    "title": "Edmunds",
+    "category": "vehicle-data",
+    "tags": [
+      "reviews",
+      "leads",
+      "adf",
+      "ratings",
+      "dual-role"
+    ],
+    "status": "researched",
+    "cdp_relevance": "ADF consumer leads plus dealer review/rating data",
+    "summary": "Edmunds operates two independent surfaces: ADF email consumer leads routed into ResponseLogix and a dealer Ratings/Reviews REST API feeding the Radar reputation product."
+  },
+  {
+    "page": "Cars.com-API.md",
+    "title": "Cars.com",
+    "category": "vehicle-data",
+    "tags": [
+      "reviews",
+      "leads",
+      "adf",
+      "cars-commerce",
+      "dual-role"
+    ],
+    "status": "researched",
+    "cdp_relevance": "dealer review aggregates (dealer enrichment) plus ADF lead consumer identity",
+    "summary": "Cars.com (Cars Commerce) plays a dual role at DAS: a read-only dealer-review source polled by sl-reviews-cardotcom-fa-prod into the Review Service/Radar, and a separate ADF/XML email lead provider under ResponseLogix. Review payloads carry no consumer PII beyond reviewer display name."
+  },
+  {
+    "page": "Kelley-Blue-Book-KBB-API.md",
+    "title": "Kelley Blue Book (KBB)",
+    "category": "vehicle-data",
+    "tags": [
+      "valuation",
+      "trade-in",
+      "retail-value",
+      "responsepath",
+      "vin"
+    ],
+    "status": "researched",
+    "cdp_relevance": "consumer trade-in/retail value + trade-in intent signal (Phase 2; complements BlackBook)",
+    "summary": "Researched & verified 2026-06-21 (double pass). Kelley Blue Book (Cox Automotive) IDWS 4.0 powers the CDXP/Response Path Trade-In card, returning consumer-facing trade-in and retail values from consumer-submitted VIN/mileage/condition. No ETL-layer integration found \u2014 real-time widget calls only; the trade-in submission is itself a high-intent lifecycle signal."
+  },
+  {
+    "page": "Recall-Masters-API.md",
+    "title": "Recall Masters",
+    "category": "vehicle-data",
+    "tags": [
+      "recalls",
+      "vin",
+      "nhtsa",
+      "part-availability",
+      "gap-fill"
+    ],
+    "status": "researched",
+    "cdp_relevance": "sole confirmed candidate source for CDP fields #17 (OpenRecallsByVIN) and #18 (CompletedRecallsByVIN)",
+    "summary": "Recall Masters is a net-new (no confirmed DAS integration) REST API returning NHTSA-sourced per-VIN recall data enriched with part-availability status and near-real-time freshness. Proposed primary source for CDP recall fields #17/#18, gating recall service campaigns on part availability; VIN-only lookup, no consumer PII."
+  },
+  {
+    "page": "CyberSource-API.md",
+    "title": "CyberSource",
+    "category": "finance-billing",
+    "tags": [
+      "billing",
+      "payments",
+      "gateway",
+      "lotvantage"
+    ],
+    "status": "researched",
+    "cdp_relevance": "payment gateway for LotVantage dealer billing \u2014 B2B only, no consumer data for CDP",
+    "summary": "CyberSource payment gateway used by LotVantage for dealer billing; P4 CDP priority \u2014 billing plumbing only, no consumer identity or behavioral data."
+  },
+  {
+    "page": "OpenAI-API.md",
+    "title": "OpenAI",
+    "category": "ai",
+    "tags": [
+      "ai",
+      "llm"
+    ],
+    "status": "researched",
+    "cdp_relevance": "AI capability layer, not a consumer-data source \u2014 nothing to ingest. CDP value is reuse of DAS central AI service for LLM-assisted identity/enrichment (Phase 3); PII-to-LLM governance (tokenize at boundary, consent, DPA/ZDR) required.",
+    "summary": "Researched 2026-06-21 \u2014 public API facts web-verified (surface, auth, models, data-retention). DAS-noted models gpt-4o/tts-1 are prior-generation; DAS-internal usage unverified."
+  },
+  {
+    "page": "Gemini-API.md",
+    "title": "Gemini",
+    "category": "ai",
+    "tags": [
+      "ai",
+      "llm"
+    ],
+    "status": "researched",
+    "cdp_relevance": "AI fallback LLM (Central AI Service resilience), not a consumer-data source. PII-to-LLM governance required; prefer Vertex/paid tier (paid + Vertex are not trained on; free tier is).",
+    "summary": "Researched 2026-06-21 \u2014 public API facts web-verified (surface, auth, models, data policy). Google AI vs Vertex governance distinction noted; DAS-internal usage unverified."
+  },
+  {
+    "page": "Twilio-API.md",
+    "title": "Twilio",
+    "category": "communications",
+    "tags": [
+      "sms",
+      "voice",
+      "engagement"
+    ],
+    "status": "researched",
+    "cdp_relevance": "Communications channel + consent/engagement signal source: phone as identity key, message/call status-callback events, and opt-out (STOP/HELP) as a first-class consent-ledger feed.",
+    "summary": "Researched 2026-06-21 \u2014 public API facts web-verified (surface, auth, webhook HMAC, status events, opt-out, A2P 10DLC). CDXP SMS-proxy relationship + DAS-internal usage unverified."
+  }
+]

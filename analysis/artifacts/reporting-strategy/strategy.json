@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "updated": "2026-06-14",
+  "status": "decision locked - v1 (Superset self-hosted, store-neutral warehouse, two-layer architecture); openItems below are implementation spikes that remain, not an undecided recommendation",
+  "changelog": [
+    {
+      "date": "2026-06-14",
+      "note": "v1 - reporting-layer recommendation captured. Superset-as-engine open baseline (two-layer split), Metabase Pro as optional add-on, custom-build and Evidence as alternatives. Closes the open 'evaluate Juicebox replacement' action item."
+    }
+  ],
+  "intent": "Candidate reporting-layer approaches to replace Juicebox for a customer-facing CDP serving ~1,700 dealer tenants, compared on the axes that matter. The decision splits by who authors vs who views: a high-fan-out customer-facing layer (view-only, standardized, must be white-label, per-tenant isolated, cheap to serve) and an internal authoring layer (bounded seats). Baseline is open-source and self-hosted end to end; commercial tooling stays optional. Owners: Alicia + Luis.",
+  "axes": [
+    {
+      "key": "license",
+      "label": "License & cost @ ~1,700 tenants",
+      "note": "Per-seat vs $0 open-source; whether external viewers are billable"
+    },
+    {
+      "key": "isolation",
+      "label": "Per-tenant data isolation",
+      "note": "How each dealer sees only its own rows; where the security boundary lives"
+    },
+    {
+      "key": "whitelabel",
+      "label": "White-label & embedding",
+      "note": "Full branding removal; how it embeds in the portal"
+    },
+    {
+      "key": "authoring",
+      "label": "Authoring UX",
+      "note": "Who builds/edits reports - analyst/code vs non-technical drag-and-drop"
+    },
+    {
+      "key": "serving",
+      "label": "Serving scale & freshness",
+      "note": "Cost to fan out to many viewers; live vs rebuilt data"
+    },
+    {
+      "key": "ops",
+      "label": "Ops burden / what we own",
+      "note": "Stack to run, security cadence, what must be built"
+    }
+  ],
+  "options": [
+    {
+      "id": "superset-engine",
+      "title": "Superset - headless/embedded engine",
+      "status": "recommended",
+      "summary": "Apache-2.0, self-hosted. Driven via REST API: dashboards/charts/datasets as YAML in git, guest-token + RLS minted per dealer from our tenant model, fronted by a thin white-label React surface. Serves the internal authoring layer too via Explore + SQL Lab. Recommended for Layer A and the baseline Layer B.",
+      "positions": {
+        "license": "$0 license at any tenant count - tenants are guest-token sessions, not seats. Cost = infra + staff.",
+        "isolation": "Guest-token RLS clause (dealer_id=...) injected per session, derived from our tenant security model. We own the minting service + a validator hook that rejects any token missing a tenant predicate.",
+        "whitelabel": "Full - 6.0+ theming plus our own front-end (headless) or the Embedded SDK iframe. No vendor branding.",
+        "authoring": "No-code Explore + SQL Lab against pre-modeled datasets. Analyst-friendly; less polished than Metabase for truly non-technical authors.",
+        "serving": "Query-router to the CDP serving layer; live data. Redis cache + Celery async for concurrency. Aggregate dashboards, not raw rows.",
+        "ops": "Postgres + Redis + Celery + web; internet-facing CVE cadence. We build token-minting + dealer->RLS mapping. ~0.5-1 eng-month standup, ~0.25-0.5 FTE ongoing."
+      }
+    },
+    {
+      "id": "custom-build",
+      "title": "Custom-built thin reporting layer",
+      "status": "alternative",
+      "summary": "Build our own renderer + parameterized query API over the CDP serving views, reusing our identity/auth for isolation. Maximum control - viable only if we want zero Superset ops and accept rebuilding the engine. Alternative for Layer A.",
+      "positions": {
+        "license": "$0. Cost = engineering, larger than Superset-as-engine (we build the viz + query + RLS layers ourselves).",
+        "isolation": "Server-side, enforced by our own auth/tenant model - correct by construction, no second RLS source of truth.",
+        "whitelabel": "Total - it is our app.",
+        "authoring": "None for non-technical users - standardized templates only, no self-serve.",
+        "serving": "Live data; cache/CDN. Bounded build for a fixed template set.",
+        "ops": "We own the whole stack and renderer. Trap: do NOT rebuild the self-serve authoring surface - that is a multi-quarter sink."
+      }
+    },
+    {
+      "id": "evidence",
+      "title": "Evidence.dev (BI-as-code)",
+      "status": "alternative",
+      "summary": "MIT, SQL + markdown + git, static-site build. Cheapest to serve and fully branded - but static, code-authored, and its data-to-browser model forces build-per-tenant for isolation. Niche alternative for static-friendly dealer dashboards.",
+      "positions": {
+        "license": "$0 (OSS, MIT). Paid Evidence Studio adds RLS/auth/runtime - not the self-host baseline.",
+        "isolation": "No native isolation. Parquet ships to the browser, so a shared site leaks; safe only as one static build per dealer with that dealer's data baked in.",
+        "whitelabel": "Total - your static site.",
+        "authoring": "Code only (SQL/markdown/git). Not for non-technical users.",
+        "serving": "Cheapest fan-out (static/CDN, ~0 marginal per view), but build-time only - data is rebuild-stale; pre-aggregate upstream.",
+        "ops": "1,700-way build pipeline + all auth/routing built by us. Build cost is linear in tenants."
+      }
+    },
+    {
+      "id": "metabase-pro",
+      "title": "Metabase Pro - OPTIONAL ADD-ON",
+      "status": "optional",
+      "summary": "Commercial, self-hostable. An optional enhancement, NOT part of the core stack: best-in-class non-technical drag-and-drop authoring (the genuine Juicebox successor) for a bounded set of internal staff. Also covers embedded client-based analytics if a supported commercial route for the customer-facing layer is ever wanted.",
+      "positions": {
+        "license": "Paid (Pro base + per-seat). Fine for bounded internal seats; prohibitive ($220K-$1M+/yr) if used per authenticated external viewer at 1,700 dealers - would need a negotiated Enterprise unlimited-end-user term.",
+        "isolation": "Data sandboxing + first-class Tenants/JWT auto-provisioning (Pro+). Strong, designed for thousands of tenants.",
+        "whitelabel": "Full (Pro+); badge removal gated to paid.",
+        "authoring": "Best-in-class drag-and-drop self-serve - the reason to consider it.",
+        "serving": "Query-router + caching (Pro+). Guest embedding is non-billable for view-only dealers.",
+        "ops": "JVM + Postgres app DB; moderate, plus a commercial license to manage."
+      }
+    }
+  ],
+  "recommendation": {
+    "status": "Superset-as-engine (decided baseline), Metabase Pro optional",
+    "note": "Two-layer split. Layer A (customer-facing, ~1,700 dealers): Superset as a headless/embedded engine - API-driven, dashboards-as-YAML in git, guest-token + RLS minted per dealer from our tenant model, fronted by a thin white-label React surface. Layer B (internal authoring): Superset Explore/SQL Lab on the same instance. The whole baseline is Apache-2.0, $0 license, self-hosted - no mandatory commercial dependency. Metabase Pro is an optional add-on for teams that want polished non-technical self-serve authoring (and a supported commercial path for client-facing analytics). Custom-build and Evidence remain alternatives for Layer A."
+  },
+  "architecture": [
+    "Plays directly into our architecture: we write a harness / dashboard-report generator that bakes into Superset's create-chart (widget) and create-dashboard APIs, plus the dataset and Row-Level-Security rule APIs.",
+    "Per-tenant scoping rides on top of our existing tenanted, privacy-by-nature data-isolation security model - the RLS clause / guest-token scope is derived from our tenant identity model, which stays the single source of truth. Reporting introduces no second isolation mechanism.",
+    "Dashboard/chart/dataset definitions live as YAML in git (BI-as-code): reviewed in PRs, deployed by CI, reproducible per environment.",
+    "Onboarding 1,700 dealers is a scripted loop (one template -> per-dealer guest tokens), not manual per-tenant setup."
+  ],
+  "openItems": [
+    "Spike: confirm headless guest-token data calls (chart-data API) honor per-tenant RLS outside the Embedded SDK flow - decides fully-custom front-end vs iframe embed.",
+    "Pin Superset 6.0+ for credible white-labeling; regression-test guest-token RLS on every upgrade.",
+    "Add GUEST_TOKEN_VALIDATOR_HOOK to reject any token missing a tenant predicate (cross-tenant-leak guard).",
+    "If Metabase Pro is elected for Layer B, get a written quote; keep dealers on non-billable guest embedding if it is ever used client-facing."
+  ]
+}

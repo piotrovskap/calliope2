@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Conflict brand overlay */
+  :root {
+    --bg:#1D1D1D;--surface:rgba(255,255,255,.05);--surface2:rgba(255,255,255,.08);
+    --border:rgba(168,168,167,.2);--red:#DB394C;--text:#FFFFFF;--muted:#A8A8A7;--dim:rgba(255,255,255,.3);
+  }
+  html,body{background:var(--bg)!important;color:var(--text)!important;font-family:'Roboto',sans-serif!important;padding-top:54px!important}
+  body>*:not(#_conflict-topbar){max-width:860px;margin-left:auto;margin-right:auto;padding-left:32px;padding-right:32px}
+  h1,h2,h3,h4,h5,h6{color:var(--text)!important;font-family:'Unica One',sans-serif!important;letter-spacing:.03em;text-transform:uppercase}
+  a{color:var(--red)!important}
+  pre,code{background:var(--surface2)!important;color:var(--text)!important;border:1px solid var(--border)!important}
+  table{border-color:var(--border)!important}
+  th{background:var(--surface2)!important;color:var(--muted)!important;font-family:'Roboto Mono',monospace!important;font-size:11px!important;text-transform:uppercase!important}
+  td{border-color:var(--border)!important;color:var(--text)!important}
+  p,li,span,div{color:inherit}
+  hr{border-color:var(--border)!important}
+  /* topbar */
+  #_conflict-topbar{
+    position:fixed;top:0;left:0;right:0;height:54px;z-index:1000;
+    background:var(--bg);border-bottom:1px solid var(--border);
+    display:flex;align-items:center;justify-content:space-between;padding:0 32px;
+  }
+  #_conflict-topbar .brand{display:flex;align-items:center;gap:10px}
+  #_conflict-topbar .brand-sub{font-family:'Unica One',sans-serif;font-size:13px;color:var(--muted);letter-spacing:.06em}
+  #_conflict-topbar .brand-div{color:var(--dim);margin:0 4px}
+  #_conflict-topbar a.back{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--muted);text-decoration:none;border:1px solid var(--border);border-radius:4px;padding:5px 13px}
+  #_conflict-topbar a.back:hover{color:var(--red)!important;border-color:var(--red)}
+  /* suppress Planopticon template title duplicate — markdown headings carry anchor IDs, template ones don't */
+  h1:not([id]){display:none!important}
+</style>
+<meta charset="utf-8">
+<title>DAS CDP Phase 0 Kickoff</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         max-width: 960px; margin: 0 auto; padding: 20px; line-height: 1.6; color: #333; }
+  h1 { color: #1a1a2e; border-bottom: 2px solid #e0e0e0; padding-bottom: 10px; }
+  h2 { color: #16213e; margin-top: 2em; }
+  h3 { color: #0f3460; }
+  pre { background: #f5f5f5; padding: 12px; border-radius: 6px; overflow-x: auto; }
+  code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+  table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+  th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+  th { background: #f0f0f0; }
+  .diagram { margin: 1em 0; text-align: center; }
+  .diagram svg { max-width: 100%; height: auto; }
+  img { max-width: 100%; height: auto; }
+  ul { padding-left: 1.5em; }
+  li { margin: 0.3em 0; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'dark',
+  themeVariables: {
+    primaryColor: '#1c2128',
+    primaryTextColor: '#e6edf3',
+    primaryBorderColor: '#30363d',
+    lineColor: '#58a6ff',
+    secondaryColor: '#161b22',
+    tertiaryColor: '#0d1117',
+    edgeLabelBackground: '#1c2128',
+    clusterBkg: '#1c2128',
+    titleColor: '#e6edf3',
+    nodeTextColor: '#e6edf3',
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif'
+  }
+});
+document.addEventListener('DOMContentLoaded', function() {
+  // Convert <pre><code class="language-mermaid"> to <div class="mermaid">
+  document.querySelectorAll('pre code.language-mermaid').forEach(function(code) {
+    var div = document.createElement('div');
+    div.className = 'mermaid';
+    div.style.cssText = 'background:#1c2128;border:1px solid #30363d;border-radius:10px;padding:24px;margin:16px 0 24px;overflow-x:auto;text-align:center;';
+    div.textContent = code.textContent;
+    code.parentElement.replaceWith(div);
+  });
+  mermaid.run({ nodes: document.querySelectorAll('.mermaid') });
+});
+</script>
+<style>
+body { background: #0d1117; color: #e6edf3; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+h1,h2,h3,h4 { color: #58a6ff; }
+code { background: #1f2937; border: 1px solid #30363d; border-radius: 4px; padding: 1px 6px; color: #e2b96f; }
+pre { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; overflow-x: auto; }
+pre code { background: none; border: none; padding: 0; color: #a5d6ff; }
+table { border-collapse: collapse; width: 100%; }
+th { background: #1c2128; border: 1px solid #30363d; padding: 8px 12px; color: #58a6ff; }
+td { border: 1px solid #30363d; padding: 7px 12px; }
+tr:nth-child(even) td { background: #0f1419; }
+.wrapper { max-width: 1100px; margin: 0 auto; padding: 40px 32px; }
+</style>
+</head>
+<body>
+<div id="_conflict-topbar">
+  <div class="brand">
+    <a href="/" aria-label="Home" style="display:inline-flex;line-height:0"><svg width="80" height="21" viewBox="0 0 141 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.76011 3.9038C5.92786 3.74184 4.10895 4.35124 2.69056 5.6021C2.11733 6.19678 1.66843 6.91459 1.37363 7.70833C1.07884 8.50207 0.944757 9.35363 0.980235 10.2068V25.8829C0.944276 26.744 1.08103 27.6033 1.38128 28.4032C1.68152 29.203 2.13834 29.9249 2.72104 30.5204C4.16802 31.7349 5.9866 32.3289 7.82125 32.186C9.65242 32.3376 11.4679 31.7295 12.8909 30.4878C13.4641 29.8931 13.9129 29.1752 14.2077 28.3814C14.5025 27.5877 14.6366 26.7361 14.6011 25.8829V22.911H10.5088V25.8829C10.5269 26.1963 10.4816 26.5101 10.3763 26.8031C10.2709 27.0962 10.1077 27.3615 9.89795 27.5811C9.29929 28.0511 8.56102 28.2717 7.82125 28.2016C7.06115 28.2882 6.29829 28.0668 5.68342 27.5811C5.47026 27.3642 5.30488 27.0992 5.19924 26.8055C5.0936 26.5118 5.05041 26.1967 5.07267 25.8829V10.2068C5.05065 9.89591 5.09096 9.58361 5.19104 9.29072C5.29111 8.99783 5.44865 8.73115 5.65294 8.50864C6.25972 8.0309 7.01016 7.80989 7.76011 7.88813C8.52022 7.80157 9.28308 8.023 9.89795 8.50864C10.1077 8.72828 10.2709 8.99361 10.3763 9.28663C10.4816 9.57966 10.5269 9.89349 10.5088 10.2068V14.7464H14.6011V10.2068C14.6348 9.34798 14.4939 8.49156 14.1881 7.69657C13.8823 6.90158 13.4188 6.18702 12.8298 5.6021C11.4067 4.3604 9.59128 3.7522 7.76011 3.9038Z" fill="white"/><path d="M55.2655 21.0496L48.4551 4.52451H44.7598V31.631H48.8521V15.0732L55.632 31.631H59.3579V4.52451H55.2655V21.0496Z" fill="white"/><path d="M64.1953 31.631H68.2877V19.8739H74.3346V15.8896H68.2877V8.47617H75.8005V4.52451H64.1953V31.631Z" fill="white"/><path d="M84.731 4.52451H80.6387V31.631H91.4498V27.6466H84.731V4.52451Z" fill="white"/><path d="M96.2871 8.47617H98.1195V27.6466H96.2871V31.631H104.044V27.6466H102.212V8.47617H104.044V4.52451H96.2871V8.47617Z" fill="white"/><path d="M115.64 3.90374C113.817 3.74697 112.01 4.35626 110.601 5.60204C110.022 6.19287 109.57 6.91008 109.275 7.70478C108.98 8.49948 108.849 9.35285 108.89 10.2068V25.8829C108.854 26.7439 108.991 27.6032 109.291 28.4031C109.592 29.203 110.048 29.9248 110.631 30.5203C112.075 31.7406 113.896 32.3352 115.731 32.1859C117.562 32.3375 119.378 31.7294 120.801 30.4877C121.374 29.893 121.823 29.1751 122.118 28.3814C122.412 27.5876 122.547 26.7361 122.511 25.8829V22.9109H118.419V25.8829C118.437 26.1962 118.392 26.51 118.286 26.8031C118.181 27.0961 118.018 27.3614 117.808 27.5811C117.209 28.051 116.471 28.2716 115.731 28.2016C114.971 28.2881 114.208 28.0667 113.593 27.5811C113.38 27.3641 113.215 27.0992 113.109 26.8055C113.004 26.5118 112.96 26.1966 112.983 25.8829V10.2068C112.961 9.89584 113.001 9.58355 113.101 9.29066C113.201 8.99777 113.359 8.73109 113.563 8.50858C114.162 8.0386 114.9 7.818 115.64 7.88806C116.41 7.79306 117.185 8.01491 117.808 8.50858C118.018 8.72822 118.181 8.99354 118.286 9.28657C118.392 9.5796 118.437 9.89342 118.419 10.2068V14.7463H122.511V10.2068C122.545 9.34791 122.404 8.4915 122.098 7.69651C121.792 6.90152 121.329 6.18696 120.74 5.60204C119.307 4.35529 117.481 3.74697 115.64 3.90374Z" fill="white"/><path d="M127.354 4.52451V8.47617H132.118V31.631H136.21V8.47617H140.974V4.52451H127.354Z" fill="white"/><path d="M19.3984 36.1741H26.9709V32.4944H22.9871V3.85375H27.0368V0.174088H19.3984V36.1741Z" fill="#DB394C"/><path d="M32.2717 0.174088V3.85375H36.2884V32.4944H32.2388V36.1741H39.8771V0.174088H32.2717Z" fill="#DB394C"/><path d="M31.4486 10.5303H27.827V25.5524H31.4486V10.5303Z" fill="#DB394C"/></svg></a>
+    <span class="brand-div">×</span>
+    <span class="brand-sub">DAS CDP</span>
+  </div>
+  <a class="back" href="../../../../analysis/">← Sessions</a>
+</div>
+<div class="wrapper">
+<h1>DAS CDP Phase 0 Kickoff</h1>
+<h1 id="analysis-of-conflict-ai-kickoff-phase-0-20260527_130151-meeting-recording">CONFLICT - DAS Kickoff Phase 0 2026-05-27</h1>
+<h2 id="summary">Summary</h2>
+<h1 id="meeting-summary">Meeting Summary</h1>
+<p>This transcript captures introductions from two teams meeting to collaborate on a Customer Data Platform (CDP) project. The Dask Technology team includes Daniel Aston (SVP of Engineering), Alex English (SVP of Product), and technology consultant Mike Paylor, who bring 13-15 years of experience in automotive SaaS solutions and product development. The Conflict team, led by Leo, consists of approximately eight engineers and technical specialists with diverse expertise ranging from 1.5 to 30 years of experience in software development, distributed systems, data engineering, and DevOps.</p>
+<p>The meeting establishes a collaborative partnership between the two companies, with Leo serving as the central coordinator for the Conflict team. Team members highlight their relevant experience in areas critical to the project, including infrastructure, cloud solutions, full-stack engineering, and data management. Craig Irwin from Conflict's commercial team also joins to handle business-related aspects of the engagement.</p>
+<p>The introductions reveal strong complementary expertise between the teams, with Dask bringing product and business perspective while Conflict contributes deep technical engineering capabilities. The tone is professional yet casual, emphasizing excitement about launching the CDP initiative that has been discussed for some time. The meeting concludes with Leo preparing to move into discussing the project's purpose and objectives.</p>
+<h2 id="key-points">Key Points</h2>
+<ul>
+<li>
+<p><strong>Dask Technology operates in the automotive SaaS space with multiple solutions</strong>
+  Daniel Aston (SVP Engineering, 6 years) and Alex English (SVP Product, 14 years) lead the Dask team which provides various SaaS solutions for automotive industry</p>
+</li>
+<li>
+<p><strong>Alex English has strong operational and product background</strong>
+  Previously led account management, support, onboarding, and deactivations teams before moving to product leadership 4 years ago</p>
+</li>
+<li>
+<p><strong>Mike Paylor is a long-term technology and product consultant</strong>
+  Working with Dask for 3 years, known them for 13 years; has VP Engineering and CTO experience at PayPal, Upwork, and startups; focused on infrastructure, DevOps, and cost savings</p>
+</li>
+<li>
+<p><strong>Conflict team consists of experienced engineers and data specialists</strong>
+  Luis Hernandez (30 years experience, distributed systems), Alicia (20+ years data engineering), Oscar (13+ years software development), Byron (8 years engineering), Hiram (full stack, e-commerce/cybersecurity background), Julio (8 years, full stack, DevOps to UI)</p>
+</li>
+<li>
+<p><strong>Leo is the project coordinator and leader</strong>
+  20+ years in tech across ops, data, coding, AI, infrastructure; serving as central coordinator for the engagement</p>
+</li>
+<li>
+<p><strong>CDP (Customer Data Platform) implementation is the main initiative</strong>
+  Long-discussed project between Dask and Conflict teams; importance will become apparent through product breadth discussion</p>
+</li>
+<li>
+<p><strong>Meeting agenda focuses on purpose, objectives, and duration</strong>
+  50 minutes available; Leo has hard stop for another meeting; includes overview, discussion, guiding questions, data sharing and access basics</p>
+</li>
+<li>
+<p><strong>Dask has developed data silos across multiple applications</strong>
+  Broad portfolio spanning media/advertisement services, lead response, and reputation management for car dealerships; need to consolidate sources of record beyond existing data lake and reporting engine</p>
+</li>
+<li>
+<p><strong>Scope alignment and goal definition needed</strong>
+  Need to hear from Dask on goals, what they're building, and requirements for success; common language and understanding essential for all participants</p>
+</li>
+</ul>
+<h2 id="knowledge-graph">Knowledge Graph</h2>
+<pre><code class="language-mermaid">graph LR
+    CDP[&quot;CDP&quot;]:::technology
+    Leo[&quot;Leo&quot;]:::person
+    Dan[&quot;Dan&quot;]:::person
+    Alex[&quot;Alex&quot;]:::person
+    Consumer[&quot;Consumer&quot;]:::concept
+    Mike_Paylor[&quot;Mike Paylor&quot;]:::person
+    Dealership[&quot;Dealership&quot;]:::organization
+    VSS[&quot;VSS&quot;]:::technology
+    Alex_English[&quot;Alex English&quot;]:::person
+    Identity_Resolution[&quot;Identity Resolution&quot;]:::concept
+    PII[&quot;PII&quot;]:::concept
+    DAS[&quot;DAS&quot;]:::organization
+    LLM[&quot;LLM&quot;]:::technology
+    DMS[&quot;DMS&quot;]:::technology
+    Dask_Technology[&quot;Dask Technology&quot;]:::organization
+    Mike[&quot;Mike&quot;]:::person
+    Teams[&quot;Teams&quot;]:::technology
+    Company[&quot;Company&quot;]:::organization
+    vehicle[&quot;vehicle&quot;]:::concept
+    Hiram[&quot;Hiram&quot;]:::person
+    Julio[&quot;Julio&quot;]:::person
+    Project_Initiative[&quot;Project/Initiative&quot;]:::concept
+    Consumer_Data_Platform__CDP_[&quot;Consumer Data Platform (CDP)&quot;]:::technology
+    Dealership_A[&quot;Dealership A&quot;]:::organization
+    Facebook[&quot;Facebook&quot;]:::organization
+    Alex_English -- &quot;works at&quot; --&gt; Dask_Technology
+    Alex_English -- &quot;works closely with on daily basis&quot; --&gt; Dan
+    Leo -- &quot;involved in building&quot; --&gt; Project_Initiative
+    Dan -- &quot;involved in building&quot; --&gt; Project_Initiative
+    CDP -- &quot;manages unified view of&quot; --&gt; Consumer
+    DAS -- &quot;implements&quot; --&gt; CDP
+    CDP -- &quot;proposed infrastructure project at&quot; --&gt; DAS
+    Mike_Paylor -- &quot;customer of&quot; --&gt; Dealership_A
+    Mike_Paylor -- &quot;customer of&quot; --&gt; Alex
+    Dealership -- &quot;uses as data source&quot; --&gt; DMS
+    Dealership -- &quot;uses as data source&quot; --&gt; Facebook
+    Mike_Paylor -- &quot;is client of&quot; --&gt; Dealership
+    Dan -- &quot;co-founded and built systems for&quot; --&gt; Company
+    Alex -- &quot;long-time employee of&quot; --&gt; Company
+    Alex -- &quot;works with&quot; --&gt; Leo
+    Alex -- &quot;co-contacts who work together to provide support&quot; --&gt; Dan
+    Dan -- &quot;discusses&quot; --&gt; VSS
+    Facebook -- &quot;data source integrated into&quot; --&gt; CDP
+    VSS -- &quot;evaluates and scores&quot; --&gt; vehicle
+    VSS -- &quot;provides valuation for&quot; --&gt; vehicle
+    CDP -- &quot;accommodates unique&quot; --&gt; Consumer
+    Leo -- &quot;purchased&quot; --&gt; vehicle
+    Mike_Paylor -- &quot;submits lead to&quot; --&gt; Dealership
+    Mike_Paylor -- &quot;has records in&quot; --&gt; DMS
+    DMS -- &quot;requires reconciliation for&quot; --&gt; Identity_Resolution
+    Leo -- &quot;discusses&quot; --&gt; Identity_Resolution
+    classDef person fill:#f9d5e5,stroke:#333,stroke-width:1px
+    classDef concept fill:#eeeeee,stroke:#333,stroke-width:1px
+    classDef diagram fill:#d5f9e5,stroke:#333,stroke-width:1px
+    classDef time fill:#e5d5f9,stroke:#333,stroke-width:1px
+</code></pre>
+<h2>Key Points</h2><ul><li><strong>Dask Technology operates in the automotive SaaS space with multiple solutions</strong> - Daniel Aston (SVP Engineering, 6 years) and Alex English (SVP Product, 14 years) lead the Dask team which provides various SaaS solutions for automotive industry</li><li><strong>Alex English has strong operational and product background</strong> - Previously led account management, support, onboarding, and deactivations teams before moving to product leadership 4 years ago</li><li><strong>Mike Paylor is a long-term technology and product consultant</strong> - Working with Dask for 3 years, known them for 13 years; has VP Engineering and CTO experience at PayPal, Upwork, and startups; focused on infrastructure, DevOps, and cost savings</li><li><strong>Conflict team consists of experienced engineers and data specialists</strong> - Luis Hernandez (30 years experience, distributed systems), Alicia (20+ years data engineering), Oscar (13+ years software development), Byron (8 years engineering), Hiram (full stack, e-commerce/cybersecurity background), Julio (8 years, full stack, DevOps to UI)</li><li><strong>Leo is the project coordinator and leader</strong> - 20+ years in tech across ops, data, coding, AI, infrastructure; serving as central coordinator for the engagement</li><li><strong>CDP (Customer Data Platform) implementation is the main initiative</strong> - Long-discussed project between Dask and Conflict teams; importance will become apparent through product breadth discussion</li><li><strong>Meeting agenda focuses on purpose, objectives, and duration</strong> - 50 minutes available; Leo has hard stop for another meeting; includes overview, discussion, guiding questions, data sharing and access basics</li><li><strong>Dask has developed data silos across multiple applications</strong> - Broad portfolio spanning media/advertisement services, lead response, and reputation management for car dealerships; need to consolidate sources of record beyond existing data lake and reporting engine</li><li><strong>Scope alignment and goal definition needed</strong> - Need to hear from Dask on goals, what they're building, and requirements for success; common language and understanding essential for all participants</li></ul><h2>Action Items</h2><ul><li><strong>Schedule follow-up meeting(s) for deeper dive into CDP discovery</strong> (assigned to: Leo) — due: TBD</li><li><strong>Provide overview and summary of CDP goals and scope to Conflict team</strong> (assigned to: Daniel Aston / Alex English) — due: During current meeting</li><li><strong>Cover data sharing and access requirements</strong> (assigned to: Leo / Team) — due: During current meeting</li></ul>
+</div>
+<script>document.querySelectorAll('h2+h1').forEach(function(h1){var p=h1.previousElementSibling;if(p&&p.tagName==='H2')p.style.display='none'});</script>
+</body>
+</html>

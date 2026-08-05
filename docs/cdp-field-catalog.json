@@ -1,0 +1,543 @@
+{
+  "meta": {
+    "version": 1,
+    "generated_at": "2026-06-21",
+    "generator": "scripts/gen-field-catalog.py",
+    "source": "docs/cdp-field-source-matrix.md",
+    "resolves_against": "docs/databases/schema.json",
+    "counts": {
+      "fields": 27,
+      "resolved": 0,
+      "unresolved": 27,
+      "with_candidates": 7
+    }
+  },
+  "fields": [
+    {
+      "n": 1,
+      "cdp_field": "CustomerFirstName",
+      "cdp_target": "consumer.first_name` → vault token (raw in PII vault)",
+      "source_raw": "EDW_staging.source_dms_sales/service.CustomerFirstName",
+      "source": {
+        "raw": "EDW_staging.source_dms_sales/service.CustomerFirstName"
+      },
+      "providers": "A·C",
+      "etl_path": "DMS → `DMS_Fact_Names` → CVH",
+      "status": "OK",
+      "phase": "P1",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "abbreviated/wildcard source",
+      "candidate_columns": [
+        "datastaging.core.Stage_Surveys.CustomerFirstName",
+        "datastaging.core.ReviewRocketSurvey.CustomerFirstName"
+      ],
+      "candidate_dbs": [
+        "datastaging"
+      ]
+    },
+    {
+      "n": 2,
+      "cdp_field": "CustomerLastName",
+      "cdp_target": "consumer.last_name` → vault token (raw in PII vault)",
+      "source_raw": "…source_dms_*.CustomerLastName",
+      "source": {
+        "raw": "…source_dms_*.CustomerLastName"
+      },
+      "providers": "A·C",
+      "etl_path": "DMS → `DMS_Fact_Names` → CVH",
+      "status": "OK",
+      "phase": "P1",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "abbreviated/wildcard source",
+      "candidate_columns": [
+        "datastaging.core.Stage_Surveys.CustomerLastName",
+        "datastaging.core.ReviewRocketSurvey.CustomerLastName"
+      ],
+      "candidate_dbs": [
+        "datastaging"
+      ]
+    },
+    {
+      "n": 3,
+      "cdp_field": "CustomerEmail",
+      "cdp_target": "consumer.primary_email` → vault token (raw in PII vault)",
+      "source_raw": "…source_dms_*.CustomerEmail",
+      "source": {
+        "raw": "…source_dms_*.CustomerEmail"
+      },
+      "providers": "A·C",
+      "etl_path": "DMS → `DMS_Fact/Dim_EmailAddresses` → CVH",
+      "status": "OK (identity key)",
+      "phase": "P1",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "abbreviated/wildcard source",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 4,
+      "cdp_field": "CustomerCellPhone",
+      "cdp_target": "consumer.primary_phone` → vault token (raw in PII vault)",
+      "source_raw": "…source_dms_*.CustomerCellPhone",
+      "source": {
+        "raw": "…source_dms_*.CustomerCellPhone"
+      },
+      "providers": "A·C",
+      "etl_path": "DMS → `sp_update_DMS_Fact_CellPhone` → CVH",
+      "status": "OK (identity key)",
+      "phase": "P1",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "abbreviated/wildcard source",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 5,
+      "cdp_field": "VehicleYear",
+      "cdp_target": "vehicle.year",
+      "source_raw": "…source_dms_*.VehicleYear",
+      "source": {
+        "raw": "…source_dms_*.VehicleYear"
+      },
+      "providers": "A·C",
+      "etl_path": "DMS → `DMS_Fact_Vehicles` → CVH",
+      "status": "OK",
+      "phase": "P1",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "abbreviated/wildcard source",
+      "candidate_columns": [
+        "datastaging.CDXP.JuiceReporting_BlueSkyOverview.VehicleYear",
+        "datastaging.CDXP.JuiceReporting_CDXPTransactionsOverview.VehicleYear",
+        "datastaging.CDXP.JuiceReporting_CDXPCustomers.VehicleYear"
+      ],
+      "candidate_dbs": [
+        "datastaging"
+      ]
+    },
+    {
+      "n": 6,
+      "cdp_field": "VehicleMake",
+      "cdp_target": "vehicle.make",
+      "source_raw": "…source_dms_*.VehicleMake",
+      "source": {
+        "raw": "…source_dms_*.VehicleMake"
+      },
+      "providers": "A·C",
+      "etl_path": "DMS → `DMS_Fact_Vehicles` → CVH",
+      "status": "OK",
+      "phase": "P1",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "abbreviated/wildcard source",
+      "candidate_columns": [
+        "datastaging.CDXP.JuiceReporting_BlueSkyOverview.VehicleMake",
+        "datastaging.CDXP.JuiceReporting_CDXPTransactionsOverview.VehicleMake",
+        "datastaging.CDXP.JuiceReporting_CDXPCustomers.VehicleMake",
+        "dwrpt-ai.CDXP.JuiceReporting_BlueSkyRecommendations.VehicleMake"
+      ],
+      "candidate_dbs": [
+        "datastaging",
+        "dwrpt-ai"
+      ]
+    },
+    {
+      "n": 7,
+      "cdp_field": "VehicleModel",
+      "cdp_target": "vehicle.model",
+      "source_raw": "…source_dms_*.VehicleModel",
+      "source": {
+        "raw": "…source_dms_*.VehicleModel"
+      },
+      "providers": "A·C",
+      "etl_path": "DMS → `DMS_Fact_Vehicles` → CVH",
+      "status": "OK",
+      "phase": "P1",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "abbreviated/wildcard source",
+      "candidate_columns": [
+        "datastaging.CDXP.JuiceReporting_BlueSkyOverview.VehicleModel",
+        "datastaging.CDXP.JuiceReporting_CDXPTransactionsOverview.VehicleModel",
+        "datastaging.CDXP.JuiceReporting_CDXPCustomers.VehicleModel",
+        "dwrpt-ai.CDXP.JuiceReporting_BlueSkyRecommendations.VehicleModel"
+      ],
+      "candidate_dbs": [
+        "datastaging",
+        "dwrpt-ai"
+      ]
+    },
+    {
+      "n": 8,
+      "cdp_field": "TrimLevel",
+      "cdp_target": "vehicle.trim",
+      "source_raw": "…source_dms_*.TrimLevel",
+      "source": {
+        "raw": "…source_dms_*.TrimLevel"
+      },
+      "providers": "A·C",
+      "etl_path": "DMS → `DMS_Fact_Vehicles` → CVH",
+      "status": "VALIDATE — source reliability varies (CDK 3PA vs DMS) — open Q",
+      "phase": "P2",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "abbreviated/wildcard source",
+      "candidate_columns": [
+        "web.dbo.digitalmotor.TrimLevel",
+        "web.dbo.dsVehicles.trimLevel"
+      ],
+      "candidate_dbs": [
+        "web"
+      ]
+    },
+    {
+      "n": 9,
+      "cdp_field": "VehicleVIN",
+      "cdp_target": "vehicle.vin",
+      "source_raw": "…source_dms_*.VehicleVIN",
+      "source": {
+        "raw": "…source_dms_*.VehicleVIN"
+      },
+      "providers": "A·C",
+      "etl_path": "DMS → `DMS_Fact_Vehicles` → CVH",
+      "status": "OK (identity key)",
+      "phase": "P1",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "abbreviated/wildcard source",
+      "candidate_columns": [
+        "datastaging.CDXP.JuiceReporting_CDXPTransactionsOverview.VehicleVIN",
+        "datastaging.CDXP.JuiceReporting_MatchBacks.VehicleVIN"
+      ],
+      "candidate_dbs": [
+        "datastaging"
+      ]
+    },
+    {
+      "n": 10,
+      "cdp_field": "PurchaseDate",
+      "cdp_target": "consumer_vehicle.acquired_at",
+      "source_raw": "…source_dms_sales.ClosedDate` (// DealBookDate/ContractDate)",
+      "source": {
+        "raw": "…source_dms_sales.ClosedDate"
+      },
+      "providers": "A·C",
+      "etl_path": "DMS sales → `DMS_Fact_Sales` → CVH",
+      "status": "OK",
+      "phase": "P1",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "abbreviated/wildcard source",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 11,
+      "cdp_field": "VehicleMileage",
+      "cdp_target": "vehicle.mileage",
+      "source_raw": "…source_dms_*.VehicleMileage",
+      "source": {
+        "raw": "…source_dms_*.VehicleMileage"
+      },
+      "providers": "A·C",
+      "etl_path": "DMS → CVH",
+      "status": "VALIDATE — snapshot-at-sale; ingest as point-in-time, update from service visits later",
+      "phase": "P1",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "abbreviated/wildcard source",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 12,
+      "cdp_field": "PurchasePrice",
+      "cdp_target": "consumer_vehicle.metadata->'purchase_price'",
+      "source_raw": "…source_dms_sales.FrontGross+BackGross` (// ROAmount)",
+      "source": {
+        "raw": "…source_dms_sales.FrontGross+BackGross"
+      },
+      "providers": "A·C",
+      "etl_path": "DMS sales → `DMS_Fact_Sales` → CVH",
+      "status": "VALIDATE — accessible for all dealers? — open Q",
+      "phase": "P2",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "abbreviated/wildcard source",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 13,
+      "cdp_field": "VehicleCondition",
+      "cdp_target": "vehicle.vehicle_type",
+      "source_raw": "Derived from deal type in `source_dms_sales",
+      "source": {
+        "raw": "Derived from deal type in `source_dms_sales"
+      },
+      "providers": "A·C",
+      "etl_path": "DMS sales → deal type flag",
+      "status": "GAP — derive from new/used deal type (no direct column)",
+      "phase": "P1",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "not a DB.table.column path",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 14,
+      "cdp_field": "OemMaintenanceSchedule",
+      "cdp_target": "consumer_attribute",
+      "source_raw": "—",
+      "source": null,
+      "providers": "—",
+      "etl_path": "derived in `Analytics_BlueSky_LifecyclePosition` (prediction, not source)",
+      "status": "GAP — no raw source",
+      "phase": "P2",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "no source declared",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 15,
+      "cdp_field": "CompletedServices",
+      "cdp_target": "consumer_attribute",
+      "source_raw": "VSS: none — but `source_dms_service` exists",
+      "source": {
+        "raw": "VSS: none — but `source_dms_service` exists"
+      },
+      "providers": "(A·C?)",
+      "etl_path": "DMS service → `DMS_Fact_Services` → CVH",
+      "status": "VALIDATE — DMS service feed exists; VSS marked unsupported; validate in Phase 1",
+      "phase": "P1",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "not a DB.table.column path",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 16,
+      "cdp_field": "DeclinedServices",
+      "cdp_target": "consumer_attribute",
+      "source_raw": "VSS: none — but declined-service ETL exists",
+      "source": {
+        "raw": "VSS: none — but declined-service ETL exists"
+      },
+      "providers": "—",
+      "etl_path": "DMS → `sp_insert_staging_DMS_Declined_Services` → `…Declined_Service_Flattened",
+      "status": "VALIDATE — ETL exists but messy (Tekion/manual opcodes)",
+      "phase": "P2",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "not a DB.table.column path",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 17,
+      "cdp_field": "OpenRecallsByVIN",
+      "cdp_target": "consumer_attribute",
+      "source_raw": "acceleratordb.leads_recall_data` (see RecallMasters sheet)",
+      "source": {
+        "db": "acceleratordb",
+        "table": "acceleratordb",
+        "column": "leads_recall_data"
+      },
+      "providers": "RecallMasters",
+      "etl_path": "PostgreSQL \"Recall dashboard data\" (`leads_recall_mysql`)",
+      "status": "VALIDATE — available via RecallMasters; new vendor integration required",
+      "phase": "P2",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "no column acceleratordb.leads_recall_data in dumped schema (source DB 'acceleratordb' not dumped)",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 18,
+      "cdp_field": "CompletedRecallsByVIN",
+      "cdp_target": "consumer_attribute",
+      "source_raw": "—",
+      "source": null,
+      "providers": "—",
+      "etl_path": "—",
+      "status": "GAP — no source",
+      "phase": "P2",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "no source declared",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 19,
+      "cdp_field": "CompletedServicesWithMedia",
+      "cdp_target": "consumer_attribute",
+      "source_raw": "—",
+      "source": null,
+      "providers": "—",
+      "etl_path": "GAP — no source (media not captured)",
+      "status": "GAP — no source (media not captured)",
+      "phase": "P2",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "no source declared",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 20,
+      "cdp_field": "ServiceCoupons",
+      "cdp_target": "consumer_attribute",
+      "source_raw": "—",
+      "source": null,
+      "providers": "—",
+      "etl_path": "GAP — no source",
+      "status": "GAP — no source",
+      "phase": "P2",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "no source declared",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 21,
+      "cdp_field": "ServicePlanOffering",
+      "cdp_target": "consumer_attribute",
+      "source_raw": "COX? (unconfirmed)",
+      "source": {
+        "raw": "COX?"
+      },
+      "providers": "—",
+      "etl_path": "GAP — provider TBD",
+      "status": "GAP — provider TBD",
+      "phase": "P2",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "not a DB.table.column path",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 22,
+      "cdp_field": "ServiceOrWarrantyPlanOfferings",
+      "cdp_target": "consumer_attribute",
+      "source_raw": "N/A — COX?",
+      "source": {
+        "raw": "N/A — COX?"
+      },
+      "providers": "GAP — provider TBD",
+      "etl_path": "",
+      "status": "GAP — provider TBD",
+      "phase": "P2",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "abbreviated/wildcard source",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 23,
+      "cdp_field": "EquityAmount",
+      "cdp_target": "consumer_attribute",
+      "source_raw": "EDW_staging.stage_Vehicle_Valuation` (see BlackBook sheet)",
+      "source": {
+        "db": "EDW_staging",
+        "table": "EDW_staging",
+        "column": "stage_Vehicle_Valuation"
+      },
+      "providers": "BB",
+      "etl_path": "BlackBook → `sp_Calculate_Equity` → `Vehicle_Valuation",
+      "status": "OK",
+      "phase": "P1",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "no column EDW_staging.stage_Vehicle_Valuation in dumped schema (source DB 'EDW_staging' not dumped)",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 24,
+      "cdp_field": "MarketValue",
+      "cdp_target": "consumer_attribute",
+      "source_raw": "EDW_staging.stage_Vehicle_Valuation` (see BlackBook sheet)",
+      "source": {
+        "db": "EDW_staging",
+        "table": "EDW_staging",
+        "column": "stage_Vehicle_Valuation"
+      },
+      "providers": "BB",
+      "etl_path": "BlackBook → `Vehicle_Valuation",
+      "status": "OK",
+      "phase": "P1",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "no column EDW_staging.stage_Vehicle_Valuation in dumped schema (source DB 'EDW_staging' not dumped)",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 25,
+      "cdp_field": "VehicleUpgradeOptions",
+      "cdp_target": "consumer_attribute",
+      "source_raw": "ResponseLogix? (unconfirmed)",
+      "source": {
+        "raw": "ResponseLogix?"
+      },
+      "providers": "—",
+      "etl_path": "—",
+      "status": "GAP — provider TBD",
+      "phase": "P2",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "not a DB.table.column path",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 26,
+      "cdp_field": "InsuranceProvider",
+      "cdp_target": "consumer_attribute",
+      "source_raw": "N/A",
+      "source": {
+        "raw": "N/A"
+      },
+      "providers": "—",
+      "etl_path": "—",
+      "status": "GAP — no source (net-new)",
+      "phase": "P2",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "abbreviated/wildcard source",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    },
+    {
+      "n": 27,
+      "cdp_field": "InsuranceQuoteList",
+      "cdp_target": "consumer_attribute",
+      "source_raw": "N/A",
+      "source": {
+        "raw": "N/A"
+      },
+      "providers": "—",
+      "etl_path": "—",
+      "status": "GAP — no source (net-new)",
+      "phase": "P2",
+      "resolved": false,
+      "resolved_to": null,
+      "resolution_note": "abbreviated/wildcard source",
+      "candidate_columns": [],
+      "candidate_dbs": []
+    }
+  ]
+}

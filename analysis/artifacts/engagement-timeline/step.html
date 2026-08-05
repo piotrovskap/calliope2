@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Step — DAS CDP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Roboto:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#1D1D1D;--surface:#111;--surface2:#1a1a1a;--border:#2a2a2a;--border2:#333;
+    --red:#DB394C;--red-dim:rgba(219,57,76,.1);
+    --text:#F8F8F8;--muted:#888;--dim:#444;
+    --green:#4CAF50;--green-dim:rgba(76,175,80,.12);
+    --yellow:#F5A623;--yellow-dim:rgba(245,166,35,.1);
+    --blue:#4A7FA5;--blue-dim:rgba(74,127,165,.12);--radius:6px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Roboto',sans-serif;font-size:13px;line-height:1.6;min-height:100vh}
+  .portal-nav{height:34px;background:var(--bg);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 24px;gap:16px;font-size:11px;position:sticky;top:0;z-index:200}
+  .portal-nav a{color:var(--dim);text-decoration:none}.portal-nav a:hover{color:var(--muted)}
+  .nav-sep{color:var(--border2)}
+  .wrap{max-width:760px;margin:0 auto;padding:36px 32px 64px}
+  .label{font-family:'Roboto Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--red);background:var(--red-dim);border:1px solid rgba(219,57,76,.3);border-radius:3px;padding:2px 8px;display:inline-block}
+  h1{font-family:'Unica One',sans-serif;font-size:28px;letter-spacing:.04em;text-transform:uppercase;color:var(--text);line-height:1.05;margin-top:10px}
+  .desc{font-size:14px;color:var(--muted);line-height:1.6;margin-top:10px;max-width:600px}
+  .status-row{display:flex;align-items:center;gap:12px;margin-top:16px}
+  .badge{font-family:'Roboto Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 9px;border-radius:3px;border:1px solid}
+  .b-done{color:var(--green);border-color:rgba(76,175,80,.4);background:var(--green-dim)}
+  .b-active{color:var(--red);border-color:rgba(219,57,76,.4);background:var(--red-dim)}
+  .b-pending{color:var(--yellow);border-color:rgba(245,166,35,.4);background:var(--yellow-dim)}
+  .meta{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--dim)}
+  .tags{display:flex;gap:6px;margin-top:14px;flex-wrap:wrap}
+  .tag{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--dim);background:var(--surface2);border:1px solid var(--border);border-radius:2px;padding:1px 6px}
+  .section-h{font-family:'Unica One',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:34px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+  .produces{font-size:13px;color:var(--muted);line-height:1.7;max-width:600px}
+  .formats{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+  .fmt{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--muted);text-decoration:none;border:1px solid var(--border);border-radius:4px;padding:5px 12px}
+  .fmt:hover{color:var(--red);border-color:var(--red)}
+  .fmt.off{color:var(--dim);border-style:dashed;cursor:default}
+  .fmt.off:hover{color:var(--dim);border-color:var(--border)}
+  .placeholder{margin-top:6px;padding:18px 20px;border:1px dashed var(--border2);border-radius:var(--radius);background:var(--surface);color:var(--muted);font-size:13px;line-height:1.6}
+  .back-line{margin-top:36px;font-size:11px;font-family:'Roboto Mono',monospace;color:var(--dim);border-top:1px solid var(--border);padding-top:14px}
+  .back-line a{color:var(--muted)}.back-line a:hover{color:var(--red)}
+  .err{color:var(--red)}
+</style>
+</head>
+<body>
+<nav class="portal-nav">
+  <a href="/">← Command Center</a>
+  <span class="nav-sep">/</span>
+  <a href="index.html">Engagement Timeline</a>
+  <span class="nav-sep">/</span>
+  <span style="color:var(--muted)" id="crumb-title">Step</span>
+</nav>
+
+<div class="wrap" id="wrap"><div style="color:var(--dim)">Loading…</div></div>
+
+<script>
+function esc(s){ return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+const BADGE = { done:['b-done','Done'], active:['b-active','In Progress'], pending:['b-pending','Pending'] };
+const STATUS_NOTE = { done:'Completed', active:'In progress', pending:'Not started yet — placeholder' };
+
+function formatBar(step){
+  // Markdown = machine-readable source, PDF = final. Links show only when the file path is declared.
+  const items = [];
+  items.push(step.md  ? `<a class="fmt" href="${esc(step.md)}">Markdown ↓</a>`  : `<span class="fmt off" title="Not yet available">Markdown</span>`);
+  items.push(step.pdf ? `<a class="fmt" href="${esc(step.pdf)}">PDF ↓</a>`       : `<span class="fmt off" title="Not yet available">PDF</span>`);
+  return `<div class="formats">${items.join('')}</div>`;
+}
+
+function render(step){
+  const [bcls, blabel] = BADGE[step.status] || BADGE.pending;
+  const tags = (step.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('');
+  const producesBlock = step.produces
+    ? `<div class="section-h">What this produces</div><p class="produces">${esc(step.produces)}</p>`
+    : '';
+  return `
+    <div class="label">Timeline Step</div>
+    <h1>${esc(step.title)}</h1>
+    <div class="status-row"><span class="badge ${bcls}">${esc(blabel)}</span><span class="meta">${esc(STATUS_NOTE[step.status]||'')}${step.date && step.date!=='TBD' ? ' · '+esc(step.date) : ''}</span></div>
+    <p class="desc">${esc(step.desc)}</p>
+    ${tags ? `<div class="tags">${tags}</div>` : ''}
+    ${producesBlock}
+    <div class="section-h">Output</div>
+    <div class="placeholder">This step has not produced a published output yet. When it does, the document will appear here and as downloadable formats below.</div>
+    ${formatBar(step)}
+    <div class="back-line">Part of the <a href="index.html">Engagement Timeline</a>.</div>`;
+}
+
+async function load(){
+  const wrap = document.getElementById('wrap');
+  let data;
+  try { data = await fetch('timeline.json').then(r => r.json()); }
+  catch(e){ wrap.innerHTML = '<div class="err">Timeline data unavailable (timeline.json).</div>'; return; }
+
+  const id = new URLSearchParams(location.search).get('id');
+  const step = (data.steps || []).find(s => s.id === id);
+  if (!step) { wrap.innerHTML = '<div class="err">Unknown step: ' + esc(id) + '</div>'; return; }
+
+  wrap.innerHTML = render(step);
+  document.getElementById('crumb-title').textContent = step.title;
+  document.title = step.title + ' — DAS CDP';
+}
+load();
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "id": "stakeholder-deck",
+  "title": "Phase 0 Discovery Deck",
+  "description": "DAS CDP Phase 0 discovery deck for stakeholders: current-state findings, target architecture, 27 MVP data points, data-source mapping, dealer isolation rule, and six open decisions (D-1 through D-6). Created by Conflict team.",
+  "type": "document",
+  "icon": "DECK",
+  "href": "../docs/das-cdp-phase0-discovery-deck.html",
+  "source_sessions": [
+    "kickoff-2026-05-27-deep",
+    "ssis-review-2026-06-08",
+    "reporting-juice-2026-06-08"
+  ],
+  "updated": "2026-06-11"
+}

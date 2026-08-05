@@ -1,0 +1,10 @@
+{
+  "id": "open-questions",
+  "title": "Open Questions",
+  "description": "Unresolved Phase 0 questions requiring DAS input before CDP design can proceed. Covers data access, identity resolution, SSIS dependency mapping, and Juicebox migration scope.",
+  "type": "document",
+  "icon": "?",
+  "href": "artifacts/open-questions/index.html",
+  "source_sessions": ["kickoff-2026-05-27-deep", "ssis-review-2026-06-08", "reporting-juice-2026-06-08", "architecture-design-2026-06-13"],
+  "updated": "2026-06-13"
+}

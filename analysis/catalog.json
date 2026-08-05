@@ -1,0 +1,32 @@
+{
+  "project": {
+    "name": "DAS CDP",
+    "client": "DAS Technology",
+    "team": "Conflict",
+    "phase": "0",
+    "started": "2026-05-27"
+  },
+  "sessions": [
+    "kickoff-2026-05-27-deep",
+    "ssis-review-2026-06-08",
+    "reporting-juice-2026-06-08"
+  ],
+  "artifacts": [
+    "brain",
+    "identity-strategies",
+    "reporting-strategy",
+    "golden-record",
+    "stakeholder-deck",
+    "decisions-tracker",
+    "infrastructure-architecture",
+    "reporting-data-flow",
+    "ssis-job-catalog-v2",
+    "ssis-job-catalog",
+    "dwrpt-view-inventory",
+    "api-integration-catalog",
+    "open-questions",
+    "access-tracker",
+    "engagement-timeline",
+    "action-items"
+  ]
+}

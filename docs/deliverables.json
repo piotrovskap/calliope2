@@ -1,0 +1,53 @@
+{
+  "version": 3,
+  "updated": "2026-06-14",
+  "changelog": [
+    {
+      "date": "2026-06-14",
+      "note": "Normalize CONFLICT brand capitalization."
+    },
+    {
+      "date": "2026-06-09",
+      "note": "Rename Stage 1 Stakeholder Deck \u2192 Phase 0 Discovery Deck"
+    },
+    {
+      "date": "2026-06-09",
+      "note": "Extracted from hardcoded JS array in deliverables/index.html"
+    }
+  ],
+  "items": [
+    {
+      "title": "Phase 0 Discovery Deck",
+      "type": "DECK",
+      "typeClass": "t-deck",
+      "status": "PUBLISHED",
+      "statusClass": "st-published",
+      "date": "2026-06-08",
+      "desc": "Phase 0 findings for DAS and CONFLICT leadership. Architecture overview, gap analysis, CDP recommendations.",
+      "open": "../docs/das-cdp-phase0-discovery-deck.html",
+      "preview": null
+    },
+    {
+      "title": "Phase 0 Proposal",
+      "type": "PROPOSAL",
+      "typeClass": "t-proposal",
+      "status": "FINAL",
+      "statusClass": "st-final",
+      "date": "2026-05-27",
+      "desc": "Formal Phase 0 engagement proposal outlining scope, methodology, and deliverables.",
+      "open": "../docs/reader.html?f=artifacts%2Fphase-0%2Fdas-cdp-phase0-proposal-final.md",
+      "preview": "../artifacts/phase-0/das-cdp-phase0-proposal-final.md"
+    },
+    {
+      "title": "Kickoff Agenda & Notes",
+      "type": "NOTES",
+      "typeClass": "t-notes",
+      "status": "ARCHIVED",
+      "statusClass": "st-archived",
+      "date": "2026-05-27",
+      "desc": "Original kickoff meeting agenda and notes from 2026-05-27.",
+      "open": "../docs/reader.html?f=artifacts%2Fphase-0%2Fkickoff%2FKickoff%20-%20Agenda%20%26%20Notes.md",
+      "preview": "../artifacts/phase-0/kickoff/Kickoff - Agenda & Notes.md"
+    }
+  ]
+}

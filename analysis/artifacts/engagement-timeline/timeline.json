@@ -1,0 +1,273 @@
+{
+  "version": 4,
+  "updated": "2026-06-15",
+  "changelog": [
+    {
+      "date": "2026-06-15",
+      "note": "Removed the optional Juicebox-sample step \u2014 a Juicebox demo was enough; report sampling not needed. Relabeled the Phase 0 \u2014 Deliverables badge from 'End of Engagement' to 'End of Phase 0'."
+    },
+    {
+      "date": "2026-06-13",
+      "note": "Marked the Juicebox-sample and Common Client ID coverage steps optional (DAS-dependent) — they are now tracked as optional open questions, not committed Conflict work."
+    },
+    {
+      "date": "2026-06-13",
+      "note": "Refresh discovery steps: access-provisioning closed (DWRPT granted, EDW/Juicebox not provisioned per the replace-don't-reinvest call); added the 2026-06-12 exec sync and 2026-06-13 architecture design pass."
+    },
+    {
+      "date": "2026-06-09",
+      "note": "Timeline made data-driven; every step references its output or a placeholder"
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-0",
+      "label": "Phase 0",
+      "sub": "Discovery \u00b7 Active",
+      "active": true
+    },
+    {
+      "id": "phase-1",
+      "label": "Phase 1",
+      "sub": "Build"
+    },
+    {
+      "id": "phase-2",
+      "label": "Phase 2",
+      "sub": "Applications"
+    },
+    {
+      "id": "phase-3",
+      "label": "Phase 3",
+      "sub": "AI + ML"
+    }
+  ],
+  "groups": [
+    {
+      "id": "phase-0",
+      "label": "Phase 0 \u2014 Discovery",
+      "badge": "Current",
+      "badgeClass": "ph-current"
+    },
+    {
+      "id": "phase-0-deliverables",
+      "label": "Phase 0 \u2014 Deliverables",
+      "badge": "End of Phase 0",
+      "badgeClass": "ph-current"
+    },
+    {
+      "id": "phase-1",
+      "label": "Phase 1 \u2014 Build",
+      "badge": "Up Next",
+      "badgeClass": "ph-next"
+    },
+    {
+      "id": "phase-2",
+      "label": "Phase 2 \u2014 Applications & Integrations",
+      "badge": "Future",
+      "badgeClass": "ph-future"
+    },
+    {
+      "id": "phase-3",
+      "label": "Phase 3 \u2014 AI + Machine Learning",
+      "badge": "Future",
+      "badgeClass": "ph-future"
+    }
+  ],
+  "steps": [
+    {
+      "id": "kickoff",
+      "group": "phase-0",
+      "title": "Kickoff \u2014 Conflict & DAS team introductions",
+      "desc": "Established project scope, team roles, CDP objectives. Attendees: Daniel Aston, Alex English, Mike Paylor, full Conflict team.",
+      "date": "2026-05-27",
+      "status": "done",
+      "tags": [
+        "kickoff",
+        "phase-0"
+      ],
+      "output": {
+        "label": "Session analysis",
+        "href": "/analysis/sessions/kickoff-2026-05-27-deep/results/analysis.html"
+      }
+    },
+    {
+      "id": "ssis-deep-dive",
+      "group": "phase-0",
+      "title": "SSIS Infrastructure Deep Dive",
+      "desc": "Reviewed 13 SSIS jobs, monitoring dashboard, failure modes, and AWS EC2/RDS infrastructure with Rick Sorich and engineering team.",
+      "date": "2026-06-08",
+      "status": "done",
+      "tags": [
+        "ssis",
+        "infrastructure",
+        "etl"
+      ],
+      "output": {
+        "label": "Session analysis",
+        "href": "/analysis/sessions/ssis-review-2026-06-08/results/analysis.html"
+      }
+    },
+    {
+      "id": "reporting-review",
+      "group": "phase-0",
+      "title": "Reporting & Juicebox Review",
+      "desc": "Reviewed Juicebox platform, DWRPT view inventory, Common Client ID implementation, and live DAS AI agent demo.",
+      "date": "2026-06-08",
+      "status": "done",
+      "tags": [
+        "reporting",
+        "juicebox",
+        "dwrpt"
+      ],
+      "output": {
+        "label": "Session analysis",
+        "href": "/analysis/sessions/reporting-juice-2026-06-08/results/analysis.html"
+      }
+    },
+    {
+      "id": "access-provisioning",
+      "group": "phase-0",
+      "title": "System access — resolved",
+      "desc": "Access requests closed 2026-06-12. DWRPT granted (self-serve Common Client ID audit + reporting-parity reference); EDW_Staging and Juicebox not provisioned, per the don't-over-invest-in-replaced-systems call. Two people-asks survive: Ron (Common Client ID logic), Rick (SSIS job descriptions).",
+      "date": "2026-06-12",
+      "status": "done",
+      "tags": [
+        "access"
+      ],
+      "output": {
+        "label": "Access tracker",
+        "href": "/analysis/artifacts/access-tracker/index.html"
+      }
+    },
+    {
+      "id": "exec-sync",
+      "group": "phase-0",
+      "title": "Exec sync — Dan Aston + Mike Paylor",
+      "desc": "CDP confirmed as the source of truth; SSIS/EDW retire; event intake co-primary with batch. Mike's #1: golden record from real data + field prioritization. Identity-resolution strategy options commissioned (Alicia + Luis, due 2026-06-19).",
+      "date": "2026-06-12",
+      "status": "done",
+      "tags": [
+        "exec",
+        "milestone"
+      ],
+      "output": {
+        "label": "Action items",
+        "href": "/analysis/artifacts/action-items/index.html"
+      }
+    },
+    {
+      "id": "architecture-design",
+      "group": "phase-0",
+      "title": "Architecture design pass — CDP target stack",
+      "desc": "Recommended the Phase 0 target architecture: AWS, native RDS Postgres + RLS, NATS, Airflow=ingest / Temporal=app, Event Grid Option A, bitemporal provenance, portability. Reconciled the wiki; drafted the Revised Architecture Plan; routed six identity/data-model directions to Alicia + Luis (due 2026-06-19).",
+      "date": "2026-06-13",
+      "status": "done",
+      "tags": [
+        "architecture",
+        "design"
+      ],
+      "output": {
+        "label": "Revised Architecture Plan",
+        "href": "/docs/reader.html?f=artifacts%2Fphase-0%2Fdeliverables%2Fdas-cdp-revised-architecture-plan.md"
+      }
+    },
+    {
+      "id": "ssis-job-descriptions",
+      "group": "phase-0",
+      "title": "SSIS job descriptions from engineering team",
+      "desc": "Closed 2026-06-18 (Alicia) as not needed: the etl/ inventory (231 objects, docs/etl-data-inventory.md) plus the field-source matrix cover CDP sourcing, so per-job legacy descriptions are off the critical path. AI-inferred interim descriptions captured in the SSIS catalog.",
+      "date": "2026-06-18",
+      "status": "done",
+      "tags": [
+        "ssis",
+        "documentation"
+      ],
+      "output": {
+        "label": "SSIS job catalog",
+        "href": "/analysis/artifacts/ssis-job-catalog-v2/index.html"
+      }
+    },
+    {
+      "id": "common-client-id",
+      "group": "phase-0",
+      "title": "Common Client ID coverage map",
+      "desc": "Done: the CCID audit ran 2026-06-14 (the column is non-functional / all-zero) and the coverage map is complete. CCID is one weighted signal in the deterministic waterfall, not the identity foundation; we build our own CCID from first principles (Option A). The schema/logic ask to Ron was dropped (closed 2026-06-18).",
+      "date": "2026-06-14",
+      "status": "done",
+      "tags": [
+        "identity",
+        "common-client-id"
+      ],
+      "produces": "A coverage map of which source systems carry the Common Client ID versus those that will need probabilistic identity matching \u2014 input to the Identity Resolution Strategy deliverable."
+    },
+    {
+      "id": "phase0-synthesis",
+      "group": "phase-0",
+      "title": "Phase 0 synthesis & stakeholder debrief",
+      "desc": "Deliver findings, open questions, and recommendations to DAS and Conflict leadership. Close Phase 0, confirm Phase 1 scope.",
+      "date": "TBD",
+      "status": "pending",
+      "tags": [
+        "stakeholder",
+        "milestone"
+      ],
+      "produces": "The Phase 0 closeout \u2014 findings, open questions, and recommendations presented to DAS and Conflict leadership, with Phase 1 scope confirmed. The Phase 0 deliverables (Executive Summary, Architecture Plan, Roadmap) are the artifacts this debrief delivers."
+    },
+    {
+      "id": "exec-summary",
+      "group": "phase-0-deliverables",
+      "deliverable": "executive-summary"
+    },
+    {
+      "id": "cdp-architecture",
+      "group": "phase-0-deliverables",
+      "deliverable": "cdp-architecture"
+    },
+    {
+      "id": "cdp-roadmap",
+      "group": "phase-0-deliverables",
+      "deliverable": "cdp-roadmap"
+    },
+    {
+      "id": "cdp-data-model",
+      "group": "phase-1",
+      "title": "CDP data model design",
+      "desc": "Decided: Phase 1 build target is the 15-table model (11 core + 4 AI/ML stubs), locked 2026-06-18 (Alicia + Luis); identity = Option A (deterministic-first, locked 2026-06-17); bitemporal provenance, REST+GraphQL dual surface. Remaining is the DDL build artifact, not a design decision.",
+      "date": "2026-06-18",
+      "status": "done",
+      "tags": [
+        "architecture",
+        "data-model"
+      ],
+      "produces": "The concrete CDP entity schema and ingestion design that Phase 1 build works against, derived from the Phase 0 architecture and roadmap deliverables."
+    },
+    {
+      "id": "reporting-platform-decision",
+      "group": "phase-1",
+      "title": "Reporting platform decision",
+      "desc": "Decided 2026-06-14: Apache Superset (self-hosted, headless/embedded, store-neutral) for both customer-facing and internal authoring; Metabase Pro optional add-on. Per-tenant isolation derives from the existing tenanted security model. Closes the Juicebox-replacement evaluation.",
+      "date": "2026-06-14",
+      "status": "done",
+      "tags": [
+        "reporting",
+        "decision"
+      ],
+      "produces": "A decision on the post-Juicebox reporting platform, informed by the sampled Juicebox reports \u2014 drives the reporting migration scope."
+    },
+    {
+      "id": "etl-modernization",
+      "group": "phase-1",
+      "title": "ETL modernization plan",
+      "desc": "Decided 2026-06-15 (D-6): Apache Airflow replaces SSIS, ingesting from original sources (not EDW); AWS Glue evaluated and rejected. Two-environment DAG delivery with PR-tested CI/CD. Reimplementing the SSIS logic is execution (the ssis-reimplementation EPIC), driven by the etl/ inventory + discovery, not a 1:1 migration.",
+      "date": "2026-06-15",
+      "status": "done",
+      "tags": [
+        "etl",
+        "ssis",
+        "airflow"
+      ],
+      "produces": "A plan for modernizing the ETL layer (Airflow replaces SSIS, Glue rejected, original-sources-not-EDW), grounded in the SSIS deep-dive findings and job catalog."
+    }
+  ]
+}

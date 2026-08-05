@@ -1,0 +1,34 @@
+name = "das-tech"
+main = "worker.js"
+compatibility_date = "2026-06-14"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = false
+preview_urls = false
+
+routes = [
+  { pattern = "das.conflict.media", custom_domain = true },
+]
+
+# Access / auth (out-of-repo dependency). Portal access is gated by Cloudflare
+# Access, configured in the Cloudflare dashboard (Zero Trust -> Access), NOT in
+# this repo. It was set up first and is confirmed in place as of 2026-06-21.
+# The Worker assumes every request reaching it is already authenticated upstream
+# by Access (see the auth note in worker.js); it performs no auth of its own.
+
+[assets]
+directory = "_site"
+binding = "ASSETS"
+run_worker_first = true
+
+# Cloudflare D1 — the brain as a queryable edge database. GATED: enable only when
+# the static app/brain.json plus client-side query proves insufficient for
+# server-side / agent queries. To enable:
+#   1. wrangler d1 create brain   (paste the returned database_id below)
+#   2. uncomment this block
+#   3. build app/brain.db with `make brain-db`, then load:
+#        sqlite3 app/brain.db .dump | wrangler d1 execute brain --remote --file=-
+#   4. add a Worker route in worker.js: /api/brain?q=... -> env.BRAIN_DB.prepare(q).all()
+# [[d1_databases]]
+# binding = "BRAIN_DB"
+# database_name = "brain"
+# database_id = "<from wrangler d1 create>"

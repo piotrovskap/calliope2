@@ -1,0 +1,57 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+*.pyc
+__pycache__/
+node_modules/
+dist/
+build/
+.next/
+_site/
+.wrangler/
+
+# Local workspace state
+.workspace/
+
+# Analysis — large media files (audio/video/frames extracted by Planopticon)
+analysis/*/audio/
+analysis/*/cache/
+analysis/*/frames/
+analysis/*/captures/
+analysis/sessions/*/audio/
+analysis/sessions/*/cache/
+analysis/sessions/*/frames/
+analysis/sessions/*/captures/
+# Curated artifact frames (small set, tracked explicitly)
+!analysis/sessions/ssis-review-2026-06-08/frames/frame_0025.jpg
+!analysis/sessions/ssis-review-2026-06-08/frames/frame_0040.jpg
+!analysis/sessions/ssis-review-2026-06-08/frames/frame_0070.jpg
+!analysis/sessions/ssis-review-2026-06-08/frames/frame_0005.jpg
+!analysis/sessions/ssis-review-2026-06-08/frames/frame_0010.jpg
+
+# SQLite databases (binary, regenerable)
+**/*.db
+
+# Local media symlinks — use video_drive in session.json for Pages
+analysis/media/
+.dev.vars
+
+# Raw DB harvest JSON — contains customer PII (email, phone from data samples)
+docs/databases/raw/
+
+# DAS ETL stored procedures — separate repo (3birdsmarketing/Database-Processes)
+# Clone locally as needed: git clone git@github.com:3birdsmarketing/Database-Processes.git etl
+/etl/

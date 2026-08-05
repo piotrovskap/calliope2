@@ -1,0 +1,161 @@
+{
+  "version": 6,
+  "updated": "2026-06-21",
+  "changelog": [
+    {
+      "date": "2026-06-21",
+      "note": "Closed the 2 stale pending asks (Common Client ID tables, SSIS Job Descriptions) -> na: both superseded 2026-06-18 (own CCID from first principles; etl/ inventory suffices). Reconciles with memory/open-questions.md Historical/Closed."
+    },
+    {
+      "date": "2026-06-15",
+      "note": "Resolved EDW_Staging, Juicebox/Guice, and ai.das-technology.com as not-needed — we have enough access (granted source DBs CIM/ML/RL + SSIS) for discovery and ingestion design. Juicebox scope captured (221 reports / 14 CDXP-Live commitments); a Juicebox demo was sufficient, so the report-sampling task is dropped."
+    },
+    {
+      "date": "2026-06-12",
+      "note": "DWRPT access granted by DAS (after request was closed) — kept for Common Client ID audit and reporting parity; still not an ingestion source"
+    },
+    {
+      "date": "2026-06-12",
+      "note": "Common Client ID schema/extract ask relayed to Ron"
+    },
+    {
+      "date": "2026-06-12",
+      "note": "Closed DWRPT, Juicebox, EDW_Staging access requests by decision — no further data access; SSIS-side access + granted source DBs cover discovery, legacy layers are being replaced. Common Client ID reframed to one-time schema/extract from Ron. SSIS job descriptions ask (8 jobs) relayed to Rick."
+    },
+    {
+      "date": "2026-06-09",
+      "note": "Extracted from hardcoded HTML; baseline from Phase 0 sessions 2026-06-08"
+    },
+    {
+      "date": "2026-06-09",
+      "note": "Added CIM, ML Production, RL Production — access granted to Conflict team"
+    }
+  ],
+  "sections": [
+    {
+      "label": "Databases & Data Warehouses",
+      "items": [
+        {
+          "resource": "CIM (Central Inventory Management)",
+          "note": "Vehicle inventory database — holds historical data for delisted vehicles; peaks ~70% CPU 4-5x/day",
+          "type": "SQL DB",
+          "status": "granted",
+          "owner": "Ron Mulder",
+          "requestedBy": "Conflict Team",
+          "detail": "Access granted 2026-06-09. Holds archive of all delisted vehicles. ElasticSearch layered on top for MediaLogix search. Key source for vehicle history ingestion.",
+          "session": "reporting-juice-2026-06-08"
+        },
+        {
+          "resource": "ML Production Database (MediaLogix)",
+          "note": "Operational DB for MediaLogix ad platform — feeds ML schema in DWRPT",
+          "type": "SQL DB",
+          "status": "granted",
+          "owner": "Ron Mulder",
+          "requestedBy": "Conflict Team",
+          "detail": "Access granted 2026-06-09. Migrating from SQL Server 2008 to C#/PostgreSQL. SSIS jobs pull raw data to EDW_Staging before it reaches DWRPT under the ML schema. Prefer raw source tables over DWRPT views for CDP ingestion.",
+          "session": "reporting-juice-2026-06-08"
+        },
+        {
+          "resource": "RL Production Database (Response Logic OLTP)",
+          "note": "Operational DB for Response Logic lead engagement — NOT the DAS Acceptor mailbox DB",
+          "type": "SQL DB",
+          "status": "granted",
+          "owner": "Ron Mulder",
+          "requestedBy": "Conflict Team",
+          "detail": "Access granted 2026-06-09. Contains OLTP + OLT_archive tables (RL manages its own historical data). Workflow 2.0 tables added here (franchise_excluded_lead_sources). Feeds ALv_RL_* views in DWRPT. Distinct from DAS Acceptor which has its own mailbox DB.",
+          "session": "reporting-juice-2026-06-08"
+        },
+        {
+          "resource": "DWRPT (Data Warehouse)",
+          "note": "Schema-prefixed views: SL, ML, RL, CDXP — primary CDP integration point",
+          "type": "SQL DB",
+          "status": "granted",
+          "owner": "Ron Mulder",
+          "requestedBy": "Conflict Team",
+          "detail": "Granted 2026-06-12 (DAS provisioned after the request had been closed by decision). Used for the Common Client ID audit and reporting-parity reference only — DWRPT remains a derived legacy layer, NOT a CDP ingestion source.",
+          "session": "ssis-review-2026-06-08"
+        },
+        {
+          "resource": "EDW_Staging",
+          "note": "Raw SSIS staging tables — preferred CDP ingestion source",
+          "type": "SQL DB",
+          "status": "na",
+          "owner": "Rick Sorich",
+          "requestedBy": "Conflict Team",
+          "detail": "Resolved 2026-06-15 — no direct access needed; we have enough via the granted source DBs (CIM, ML, RL) plus the SSIS stored procedures. EDW_Staging (raw SSIS staging) is still the conceptual preferred ingestion shape, but a separate grant is not required.",
+          "session": "reporting-juice-2026-06-08"
+        },
+        {
+          "resource": "Common Client ID tables",
+          "note": "Cross-source join key — data quality issues flagged",
+          "type": "SQL DB",
+          "status": "na",
+          "owner": "Ron Mulder",
+          "requestedBy": "Conflict Team",
+          "detail": "Reframed 2026-06-12: no DB grant — a one-time schema + sample extract from Ron covers the coverage/cleanliness audit the identity design needs. Ask relayed to Ron 2026-06-12. — CLOSED 2026-06-18: building our own deterministic Common Client ID from first principles (Option A, locked 2026-06-17); DAS's CCID is at most a migration/backfill signal, never the foundation. The schema/sample ask to Ron is dropped.",
+          "session": "reporting-juice-2026-06-08"
+        }
+      ]
+    },
+    {
+      "label": "Tools & Platforms",
+      "items": [
+        {
+          "resource": "Juicebox / Guice",
+          "note": "Reporting platform — 221 reports, 14 CDXP-Live client commitments",
+          "type": "BI Tool",
+          "status": "na",
+          "owner": "Ron Mulder",
+          "requestedBy": "Conflict Team",
+          "detail": "Resolved 2026-06-15 — not needed. The 221 reports / 14 CDXP-Live client commitments are captured for scope; the report-definition sampling task is dropped (timeline step removed). Juicebox is not on the long-term roadmap.",
+          "session": "reporting-juice-2026-06-08"
+        },
+        {
+          "resource": "SSIS Monitoring Dashboard",
+          "note": "Job health, run history, failure logs",
+          "type": "Dashboard",
+          "status": "granted",
+          "owner": "Rick Sorich",
+          "requestedBy": "Conflict Team",
+          "detail": "Demoed live during SSIS review. Conflict team has visibility.",
+          "session": "ssis-review-2026-06-08"
+        },
+        {
+          "resource": "ai.das-technology.com",
+          "note": "Production AI agent interface querying DWRPT",
+          "type": "AI Platform",
+          "status": "na",
+          "owner": "TBD",
+          "requestedBy": "Conflict Team",
+          "detail": "Not needed — decided 2026-06-15. CDP AI features will not depend on this production interface.",
+          "session": null
+        }
+      ]
+    },
+    {
+      "label": "Documentation & Diagrams",
+      "items": [
+        {
+          "resource": "SSIS Job Dependency Diagram",
+          "note": "Lucid chart showing job execution order and dependencies",
+          "type": "Diagram",
+          "status": "na",
+          "owner": "Rick Sorich",
+          "requestedBy": "Conflict Team",
+          "detail": "Rick offered to share Lucid charts; not received. No longer required — the ETL modernization plan is decided (D-6, managed/self-hosted Airflow) and reimplementation discovery proceeds from the etl/ inventory + field matrix; the related SSIS-descriptions ask was closed 2026-06-18 as not-needed.",
+          "session": "ssis-review-2026-06-08"
+        },
+        {
+          "resource": "SSIS Job Descriptions",
+          "note": "Authoritative descriptions from engineers for all 13 jobs",
+          "type": "Docs",
+          "status": "na",
+          "owner": "Rick Sorich",
+          "requestedBy": "Conflict Team",
+          "detail": "Ask relayed to Rick 2026-06-12 for the 8 jobs with no code in etl/: CustomerValue, DDE, LeadSource_LeadPerformance, SmartSuppression, Conquest_Mailing, MileOne Weekly Unsubscribe, JuiceReporting_CDXPCustomers, Mileone_reward_member. Includes confirming the inferred CRM/DMS-to-CVH and Email-to-BlueSky dependency chains. — CLOSED 2026-06-18 (Alicia: not needed): the etl/ inventory (231 objects, docs/etl-data-inventory.md) plus the field-source matrix cover CDP sourcing; per-job legacy descriptions are not on the critical path.",
+          "session": "ssis-review-2026-06-08"
+        }
+      ]
+    }
+  ]
+}

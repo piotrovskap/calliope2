@@ -1,0 +1,16 @@
+{
+  "id": "architecture-design-2026-06-13",
+  "title": "Architecture Design Review — CDP Stack (Leo + Claude)",
+  "date": "2026-06-13",
+  "type": "human-ai-work-session",
+  "description": "Human <> AI agent working session — NOT a recorded meeting. Leo Mata working with Claude (AI agent) to design the CDP target architecture, reconcile the wiki, draft the Revised Architecture Plan, and route follow-up work. No video or audio recording exists.",
+  "attendees": ["Leo Mata", "Claude (AI agent)"],
+  "recording": false,
+  "video": null,
+  "video_drive": null,
+  "tags": ["architecture", "design", "human-ai", "working-session", "no-recording"],
+  "synthesis": null,
+  "kg": null,
+  "notes": "results/summary.md",
+  "artifacts": []
+}

@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="HouseLine">
+<path id="Vector" d="M1 13.5H15" stroke="#54565B" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M9.5 13.5V9.5H6.5V13.5" stroke="#54565B" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M2.5 7.29313V13.5" stroke="#54565B" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M13.5 13.5V7.29313" stroke="#54565B" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_5" d="M1.5 8.29313L7.64625 2.14625C7.69269 2.09976 7.74783 2.06288 7.80853 2.03772C7.86923 2.01256 7.93429 1.99961 8 1.99961C8.06571 1.99961 8.13077 2.01256 8.19147 2.03772C8.25217 2.06288 8.30731 2.09976 8.35375 2.14625L14.5 8.29313" stroke="#54565B" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

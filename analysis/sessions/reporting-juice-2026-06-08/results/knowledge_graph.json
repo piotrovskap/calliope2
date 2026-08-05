@@ -1,0 +1,3815 @@
+{
+  "nodes": [
+    {
+      "name": "Ron",
+      "type": "person",
+      "descriptions": [
+        "Creator of a survey send view used to run reports",
+        "Person working on getting access to the data warehouse reporting database",
+        "Person with expertise in data and reporting systems",
+        "Team member who manages data warehouse reporting database and Azure Data Factory operations",
+        "Team member whose time was being consumed by Power BI tasks",
+        "Person mentioned in discussion about data warehouse monitoring",
+        "Person involved in reporting and data sources discussion",
+        "A person involved in the discussion about the SaaS tool",
+        "Individual who has worked on system optimization and identified performance issues",
+        "Individual who presented AI reports and demonstrated reporting tools",
+        "Person working on reviewing multiple items"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_0",
+          "timestamp": 0.0,
+          "text": " Start of the summer.  Right, it's real quick. Okay, cool. Yeah.  So, yeah, I think from from our en..."
+        },
+        {
+          "source": "transcript_batch_10",
+          "timestamp": 68.4800033569336,
+          "text": " So, I feel that we may have to do that with some of the reporting stuff too.  But again, Ron knows ..."
+        },
+        {
+          "source": "transcript_batch_30",
+          "timestamp": 209.47999572753906,
+          "text": " Some of the other product people have put some together here and there, but Jacob's the main one fo..."
+        },
+        {
+          "source": "transcript_batch_70",
+          "timestamp": 461.4800109863281,
+          "text": " Okay. And you embed this in your own kind of portal and expose, or does it just kind of let you cus..."
+        },
+        {
+          "source": "transcript_batch_80",
+          "timestamp": 522.47998046875,
+          "text": " But, what's the best UI? I don't necessarily like it.  But anyway, this is what the CDXP team was k..."
+        },
+        {
+          "source": "transcript_batch_100",
+          "timestamp": 618.47998046875,
+          "text": " And I think what would be useful – Ron, do you have the data warehouse reporting database up that y..."
+        },
+        {
+          "source": "transcript_batch_180",
+          "timestamp": 1120.719989013672,
+          "text": " see that you need to be working on, you know, new vehicle quotes, right? So this is what Javis is. ..."
+        },
+        {
+          "source": "transcript_batch_200",
+          "timestamp": 1227.67998046875,
+          "text": " Cool. What's the name of the SaaS tool? So it's from a company called Ascending,  and it's called J..."
+        },
+        {
+          "source": "transcript_batch_250",
+          "timestamp": 1560.9,
+          "text": " There's sometimes missing data. There's definitely the occasional performance issue where it's not ..."
+        },
+        {
+          "source": "transcript_batch_300",
+          "timestamp": 1824.9,
+          "text": " But again, to Ron's point, we're not actively monitoring or like logging and tracking that specific..."
+        },
+        {
+          "source": "transcript_batch_330",
+          "timestamp": 1948.9,
+          "text": " I know Ron's working through a couple more.  So, before the end of this week, we'll have probably l..."
+        }
+      ]
+    },
+    {
+      "name": "Rick",
+      "type": "person",
+      "descriptions": [
+        "Person who provided earlier information about SSIS jobs",
+        "Person who was consulted about SSIS jobs"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_0",
+          "timestamp": 0.0,
+          "text": " Start of the summer.  Right, it's real quick. Okay, cool. Yeah.  So, yeah, I think from from our en..."
+        },
+        {
+          "source": "transcript_batch_110",
+          "timestamp": 675.5999996185303,
+          "text": " mainly because when we bought them they were in AWS and we just haven't done yet.  And all the othe..."
+        }
+      ]
+    },
+    {
+      "name": "SSIS",
+      "type": "technology",
+      "descriptions": [
+        "Jobs that manage data flow between stage, target, and production environments",
+        "SQL Server Integration Services - data processing system with outdated processes"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_0",
+          "timestamp": 0.0,
+          "text": " Start of the summer.  Right, it's real quick. Okay, cool. Yeah.  So, yeah, I think from from our en..."
+        },
+        {
+          "source": "transcript_batch_110",
+          "timestamp": 675.5999996185303,
+          "text": " mainly because when we bought them they were in AWS and we just haven't done yet.  And all the othe..."
+        }
+      ]
+    },
+    {
+      "name": "CDP",
+      "type": "concept",
+      "descriptions": [
+        "Customer Data Platform being built or planned"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_0",
+          "timestamp": 0.0,
+          "text": " Start of the summer.  Right, it's real quick. Okay, cool. Yeah.  So, yeah, I think from from our en..."
+        }
+      ]
+    },
+    {
+      "name": "reporting",
+      "type": "concept",
+      "descriptions": [
+        "Process of creating and presenting data insights",
+        "Analytics and business intelligence queries performed on data warehouse",
+        "Backend functionality for customizing UI and displaying data",
+        "Current reporting system that has known problems and is being evaluated",
+        "Data reporting from multiple sources with varying quality"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_0",
+          "timestamp": 0.0,
+          "text": " Start of the summer.  Right, it's real quick. Okay, cool. Yeah.  So, yeah, I think from from our en..."
+        },
+        {
+          "source": "transcript_batch_10",
+          "timestamp": 68.4800033569336,
+          "text": " So, I feel that we may have to do that with some of the reporting stuff too.  But again, Ron knows ..."
+        },
+        {
+          "source": "transcript_batch_70",
+          "timestamp": 461.4800109863281,
+          "text": " Okay. And you embed this in your own kind of portal and expose, or does it just kind of let you cus..."
+        },
+        {
+          "source": "transcript_batch_140",
+          "timestamp": 887.3600036621094,
+          "text": " are going to, there is some push. As you can see, we have Zora down here, there's going to be  some..."
+        },
+        {
+          "source": "transcript_batch_230",
+          "timestamp": 1428.9,
+          "text": " That'd be great. I think Alicia's intent is to also like work backwards to map out like the kind of..."
+        }
+      ]
+    },
+    {
+      "name": "raw data",
+      "type": "concept",
+      "descriptions": [
+        "Core information stored in the data warehouse",
+        "Unmanipulated data source"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_0",
+          "timestamp": 0.0,
+          "text": " Start of the summer.  Right, it's real quick. Okay, cool. Yeah.  So, yeah, I think from from our en..."
+        },
+        {
+          "source": "transcript_batch_130",
+          "timestamp": 812.1600067138672,
+          "text": " So that data, that information in there is core raw data. And from there, we'll drop down to views,..."
+        }
+      ]
+    },
+    {
+      "name": "Guice",
+      "type": "technology",
+      "descriptions": [
+        "Report builder and UI for viewing reports",
+        "A reporting and data analysis tool with filtering, search, and visualization capabilities",
+        "A reporting engine that allows building reports without engineering involvement through drag-and-drop functionality",
+        "A tool/system that lacks join capability and is used for reporting, being considered for replacement"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_10",
+          "timestamp": 68.4800033569336,
+          "text": " So, I feel that we may have to do that with some of the reporting stuff too.  But again, Ron knows ..."
+        },
+        {
+          "source": "transcript_batch_20",
+          "timestamp": 136.47999572753906,
+          "text": " Guice has a very specific problem, which is it's not capable of doing joins.  So, when we have data..."
+        },
+        {
+          "source": "transcript_batch_30",
+          "timestamp": 209.47999572753906,
+          "text": " Some of the other product people have put some together here and there, but Jacob's the main one fo..."
+        },
+        {
+          "source": "transcript_batch_40",
+          "timestamp": 270.4800109863281,
+          "text": " But you can see, you can filter, it's got reports, just data points, tables.  You can search by cer..."
+        }
+      ]
+    },
+    {
+      "name": "Power BI",
+      "type": "technology",
+      "descriptions": [
+        "Business intelligence and reporting tool used as a comparison reference to Guice",
+        "Business intelligence and data visualization tool",
+        "A business analytics and reporting tool compared to Guice in functionality"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_10",
+          "timestamp": 68.4800033569336,
+          "text": " So, I feel that we may have to do that with some of the reporting stuff too.  But again, Ron knows ..."
+        },
+        {
+          "source": "transcript_batch_40",
+          "timestamp": 270.4800109863281,
+          "text": " But you can see, you can filter, it's got reports, just data points, tables.  You can search by cer..."
+        },
+        {
+          "source": "transcript_batch_80",
+          "timestamp": 522.47998046875,
+          "text": " But, what's the best UI? I don't necessarily like it.  But anyway, this is what the CDXP team was k..."
+        }
+      ]
+    },
+    {
+      "name": "Database",
+      "type": "technology",
+      "descriptions": [
+        "Data storage system that serves as the foundation for reports",
+        "The primary data source that Javis sits over",
+        "Storage system for organizing and managing data"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_10",
+          "timestamp": 68.4800033569336,
+          "text": " So, I feel that we may have to do that with some of the reporting stuff too.  But again, Ron knows ..."
+        },
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 392.4800109863281,
+          "text": " So, hypothetically, I could say I'm going to add in, maybe, I think it's this one, right?  Should b..."
+        },
+        {
+          "source": "transcript_batch_160",
+          "timestamp": 1015.9200012207032,
+          "text": " created a while ago, plot review sentiment. So I just gave it a name, it runs through, looks up all..."
+        }
+      ]
+    },
+    {
+      "name": "DWRPT",
+      "type": "technology",
+      "descriptions": [
+        "A system where data from multiple sources is pulled and joins are performed at SQL level before presenting to Guice",
+        "System or tool that can be used to pull data warehouse information",
+        "A system level where table joins are performed to combine different datasets",
+        "A reporting server system that can be accessed for data reporting purposes",
+        "A server system that requires a minimum of four CPUs to avoid performance plateaus"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_20",
+          "timestamp": 136.47999572753906,
+          "text": " Guice has a very specific problem, which is it's not capable of doing joins.  So, when we have data..."
+        },
+        {
+          "source": "transcript_batch_150",
+          "timestamp": 951.6800109863282,
+          "text": " joins, so it can't take two different tables and join them together to produce one dataset.  So we ..."
+        },
+        {
+          "source": "transcript_batch_210",
+          "timestamp": 1295.439990234375,
+          "text": " you were going to need access to the reporting server or not. Because you have access to the  major..."
+        },
+        {
+          "source": "transcript_batch_290",
+          "timestamp": 1775.9,
+          "text": " Per app for the most part.  Yeah, got it.  Is there kind of usage access and or read versus write m..."
+        },
+        {
+          "source": "transcript_batch_310",
+          "timestamp": 1874.9,
+          "text": " I look at memory usage, CPU usage.  I look at the metrics of the server that it's supporting.  And ..."
+        }
+      ]
+    },
+    {
+      "name": "Common Client ID",
+      "type": "concept",
+      "descriptions": [
+        "An implementation used to improve the ability to join tables with cleaner data",
+        "Unified identifier used across different applications to identify companies or clients"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_20",
+          "timestamp": 136.47999572753906,
+          "text": " Guice has a very specific problem, which is it's not capable of doing joins.  So, when we have data..."
+        },
+        {
+          "source": "transcript_batch_130",
+          "timestamp": 812.1600067138672,
+          "text": " So that data, that information in there is core raw data. And from there, we'll drop down to views,..."
+        }
+      ]
+    },
+    {
+      "name": "Jacob",
+      "type": "person",
+      "descriptions": [
+        "Internal product team member responsible for building reports",
+        "Main designer and builder of products, non-technical drag-and-drop type"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_20",
+          "timestamp": 136.47999572753906,
+          "text": " Guice has a very specific problem, which is it's not capable of doing joins.  So, when we have data..."
+        },
+        {
+          "source": "transcript_batch_30",
+          "timestamp": 209.47999572753906,
+          "text": " Some of the other product people have put some together here and there, but Jacob's the main one fo..."
+        }
+      ]
+    },
+    {
+      "name": "Internal product team",
+      "type": "organization",
+      "descriptions": [
+        "The team that builds reports for client-facing use"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_20",
+          "timestamp": 136.47999572753906,
+          "text": " Guice has a very specific problem, which is it's not capable of doing joins.  So, when we have data..."
+        }
+      ]
+    },
+    {
+      "name": "Clients",
+      "type": "organization",
+      "descriptions": [
+        "End consumers of the reports generated by the system"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_20",
+          "timestamp": 136.47999572753906,
+          "text": " Guice has a very specific problem, which is it's not capable of doing joins.  So, when we have data..."
+        }
+      ]
+    },
+    {
+      "name": "data warehouse reporting database",
+      "type": "technology",
+      "descriptions": [
+        "Contains all tables and data that powers analytics in Guice",
+        "Database system used for reporting with schema involving staging tables and views"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_30",
+          "timestamp": 209.47999572753906,
+          "text": " Some of the other product people have put some together here and there, but Jacob's the main one fo..."
+        },
+        {
+          "source": "transcript_batch_100",
+          "timestamp": 618.47998046875,
+          "text": " And I think what would be useful – Ron, do you have the data warehouse reporting database up that y..."
+        }
+      ]
+    },
+    {
+      "name": "3Birds",
+      "type": "technology",
+      "descriptions": [
+        "CDXP site purchased long ago, now Dash technology, contains various reports"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_30",
+          "timestamp": 209.47999572753906,
+          "text": " Some of the other product people have put some together here and there, but Jacob's the main one fo..."
+        }
+      ]
+    },
+    {
+      "name": "Dash technology",
+      "type": "technology",
+      "descriptions": [
+        "Current platform that 3Birds runs on"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_30",
+          "timestamp": 209.47999572753906,
+          "text": " Some of the other product people have put some together here and there, but Jacob's the main one fo..."
+        }
+      ]
+    },
+    {
+      "name": "CDXP",
+      "type": "technology",
+      "descriptions": [
+        "System or database that produces matchbacks and contains customer and vehicle data",
+        "Application source providing JuiceReporting data",
+        "Type of site that 3Birds is",
+        "System powered by multiple databases and data sources in AWS",
+        "A tool or system that can be accessed to view reports"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_30",
+          "timestamp": 209.47999572753906,
+          "text": " Some of the other product people have put some together here and there, but Jacob's the main one fo..."
+        },
+        {
+          "source": "transcript_batch_110",
+          "timestamp": 675.5999996185303,
+          "text": " mainly because when we bought them they were in AWS and we just haven't done yet.  And all the othe..."
+        },
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 728.0000030517579,
+          "text": " today. Quite messy, to be honest, there's a lot of moving pieces, but yeah.  So I can share?  Yeah...."
+        },
+        {
+          "source": "transcript_batch_220",
+          "timestamp": 1357.9,
+          "text": " Yeah, let me go find that message. I've got a bunch of windows open, so it might take a minute or a..."
+        },
+        {
+          "source": "transcript_batch_230",
+          "timestamp": 1428.9,
+          "text": " That'd be great. I think Alicia's intent is to also like work backwards to map out like the kind of..."
+        }
+      ]
+    },
+    {
+      "name": "SMS",
+      "type": "concept",
+      "descriptions": [
+        "A campaign method that can be filtered and viewed in Guice reports"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_40",
+          "timestamp": 270.4800109863281,
+          "text": " But you can see, you can filter, it's got reports, just data points, tables.  You can search by cer..."
+        }
+      ]
+    },
+    {
+      "name": "2FA",
+      "type": "concept",
+      "descriptions": [
+        "Two-factor authentication code required to access the backend of Guice"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_40",
+          "timestamp": 270.4800109863281,
+          "text": " But you can see, you can filter, it's got reports, just data points, tables.  You can search by cer..."
+        }
+      ]
+    },
+    {
+      "name": "Campaign methods",
+      "type": "concept",
+      "descriptions": [
+        "Different types of campaigns that can be searched and filtered in Guice"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_40",
+          "timestamp": 270.4800109863281,
+          "text": " But you can see, you can filter, it's got reports, just data points, tables.  You can search by cer..."
+        }
+      ]
+    },
+    {
+      "name": "Reports",
+      "type": "concept",
+      "descriptions": [
+        "Output generated by applications and emailed out",
+        "Data visualization outputs in Guice containing tables, cards, and data points",
+        "System reports being discussed",
+        "Collection of 221 reports available in the system",
+        "Data visualizations and summaries created using the reporting tool",
+        "A collection of 221 reports available in a tool, with approximately 100 active reports"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_40",
+          "timestamp": 270.4800109863281,
+          "text": " But you can see, you can filter, it's got reports, just data points, tables.  You can search by cer..."
+        },
+        {
+          "source": "transcript_batch_50",
+          "timestamp": 328.4800109863281,
+          "text": " And then you can kind of see the reports or the databases and views that kind of runs put together ..."
+        },
+        {
+          "source": "transcript_batch_90",
+          "timestamp": 565.47998046875,
+          "text": " You can see it here if you wanted, but then at this point, if I wanted to, like, say, load this pie..."
+        },
+        {
+          "source": "transcript_batch_220",
+          "timestamp": 1357.9,
+          "text": " Yeah, let me go find that message. I've got a bunch of windows open, so it might take a minute or a..."
+        },
+        {
+          "source": "transcript_batch_240",
+          "timestamp": 1500.9,
+          "text": " all the service dates would become whatever the last service date was for both vehicles, and that c..."
+        },
+        {
+          "source": "transcript_batch_280",
+          "timestamp": 1747.9,
+          "text": " How many other consumers do you have of the data warehouse?  Is it primarily JUICE or do you have o..."
+        }
+      ]
+    },
+    {
+      "name": "Databases",
+      "type": "technology",
+      "descriptions": [
+        "Data storage systems that will be provided access to",
+        "Data storage systems that have been hooked up to the platform"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_50",
+          "timestamp": 328.4800109863281,
+          "text": " And then you can kind of see the reports or the databases and views that kind of runs put together ..."
+        },
+        {
+          "source": "transcript_batch_320",
+          "timestamp": 1925.9,
+          "text": " Got it.  Cool.  Luis, do you have anything else?  I'm fine.  All right.  Awesome.  Well, I mean, ob..."
+        }
+      ]
+    },
+    {
+      "name": "Views",
+      "type": "concept",
+      "descriptions": [
+        "Different perspectives or filtered displays within databases",
+        "Data access layer that combines and presents data without using stored procedures",
+        "Aggregated data structures that prepare data for processing and reporting"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_50",
+          "timestamp": 328.4800109863281,
+          "text": " And then you can kind of see the reports or the databases and views that kind of runs put together ..."
+        },
+        {
+          "source": "transcript_batch_130",
+          "timestamp": 812.1600067138672,
+          "text": " So that data, that information in there is core raw data. And from there, we'll drop down to views,..."
+        },
+        {
+          "source": "transcript_batch_140",
+          "timestamp": 887.3600036621094,
+          "text": " are going to, there is some push. As you can see, we have Zora down here, there's going to be  some..."
+        }
+      ]
+    },
+    {
+      "name": "DDE",
+      "type": "technology",
+      "descriptions": [
+        "A type of report or document being worked on"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_50",
+          "timestamp": 328.4800109863281,
+          "text": " And then you can kind of see the reports or the databases and views that kind of runs put together ..."
+        }
+      ]
+    },
+    {
+      "name": "Drag and Drop",
+      "type": "technology",
+      "descriptions": [
+        "Interface feature allowing users to edit report components"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_50",
+          "timestamp": 328.4800109863281,
+          "text": " And then you can kind of see the reports or the databases and views that kind of runs put together ..."
+        }
+      ]
+    },
+    {
+      "name": "Data Set",
+      "type": "concept",
+      "descriptions": [
+        "Specific collection of data being viewed in a report"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_50",
+          "timestamp": 328.4800109863281,
+          "text": " And then you can kind of see the reports or the databases and views that kind of runs put together ..."
+        }
+      ]
+    },
+    {
+      "name": "Client",
+      "type": "concept",
+      "descriptions": [
+        "Entity that can be selected or changed within reports"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_50",
+          "timestamp": 328.4800109863281,
+          "text": " And then you can kind of see the reports or the databases and views that kind of runs put together ..."
+        }
+      ]
+    },
+    {
+      "name": "data staging",
+      "type": "technology",
+      "descriptions": [
+        "Intermediate storage area for data coming into the warehouse",
+        "A component or feature used to prepare and organize data for use in reports and databases"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 392.4800109863281,
+          "text": " So, hypothetically, I could say I'm going to add in, maybe, I think it's this one, right?  Should b..."
+        },
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 728.0000030517579,
+          "text": " today. Quite messy, to be honest, there's a lot of moving pieces, but yeah.  So I can share?  Yeah...."
+        }
+      ]
+    },
+    {
+      "name": "MediaLogic",
+      "type": "organization",
+      "descriptions": [
+        "An application or organization whose Google data is stored in the data warehouse"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 392.4800109863281,
+          "text": " So, hypothetically, I could say I'm going to add in, maybe, I think it's this one, right?  Should b..."
+        }
+      ]
+    },
+    {
+      "name": "Google data",
+      "type": "concept",
+      "descriptions": [
+        "Data sourced from Google associated with MediaLogic"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 392.4800109863281,
+          "text": " So, hypothetically, I could say I'm going to add in, maybe, I think it's this one, right?  Should b..."
+        }
+      ]
+    },
+    {
+      "name": "cache",
+      "type": "technology",
+      "descriptions": [
+        "A table used to store temporary data for use in reports"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 392.4800109863281,
+          "text": " So, hypothetically, I could say I'm going to add in, maybe, I think it's this one, right?  Should b..."
+        }
+      ]
+    },
+    {
+      "name": "report",
+      "type": "concept",
+      "descriptions": [
+        "Output that displays data and can be affected by table truncation and crashes",
+        "Output or view of data from the data warehouse"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 392.4800109863281,
+          "text": " So, hypothetically, I could say I'm going to add in, maybe, I think it's this one, right?  Should b..."
+        },
+        {
+          "source": "transcript_batch_250",
+          "timestamp": 1560.9,
+          "text": " There's sometimes missing data. There's definitely the occasional performance issue where it's not ..."
+        }
+      ]
+    },
+    {
+      "name": "data warehouse",
+      "type": "technology",
+      "descriptions": [
+        "Central repository containing multiple schemas and data from various applications",
+        "Core system storing raw data and providing views for different purposes",
+        "Central repository for storing and managing data from multiple sources",
+        "System where specific activity is not actively monitored or logged",
+        "A system storing historical data from applications",
+        "Central data storage system that serves multiple consumers",
+        "Central repository for data from various applications used for reporting purposes"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 392.4800109863281,
+          "text": " So, hypothetically, I could say I'm going to add in, maybe, I think it's this one, right?  Should b..."
+        },
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 728.0000030517579,
+          "text": " today. Quite messy, to be honest, there's a lot of moving pieces, but yeah.  So I can share?  Yeah...."
+        },
+        {
+          "source": "transcript_batch_130",
+          "timestamp": 812.1600067138672,
+          "text": " So that data, that information in there is core raw data. And from there, we'll drop down to views,..."
+        },
+        {
+          "source": "transcript_batch_140",
+          "timestamp": 887.3600036621094,
+          "text": " are going to, there is some push. As you can see, we have Zora down here, there's going to be  some..."
+        },
+        {
+          "source": "transcript_batch_260",
+          "timestamp": 1613.9,
+          "text": " And some of our data that we do get in from our applications is particularly deep.  All the clicks ..."
+        },
+        {
+          "source": "transcript_batch_280",
+          "timestamp": 1747.9,
+          "text": " How many other consumers do you have of the data warehouse?  Is it primarily JUICE or do you have o..."
+        },
+        {
+          "source": "transcript_batch_300",
+          "timestamp": 1824.9,
+          "text": " But again, to Ron's point, we're not actively monitoring or like logging and tracking that specific..."
+        }
+      ]
+    },
+    {
+      "name": "schema",
+      "type": "concept",
+      "descriptions": [
+        "Organizational structure in the data warehouse that separates data by application"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 392.4800109863281,
+          "text": " So, hypothetically, I could say I'm going to add in, maybe, I think it's this one, right?  Should b..."
+        }
+      ]
+    },
+    {
+      "name": "SL schema",
+      "type": "technology",
+      "descriptions": [
+        "Schema in the data warehouse designated for social logic data"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 392.4800109863281,
+          "text": " So, hypothetically, I could say I'm going to add in, maybe, I think it's this one, right?  Should b..."
+        }
+      ]
+    },
+    {
+      "name": "ML schema",
+      "type": "technology",
+      "descriptions": [
+        "Schema in the data warehouse designated for MediaLogic data"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 392.4800109863281,
+          "text": " So, hypothetically, I could say I'm going to add in, maybe, I think it's this one, right?  Should b..."
+        }
+      ]
+    },
+    {
+      "name": "social logic",
+      "type": "organization",
+      "descriptions": [
+        "An application whose data is stored in the SL schema of the data warehouse"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 392.4800109863281,
+          "text": " So, hypothetically, I could say I'm going to add in, maybe, I think it's this one, right?  Should b..."
+        }
+      ]
+    },
+    {
+      "name": "iframe",
+      "type": "technology",
+      "descriptions": [
+        "HTML element used to embed customizable UI within a portal"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_70",
+          "timestamp": 461.4800109863281,
+          "text": " Okay. And you embed this in your own kind of portal and expose, or does it just kind of let you cus..."
+        }
+      ]
+    },
+    {
+      "name": "Portal",
+      "type": "concept",
+      "descriptions": [
+        "Custom interface where UI elements are embedded and exposed"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_70",
+          "timestamp": 461.4800109863281,
+          "text": " Okay. And you embed this in your own kind of portal and expose, or does it just kind of let you cus..."
+        }
+      ]
+    },
+    {
+      "name": "Security",
+      "type": "concept",
+      "descriptions": [
+        "Login and authentication requirements for accessing embedded content"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_70",
+          "timestamp": 461.4800109863281,
+          "text": " Okay. And you embed this in your own kind of portal and expose, or does it just kind of let you cus..."
+        }
+      ]
+    },
+    {
+      "name": "Survey Send View",
+      "type": "technology",
+      "descriptions": [
+        "Data source created by Ron for running reports"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_70",
+          "timestamp": 461.4800109863281,
+          "text": " Okay. And you embed this in your own kind of portal and expose, or does it just kind of let you cus..."
+        }
+      ]
+    },
+    {
+      "name": "Data Technology",
+      "type": "concept",
+      "descriptions": [
+        "Base UI element consistently positioned at the top of the interface"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_70",
+          "timestamp": 461.4800109863281,
+          "text": " Okay. And you embed this in your own kind of portal and expose, or does it just kind of let you cus..."
+        }
+      ]
+    },
+    {
+      "name": "embed",
+      "type": "organization",
+      "descriptions": [
+        "Service or platform with specific rules for embedding content"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_70",
+          "timestamp": 461.4800109863281,
+          "text": " Okay. And you embed this in your own kind of portal and expose, or does it just kind of let you cus..."
+        }
+      ]
+    },
+    {
+      "name": "CDXP team",
+      "type": "organization",
+      "descriptions": [
+        "Team that was integrated with before purchase"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_80",
+          "timestamp": 522.47998046875,
+          "text": " But, what's the best UI? I don't necessarily like it.  But anyway, this is what the CDXP team was k..."
+        }
+      ]
+    },
+    {
+      "name": "offshore team",
+      "type": "organization",
+      "descriptions": [
+        "External team paid to handle Power BI development work"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_80",
+          "timestamp": 522.47998046875,
+          "text": " But, what's the best UI? I don't necessarily like it.  But anyway, this is what the CDXP team was k..."
+        }
+      ]
+    },
+    {
+      "name": "product team",
+      "type": "organization",
+      "descriptions": [
+        "Team that builds reports using the solution"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_80",
+          "timestamp": 522.47998046875,
+          "text": " But, what's the best UI? I don't necessarily like it.  But anyway, this is what the CDXP team was k..."
+        }
+      ]
+    },
+    {
+      "name": "Juice",
+      "type": "technology",
+      "descriptions": [
+        "A reporting tool with drag-and-drop interface for data analysis and visualization",
+        "System that takes and manipulates data from views",
+        "Primary consumer of the data warehouse",
+        "A data loading system that times out after one minute when handling large datasets"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_90",
+          "timestamp": 565.47998046875,
+          "text": " You can see it here if you wanted, but then at this point, if I wanted to, like, say, load this pie..."
+        },
+        {
+          "source": "transcript_batch_130",
+          "timestamp": 812.1600067138672,
+          "text": " So that data, that information in there is core raw data. And from there, we'll drop down to views,..."
+        },
+        {
+          "source": "transcript_batch_260",
+          "timestamp": 1613.9,
+          "text": " And some of our data that we do get in from our applications is particularly deep.  All the clicks ..."
+        },
+        {
+          "source": "transcript_batch_280",
+          "timestamp": 1747.9,
+          "text": " How many other consumers do you have of the data warehouse?  Is it primarily JUICE or do you have o..."
+        }
+      ]
+    },
+    {
+      "name": "all-time performance table",
+      "type": "concept",
+      "descriptions": [
+        "A data table containing performance metrics used in reporting"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_90",
+          "timestamp": 565.47998046875,
+          "text": " You can see it here if you wanted, but then at this point, if I wanted to, like, say, load this pie..."
+        }
+      ]
+    },
+    {
+      "name": "total reviews",
+      "type": "concept",
+      "descriptions": [
+        "A metric that sums review data from specific views"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_90",
+          "timestamp": 565.47998046875,
+          "text": " You can see it here if you wanted, but then at this point, if I wanted to, like, say, load this pie..."
+        }
+      ]
+    },
+    {
+      "name": "Azure Data Factory",
+      "type": "technology",
+      "descriptions": [
+        "Tool used for managing data moves and ETL operations"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_100",
+          "timestamp": 618.47998046875,
+          "text": " And I think what would be useful – Ron, do you have the data warehouse reporting database up that y..."
+        }
+      ]
+    },
+    {
+      "name": "CDXP App",
+      "type": "technology",
+      "descriptions": [
+        "Application where reports are hosted, located in AWS"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_100",
+          "timestamp": 618.47998046875,
+          "text": " And I think what would be useful – Ron, do you have the data warehouse reporting database up that y..."
+        }
+      ]
+    },
+    {
+      "name": "Azure",
+      "type": "technology",
+      "descriptions": [
+        "Cloud platform where most systems are hosted"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_100",
+          "timestamp": 618.47998046875,
+          "text": " And I think what would be useful – Ron, do you have the data warehouse reporting database up that y..."
+        }
+      ]
+    },
+    {
+      "name": "AWS",
+      "type": "technology",
+      "descriptions": [
+        "Amazon Web Services, a cloud platform used for data migrations",
+        "Amazon Web Services cloud platform hosting the tools",
+        "Cloud platform hosting CDXP app and Engage to Sell application",
+        "Cloud infrastructure platform hosting databases and data sources"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_100",
+          "timestamp": 618.47998046875,
+          "text": " And I think what would be useful – Ron, do you have the data warehouse reporting database up that y..."
+        },
+        {
+          "source": "transcript_batch_110",
+          "timestamp": 675.5999996185303,
+          "text": " mainly because when we bought them they were in AWS and we just haven't done yet.  And all the othe..."
+        },
+        {
+          "source": "transcript_batch_180",
+          "timestamp": 1120.719989013672,
+          "text": " see that you need to be working on, you know, new vehicle quotes, right? So this is what Javis is. ..."
+        },
+        {
+          "source": "transcript_batch_200",
+          "timestamp": 1227.67998046875,
+          "text": " Cool. What's the name of the SaaS tool? So it's from a company called Ascending,  and it's called J..."
+        }
+      ]
+    },
+    {
+      "name": "Engage to Sell",
+      "type": "concept",
+      "descriptions": [
+        "Application with its own database in a separate AWS region/account",
+        "AI engagement messaging application hosted in AWS"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_100",
+          "timestamp": 618.47998046875,
+          "text": " And I think what would be useful – Ron, do you have the data warehouse reporting database up that y..."
+        },
+        {
+          "source": "transcript_batch_110",
+          "timestamp": 675.5999996185303,
+          "text": " mainly because when we bought them they were in AWS and we just haven't done yet.  And all the othe..."
+        }
+      ]
+    },
+    {
+      "name": "Postgres",
+      "type": "technology",
+      "descriptions": [
+        "Database used for reporting in CDXP"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_110",
+          "timestamp": 675.5999996185303,
+          "text": " mainly because when we bought them they were in AWS and we just haven't done yet.  And all the othe..."
+        }
+      ]
+    },
+    {
+      "name": "MySQL",
+      "type": "technology",
+      "descriptions": [
+        "Database used in CDXP system"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_110",
+          "timestamp": 675.5999996185303,
+          "text": " mainly because when we bought them they were in AWS and we just haven't done yet.  And all the othe..."
+        }
+      ]
+    },
+    {
+      "name": "SQL",
+      "type": "technology",
+      "descriptions": [
+        "Database technology used in CDXP"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_110",
+          "timestamp": 675.5999996185303,
+          "text": " mainly because when we bought them they were in AWS and we just haven't done yet.  And all the othe..."
+        }
+      ]
+    },
+    {
+      "name": "ADF",
+      "type": "technology",
+      "descriptions": [
+        "Data that may have been manipulated or processed at another point",
+        "Azure Data Factory tool used to copy tables from various applications",
+        "Azure Data Factory or similar ETL tool used for data pipeline jobs"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 728.0000030517579,
+          "text": " today. Quite messy, to be honest, there's a lot of moving pieces, but yeah.  So I can share?  Yeah...."
+        },
+        {
+          "source": "transcript_batch_140",
+          "timestamp": 887.3600036621094,
+          "text": " are going to, there is some push. As you can see, we have Zora down here, there's going to be  some..."
+        },
+        {
+          "source": "transcript_batch_210",
+          "timestamp": 1295.439990234375,
+          "text": " you were going to need access to the reporting server or not. Because you have access to the  major..."
+        }
+      ]
+    },
+    {
+      "name": "CDXP.JuiceReporting",
+      "type": "technology",
+      "descriptions": [
+        "Data table from CDXP application"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 728.0000030517579,
+          "text": " today. Quite messy, to be honest, there's a lot of moving pieces, but yeah.  So I can share?  Yeah...."
+        }
+      ]
+    },
+    {
+      "name": "CDXP ClientDB Core",
+      "type": "technology",
+      "descriptions": [
+        "Database containing client information and social logic data"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 728.0000030517579,
+          "text": " today. Quite messy, to be honest, there's a lot of moving pieces, but yeah.  So I can share?  Yeah...."
+        }
+      ]
+    },
+    {
+      "name": "Social Logics",
+      "type": "organization",
+      "descriptions": [
+        "Data source integrated into CDXP ClientDB Core"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 728.0000030517579,
+          "text": " today. Quite messy, to be honest, there's a lot of moving pieces, but yeah.  So I can share?  Yeah...."
+        }
+      ]
+    },
+    {
+      "name": "Dynamics",
+      "type": "technology",
+      "descriptions": [
+        "Microsoft Dynamics application providing data to the warehouse"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 728.0000030517579,
+          "text": " today. Quite messy, to be honest, there's a lot of moving pieces, but yeah.  So I can share?  Yeah...."
+        }
+      ]
+    },
+    {
+      "name": "Google",
+      "type": "organization",
+      "descriptions": [
+        "Data source providing direct information to the warehouse"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 728.0000030517579,
+          "text": " today. Quite messy, to be honest, there's a lot of moving pieces, but yeah.  So I can share?  Yeah...."
+        }
+      ]
+    },
+    {
+      "name": "Vantage",
+      "type": "technology",
+      "descriptions": [
+        "Data source integrated into the warehouse"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 728.0000030517579,
+          "text": " today. Quite messy, to be honest, there's a lot of moving pieces, but yeah.  So I can share?  Yeah...."
+        }
+      ]
+    },
+    {
+      "name": "Media Logic",
+      "type": "organization",
+      "descriptions": [
+        "Data source providing information to the warehouse"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 728.0000030517579,
+          "text": " today. Quite messy, to be honest, there's a lot of moving pieces, but yeah.  So I can share?  Yeah...."
+        }
+      ]
+    },
+    {
+      "name": "Response Logic",
+      "type": "technology",
+      "descriptions": [
+        "Data source integrated into the warehouse",
+        "System component with OLTP database and archive functionality"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 728.0000030517579,
+          "text": " today. Quite messy, to be honest, there's a lot of moving pieces, but yeah.  So I can share?  Yeah...."
+        },
+        {
+          "source": "transcript_batch_270",
+          "timestamp": 1692.9,
+          "text": " Or do you have like a retention limit on the data that you keep?  We have not tackled the historica..."
+        }
+      ]
+    },
+    {
+      "name": "Radar Views",
+      "type": "technology",
+      "descriptions": [
+        "Data source providing views to the warehouse"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 728.0000030517579,
+          "text": " today. Quite messy, to be honest, there's a lot of moving pieces, but yeah.  So I can share?  Yeah...."
+        }
+      ]
+    },
+    {
+      "name": "AI Specific Views",
+      "type": "technology",
+      "descriptions": [
+        "Views designed for AI analytical tools with minimal data joining"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_130",
+          "timestamp": 812.1600067138672,
+          "text": " So that data, that information in there is core raw data. And from there, we'll drop down to views,..."
+        }
+      ]
+    },
+    {
+      "name": "AI Analytical Tools",
+      "type": "technology",
+      "descriptions": [
+        "Systems that analyze core information from AI specific views"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_130",
+          "timestamp": 812.1600067138672,
+          "text": " So that data, that information in there is core raw data. And from there, we'll drop down to views,..."
+        }
+      ]
+    },
+    {
+      "name": "Surveys and Reviews Views",
+      "type": "technology",
+      "descriptions": [
+        "Views containing joined data points from applications"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_130",
+          "timestamp": 812.1600067138672,
+          "text": " So that data, that information in there is core raw data. And from there, we'll drop down to views,..."
+        }
+      ]
+    },
+    {
+      "name": "Applications",
+      "type": "technology",
+      "descriptions": [
+        "Systems that generate data points, some of which were acquired"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_130",
+          "timestamp": 812.1600067138672,
+          "text": " So that data, that information in there is core raw data. And from there, we'll drop down to views,..."
+        }
+      ]
+    },
+    {
+      "name": "Stored Procedure",
+      "type": "technology",
+      "descriptions": [
+        "Traditional method not used for data combination in this architecture"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_130",
+          "timestamp": 812.1600067138672,
+          "text": " So that data, that information in there is core raw data. And from there, we'll drop down to views,..."
+        }
+      ]
+    },
+    {
+      "name": "Zora",
+      "type": "technology",
+      "descriptions": [
+        "A system or component mentioned in the data architecture"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_140",
+          "timestamp": 887.3600036621094,
+          "text": " are going to, there is some push. As you can see, we have Zora down here, there's going to be  some..."
+        }
+      ]
+    },
+    {
+      "name": "Production Databases",
+      "type": "technology",
+      "descriptions": [
+        "Source databases containing live application data that need to be isolated from reporting"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_140",
+          "timestamp": 887.3600036621094,
+          "text": " are going to, there is some push. As you can see, we have Zora down here, there's going to be  some..."
+        }
+      ]
+    },
+    {
+      "name": "AI",
+      "type": "concept",
+      "descriptions": [
+        "Artificial Intelligence system used for data analysis with one-for-one processing and flexibility",
+        "Artificial Intelligence, mentioned in relation to AWS"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_150",
+          "timestamp": 951.6800109863282,
+          "text": " joins, so it can't take two different tables and join them together to produce one dataset.  So we ..."
+        },
+        {
+          "source": "transcript_batch_200",
+          "timestamp": 1227.67998046875,
+          "text": " Cool. What's the name of the SaaS tool? So it's from a company called Ascending,  and it's called J..."
+        }
+      ]
+    },
+    {
+      "name": "Javis",
+      "type": "technology",
+      "descriptions": [
+        "A chatbot-type system built over AI that creates visual reports and answers questions about data",
+        "An AI reporting tool purchased from an external source that sits over the database and can access Jira and SharePoint for on-demand reporting",
+        "An AI reporting tool used for generating new vehicle quotes and real-time data analysis"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_150",
+          "timestamp": 951.6800109863282,
+          "text": " joins, so it can't take two different tables and join them together to produce one dataset.  So we ..."
+        },
+        {
+          "source": "transcript_batch_160",
+          "timestamp": 1015.9200012207032,
+          "text": " created a while ago, plot review sentiment. So I just gave it a name, it runs through, looks up all..."
+        },
+        {
+          "source": "transcript_batch_180",
+          "timestamp": 1120.719989013672,
+          "text": " see that you need to be working on, you know, new vehicle quotes, right? So this is what Javis is. ..."
+        }
+      ]
+    },
+    {
+      "name": "AI views",
+      "type": "technology",
+      "descriptions": [
+        "AI-powered visualization tool for displaying analysis results",
+        "Specific views and tables created for AI to access raw data for analysis"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_150",
+          "timestamp": 951.6800109863282,
+          "text": " joins, so it can't take two different tables and join them together to produce one dataset.  So we ..."
+        },
+        {
+          "source": "transcript_batch_190",
+          "timestamp": 1174.5599853515625,
+          "text": " like, some of these that, like, yeah, this one. Some of these will, like, strip, tell you that,  li..."
+        }
+      ]
+    },
+    {
+      "name": "Leo",
+      "type": "person",
+      "descriptions": [
+        "Person being addressed in the conversation about Javis",
+        "A person who was sent a message to check on a connection issue",
+        "Person being addressed about project progress"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_150",
+          "timestamp": 951.6800109863282,
+          "text": " joins, so it can't take two different tables and join them together to produce one dataset.  So we ..."
+        },
+        {
+          "source": "transcript_batch_210",
+          "timestamp": 1295.439990234375,
+          "text": " you were going to need access to the reporting server or not. Because you have access to the  major..."
+        },
+        {
+          "source": "transcript_batch_330",
+          "timestamp": 1948.9,
+          "text": " I know Ron's working through a couple more.  So, before the end of this week, we'll have probably l..."
+        }
+      ]
+    },
+    {
+      "name": "Alex",
+      "type": "person",
+      "descriptions": [
+        "Agent associated with Javis demonstration"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_150",
+          "timestamp": 951.6800109863282,
+          "text": " joins, so it can't take two different tables and join them together to produce one dataset.  So we ..."
+        }
+      ]
+    },
+    {
+      "name": "Bob Palmer",
+      "type": "person",
+      "descriptions": [
+        "A person mentioned in relation to example reports"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_160",
+          "timestamp": 1015.9200012207032,
+          "text": " created a while ago, plot review sentiment. So I just gave it a name, it runs through, looks up all..."
+        }
+      ]
+    },
+    {
+      "name": "plot review sentiment",
+      "type": "concept",
+      "descriptions": [
+        "A report type created to analyze and review sentiment"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_160",
+          "timestamp": 1015.9200012207032,
+          "text": " created a while ago, plot review sentiment. So I just gave it a name, it runs through, looks up all..."
+        }
+      ]
+    },
+    {
+      "name": "lead response",
+      "type": "concept",
+      "descriptions": [
+        "A different report type for tracking lead response metrics"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_160",
+          "timestamp": 1015.9200012207032,
+          "text": " created a while ago, plot review sentiment. So I just gave it a name, it runs through, looks up all..."
+        }
+      ]
+    },
+    {
+      "name": "Jira",
+      "type": "technology",
+      "descriptions": [
+        "A system that Javis can access for reporting purposes"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_160",
+          "timestamp": 1015.9200012207032,
+          "text": " created a while ago, plot review sentiment. So I just gave it a name, it runs through, looks up all..."
+        }
+      ]
+    },
+    {
+      "name": "SharePoint",
+      "type": "technology",
+      "descriptions": [
+        "A platform that Javis can access for reporting purposes"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_160",
+          "timestamp": 1015.9200012207032,
+          "text": " created a while ago, plot review sentiment. So I just gave it a name, it runs through, looks up all..."
+        }
+      ]
+    },
+    {
+      "name": "Real-time Data Report",
+      "type": "technology",
+      "descriptions": [
+        "An automated reporting system that generates reports with real-time data and supports follow-up questions"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_170",
+          "timestamp": 1074.1599914550782,
+          "text": " And it went out and built this awesome report with real-time data. You can then do this  and it wen..."
+        }
+      ]
+    },
+    {
+      "name": "Quote Analysis",
+      "type": "concept",
+      "descriptions": [
+        "Analysis of quotes sent, including performance metrics and shortfall analysis"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_170",
+          "timestamp": 1074.1599914550782,
+          "text": " And it went out and built this awesome report with real-time data. You can then do this  and it wen..."
+        }
+      ]
+    },
+    {
+      "name": "July",
+      "type": "time",
+      "descriptions": [
+        "Month used in comparative analysis of quotes sent"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_170",
+          "timestamp": 1074.1599914550782,
+          "text": " And it went out and built this awesome report with real-time data. You can then do this  and it wen..."
+        }
+      ]
+    },
+    {
+      "name": "August",
+      "type": "time",
+      "descriptions": [
+        "Month used in comparative analysis of quotes sent"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_170",
+          "timestamp": 1074.1599914550782,
+          "text": " And it went out and built this awesome report with real-time data. You can then do this  and it wen..."
+        }
+      ]
+    },
+    {
+      "name": "Bob Pointer",
+      "type": "person",
+      "descriptions": [
+        "Individual contacted by internal team with lead and quote information"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_170",
+          "timestamp": 1074.1599914550782,
+          "text": " And it went out and built this awesome report with real-time data. You can then do this  and it wen..."
+        }
+      ]
+    },
+    {
+      "name": "Internal Team",
+      "type": "organization",
+      "descriptions": [
+        "Team that uses the reporting system and contacts external parties like Bob Pointer"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_170",
+          "timestamp": 1074.1599914550782,
+          "text": " And it went out and built this awesome report with real-time data. You can then do this  and it wen..."
+        }
+      ]
+    },
+    {
+      "name": "Leads",
+      "type": "concept",
+      "descriptions": [
+        "Business leads received and tracked in the reporting system"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_170",
+          "timestamp": 1074.1599914550782,
+          "text": " And it went out and built this awesome report with real-time data. You can then do this  and it wen..."
+        }
+      ]
+    },
+    {
+      "name": "SaaS",
+      "type": "concept",
+      "descriptions": [
+        "Software as a Service delivery model being used for the tool"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_180",
+          "timestamp": 1120.719989013672,
+          "text": " see that you need to be working on, you know, new vehicle quotes, right? So this is what Javis is. ..."
+        }
+      ]
+    },
+    {
+      "name": "AI reporting",
+      "type": "concept",
+      "descriptions": [
+        "Automated reporting capability powered by artificial intelligence"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_180",
+          "timestamp": 1120.719989013672,
+          "text": " see that you need to be working on, you know, new vehicle quotes, right? So this is what Javis is. ..."
+        }
+      ]
+    },
+    {
+      "name": "Negative View Analysis",
+      "type": "technology",
+      "descriptions": [
+        "An analysis tool that identifies negative feedback and problematic patterns in reviews"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_190",
+          "timestamp": 1174.5599853515625,
+          "text": " like, some of these that, like, yeah, this one. Some of these will, like, strip, tell you that,  li..."
+        }
+      ]
+    },
+    {
+      "name": "Sales Guy",
+      "type": "person",
+      "descriptions": [
+        "A sales staff member identified as causing negative reviews through poor performance"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_190",
+          "timestamp": 1174.5599853515625,
+          "text": " like, some of these that, like, yeah, this one. Some of these will, like, strip, tell you that,  li..."
+        }
+      ]
+    },
+    {
+      "name": "Rude Staff Behavior",
+      "type": "concept",
+      "descriptions": [
+        "A category of negative feedback related to staff conduct issues"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_190",
+          "timestamp": 1174.5599853515625,
+          "text": " like, some of these that, like, yeah, this one. Some of these will, like, strip, tell you that,  li..."
+        }
+      ]
+    },
+    {
+      "name": "AI Tables",
+      "type": "technology",
+      "descriptions": [
+        "AI-powered tabular format for presenting analysis data"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_190",
+          "timestamp": 1174.5599853515625,
+          "text": " like, some of these that, like, yeah, this one. Some of these will, like, strip, tell you that,  li..."
+        }
+      ]
+    },
+    {
+      "name": "Training for Termination",
+      "type": "concept",
+      "descriptions": [
+        "Process of preparing to remove problematic staff members identified through analysis"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_190",
+          "timestamp": 1174.5599853515625,
+          "text": " like, some of these that, like, yeah, this one. Some of these will, like, strip, tell you that,  li..."
+        }
+      ]
+    },
+    {
+      "name": "Ascending",
+      "type": "organization",
+      "descriptions": [
+        "A company that provides SaaS tools and data migration services"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_200",
+          "timestamp": 1227.67998046875,
+          "text": " Cool. What's the name of the SaaS tool? So it's from a company called Ascending,  and it's called J..."
+        }
+      ]
+    },
+    {
+      "name": "Jarvis",
+      "type": "technology",
+      "descriptions": [
+        "A SaaS tool developed by Ascending (unofficial name)",
+        "Secondary consumer of the data warehouse"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_200",
+          "timestamp": 1227.67998046875,
+          "text": " Cool. What's the name of the SaaS tool? So it's from a company called Ascending,  and it's called J..."
+        },
+        {
+          "source": "transcript_batch_280",
+          "timestamp": 1747.9,
+          "text": " How many other consumers do you have of the data warehouse?  Is it primarily JUICE or do you have o..."
+        }
+      ]
+    },
+    {
+      "name": "source databases",
+      "type": "technology",
+      "descriptions": [
+        "Primary databases containing original, unmanipulated data"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_210",
+          "timestamp": 1295.439990234375,
+          "text": " you were going to need access to the reporting server or not. Because you have access to the  major..."
+        }
+      ]
+    },
+    {
+      "name": "sign-in required reports",
+      "type": "concept",
+      "descriptions": [
+        "Approximately 111 reports that require authentication to access"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_220",
+          "timestamp": 1357.9,
+          "text": " Yeah, let me go find that message. I've got a bunch of windows open, so it might take a minute or a..."
+        }
+      ]
+    },
+    {
+      "name": "access",
+      "type": "concept",
+      "descriptions": [
+        "Permission or ability to use tools and view reports"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_220",
+          "timestamp": 1357.9,
+          "text": " Yeah, let me go find that message. I've got a bunch of windows open, so it might take a minute or a..."
+        }
+      ]
+    },
+    {
+      "name": "export",
+      "type": "concept",
+      "descriptions": [
+        "A function to download or extract report data"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_220",
+          "timestamp": 1357.9,
+          "text": " Yeah, let me go find that message. I've got a bunch of windows open, so it might take a minute or a..."
+        }
+      ]
+    },
+    {
+      "name": "Alicia",
+      "type": "person",
+      "descriptions": [
+        "Person involved in discussing data structure and relationships mapping",
+        "Participant in the conversation"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_230",
+          "timestamp": 1428.9,
+          "text": " That'd be great. I think Alicia's intent is to also like work backwards to map out like the kind of..."
+        },
+        {
+          "source": "transcript_batch_240",
+          "timestamp": 1500.9,
+          "text": " all the service dates would become whatever the last service date was for both vehicles, and that c..."
+        }
+      ]
+    },
+    {
+      "name": "customer ID",
+      "type": "concept",
+      "descriptions": [
+        "Data field used for joining tables in CDXP"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_230",
+          "timestamp": 1428.9,
+          "text": " That'd be great. I think Alicia's intent is to also like work backwards to map out like the kind of..."
+        }
+      ]
+    },
+    {
+      "name": "vehicle",
+      "type": "concept",
+      "descriptions": [
+        "Entity tracked in the data system with associated service dates"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_230",
+          "timestamp": 1428.9,
+          "text": " That'd be great. I think Alicia's intent is to also like work backwards to map out like the kind of..."
+        }
+      ]
+    },
+    {
+      "name": "service dates",
+      "type": "concept",
+      "descriptions": [
+        "Temporal data associated with vehicles that can vary per customer",
+        "Dates when vehicles receive service"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_230",
+          "timestamp": 1428.9,
+          "text": " That'd be great. I think Alicia's intent is to also like work backwards to map out like the kind of..."
+        },
+        {
+          "source": "transcript_batch_240",
+          "timestamp": 1500.9,
+          "text": " all the service dates would become whatever the last service date was for both vehicles, and that c..."
+        }
+      ]
+    },
+    {
+      "name": "matchbacks",
+      "type": "concept",
+      "descriptions": [
+        "Output from CDXP that has data quality issues"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_230",
+          "timestamp": 1428.9,
+          "text": " That'd be great. I think Alicia's intent is to also like work backwards to map out like the kind of..."
+        }
+      ]
+    },
+    {
+      "name": "Luis",
+      "type": "person",
+      "descriptions": [
+        "Person being addressed in the conversation",
+        "Participant in the conversation"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_240",
+          "timestamp": 1500.9,
+          "text": " all the service dates would become whatever the last service date was for both vehicles, and that c..."
+        },
+        {
+          "source": "transcript_batch_320",
+          "timestamp": 1925.9,
+          "text": " Got it.  Cool.  Luis, do you have anything else?  I'm fine.  All right.  Awesome.  Well, I mean, ob..."
+        }
+      ]
+    },
+    {
+      "name": "vehicles",
+      "type": "concept",
+      "descriptions": [
+        "Multiple vehicles being tracked"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_240",
+          "timestamp": 1500.9,
+          "text": " all the service dates would become whatever the last service date was for both vehicles, and that c..."
+        }
+      ]
+    },
+    {
+      "name": "working backwards",
+      "type": "concept",
+      "descriptions": [
+        "A proposed approach or method that may not be optimal"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_240",
+          "timestamp": 1500.9,
+          "text": " all the service dates would become whatever the last service date was for both vehicles, and that c..."
+        }
+      ]
+    },
+    {
+      "name": "SIS processes",
+      "type": "technology",
+      "descriptions": [
+        "System processes that truncate tables and require specific execution order"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_250",
+          "timestamp": 1560.9,
+          "text": " There's sometimes missing data. There's definitely the occasional performance issue where it's not ..."
+        }
+      ]
+    },
+    {
+      "name": "Tables",
+      "type": "concept",
+      "descriptions": [
+        "Data structures that can crash or display zeros when processes fail"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_250",
+          "timestamp": 1560.9,
+          "text": " There's sometimes missing data. There's definitely the occasional performance issue where it's not ..."
+        }
+      ]
+    },
+    {
+      "name": "Missing data",
+      "type": "concept",
+      "descriptions": [
+        "Data integrity issue present in the system"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_250",
+          "timestamp": 1560.9,
+          "text": " There's sometimes missing data. There's definitely the occasional performance issue where it's not ..."
+        }
+      ]
+    },
+    {
+      "name": "Performance issues",
+      "type": "concept",
+      "descriptions": [
+        "System slowness and loading problems affecting table display"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_250",
+          "timestamp": 1560.9,
+          "text": " There's sometimes missing data. There's definitely the occasional performance issue where it's not ..."
+        }
+      ]
+    },
+    {
+      "name": "CDXP tables",
+      "type": "technology",
+      "descriptions": [
+        "Database tables that join entire tables together"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_260",
+          "timestamp": 1613.9,
+          "text": " And some of our data that we do get in from our applications is particularly deep.  All the clicks ..."
+        }
+      ]
+    },
+    {
+      "name": "DWRPT server",
+      "type": "technology",
+      "descriptions": [
+        "An 8-core CPU, 32GB RAM machine used for data warehouse operations"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_260",
+          "timestamp": 1613.9,
+          "text": " And some of our data that we do get in from our applications is particularly deep.  All the clicks ..."
+        }
+      ]
+    },
+    {
+      "name": "media clicks table",
+      "type": "concept",
+      "descriptions": [
+        "A data table recording all clicks on media with up to 100 million rows"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_260",
+          "timestamp": 1613.9,
+          "text": " And some of our data that we do get in from our applications is particularly deep.  All the clicks ..."
+        }
+      ]
+    },
+    {
+      "name": "49 million row table",
+      "type": "concept",
+      "descriptions": [
+        "A problematic CDXP table with 194 columns causing performance issues"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_260",
+          "timestamp": 1613.9,
+          "text": " And some of our data that we do get in from our applications is particularly deep.  All the clicks ..."
+        }
+      ]
+    },
+    {
+      "name": "OLTP database",
+      "type": "technology",
+      "descriptions": [
+        "Online Transaction Processing database for response logic"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_270",
+          "timestamp": 1692.9,
+          "text": " Or do you have like a retention limit on the data that you keep?  We have not tackled the historica..."
+        }
+      ]
+    },
+    {
+      "name": "OLT_archive",
+      "type": "technology",
+      "descriptions": [
+        "Archive database for response logic historical data"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_270",
+          "timestamp": 1692.9,
+          "text": " Or do you have like a retention limit on the data that you keep?  We have not tackled the historica..."
+        }
+      ]
+    },
+    {
+      "name": "CIM",
+      "type": "technology",
+      "descriptions": [
+        "A server system that peaks at around 70% CPU utilization multiple times daily",
+        "System that holds historical data with vehicle delisting archives"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_270",
+          "timestamp": 1692.9,
+          "text": " Or do you have like a retention limit on the data that you keep?  We have not tackled the historica..."
+        },
+        {
+          "source": "transcript_batch_310",
+          "timestamp": 1874.9,
+          "text": " I look at memory usage, CPU usage.  I look at the metrics of the server that it's supporting.  And ..."
+        }
+      ]
+    },
+    {
+      "name": "DAS acceptor",
+      "type": "technology",
+      "descriptions": [
+        "New system component with undetermined historical data handling approach"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_270",
+          "timestamp": 1692.9,
+          "text": " Or do you have like a retention limit on the data that you keep?  We have not tackled the historica..."
+        }
+      ]
+    },
+    {
+      "name": "historical data",
+      "type": "concept",
+      "descriptions": [
+        "Legacy data held in applications requiring retention strategy"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_270",
+          "timestamp": 1692.9,
+          "text": " Or do you have like a retention limit on the data that you keep?  We have not tackled the historica..."
+        }
+      ]
+    },
+    {
+      "name": "vehicle delisting archive",
+      "type": "concept",
+      "descriptions": [
+        "Archive containing records of delisted vehicles in CIM"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_270",
+          "timestamp": 1692.9,
+          "text": " Or do you have like a retention limit on the data that you keep?  We have not tackled the historica..."
+        }
+      ]
+    },
+    {
+      "name": "Individual Applications",
+      "type": "technology",
+      "descriptions": [
+        "Applications that produce their own reports",
+        "Applications that generate usage and access metrics"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_280",
+          "timestamp": 1747.9,
+          "text": " How many other consumers do you have of the data warehouse?  Is it primarily JUICE or do you have o..."
+        },
+        {
+          "source": "transcript_batch_290",
+          "timestamp": 1775.9,
+          "text": " Per app for the most part.  Yeah, got it.  Is there kind of usage access and or read versus write m..."
+        }
+      ]
+    },
+    {
+      "name": "Batch Jobs",
+      "type": "concept",
+      "descriptions": [
+        "Automated jobs that generate and email reports"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_280",
+          "timestamp": 1747.9,
+          "text": " How many other consumers do you have of the data warehouse?  Is it primarily JUICE or do you have o..."
+        }
+      ]
+    },
+    {
+      "name": "warehouse",
+      "type": "technology",
+      "descriptions": [
+        "Data warehouse system for storing and serving data"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_290",
+          "timestamp": 1775.9,
+          "text": " Per app for the most part.  Yeah, got it.  Is there kind of usage access and or read versus write m..."
+        }
+      ]
+    },
+    {
+      "name": "data factory",
+      "type": "technology",
+      "descriptions": [
+        "System capable of tracking runs and execution times"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_290",
+          "timestamp": 1775.9,
+          "text": " Per app for the most part.  Yeah, got it.  Is there kind of usage access and or read versus write m..."
+        }
+      ]
+    },
+    {
+      "name": "usage access metrics",
+      "type": "concept",
+      "descriptions": [
+        "Measurements of how applications are being used and accessed"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_290",
+          "timestamp": 1775.9,
+          "text": " Per app for the most part.  Yeah, got it.  Is there kind of usage access and or read versus write m..."
+        }
+      ]
+    },
+    {
+      "name": "read versus write metrics",
+      "type": "concept",
+      "descriptions": [
+        "Metrics comparing data read operations against data write operations"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_290",
+          "timestamp": 1775.9,
+          "text": " Per app for the most part.  Yeah, got it.  Is there kind of usage access and or read versus write m..."
+        }
+      ]
+    },
+    {
+      "name": "usage patterns",
+      "type": "concept",
+      "descriptions": [
+        "Analysis of traffic spikes and system activity variations"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_300",
+          "timestamp": 1824.9,
+          "text": " But again, to Ron's point, we're not actively monitoring or like logging and tracking that specific..."
+        }
+      ]
+    },
+    {
+      "name": "SQL DBA",
+      "type": "concept",
+      "descriptions": [
+        "Database Administrator role focused on SQL"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_300",
+          "timestamp": 1824.9,
+          "text": " But again, to Ron's point, we're not actively monitoring or like logging and tracking that specific..."
+        }
+      ]
+    },
+    {
+      "name": "systems engineer",
+      "type": "concept",
+      "descriptions": [
+        "Professional role with 25 years of experience"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_300",
+          "timestamp": 1824.9,
+          "text": " But again, to Ron's point, we're not actively monitoring or like logging and tracking that specific..."
+        }
+      ]
+    },
+    {
+      "name": "Monday morning",
+      "type": "time",
+      "descriptions": [
+        "Specific time period when system traffic may spike"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_300",
+          "timestamp": 1824.9,
+          "text": " But again, to Ron's point, we're not actively monitoring or like logging and tracking that specific..."
+        }
+      ]
+    },
+    {
+      "name": "weekend sales",
+      "type": "concept",
+      "descriptions": [
+        "Potential seasonal pattern affecting system usage"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_300",
+          "timestamp": 1824.9,
+          "text": " But again, to Ron's point, we're not actively monitoring or like logging and tracking that specific..."
+        }
+      ]
+    },
+    {
+      "name": "CPU utilization",
+      "type": "concept",
+      "descriptions": [
+        "Metric measuring processor usage, monitored to prevent 100% plateaus"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_310",
+          "timestamp": 1874.9,
+          "text": " I look at memory usage, CPU usage.  I look at the metrics of the server that it's supporting.  And ..."
+        }
+      ]
+    },
+    {
+      "name": "Memory usage",
+      "type": "concept",
+      "descriptions": [
+        "Server performance metric being monitored"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_310",
+          "timestamp": 1874.9,
+          "text": " I look at memory usage, CPU usage.  I look at the metrics of the server that it's supporting.  And ..."
+        }
+      ]
+    },
+    {
+      "name": "Monday and Tuesday",
+      "type": "time",
+      "descriptions": [
+        "Early week days that experience slightly larger traffic spikes"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_310",
+          "timestamp": 1874.9,
+          "text": " I look at memory usage, CPU usage.  I look at the metrics of the server that it's supporting.  And ..."
+        }
+      ]
+    },
+    {
+      "name": "Morning",
+      "type": "time",
+      "descriptions": [
+        "Time period when jobs are typically scheduled and run"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_310",
+          "timestamp": 1874.9,
+          "text": " I look at memory usage, CPU usage.  I look at the metrics of the server that it's supporting.  And ..."
+        }
+      ]
+    },
+    {
+      "name": "Wednesday",
+      "type": "time",
+      "descriptions": [
+        "Upcoming day marking two weeks into the project"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_330",
+          "timestamp": 1948.9,
+          "text": " I know Ron's working through a couple more.  So, before the end of this week, we'll have probably l..."
+        }
+      ]
+    },
+    {
+      "name": "project",
+      "type": "concept",
+      "descriptions": [
+        "Ongoing work initiative that is two weeks in duration"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_330",
+          "timestamp": 1948.9,
+          "text": " I know Ron's working through a couple more.  So, before the end of this week, we'll have probably l..."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "source": "Ron",
+      "target": "reporting",
+      "type": "can provide information about",
+      "content_source": "transcript_batch_0",
+      "timestamp": 0.0
+    },
+    {
+      "source": "Rick",
+      "target": "SSIS",
+      "type": "consulted about",
+      "content_source": "transcript_batch_0",
+      "timestamp": 0.0
+    },
+    {
+      "source": "SSIS",
+      "target": "reporting",
+      "type": "provides data to",
+      "content_source": "transcript_batch_0",
+      "timestamp": 0.0
+    },
+    {
+      "source": "CDP",
+      "target": "SSIS",
+      "type": "should not directly consume output from",
+      "content_source": "transcript_batch_0",
+      "timestamp": 0.0
+    },
+    {
+      "source": "CDP",
+      "target": "raw data",
+      "type": "should consume",
+      "content_source": "transcript_batch_0",
+      "timestamp": 0.0
+    },
+    {
+      "source": "Ron",
+      "target": "Database",
+      "type": "knows well and manages",
+      "content_source": "transcript_batch_10",
+      "timestamp": 68.4800033569336
+    },
+    {
+      "source": "Guice",
+      "target": "Reporting",
+      "type": "is a tool for",
+      "content_source": "transcript_batch_10",
+      "timestamp": 68.4800033569336
+    },
+    {
+      "source": "Guice",
+      "target": "Power BI",
+      "type": "is similar to",
+      "content_source": "transcript_batch_10",
+      "timestamp": 68.4800033569336
+    },
+    {
+      "source": "Guice",
+      "target": "Database",
+      "type": "builds reports from",
+      "content_source": "transcript_batch_10",
+      "timestamp": 68.4800033569336
+    },
+    {
+      "source": "Ron",
+      "target": "Guice",
+      "type": "has knowledge of",
+      "content_source": "transcript_batch_10",
+      "timestamp": 68.4800033569336
+    },
+    {
+      "source": "DWRPT",
+      "target": "Guice",
+      "type": "feeds data to",
+      "content_source": "transcript_batch_20",
+      "timestamp": 136.47999572753906
+    },
+    {
+      "source": "Common Client ID",
+      "target": "DWRPT",
+      "type": "improves join capability in",
+      "content_source": "transcript_batch_20",
+      "timestamp": 136.47999572753906
+    },
+    {
+      "source": "Ron",
+      "target": "data warehouse reporting database",
+      "type": "working on providing access to",
+      "content_source": "transcript_batch_30",
+      "timestamp": 209.47999572753906
+    },
+    {
+      "source": "Guice",
+      "target": "data warehouse reporting database",
+      "type": "UI powered by",
+      "content_source": "transcript_batch_30",
+      "timestamp": 209.47999572753906
+    },
+    {
+      "source": "3Birds",
+      "target": "Dash technology",
+      "type": "now runs on",
+      "content_source": "transcript_batch_30",
+      "timestamp": 209.47999572753906
+    },
+    {
+      "source": "3Birds",
+      "target": "CDXP",
+      "type": "is a",
+      "content_source": "transcript_batch_30",
+      "timestamp": 209.47999572753906
+    },
+    {
+      "source": "Guice",
+      "target": "Reports",
+      "type": "generates",
+      "content_source": "transcript_batch_40",
+      "timestamp": 270.4800109863281
+    },
+    {
+      "source": "Guice",
+      "target": "Campaign methods",
+      "type": "can filter by",
+      "content_source": "transcript_batch_40",
+      "timestamp": 270.4800109863281
+    },
+    {
+      "source": "Guice",
+      "target": "SMS",
+      "type": "supports filtering of",
+      "content_source": "transcript_batch_40",
+      "timestamp": 270.4800109863281
+    },
+    {
+      "source": "Guice",
+      "target": "Power BI",
+      "type": "similar functionality to",
+      "content_source": "transcript_batch_40",
+      "timestamp": 270.4800109863281
+    },
+    {
+      "source": "2FA",
+      "target": "Guice",
+      "type": "required to access backend of",
+      "content_source": "transcript_batch_40",
+      "timestamp": 270.4800109863281
+    },
+    {
+      "source": "Reports",
+      "target": "Databases",
+      "type": "uses",
+      "content_source": "transcript_batch_50",
+      "timestamp": 328.4800109863281
+    },
+    {
+      "source": "Reports",
+      "target": "Views",
+      "type": "contains",
+      "content_source": "transcript_batch_50",
+      "timestamp": 328.4800109863281
+    },
+    {
+      "source": "Databases",
+      "target": "Views",
+      "type": "provides",
+      "content_source": "transcript_batch_50",
+      "timestamp": 328.4800109863281
+    },
+    {
+      "source": "DDE",
+      "target": "Data Set",
+      "type": "displays",
+      "content_source": "transcript_batch_50",
+      "timestamp": 328.4800109863281
+    },
+    {
+      "source": "Drag and Drop",
+      "target": "Reports",
+      "type": "enables editing of",
+      "content_source": "transcript_batch_50",
+      "timestamp": 328.4800109863281
+    },
+    {
+      "source": "Reports",
+      "target": "Client",
+      "type": "can filter by",
+      "content_source": "transcript_batch_50",
+      "timestamp": 328.4800109863281
+    },
+    {
+      "source": "data staging",
+      "target": "database",
+      "type": "helps organize data into",
+      "content_source": "transcript_batch_60",
+      "timestamp": 392.4800109863281
+    },
+    {
+      "source": "MediaLogic",
+      "target": "Google data",
+      "type": "has associated",
+      "content_source": "transcript_batch_60",
+      "timestamp": 392.4800109863281
+    },
+    {
+      "source": "database",
+      "target": "cache",
+      "type": "contains",
+      "content_source": "transcript_batch_60",
+      "timestamp": 392.4800109863281
+    },
+    {
+      "source": "cache",
+      "target": "report",
+      "type": "used in",
+      "content_source": "transcript_batch_60",
+      "timestamp": 392.4800109863281
+    },
+    {
+      "source": "data warehouse",
+      "target": "schema",
+      "type": "contains multiple",
+      "content_source": "transcript_batch_60",
+      "timestamp": 392.4800109863281
+    },
+    {
+      "source": "social logic",
+      "target": "SL schema",
+      "type": "data stored in",
+      "content_source": "transcript_batch_60",
+      "timestamp": 392.4800109863281
+    },
+    {
+      "source": "MediaLogic",
+      "target": "ML schema",
+      "type": "data stored in",
+      "content_source": "transcript_batch_60",
+      "timestamp": 392.4800109863281
+    },
+    {
+      "source": "SL schema",
+      "target": "ML schema",
+      "type": "has overlap with",
+      "content_source": "transcript_batch_60",
+      "timestamp": 392.4800109863281
+    },
+    {
+      "source": "Portal",
+      "target": "iframe",
+      "type": "embeds",
+      "content_source": "transcript_batch_70",
+      "timestamp": 461.4800109863281
+    },
+    {
+      "source": "iframe",
+      "target": "Security",
+      "type": "protected by",
+      "content_source": "transcript_batch_70",
+      "timestamp": 461.4800109863281
+    },
+    {
+      "source": "Reporting",
+      "target": "Portal",
+      "type": "customizes",
+      "content_source": "transcript_batch_70",
+      "timestamp": 461.4800109863281
+    },
+    {
+      "source": "Ron",
+      "target": "Survey Send View",
+      "type": "created",
+      "content_source": "transcript_batch_70",
+      "timestamp": 461.4800109863281
+    },
+    {
+      "source": "Survey Send View",
+      "target": "Reporting",
+      "type": "provides data for",
+      "content_source": "transcript_batch_70",
+      "timestamp": 461.4800109863281
+    },
+    {
+      "source": "embed",
+      "target": "iframe",
+      "type": "implements rules for",
+      "content_source": "transcript_batch_70",
+      "timestamp": 461.4800109863281
+    },
+    {
+      "source": "Data Technology",
+      "target": "Portal",
+      "type": "base element in",
+      "content_source": "transcript_batch_70",
+      "timestamp": 461.4800109863281
+    },
+    {
+      "source": "CDXP team",
+      "target": "Power BI",
+      "type": "was integrating with",
+      "content_source": "transcript_batch_80",
+      "timestamp": 522.47998046875
+    },
+    {
+      "source": "Ron",
+      "target": "Power BI",
+      "type": "assigned to work on",
+      "content_source": "transcript_batch_80",
+      "timestamp": 522.47998046875
+    },
+    {
+      "source": "offshore team",
+      "target": "Power BI",
+      "type": "hired to develop",
+      "content_source": "transcript_batch_80",
+      "timestamp": 522.47998046875
+    },
+    {
+      "source": "product team",
+      "target": "Power BI",
+      "type": "uses to build reports",
+      "content_source": "transcript_batch_80",
+      "timestamp": 522.47998046875
+    },
+    {
+      "source": "Juice",
+      "target": "reports",
+      "type": "generates",
+      "content_source": "transcript_batch_90",
+      "timestamp": 565.47998046875
+    },
+    {
+      "source": "reports",
+      "target": "all-time performance table",
+      "type": "pulls data from",
+      "content_source": "transcript_batch_90",
+      "timestamp": 565.47998046875
+    },
+    {
+      "source": "all-time performance table",
+      "target": "total reviews",
+      "type": "contains metric",
+      "content_source": "transcript_batch_90",
+      "timestamp": 565.47998046875
+    },
+    {
+      "source": "Juice",
+      "target": "total reviews",
+      "type": "sums and displays",
+      "content_source": "transcript_batch_90",
+      "timestamp": 565.47998046875
+    },
+    {
+      "source": "Ron",
+      "target": "Azure Data Factory",
+      "type": "manages",
+      "content_source": "transcript_batch_100",
+      "timestamp": 618.47998046875
+    },
+    {
+      "source": "Ron",
+      "target": "Data Warehouse Reporting Database",
+      "type": "manages",
+      "content_source": "transcript_batch_100",
+      "timestamp": 618.47998046875
+    },
+    {
+      "source": "Data Warehouse Reporting Database",
+      "target": "Azure Data Factory",
+      "type": "uses for data movement",
+      "content_source": "transcript_batch_100",
+      "timestamp": 618.47998046875
+    },
+    {
+      "source": "CDXP App",
+      "target": "AWS",
+      "type": "hosted on",
+      "content_source": "transcript_batch_100",
+      "timestamp": 618.47998046875
+    },
+    {
+      "source": "Engage to Sell",
+      "target": "AWS",
+      "type": "hosted on",
+      "content_source": "transcript_batch_100",
+      "timestamp": 618.47998046875
+    },
+    {
+      "source": "CDXP App",
+      "target": "Data Warehouse Reporting Database",
+      "type": "displays reports from",
+      "content_source": "transcript_batch_100",
+      "timestamp": 618.47998046875
+    },
+    {
+      "source": "CDXP",
+      "target": "AWS",
+      "type": "hosted in",
+      "content_source": "transcript_batch_110",
+      "timestamp": 675.5999996185303
+    },
+    {
+      "source": "Engage to Sell",
+      "target": "AWS",
+      "type": "hosted in separate region",
+      "content_source": "transcript_batch_110",
+      "timestamp": 675.5999996185303
+    },
+    {
+      "source": "CDXP",
+      "target": "Postgres",
+      "type": "uses for reporting",
+      "content_source": "transcript_batch_110",
+      "timestamp": 675.5999996185303
+    },
+    {
+      "source": "CDXP",
+      "target": "MySQL",
+      "type": "uses",
+      "content_source": "transcript_batch_110",
+      "timestamp": 675.5999996185303
+    },
+    {
+      "source": "CDXP",
+      "target": "SQL",
+      "type": "uses",
+      "content_source": "transcript_batch_110",
+      "timestamp": 675.5999996185303
+    },
+    {
+      "source": "SSIS",
+      "target": "CDXP",
+      "type": "manages data flow for",
+      "content_source": "transcript_batch_110",
+      "timestamp": 675.5999996185303
+    },
+    {
+      "source": "Rick",
+      "target": "SSIS",
+      "type": "demonstrated",
+      "content_source": "transcript_batch_110",
+      "timestamp": 675.5999996185303
+    },
+    {
+      "source": "Data Staging",
+      "target": "Data Warehouse",
+      "type": "feeds into",
+      "content_source": "transcript_batch_120",
+      "timestamp": 728.0000030517579
+    },
+    {
+      "source": "ADF",
+      "target": "Data Staging",
+      "type": "copies data to",
+      "content_source": "transcript_batch_120",
+      "timestamp": 728.0000030517579
+    },
+    {
+      "source": "CDXP",
+      "target": "CDXP.JuiceReporting",
+      "type": "provides",
+      "content_source": "transcript_batch_120",
+      "timestamp": 728.0000030517579
+    },
+    {
+      "source": "CDXP.JuiceReporting",
+      "target": "Data Warehouse",
+      "type": "ingested into",
+      "content_source": "transcript_batch_120",
+      "timestamp": 728.0000030517579
+    },
+    {
+      "source": "Social Logics",
+      "target": "CDXP ClientDB Core",
+      "type": "integrated into",
+      "content_source": "transcript_batch_120",
+      "timestamp": 728.0000030517579
+    },
+    {
+      "source": "CDXP ClientDB Core",
+      "target": "Data Warehouse",
+      "type": "ingested into",
+      "content_source": "transcript_batch_120",
+      "timestamp": 728.0000030517579
+    },
+    {
+      "source": "Dynamics",
+      "target": "Data Warehouse",
+      "type": "provides data to",
+      "content_source": "transcript_batch_120",
+      "timestamp": 728.0000030517579
+    },
+    {
+      "source": "Google",
+      "target": "Data Warehouse",
+      "type": "provides data to",
+      "content_source": "transcript_batch_120",
+      "timestamp": 728.0000030517579
+    },
+    {
+      "source": "Vantage",
+      "target": "Data Warehouse",
+      "type": "provides data to",
+      "content_source": "transcript_batch_120",
+      "timestamp": 728.0000030517579
+    },
+    {
+      "source": "Media Logic",
+      "target": "Data Warehouse",
+      "type": "provides data to",
+      "content_source": "transcript_batch_120",
+      "timestamp": 728.0000030517579
+    },
+    {
+      "source": "Response Logic",
+      "target": "Data Warehouse",
+      "type": "provides data to",
+      "content_source": "transcript_batch_120",
+      "timestamp": 728.0000030517579
+    },
+    {
+      "source": "Radar Views",
+      "target": "Data Warehouse",
+      "type": "provides data to",
+      "content_source": "transcript_batch_120",
+      "timestamp": 728.0000030517579
+    },
+    {
+      "source": "Data Warehouse",
+      "target": "Raw Data",
+      "type": "contains",
+      "content_source": "transcript_batch_130",
+      "timestamp": 812.1600067138672
+    },
+    {
+      "source": "Data Warehouse",
+      "target": "Views",
+      "type": "provides",
+      "content_source": "transcript_batch_130",
+      "timestamp": 812.1600067138672
+    },
+    {
+      "source": "Views",
+      "target": "Raw Data",
+      "type": "accesses",
+      "content_source": "transcript_batch_130",
+      "timestamp": 812.1600067138672
+    },
+    {
+      "source": "AI Specific Views",
+      "target": "AI Analytical Tools",
+      "type": "feeds",
+      "content_source": "transcript_batch_130",
+      "timestamp": 812.1600067138672
+    },
+    {
+      "source": "Applications",
+      "target": "Surveys and Reviews Views",
+      "type": "generates data for",
+      "content_source": "transcript_batch_130",
+      "timestamp": 812.1600067138672
+    },
+    {
+      "source": "Juice",
+      "target": "Views",
+      "type": "consumes data from",
+      "content_source": "transcript_batch_130",
+      "timestamp": 812.1600067138672
+    },
+    {
+      "source": "Common Client ID",
+      "target": "Applications",
+      "type": "unifies",
+      "content_source": "transcript_batch_130",
+      "timestamp": 812.1600067138672
+    },
+    {
+      "source": "Views",
+      "target": "Stored Procedure",
+      "type": "replaces",
+      "content_source": "transcript_batch_130",
+      "timestamp": 812.1600067138672
+    },
+    {
+      "source": "Production Databases",
+      "target": "Data Warehouse",
+      "type": "data flows into",
+      "content_source": "transcript_batch_140",
+      "timestamp": 887.3600036621094
+    },
+    {
+      "source": "ADF",
+      "target": "Data Warehouse",
+      "type": "loads data through ETL jobs",
+      "content_source": "transcript_batch_140",
+      "timestamp": 887.3600036621094
+    },
+    {
+      "source": "Data Warehouse",
+      "target": "Views",
+      "type": "aggregates data as",
+      "content_source": "transcript_batch_140",
+      "timestamp": 887.3600036621094
+    },
+    {
+      "source": "Views",
+      "target": "Reporting",
+      "type": "provides processed data for",
+      "content_source": "transcript_batch_140",
+      "timestamp": 887.3600036621094
+    },
+    {
+      "source": "Reporting",
+      "target": "Production Databases",
+      "type": "isolated from to maintain security",
+      "content_source": "transcript_batch_140",
+      "timestamp": 887.3600036621094
+    },
+    {
+      "source": "Zora",
+      "target": "Data Warehouse",
+      "type": "contains isolated databases within",
+      "content_source": "transcript_batch_140",
+      "timestamp": 887.3600036621094
+    },
+    {
+      "source": "Javis",
+      "target": "AI",
+      "type": "built over",
+      "content_source": "transcript_batch_150",
+      "timestamp": 951.6800109863282
+    },
+    {
+      "source": "AI views",
+      "target": "AI",
+      "type": "provides raw data to",
+      "content_source": "transcript_batch_150",
+      "timestamp": 951.6800109863282
+    },
+    {
+      "source": "Javis",
+      "target": "AI views",
+      "type": "accesses",
+      "content_source": "transcript_batch_150",
+      "timestamp": 951.6800109863282
+    },
+    {
+      "source": "DWRPT",
+      "target": "AI",
+      "type": "feeds data to",
+      "content_source": "transcript_batch_150",
+      "timestamp": 951.6800109863282
+    },
+    {
+      "source": "Javis",
+      "target": "database",
+      "type": "sits over and accesses",
+      "content_source": "transcript_batch_160",
+      "timestamp": 1015.9200012207032
+    },
+    {
+      "source": "Javis",
+      "target": "Jira",
+      "type": "can access",
+      "content_source": "transcript_batch_160",
+      "timestamp": 1015.9200012207032
+    },
+    {
+      "source": "Javis",
+      "target": "SharePoint",
+      "type": "can access",
+      "content_source": "transcript_batch_160",
+      "timestamp": 1015.9200012207032
+    },
+    {
+      "source": "plot review sentiment",
+      "target": "Javis",
+      "type": "generated by",
+      "content_source": "transcript_batch_160",
+      "timestamp": 1015.9200012207032
+    },
+    {
+      "source": "lead response",
+      "target": "Javis",
+      "type": "generated by",
+      "content_source": "transcript_batch_160",
+      "timestamp": 1015.9200012207032
+    },
+    {
+      "source": "Real-time Data Report",
+      "target": "Quote Analysis",
+      "type": "generates",
+      "content_source": "transcript_batch_170",
+      "timestamp": 1074.1599914550782
+    },
+    {
+      "source": "Real-time Data Report",
+      "target": "Internal Team",
+      "type": "used by",
+      "content_source": "transcript_batch_170",
+      "timestamp": 1074.1599914550782
+    },
+    {
+      "source": "Internal Team",
+      "target": "Bob Pointer",
+      "type": "contacts with information",
+      "content_source": "transcript_batch_170",
+      "timestamp": 1074.1599914550782
+    },
+    {
+      "source": "July",
+      "target": "August",
+      "type": "compared in quote analysis",
+      "content_source": "transcript_batch_170",
+      "timestamp": 1074.1599914550782
+    },
+    {
+      "source": "Leads",
+      "target": "Quote Analysis",
+      "type": "tracked in",
+      "content_source": "transcript_batch_170",
+      "timestamp": 1074.1599914550782
+    },
+    {
+      "source": "Javis",
+      "target": "AI reporting",
+      "type": "is an example of",
+      "content_source": "transcript_batch_180",
+      "timestamp": 1120.719989013672
+    },
+    {
+      "source": "Javis",
+      "target": "AWS",
+      "type": "technically sits on",
+      "content_source": "transcript_batch_180",
+      "timestamp": 1120.719989013672
+    },
+    {
+      "source": "Javis",
+      "target": "SaaS",
+      "type": "delivered as",
+      "content_source": "transcript_batch_180",
+      "timestamp": 1120.719989013672
+    },
+    {
+      "source": "Ron",
+      "target": "AI reporting",
+      "type": "demonstrated",
+      "content_source": "transcript_batch_180",
+      "timestamp": 1120.719989013672
+    },
+    {
+      "source": "Negative View Analysis",
+      "target": "Rude Staff Behavior",
+      "type": "identifies",
+      "content_source": "transcript_batch_190",
+      "timestamp": 1174.5599853515625
+    },
+    {
+      "source": "Negative View Analysis",
+      "target": "Sales Guy",
+      "type": "flags as problematic",
+      "content_source": "transcript_batch_190",
+      "timestamp": 1174.5599853515625
+    },
+    {
+      "source": "AI Views",
+      "target": "Negative View Analysis",
+      "type": "displays results from",
+      "content_source": "transcript_batch_190",
+      "timestamp": 1174.5599853515625
+    },
+    {
+      "source": "AI Tables",
+      "target": "Negative View Analysis",
+      "type": "displays results from",
+      "content_source": "transcript_batch_190",
+      "timestamp": 1174.5599853515625
+    },
+    {
+      "source": "Training for Termination",
+      "target": "Sales Guy",
+      "type": "applied to",
+      "content_source": "transcript_batch_190",
+      "timestamp": 1174.5599853515625
+    },
+    {
+      "source": "Ascending",
+      "target": "Jarvis",
+      "type": "develops/owns",
+      "content_source": "transcript_batch_200",
+      "timestamp": 1227.67998046875
+    },
+    {
+      "source": "Ascending",
+      "target": "AWS",
+      "type": "provides migration services to",
+      "content_source": "transcript_batch_200",
+      "timestamp": 1227.67998046875
+    },
+    {
+      "source": "Jarvis",
+      "target": "AWS",
+      "type": "related to data migrations in",
+      "content_source": "transcript_batch_200",
+      "timestamp": 1227.67998046875
+    },
+    {
+      "source": "Ron",
+      "target": "Jarvis",
+      "type": "has access to/involved with",
+      "content_source": "transcript_batch_200",
+      "timestamp": 1227.67998046875
+    },
+    {
+      "source": "source databases",
+      "target": "DWRPT",
+      "type": "can feed into",
+      "content_source": "transcript_batch_210",
+      "timestamp": 1295.439990234375
+    },
+    {
+      "source": "ADF",
+      "target": "source databases",
+      "type": "derived from or manipulated version of",
+      "content_source": "transcript_batch_210",
+      "timestamp": 1295.439990234375
+    },
+    {
+      "source": "reports",
+      "target": "CDXP",
+      "type": "contained_in",
+      "content_source": "transcript_batch_220",
+      "timestamp": 1357.9
+    },
+    {
+      "source": "sign-in required reports",
+      "target": "reports",
+      "type": "subset_of",
+      "content_source": "transcript_batch_220",
+      "timestamp": 1357.9
+    },
+    {
+      "source": "access",
+      "target": "reports",
+      "type": "enables_viewing_of",
+      "content_source": "transcript_batch_220",
+      "timestamp": 1357.9
+    },
+    {
+      "source": "export",
+      "target": "reports",
+      "type": "function_for",
+      "content_source": "transcript_batch_220",
+      "timestamp": 1357.9
+    },
+    {
+      "source": "Alicia",
+      "target": "reporting",
+      "type": "proposes working backwards from current reporting to map data relationships",
+      "content_source": "transcript_batch_230",
+      "timestamp": 1428.9
+    },
+    {
+      "source": "CDXP",
+      "target": "matchbacks",
+      "type": "produces",
+      "content_source": "transcript_batch_230",
+      "timestamp": 1428.9
+    },
+    {
+      "source": "CDXP",
+      "target": "customer ID",
+      "type": "uses for data joins",
+      "content_source": "transcript_batch_230",
+      "timestamp": 1428.9
+    },
+    {
+      "source": "CDXP",
+      "target": "vehicle",
+      "type": "tracks",
+      "content_source": "transcript_batch_230",
+      "timestamp": 1428.9
+    },
+    {
+      "source": "reporting",
+      "target": "CDXP",
+      "type": "has problems originating from",
+      "content_source": "transcript_batch_230",
+      "timestamp": 1428.9
+    },
+    {
+      "source": "customer ID",
+      "target": "vehicle",
+      "type": "joins on",
+      "content_source": "transcript_batch_230",
+      "timestamp": 1428.9
+    },
+    {
+      "source": "vehicle",
+      "target": "service dates",
+      "type": "has associated",
+      "content_source": "transcript_batch_230",
+      "timestamp": 1428.9
+    },
+    {
+      "source": "service dates",
+      "target": "vehicles",
+      "type": "associated with",
+      "content_source": "transcript_batch_240",
+      "timestamp": 1500.9
+    },
+    {
+      "source": "working backwards",
+      "target": "service dates",
+      "type": "causes problems with",
+      "content_source": "transcript_batch_240",
+      "timestamp": 1500.9
+    },
+    {
+      "source": "Ron",
+      "target": "Performance issues",
+      "type": "identified and attempted to resolve",
+      "content_source": "transcript_batch_250",
+      "timestamp": 1560.9
+    },
+    {
+      "source": "SIS processes",
+      "target": "Tables",
+      "type": "truncate",
+      "content_source": "transcript_batch_250",
+      "timestamp": 1560.9
+    },
+    {
+      "source": "Tables",
+      "target": "Report",
+      "type": "populate data for",
+      "content_source": "transcript_batch_250",
+      "timestamp": 1560.9
+    },
+    {
+      "source": "SIS processes",
+      "target": "Report",
+      "type": "can cause zeros to appear in",
+      "content_source": "transcript_batch_250",
+      "timestamp": 1560.9
+    },
+    {
+      "source": "Performance issues",
+      "target": "Tables",
+      "type": "cause crashes in",
+      "content_source": "transcript_batch_250",
+      "timestamp": 1560.9
+    },
+    {
+      "source": "media clicks table",
+      "target": "juice",
+      "type": "causes timeout in",
+      "content_source": "transcript_batch_260",
+      "timestamp": 1613.9
+    },
+    {
+      "source": "49 million row table",
+      "target": "juice",
+      "type": "too large for processing by",
+      "content_source": "transcript_batch_260",
+      "timestamp": 1613.9
+    },
+    {
+      "source": "CDXP tables",
+      "target": "49 million row table",
+      "type": "creates",
+      "content_source": "transcript_batch_260",
+      "timestamp": 1613.9
+    },
+    {
+      "source": "DWRPT server",
+      "target": "data warehouse",
+      "type": "hosts",
+      "content_source": "transcript_batch_260",
+      "timestamp": 1613.9
+    },
+    {
+      "source": "media clicks table",
+      "target": "data warehouse",
+      "type": "stored in",
+      "content_source": "transcript_batch_260",
+      "timestamp": 1613.9
+    },
+    {
+      "source": "response logic",
+      "target": "OLTP database",
+      "type": "contains",
+      "content_source": "transcript_batch_270",
+      "timestamp": 1692.9
+    },
+    {
+      "source": "response logic",
+      "target": "OLT_archive",
+      "type": "contains",
+      "content_source": "transcript_batch_270",
+      "timestamp": 1692.9
+    },
+    {
+      "source": "OLTP database",
+      "target": "historical data",
+      "type": "holds",
+      "content_source": "transcript_batch_270",
+      "timestamp": 1692.9
+    },
+    {
+      "source": "OLT_archive",
+      "target": "historical data",
+      "type": "holds",
+      "content_source": "transcript_batch_270",
+      "timestamp": 1692.9
+    },
+    {
+      "source": "CIM",
+      "target": "historical data",
+      "type": "holds",
+      "content_source": "transcript_batch_270",
+      "timestamp": 1692.9
+    },
+    {
+      "source": "CIM",
+      "target": "vehicle delisting archive",
+      "type": "contains",
+      "content_source": "transcript_batch_270",
+      "timestamp": 1692.9
+    },
+    {
+      "source": "DAS acceptor",
+      "target": "historical data",
+      "type": "requires_handling_strategy",
+      "content_source": "transcript_batch_270",
+      "timestamp": 1692.9
+    },
+    {
+      "source": "JUICE",
+      "target": "Data Warehouse",
+      "type": "consumes data from",
+      "content_source": "transcript_batch_280",
+      "timestamp": 1747.9
+    },
+    {
+      "source": "Jarvis",
+      "target": "Data Warehouse",
+      "type": "consumes data from",
+      "content_source": "transcript_batch_280",
+      "timestamp": 1747.9
+    },
+    {
+      "source": "Individual Applications",
+      "target": "Reports",
+      "type": "produce",
+      "content_source": "transcript_batch_280",
+      "timestamp": 1747.9
+    },
+    {
+      "source": "Batch Jobs",
+      "target": "Reports",
+      "type": "generate and email",
+      "content_source": "transcript_batch_280",
+      "timestamp": 1747.9
+    },
+    {
+      "source": "Individual Applications",
+      "target": "Batch Jobs",
+      "type": "execute per app",
+      "content_source": "transcript_batch_280",
+      "timestamp": 1747.9
+    },
+    {
+      "source": "individual applications",
+      "target": "usage access metrics",
+      "type": "generates",
+      "content_source": "transcript_batch_290",
+      "timestamp": 1775.9
+    },
+    {
+      "source": "warehouse",
+      "target": "read versus write metrics",
+      "type": "can provide",
+      "content_source": "transcript_batch_290",
+      "timestamp": 1775.9
+    },
+    {
+      "source": "DWRPT",
+      "target": "warehouse",
+      "type": "pulls data from",
+      "content_source": "transcript_batch_290",
+      "timestamp": 1775.9
+    },
+    {
+      "source": "data factory",
+      "target": "usage access metrics",
+      "type": "can provide",
+      "content_source": "transcript_batch_290",
+      "timestamp": 1775.9
+    },
+    {
+      "source": "Ron",
+      "target": "data warehouse",
+      "type": "makes point about not actively monitoring",
+      "content_source": "transcript_batch_300",
+      "timestamp": 1824.9
+    },
+    {
+      "source": "systems engineer",
+      "target": "SQL DBA",
+      "type": "transitioned into role of",
+      "content_source": "transcript_batch_300",
+      "timestamp": 1824.9
+    },
+    {
+      "source": "usage patterns",
+      "target": "data warehouse",
+      "type": "describes traffic on",
+      "content_source": "transcript_batch_300",
+      "timestamp": 1824.9
+    },
+    {
+      "source": "Monday morning",
+      "target": "usage patterns",
+      "type": "example of potential spike in",
+      "content_source": "transcript_batch_300",
+      "timestamp": 1824.9
+    },
+    {
+      "source": "weekend sales",
+      "target": "usage patterns",
+      "type": "seasonal factor affecting",
+      "content_source": "transcript_batch_300",
+      "timestamp": 1824.9
+    },
+    {
+      "source": "DWRPT",
+      "target": "CPU utilization",
+      "type": "monitored by",
+      "content_source": "transcript_batch_310",
+      "timestamp": 1874.9
+    },
+    {
+      "source": "CIM",
+      "target": "CPU utilization",
+      "type": "monitored by",
+      "content_source": "transcript_batch_310",
+      "timestamp": 1874.9
+    },
+    {
+      "source": "Monday and Tuesday",
+      "target": "CPU utilization",
+      "type": "experiences higher spikes than",
+      "content_source": "transcript_batch_310",
+      "timestamp": 1874.9
+    },
+    {
+      "source": "Morning",
+      "target": "DWRPT",
+      "type": "scheduled job execution time for",
+      "content_source": "transcript_batch_310",
+      "timestamp": 1874.9
+    },
+    {
+      "source": "Morning",
+      "target": "CIM",
+      "type": "scheduled job execution time for",
+      "content_source": "transcript_batch_310",
+      "timestamp": 1874.9
+    },
+    {
+      "source": "Luis",
+      "target": "databases",
+      "type": "will receive access to",
+      "content_source": "transcript_batch_320",
+      "timestamp": 1925.9
+    },
+    {
+      "source": "Ron",
+      "target": "project",
+      "type": "working on items for review",
+      "content_source": "transcript_batch_330",
+      "timestamp": 1948.9
+    },
+    {
+      "source": "Leo",
+      "target": "project",
+      "type": "involved in and providing feedback on",
+      "content_source": "transcript_batch_330",
+      "timestamp": 1948.9
+    },
+    {
+      "source": "Wednesday",
+      "target": "project",
+      "type": "marks two-week milestone of",
+      "content_source": "transcript_batch_330",
+      "timestamp": 1948.9
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "643ea3e756ac",
+      "source_type": "video",
+      "title": "Conflict AI - Review of Reporting (Juice) 2026-06-08",
+      "path": "/Users/ragelink/Downloads/Conflict AI - Review of Reporting (Juice)-20260608_143335-Meeting Recording.mp4",
+      "url": null,
+      "mime_type": "video/mp4",
+      "ingested_at": "2026-06-08T20:06:26.372313",
+      "metadata": {
+        "duration_seconds": 2052.288
+      }
+    }
+  ]
+}

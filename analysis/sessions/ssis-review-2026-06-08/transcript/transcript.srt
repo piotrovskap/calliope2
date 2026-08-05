@@ -1,0 +1,1603 @@
+1
+00:00:00,000 --> 00:00:08,239
+Thank you.
+
+2
+00:00:08,239 --> 00:00:11,439
+Maybe we can do some introductions.
+
+3
+00:00:11,439 --> 00:00:18,440
+All right, I'll start since my list is kind of short.
+
+4
+00:00:18,440 --> 00:00:19,440
+My name is Rick.
+
+5
+00:00:19,440 --> 00:00:20,440
+So rich.
+
+6
+00:00:20,440 --> 00:00:23,159
+I am the engineering manager here at DAS.
+
+7
+00:00:23,159 --> 00:00:27,639
+And I work directly with Dan Aston, which I believe you guys have met previously.
+
+8
+00:00:28,639 --> 00:00:31,680
+I can start on my end.
+
+9
+00:00:31,680 --> 00:00:33,479
+So I'm Leo.
+
+10
+00:00:33,479 --> 00:00:39,880
+I'm the manager of this here group of misfits.
+
+11
+00:00:39,880 --> 00:00:47,959
+And we do computery things on the internet at a high level, you know, build things, AI,
+
+12
+00:00:47,959 --> 00:00:49,400
+cloud, all the likes.
+
+13
+00:00:49,400 --> 00:00:52,799
+I'll drop it over to Alicia.
+
+14
+00:00:53,799 --> 00:01:00,799
+Well, we talked a little bit before, Alicia, and I'll be working with the data stuff here.
+
+15
+00:01:02,799 --> 00:01:04,800
+Hello, my name is Luis.
+
+16
+00:01:04,800 --> 00:01:07,800
+I am a computer engineer.
+
+17
+00:01:07,800 --> 00:01:13,800
+And yeah, basically, we do everything, you know.
+
+18
+00:01:15,800 --> 00:01:16,800
+Hi.
+
+19
+00:01:16,800 --> 00:01:17,800
+Yeah.
+
+20
+00:01:17,800 --> 00:01:18,800
+My name is Sid.
+
+21
+00:01:18,800 --> 00:01:21,800
+I'm one of the software engineers and avid fishkeeper.
+
+22
+00:01:21,800 --> 00:01:24,800
+So it's really nice to meet you.
+
+23
+00:01:26,800 --> 00:01:27,800
+Hey, finally, me.
+
+24
+00:01:27,800 --> 00:01:28,800
+I'm Julio.
+
+25
+00:01:28,800 --> 00:01:31,800
+I am also a software engineer.
+
+26
+00:01:31,800 --> 00:01:33,800
+I'm ready to do anything.
+
+27
+00:01:35,800 --> 00:01:36,800
+Awesome.
+
+28
+00:01:36,800 --> 00:01:38,800
+It's nice to meet all of you.
+
+29
+00:01:42,800 --> 00:01:43,800
+All right.
+
+30
+00:01:43,800 --> 00:01:46,800
+So where would you guys like to start?
+
+31
+00:01:49,800 --> 00:01:55,800
+Possibly an overview, lay of the land with me.
+
+32
+00:01:55,800 --> 00:01:57,800
+All right.
+
+33
+00:01:57,800 --> 00:02:00,800
+I will share what I've got here.
+
+34
+00:02:00,800 --> 00:02:02,800
+All right.
+
+35
+00:02:02,800 --> 00:02:08,800
+So we have a bunch of SSIS jobs.
+
+36
+00:02:08,800 --> 00:02:11,800
+That's kind of hard to read here.
+
+37
+00:02:12,800 --> 00:02:19,800
+As you can see, they're very tightly coupled, and they run in different intervals.
+
+38
+00:02:19,800 --> 00:02:26,800
+Basically, a lot of times they will drop tables, truncate them all together, and then rebuild them from scratch,
+
+39
+00:02:26,800 --> 00:02:34,800
+which is one of the issues with fragility, you know, because if anything crashes,
+
+40
+00:02:34,800 --> 00:02:37,800
+now we just have a whole table that's missing.
+
+41
+00:02:37,800 --> 00:02:42,800
+But you can kind of see here, this is the high-level list of the jobs that we have.
+
+42
+00:02:42,800 --> 00:02:46,800
+Hopefully, you guys can read that.
+
+43
+00:02:46,800 --> 00:02:49,800
+Got my glasses on now.
+
+44
+00:02:49,800 --> 00:02:56,800
+But you can see they basically take a pretty predetermined amount of time to run,
+
+45
+00:02:56,800 --> 00:03:02,800
+and we stagger them out a little bit because one job might be dependent on a previous job,
+
+46
+00:03:02,800 --> 00:03:06,800
+so very tightly coupled in that way.
+
+47
+00:03:06,800 --> 00:03:13,800
+So for like a little bit of a better visual, this is the current status of the jobs right now.
+
+48
+00:03:13,800 --> 00:03:17,800
+So you can see this is the job that's running currently,
+
+49
+00:03:17,800 --> 00:03:23,800
+and you can see all the ones that run previously and the ones that are coming up soon here.
+
+50
+00:03:23,800 --> 00:03:29,800
+And you can see here, this is kind of like a status of how they've been running,
+
+51
+00:03:29,800 --> 00:03:31,800
+and I actually came in this morning,
+
+52
+00:03:31,800 --> 00:03:35,800
+and you see that this one has already failed a couple times over the weekend.
+
+53
+00:03:35,800 --> 00:03:38,800
+The data engineers silently fixed it.
+
+54
+00:03:38,800 --> 00:03:45,800
+Whatever they did, nobody really knows, but that was the error message that we were getting.
+
+55
+00:03:45,800 --> 00:03:49,800
+So it's constantly breaking.
+
+56
+00:03:49,800 --> 00:03:53,800
+You know, we have about, I think, three or four data engineers in India
+
+57
+00:03:53,800 --> 00:03:56,800
+that are constantly kind of taping the thing back together
+
+58
+00:03:56,800 --> 00:04:01,800
+and trying everything they can to get it running stable.
+
+59
+00:04:01,800 --> 00:04:05,800
+Is this one built by your team?
+
+60
+00:04:05,800 --> 00:04:09,800
+I built this like a week or so ago.
+
+61
+00:04:09,800 --> 00:04:14,800
+I basically was kind of tired of not knowing what the SSIS jobs were doing,
+
+62
+00:04:14,800 --> 00:04:19,799
+so, you know, that has a whole set of tables and stuff with data in them,
+
+63
+00:04:19,799 --> 00:04:26,799
+so I basically extracted all that out so I can kind of get a better visual of what's happening at any given time,
+
+64
+00:04:26,799 --> 00:04:30,799
+see what job's running, any, you know, failure rates, the success rates.
+
+65
+00:04:30,799 --> 00:04:34,799
+Like we found that this one job has never run successfully.
+
+66
+00:04:34,799 --> 00:04:36,799
+I don't know why we even have that in there,
+
+67
+00:04:36,799 --> 00:04:41,799
+but you can see that it's pretty common for them to just randomly fail,
+
+68
+00:04:41,799 --> 00:04:45,799
+and then the engineers fix them without really telling us.
+
+69
+00:04:45,799 --> 00:04:51,799
+So it's not the ideal, you know, for modern times.
+
+70
+00:04:51,799 --> 00:04:55,799
+There's a lot of better ways of doing this than SSIS.
+
+71
+00:04:55,799 --> 00:05:05,799
+So should hopefully give you somewhat of a high level of what we're dealing with here.
+
+72
+00:05:05,799 --> 00:05:11,799
+Job description, each job description here is what I kind of extrapolated from this.
+
+73
+00:05:11,799 --> 00:05:14,799
+Some of them I don't know what they do.
+
+74
+00:05:14,799 --> 00:05:21,799
+I'm assuming this just builds this report for the CDXP customers, CDXP being the name of the product.
+
+75
+00:05:21,799 --> 00:05:27,799
+You know, this is extracting all of the appointments from different CRM providers.
+
+76
+00:05:27,799 --> 00:05:31,799
+You know, not sure what the customer value one is.
+
+77
+00:05:31,799 --> 00:05:37,799
+I believe it just, I had AI try to determine what these job descriptions were,
+
+78
+00:05:37,799 --> 00:05:43,799
+because getting these descriptions from the engineers is also like pulling teeth.
+
+79
+00:05:43,799 --> 00:05:50,799
+But, yeah, this kind of gives you a pretty high level of what we're dealing with here.
+
+80
+00:05:50,799 --> 00:05:52,799
+Oh, sorry.
+
+81
+00:05:52,799 --> 00:05:54,799
+Oh, go ahead.
+
+82
+00:05:54,799 --> 00:06:01,799
+Are these jobs committed to a repo or a code somewhere, or do they only live in SSIS?
+
+83
+00:06:01,799 --> 00:06:02,799
+They are.
+
+84
+00:06:02,799 --> 00:06:07,799
+We have all of the SQL stuff committed to a repository,
+
+85
+00:06:07,799 --> 00:06:13,799
+and we actually have some of it scattered into AWS.
+
+86
+00:06:13,799 --> 00:06:21,799
+So we will have AWS monitoring SFTP for when a new file gets created,
+
+87
+00:06:21,799 --> 00:06:27,799
+and it then pulls in the file and then dumps it into a location and then triggers.
+
+88
+00:06:27,799 --> 00:06:32,799
+And then that next time the SSIS job runs, it will then pick up that file,
+
+89
+00:06:32,799 --> 00:06:38,799
+pull out all of the individual records, and start dumping it in the database.
+
+90
+00:06:38,799 --> 00:06:43,799
+Cool. Where does the FTP live?
+
+91
+00:06:43,799 --> 00:06:45,799
+Sometimes it's on our end.
+
+92
+00:06:45,799 --> 00:06:51,799
+Sometimes it's actually our customers' SFTP for their personal dealerships and stuff like that.
+
+93
+00:06:51,799 --> 00:06:55,799
+So we don't always control that, but it's a healthy mix of both.
+
+94
+00:06:55,799 --> 00:07:01,799
+Cool. All right. Thank you.
+
+95
+00:07:02,799 --> 00:07:05,799
+We have quite a lot of different databases here.
+
+96
+00:07:05,799 --> 00:07:09,799
+You could ignore these two down here, but these are the main ones.
+
+97
+00:07:09,799 --> 00:07:16,799
+So this is actually where the SSIS jobs run on this instance of EC2.
+
+98
+00:07:16,799 --> 00:07:21,799
+And then we have two other databases, you know, with different chunks of data.
+
+99
+00:07:21,799 --> 00:07:26,799
+So these jobs also ingest that from that flat file
+
+100
+00:07:26,799 --> 00:07:31,799
+and then store it into a raw database table and then kind of picks it up
+
+101
+00:07:31,799 --> 00:07:37,799
+and moves it along the chain into the different tables and databases throughout the process.
+
+102
+00:07:37,799 --> 00:07:42,799
+Sometimes it tacks on more information. Sometimes it calculates information.
+
+103
+00:07:42,799 --> 00:07:47,799
+Again, very, very brittle because when it does break, we don't really know where it breaks.
+
+104
+00:07:47,799 --> 00:07:53,799
+That's why it takes, you know, three engineers just to keep the thing running on a daily basis.
+
+105
+00:07:54,799 --> 00:08:00,799
+Are these databases on EC2 host or are they like RDS?
+
+106
+00:08:00,799 --> 00:08:04,799
+No, these are EC2. We have two RDS ones down here,
+
+107
+00:08:04,799 --> 00:08:12,799
+but this is mostly for pulling in like webhook information from emails, SMS, things like that.
+
+108
+00:08:12,799 --> 00:08:15,799
+And then this runs, we run Mautic.
+
+109
+00:08:15,799 --> 00:08:20,799
+It's an open source application for doing segmentation and emailing and stuff like that.
+
+110
+00:08:20,799 --> 00:08:23,799
+That was before we purchased the company.
+
+111
+00:08:23,799 --> 00:08:26,799
+That was what their attempt was to modernize it.
+
+112
+00:08:26,799 --> 00:08:29,799
+So that runs on RDS.
+
+113
+00:08:29,799 --> 00:08:37,799
+But generally, this is where the SSIS jobs really do their magic here.
+
+114
+00:08:37,799 --> 00:08:43,799
+And yes, they all run on physical servers, which take a lot of maintenance.
+
+115
+00:08:43,799 --> 00:08:45,799
+And again, very brittle.
+
+116
+00:08:46,799 --> 00:08:52,799
+They're very expensive, especially the SSIS one itself because it's so large.
+
+117
+00:08:52,799 --> 00:08:59,799
+Which again, I know that they've been flirting around with the idea of doing AWS Glue
+
+118
+00:08:59,799 --> 00:09:04,799
+to kind of make this somewhat serverless so we can downsize some of these databases.
+
+119
+00:09:04,799 --> 00:09:09,799
+But again, that's just somewhat throwing the problem into the cloud,
+
+120
+00:09:09,799 --> 00:09:13,799
+not necessarily addressing the real issue that this is just a bunch of jobs
+
+121
+00:09:13,799 --> 00:09:16,799
+that have been slapped together over 12 years.
+
+122
+00:09:19,799 --> 00:09:24,799
+Which is the, I see a DMS warehouse.
+
+123
+00:09:24,799 --> 00:09:28,799
+That one is a complete data warehouse or just part of it?
+
+124
+00:09:28,799 --> 00:09:30,799
+It's just part of it.
+
+125
+00:09:30,799 --> 00:09:35,799
+Generally, most of the data comes into the staging database.
+
+126
+00:09:35,799 --> 00:09:39,799
+And then a little bit of the data gets manipulated
+
+127
+00:09:39,799 --> 00:09:41,799
+and then it gets put into the target database.
+
+128
+00:09:42,799 --> 00:09:45,799
+And then from there, it then gets kind of sprinkled throughout,
+
+129
+00:09:45,799 --> 00:09:50,799
+like pulling some of the inventory, pulls out some of the analytics there.
+
+130
+00:09:50,799 --> 00:09:56,799
+This is where all the dealer management software stuff gets stored as well.
+
+131
+00:09:56,799 --> 00:10:02,799
+I'm not 100% sure about all of these databases, what these are for.
+
+132
+00:10:02,799 --> 00:10:06,799
+But these other ones on the top here are for different applications
+
+133
+00:10:06,799 --> 00:10:10,799
+for our website builder, storing all of our clients.
+
+134
+00:10:10,799 --> 00:10:13,799
+Some of these databases aren't even used anymore, like BirdBath.
+
+135
+00:10:13,799 --> 00:10:17,799
+I actually don't think Digital Bundle is either.
+
+136
+00:10:17,799 --> 00:10:22,799
+But I keep track of it all here because they haven't deleted them.
+
+137
+00:10:22,799 --> 00:10:24,799
+They're still here.
+
+138
+00:10:24,799 --> 00:10:29,799
+This is like a 12-year-old application and it's changed hands a few times.
+
+139
+00:10:29,799 --> 00:10:32,799
+So there's not been a lot of cleanup in the past as well.
+
+140
+00:10:32,799 --> 00:10:36,799
+So there's a lot of old artifacts that people are too afraid to delete
+
+141
+00:10:36,799 --> 00:10:39,799
+because they don't know if they do anything or not.
+
+142
+00:10:40,799 --> 00:10:43,799
+It's one of those situations too.
+
+143
+00:10:55,200 --> 00:10:58,979
+So the ETLs are all the jobs that you had there, right?
+
+144
+00:10:58,979 --> 00:10:59,319
+Yes.
+
+145
+00:10:59,319 --> 00:11:00,239
+You showed us before.
+
+146
+00:11:00,239 --> 00:11:03,679
+Yes. These are all the jobs here.
+
+147
+00:11:03,679 --> 00:11:09,059
+They used to take a little over 24 hours to process all of them.
+
+148
+00:11:09,059 --> 00:11:11,099
+They've done lots of optimizations,
+
+149
+00:11:11,099 --> 00:11:13,939
+indexing, things like that to improve them.
+
+150
+00:11:13,939 --> 00:11:18,359
+But again, it's just not a really scalable approach to begin with,
+
+151
+00:11:18,359 --> 00:11:22,200
+because I'm no SQL person.
+
+152
+00:11:22,200 --> 00:11:26,339
+I haven't had a lot of experience using SSIS jobs in the past.
+
+153
+00:11:26,339 --> 00:11:29,299
+So I don't know if this is best practice.
+
+154
+00:11:29,299 --> 00:11:32,839
+Does not really seem like it's the best way to approach this sort of thing,
+
+155
+00:11:32,839 --> 00:11:35,139
+mostly because of how brittle it is.
+
+156
+00:11:35,139 --> 00:11:38,339
+Generally, when you follow best practices and do things like that,
+
+157
+00:11:38,339 --> 00:11:41,940
+things typically be a little more stable than this.
+
+158
+00:11:41,940 --> 00:11:48,019
+So my assumption is that a lot of this is not best practice.
+
+159
+00:11:48,019 --> 00:11:52,519
+Do you know the size of the databases?
+
+160
+00:11:55,519 --> 00:11:58,359
+I'm not sure off the top of my head,
+
+161
+00:11:58,359 --> 00:12:10,039
+but I believe the one where the SSIS job is running is in the terabytes size.
+
+162
+00:12:10,039 --> 00:12:14,519
+But each database is very large because generally,
+
+163
+00:12:14,519 --> 00:12:17,299
+they don't really delete much other than the tables that they
+
+164
+00:12:17,299 --> 00:12:20,460
+truncate and then rebuild from scratch.
+
+165
+00:12:20,460 --> 00:12:22,820
+So we'll have old records,
+
+166
+00:12:22,820 --> 00:12:25,219
+especially in the ones up here in the builder where we have
+
+167
+00:12:25,219 --> 00:12:29,060
+old customers that we store data and we just never cleaned it up.
+
+168
+00:12:29,060 --> 00:12:32,619
+So all the databases are very,
+
+169
+00:12:32,619 --> 00:12:37,820
+very large, millions and millions and millions of records.
+
+170
+00:12:37,880 --> 00:12:42,839
+Do you keep the information just because in case someone need it,
+
+171
+00:12:42,839 --> 00:12:46,159
+or is because it is needed?
+
+172
+00:12:46,159 --> 00:12:49,839
+A lot of it, they just capture it all and
+
+173
+00:12:49,839 --> 00:12:53,759
+then just move the data that they want to use.
+
+174
+00:12:53,759 --> 00:12:59,600
+So what ends up being used here is what's actually used,
+
+175
+00:12:59,600 --> 00:13:02,320
+but down here where it gets pulled in,
+
+176
+00:13:02,320 --> 00:13:05,479
+I think they just keep it just in case they ever need it,
+
+177
+00:13:05,500 --> 00:13:08,179
+because they just ingest the whole flat file.
+
+178
+00:13:08,179 --> 00:13:14,220
+So there's other processes in this SSIS job that actually trigger
+
+179
+00:13:14,220 --> 00:13:21,099
+hitting third-party APIs to get data on the equity of those customers,
+
+180
+00:13:21,099 --> 00:13:23,899
+as well as recalls and things like that.
+
+181
+00:13:23,899 --> 00:13:29,420
+But I don't believe the SSIS jobs trigger the API calls.
+
+182
+00:13:29,420 --> 00:13:31,780
+The API calls dumps it in the database,
+
+183
+00:13:31,780 --> 00:13:35,000
+the SSIS jobs picks it up and moves it into
+
+184
+00:13:35,000 --> 00:13:39,720
+the permanent destination where the applications actually query it.
+
+185
+00:13:41,879 --> 00:13:47,879
+Which is the problem of this taking a lot of time being processed?
+
+186
+00:13:47,879 --> 00:13:52,080
+It's like someone needs this in real time or?
+
+187
+00:13:52,080 --> 00:13:56,839
+Well, a lot of this is like for example,
+
+188
+00:13:56,839 --> 00:14:00,319
+appointment data or sales data where they made sales.
+
+189
+00:14:00,319 --> 00:14:03,819
+So let's say somebody puts in an appointment for today,
+
+190
+00:14:03,819 --> 00:14:07,899
+or let's say even last night at an inconvenient time,
+
+191
+00:14:07,899 --> 00:14:12,339
+it may take a full 24 hours to pick up that change and process it.
+
+192
+00:14:12,339 --> 00:14:15,379
+Because once this job is run,
+
+193
+00:14:15,379 --> 00:14:18,979
+it's not going to run again till the next day at that time,
+
+194
+00:14:18,979 --> 00:14:22,339
+and if we haven't gotten it by then.
+
+195
+00:14:22,339 --> 00:14:26,819
+So that's another big downfall is one of these jobs fails,
+
+196
+00:14:26,839 --> 00:14:31,560
+it may take 24 or 48 hours for it to even fully recover and then get
+
+197
+00:14:31,560 --> 00:14:33,800
+that information out to the customer for
+
+198
+00:14:33,800 --> 00:14:37,800
+e-mail communications and SMS, things like that.
+
+199
+00:14:40,280 --> 00:14:45,319
+Can we have access to those jobs read-only?
+
+200
+00:14:45,319 --> 00:14:48,360
+Yeah, I can get you access to that.
+
+201
+00:14:48,360 --> 00:14:55,119
+Do you store the historicals of the data if you need to rebuild the dataset?
+
+202
+00:14:55,140 --> 00:14:58,539
+Some we do and some we do not.
+
+203
+00:14:58,539 --> 00:15:01,300
+All the files generally don't ever get deleted,
+
+204
+00:15:01,300 --> 00:15:05,520
+so they're usually still in there so they can reprocess them in that way.
+
+205
+00:15:05,520 --> 00:15:08,619
+Because they generally, when something goes wrong,
+
+206
+00:15:08,619 --> 00:15:12,580
+they will start over from scratch and reprocess everything.
+
+207
+00:15:14,340 --> 00:15:17,420
+You guys access to it.
+
+208
+00:15:19,379 --> 00:15:23,219
+Do you just want access to the SSIS DB,
+
+209
+00:15:23,240 --> 00:15:27,279
+or do you want access to all of these databases read-only?
+
+210
+00:15:27,279 --> 00:15:29,800
+If we can get access to the lot,
+
+211
+00:15:29,800 --> 00:15:32,879
+that being the more the barrier.
+
+212
+00:15:32,879 --> 00:15:34,559
+Yeah, not a problem at all.
+
+213
+00:15:34,559 --> 00:15:36,439
+To size it up. Cool. Thanks.
+
+214
+00:15:36,439 --> 00:15:40,759
+Yeah, then you guys will get a better idea because some of these tables,
+
+215
+00:15:40,759 --> 00:15:44,439
+specifically the initial staging ones where we
+
+216
+00:15:44,439 --> 00:15:47,559
+pull in the DMS sales and appointment data,
+
+217
+00:15:47,559 --> 00:15:51,439
+some of those tables are like 300 plus columns wide,
+
+218
+00:15:51,460 --> 00:15:54,099
+as well as millions and millions of records.
+
+219
+00:15:54,099 --> 00:15:55,819
+Because you have to imagine,
+
+220
+00:15:55,819 --> 00:15:59,360
+I think we have roughly about 200 clients on here,
+
+221
+00:15:59,360 --> 00:16:04,900
+and then we're pulling in every one of their customers for all time.
+
+222
+00:16:05,379 --> 00:16:08,779
+It gets really, really unruly.
+
+223
+00:16:08,779 --> 00:16:10,740
+The performance issues where we have,
+
+224
+00:16:10,740 --> 00:16:13,819
+we're constantly locking tables and things like that.
+
+225
+00:16:13,819 --> 00:16:18,979
+It's really not a surprise with just no care was taken here for performance,
+
+226
+00:16:18,999 --> 00:16:22,960
+which is funny that we have three data engineers working on this,
+
+227
+00:16:22,960 --> 00:16:27,999
+and not one of them can do much other than just keep it running.
+
+228
+00:16:27,999 --> 00:16:49,740
+So far, I don't have many other questions about this.
+
+229
+00:16:49,740 --> 00:16:54,740
+I'd really like to see what the ETLs are doing.
+
+230
+00:16:54,740 --> 00:16:58,159
+If you say 300 column tables, of course,
+
+231
+00:16:58,159 --> 00:17:01,759
+the performance is in SQL Server,
+
+232
+00:17:01,759 --> 00:17:07,719
+the way they do the locking, yeah, of course, no wonders.
+
+233
+00:17:07,719 --> 00:17:11,680
+They've solved a lot of their problems mostly by a little bit of indexing,
+
+234
+00:17:11,680 --> 00:17:14,039
+but mostly throwing more power at it,
+
+235
+00:17:14,039 --> 00:17:15,879
+more CPU, more memory,
+
+236
+00:17:15,879 --> 00:17:19,219
+and that gets really expensive in the Cloud at a certain point,
+
+237
+00:17:19,219 --> 00:17:23,120
+which is we've hit that point where now,
+
+238
+00:17:23,140 --> 00:17:25,539
+if we grow more customers,
+
+239
+00:17:25,539 --> 00:17:29,819
+if we were to happen to go from 200 customers to 2,000 customers,
+
+240
+00:17:29,819 --> 00:17:34,499
+this application may not be affordable and profitable to run anymore.
+
+241
+00:17:34,499 --> 00:17:36,460
+It's just not scaling correctly.
+
+242
+00:17:36,460 --> 00:17:40,740
+What's your objective midterm?
+
+243
+00:17:40,740 --> 00:17:46,620
+How many more customers are you planning to have or how much more are you growing?
+
+244
+00:17:46,879 --> 00:17:53,599
+Well, this has quickly become our flagship product for our CEO.
+
+245
+00:17:53,599 --> 00:17:58,159
+So she is pushing the salespeople heavily to make this
+
+246
+00:17:58,159 --> 00:18:03,879
+the top sale product because generally, just cost to operate,
+
+247
+00:18:03,879 --> 00:18:06,240
+we're not really paying any third-party providers like
+
+248
+00:18:06,240 --> 00:18:09,539
+Google or TikTok for ad, stuff like that.
+
+249
+00:18:09,539 --> 00:18:13,159
+So this is something we're pushing heavily on sales.
+
+250
+00:18:13,159 --> 00:18:19,800
+The unfortunate part is due to the stability and the data integrity issues,
+
+251
+00:18:19,800 --> 00:18:22,620
+we are seeing people off-board as well.
+
+252
+00:18:22,620 --> 00:18:23,740
+So as we grow,
+
+253
+00:18:23,740 --> 00:18:26,620
+we're also shrinking because of the stability.
+
+254
+00:18:26,620 --> 00:18:32,340
+So somewhat self-resolves in that sense to prevent us from scaling up,
+
+255
+00:18:32,340 --> 00:18:33,939
+not in a good way.
+
+256
+00:18:33,939 --> 00:18:37,159
+But in her mind,
+
+257
+00:18:37,159 --> 00:18:42,659
+she would definitely like to see it get up to the 2,000 mark as soon as possible.
+
+258
+00:18:42,659 --> 00:18:44,439
+Okay.
+
+259
+00:18:45,439 --> 00:18:58,580
+Do you have usage metrics for the app in terms of queries per second,
+
+260
+00:18:58,580 --> 00:19:06,759
+ops, inbound, outbound, and then traffic on intake and reads?
+
+261
+00:19:06,759 --> 00:19:11,219
+I can see if the engineering team has that.
+
+262
+00:19:11,279 --> 00:19:16,400
+I'm not sure if they do specifically about the SQL stuff.
+
+263
+00:19:16,400 --> 00:19:20,400
+I know we definitely have metrics on, for example,
+
+264
+00:19:20,400 --> 00:19:26,240
+like how many marketing messages we send out a day per client,
+
+265
+00:19:26,240 --> 00:19:31,239
+as well as we should have metrics on
+
+266
+00:19:31,239 --> 00:19:35,319
+the engagement of the customers where they're clicking on different stuff like that.
+
+267
+00:19:35,319 --> 00:19:37,400
+So we have those metrics,
+
+268
+00:19:37,400 --> 00:19:39,480
+but I'll see if I can find specific.
+
+269
+00:19:39,499 --> 00:19:43,460
+I imagine you guys are looking more for SQL metrics.
+
+270
+00:19:43,859 --> 00:19:46,819
+All sorts from application to SQL,
+
+271
+00:19:46,819 --> 00:19:49,780
+just that'll help paint a picture in numbers.
+
+272
+00:19:49,780 --> 00:19:52,939
+So that we can also think about targets.
+
+273
+00:19:52,939 --> 00:19:54,460
+We're talking about scaling.
+
+274
+00:19:54,460 --> 00:19:58,540
+So this is your current footprint and this is what's coming in and out.
+
+275
+00:19:58,540 --> 00:20:02,499
+If we need to scale it, there's probably that helps inform with some targets.
+
+276
+00:20:02,499 --> 00:20:06,460
+If we need 10x, we need to do better than that cap.
+
+277
+00:20:07,400 --> 00:20:12,319
+There are some tables at the end of the line,
+
+278
+00:20:12,319 --> 00:20:13,759
+what we call juice reporting.
+
+279
+00:20:13,759 --> 00:20:16,239
+I don't know if you've heard of juice reporting before.
+
+280
+00:20:16,239 --> 00:20:19,879
+We have a juice session later this afternoon.
+
+281
+00:20:19,879 --> 00:20:21,559
+Perfect. Yeah.
+
+282
+00:20:21,559 --> 00:20:23,679
+So basically, some of these,
+
+283
+00:20:23,679 --> 00:20:30,840
+we just dump all the data in whatever columns that our data engineers want,
+
+284
+00:20:30,840 --> 00:20:32,960
+come dump into there, and then we have
+
+285
+00:20:32,960 --> 00:20:35,960
+our product managers make these dashboards using juice.
+
+286
+00:20:35,960 --> 00:20:37,460
+Again, a lot of times,
+
+287
+00:20:37,460 --> 00:20:41,179
+the data engineers don't really take care of performance,
+
+288
+00:20:41,179 --> 00:20:44,179
+and they just select star and dump it all in that table,
+
+289
+00:20:44,179 --> 00:20:46,280
+which when we don't need all that data,
+
+290
+00:20:46,280 --> 00:20:51,179
+instead of just giving us what the product manager needs to accomplish the report,
+
+291
+00:20:51,179 --> 00:20:56,220
+they just throw all 300 columns in there and it's the wild, wild west.
+
+292
+00:20:56,220 --> 00:20:58,700
+So not great,
+
+293
+00:20:58,700 --> 00:21:03,100
+but fortunately, juice is decoupled from the application.
+
+294
+00:21:03,100 --> 00:21:06,080
+So if you're doing a large query there and it locks that table,
+
+295
+00:21:06,080 --> 00:21:08,400
+it's only locking that juice table report.
+
+296
+00:21:08,400 --> 00:21:11,119
+Nothing really affects the performance of the app,
+
+297
+00:21:11,119 --> 00:21:13,879
+but still not great.
+
+298
+00:21:13,879 --> 00:21:17,999
+Juice has not also been the greatest for us either,
+
+299
+00:21:17,999 --> 00:21:20,200
+with breaking changes and things like that,
+
+300
+00:21:20,200 --> 00:21:24,720
+and that's just another thing that goes offline for us.
+
+301
+00:21:24,720 --> 00:21:28,559
+Juice is not connecting to a read-only database?
+
+302
+00:21:28,559 --> 00:21:30,280
+It's just a regular transactional?
+
+303
+00:21:30,280 --> 00:21:31,040
+Okay, it is.
+
+304
+00:21:31,100 --> 00:21:34,140
+It's connecting to a read-only table.
+
+305
+00:21:34,140 --> 00:21:37,059
+That's a one-way, but every once in a while,
+
+306
+00:21:37,059 --> 00:21:42,700
+they push an update that breaks something or the ETLs just shove
+
+307
+00:21:42,700 --> 00:21:44,980
+some bad data in there and break it or truncate
+
+308
+00:21:44,980 --> 00:21:48,100
+a table and crash and then never rebuilds the table.
+
+309
+00:21:48,100 --> 00:21:51,499
+So there's a whole host.
+
+310
+00:21:50,400 --> 00:21:58,799
+things that go wrong there. Got it, got it. And so your final users are like self-served.
+
+311
+00:21:59,679 --> 00:22:05,759
+They create their own reports out of these tables? Our product managers do. So they generally make
+
+312
+00:22:05,759 --> 00:22:11,119
+the reports and they call them dashboards and they will give customers access to their dashboard with
+
+313
+00:22:11,119 --> 00:22:18,160
+just their scoped of data and that's pretty much it. I believe we even can email those reports to
+
+314
+00:22:18,160 --> 00:22:24,240
+them as well on a schedule. Okay, got it.
+
+315
+00:22:32,159 --> 00:22:42,240
+Did we also get access to, read-only is perfect, to the code for the ETLs and the jobs?
+
+316
+00:22:42,240 --> 00:22:49,679
+Yeah, I can get you access to the repository. I believe it's just one massive, all the store
+
+317
+00:22:49,679 --> 00:22:54,240
+procedures, everything. So you can actually get, actually see a better picture of their,
+
+318
+00:22:54,240 --> 00:22:59,999
+this job triggers this store procedure and you can see a lot of the costs.
+
+319
+00:23:01,440 --> 00:23:09,120
+Oh, cool. And your dashboard piece also. Yeah. The one that you have where all the jobs are
+
+320
+00:23:09,120 --> 00:23:15,520
+executing? Unfortunately, this hasn't been put anywhere in the cloud. This is just running
+
+321
+00:23:15,520 --> 00:23:21,760
+local host right now. We're still in process of getting this up into production. Maybe just
+
+322
+00:23:21,760 --> 00:23:30,239
+a screenshot since you already have it organized. Yeah, not a problem. I'll take some screenshots
+
+323
+00:23:30,239 --> 00:23:33,359
+for you. Great.
+
+324
+00:23:49,599 --> 00:23:57,279
+Okay, so read-only access to all the databases, gather some metrics about the application,
+
+325
+00:23:57,279 --> 00:24:04,000
+GitHub access for the SSIS and SQL repository all together and
+
+326
+00:24:04,000 --> 00:24:09,439
+screenshots of this portal right here. So far. Lovely.
+
+327
+00:24:12,079 --> 00:24:21,599
+All right. Not sure if you guys have any other questions for me. I know it's not very structured.
+
+328
+00:24:21,599 --> 00:24:26,799
+I kind of was just thrown at this and tried to, because the engineers we have aren't very
+
+329
+00:24:26,799 --> 00:24:31,840
+forthgiving with information. So a lot of this I've kind of had to abuse over like a year's time
+
+330
+00:24:31,840 --> 00:24:38,239
+of just going through and diagramming this stuff to kind of figure out how all this plugs together.
+
+331
+00:24:38,239 --> 00:24:46,079
+And it's quite large, you know, all the different applications, but so I'm no expert by any means,
+
+332
+00:24:46,959 --> 00:24:50,720
+but unfortunately I'm the one who knows the most on state side.
+
+333
+00:24:51,679 --> 00:24:59,760
+Got it. Can we also get a copy of the lucid charts? Yeah, I can send this over to you.
+
+334
+00:24:59,760 --> 00:25:07,360
+I made all of these charts. I'm just trying to understand what we have. You know, I kind of went
+
+335
+00:25:07,360 --> 00:25:12,400
+through the AWS account, documented this and try to figure out what triggers what and what plugs
+
+336
+00:25:12,400 --> 00:25:17,360
+into what. So if you have questions about the lucid charts, that's something I can answer and
+
+337
+00:25:17,439 --> 00:25:24,959
+I can get you more information about as well. Cool. So the DB servers aren't AWS, but the
+
+338
+00:25:26,079 --> 00:25:34,959
+SSIS that's in office 365 on your Azure account. No, all of this is AWS. Oh, okay. Got it. Got it.
+
+339
+00:25:34,959 --> 00:25:44,159
+100% AWS. We do have in our Azure account, another ETL that pulls data out of these tables into what
+
+340
+00:25:44,159 --> 00:25:50,799
+we call our data warehouse, which is where we run our reports off of. That's kind of not necessarily
+
+341
+00:25:50,799 --> 00:25:57,200
+related. We also break those reports all the time, but those are kind of not related to this problem.
+
+342
+00:25:57,840 --> 00:26:00,799
+Really, we just really want to scope on the AWS side of things.
+
+343
+00:26:04,239 --> 00:26:12,400
+I have one more question. Do you think the main issue with this is performance? Let's say that
+
+344
+00:26:14,479 --> 00:26:21,840
+performance is very good and everything is working. So these databases are not the problem.
+
+345
+00:26:22,959 --> 00:26:29,759
+I mean, it's the performance. Yeah. When I say performance, I'm talking about like more of the
+
+346
+00:26:29,759 --> 00:26:35,359
+system as a whole performing because I actually think they've done a lot with what they have.
+
+347
+00:26:35,359 --> 00:26:40,000
+And I'm sure a lot of these queries are pretty well optimized and the tables are,
+
+348
+00:26:40,799 --> 00:26:46,799
+as well optimized as can be. I think where a lot of the issues are is just,
+
+349
+00:26:48,479 --> 00:26:54,239
+the thing was designed initially, and then it's gone eight years of strapping on functionality
+
+350
+00:26:54,239 --> 00:27:02,799
+without actually considering the system as a whole. So I think just as a whole, the whole
+
+351
+00:27:03,519 --> 00:27:11,199
+concept is not really been scoped out. It's gone through engineers in Ukraine,
+
+352
+00:27:11,199 --> 00:27:18,400
+engineers in Mexico, engineers in India that have it now. It's changed ownership hands a few times.
+
+353
+00:27:18,400 --> 00:27:25,199
+So a lot of times people just kind of figured out what they could, just didn't touch the stuff they
+
+354
+00:27:25,199 --> 00:27:32,320
+didn't understand. So there's a lot of that in here. So kind of just is what it is. But honestly,
+
+355
+00:27:32,400 --> 00:27:37,600
+I think it's not so much an individual table problem. I think it's more of just
+
+356
+00:27:37,600 --> 00:27:42,239
+the whole process was not properly scoped, designed and architected.
+
+357
+00:27:44,160 --> 00:27:51,679
+So I think it's more of a big picture thing. And do you know if there is a missing data because of
+
+358
+00:27:52,880 --> 00:28:00,560
+a problem with the ingestion or the data is there, but it's difficult to look at it or?
+
+359
+00:28:01,519 --> 00:28:07,600
+Um, sometimes it's ingestion problems, because again, it's not the best design thing,
+
+360
+00:28:07,600 --> 00:28:12,799
+because sometimes we get these files through and like they create an email job in their
+
+361
+00:28:13,519 --> 00:28:17,679
+system that sends a report and then picks it up and dumps it into this SFTP.
+
+362
+00:28:18,400 --> 00:28:23,120
+So there's, there's a lot of faults there that can happen that we're just missing dealers data.
+
+363
+00:28:23,120 --> 00:28:29,759
+And we might take a month to realize that it's not been ingesting. Sometimes it's one of these
+
+364
+00:28:29,840 --> 00:28:37,199
+jobs breaks down midway. Um, for example, like this one, it was broken all weekend and we,
+
+365
+00:28:37,199 --> 00:28:42,160
+you know, so there's going to be some missing data down the line. So when it does run today,
+
+366
+00:28:42,160 --> 00:28:49,840
+it will repair that. But you know, if you run any reports before this job runs at 9 PM tonight,
+
+367
+00:28:49,840 --> 00:28:54,400
+then there will be Swiss cheese in the data, you know, in the reports.
+
+368
+00:28:54,479 --> 00:29:00,160
+So a lot of times we don't realize that until a customer or a product manager says, Hey,
+
+369
+00:29:00,160 --> 00:29:04,959
+why haven't I gotten any appointments and, you know, four weeks? And it's like, Ooh, yeah,
+
+370
+00:29:04,959 --> 00:29:09,919
+that stopped ingesting files a while ago. You know, it could be us, it could be them.
+
+371
+00:29:09,919 --> 00:29:15,359
+It could be a new column that's breaking it or, or overflowing a data field.
+
+372
+00:29:17,120 --> 00:29:20,799
+Any problem, possible problem you can imagine we've experienced it.
+
+373
+00:29:21,759 --> 00:29:29,040
+Oh, cool. Well, awesome. Um, anybody else have any questions?
+
+374
+00:29:32,799 --> 00:29:37,359
+Um, do you, do you want me to send access, you know, all the access you guys asked to
+
+375
+00:29:37,359 --> 00:29:41,759
+everybody on this call or is there someone in particular or a generic email?
+
+376
+00:29:42,400 --> 00:29:46,720
+Yes, we have been using das at we are conflict.com.
+
+377
+00:29:46,799 --> 00:29:54,639
+For, um, you know, kind of a shared login. And then we have a last pass in your last pass
+
+378
+00:29:54,639 --> 00:30:00,000
+organization that then sets up where we're dropping stuff in. If that is easier. Perfect. So
+
+379
+00:30:00,639 --> 00:30:05,359
+that'll really help. Yep. That way I can just make one login, dump it all in there for you guys,
+
+380
+00:30:05,359 --> 00:30:11,759
+and you guys can have at it. Precisely. And we're on the VPN and we've got the last pass
+
+381
+00:30:12,160 --> 00:30:19,120
+Precisely. And we're on the VPN and we've got the last pass access on our one password vault
+
+382
+00:30:19,120 --> 00:30:24,400
+because, you know, of course, uh, and then everybody gets access to the lot so we can
+
+383
+00:30:24,400 --> 00:30:31,439
+go and divide and conquer and, and, you know, poke at stuff from there. Um, I am going to set up,
+
+384
+00:30:31,439 --> 00:30:39,040
+um, a shared GitHub, uh, as well so that we don't have to, you know, grab everybody's, uh,
+
+385
+00:30:39,840 --> 00:30:47,439
+handle. And then I will, um, reply, um, to the email, although we also have a team's chat
+
+386
+00:30:47,439 --> 00:30:54,240
+with you, uh, where at least Dan is in there. Maybe it might be helpful to add you or start
+
+387
+00:30:54,240 --> 00:31:01,280
+one, but we're also on teams. So yeah, I'll have him add me into that chat. Perfect. So cool. Cool.
+
+388
+00:31:01,920 --> 00:31:08,160
+Well, um, this has been most helpful. Thank you so much for, for the walkthrough, the tour and,
+
+389
+00:31:08,160 --> 00:31:12,079
+and the access. I'm sure we're going to have a bunch more questions once we kind of get in there
+
+390
+00:31:12,079 --> 00:31:18,079
+and, and again, and in the meantime, like you also know how to reach out, like we, you know,
+
+391
+00:31:18,079 --> 00:31:23,040
+if there's anything new that pops up or whatever, um, please feel free to, to, to reach out. And,
+
+392
+00:31:23,040 --> 00:31:29,439
+uh, if we could get a share of the meeting when it's done recording, that'd be great. Cause we
+
+393
+00:31:29,439 --> 00:31:34,400
+run it through our tools to make sure that we've got transcript and notes and action items and all
+
+394
+00:31:34,400 --> 00:31:40,800
+that stuff. We get captured from the transcript as well. So, uh, thanks so much. All right. I will
+
+395
+00:31:40,800 --> 00:31:46,160
+get that over there and I assume you'll put the shared GitHub inside the last pass. So then once
+
+396
+00:31:46,160 --> 00:31:52,879
+I have that, then I'll share it with you guys. Yes. Um, I'll, and, uh, yep. Yep. I'll do that.
+
+397
+00:31:54,319 --> 00:31:57,040
+Alrighty. I will work on giving all this stuff to you guys today.
+
+398
+00:31:57,920 --> 00:32:01,360
+And then if you guys need anything else for me, feel free to reach out.
+
+399
+00:32:02,079 --> 00:32:05,600
+Thank you. Thanks so much, Rick. Really appreciate the walkthrough this morning.
+
+400
+00:32:05,600 --> 00:32:11,199
+Have a good rest of your day. Yes. Good meeting all of you. Likewise. Bye-bye. Thank you.
+
+401
+00:32:31,360 --> 00:32:31,860
+Bye.

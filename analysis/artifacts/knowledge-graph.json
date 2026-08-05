@@ -1,0 +1,10 @@
+{
+  "id": "knowledge-graph",
+  "title": "Knowledge Graph",
+  "description": "Global D3 entity-relationship graph across all sessions. Entities span people, technologies, concepts, and organizations extracted from every recorded session.",
+  "type": "knowledge-graph",
+  "icon": "KG",
+  "href": "../app/index.html",
+  "source_sessions": ["kickoff-2026-05-27-deep", "ssis-review-2026-06-08", "reporting-juice-2026-06-08"],
+  "updated": "2026-06-08"
+}

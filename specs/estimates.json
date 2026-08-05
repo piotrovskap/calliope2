@@ -1,0 +1,6327 @@
+{
+  "meta": {
+    "version": 3,
+    "generated_at": "2026-06-23",
+    "generator": "scripts/gen-estimates.py",
+    "sources": [
+      "specs/manifest.json",
+      "specs/estimate-bands.json",
+      "specs/roles.json"
+    ],
+    "unit": "engineer-days",
+    "bands": {
+      "S": {
+        "points": 1,
+        "low": 0.5,
+        "high": 1
+      },
+      "M": {
+        "points": 2,
+        "low": 1,
+        "high": 2
+      },
+      "L": {
+        "points": 4,
+        "low": 2,
+        "high": 4
+      },
+      "XL": {
+        "points": 8,
+        "low": 4,
+        "high": 8
+      },
+      "XXL": {
+        "points": 16,
+        "low": 8,
+        "high": 15
+      },
+      "XXXL": {
+        "points": 32,
+        "low": 15,
+        "high": 25
+      },
+      "EPIC": {
+        "points": 64,
+        "low": 25,
+        "high": 50
+      }
+    },
+    "role_labels": [
+      "Principal",
+      "QA",
+      "Sr Engineer",
+      "Sr Engineer - Frontend",
+      "Staff",
+      "Staff Data Eng",
+      "UX Engineer"
+    ],
+    "totals": {
+      "activities": 217,
+      "sized": 217,
+      "unsized": 0,
+      "points": 1123,
+      "low": 560.5,
+      "high": 1093,
+      "overhead_low": 3.5,
+      "overhead_high": 6.79
+    }
+  },
+  "activities": [
+    {
+      "id": "phase-1-architecture.data-model.cdp-data-model-design",
+      "activity": "Core entity model",
+      "phase": "Phase 0 — Architecture & Design",
+      "phase_id": "phase-1-architecture",
+      "workstream": "Data Model & Identity",
+      "workstream_id": "phase-1-architecture.data-model",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Staff Data Eng",
+          "pct": 60,
+          "points": 9.6,
+          "low": 4.8,
+          "high": 9.0
+        },
+        {
+          "role": "Staff",
+          "pct": 30,
+          "points": 4.8,
+          "low": 2.4,
+          "high": 4.5
+        },
+        {
+          "role": "Principal",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-architecture.data-model.identity-resolution-strategy",
+      "activity": "Identity resolution strategy",
+      "phase": "Phase 0 — Architecture & Design",
+      "phase_id": "phase-1-architecture",
+      "workstream": "Data Model & Identity",
+      "workstream_id": "phase-1-architecture.data-model",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Staff Data Eng",
+          "pct": 60,
+          "points": 9.6,
+          "low": 4.8,
+          "high": 9.0
+        },
+        {
+          "role": "Staff",
+          "pct": 30,
+          "points": 4.8,
+          "low": 2.4,
+          "high": 4.5
+        },
+        {
+          "role": "Principal",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-architecture.data-model.privacy-by-tenant",
+      "activity": "Privacy by tenant",
+      "phase": "Phase 0 — Architecture & Design",
+      "phase_id": "phase-1-architecture",
+      "workstream": "Data Model & Identity",
+      "workstream_id": "phase-1-architecture.data-model",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Staff Data Eng",
+          "pct": 60,
+          "points": 2.4,
+          "low": 1.2,
+          "high": 2.4
+        },
+        {
+          "role": "Staff",
+          "pct": 30,
+          "points": 1.2,
+          "low": 0.6,
+          "high": 1.2
+        },
+        {
+          "role": "Principal",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-architecture.data-model.golden-record-view",
+      "activity": "Golden-record view (portal)",
+      "phase": "Phase 0 — Architecture & Design",
+      "phase_id": "phase-1-architecture",
+      "workstream": "Data Model & Identity",
+      "workstream_id": "phase-1-architecture.data-model",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Staff Data Eng",
+          "pct": 60,
+          "points": 2.4,
+          "low": 1.2,
+          "high": 2.4
+        },
+        {
+          "role": "Staff",
+          "pct": 30,
+          "points": 1.2,
+          "low": 0.6,
+          "high": 1.2
+        },
+        {
+          "role": "Principal",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-architecture.data-model.survivorship-rules",
+      "activity": "Survivorship & source-trust ranking",
+      "phase": "Phase 0 — Architecture & Design",
+      "phase_id": "phase-1-architecture",
+      "workstream": "Data Model & Identity",
+      "workstream_id": "phase-1-architecture.data-model",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Staff Data Eng",
+          "pct": 60,
+          "points": 1.2,
+          "low": 0.6,
+          "high": 1.2
+        },
+        {
+          "role": "Staff",
+          "pct": 30,
+          "points": 0.6,
+          "low": 0.3,
+          "high": 0.6
+        },
+        {
+          "role": "Principal",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-architecture.platform-decisions.reporting-platform-decision",
+      "activity": "Reporting platform decision",
+      "phase": "Phase 0 — Architecture & Design",
+      "phase_id": "phase-1-architecture",
+      "workstream": "Platform Decisions",
+      "workstream_id": "phase-1-architecture.platform-decisions",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 100,
+          "points": 2.0,
+          "low": 1.0,
+          "high": 2.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-architecture.platform-decisions.etl-modernization-plan",
+      "activity": "ETL modernization plan",
+      "phase": "Phase 0 — Architecture & Design",
+      "phase_id": "phase-1-architecture",
+      "workstream": "Platform Decisions",
+      "workstream_id": "phase-1-architecture.platform-decisions",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 100,
+          "points": 4.0,
+          "low": 2.0,
+          "high": 4.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-architecture.platform-decisions.multitenant-architecture-strategy",
+      "activity": "Multi-tenant architecture strategy",
+      "phase": "Phase 0 — Architecture & Design",
+      "phase_id": "phase-1-architecture",
+      "workstream": "Platform Decisions",
+      "workstream_id": "phase-1-architecture.platform-decisions",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 100,
+          "points": 4.0,
+          "low": 2.0,
+          "high": 4.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-architecture.phase-1-close.architecture-review",
+      "activity": "Architecture review",
+      "phase": "Phase 0 — Architecture & Design",
+      "phase_id": "phase-1-architecture",
+      "workstream": "Architecture Close",
+      "workstream_id": "phase-1-architecture.phase-1-close",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 100,
+          "points": 2.0,
+          "low": 1.0,
+          "high": 2.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.boilerworks-repos",
+      "activity": "Boilerworks repos",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 70,
+          "points": 2.8,
+          "low": 1.4,
+          "high": 2.8
+        },
+        {
+          "role": "Staff",
+          "pct": 30,
+          "points": 1.2,
+          "low": 0.6,
+          "high": 1.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.boilerworks-opscode-iac",
+      "activity": "Boilerworks-opscode (IaC)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 100,
+          "points": 8.0,
+          "low": 4.0,
+          "high": 8.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.aws-org-iam-identity-center",
+      "activity": "Cloud org + identity (Azure Entra ID / AWS Organizations + IAM Identity Center)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 100,
+          "points": 2.0,
+          "low": 1.0,
+          "high": 2.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.accounts-prod-dev-staging",
+      "activity": "Prod / Dev / Staging accounts",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 100,
+          "points": 4.0,
+          "low": 2.0,
+          "high": 4.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.tiered-permissions",
+      "activity": "Tiered permissions",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 100,
+          "points": 2.0,
+          "low": 1.0,
+          "high": 2.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.ci-pipeline",
+      "activity": "CI pipeline",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 70,
+          "points": 5.6,
+          "low": 2.8,
+          "high": 5.6
+        },
+        {
+          "role": "Staff",
+          "pct": 30,
+          "points": 2.4,
+          "low": 1.2,
+          "high": 2.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.cd-integration",
+      "activity": "Auto CD to dev/integration",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 100,
+          "points": 8.0,
+          "low": 4.0,
+          "high": 8.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.push-button-prod-deploy",
+      "activity": "Push-button prod deploy (modeled)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 100,
+          "points": 8.0,
+          "low": 4.0,
+          "high": 8.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.base-org-auth-local-dev",
+      "activity": "Base org auth + local dev",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 70,
+          "points": 5.6,
+          "low": 2.8,
+          "high": 5.6
+        },
+        {
+          "role": "Staff",
+          "pct": 30,
+          "points": 2.4,
+          "low": 1.2,
+          "high": 2.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.data-stores-provisioning",
+      "activity": "Data stores provisioning",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 100,
+          "points": 2.0,
+          "low": 1.0,
+          "high": 2.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.observability",
+      "activity": "Observability (OTel / Prometheus / OpenSearch)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 100,
+          "points": 16.0,
+          "low": 8.0,
+          "high": 15.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.disaster-recovery",
+      "activity": "Disaster recovery & backups",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 100,
+          "points": 16.0,
+          "low": 8.0,
+          "high": 15.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.secrets-management",
+      "activity": "Secrets & key management (+ pepper store)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 70,
+          "points": 1.4,
+          "low": 0.7,
+          "high": 1.4
+        },
+        {
+          "role": "Staff",
+          "pct": 30,
+          "points": 0.6,
+          "low": 0.3,
+          "high": 0.6
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.messaging-rabbitmq",
+      "activity": "Application messaging queue (RabbitMQ)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 70,
+          "points": 1.4,
+          "low": 0.7,
+          "high": 1.4
+        },
+        {
+          "role": "Staff",
+          "pct": 30,
+          "points": 0.6,
+          "low": 0.3,
+          "high": 0.6
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.workflow-temporal",
+      "activity": "Workflow engine (Temporal)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 70,
+          "points": 1.4,
+          "low": 0.7,
+          "high": 1.4
+        },
+        {
+          "role": "Staff",
+          "pct": 30,
+          "points": 0.6,
+          "low": 0.3,
+          "high": 0.6
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.cache-redis",
+      "activity": "Cache (Redis)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 70,
+          "points": 0.7,
+          "low": 0.35,
+          "high": 0.7
+        },
+        {
+          "role": "Staff",
+          "pct": 30,
+          "points": 0.3,
+          "low": 0.15,
+          "high": 0.3
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.foundation.tracing-jaeger",
+      "activity": "Distributed tracing (Jaeger)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Foundation & Platform",
+      "workstream_id": "phase-1-build.foundation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 70,
+          "points": 1.4,
+          "low": 0.7,
+          "high": 1.4
+        },
+        {
+          "role": "Staff",
+          "pct": 30,
+          "points": 0.6,
+          "low": 0.3,
+          "high": 0.6
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.frontend.app-shell-nextjs",
+      "activity": "Next.js app shell",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Frontend (Auth, RBAC, Admin, App Exposure)",
+      "workstream_id": "phase-1-build.frontend",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer - Frontend",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.frontend.auth-auth0",
+      "activity": "Auth0 integration",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Frontend (Auth, RBAC, Admin, App Exposure)",
+      "workstream_id": "phase-1-build.frontend",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer - Frontend",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.frontend.frontend-rbac",
+      "activity": "Frontend RBAC",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Frontend (Auth, RBAC, Admin, App Exposure)",
+      "workstream_id": "phase-1-build.frontend",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer - Frontend",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.frontend.admin-crud-ui",
+      "activity": "Web-UI admin with CRUD (not Django admin)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Frontend (Auth, RBAC, Admin, App Exposure)",
+      "workstream_id": "phase-1-build.frontend",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer - Frontend",
+          "pct": 90,
+          "points": 14.4,
+          "low": 7.2,
+          "high": 13.5
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.frontend.access-user-management-ui",
+      "activity": "Access & user management UI",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Frontend (Auth, RBAC, Admin, App Exposure)",
+      "workstream_id": "phase-1-build.frontend",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer - Frontend",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.frontend.read-surfaces",
+      "activity": "Read surfaces (Golden Record / Identity Map / Source Status / Data Health)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Frontend (Auth, RBAC, Admin, App Exposure)",
+      "workstream_id": "phase-1-build.frontend",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer - Frontend",
+          "pct": 90,
+          "points": 14.4,
+          "low": 7.2,
+          "high": 13.5
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.frontend.app-exposure",
+      "activity": "Role-based app exposure",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Frontend (Auth, RBAC, Admin, App Exposure)",
+      "workstream_id": "phase-1-build.frontend",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer - Frontend",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.frontend.search-ui",
+      "activity": "Search UI (OpenSearch)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Frontend (Auth, RBAC, Admin, App Exposure)",
+      "workstream_id": "phase-1-build.frontend",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer - Frontend",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.frontend.design-system",
+      "activity": "Design system (graphs, colors, layout)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Frontend (Auth, RBAC, Admin, App Exposure)",
+      "workstream_id": "phase-1-build.frontend",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "UX Engineer",
+          "pct": 100,
+          "points": 16.0,
+          "low": 8.0,
+          "high": 15.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.data-model-foundation",
+      "activity": "Data model foundation",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Staff Data Eng",
+          "pct": 60,
+          "points": 9.6,
+          "low": 4.8,
+          "high": 9.0
+        },
+        {
+          "role": "Staff",
+          "pct": 30,
+          "points": 4.8,
+          "low": 2.4,
+          "high": 4.5
+        },
+        {
+          "role": "Principal",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.permissions",
+      "activity": "Backend permissions (2a)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.org-tenancy-data",
+      "activity": "Org management & tenancy data (2b)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 14.4,
+          "low": 7.2,
+          "high": 13.5
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.graphql-surface",
+      "activity": "GraphQL surface (2c)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Staff",
+          "pct": 100,
+          "points": 8.0,
+          "low": 4.0,
+          "high": 8.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.rest-surface",
+      "activity": "REST surface (2d)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Staff",
+          "pct": 100,
+          "points": 8.0,
+          "low": 4.0,
+          "high": 8.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.person-search-opensearch",
+      "activity": "Person search (OpenSearch)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 14.4,
+          "low": 7.2,
+          "high": 13.5
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.consent-store",
+      "activity": "Consent store",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.pii-vault-erasure",
+      "activity": "PII erasure — tokenized reference vault",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.opt-out-suppression",
+      "activity": "Opt-out suppression",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.erasure-consent-audit",
+      "activity": "Erasure & consent audit",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.tiered-data-lifecycle",
+      "activity": "Tiered data lifecycle & storage policy",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 14.4,
+          "low": 7.2,
+          "high": 13.5
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.ai-context-schema-conventions",
+      "activity": "AI-context schema conventions & knowledge-graph hooks",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.semantic-glossary-term-registry",
+      "activity": "Semantic glossary & term registry",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.tool-access-api",
+      "activity": "Governed access API for tools (transport-agnostic)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.embedding-vector-hook",
+      "activity": "Embedding / vector hook",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.versioned-event-contract",
+      "activity": "Versioned event contract & schema registry",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.outcome-label-feature-capture",
+      "activity": "Outcome-label & feature capture",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.backend-data-model.policy-config-layer",
+      "activity": "Privacy policy configuration layer",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Backend & Data Model",
+      "workstream_id": "phase-1-build.backend-data-model",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ingest.airflow-split",
+      "activity": "Airflow split (managed/self-hosted)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Ingest (Batch + Event)",
+      "workstream_id": "phase-1-build.ingest",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Principal",
+          "pct": 100,
+          "points": 8.0,
+          "low": 4.0,
+          "high": 8.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ingest.dag-framework",
+      "activity": "DAG framework",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Ingest (Batch + Event)",
+      "workstream_id": "phase-1-build.ingest",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 14.4,
+          "low": 7.2,
+          "high": 13.5
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ingest.dag-base-conventions",
+      "activity": "DAG base + conventions",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Ingest (Batch + Event)",
+      "workstream_id": "phase-1-build.ingest",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ingest.stepped-flows",
+      "activity": "Stepped flows",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Ingest (Batch + Event)",
+      "workstream_id": "phase-1-build.ingest",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 14.4,
+          "low": 7.2,
+          "high": 13.5
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ingest.dag-documentation-design",
+      "activity": "DAG documentation design",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Ingest (Batch + Event)",
+      "workstream_id": "phase-1-build.ingest",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ingest.source-registry",
+      "activity": "Config-driven source registry",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Ingest (Batch + Event)",
+      "workstream_id": "phase-1-build.ingest",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ingest.event-grid-webhook-adapter",
+      "activity": "Event Grid webhook adapter (event intake)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Ingest (Batch + Event)",
+      "workstream_id": "phase-1-build.ingest",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 14.4,
+          "low": 7.2,
+          "high": 13.5
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ingest.nats-event-backbone",
+      "activity": "NATS event backbone + raw replay",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Ingest (Batch + Event)",
+      "workstream_id": "phase-1-build.ingest",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 14.4,
+          "low": 7.2,
+          "high": 13.5
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ingest.cloudevents-contract",
+      "activity": "CloudEvents contract + DLQ",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Ingest (Batch + Event)",
+      "workstream_id": "phase-1-build.ingest",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ingest.event-feed-liveness",
+      "activity": "Event-feed liveness monitoring",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Ingest (Batch + Event)",
+      "workstream_id": "phase-1-build.ingest",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ingest.cdc-capture-debezium",
+      "activity": "Source CDC capture (Debezium)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Ingest (Batch + Event)",
+      "workstream_id": "phase-1-build.ingest",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.integration-etl-reporting.superset-deploy",
+      "activity": "Superset self-hosted",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Integration, ETL & Reporting",
+      "workstream_id": "phase-1-build.integration-etl-reporting",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 80,
+          "points": 6.4,
+          "low": 3.2,
+          "high": 6.4
+        },
+        {
+          "role": "Staff Data Eng",
+          "pct": 20,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.6
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.integration-etl-reporting.django-superset-meta-layer",
+      "activity": "Django meta layer for Superset",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Integration, ETL & Reporting",
+      "workstream_id": "phase-1-build.integration-etl-reporting",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 80,
+          "points": 12.8,
+          "low": 6.4,
+          "high": 12.0
+        },
+        {
+          "role": "Staff Data Eng",
+          "pct": 20,
+          "points": 3.2,
+          "low": 1.6,
+          "high": 3.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.integration-etl-reporting.dashboards-as-code",
+      "activity": "Dashboards-as-code",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Integration, ETL & Reporting",
+      "workstream_id": "phase-1-build.integration-etl-reporting",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 80,
+          "points": 6.4,
+          "low": 3.2,
+          "high": 6.4
+        },
+        {
+          "role": "Staff Data Eng",
+          "pct": 20,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.6
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.integration-etl-reporting.tenant-guest-token-rls-harness",
+      "activity": "Per-tenant guest-token + RLS harness",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Integration, ETL & Reporting",
+      "workstream_id": "phase-1-build.integration-etl-reporting",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 80,
+          "points": 6.4,
+          "low": 3.2,
+          "high": 6.4
+        },
+        {
+          "role": "Staff Data Eng",
+          "pct": 20,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.6
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.integration-etl-reporting.warehouse-reporting-cutover",
+      "activity": "Warehouse reporting cutover",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Integration, ETL & Reporting",
+      "workstream_id": "phase-1-build.integration-etl-reporting",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 80,
+          "points": 12.8,
+          "low": 6.4,
+          "high": 12.0
+        },
+        {
+          "role": "Staff Data Eng",
+          "pct": 20,
+          "points": 3.2,
+          "low": 1.6,
+          "high": 3.0
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.identity-resolution-engine.resolution-engine-core",
+      "activity": "Resolution engine core (automated / heuristic / moderated paths)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Identity Resolution Engine",
+      "workstream_id": "phase-1-build.identity-resolution-engine",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 14.4,
+          "low": 7.2,
+          "high": 13.5
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.identity-resolution-engine.association-provenance-justification",
+      "activity": "Association provenance & justification",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Identity Resolution Engine",
+      "workstream_id": "phase-1-build.identity-resolution-engine",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.identity-resolution-engine.threshold-positive-grouping",
+      "activity": "Threshold-based positive grouping",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Identity Resolution Engine",
+      "workstream_id": "phase-1-build.identity-resolution-engine",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.identity-resolution-engine.orphan-identifier-handling",
+      "activity": "Orphan identifier handling",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Identity Resolution Engine",
+      "workstream_id": "phase-1-build.identity-resolution-engine",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.identity-resolution-engine.identity-record-event-sourcing",
+      "activity": "Identity record event sourcing & replay",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Identity Resolution Engine",
+      "workstream_id": "phase-1-build.identity-resolution-engine",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 14.4,
+          "low": 7.2,
+          "high": 13.5
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.identity-resolution-engine.survivorship-golden-value",
+      "activity": "Survivorship / golden-value resolution",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Identity Resolution Engine",
+      "workstream_id": "phase-1-build.identity-resolution-engine",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.identity-resolution-engine.household-detection",
+      "activity": "Household detection & membership",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Identity Resolution Engine",
+      "workstream_id": "phase-1-build.identity-resolution-engine",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.identity-curation-data-quality.curation-queue",
+      "activity": "Human-in-the-loop curation queue",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Identity Resolution Curation & Data Quality",
+      "workstream_id": "phase-1-build.identity-curation-data-quality",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.identity-curation-data-quality.curation-ui",
+      "activity": "Curation & eval UI",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Identity Resolution Curation & Data Quality",
+      "workstream_id": "phase-1-build.identity-curation-data-quality",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.identity-curation-data-quality.resolution-eval-tooling",
+      "activity": "Resolution-quality eval tooling",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Identity Resolution Curation & Data Quality",
+      "workstream_id": "phase-1-build.identity-curation-data-quality",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.identity-curation-data-quality.data-quality-assessment",
+      "activity": "Data-quality assessment (identity)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Identity Resolution Curation & Data Quality",
+      "workstream_id": "phase-1-build.identity-curation-data-quality",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.identity-curation-data-quality.merge-split-audit",
+      "activity": "Merge/split history & audit",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Identity Resolution Curation & Data Quality",
+      "workstream_id": "phase-1-build.identity-curation-data-quality",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.identity-curation-data-quality.curation-feedback-labels",
+      "activity": "Curation feedback & training labels",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Identity Resolution Curation & Data Quality",
+      "workstream_id": "phase-1-build.identity-curation-data-quality",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.segmentation-engine.segment-definition-model",
+      "activity": "Segment definition model",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Segmentation Engine",
+      "workstream_id": "phase-1-build.segmentation-engine",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.segmentation-engine.segment-evaluation-engine",
+      "activity": "Segment evaluation & materialization",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Segmentation Engine",
+      "workstream_id": "phase-1-build.segmentation-engine",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 14.4,
+          "low": 7.2,
+          "high": 13.5
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.segmentation-engine.segment-retrieval-api",
+      "activity": "Segment retrieval & targeting API",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Segmentation Engine",
+      "workstream_id": "phase-1-build.segmentation-engine",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.segmentation-engine.segment-membership-explainability",
+      "activity": "Segment membership explainability",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Segmentation Engine",
+      "workstream_id": "phase-1-build.segmentation-engine",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.legacy-deprecation",
+      "activity": "Legacy system deprecation",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 14.4,
+          "low": 7.2,
+          "high": 13.5
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.primitive-db",
+      "activity": "Database / SQL source primitive",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-greenflagcredit",
+      "activity": "Onboard GreenFlagCredit",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-cars-com",
+      "activity": "Onboard Cars.com",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-cargurus",
+      "activity": "Onboard CarGurus",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-women-drivers-com",
+      "activity": "Onboard Women-Drivers.com",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-routeone",
+      "activity": "Onboard RouteOne",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-capital-one",
+      "activity": "Onboard Capital One",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-meta-facebook",
+      "activity": "Onboard Meta Facebook",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-lotvantage",
+      "activity": "Onboard LotVantage",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-reconcile-cdp-vs-legacy-edw-dwrpt",
+      "activity": "Onboard Reconcile CDP vs legacy EDW DWRPT",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.primitive-api",
+      "activity": "REST / API source primitive",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.primitive-sftp",
+      "activity": "SFTP / file-drop source primitive",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.primitive-event",
+      "activity": "Webhook / event source primitive",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.primitive-feed",
+      "activity": "CSV / flat-feed source primitive",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-cim",
+      "activity": "Onboard CIM",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-dataone",
+      "activity": "Onboard DataOne",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-endeavorcentral",
+      "activity": "Onboard endeavorcentral",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-feedhub",
+      "activity": "Onboard Feedhub",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-megatron",
+      "activity": "Onboard megatron",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-megatron-repository",
+      "activity": "Onboard megatron-repository",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-ml-production",
+      "activity": "Onboard ML_Production",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-oltp",
+      "activity": "Onboard oltp",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-outbound-feeds",
+      "activity": "Onboard outbound-feeds",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-petfinder",
+      "activity": "Onboard petfinder",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-prime",
+      "activity": "Onboard prime",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-reddawn",
+      "activity": "Onboard reddawn",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-rl-production",
+      "activity": "Onboard RL_Production",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-trax",
+      "activity": "Onboard trax",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-web",
+      "activity": "Onboard web",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-zuora",
+      "activity": "Onboard Zuora",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-vinsolutions",
+      "activity": "Onboard VinSolutions",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-eleads",
+      "activity": "Onboard eLeads",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-reynolds-and-reynolds",
+      "activity": "Onboard Reynolds & Reynolds",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-tekion",
+      "activity": "Onboard Tekion",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-drivecentric",
+      "activity": "Onboard DriveCentric",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-dealersocket",
+      "activity": "Onboard DealerSocket",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-promax-momentum-oplogic",
+      "activity": "Onboard ProMax Momentum OpLogic",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-infusionsoft",
+      "activity": "Onboard Infusionsoft",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-cdk-global",
+      "activity": "Onboard CDK Global",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-authenticom-dealervault",
+      "activity": "Onboard Authenticom DealerVault",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-dealertrack",
+      "activity": "Onboard DealerTrack",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-truecar",
+      "activity": "Onboard TrueCar",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-autotrader",
+      "activity": "Onboard AutoTrader",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-edmunds",
+      "activity": "Onboard Edmunds",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-carsdirect",
+      "activity": "Onboard CarsDirect",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-ebay",
+      "activity": "Onboard eBay",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-google-business-profile",
+      "activity": "Onboard Google Business Profile",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-dealerrater",
+      "activity": "Onboard DealerRater",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-yelp",
+      "activity": "Onboard Yelp",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-vendasta",
+      "activity": "Onboard Vendasta",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-mozenda",
+      "activity": "Onboard Mozenda",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-callrevu",
+      "activity": "Onboard CallRevu",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-mailgun",
+      "activity": "Onboard MailGun",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-twilio",
+      "activity": "Onboard Twilio",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-sendgrid",
+      "activity": "Onboard SendGrid",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-mandrill",
+      "activity": "Onboard Mandrill",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-mailchimp",
+      "activity": "Onboard MailChimp",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-google-analytics-4",
+      "activity": "Onboard Google Analytics 4",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-mixpanel",
+      "activity": "Onboard Mixpanel",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-dealer-website-crawler",
+      "activity": "Onboard Dealer Website Crawler",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-engage-to-sell-livejoin",
+      "activity": "Onboard Engage to Sell LiveJoin",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-das-response-path",
+      "activity": "Onboard DAS Response Path",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-homenet",
+      "activity": "Onboard HomeNet",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-revenue-lab",
+      "activity": "Onboard Revenue Lab",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-general-motors",
+      "activity": "Onboard General Motors",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-ford",
+      "activity": "Onboard Ford",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-toyota",
+      "activity": "Onboard Toyota",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-honda",
+      "activity": "Onboard Honda",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-salesforce",
+      "activity": "Onboard Salesforce",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-microsoft-dynamics-365",
+      "activity": "Onboard Microsoft Dynamics 365",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-commonclientid",
+      "activity": "Onboard CommonClientID",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-cdxp-3birds-mautic",
+      "activity": "Onboard CDXP 3Birds Mautic",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-radar",
+      "activity": "Onboard Radar",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-mission-control",
+      "activity": "Onboard Mission Control",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-bestride",
+      "activity": "Onboard BestRide",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-torpedo",
+      "activity": "Onboard Torpedo",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-blackbook",
+      "activity": "Onboard BlackBook",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-kelley-blue-book",
+      "activity": "Onboard Kelley Blue Book",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-recall-masters",
+      "activity": "Onboard Recall Masters",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-experian-conquest",
+      "activity": "Onboard Experian Conquest",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-maxmind-geoip2",
+      "activity": "Onboard MaxMind GeoIP2",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-neverbounce",
+      "activity": "Onboard NeverBounce",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "S",
+      "points": 1,
+      "low": 0.5,
+      "high": 1,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 0.9,
+          "low": 0.45,
+          "high": 0.9
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.1,
+          "low": 0.05,
+          "high": 0.1
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-carfax",
+      "activity": "Onboard Carfax",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.long-tail.source-700credit",
+      "activity": "Onboard 700Credit",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Source Onboarding & Legacy Deprecation",
+      "workstream_id": "phase-1-build.long-tail",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ssis-reimplementation.dms-reconciliation",
+      "activity": "DMS reconciliation (appts/sales/service)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "SSIS Reimplementation",
+      "workstream_id": "phase-1-build.ssis-reimplementation",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ssis-reimplementation.crm-consolidation",
+      "activity": "CRM consolidation (21+ providers)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "SSIS Reimplementation",
+      "workstream_id": "phase-1-build.ssis-reimplementation",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ssis-reimplementation.crm-dms-recipient-matching",
+      "activity": "CRM-DMS recipient matching",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "SSIS Reimplementation",
+      "workstream_id": "phase-1-build.ssis-reimplementation",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ssis-reimplementation.address-geocoding",
+      "activity": "Address geocoding",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "SSIS Reimplementation",
+      "workstream_id": "phase-1-build.ssis-reimplementation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ssis-reimplementation.declined-service-tracking",
+      "activity": "Declined-service tracking",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "SSIS Reimplementation",
+      "workstream_id": "phase-1-build.ssis-reimplementation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ssis-reimplementation.marketing-attribution-engine",
+      "activity": "Marketing attribution engine",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "SSIS Reimplementation",
+      "workstream_id": "phase-1-build.ssis-reimplementation",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ssis-reimplementation.contact-stats-engagement-rollup",
+      "activity": "Contact-stats / engagement rollup",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "SSIS Reimplementation",
+      "workstream_id": "phase-1-build.ssis-reimplementation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ssis-reimplementation.bluesky-lifecycle-position",
+      "activity": "BlueSky lifecycle position",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "SSIS Reimplementation",
+      "workstream_id": "phase-1-build.ssis-reimplementation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ssis-reimplementation.vehicle-valuation-staging",
+      "activity": "Vehicle valuation staging (BlackBook pipeline)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "SSIS Reimplementation",
+      "workstream_id": "phase-1-build.ssis-reimplementation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ssis-reimplementation.inventory-staging",
+      "activity": "Inventory staging",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "SSIS Reimplementation",
+      "workstream_id": "phase-1-build.ssis-reimplementation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ssis-reimplementation.email-engagement-transform",
+      "activity": "Email engagement transform (GA / MailGun)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "SSIS Reimplementation",
+      "workstream_id": "phase-1-build.ssis-reimplementation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ssis-reimplementation.lead-prestaging-standardization",
+      "activity": "Lead prestaging / standardization",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "SSIS Reimplementation",
+      "workstream_id": "phase-1-build.ssis-reimplementation",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ssis-reimplementation.cdxp-performance-transforms",
+      "activity": "CDXP performance transforms",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "SSIS Reimplementation",
+      "workstream_id": "phase-1-build.ssis-reimplementation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ssis-reimplementation.review-sentiment-transforms",
+      "activity": "Review / sentiment transforms",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "SSIS Reimplementation",
+      "workstream_id": "phase-1-build.ssis-reimplementation",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.ssis-reimplementation.ssis-job-decommission-and-cutover",
+      "activity": "SSIS job decommission & cutover",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "SSIS Reimplementation",
+      "workstream_id": "phase-1-build.ssis-reimplementation",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.report-migration.cdxp-report-family",
+      "activity": "CDXP report family (ALv_CDXP_*)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Report Migration",
+      "workstream_id": "phase-1-build.report-migration",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.report-migration.medialogic-ads-family",
+      "activity": "MediaLogic / ads family (ALv_ML_*)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Report Migration",
+      "workstream_id": "phase-1-build.report-migration",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.report-migration.reviewlogic-family",
+      "activity": "ReviewLogic family (ALv_RL_*)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Report Migration",
+      "workstream_id": "phase-1-build.report-migration",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.report-migration.sociallogic-family",
+      "activity": "SocialLogic family (ALv_SL_*)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Report Migration",
+      "workstream_id": "phase-1-build.report-migration",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.report-migration.core-shared-views",
+      "activity": "Core shared views (core_v_*)",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Report Migration",
+      "workstream_id": "phase-1-build.report-migration",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-1-build.report-migration.dwrpt-parity-validation-spot-check",
+      "activity": "DWRPT parity validation / spot-check",
+      "phase": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "phase_id": "phase-1-build",
+      "workstream": "Report Migration",
+      "workstream_id": "phase-1-build.report-migration",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.source-onboarding.application-driven-source-onboarding",
+      "activity": "Application-driven source onboarding",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Source Onboarding & Activation Feeds",
+      "workstream_id": "phase-2-build.source-onboarding",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 14.4,
+          "low": 7.2,
+          "high": 13.5
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 1.6,
+          "low": 0.8,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.source-onboarding.context-metadata-management",
+      "activity": "Context & semantic-metadata management",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Source Onboarding & Activation Feeds",
+      "workstream_id": "phase-2-build.source-onboarding",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.application-use-cases.vss-retool",
+      "activity": "VSS retool on the CDP (flagship)",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Applications on the CDP",
+      "workstream_id": "phase-2-build.application-use-cases",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.application-use-cases.maintenance-service-app",
+      "activity": "Maintenance & service app (CarPlay / mobile)",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Applications on the CDP",
+      "workstream_id": "phase-2-build.application-use-cases",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.application-use-cases.marketing-activation-app",
+      "activity": "Marketing activation app",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Applications on the CDP",
+      "workstream_id": "phase-2-build.application-use-cases",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.application-use-cases.consumer-dealer-mobile-app",
+      "activity": "Consumer / dealer mobile app",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Applications on the CDP",
+      "workstream_id": "phase-2-build.application-use-cases",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.application-use-cases.data-enrichment-tools",
+      "activity": "Data-enrichment tools",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Applications on the CDP",
+      "workstream_id": "phase-2-build.application-use-cases",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.application-use-cases.reputation-management",
+      "activity": "Reputation management app",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Applications on the CDP",
+      "workstream_id": "phase-2-build.application-use-cases",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.application-use-cases.lead-handling",
+      "activity": "Lead handling app",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Applications on the CDP",
+      "workstream_id": "phase-2-build.application-use-cases",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.application-use-cases.communications-app",
+      "activity": "Communications app",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Applications on the CDP",
+      "workstream_id": "phase-2-build.application-use-cases",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.application-use-cases.recall-management",
+      "activity": "Recall management app",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Applications on the CDP",
+      "workstream_id": "phase-2-build.application-use-cases",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.application-use-cases.service-support-console",
+      "activity": "Service & support console",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Applications on the CDP",
+      "workstream_id": "phase-2-build.application-use-cases",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.activation-delivery.outbound-activation-connectors",
+      "activity": "Outbound activation connectors",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Activation & Delivery",
+      "workstream_id": "phase-2-build.activation-delivery",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.activation-delivery.web-pixel-js-sdk",
+      "activity": "Website pixel / JS SDK",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Activation & Delivery",
+      "workstream_id": "phase-2-build.activation-delivery",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.activation-delivery.event-stream-activation",
+      "activity": "Event-stream activation",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Activation & Delivery",
+      "workstream_id": "phase-2-build.activation-delivery",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.reporting-parity.custom-report-catalog-parity",
+      "activity": "Custom report catalog parity (Juicebox replacement)",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Reporting Parity (Custom Reports / Juicebox Replacement)",
+      "workstream_id": "phase-2-build.reporting-parity",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 7.2,
+          "low": 3.6,
+          "high": 7.2
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.8,
+          "low": 0.4,
+          "high": 0.8
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.reporting-parity.self-serve-custom-reports",
+      "activity": "Self-serve custom reports",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Reporting Parity (Custom Reports / Juicebox Replacement)",
+      "workstream_id": "phase-2-build.reporting-parity",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.reporting-parity.agency-reseller-reporting",
+      "activity": "Agency / reseller reporting",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Reporting Parity (Custom Reports / Juicebox Replacement)",
+      "workstream_id": "phase-2-build.reporting-parity",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.data-exposure.inventory-syndication",
+      "activity": "Inventory syndication feeds",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Data Exposure & Syndication",
+      "workstream_id": "phase-2-build.data-exposure",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 3.6,
+          "low": 1.8,
+          "high": 3.6
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.4,
+          "low": 0.2,
+          "high": 0.4
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.data-exposure.embeddable-widgets",
+      "activity": "Embeddable widgets",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Data Exposure & Syndication",
+      "workstream_id": "phase-2-build.data-exposure",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-2-build.data-exposure.self-serve-data-export",
+      "activity": "Self-serve data export",
+      "phase": "Phase 2 — Applications, Utilities & Activation",
+      "phase_id": "phase-2-build",
+      "workstream": "Data Exposure & Syndication",
+      "workstream_id": "phase-2-build.data-exposure",
+      "size": "M",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "owners": [
+        {
+          "role": "Sr Engineer",
+          "pct": 90,
+          "points": 1.8,
+          "low": 0.9,
+          "high": 1.8
+        },
+        {
+          "role": "Staff",
+          "pct": 10,
+          "points": 0.2,
+          "low": 0.1,
+          "high": 0.2
+        }
+      ]
+    },
+    {
+      "id": "phase-3-ai-ml.ai-ml-enhancements.model-assisted-identity-and-agentic-apps",
+      "activity": "Model-assisted identity and agentic applications",
+      "phase": "Phase 3 — AI + Machine Learning",
+      "phase_id": "phase-3-ai-ml",
+      "workstream": "AI/ML Enhancements",
+      "workstream_id": "phase-3-ai-ml.ai-ml-enhancements",
+      "size": "XXXL",
+      "points": 32,
+      "low": 15,
+      "high": 25,
+      "owners": [
+        {
+          "role": "Staff Data Eng",
+          "pct": 100,
+          "points": 32.0,
+          "low": 15.0,
+          "high": 25.0
+        }
+      ]
+    },
+    {
+      "id": "phase-3-ai-ml.ai-ml-enhancements.custom-models-rag-on-cdp",
+      "activity": "Custom models & RAG on the CDP corpus",
+      "phase": "Phase 3 — AI + Machine Learning",
+      "phase_id": "phase-3-ai-ml",
+      "workstream": "AI/ML Enhancements",
+      "workstream_id": "phase-3-ai-ml.ai-ml-enhancements",
+      "size": "XXL",
+      "points": 16,
+      "low": 8,
+      "high": 15,
+      "owners": [
+        {
+          "role": "Staff Data Eng",
+          "pct": 100,
+          "points": 16.0,
+          "low": 8.0,
+          "high": 15.0
+        }
+      ]
+    },
+    {
+      "id": "phase-3-ai-ml.ai-ml-enhancements.data-labeling-and-training-data",
+      "activity": "Data labeling and training data",
+      "phase": "Phase 3 — AI + Machine Learning",
+      "phase_id": "phase-3-ai-ml",
+      "workstream": "AI/ML Enhancements",
+      "workstream_id": "phase-3-ai-ml.ai-ml-enhancements",
+      "size": "L",
+      "points": 4,
+      "low": 2,
+      "high": 4,
+      "owners": [
+        {
+          "role": "Staff Data Eng",
+          "pct": 100,
+          "points": 4.0,
+          "low": 2.0,
+          "high": 4.0
+        }
+      ]
+    },
+    {
+      "id": "phase-3-ai-ml.ai-ml-enhancements.ml-scoring-and-personalization",
+      "activity": "ML scoring and personalization",
+      "phase": "Phase 3 — AI + Machine Learning",
+      "phase_id": "phase-3-ai-ml",
+      "workstream": "AI/ML Enhancements",
+      "workstream_id": "phase-3-ai-ml.ai-ml-enhancements",
+      "size": "XL",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "owners": [
+        {
+          "role": "Staff Data Eng",
+          "pct": 100,
+          "points": 8.0,
+          "low": 4.0,
+          "high": 8.0
+        }
+      ]
+    }
+  ],
+  "rollup_by_phase": [
+    {
+      "label": "Phase 0 — Architecture & Design",
+      "points": 54,
+      "low": 27,
+      "high": 52,
+      "activities": 9,
+      "unsized": 0
+    },
+    {
+      "label": "Phase 1 — Build (Product P1: MVP + Full Backend)",
+      "points": 913,
+      "low": 456.5,
+      "high": 894,
+      "activities": 183,
+      "unsized": 0
+    },
+    {
+      "label": "Phase 2 — Applications, Utilities & Activation",
+      "points": 96,
+      "low": 48,
+      "high": 95,
+      "activities": 21,
+      "unsized": 0
+    },
+    {
+      "label": "Phase 3 — AI + Machine Learning",
+      "points": 60,
+      "low": 29,
+      "high": 52,
+      "activities": 4,
+      "unsized": 0
+    }
+  ],
+  "rollup_by_workstream": [
+    {
+      "label": "Data Model & Identity",
+      "points": 42,
+      "low": 21,
+      "high": 40,
+      "activities": 5,
+      "unsized": 0
+    },
+    {
+      "label": "Platform Decisions",
+      "points": 10,
+      "low": 5,
+      "high": 10,
+      "activities": 3,
+      "unsized": 0
+    },
+    {
+      "label": "Architecture Close",
+      "points": 2,
+      "low": 1,
+      "high": 2,
+      "activities": 1,
+      "unsized": 0
+    },
+    {
+      "label": "Foundation & Platform",
+      "points": 95,
+      "low": 47.5,
+      "high": 93,
+      "activities": 17,
+      "unsized": 0
+    },
+    {
+      "label": "Frontend (Auth, RBAC, Admin, App Exposure)",
+      "points": 92,
+      "low": 46,
+      "high": 89,
+      "activities": 9,
+      "unsized": 0
+    },
+    {
+      "label": "Backend & Data Model",
+      "points": 135,
+      "low": 67.5,
+      "high": 131,
+      "activities": 18,
+      "unsized": 0
+    },
+    {
+      "label": "Ingest (Batch + Event)",
+      "points": 112,
+      "low": 56,
+      "high": 108,
+      "activities": 11,
+      "unsized": 0
+    },
+    {
+      "label": "Integration, ETL & Reporting",
+      "points": 56,
+      "low": 28,
+      "high": 54,
+      "activities": 5,
+      "unsized": 0
+    },
+    {
+      "label": "Identity Resolution Engine",
+      "points": 64,
+      "low": 32,
+      "high": 62,
+      "activities": 7,
+      "unsized": 0
+    },
+    {
+      "label": "Identity Resolution Curation & Data Quality",
+      "points": 42,
+      "low": 21,
+      "high": 42,
+      "activities": 6,
+      "unsized": 0
+    },
+    {
+      "label": "Segmentation Engine",
+      "points": 40,
+      "low": 20,
+      "high": 39,
+      "activities": 4,
+      "unsized": 0
+    },
+    {
+      "label": "Source Onboarding & Legacy Deprecation",
+      "points": 219,
+      "low": 109.5,
+      "high": 218,
+      "activities": 85,
+      "unsized": 0
+    },
+    {
+      "label": "SSIS Reimplementation",
+      "points": 42,
+      "low": 21,
+      "high": 42,
+      "activities": 15,
+      "unsized": 0
+    },
+    {
+      "label": "Report Migration",
+      "points": 16,
+      "low": 8,
+      "high": 16,
+      "activities": 6,
+      "unsized": 0
+    },
+    {
+      "label": "Source Onboarding & Activation Feeds",
+      "points": 20,
+      "low": 10,
+      "high": 19,
+      "activities": 2,
+      "unsized": 0
+    },
+    {
+      "label": "Applications on the CDP",
+      "points": 38,
+      "low": 19,
+      "high": 38,
+      "activities": 10,
+      "unsized": 0
+    },
+    {
+      "label": "Activation & Delivery",
+      "points": 14,
+      "low": 7,
+      "high": 14,
+      "activities": 3,
+      "unsized": 0
+    },
+    {
+      "label": "Reporting Parity (Custom Reports / Juicebox Replacement)",
+      "points": 16,
+      "low": 8,
+      "high": 16,
+      "activities": 3,
+      "unsized": 0
+    },
+    {
+      "label": "Data Exposure & Syndication",
+      "points": 8,
+      "low": 4,
+      "high": 8,
+      "activities": 3,
+      "unsized": 0
+    },
+    {
+      "label": "AI/ML Enhancements",
+      "points": 60,
+      "low": 29,
+      "high": 52,
+      "activities": 4,
+      "unsized": 0
+    }
+  ],
+  "rollup_by_role": [
+    {
+      "label": "Sr Engineer",
+      "points": 698.2,
+      "low": 349.1,
+      "high": 685.8,
+      "activities": 174,
+      "unsized": 0
+    },
+    {
+      "label": "Staff",
+      "points": 122.3,
+      "low": 61.15,
+      "high": 120.0,
+      "activities": 193,
+      "unsized": 0
+    },
+    {
+      "label": "Principal",
+      "points": 112.1,
+      "low": 56.05,
+      "high": 109.8,
+      "activities": 28,
+      "unsized": 0
+    },
+    {
+      "label": "Staff Data Eng",
+      "points": 106.0,
+      "low": 52.0,
+      "high": 95.8,
+      "activities": 15,
+      "unsized": 0
+    },
+    {
+      "label": "Sr Engineer - Frontend",
+      "points": 68.4,
+      "low": 34.2,
+      "high": 66.6,
+      "activities": 8,
+      "unsized": 0
+    },
+    {
+      "label": "UX Engineer",
+      "points": 16.0,
+      "low": 8.0,
+      "high": 15.0,
+      "activities": 1,
+      "unsized": 0
+    },
+    {
+      "label": "QA",
+      "points": 0,
+      "low": 3.5,
+      "high": 6.79,
+      "activities": 0,
+      "unsized": 0,
+      "overhead_shares": 2
+    }
+  ],
+  "overhead": [
+    {
+      "label": "QA — SDET (automated)",
+      "role": "QA",
+      "pct": 5,
+      "base": [
+        "phase-1-build.frontend",
+        "phase-1-build.backend-data-model.permissions"
+      ],
+      "note": "5% of frontend + Django-admin permissions effort",
+      "base_low": 50,
+      "base_high": 97,
+      "low": 2.5,
+      "high": 4.85
+    },
+    {
+      "label": "QA — manual",
+      "role": "QA",
+      "pct": 2,
+      "base": [
+        "phase-1-build.frontend",
+        "phase-1-build.backend-data-model.permissions"
+      ],
+      "note": "2% of frontend + Django-admin permissions effort",
+      "base_low": 50,
+      "base_high": 97,
+      "low": 1.0,
+      "high": 1.94
+    }
+  ]
+}

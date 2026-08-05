@@ -1,0 +1,5 @@
+database,schema,table,ts_column,row_count,total_mb,min_ts,max_ts,non_null_count,query_seconds
+Central Inventory,FHD,vehicles_removed,created_at,40111876,411036.601562,2022-10-28 18:37:49,2026-06-14 06:39:27,40111876,139.56
+Central Inventory,FHD,vehicles_loc,created_at,2342115,30868.796875,2022-10-28 18:38:18,2026-06-14 13:04:24,2342115,10.24
+Central Inventory,stage,FHvehicles_new,created_at,2342115,24586.210937,2022-10-28 18:38:18,2026-06-14 13:04:24,2342115,9.2
+Central Inventory,stage,FHvehicles_Test,created_at,2239173,15461.632812,2022-10-28 18:37:49,2024-08-09 12:58:46,2239173,6.64

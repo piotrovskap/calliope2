@@ -1,0 +1,15 @@
+table_id,days_observed,total_rows,monthly_avg_last12,slope_per_month,projection_plus_6mo,projection_plus_12mo
+MegatronRepository_dbo_ListingRepository,2043,24341637,325375,-26546,0,0
+Megatron_dbo_ActivityLog,354,4716201,377679,14273,556103,641746
+Megatron_dbo_BackupLog,340,238711,19057,793,28979,33742
+Megatron_dbo_FileDetails_Log,2660,232076,1226,-170,0,0
+Megatron_dbo_Listing,2237,7413699,89255,-7058,1017,0
+Megatron_dbo_ListingImageDownload_ReDownload,2798,298130232,2515696,-10844,2380135,2315066
+Megatron_dbo_PhyronVideos,212,106055,12875,3692,49798,71952
+OutboundFeeds_dbo_obf_CarFax_Data,792,464287,38281,11763,185329,255912
+Prime_dbo_DisplayGEO,1706,16204784,18321,-1139,4078,0
+Prime_dbo_grail_srpactions_daily,2674,98884098,949127,-21358,682141,553988
+RedDawn_dbo_ListingImageDownload_Queue_History_lid_Received,530,147097980,3863457,-297400,145952,0
+RedDawn_dbo_SmartVDPClicks,2124,23311156,300453,-4470,244572,217749
+WEB_dbo_FEEDADS,1822,8032284,123898,5623,194198,227942
+WEB_dbo_FEEDEXTRAS,1912,476969,11441,-1262,0,0

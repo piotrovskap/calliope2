@@ -1,0 +1,539 @@
+{
+  "version": 14,
+  "updated": "2026-06-23",
+  "changelog": [
+    {
+      "date": "2026-06-23",
+      "note": "Closed the 4 remaining open action items — all were Phase 0 deliverable drafting, now complete and stable in the portal (Exec Summary, Privacy, Scoping, plus the umbrella \"share docs early\"). Closing notes record where each artifact lives + owner; final debrief remains tracked as phase-0-close.synthesis-debrief."
+    },
+    {
+      "version": 13,
+      "date": "2026-06-18",
+      "note": "Re-scoped: real-data golden-record proof -> optional/nice-to-have (provenance attribution substitutes, not a blocker); Event Grid wiring -> define-the-contract-only for now (Phase-1 build later)."
+    },
+    {
+      "version": 12,
+      "date": "2026-06-18",
+      "note": "Closed \"Build the golden-record view in the portal\" — delivered as the v0.9 visualizer + homepage nav card (PR #132)."
+    },
+    {
+      "version": 11,
+      "date": "2026-06-18",
+      "note": "A22 (config-driven source-onboarding registry) closed — Leo confirmed; entry contract hardened in 04-ingest/06-source-registry.md (#128). Build continues against the spec in Phase 1."
+    },
+    {
+      "version": 10,
+      "date": "2026-06-18",
+      "note": "A21 (AI/agentic-readiness in the data model) closed — captured as the cross-phase AI-readiness spec set (#126); self-describing schema + good labeling enforced in CI."
+    },
+    {
+      "version": 9,
+      "date": "2026-06-18",
+      "change": "Reconciled to current state: closed identity-strategy-options (done, #118), API-usage walkthrough (done, #121), Ron CCID logic + Rick 8 SSIS (closed, #124). Survivorship marked BLOCKED — deliverable .docx is corrupt, awaiting Markdown re-send."
+    },
+    {
+      "version": 8,
+      "date": "2026-06-16",
+      "change": "Close the DAS data-profile action item — not gating; dev baseline + production rightsizing deferred (elastic stack)."
+    },
+    {
+      "date": "2026-06-13",
+      "note": "Broke out Field prioritization (valuable-now vs interesting-later) as its own item, owner Alicia. (The two timeline-only discovery steps were reframed as optional DAS open questions in the open-questions tracker, not here.)"
+    },
+    {
+      "date": "2026-06-13",
+      "note": "Assigned owners to the previously-floating work: real-data golden-record proof (Alicia + Luis, review Leo) — the gap not to let slide; Privacy-by-Design (Luis); Phase 1 & 2 Plans (Leo); CDP Scoping (Alicia + Luis + Leo); Executive Summary (Leo)."
+    },
+    {
+      "date": "2026-06-13",
+      "note": "Folded the two untracked DAS-facing threads into the tracker as explicit items: Event Grid -> CDP event delivery in the Architecture Design Review session; Rick Sorich's 8 SSIS job descriptions in the exec-sync session. The other two DAS threads (API-usage walkthrough, Common Client ID logic) were already tracked in exec-sync — not duplicated. Event Grid item then reframed to Low / Phase-1 build-time — NOT a Phase-0 DAS confirmation, since the CDP event intake is bus-agnostic by design and the architecture stands regardless of DAS's answer."
+    },
+    {
+      "date": "2026-06-13",
+      "note": "Added the Architecture Design Review (Leo + Claude) working session: 7 items routing the design misses surfaced when validating the proposed CDP stack against Dan's guidance + Mike's requirements. Six assigned to Alicia + Luis for direction (survivorship, household resolution, bitemporal/schema, consent model, AI-readiness, source registry); one DAS data-profile input."
+    },
+    {
+      "date": "2026-06-12",
+      "note": "Added 7 items from the exec sync (Dan Aston + Mike Paylor) with named assignees; chat-agent bubble already shipped"
+    },
+    {
+      "date": "2026-06-12",
+      "note": "Full reconcile per the replace-don't-improve direction: legacy-improvement and documentation items closed; completed items marked done; Juicebox-alternatives item dropped as noise (it is the Phase 1 reporting-platform deliverable). All 17 items resolved — current actionable work lives in the specs plan and open questions."
+    },
+    {
+      "date": "2026-06-09",
+      "note": "Initial aggregation from 4 sessions"
+    },
+    {
+      "date": "2026-06-18",
+      "note": "Closed A2 (household/family identity resolution) — design locked under Option A; surface rendering tracked under read-surfaces story."
+    },
+    {
+      "date": "2026-06-18",
+      "note": "Closed A1 (survivorship/source-trust — captured in spec-of-record; corrupt docx superseded) and A3 (bitemporal model in spec-of-record, table set locked at 15, dual API re-confirmed)."
+    },
+    {
+      "date": "2026-06-19",
+      "note": "Consistency audit: closed A4 (golden-record proof re-scoped), A7 (API catalog complete), A29 (field prioritization locked 2026-06-19), A30 (Phase 1&2 plans draft exists), A38 (event contract defined; delivery is P1 execution)."
+    }
+  ],
+  "sessions": [
+    "architecture-design-2026-06-13",
+    "exec-sync-2026-06-12",
+    "kickoff-2026-05-27",
+    "kickoff-2026-05-27-deep",
+    "reporting-juice-2026-06-08",
+    "ssis-review-2026-06-08"
+  ],
+  "items": [
+    {
+      "action": "Define survivorship / source-trust ranking for the golden record",
+      "assignee": "Conflict (Alicia Salazar, Luis Hernandez)",
+      "priority": "High",
+      "deadline": "2026-06-19",
+      "context": "DMS is the de facto ground truth (transactions, dollars attached) per Dan/kickoff; lead and social signals rank lower. Field-level provenance records every source's value, but selecting the winning golden value needs explicit trust-ranking + survivorship rules. Input to the identity-resolution strategy and the golden-record view. Raised in the 2026-06-13 architecture design review. — BLOCKED 2026-06-18: design submitted as 05-survivorship-rules.docx but the committed file is corrupt (won’t open); awaiting re-send in Markdown from Alicia before this can close. — CLOSED 2026-06-18: survivorship/source-trust design is locked (2026-06-17) and now captured in the spec-of-record specs/02-phase-1-architecture/01-data-model/02-identity-resolution-strategy.md §Survivorship & Source Trust: explicit tier ranking (DMS > CRM > Email/Twilio > third-party), per-field winning-source matrix, recency tie-break within tier, and per-element provenance retention (no destructive overwrite). The corrupt 05-survivorship-rules.docx is fully superseded by this Markdown — re-send no longer required; recommend removing the corrupt file.",
+      "session": "architecture-design-2026-06-13",
+      "session_title": "Architecture Design Review — CDP Stack (Leo + Claude)",
+      "session_date": "2026-06-13",
+      "status": "done"
+    },
+    {
+      "action": "Design household / family identity resolution",
+      "assignee": "Conflict (Alicia Salazar, Luis Hernandez)",
+      "priority": "High",
+      "deadline": "2026-06-19",
+      "context": "Dan named families as the hardest identity case. The strategy must handle household grouping (shared address/phone, related consumers) as distinct from individual resolution; feeds the Identity & Relationship Map surface. Raised 2026-06-13 architecture design review. — CLOSED 2026-06-18: household/family design complete and locked under Option A (2026-06-17). Household modeled as a distinct, derived entity (specs/02-phase-1-architecture/01-data-model/01-cdp-data-model-design.md), grouped by canonical address + ≥1 secondary signal with provisional membership and human curation, probabilistic household inference in 02-identity-resolution-strategy.md, bitemporal schema with lifecycle deferred to Phase 2 (wiki/Identity-Resolution.md §Household / Family Resolution). Identity Map surface rendering of the household layer is implementation, tracked under the read-surfaces story (specs/03-phase-1-build/02-frontend/06-read-surfaces.md).",
+      "session": "architecture-design-2026-06-13",
+      "session_title": "Architecture Design Review — CDP Stack (Leo + Claude)",
+      "session_date": "2026-06-13",
+      "status": "done"
+    },
+    {
+      "action": "Design the bitemporal provenance data model and confirm schema + API surface",
+      "assignee": "Conflict (Alicia Salazar, Luis Hernandez)",
+      "priority": "High",
+      "deadline": "2026-06-19",
+      "context": "Append-only, field-level provenance with valid-time + system-time (tstzrange + GiST exclusion), scoped to the observation layer; EAV+JSONB for attributes; 'as-of' time-travel powers the Golden Record evolution view. Settles the actual table set (incl. the 4 AI/ML stubs; the '19-table' figure is NOT yet fixed) and confirms whether the REST+GraphQL dual surface stands. The 2026-06-13 review recommended direction; the data model is theirs to finalize. — CLOSED 2026-06-18: bitemporal provenance model locked and written into the spec-of-record specs/02-phase-1-architecture/01-data-model/01-cdp-data-model-design.md (valid-time + system-time, tstzrange + GiST exclusion, observation-layer scope, append-only as-of = Golden Record evolution view). Table set settled at 15 (11 core + 4 AI/ML stubs); legacy '19-table' figure retired (decisions.md updated; wiki/Roadmap.md:30 '19' is a pending one-line follow-up). REST+GraphQL dual surface re-confirmed 2026-06-18. Remaining schema DDL is a build-time acceptance criterion on the data-model story, not an open design decision.",
+      "session": "architecture-design-2026-06-13",
+      "session_title": "Architecture Design Review — CDP Stack (Leo + Claude)",
+      "session_date": "2026-06-13",
+      "status": "done"
+    },
+    {
+      "action": "Real-data golden-record proof — validate against actual DAS data",
+      "assignee": "Alicia Salazar + Luis Hernandez (review/approval: Leo Mata)",
+      "priority": "optional",
+      "deadline": "",
+      "context": "Mike's #1: prove the golden record is achievable from ACTUAL data ('all the people that could be Mike'), not just structure/field analysis. Must reconcile with the closed Phase 0/1 data-access decision (only DWRPT granted) — determine what data and access enable the proof, and whether access needs reopening. Was unowned until 2026-06-13; now owned. Distinct from the golden-record VIEW (the UI) — this is the real-data validation behind it. — RE-SCOPED 2026-06-18 (Leo): OPTIONAL / nice-to-have, NOT a blocker. The provenance-attribution effort (every golden-record field traced + verified to its real source) substitutes for a live-data run; we do not need the live proof to proceed. Leave open but de-scoped. — CLOSED 2026-06-19: re-scoped to optional/nice-to-have 2026-06-18 (Leo) — not a blocker. Deliverables exist: analysis/artifacts/golden-record/record.json, schema.json, REVIEW.md (Alicia review v0.9 complete, PR #137), portal visualizer (index.html). Provenance-attribution effort substitutes; live-data proof not required to proceed.",
+      "session": "architecture-design-2026-06-13",
+      "session_title": "Architecture Design Review — CDP Stack (Leo + Claude)",
+      "session_date": "2026-06-13",
+      "status": "done"
+    },
+    {
+      "action": "Build the golden-record view in the portal",
+      "assignee": "Conflict (Alicia Salazar, Luis Hernandez)",
+      "priority": "High",
+      "deadline": "",
+      "context": "Mike Paylor's #1 ask — the customer record shape as it develops, per-element feeding sources, and field prioritization (valuable-now vs interesting-later, progressive build). Experimental v0 placeholder is live; fills in as the identity design lands. — DONE 2026-06-18 (PR #132): data-driven golden-record visualizer built (7 tabs — entity model, field dictionary with per-mapping verified provenance, source registry, identity machinery, Leo worked example, references) and linked from the portal homepage nav. The underlying record is now v1.0 (architect-blessed by Alicia + Luis, 2026-06-21); the portal VIEW was delivered (PR #132).",
+      "session": "exec-sync-2026-06-12",
+      "session_title": "Exec Sync — Dan Aston + Mike Paylor",
+      "session_date": "2026-06-12",
+      "status": "done"
+    },
+    {
+      "action": "Produce identity-resolution strategy options",
+      "assignee": "Alicia Salazar + Luis Hernandez",
+      "priority": "High",
+      "deadline": "2026-06-19",
+      "context": "Strategy options due ~1 week from the sync; war-room design sessions start within days. Compared across matching model, orphan identifiers, provenance, curation queue, migration, and ops profile. Output feeds the golden-record view. — CLOSED 2026-06-18: identity-resolution strategy options produced; Option A locked 2026-06-17 (PR #118, analysis/artifacts/identity-strategies/strategies.json + docs/deliverables/identity-resolution-strategy.md).",
+      "session": "exec-sync-2026-06-12",
+      "session_title": "Exec Sync — Dan Aston + Mike Paylor",
+      "session_date": "2026-06-12",
+      "status": "done"
+    },
+    {
+      "action": "Finish documenting the DAS APIs",
+      "assignee": "Hiram Gonzalez, Byron Miranda, Julio Rojas, Oscar Morera",
+      "priority": "High",
+      "deadline": "",
+      "context": "Complete the per-API documentation in the integration catalog: business purpose, which DAS product uses it, what is extracted today vs available for future integration. Pairs with Dan's engineering walkthrough — partial answers land in the catalog as they are confirmed. — CLOSED 2026-06-19: API catalog complete (85 integrations, docs/api-integration-catalog.md + analysis/artifacts/api-integration-catalog/index.html). Per-product usage walkthrough resolved in 2026-06-18 session (PR #121). Core deliverable exists and is comprehensive.",
+      "session": "exec-sync-2026-06-12",
+      "session_title": "Exec Sync — Dan Aston + Mike Paylor",
+      "session_date": "2026-06-12",
+      "status": "done"
+    },
+    {
+      "action": "Draft and share the Phase 0 CDP document early",
+      "assignee": "Conflict (Leo Mata)",
+      "priority": "High",
+      "deadline": "2026-07-04",
+      "context": "One more week of discovery, then wrap. Drafts shared for iteration rather than a single end-of-phase drop; delivery before July 4, target end of June. — Closed 2026-06-23: all Phase 0 deliverables drafted and shared in the portal for iterative review (Executive Summary, Revised Architecture + 4 views, Roadmap + Scoping/Privacy/Identity/Phase-1&2 Plans, plus the DAS v3/v4-vs-CONFLICT comparison and target-state reporting flow). Drafts shared early for iteration as intended; final leadership debrief tracked as phase-0-discovery.phase-0-close.synthesis-debrief.",
+      "session": "exec-sync-2026-06-12",
+      "session_title": "Exec Sync — Dan Aston + Mike Paylor",
+      "session_date": "2026-06-12",
+      "status": "done"
+    },
+    {
+      "action": "Walk Conflict through actual API usage (extracted today vs available later)",
+      "assignee": "Dan Aston / DAS Engineering",
+      "priority": "High",
+      "deadline": "",
+      "context": "The remaining high open question — per-API business purpose and actively used endpoints, so CDP design focuses on current capture and treats the full API surface as later opportunity. Dan took the list to engineering. — RESOLVED 2026-06-18 (PR #121): DAS engineering API-usage walkthrough complete; per-API business purpose + active endpoints documented in the wiki.",
+      "session": "exec-sync-2026-06-12",
+      "session_title": "Exec Sync — Dan Aston + Mike Paylor",
+      "session_date": "2026-06-12",
+      "status": "done"
+    },
+    {
+      "action": "Get access to the data warehouse reporting database",
+      "assignee": "Ron",
+      "priority": "High",
+      "deadline": "",
+      "context": "Ron was working on getting access to the data warehouse reporting database which has all the tables and data that powers the analytics in Guice",
+      "session": "reporting-juice-2026-06-08",
+      "session_title": "Reporting & Juicebox Review",
+      "session_date": "2026-06-08",
+      "status": "done",
+      "resolution": "DWRPT read access granted 2026-06-12. Used for the CCID audit and reporting parity only — not a CDP ingestion source."
+    },
+    {
+      "action": "Evaluate and implement alternatives to Guice",
+      "assignee": "",
+      "priority": "High",
+      "deadline": "",
+      "context": "Guice is not important for longer-term roadmap and the team is already looking at alternatives to replace it with something better",
+      "session": "reporting-juice-2026-06-08",
+      "session_title": "Reporting & Juicebox Review",
+      "session_date": "2026-06-08",
+      "status": "dropped",
+      "resolution": "Transcription artifact ('Guice' = Juicebox). The replacement evaluation IS the Phase 1 reporting-platform deliverable, tracked in the project plan — noise as an action item."
+    },
+    {
+      "action": "Address data quality issues and implement Common Client ID joins",
+      "assignee": "Ron",
+      "priority": "High",
+      "deadline": "",
+      "context": "Data discovered to not be as clean as desired; Common Client ID has been implemented to join tables better across multiple sources",
+      "session": "reporting-juice-2026-06-08",
+      "session_title": "Reporting & Juicebox Review",
+      "session_date": "2026-06-08",
+      "status": "closed",
+      "resolution": "Legacy improvement, superseded 2026-06-12: the CDP identity design replaces CCID-based joining — CCID is one candidate signal and the migration key, not the foundation. Internal CCID cleanup is DAS's call."
+    },
+    {
+      "action": "Investigate and document why one SSIS job has never run successfully",
+      "assignee": "Rick/Engineering team",
+      "priority": "High",
+      "deadline": "Not specified",
+      "context": "One job in the SSIS pipeline has a 0% success rate and it's unclear why it's still in the system",
+      "session": "ssis-review-2026-06-08",
+      "session_title": "SSIS Infrastructure Review",
+      "session_date": "2026-06-08",
+      "status": "closed",
+      "resolution": "Out of CDP scope — legacy tech debt (Mileone_reward_member) in a pipeline slated for retirement. Flagged to Rick for DAS housekeeping."
+    },
+    {
+      "action": "Implement better monitoring and alerting system for SSIS job failures",
+      "assignee": "Rick/Leo's team",
+      "priority": "High",
+      "deadline": "Not specified",
+      "context": "Data engineers are silently fixing failures without notifying the team; need visibility into what's breaking and how it's being fixed",
+      "session": "ssis-review-2026-06-08",
+      "session_title": "SSIS Infrastructure Review",
+      "session_date": "2026-06-08",
+      "status": "closed",
+      "resolution": "Improvement to a system being retired — per the 2026-06-12 exec direction (replace, don't improve). DAS-internal ops if they want it in the interim."
+    },
+    {
+      "action": "Refactor tightly coupled SSIS jobs to reduce fragility",
+      "assignee": "Engineering team",
+      "priority": "High",
+      "deadline": "Not specified",
+      "context": "Current architecture drops and rebuilds tables from scratch, causing data loss if any job crashes; requires 3-4 engineers to maintain daily",
+      "session": "ssis-review-2026-06-08",
+      "session_title": "SSIS Infrastructure Review",
+      "session_date": "2026-06-08",
+      "status": "closed",
+      "resolution": "Improvement to a system being retired — per the 2026-06-12 exec direction the CDP replaces the SSIS pipeline; no investment in refactoring it."
+    },
+    {
+      "action": "Align on scope, objectives, and duration for CDP project",
+      "assignee": "Leo, Daniel Aston, Alex English",
+      "priority": "High",
+      "deadline": "During current meeting (50 minutes remaining)",
+      "context": "Leo outlined purpose to cover scope alignment, goals, and what it takes to succeed on the CDP project",
+      "session": "kickoff-2026-05-27",
+      "session_title": "Conflict Kickoff — Phase 0",
+      "session_date": "2026-05-27",
+      "status": "done",
+      "resolution": "Settled at kickoff and in the signed Phase 0 proposal."
+    },
+    {
+      "action": "Discuss data sharing and access requirements",
+      "assignee": "All participants",
+      "priority": "High",
+      "deadline": "During current meeting",
+      "context": "Leo noted this needs to be covered as it's necessary for the rest of the discovery process",
+      "session": "kickoff-2026-05-27",
+      "session_title": "Conflict Kickoff — Phase 0",
+      "session_date": "2026-05-27",
+      "status": "done",
+      "resolution": "Covered across discovery sessions; access provisioning completed/closed 2026-06-12."
+    },
+    {
+      "action": "Provide overview and context on CDP project goals to all Conflict team members",
+      "assignee": "Daniel Aston, Alex English",
+      "priority": "High",
+      "deadline": "During current meeting",
+      "context": "Alex suggested summarizing what they're trying to build and the 'why' to ensure everyone shares common language",
+      "session": "kickoff-2026-05-27",
+      "session_title": "Conflict Kickoff — Phase 0",
+      "session_date": "2026-05-27",
+      "status": "done",
+      "resolution": "Completed during week-1 ramp-up."
+    },
+    {
+      "action": "Provide overview and summary of CDP goals and scope to Conflict team",
+      "assignee": "Daniel Aston / Alex English",
+      "priority": "High",
+      "deadline": "During current meeting",
+      "context": "Leo requested Dan or Alex summarize what they're trying to build and the why to ensure common language and understanding across both teams",
+      "session": "kickoff-2026-05-27-deep",
+      "session_title": "Conflict Kickoff — Phase 0",
+      "session_date": "2026-05-27",
+      "status": "done",
+      "resolution": "Duplicate of the kickoff item — completed during week-1 ramp-up."
+    },
+    {
+      "action": "Cover data sharing and access requirements",
+      "assignee": "Leo / Team",
+      "priority": "High",
+      "deadline": "During current meeting",
+      "context": "Leo indicated this needs to be covered as it's necessary to complete the rest of the discovery process",
+      "session": "kickoff-2026-05-27-deep",
+      "session_title": "Conflict Kickoff — Phase 0",
+      "session_date": "2026-05-27",
+      "status": "done",
+      "resolution": "Duplicate — covered across discovery sessions; access provisioning closed 2026-06-12."
+    },
+    {
+      "action": "Define consent policy values (retention, taxonomy, lawful basis)",
+      "assignee": "Conflict (Alicia Salazar, Luis Hernandez)",
+      "priority": "Medium",
+      "deadline": "",
+      "context": "Consent MODEL and opt-out enforcement are now defined — mechanism in wiki/Privacy-by-Design.md, identity integration in wiki/Identity-Resolution.md, and the consent-store spec (specs/03-phase-1-build/03-backend-data-model/07-consent-store.md). Remaining policy-value prose (retention windows, consent-type taxonomy, lawful-basis mapping, and dealer/jurisdiction variance) is final-deliverable authoring inside the Privacy-by-Design Framework, not separate non-deliverable cleanup. Raised 2026-06-13; rescoped 2026-06-21.",
+      "session": "architecture-design-2026-06-13",
+      "session_title": "Architecture Design Review — CDP Stack (Leo + Claude)",
+      "session_date": "2026-06-13",
+      "status": "closed",
+      "resolution": "Prep complete: consent and opt-out mechanisms are defined in the source docs/specs. Remaining policy-value wording is carried by the Privacy-by-Design Framework final deliverable."
+    },
+    {
+      "action": "Specify AI / agentic-readiness in the data model",
+      "assignee": "Conflict (Alicia Salazar, Luis Hernandez)",
+      "priority": "Medium",
+      "deadline": "",
+      "context": "Mike's requirement: the CDP must be 'good for AI and good for application lifecycle / agentic events.' Confirm the 4 AI/ML stub tables, the event-log shape (NATS + bitemporal) for agentic/lifecycle consumption, and Redshift/OpenSearch serving; CDP AI features reuse DAS's existing AI layer (ai.das-technology.com), not a parallel build. Raised 2026-06-13. — DONE 2026-06-18: specced as the cross-phase AI-readiness set (PR #126). P1 anchor 03-backend-data-model/12-ai-context-schema-conventions + glossary(13), governed multi-transport access API(14), vector hook(15), versioned event contract(16), curation feedback labels(07/06); P2 context-metadata-management; P3 custom-models-rag (consent-gated). Good labeling enforced in CI is the core readiness requirement.",
+      "session": "architecture-design-2026-06-13",
+      "session_title": "Architecture Design Review — CDP Stack (Leo + Claude)",
+      "session_date": "2026-06-13",
+      "status": "done"
+    },
+    {
+      "action": "Confirm config-driven source-onboarding registry design",
+      "assignee": "Conflict (Alicia Salazar, Luis Hernandez)",
+      "priority": "Medium",
+      "deadline": "",
+      "context": "Declarative per-source mapping + provenance classification (DAS-global/shareable vs dealer-isolated); mirrors the generic event-adapter pattern for batch so 100+ sources onboard without touching the resolution engine. Raised 2026-06-13. — CLOSED 2026-06-18 — Leo’s decision: design confirmed and hardened. Reviewed the registry and tightened 04-ingest/06-source-registry.md to an explicit registry-entry contract (type, connection, ingestion mode batch/event/both, field mapping + semantic metadata, identity keys, provenance classification, consent linkage, DQ contract, retention) in PR #128. Remaining work is Phase-1 build execution against that spec, not an open Phase-0 design question.",
+      "session": "architecture-design-2026-06-13",
+      "session_title": "Architecture Design Review — CDP Stack (Leo + Claude)",
+      "session_date": "2026-06-13",
+      "status": "done"
+    },
+    {
+      "action": "Provide CDP data-profile inputs (volume, formats, change rates, frequency, latency tolerance, consumption patterns)",
+      "assignee": "DAS (via Leo Mata)",
+      "priority": "Medium",
+      "deadline": "",
+      "context": "Outstanding since the 2026-03-09 follow-up. Gates serving-tier sizing (RDS instance class, read replicas, ingestion throughput), currently assumed not validated. Not an Alicia/Luis item — a DAS discovery input. Re-surfaced 2026-06-13.",
+      "session": "architecture-design-2026-06-13",
+      "session_title": "Architecture Design Review — CDP Stack (Leo + Claude)",
+      "session_date": "2026-06-13",
+      "status": "closed",
+      "resolution": "Closed 2026-06-16 — DAS volume/profile data not expected and not a blocker. The stack is elastic (RDS scale-up + Proxy/replicas, Redshift Serverless, EKS autoscaling, S3), so we provision a dev baseline now and rightsize for production once real load is observed. See memory/decisions.md (dev-baseline + dynamic-scaling decision)."
+    },
+    {
+      "action": "Draft the Privacy-by-Design Framework deliverable",
+      "assignee": "Luis Hernandez",
+      "priority": "Medium",
+      "deadline": "",
+      "context": "Phase 0 deliverable. Tenant isolation (RLS), DAS-global vs dealer-isolated segregation, consent + opt-out enforcement, tokenized PII-vault handling (erasure = delete-the-row), bitemporal audit/lineage. Owner assigned 2026-06-13. — Closed 2026-06-23 (Luis): docs/deliverables/privacy-by-design-framework.md — full client-ready deliverable (deletion-first obligation, tenant-isolated RLS, tokenized PII-vault delete-the-row erasure superseding crypto-shred 2026-06-21, bitemporal lineage). Stable v1, pending final sign-off.",
+      "session": "architecture-design-2026-06-13",
+      "session_title": "Architecture Design Review — CDP Stack (Leo + Claude)",
+      "session_date": "2026-06-13",
+      "status": "done"
+    },
+    {
+      "action": "Draft the Detailed Phase 1 & 2 Plans deliverable",
+      "assignee": "Leo Mata",
+      "priority": "Medium",
+      "deadline": "",
+      "context": "Phase 0 deliverable. Stage-by-stage scope, sequencing, dependencies, effort for Phase 1 (full backend) and Phase 2 (apps + utilities). Owner assigned 2026-06-13. — CLOSED 2026-06-19: substantive working draft exists (docs/deliverables/detailed-phase-1-2-plans.md, 130+ lines, full workstream/sequencing/sizing). Updated 2026-06-15 from specs/manifest.json. Ready for final sign-off.",
+      "session": "architecture-design-2026-06-13",
+      "session_title": "Architecture Design Review — CDP Stack (Leo + Claude)",
+      "session_date": "2026-06-13",
+      "status": "done"
+    },
+    {
+      "action": "Draft the CDP Scoping Document deliverable",
+      "assignee": "Alicia Salazar + Luis Hernandez + Leo Mata",
+      "priority": "Medium",
+      "deadline": "",
+      "context": "Phase 0 deliverable. Source mappings, unified data model, integration analysis, infrastructure assessment, risk register — converts to build backlog. Data-model half depends on the identity/schema design (due 2026-06-19). Owner assigned 2026-06-13. — Closed 2026-06-23 (Alicia + Luis + Leo): docs/deliverables/cdp-scoping-document.md — source mappings (~85 integrations), 15-table data model locked 2026-06-18, integration analysis, risk register; backs the decomposed build backlog. Stable v1.",
+      "session": "architecture-design-2026-06-13",
+      "session_title": "Architecture Design Review — CDP Stack (Leo + Claude)",
+      "session_date": "2026-06-13",
+      "status": "done"
+    },
+    {
+      "action": "Draft the Executive Summary deliverable",
+      "assignee": "Leo Mata",
+      "priority": "Medium",
+      "deadline": "",
+      "context": "Phase 0 deliverable, written last — distills the Architecture Plan, Roadmap, and findings for DAS leadership. Owner assigned 2026-06-13. — Closed 2026-06-23 (Leo): docs/deliverables/executive-summary.md — leadership distillation: findings (no identity resolution today, fragile SSIS, split estate), recommendation, scope/phasing (1a~4mo derived), cost. Stable v1.",
+      "session": "architecture-design-2026-06-13",
+      "session_title": "Architecture Design Review — CDP Stack (Leo + Claude)",
+      "session_date": "2026-06-13",
+      "status": "done"
+    },
+    {
+      "action": "Field prioritization — valuable-now vs interesting-later",
+      "assignee": "Alicia Salazar",
+      "priority": "Medium",
+      "deadline": "",
+      "context": "Mike's progressive-build framing: which record elements are valuable now vs interesting-but-not-yet, driving Field Catalog v1 growth (the initial 27 are the floor). Feeds the golden-record view and the catalog (docs/cdp-field-source-matrix.md, Candidate Fields). Broken out as its own tracked item with owner 2026-06-13; was previously embedded in the golden-record view work. — CLOSED 2026-06-19: LOCKED 2026-06-19 by Alicia Salazar. 14 fields valuable-now (Phase 1 build target: fields 1–7, 9–11, 13, 15, 23, 24); 13 interesting-later (Phase 2+). Captured in decisions.md and docs/cdp-field-source-matrix.md Phase column.",
+      "session": "architecture-design-2026-06-13",
+      "session_title": "Architecture Design Review — CDP Stack (Leo + Claude)",
+      "session_date": "2026-06-13",
+      "status": "done"
+    },
+    {
+      "action": "Provide Common Client ID assignment logic",
+      "assignee": "Ron Mulder",
+      "priority": "Medium",
+      "deadline": "",
+      "context": "DWRPT access (granted 2026-06-12) makes the schema/coverage audit self-serve; how IDs are minted/assigned still needs Ron. — CLOSED 2026-06-18: building our own Common Client ID from first principles (Option A); CCID is a migration/backfill signal only, we have enough. Ron ask dropped.",
+      "session": "exec-sync-2026-06-12",
+      "session_title": "Exec Sync — Dan Aston + Mike Paylor",
+      "session_date": "2026-06-12",
+      "status": "closed"
+    },
+    {
+      "action": "Ship the portal chat-agent bubble",
+      "assignee": "Conflict (Leo Mata)",
+      "priority": "Medium",
+      "deadline": "",
+      "context": "Committed at the sync so DAS can interrogate the discovery knowledge base directly through the portal UI.",
+      "session": "exec-sync-2026-06-12",
+      "session_title": "Exec Sync — Dan Aston + Mike Paylor",
+      "session_date": "2026-06-12",
+      "status": "done",
+      "resolution": "Shipped 2026-06-12 — live on every portal page: five answer modes (terse to academic), curated source links, navigation chips."
+    },
+    {
+      "action": "Provide descriptions for the 8 SSIS jobs with no code in etl/",
+      "assignee": "Rick Sorich",
+      "priority": "Medium",
+      "deadline": "",
+      "context": "The eight SSIS jobs whose code is absent from the extracted etl/ repo need job descriptions so their ingest/transform logic can be reimplemented against original sources during the SSIS rewrite. Relayed 2026-06-12; the second surviving DAS people-ask alongside Ron's Common Client ID logic. — CLOSED 2026-06-18 (Alicia: not needed): etl/ inventory + field-source matrix cover CDP sourcing; CDP ingests from original feeds. Lucid charts also dropped.",
+      "session": "exec-sync-2026-06-12",
+      "session_title": "Exec Sync — Dan Aston + Mike Paylor",
+      "session_date": "2026-06-12",
+      "status": "closed"
+    },
+    {
+      "action": "Review SSIS jobs and determine which raw data pieces to consume",
+      "assignee": "",
+      "priority": "Medium",
+      "deadline": "",
+      "context": "SSIS processes are outdated; need to pick out pieces of raw data versus manipulated data for CDP build",
+      "session": "reporting-juice-2026-06-08",
+      "session_title": "Reporting & Juicebox Review",
+      "session_date": "2026-06-08",
+      "status": "closed",
+      "resolution": "Superseded 2026-06-12: the CDP ingests from original sources (generic event intake + Airflow batch), not from SSIS tables. The etl/ inventory documents the jobs as reference."
+    },
+    {
+      "action": "Get accurate job descriptions from engineers for all SSIS jobs",
+      "assignee": "Rick",
+      "priority": "Medium",
+      "deadline": "Not specified",
+      "context": "Several job descriptions are unknown or were guessed using AI; need accurate documentation",
+      "session": "ssis-review-2026-06-08",
+      "session_title": "SSIS Infrastructure Review",
+      "session_date": "2026-06-08",
+      "status": "done",
+      "resolution": "Substantially answered by the full etl/ inventory (docs/etl-data-inventory.md, 231 objects); residual 8-job ask relayed to Rick 2026-06-12 as a courtesy backstop."
+    },
+    {
+      "action": "Evaluate AWS Glue as alternative to current SSIS infrastructure",
+      "assignee": "Engineering team",
+      "priority": "Medium",
+      "deadline": "Not specified",
+      "context": "Team has been considering serverless approach to reduce database maintenance and costs",
+      "session": "ssis-review-2026-06-08",
+      "session_title": "SSIS Infrastructure Review",
+      "session_date": "2026-06-08",
+      "status": "done",
+      "resolution": "Evaluated and rejected by DAS — moves the problem without fixing fragility. Airflow confirmed as the replacement path."
+    },
+    {
+      "action": "Schedule follow-up meeting for deeper dive into CDP project",
+      "assignee": "Leo",
+      "priority": "Medium",
+      "deadline": "Not specified",
+      "context": "Leo has a hard stop at end of current meeting and mentioned scheduling more time if needed to dive deeper into discovery",
+      "session": "kickoff-2026-05-27",
+      "session_title": "Conflict Kickoff — Phase 0",
+      "session_date": "2026-05-27",
+      "status": "done",
+      "resolution": "Follow-up sessions held: SSIS review and Juice reporting review (2026-06-08), exec sync (2026-06-12)."
+    },
+    {
+      "action": "Schedule follow-up meeting(s) for deeper dive into CDP discovery",
+      "assignee": "Leo",
+      "priority": "Medium",
+      "deadline": "TBD",
+      "context": "Leo has a hard stop at end of current meeting and indicated willingness to schedule subsequent meetings if needed to dive deeper into discovery",
+      "session": "kickoff-2026-05-27-deep",
+      "session_title": "Conflict Kickoff — Phase 0",
+      "session_date": "2026-05-27",
+      "status": "done",
+      "resolution": "Duplicate — follow-up sessions held 2026-06-08 and 2026-06-12; data sharing covered."
+    },
+    {
+      "action": "Event Grid -> CDP delivery wiring (Phase 1 build-time, not a Phase 0 blocker)",
+      "assignee": "Conflict (Phase 1) — DAS provides catalog + subscription",
+      "priority": "Low",
+      "deadline": "",
+      "context": "Not needed to complete Phase 0: the CDP event intake is bus-agnostic by design (generic webhook/adapter), so the architecture stands regardless of DAS's answer — Event Grid is just the first adapter (Option A: config-only subscription -> CDP webhook; Option B direct-publish absorbs identically). The four details (catalog, subscription ownership, CloudEvents 1.0, delivery auth) are Phase 1 build inputs. The only Phase-0-relevant piece is the Event Grid event catalog (which apps publish / schemas), which rides along with the existing 'Finish documenting the DAS APIs' discovery. Raised then reframed 2026-06-13. — SCOPED 2026-06-18 (Leo): for now we only need to DEFINE THE CONTRACT (bus-agnostic CloudEvents event contract — specced in 10-cloudevents-contract.md + 16-versioned-event-contract.md). Full delivery wiring is Phase-1 build, not needed now. — CLOSED 2026-06-19: phase-0 contract deliverable is done. CloudEvents 1.0 contract specced in specs/03-phase-1-build/04-ingest/10-cloudevents-contract.md and 16-versioned-event-contract.md; Event Grid webhook adapter in 08-event-grid-webhook-adapter.md. Full delivery wiring is Phase-1 execution, correctly de-scoped from Phase 0 per 2026-06-18 re-scope (Leo).",
+      "session": "architecture-design-2026-06-13",
+      "session_title": "Architecture Design Review — CDP Stack (Leo + Claude)",
+      "session_date": "2026-06-13",
+      "status": "done"
+    },
+    {
+      "action": "Audit and delete unused databases (BirdBath, Digital Bundle, etc.)",
+      "assignee": "Engineering team",
+      "priority": "Low",
+      "deadline": "Not specified",
+      "context": "12-year-old application has accumulated unused databases that haven't been cleaned up due to uncertainty about their purpose",
+      "session": "ssis-review-2026-06-08",
+      "session_title": "SSIS Infrastructure Review",
+      "session_date": "2026-06-08",
+      "status": "closed",
+      "resolution": "DAS-internal housekeeping on legacy infrastructure — out of CDP scope per the replace-don't-improve direction."
+    }
+  ]
+}

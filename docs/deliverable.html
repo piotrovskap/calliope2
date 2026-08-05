@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deliverable — DAS CDP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Roboto:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#1D1D1D; --surface:rgba(255,255,255,.05); --surface2:rgba(255,255,255,.08);
+    --border:rgba(168,168,167,.2); --border2:rgba(236,239,245,.15);
+    --red:#DB394C; --red-dim:rgba(219,57,76,.1);
+    --text:#FFFFFF; --muted:#A8A8A7; --dim:rgba(255,255,255,.3);
+    --green:#4CAF50; --green-dim:rgba(76,175,80,.12);
+    --yellow:#F5A623; --yellow-dim:rgba(245,166,35,.1);
+    --blue:#4A7FA5; --blue-dim:rgba(74,127,165,.12);
+    --radius:6px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Roboto', sans-serif; font-size: 13px; line-height: 1.6; min-height: 100vh; }
+
+  .topbar { height: 48px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; background: var(--bg); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 200; }
+  .brand { display: flex; align-items: center; gap: 4px; }
+  .brand-logo { display: inline-flex; line-height: 0; transition: opacity .15s; }
+  .brand-logo:hover { opacity: .75; }
+  .brand-div { color: var(--dim); margin: 0 8px; }
+  .brand-sub { font-family: 'Unica One', sans-serif; font-size: 13px; color: var(--muted); letter-spacing: .06em; }
+  .back { font-family: 'Roboto Mono', monospace; font-size: 11px; color: var(--muted); text-decoration: none; border: 1px solid var(--border); border-radius: 4px; padding: 5px 13px; }
+  .back:hover { color: var(--red); border-color: var(--red); }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 28px 32px 64px; }
+
+  .crumb { font-family: 'Roboto Mono', monospace; font-size: 11px; color: var(--dim); margin-bottom: 18px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .crumb a { color: var(--muted); text-decoration: none; }
+  .crumb a:hover { color: var(--red); }
+  .crumb .sep { color: var(--border2); }
+
+  .d-label { font-family: 'Roboto Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: .1em; color: var(--red); background: var(--red-dim); border: 1px solid rgba(219,57,76,.3); border-radius: 3px; padding: 2px 8px; display: inline-block; }
+  h1 { font-family: 'Unica One', sans-serif; font-size: 30px; letter-spacing: .03em; text-transform: uppercase; color: var(--text); margin-top: 10px; line-height: 1.05; }
+  .d-summary { font-size: 15px; color: var(--muted); line-height: 1.6; margin-top: 10px; max-width: 640px; }
+  .d-detail { font-size: 13px; color: var(--muted); line-height: 1.7; margin-top: 18px; max-width: 640px; }
+  .d-detail a, .d-summary a, .comp-desc a, a.xref { color: var(--red,#DB394C); text-decoration: none; border-bottom: 1px solid rgba(219,57,76,.35); }
+  .d-detail a:hover, .d-summary a:hover, .comp-desc a:hover, a.xref:hover { border-bottom-color: var(--red,#DB394C); }
+  .d-detail p { margin: 8px 0; }
+  .d-detail ul { margin: 10px 0; padding-left: 20px; }
+  .d-detail li { margin: 4px 0; }
+  .d-detail .d-sub { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--text); margin: 18px 0 6px; }
+  .d-detail code { font-family: 'Roboto Mono', monospace; font-size: 12px; color: var(--muted); }
+
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 22px 0 6px; }
+  .cta, .cta-alt { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; text-decoration: none; border-radius: 8px; font-family: 'Unica One', sans-serif; font-size: 17px; letter-spacing: .06em; text-transform: uppercase; transition: opacity .15s, background .15s; }
+  .cta { background: var(--red); color: #fff; }
+  .cta:hover { opacity: .88; }
+  .cta-alt { border: 1px solid var(--red); color: var(--red); }
+  .cta-alt:hover { background: var(--red-dim); }
+  .digest-cap { font-family: 'Roboto Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; color: var(--dim); margin: 24px 0 6px; }
+
+  .status-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+  .badge { font-family: 'Roboto Mono', monospace; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 3px 9px; border-radius: 3px; border: 1px solid; }
+  .b-pending { color: var(--yellow); border-color: rgba(245,166,35,.4); background: var(--yellow-dim); }
+  .b-in-progress { color: var(--red); border-color: rgba(219,57,76,.4); background: var(--red-dim); }
+  .b-done { color: var(--green); border-color: rgba(76,175,80,.4); background: var(--green-dim); }
+  .b-stable { color: var(--green); border-color: rgba(76,175,80,.4); background: var(--green-dim); }
+  .status-note { font-size: 11px; color: var(--dim); font-family: 'Roboto Mono', monospace; }
+
+  .section-h { font-family: 'Unica One', sans-serif; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); margin: 36px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+
+  .comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+  .comp-card { display: flex; flex-direction: column; gap: 6px; padding: 16px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); text-decoration: none; color: inherit; transition: border-color .15s, background .15s; }
+  .comp-card:hover { border-color: var(--border2); background: var(--surface2); }
+  .comp-title { font-size: 14px; font-weight: 500; color: var(--text); }
+  .comp-desc { font-size: 12px; color: var(--muted); line-height: 1.5; flex: 1; }
+  .comp-foot { display: flex; justify-content: flex-end; margin-top: 4px; }
+
+  /* Roadmap view */
+  .roadmap { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+  .rm-phase { display: flex; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+  .rm-bar { width: 4px; flex-shrink: 0; background: var(--border2); }
+  .rm-phase.complete .rm-bar { background: var(--green); }
+  .rm-phase.current .rm-bar { background: var(--red); }
+  .rm-phase.next .rm-bar { background: var(--blue); }
+  .rm-body { padding: 12px 16px; flex: 1; }
+  .rm-head { display: flex; align-items: center; gap: 10px; }
+  .rm-name { font-family: 'Unica One', sans-serif; font-size: 16px; letter-spacing: .04em; color: var(--text); }
+  .rm-state { font-family: 'Roboto Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: .06em; padding: 1px 7px; border-radius: 3px; border: 1px solid; }
+  .rm-state.complete { color: var(--green); border-color: rgba(76,175,80,.4); background: var(--green-dim); }
+  .rm-state.current { color: var(--red); border-color: rgba(219,57,76,.4); background: var(--red-dim); }
+  .rm-state.next { color: var(--blue); border-color: rgba(74,127,165,.4); background: var(--blue-dim); }
+  .rm-state.future { color: var(--dim); border-color: var(--border); background: var(--surface2); }
+  .rm-focus { font-size: 12px; color: var(--text); margin-top: 4px; font-weight: 500; }
+  .rm-detail { font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.5; }
+  .rm-stages { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+  .rm-stage { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface2); padding: 10px 12px; }
+  .rm-stage-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .rm-stage-name { font-family: 'Roboto Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--blue); }
+  .rm-stage-focus { font-size: 12px; color: var(--text); font-weight: 500; }
+  .rm-stage-detail { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+  /* Milestone card = one workstream, derived from the manifest. The whole card
+     links into the interactive roadmap focused on that workstream. */
+  .rm-stage-link { display: block; text-decoration: none; color: inherit; transition: border-color .15s, background .15s; }
+  .rm-stage-link:hover { border-color: var(--border2); background: var(--surface); }
+  .rm-stage-link .rm-stage-head { justify-content: space-between; align-items: center; }
+  /* Rolled-up workstream status badge (story-status rollup). */
+  .rm-ms-state { font-family: 'Roboto Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: .06em; padding: 1px 7px; border-radius: 3px; border: 1px solid; white-space: nowrap; flex-shrink: 0; }
+  .rm-ms-state.ms-done { color: var(--green); border-color: rgba(76,175,80,.4); background: var(--green-dim); }
+  .rm-ms-state.ms-progress { color: var(--red); border-color: rgba(219,57,76,.4); background: var(--red-dim); }
+  .rm-ms-state.ms-blocked { color: var(--yellow); border-color: rgba(245,166,35,.4); background: var(--yellow-dim); }
+  .rm-ms-state.ms-planned { color: var(--dim); border-color: var(--border); background: var(--surface2); }
+
+  .formats { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
+  .fmt { font-family: 'Roboto Mono', monospace; font-size: 11px; color: var(--muted); text-decoration: none; border: 1px solid var(--border); border-radius: 4px; padding: 5px 12px; }
+  .fmt:hover { color: var(--red); border-color: var(--red); }
+  .fmt.off { color: var(--dim); border-style: dashed; cursor: default; }
+  .fmt.off:hover { color: var(--dim); border-color: var(--border); }
+  .src-note { margin-top: 40px; font-size: 11px; color: var(--dim); font-family: 'Roboto Mono', monospace; border-top: 1px solid var(--border); padding-top: 14px; }
+  .src-note a { color: var(--muted); }
+  .err { color: var(--red); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <a href="/" class="brand-logo" aria-label="Home"><svg width="80" height="21" viewBox="0 0 141 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.76011 3.9038C5.92786 3.74184 4.10895 4.35124 2.69056 5.6021C2.11733 6.19678 1.66843 6.91459 1.37363 7.70833C1.07884 8.50207 0.944757 9.35363 0.980235 10.2068V25.8829C0.944276 26.744 1.08103 27.6033 1.38128 28.4032C1.68152 29.203 2.13834 29.9249 2.72104 30.5204C4.16802 31.7349 5.9866 32.3289 7.82125 32.186C9.65242 32.3376 11.4679 31.7295 12.8909 30.4878C13.4641 29.8931 13.9129 29.1752 14.2077 28.3814C14.5025 27.5877 14.6366 26.7361 14.6011 25.8829V22.911H10.5088V25.8829C10.5269 26.1963 10.4816 26.5101 10.3763 26.8031C10.2709 27.0962 10.1077 27.3615 9.89795 27.5811C9.29929 28.0511 8.56102 28.2717 7.82125 28.2016C7.06115 28.2882 6.29829 28.0668 5.68342 27.5811C5.47026 27.3642 5.30488 27.0992 5.19924 26.8055C5.0936 26.5118 5.05041 26.1967 5.07267 25.8829V10.2068C5.05065 9.89591 5.09096 9.58361 5.19104 9.29072C5.29111 8.99783 5.44865 8.73115 5.65294 8.50864C6.25972 8.0309 7.01016 7.80989 7.76011 7.88813C8.52022 7.80157 9.28308 8.023 9.89795 8.50864C10.1077 8.72828 10.2709 8.99361 10.3763 9.28663C10.4816 9.57966 10.5269 9.89349 10.5088 10.2068V14.7464H14.6011V10.2068C14.6348 9.34798 14.4939 8.49156 14.1881 7.69657C13.8823 6.90158 13.4188 6.18702 12.8298 5.6021C11.4067 4.3604 9.59128 3.7522 7.76011 3.9038Z" fill="white"/><path d="M55.2655 21.0496L48.4551 4.52451H44.7598V31.631H48.8521V15.0732L55.632 31.631H59.3579V4.52451H55.2655V21.0496Z" fill="white"/><path d="M64.1953 31.631H68.2877V19.8739H74.3346V15.8896H68.2877V8.47617H75.8005V4.52451H64.1953V31.631Z" fill="white"/><path d="M84.731 4.52451H80.6387V31.631H91.4498V27.6466H84.731V4.52451Z" fill="white"/><path d="M96.2871 8.47617H98.1195V27.6466H96.2871V31.631H104.044V27.6466H102.212V8.47617H104.044V4.52451H96.2871V8.47617Z" fill="white"/><path d="M115.64 3.90374C113.817 3.74697 112.01 4.35626 110.601 5.60204C110.022 6.19287 109.57 6.91008 109.275 7.70478C108.98 8.49948 108.849 9.35285 108.89 10.2068V25.8829C108.854 26.7439 108.991 27.6032 109.291 28.4031C109.592 29.203 110.048 29.9248 110.631 30.5203C112.075 31.7406 113.896 32.3352 115.731 32.1859C117.562 32.3375 119.378 31.7294 120.801 30.4877C121.374 29.893 121.823 29.1751 122.118 28.3814C122.412 27.5876 122.547 26.7361 122.511 25.8829V22.9109H118.419V25.8829C118.437 26.1962 118.392 26.51 118.286 26.8031C118.181 27.0961 118.018 27.3614 117.808 27.5811C117.209 28.051 116.471 28.2716 115.731 28.2016C114.971 28.2881 114.208 28.0667 113.593 27.5811C113.38 27.3641 113.215 27.0992 113.109 26.8055C113.004 26.5118 112.96 26.1966 112.983 25.8829V10.2068C112.961 9.89584 113.001 9.58355 113.101 9.29066C113.201 8.99777 113.359 8.73109 113.563 8.50858C114.162 8.0386 114.9 7.818 115.64 7.88806C116.41 7.79306 117.185 8.01491 117.808 8.50858C118.018 8.72822 118.181 8.99354 118.286 9.28657C118.392 9.5796 118.437 9.89342 118.419 10.2068V14.7463H122.511V10.2068C122.545 9.34791 122.404 8.4915 122.098 7.69651C121.792 6.90152 121.329 6.18696 120.74 5.60204C119.307 4.35529 117.481 3.74697 115.64 3.90374Z" fill="white"/><path d="M127.354 4.52451V8.47617H132.118V31.631H136.21V8.47617H140.974V4.52451H127.354Z" fill="white"/><path d="M19.3984 36.1741H26.9709V32.4944H22.9871V3.85375H27.0368V0.174088H19.3984V36.1741Z" fill="#DB394C"/><path d="M32.2717 0.174088V3.85375H36.2884V32.4944H32.2388V36.1741H39.8771V0.174088H32.2717Z" fill="#DB394C"/><path d="M31.4486 10.5303H27.827V25.5524H31.4486V10.5303Z" fill="#DB394C"/></svg></a>
+    <span class="brand-div">×</span>
+    <span class="brand-sub">DAS CDP</span>
+  </div>
+  <a class="back" href="deliverable.html">← All Deliverables</a>
+</header>
+
+<div class="wrap" id="wrap">
+  <div style="color:var(--dim)">Loading…</div>
+</div>
+
+<script>
+function esc(s){ return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+// Escape, then turn repo doc paths (docs/..md, wiki/..md, specs/..md, ...) into
+// clickable reader links so the annotated summaries let readers dig in.
+function linkify(s){
+  return esc(s).replace(/((?:docs|wiki|specs|memory|analysis|app|artifacts)\/[\w./-]+\.(?:md|json))(#[\w:=.\-]+)?/g,
+    (m,p,frag)=>`<a class="xref" href="reader.html?f=${p}${frag||''}">${m}</a>`);
+}
+// Inline markdown: escape, **bold**, `code` (repo paths become reader links), and
+// bare repo paths become reader links. Split on backticks so we never re-link inside a tag.
+const PATH_RE=/^((?:docs|wiki|specs|memory|analysis|app|artifacts|knowledge|reference)\/[\w./-]+\.(?:md|json))(#[\w:=.\-]+)?$/;
+const PATH_G=/((?:docs|wiki|specs|memory|analysis|app|artifacts|knowledge|reference)\/[\w./-]+\.(?:md|json))(#[\w:=.\-]+)?/g;
+function inlineMd(raw){
+  let s=esc(raw).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  return s.split('`').map((p,i)=>{
+    if(i%2){ const m=p.match(PATH_RE); return m?`<a class="xref" href="reader.html?f=${m[1]}${m[2]||''}">${p}</a>`:`<code>${p}</code>`; }
+    return p.replace(PATH_G,(mm,pp,fr)=>`<a class="xref" href="reader.html?f=${pp}${fr||''}">${mm}</a>`);
+  }).join('');
+}
+// Lightweight markdown (line-based): "### " sub-headings, "- " bullet lists, blank-line paragraphs.
+function mdLite(s){
+  const lines=String(s||'').trim().split('\n');
+  let html='', list=null, para=[];
+  const flushP=()=>{ if(para.length){ html+=`<p>${inlineMd(para.join(' '))}</p>`; para=[]; } };
+  const flushL=()=>{ if(list){ html+=`<ul>${list.join('')}</ul>`; list=null; } };
+  for(const ln of lines){
+    let m;
+    if(!ln.trim()){ flushP(); flushL(); }
+    else if((m=ln.match(/^#{2,4}\s+(.*)/))){ flushP(); flushL(); html+=`<h4 class="d-sub">${inlineMd(m[1])}</h4>`; }
+    else if((m=ln.match(/^\s*-\s+(.*)/))){ flushP(); (list=list||[]).push(`<li>${inlineMd(m[1])}</li>`); }
+    else { flushL(); para.push(ln); }
+  }
+  flushP(); flushL();
+  return html;
+}
+function badge(status){
+  const label = (status || 'pending').replace('-', ' ');
+  return `<span class="badge b-${esc(status||'pending')}">${esc(label)}</span>`;
+}
+const STATUS_NOTE = {
+  'pending': 'Produced at the end of Phase 0',
+  'in-progress': 'In progress',
+  'stable': 'Stable v1 — evolves during build',
+  'done': 'Delivered'
+};
+
+// Markdown = machine-readable source, PDF = final deliverable. Same content.
+// Links render only when the path is declared in the JSON; otherwise shown disabled.
+function formatBar(node){
+  const md  = node.md  ? `<a class="fmt" href="${esc(node.md)}">Markdown ↓</a>`  : `<span class="fmt off" title="Not yet available">Markdown</span>`;
+  const pdf = node.pdf ? `<a class="fmt" href="${esc(node.pdf)}">PDF ↓</a>`       : `<span class="fmt off" title="Not yet available">PDF</span>`;
+  return `<div class="formats">${md}${pdf}</div>`;
+}
+
+// ─── Roadmap derivation from /specs/manifest.json ───
+// The roadmap phases/milestones DERIVE from the same manifest the interactive
+// /specs/ roadmap reads, so the two never drift. PHASE_DEFS mirrors specs/index.html
+// exactly: the four display phases, each folding one or more underlying epics.
+const PHASE_DEFS = [
+  { key: 'p0', tag: 'Ph 0', epicIds: ['phase-0-discovery', 'phase-1-architecture'] },
+  { key: 'p1', tag: 'Ph 1', epicIds: ['phase-1-build'] },
+  { key: 'p2', tag: 'Ph 2', epicIds: ['phase-2-build'] },
+  { key: 'p3', tag: 'Ph 3', epicIds: ['phase-3-ai-ml'] },
+];
+
+// Index manifest items by id and expose children lookup (mirrors specs childrenOf).
+function indexManifest(items){
+  const byId = new Map((items||[]).map(i => [i.id, i]));
+  const childrenOf = id => ((byId.get(id)?.children) || []).map(cid => byId.get(cid)).filter(Boolean);
+  return { byId, childrenOf };
+}
+
+// All descendant user stories (level-3 type:story) under an item, walking the tree.
+function descendantStories(mf, item){
+  const out = [];
+  const walk = it => {
+    if (!it) return;
+    if (it.type === 'story') out.push(it);
+    for (const c of mf.childrenOf(it.id)) walk(c);
+  };
+  for (const c of mf.childrenOf(item.id)) walk(c);
+  return out;
+}
+
+// Roll a workstream's descendant story statuses up to one milestone status.
+// all done -> 'done'; any in-progress (or any done alongside planned) -> 'in progress';
+// any blocked -> 'blocked'; else 'planned'. The manifest's active === agile in-progress.
+function rollupStatus(stories){
+  const total = stories.length;
+  if (!total) return { status: 'planned', done: 0, total: 0 };
+  let done = 0, active = 0, blocked = 0;
+  for (const s of stories){
+    if (s.status === 'done') done++;
+    else if (s.status === 'active') active++;
+    else if (s.status === 'blocked') blocked++;
+  }
+  let status;
+  if (blocked) status = 'blocked';
+  else if (done === total) status = 'done';
+  else if (active || done) status = 'in progress';
+  else status = 'planned';
+  return { status, done, total };
+}
+
+// Milestone status -> rm-state class (reusing the roadmap stage palette).
+const MS_STATE = { 'done':'done', 'in progress':'progress', 'blocked':'blocked', 'planned':'planned' };
+
+// One milestone card per workstream: title + rolled-up status badge + story count,
+// the whole card links into the interactive roadmap focused on that workstream.
+function milestonesView(mf, phaseDef){
+  // Workstreams = the top-level features/epics directly under the phase's epics.
+  const workstreams = [];
+  for (const epicId of phaseDef.epicIds){
+    const epic = mf.byId.get(epicId);
+    if (!epic) continue;
+    for (const ws of mf.childrenOf(epic.id)) workstreams.push(ws);
+  }
+  if (!workstreams.length) return '';
+  const cards = workstreams.map(ws => {
+    const roll = rollupStatus(descendantStories(mf, ws));
+    const stateCls = MS_STATE[roll.status] || 'planned';
+    const href = '/specs/?focus=' + encodeURIComponent(ws.id);
+    return `
+    <a class="rm-stage rm-stage-link" href="${esc(href)}">
+      <div class="rm-stage-head">
+        <span class="rm-stage-focus">${esc(ws.title)}</span>
+        <span class="rm-ms-state ms-${stateCls}">${esc(roll.status)}</span>
+      </div>
+      <div class="rm-stage-detail">${roll.total ? `${roll.done}/${roll.total} done` : 'scope TBD'}</div>
+    </a>`;
+  }).join('');
+  return `<div class="rm-stages">${cards}</div>`;
+}
+
+// Roadmap view for a type:roadmap deliverable. Each phase's header prose
+// (focus + detail) is phase-level meta from phase0-deliverables.json; the
+// milestone cards under it are DERIVED from the manifest workstreams.
+function roadmapView(phases, mf){
+  if (!phases || !phases.length) return '';
+  const rows = phases.map(p => {
+    const def = PHASE_DEFS.find(d => p.phase && p.phase.replace(/\s+/g,'').toLowerCase() === ('phase' + d.key.slice(1)));
+    return `
+    <div class="rm-phase ${esc(p.state||'future')}">
+      <div class="rm-bar"></div>
+      <div class="rm-body">
+        <div class="rm-head">
+          <span class="rm-name">${esc(p.phase)}</span>
+          <span class="rm-state ${esc(p.state||'future')}">${esc((p.state||'future'))}</span>
+        </div>
+        <div class="rm-focus">${esc(p.focus)}</div>
+        <div class="rm-detail">${esc(p.detail)}</div>
+        ${(mf && def) ? milestonesView(mf, def) : ''}
+      </div>
+    </div>`;
+  }).join('');
+  return `<div class="section-h">Roadmap View</div><div class="roadmap">${rows}</div>`;
+}
+
+function renderIndex(data){
+  const cards = (data.deliverables||[]).map(d => `
+    <a class="comp-card" href="${d.link ? esc(d.link) : 'deliverable.html?id=' + esc(d.id)}">
+      <div class="comp-title">${esc(d.title)}</div>
+      <div class="comp-desc">${esc(d.summary)}</div>
+      <div class="comp-foot">${badge(d.status)}</div>
+    </a>`).join('');
+  return `
+    <div class="crumb"><a href="/">Command Center</a><span class="sep">/</span><span style="color:var(--muted)">Deliverables</span></div>
+    <div class="d-label">Phase 0 Deliverables</div>
+    <h1>Phase 0 Deliverables</h1>
+    <p class="d-summary">The documents CONFLICT produces at the end of the Phase 0 discovery engagement. Source: <a href="reader.html?f=artifacts%2Fphase-0%2Fdas-cdp-phase0-proposal-final.md" style="color:var(--muted)">Phase 0 proposal</a>.</p>
+    <div class="section-h">Deliverables</div>
+    <div class="comp-grid">${cards}</div>`;
+}
+
+function renderDeliverable(d, mf){
+  // Component cards link to their own doc when a `link` is declared, otherwise
+  // fall through to the in-portal component detail page.
+  const compSection = (d.components && d.components.length) ? `
+    <div class="section-h">Components</div>
+    <div class="comp-grid">${d.components.map(c => `
+      <a class="comp-card" href="${esc(c.link || ('deliverable.html?id=' + d.id + '.' + c.id))}">
+        <div class="comp-title">${esc(c.title)}</div>
+        <div class="comp-desc">${linkify(c.summary)}</div>
+        <div class="comp-foot">${badge(c.status)}</div>
+      </a>`).join('')}</div>` : '';
+  return `
+    <div class="crumb"><a href="/">Command Center</a><span class="sep">/</span><a href="deliverable.html">Deliverables</a><span class="sep">/</span><span style="color:var(--muted)">${esc(d.title)}</span></div>
+    <div class="d-label">${esc(d.icon||'Deliverable')}</div>
+    <h1>${esc(d.title)}</h1>
+    <div class="status-row">${badge(d.status)}<span class="status-note">${esc(STATUS_NOTE[d.status]||'')}</span></div>
+    <p class="d-summary">${linkify(d.summary)}</p>
+    ${(d.md||d.pdf) ? `<div class="cta-row">${d.md ? `<a class="cta" href="${esc(d.md)}">Read the full ${esc(d.title)} →</a>` : ''}${d.pdf ? `<a class="cta-alt" href="${esc(d.pdf)}" target="_blank" rel="noopener">Download PDF ↓</a>` : ''}</div>` : ''}
+    ${(d.md||d.pdf) ? `<div class="digest-cap">At a glance</div>` : ''}
+    <div class="d-detail">${mdLite(d.detail)}</div>
+    ${d.href ? `<a href="${esc(d.href)}" style="display:inline-block;margin:4px 0 18px;padding:10px 18px;border:1px solid var(--red,#DB394C);border-radius:8px;color:var(--red,#DB394C);text-decoration:none;font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:.04em">Open interactive roadmap →</a>` : ''}
+    ${roadmapView(d.roadmap, mf)}
+    ${compSection}`;
+}
+
+function renderComponent(parent, c){
+  return `
+    <div class="crumb"><a href="/">Command Center</a><span class="sep">/</span><a href="deliverable.html">Deliverables</a><span class="sep">/</span><a href="deliverable.html?id=${esc(parent.id)}">${esc(parent.title)}</a><span class="sep">/</span><span style="color:var(--muted)">${esc(c.title)}</span></div>
+    <div class="d-label">${esc(parent.title)}</div>
+    <h1>${esc(c.title)}</h1>
+    <div class="status-row">${badge(c.status)}<span class="status-note">${esc(STATUS_NOTE[c.status]||'')}</span></div>
+    <p class="d-summary">${linkify(c.summary)}</p>
+    <div class="d-detail">${mdLite(c.detail)}</div>
+    ${formatBar(c)}
+    <div class="src-note">Part of <a href="deliverable.html?id=${esc(parent.id)}">${esc(parent.title)}</a> · a Phase 0 deliverable.</div>`;
+}
+
+async function load(){
+  const wrap = document.getElementById('wrap');
+  let data;
+  try { data = await fetch('phase0-deliverables.json').then(r => r.json()); }
+  catch(e){ wrap.innerHTML = '<div class="err">Deliverables data unavailable (phase0-deliverables.json).</div>'; return; }
+
+  const id = new URLSearchParams(location.search).get('id');
+  if (!id) { wrap.innerHTML = renderIndex(data); document.title = 'Phase 0 Deliverables — DAS CDP'; return; }
+
+  const [pid, cid] = id.split('.');
+  const d = (data.deliverables||[]).find(x => x.id === pid);
+  if (!d) { wrap.innerHTML = '<div class="err">Unknown deliverable: ' + esc(id) + '</div>'; return; }
+
+  if (cid) {
+    const c = (d.components||[]).find(x => x.id === cid);
+    if (!c) { wrap.innerHTML = '<div class="err">Unknown component: ' + esc(id) + '</div>'; return; }
+    wrap.innerHTML = renderComponent(d, c);
+    document.title = c.title + ' — DAS CDP';
+  } else {
+    // A roadmap deliverable derives its phase milestones from the SAME manifest
+    // the interactive /specs/ roadmap reads. Fetch it so the two never drift;
+    // if it is unavailable, the phase headers (focus + detail) still render.
+    let mf = null;
+    if (d.type === 'roadmap') {
+      try {
+        const man = await fetch('/specs/manifest.json', { cache: 'no-cache' }).then(r => r.json());
+        mf = indexManifest(man.items || []);
+      } catch(e){ mf = null; }
+    }
+    wrap.innerHTML = renderDeliverable(d, mf);
+    document.title = d.title + ' — DAS CDP';
+  }
+}
+load();
+</script>
+</body>
+</html>

@@ -1,0 +1,586 @@
+[
+  {
+    "hash": "4d90844",
+    "date": "2026-07-02",
+    "type": "Docs",
+    "title": "add Architecture Diagrams gallery (10 Lucid exports, PNG+PDF)",
+    "body": "- Export the ten numbered Lucid architecture diagrams (00 System Context ->\n  09 Infrastructure & Deployment) to docs/diagrams/ as PNG, per-diagram PDF,\n  and a combined 10-page PDF.\n- Add a JSON-driven gallery page (docs/diagrams.html + docs/diagrams.json):\n  thumbnail, title, description, and PNG/PDF/live-Lucid links per diagram, plus\n  a 'download all' combined PDF.\n- Wire it into the deliverables index (cards now support a direct 'link'); add\n  the Architecture Diagrams deliverable to phase0-deliverables.json.\n- Bump knowledge node literal 2,619 -> 2,620.",
+    "files": [
+      {
+        "status": "modified",
+        "path": "activity.json"
+      },
+      {
+        "status": "modified",
+        "path": "app/brain.json"
+      },
+      {
+        "status": "modified",
+        "path": "docs/deliverable.html"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams.html"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams.json"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-00-system-context.pdf"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-00-system-context.png"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-01-layered-architecture.pdf"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-01-layered-architecture.png"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-02-component-map.pdf"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-02-component-map.png"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-03-intake.pdf"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-03-intake.png"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-04-identity-resolution.pdf"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-04-identity-resolution.png"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-05-data-model.pdf"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-05-data-model.png"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-06-security-tenancy-privacy.pdf"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-06-security-tenancy-privacy.png"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-07-target-state-data-flow.pdf"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-07-target-state-data-flow.png"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-08-reporting-legacy-cutover.pdf"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-08-reporting-legacy-cutover.png"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-09-infrastructure-deployment.pdf"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-09-infrastructure-deployment.png"
+      },
+      {
+        "status": "added",
+        "path": "docs/diagrams/das-cdp-diagrams.pdf"
+      },
+      {
+        "status": "modified",
+        "path": "docs/phase0-deliverables.json"
+      },
+      {
+        "status": "modified",
+        "path": "knowledge/index.html"
+      }
+    ]
+  },
+  {
+    "hash": "2d0b045",
+    "date": "2026-07-01",
+    "type": "Commit",
+    "title": "Merge pull request #198 from ConflictHQ/docs/plan-comparison-heading",
+    "body": "docs(plan-comparison): name the source doc in the 'What we kept' heading",
+    "files": []
+  },
+  {
+    "hash": "41f1dd5",
+    "date": "2026-07-01",
+    "type": "Docs",
+    "title": "name the source doc in the 'What we kept' heading",
+    "body": "'What we kept from DAS's plan' -> 'What we kept from DAS's Architecture Plan v3'.",
+    "files": [
+      {
+        "status": "modified",
+        "path": "activity.json"
+      },
+      {
+        "status": "modified",
+        "path": "app/brain.json"
+      },
+      {
+        "status": "modified",
+        "path": "docs/deliverables/das-plan-comparison.md"
+      }
+    ]
+  },
+  {
+    "hash": "34cb435",
+    "date": "2026-07-01",
+    "type": "Commit",
+    "title": "Merge pull request #197 from ConflictHQ/docs/plan-comparison-phase-align",
+    "body": "fix(plan-comparison): align ML to Phase 3, reframe stale section, k8s not AKS",
+    "files": []
+  },
+  {
+    "hash": "9dfe2b0",
+    "date": "2026-07-01",
+    "type": "Fix",
+    "title": "align ML to Phase 3, reframe stale section, k8s not AKS",
+    "body": "- ML timing corrected to the 4-phase model: 'earned in Phase 3', not Phase 2\n  (Phase 2 = Applications, Phase 3 = AI/ML), in the doc's three spots and the\n  phase0-deliverables.json card detail.\n- Reframed the 'Still in design (due 2026-06-19)' section as delivered in the\n  companion Identity Resolution Strategy + CDP Scoping deliverables.\n- 'AKS-portability' -> 'k8s-portability' (cloud-agnostic under Azure-primary).\n- Kept technical (audience is Dan/Mike); no untechifying.",
+    "files": [
+      {
+        "status": "modified",
+        "path": "activity.json"
+      },
+      {
+        "status": "modified",
+        "path": "app/brain.json"
+      },
+      {
+        "status": "modified",
+        "path": "docs/deliverables/das-plan-comparison.md"
+      },
+      {
+        "status": "modified",
+        "path": "docs/phase0-deliverables.json"
+      }
+    ]
+  },
+  {
+    "hash": "72f05ce",
+    "date": "2026-07-01",
+    "type": "Commit",
+    "title": "Merge pull request #196 from ConflictHQ/docs/deliverable-full-cta",
+    "body": "feat(portal): prominent Read (live Markdown) + Download PDF CTAs on deliverable pages",
+    "files": []
+  },
+  {
+    "hash": "51aff6a",
+    "date": "2026-07-01",
+    "type": "Feature",
+    "title": "split deliverable CTA into live Markdown + PDF download",
+    "body": "Point the primary CTA at the live Markdown (reader.html, always current) and add\na prominent outlined 'Download PDF' button beside it, replacing the small format\nlinks. Both render only for the formats a deliverable declares.",
+    "files": [
+      {
+        "status": "modified",
+        "path": "docs/deliverable.html"
+      }
+    ]
+  },
+  {
+    "hash": "a4330e9",
+    "date": "2026-07-01",
+    "type": "Feature",
+    "title": "prominent 'Read the full \u2026' CTA on deliverable pages",
+    "body": "The deliverable page led with the summary + digest, which read like the whole\ndeliverable. Add a large CTA button (links to the PDF when present, else the\nMarkdown reader) above the digest, plus an 'At a glance' label on the digest, so\nit's obvious the full document is separate. Applies to any deliverable with a\npdf/md; the Executive Summary now surfaces its final PDF prominently.",
+    "files": [
+      {
+        "status": "modified",
+        "path": "docs/deliverable.html"
+      }
+    ]
+  },
+  {
+    "hash": "f0f99fd",
+    "date": "2026-07-01",
+    "type": "Commit",
+    "title": "Merge pull request #195 from ConflictHQ/docs/exec-summary-final-pdf",
+    "body": "docs(exec-summary): attach final PDF to deliverable page + retrofit finalized copy",
+    "files": []
+  },
+  {
+    "hash": "6a56e97",
+    "date": "2026-07-01",
+    "type": "Fix",
+    "title": "regenerate manifests without the untracked WIP doc",
+    "body": "The prior commit's manifests/brain were generated with an untracked WIP file\n(docs/cdp-component-architecture.md) present, inflating counts to 2,620/4,451\nand adding a manifest entry CI (which lacks the file) can't reproduce, so the\nportal-generated-clean gate failed. Regenerated with the WIP doc absent:\nback to 2,619 nodes / 4,450 edges; the Executive Summary change is count-neutral.",
+    "files": [
+      {
+        "status": "modified",
+        "path": "activity.json"
+      },
+      {
+        "status": "modified",
+        "path": "app/brain.json"
+      },
+      {
+        "status": "modified",
+        "path": "app/knowledge-pack.json"
+      },
+      {
+        "status": "modified",
+        "path": "docs/manifest.json"
+      },
+      {
+        "status": "modified",
+        "path": "knowledge/index.html"
+      }
+    ]
+  },
+  {
+    "hash": "56c10bf",
+    "date": "2026-07-01",
+    "type": "Docs",
+    "title": "attach final PDF to deliverable page + retrofit finalized copy",
+    "body": "- Add the final Executive Summary PDF (docs/deliverables/executive-summary.pdf)\n  and wire it into the deliverable page via a `pdf` field in\n  phase0-deliverables.json, so /docs/deliverable?id=executive-summary exposes a\n  PDF download alongside the Markdown.\n- Retrofit the finalized client copy (from the reviewed Google Doc) back into\n  docs/deliverables/executive-summary.md: 4-phase model, Azure-primary, full\n  Python stack, untechified exec-first voice, deduped findings; kept the\n  leadership blurb and the Supporting deliverables section.\n- Regenerate brain/manifest/knowledge-pack/activity; bump knowledge node/edge\n  literals (2,620 / 4,451).",
+    "files": [
+      {
+        "status": "modified",
+        "path": "activity.json"
+      },
+      {
+        "status": "modified",
+        "path": "app/brain.json"
+      },
+      {
+        "status": "modified",
+        "path": "app/knowledge-pack.json"
+      },
+      {
+        "status": "modified",
+        "path": "docs/deliverables/executive-summary.md"
+      },
+      {
+        "status": "added",
+        "path": "docs/deliverables/executive-summary.pdf"
+      },
+      {
+        "status": "modified",
+        "path": "docs/manifest.json"
+      },
+      {
+        "status": "modified",
+        "path": "docs/phase0-deliverables.json"
+      },
+      {
+        "status": "modified",
+        "path": "knowledge/index.html"
+      }
+    ]
+  },
+  {
+    "hash": "e84116f",
+    "date": "2026-06-30",
+    "type": "Commit",
+    "title": "Merge pull request #194 from ConflictHQ/fix/raid-i5-a10-reconciliation",
+    "body": "fix(golden-record): reconcile RAID I-5 verification against cited sources + close A-10",
+    "files": []
+  },
+  {
+    "hash": "0eeb1cf",
+    "date": "2026-06-30",
+    "type": "Chore",
+    "title": "regenerate brain.json after RAID I-5/A-10 reconciliation",
+    "body": "gen-brain.py ingests app/raid.json + REVIEW.md; the prior commit changed those\ninputs (I-5/A-10 open -> resolved, REVIEW.md reconciliation note) without\nregenerating the compiled brain. CI's portal-generated-clean gate caught the\ndrift. Regenerated: risk:I-5 / risk:A-10 now resolved, generated_at 2026-06-30.",
+    "files": [
+      {
+        "status": "modified",
+        "path": "app/brain.json"
+      }
+    ]
+  },
+  {
+    "hash": "b0d92a8",
+    "date": "2026-06-30",
+    "type": "Fix",
+    "title": "reconcile RAID I-5 verification against cited sources + close A-10",
+    "body": "I-5: the 4 source_mappings flagged verified=true with stale \"honest\nverified=false\" notes (Meta EMQ, SendGrid event webhook, Meta Lead Ads/\nMessenger, Google gclid) are external vendor-API fields. The \"false\" note was\nan artifact of the deterministic grep running against DAS internal DDL, which\nby definition never contains external vendor-API fields. Checked each against\nits cited vendor research page and confirmed the field is documented there:\nwiki:meta (Dataset-Quality EMQ; Lead Ads/Messenger), wiki:sendgrid (event\nwebhook delivered/open/click/bounce/unsubscribe), wiki:google-ads (GCLID click\nattribution via auto-tagging). Rewrote the 4 notes to cite the wiki page as the\nevidence -- verified=true means present in the cited vendor page, not\nper-consumer-ingested by DAS today (access stays api-unused/granted). No\nper-person verification is asserted. Aligned record.json status + changelog and\nadded a post-v1.0 reconciliation note to REVIEW.md.\n\nA-10: resolved tenant-scale assumption. The CDP supports both the ~1,700 pilot\ncohort and the full ~9,200+ footprint without redesign; deliverable cost models\nre-parameterize by tenant count. Not a blocker (decision: Leo Mata).\n\nRAID register bumped v10 -> v11; both items moved open -> resolved.",
+    "files": [
+      {
+        "status": "modified",
+        "path": "activity.json"
+      },
+      {
+        "status": "modified",
+        "path": "analysis/artifacts/golden-record/REVIEW.md"
+      },
+      {
+        "status": "modified",
+        "path": "analysis/artifacts/golden-record/record.json"
+      },
+      {
+        "status": "modified",
+        "path": "app/raid.json"
+      }
+    ]
+  },
+  {
+    "hash": "eb1784e",
+    "date": "2026-06-26",
+    "type": "Commit",
+    "title": "Merge pull request #192 from ConflictHQ/docs/golden-record-examples",
+    "body": "docs(identity): add golden record worked examples",
+    "files": []
+  },
+  {
+    "hash": "656fbda",
+    "date": "2026-06-26",
+    "type": "Docs",
+    "title": "fix Example 2 identity-ID naming + waterfall order",
+    "body": "Two internal/canonical consistency fixes found in content re-verification:\n- Resolution narrative named the DMS/CRM identities id_dms_j_williams /\n  id_crm_ds_jason, but the identity_link table + Appendix C use id_dms_77 /\n  id_crm_ds for the same entities. Unify on the id_dms_77 / id_crm_ds form\n  so the story is traceable to the snapshot.\n- Deterministic waterfall was listed email->phone->VIN->dealer_id; the\n  locked match_waterfall in record.json v1.0 is email->phone->dealer_id->VIN.\n  Align all occurrences (Example 2 steps, no-match line, CCID note,\n  heuristic-exhaust line, coverage map). No example outcome changes (the\n  Meta orphan has neither VIN nor dealer id).",
+    "files": [
+      {
+        "status": "modified",
+        "path": "docs/golden-record-examples.md"
+      }
+    ]
+  },
+  {
+    "hash": "68d39f4",
+    "date": "2026-06-26",
+    "type": "Docs",
+    "title": "make Appendix C storage portable (parquet engine, not AWS Glue)",
+    "body": "Reword 'compressed S3 artifacts (accessible via Glue tables)' to\n'compressed parquet in object storage (S3 / Azure Blob), queryable as\nexternal tables via a parquet-compatible engine (AWS Glue or Azure\nequivalent)' \u2014 aligns with the portable-OSS-core / Azure-or-AWS stance\n(d-008/d-063): parquet in object storage, query engine swappable.",
+    "files": [
+      {
+        "status": "modified",
+        "path": "docs/golden-record-examples.md"
+      }
+    ]
+  },
+  {
+    "hash": "462b51e",
+    "date": "2026-06-26",
+    "type": "Fix",
+    "title": "bump brain node literal 2,618 -> 2,619 after adding worked examples",
+    "body": "The added golden-record examples grew app/brain.json to 2,619 nodes;\nupdate the hand-maintained fallback literal in knowledge/index.html so\ncheck-portal-literals matches the source of truth. (check-portal-literals\nruns under `make ci-checks`, not `make portal-verify`.)",
+    "files": [
+      {
+        "status": "modified",
+        "path": "knowledge/index.html"
+      }
+    ]
+  },
+  {
+    "hash": "3572903",
+    "date": "2026-06-26",
+    "type": "Fix",
+    "title": "correct survivorship attribution + threshold framing; land worked examples into record.json",
+    "body": "Doc (docs/golden-record-examples.md):\n- Example 2 first_name \"Jason\" over DMS \"J.\" was mislabeled as the\n  null/non-null preference rule. That locked rule covers null/blank only,\n  not an abbreviated value. Relabel to curation_supremacy (operator\n  confirmed \"Jason\" during queue resolution; operator-confirmed value is\n  highest trust, above DMS). Add a correct null/non-null demo (CRM fills a\n  genuinely-null mailing_address).\n- Caveat the confidence-band numbers: locked bands are qualitative for\n  Phase 1, numerics per-tenant and tuned after measurement\n  (identity_binding.confidence_bands, d-104/d-106).\n\nrecord.json: add Maria/Jason/Sandra as canonical entity_records\n(person/contact_point/vehicle/deal/consent/orphan_identifier), illustrative\n+ masked, mirroring the worked examples. Golden-record gate passes; locked\nv1.0 contract unchanged (changelog notes pending Alicia+Luis ack).\n\nRegenerated portal outputs (brain.json, knowledge-pack.json, manifest.json)\n- registers the doc, clearing the dirty-manifest CI failure.",
+    "files": [
+      {
+        "status": "modified",
+        "path": "analysis/artifacts/golden-record/record.json"
+      },
+      {
+        "status": "modified",
+        "path": "app/brain.json"
+      },
+      {
+        "status": "modified",
+        "path": "app/knowledge-pack.json"
+      },
+      {
+        "status": "modified",
+        "path": "docs/golden-record-examples.md"
+      },
+      {
+        "status": "modified",
+        "path": "docs/manifest.json"
+      }
+    ]
+  },
+  {
+    "hash": "9a220c2",
+    "date": "2026-06-26",
+    "type": "Fix",
+    "title": "rewrite Appendix D to vault-row delete; drop crypto-shred (d-012)",
+    "body": "Per Leo's blocking review: crypto-shred / per-consumer DEK framing in the\nintro paragraph, Appendix D, and the last three coverage-map rows has been\nreplaced with the locked erasure mechanism (d-012, d-084, d-117):\n\n- Intro: 'crypto-shred erasure' \u2192 'PII vault erasure (delete-the-row)'\n- Appendix D: rewritten \u2014 vault-row delete, blocking-hash scrub, Temporal\n  saga, defense-in-depth note (pepper not the mechanism)\n- Coverage map: three rows updated to vault erasure / blocking-hash scrub /\n  erasure-no-resurrect language\n- Examples 1 & 2: one-line note added that PII columns shown are resolved\n  display values; raw value lives in vault and is deleted on erasure\n\nRefs: specs/03-phase-1-build/03-backend-data-model/08-pii-vault-erasure.md\n      docs/consent-pii-erasure-options.md (Option set A SUPERSEDED)\n      wiki/Privacy-by-Design.md",
+    "files": [
+      {
+        "status": "modified",
+        "path": "docs/golden-record-examples.md"
+      }
+    ]
+  },
+  {
+    "hash": "6c21250",
+    "date": "2026-06-25",
+    "type": "Commit",
+    "title": "Merge branch 'main' into docs/golden-record-examples",
+    "body": "",
+    "files": []
+  },
+  {
+    "hash": "f9a118e",
+    "date": "2026-06-25",
+    "type": "Commit",
+    "title": "Merge pull request #193 from ConflictHQ/feat/agent-brain-tool",
+    "body": "feat: wire chat agent to the compiled brain + reframe Option B as Phase 2",
+    "files": []
+  },
+  {
+    "hash": "c96f89e",
+    "date": "2026-06-25",
+    "type": "Feature",
+    "title": "give the chat agent a search_brain tool",
+    "body": "The portal compiles a 2,600-node project brain (app/brain.json) but the\nchat agent only queried the 1,300-node discovery KG \u2014 the richer asset was\nbuilt, validated, and never read at query time. Add a search_brain tool\n(search + neighbor traversal over brain.json) mirroring search_graph for\nthe {id,kind,label,source}/{src,dst,type} envelope: returns matching\nrecords with kind, status, owner, source file, and typed relationships\nrendered with neighbor labels. Degrades to empty on a malformed brain.json\nlike loadGraph. System prompt differentiates it from search_graph.",
+    "files": [
+      {
+        "status": "modified",
+        "path": "tests/worker.test.mjs"
+      },
+      {
+        "status": "modified",
+        "path": "worker.js"
+      }
+    ]
+  },
+  {
+    "hash": "6494eae",
+    "date": "2026-06-25",
+    "type": "Docs",
+    "title": "reframe Option B as the Phase 2 evolution",
+    "body": "Option B (ML-blended scoring) read as a considered-and-rejected Phase 1\nalternative. It is really the Phase 2 destination \u2014 the same model-assisted\nmatching, deferred until curation under Option A produces the labeled\ntraining data an ML matcher needs. Retitle, status draft -> phase-2 (new\nblue badge), and rewrite summary/intent/status to say so. Recommendation\n(Option A locked for Phase 1) unchanged; historical changelog preserved.",
+    "files": [
+      {
+        "status": "modified",
+        "path": "analysis/artifacts/identity-strategies/index.html"
+      },
+      {
+        "status": "modified",
+        "path": "analysis/artifacts/identity-strategies/strategies.json"
+      }
+    ]
+  },
+  {
+    "hash": "8c02f06",
+    "date": "2026-06-24",
+    "type": "Docs",
+    "title": "add golden record worked examples",
+    "body": "All proposed CDP identity and golden record strategies exercised\nacross three scenarios and four appendices:\n\n- Example 1: clean single-source record \u2014 deterministic auto-merge,\n  bitemporal provenance, consent ledger\n- Example 2: complex cross-source \u2014 curation queue, orphan upgrade,\n  multi-tenant RLS, CCID backfill, survivorship edge cases\n- Example 3: heuristic path, below-floor no-link, association\n  provenance with per-field score breakdown\n- Appendix A: household detection\n- Appendix B: merge reversal / split with bitemporal reattachment\n- Appendix C: identity event sourcing and as-of replay\n- Appendix D: crypto-shred / erasure with erasure-no-resurrect\n\nCovers every strategy in Option A (locked 2026-06-17), the\nsurvivorship matrix from PR #131, and the consent-ledger mechanism\ndecided 2026-06-18. Coverage map at bottom of doc cross-references\neach strategy to the scenario exercising it.",
+    "files": [
+      {
+        "status": "added",
+        "path": "docs/golden-record-examples.md"
+      }
+    ]
+  },
+  {
+    "hash": "48353d5",
+    "date": "2026-06-24",
+    "type": "Commit",
+    "title": "Merge pull request #191 from ConflictHQ/fix/datastaging-table-count",
+    "body": "fix(data): correct DataStaging table count 108 -> 100",
+    "files": []
+  },
+  {
+    "hash": "68c3630",
+    "date": "2026-06-24",
+    "type": "Fix",
+    "title": "correct DataStaging table count 108 -> 100",
+    "body": "Authoritative sources say 100: docs/databases/dumps/datastaging.sql has exactly\n100 CREATE TABLE statements and docs/databases/schema.json lists 100 tables for\nDataStaging. The stale 108 was a conflation with the neighbouring DWRPT_AI db\n(whose dump genuinely is 108) that had been echoed across prose; commit b5ba974\nfixed datastaging.md + open-questions.md but did not propagate to the rest.\n\nCorrected DataStaging-only (DWRPT_AI's ~108 left intact):\n- docs/databases/README.md, docs/databases/data-flow.md, memory/data-sources.md,\n  docs/etl/usage-analysis/REPORT.md (prose surfaces)\n- analysis/kg-curation.json + analysis/kg/baseline/curated.json (KG description\n  source), then regenerated app/knowledge_graph.json + app/brain.json.\n\nVerified: no DataStaging-108 remains; DWRPT_AI ~108 preserved; make ci-checks green.",
+    "files": [
+      {
+        "status": "modified",
+        "path": "analysis/kg-curation.json"
+      },
+      {
+        "status": "modified",
+        "path": "analysis/kg/baseline/curated.json"
+      },
+      {
+        "status": "modified",
+        "path": "app/knowledge_graph.json"
+      },
+      {
+        "status": "modified",
+        "path": "docs/databases/README.md"
+      },
+      {
+        "status": "modified",
+        "path": "docs/databases/data-flow.md"
+      },
+      {
+        "status": "modified",
+        "path": "docs/etl/usage-analysis/REPORT.md"
+      },
+      {
+        "status": "modified",
+        "path": "memory/data-sources.md"
+      }
+    ]
+  },
+  {
+    "hash": "1d12f07",
+    "date": "2026-06-24",
+    "type": "Commit",
+    "title": "Merge pull request #190 from ConflictHQ/fix/review-quality-pass",
+    "body": "fix: quality/correctness review pass (worker, portal drift, build matcher)",
+    "files": []
+  },
+  {
+    "hash": "c150d26",
+    "date": "2026-06-24",
+    "type": "Fix",
+    "title": "close build-matcher leak class; fail empty compile-check",
+    "body": "- build-portal-site.py ignored(): the same matcher class as the _internal leak\n  also failed for globbed directory patterns (analysis/sessions/*/cache and\n  /captures shipped their contents) and for root-level '**/*.ext' files\n  (a top-level x.pyc/x.wav/x.mp4 was not excluded). Added a trailing-'/*' test\n  for nested dir contents and a leading-'**/'-stripped test for root files.\n  Latent today (no such files tracked); build output unchanged at 843 files.\n- check-python-compile.py: fail (exit 1) when given no files instead of a\n  vacuous 'OK: compiled 0 files' \u2014 an empty glob no longer passes silently.",
+    "files": [
+      {
+        "status": "modified",
+        "path": "scripts/build-portal-site.py"
+      },
+      {
+        "status": "modified",
+        "path": "scripts/check-python-compile.py"
+      }
+    ]
+  },
+  {
+    "hash": "933a305",
+    "date": "2026-06-24",
+    "type": "Fix",
+    "title": "correct drifted brain counts + guard them; escape activity feed",
+    "body": "- knowledge/index.html brain card: 2,613 nodes / 4,445 edges -> 2,618 / 4,450\n  (drifted from app/brain.json after a rebuild; the literals were static text,\n  uncovered by the anti-drift guard, so they rotted silently).\n- check-portal-literals.py: assert the brain nodes/edges/kinds literals equal\n  app/brain.json meta.counts, closing the gap that let them drift.\n- index.html activity feed: esc() the date/hash/type/title and file status/path\n  (only body was escaped); a commit message containing < & \" would break the\n  row markup. activity.json is repo-controlled so low risk, but now consistent.",
+    "files": [
+      {
+        "status": "modified",
+        "path": "index.html"
+      },
+      {
+        "status": "modified",
+        "path": "knowledge/index.html"
+      },
+      {
+        "status": "modified",
+        "path": "scripts/check-portal-literals.py"
+      }
+    ]
+  }
+]

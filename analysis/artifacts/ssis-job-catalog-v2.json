@@ -1,0 +1,14 @@
+{
+  "id": "ssis-job-catalog-v2",
+  "title": "SSIS Job Catalog",
+  "description": "All 13 SSIS jobs enriched with authoritative stored procedure descriptions from the etl/ submodule. Adds inferred job dependency map (CRM+DMS\u2192CVH, Email\u2192BlueSky) and CDP ingestion guidance. Harmonized portal design.",
+  "type": "catalog",
+  "icon": "ETL",
+  "href": "artifacts/ssis-job-catalog-v2/index.html",
+  "source_sessions": [
+    "ssis-review-2026-06-08",
+    "etl-analysis-2026-06-09"
+  ],
+  "updated": "2026-06-09",
+  "supersedes": "ssis-job-catalog"
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Identity Strategies — DAS CDP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#1D1D1D; --surface:#111; --surface2:#1a1a1a; --border:#2a2a2a; --border2:#333;
+    --red:#DB394C; --red-dim:rgba(219,57,76,0.1);
+    --text:#F8F8F8; --muted:#888; --dim:#555; --green:#4CAF50; --yellow:#F5A623;
+    --blue:#4A7FA5; --radius:6px;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:'Roboto',sans-serif; font-size:13px; line-height:1.6; min-height:100vh; }
+  .header { border-bottom:1px solid var(--border); padding:0 28px; height:54px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; background:var(--bg); z-index:100; }
+  .brand { display:flex; align-items:center; gap:14px; }
+  .wordmark { font-family:'Unica One',sans-serif; font-size:16px; color:var(--red); letter-spacing:.1em; text-transform:uppercase; line-height:1; }
+  .wordmark-sub { font-size:10px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-top:2px; }
+  .back-link { font-size:11px; color:var(--muted); text-decoration:none; border:1px solid var(--border); border-radius:4px; padding:4px 10px; }
+  .back-link:hover { color:var(--text); border-color:var(--border2); }
+  .artifact-badge { font-family:'Unica One',sans-serif; font-size:11px; letter-spacing:.1em; color:var(--yellow); border:1px solid var(--yellow); border-radius:3px; padding:2px 8px; background:rgba(245,166,35,.1); }
+  .page { max-width:940px; margin:0 auto; padding:32px 28px 80px; }
+  .artifact-header { margin-bottom:28px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+  .artifact-icon { font-size:28px; margin-bottom:8px; }
+  .artifact-title { font-family:'Unica One',sans-serif; font-size:28px; letter-spacing:.03em; color:var(--text); line-height:1.1; margin-bottom:8px; }
+  .meta-item { font-family:'Roboto Mono',monospace; font-size:11px; color:var(--dim); }
+  .intent { font-size:12px; color:var(--muted); max-width:720px; line-height:1.6; margin-top:10px; }
+
+  .axes { margin:22px 0 30px; }
+  .axis { display:flex; gap:12px; padding:9px 12px; background:var(--surface); border:1px solid var(--border); border-radius:4px; margin-bottom:6px; align-items:baseline; }
+  .axis-label { font-family:'Roboto Mono',monospace; font-size:10px; color:var(--text); min-width:160px; font-weight:500; }
+  .axis-note { font-size:11px; color:var(--dim); line-height:1.5; }
+
+  .options { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px; margin-bottom:30px; }
+  .opt { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px; border-top:3px solid var(--blue); }
+  .opt.pending { border-top-color:var(--dim); opacity:.75; }
+  .opt-title { font-family:'Unica One',sans-serif; font-size:15px; letter-spacing:.03em; margin-bottom:4px; }
+  .opt-summary { font-size:11px; color:var(--muted); line-height:1.5; margin-bottom:10px; }
+  .badge { display:inline-block; font-family:'Roboto Mono',monospace; font-size:9px; font-weight:700; text-transform:uppercase; padding:1px 7px; border-radius:3px; border:1px solid; }
+  .s-pending { color:var(--dim); border-color:var(--border2); background:var(--surface2); }
+  .s-draft { color:var(--yellow); border-color:rgba(245,166,35,.4); background:rgba(245,166,35,.1); }
+  .s-selected { color:var(--green); border-color:rgba(76,175,80,.4); background:rgba(76,175,80,.12); }
+  .s-phase-2 { color:var(--blue); border-color:rgba(74,127,165,.5); background:rgba(74,127,165,.12); }
+  .pos { margin-top:8px; padding-top:8px; border-top:1px solid var(--border); }
+  .pos-axis { font-family:'Roboto Mono',monospace; font-size:9px; color:var(--dim); text-transform:uppercase; }
+  .pos-text { font-size:11px; color:var(--muted); }
+  .empty-pos { font-size:11px; color:var(--dim); font-style:italic; }
+
+  .rec { background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--green); border-radius:var(--radius); padding:14px 16px; }
+  .rec-title { font-family:'Unica One',sans-serif; font-size:13px; color:var(--green); margin-bottom:4px; letter-spacing:.04em; }
+  .rec-note { font-size:12px; color:var(--muted); }
+  .load-error { color:var(--red); font-family:'Roboto Mono',monospace; font-size:11px; padding:20px 0; }
+  .section-title { font-family:'Unica One',sans-serif; font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+</style>
+</head>
+<body>
+<nav style="height:34px;background:#000;border-bottom:1px solid #2a2a2a;display:flex;align-items:center;padding:0 24px;gap:16px;font-size:11px;font-family:Roboto,sans-serif;position:sticky;top:0;z-index:200"><a href="../../../" style="color:#444;text-decoration:none">← Command Center</a><span style="color:#333">/</span><a href="../../" style="color:#444;text-decoration:none">Repository</a><span style="color:#333">/</span><span style="color:#888">Identity Strategies</span></nav>
+
+<header class="header">
+  <div class="brand">
+    <svg width="30" height="30" viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="38" stroke="#DB394C" stroke-width="7" fill="none"/>
+      <circle cx="50" cy="50" r="22" stroke="#DB394C" stroke-width="7" fill="none"/>
+      <rect x="46.5" y="46.5" width="7" height="7" fill="#DB394C"/>
+      <rect x="46.5" y="4" width="7" height="20" fill="#DB394C"/>
+      <rect x="46.5" y="76" width="7" height="20" fill="#DB394C"/>
+      <rect x="4" y="46.5" width="20" height="7" fill="#DB394C"/>
+      <rect x="76" y="46.5" width="20" height="7" fill="#DB394C"/>
+    </svg>
+    <div>
+      <div class="wordmark">DAS CDP</div>
+      <div class="wordmark-sub">Artifact · Design</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <span class="artifact-badge" id="badge">PLACEHOLDER</span>
+    <a class="back-link" href="../../index.html">← Repository</a>
+  </div>
+</header>
+
+<div class="page">
+  <div class="artifact-header">
+    <div class="artifact-icon">⧉</div>
+    <div class="artifact-title">Identity Resolution — Strategy Options</div>
+    <div class="meta-item" id="meta"></div>
+    <div class="intent" id="intent"></div>
+  </div>
+
+  <div class="section-title">Comparison Axes</div>
+  <div class="axes" id="axes"></div>
+
+  <div class="section-title">Options</div>
+  <div class="options" id="options"><noscript><div class="load-error">This page renders strategies.json — JavaScript required.</div></noscript></div>
+
+  <div class="rec" id="rec"></div>
+</div>
+
+<script>
+(async () => {
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  let d;
+  try { d = await (await fetch('strategies.json', {cache:'no-cache'})).json(); }
+  catch (e) { document.getElementById('options').innerHTML = '<div class="load-error">Failed to load strategies.json</div>'; return; }
+
+  document.getElementById('badge').textContent = d.status.toUpperCase();
+  document.getElementById('meta').textContent = `${d.options.length} options · updated ${d.updated} · v${d.version}`;
+  document.getElementById('intent').textContent = d.intent;
+
+  document.getElementById('axes').innerHTML = d.axes.map(a =>
+    `<div class="axis"><span class="axis-label">${esc(a.label)}</span><span class="axis-note">${esc(a.note)}</span></div>`).join('');
+
+  document.getElementById('options').innerHTML = d.options.map(o => `
+    <div class="opt ${esc(o.status)}">
+      <div class="opt-title">${esc(o.title)}</div>
+      <span class="badge s-${esc(o.status)}">${esc(o.status)}</span>
+      <div class="opt-summary" style="margin-top:8px">${esc(o.summary)}</div>
+      ${d.axes.map(a => o.positions[a.key]
+        ? `<div class="pos"><div class="pos-axis">${esc(a.label)}</div><div class="pos-text">${esc(o.positions[a.key])}</div></div>`
+        : `<div class="pos"><div class="pos-axis">${esc(a.label)}</div><div class="empty-pos">pending</div></div>`).join('')}
+    </div>`).join('');
+
+  const r = d.recommendation;
+  document.getElementById('rec').innerHTML =
+    `<div class="rec-title">Recommendation — ${esc(r.status)}</div><div class="rec-note">${esc(r.note)}</div>`;
+})();
+</script>
+</body>
+</html>

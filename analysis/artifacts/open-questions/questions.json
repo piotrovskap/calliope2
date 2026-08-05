@@ -1,0 +1,170 @@
+{
+  "version": 7,
+  "updated": "2026-06-18",
+  "changelog": [
+    {
+      "date": "2026-06-18",
+      "note": "Closed both Optional (DAS nice-to-have) questions: report sampling (saw enough in the live demo, have screenshots) and CCID coverage confirmation (not obtainable + not needed, building our own CCID). No open questions remain."
+    },
+    {
+      "date": "2026-06-18",
+      "note": "Closed remaining DAS asks (we have enough): both Common Client ID questions resolved \u2014 building our own CCID from first principles, DAS CCID is a migration/backfill signal only; 8 SSIS job descriptions (Alicia: not needed) and Lucid charts (unlikely to arrive) closed in memory/open-questions.md. No DAS-facing asks left to chase except the Feedhub exception."
+    },
+    {
+      "date": "2026-06-18",
+      "note": "API Usage Coverage question resolved \u2014 DAS engineering walkthrough complete; business purpose and active endpoints documented per API in wiki pages"
+    },
+    {
+      "date": "2026-06-13",
+      "note": "Added an Optional (DAS, nice-to-have) section for the two timeline-only discovery steps \u2014 Juicebox report sampling and Common Client ID coverage \u2014 reframed as optional DAS-facing questions so they have a tracked home and the timeline no longer implies committed Conflict work."
+    },
+    {
+      "date": "2026-06-12",
+      "note": "Post-sync refinements: API question scoped to current-extraction vs future-potential, Dan chasing with engineering; CCID access being arranged by Dan; orphan-identifier edge case noted on identity"
+    },
+    {
+      "date": "2026-06-12",
+      "note": "SSIS job descriptions closed \u2014 answered by the full etl/ inventory; residual unknowns are peripheral legacy ops"
+    },
+    {
+      "date": "2026-06-12",
+      "note": "Extracted from hardcoded HTML into JSON (portal rule: no data in HTML). Same-day curation: DWRPT access resolved (granted); Juicebox replacement + report sampling closed (Conflict's decision, first-principles reporting); AI architecture closed (AI will be powered by the CDP, revisit Phase 3); SSIS DAG + Mileone closed (legacy-operations concerns, not CDP scope); SSIS job descriptions reframed as retirement/coverage checklist; identity questions downgraded \u2014 identity resolution is a first-principles Conflict design, CCID is one input signal, not the foundation."
+    },
+    {
+      "date": "2026-06-11",
+      "note": "Added API usage coverage question from api-catalog session"
+    },
+    {
+      "date": "2026-06-08",
+      "note": "Baseline from kickoff, ssis-review, and reporting-juice sessions"
+    }
+  ],
+  "sections": [
+    {
+      "label": "API Usage Coverage",
+      "items": [
+        {
+          "status": "resolved",
+          "question": "For each of the APIs listed below \u2014 can you walk us through what DAS actually uses them for? Not the implementation specifics, but the business purpose each one serves and which features or endpoints are actively in use. We want to understand what is used for what, so we can run a more focused research pass and identify where there might be room for improvements or a better fit.",
+          "context": "Resolved 2026-06-18 \u2014 DAS engineering walkthrough complete. Business purpose and actively-used endpoints documented per API in individual wiki pages; CDP field coverage targets (launch vs. later) established. Original context: Refined at the 2026-06-12 sync \u2014 the core of the ask: what does DAS extract from each API TODAY vs what the API offers for potential future integration (e.g., is everything in Twilio fair game later, or do we design around current capture)? Dan Aston took the list to engineering. We've mapped these from the Integration Explorer and have a working sense of which products they're tied to, but we don't have visibility into the actual features or endpoints being exercised. The list below is grouped by category with our current assumption of which DAS product uses each API \u2014 correct us where we're off.<br><br><strong style=\"color:var(--muted)\">Ad Platforms \u2014</strong> Meta / Facebook Marketing API (Media Logix, Social Logix, LotVantage) \u00b7 Google Ads API (Media Logix) \u00b7 Microsoft / Bing Ads API (Media Logix) \u00b7 Amazon Ads API (Media Logix) \u00b7 TikTok Ads API (Media Logix) \u00b7 YouTube Data / Analytics API (Media Logix, LotVantage) \u00b7 Reddit Ads (Media Logix)<br><br><strong style=\"color:var(--muted)\">Communications \u2014</strong> Twilio (CDXP, ETS, Mobile Review Surge) \u00b7 SendGrid (shared-svcs, Response Logix, ETS) \u00b7 MailGun (CDXP) \u00b7 Mandrill / Mailchimp Transactional (Response Path, Response Logix) \u00b7 ETS Dashboard API (ETS) \u00b7 Rocket.Chat (ETS, AI Engage Messaging, Response Path) \u00b7 LiveJoin3 Service (ETS LiveJoin) \u00b7 ETS Facebook Messenger + SMS Proxy (ETS) \u00b7 Microsoft Graph / Outlook (Radar)<br><br><strong style=\"color:var(--muted)\">DMS / CRM \u2014</strong> Salesforce (Account Mgmt API, Social Logix, TheWire) \u00b7 Microsoft Dynamics 365 (Social Logix) \u00b7 Tekion DMS (Social Logix Review Surge, CDXP)<br><br><strong style=\"color:var(--muted)\">Data Enrichment \u2014</strong> MaxMind GeoIP2 (CDXP) \u00b7 Experian Conquest (CDXP) \u00b7 NeverBounce (CDXP)<br><br><strong style=\"color:var(--muted)\">Marketplace \u2014</strong> eBay API (LotVantage) \u00b7 Facebook Marketplace (LotVantage) \u00b7 Craigslist (LotVantage)<br><br><strong style=\"color:var(--muted)\">Reviews \u2014</strong> CallRevu (CDXP) \u00b7 CarGurus (Social Logix) \u00b7 Cars.com (Social Logix) \u00b7 Carfax (Social Logix, LotVantage) \u00b7 DealerRater + Edmunds (Social Logix) \u00b7 Vendasta + Mozenda (Social Logix) \u00b7 Recall Masters (CDXP)<br><br><strong style=\"color:var(--muted)\">Social / Listings \u2014</strong> Soci (Social Logix) \u00b7 Yext (Social Logix Local)<br><br><strong style=\"color:var(--muted)\">Billing \u2014</strong> CyberSource (LotVantage) \u00b7 Zuora (LotVantage, DWRPT reporting) \u00b7 QuickBooks (LotVantage)",
+          "owner": "DAS Engineering / Product",
+          "session": "api-catalog-2026-06-11"
+        }
+      ]
+    },
+    {
+      "label": "Data Access",
+      "items": [
+        {
+          "status": "resolved",
+          "question": "Can Conflict get read access to the DWRPT database?",
+          "context": "Granted 2026-06-12. Used for the Common Client ID audit and as the reporting-parity reference only \u2014 per the access close-out decision, DWRPT is not a CDP ingestion source. The CDP targets the original feeds upstream of EDW/DWRPT.",
+          "owner": "Ron Mulder",
+          "session": "reporting-juice-2026-06-08"
+        },
+        {
+          "status": "resolved",
+          "question": "Which SSIS jobs produce raw vs. post-processed data \u2014 and which source tables should CDP pull from?",
+          "context": "Superseded 2026-06-12 by the ingestion direction: the CDP pulls from original sources (event intake + Airflow batch on the feeds that enter DAS), not from any SSIS landing tables. 5 of 13 jobs were mapped from etl/ code along the way; per-field sourcing lives in the field-source matrix.",
+          "owner": "Rick Sorich / DAS Eng",
+          "session": "ssis-review-2026-06-08"
+        }
+      ]
+    },
+    {
+      "label": "Identity Resolution",
+      "items": [
+        {
+          "status": "resolved",
+          "question": "What is the schema and quality of the Common Client ID implementation?",
+          "context": "Closed 2026-06-18 \u2014 we are building our own Common Client ID from first principles (deterministic-first identity engine, Option A locked 2026-06-17). DAS's CCID is at most a migration/backfill signal, not the foundation (objective 7); we have enough from the DWRPT access already granted to weigh it. The schema/access/ID-assignment ask to Dan + Ron is dropped \u2014 no DAS deliverable needed. Original framing (2026-06-12): identity resolution is a first-principles Conflict design; DAS has zero cross-system resolution today and CCID is recent, low-investment, and unproven (cleanliness issues already found).",
+          "owner": "Conflict (audit) / Dan Aston (access) / Ron Mulder (ID-assignment logic)",
+          "session": "reporting-juice-2026-06-08"
+        },
+        {
+          "status": "resolved",
+          "question": "Which source systems have Common Client ID coverage, and which are still unjoined?",
+          "context": "Closed 2026-06-18 \u2014 we have enough. The per-source identity-signal inventory (email, phone, address, VIN, CCID where present) is captured from discovery; sources without any deterministic key get probabilistic matching regardless of CCID, so exhaustive CCID-coverage mapping is not a design gate. Orphan identifiers with nothing to join to today (e.g., Facebook IDs from reviews) are first-class \u2014 stored, attributed, resolvable later (objective 9).",
+          "owner": "Conflict (audit)",
+          "session": "reporting-juice-2026-06-08"
+        }
+      ]
+    },
+    {
+      "label": "ETL / Pipeline",
+      "items": [
+        {
+          "status": "resolved",
+          "question": "Why has Mileone_reward_member failed 100% of the time over 20 runs? Is it safe to exclude from CDP scope?",
+          "context": "Closed 2026-06-12 \u2014 out of CDP scope. This is DAS-internal tech debt in a pipeline slated for retirement; the CDP ingests from original sources, so a dead legacy job is DAS's operational concern, not a design input. Flagged to Rick in the job-descriptions ask for DAS's own housekeeping.",
+          "owner": "Rick Sorich",
+          "session": "ssis-review-2026-06-08"
+        },
+        {
+          "status": "resolved",
+          "question": "What is the dependency graph between the 13 SSIS jobs? Which jobs must complete before others can start?",
+          "context": "Closed 2026-06-12 \u2014 not needed. The DAG matters for operating or modernizing the pipeline in place; the direction (per DAS) is replacement, with the CDP ingesting from original sources. DAS operates the legacy ordering until retirement. Partial DAG already inferred from etl/ code if ever useful.",
+          "owner": "Rick Sorich / DAS Eng",
+          "session": "ssis-review-2026-06-08"
+        },
+        {
+          "status": "resolved",
+          "question": "What is the accurate description of each SSIS job \u2014 what source data does it process and what does it produce?",
+          "context": "Closed 2026-06-12 \u2014 substantially answered by the full etl/ inventory (docs/etl-data-inventory.md, 231 objects / 20 modules), which supersedes the old 5-of-13 framing: CustomerValue, DDE, LeadSource_LeadPerformance, and JuiceReporting_CDXPCustomers map to documented reporting-layer modules (all feeding Juicebox, which the CDP will not replicate); MileOne Unsubscribe and SmartSuppression map plausibly to Email/Sync suppression procs. Residual unknowns (Conquest_Mailing, dead Mileone_reward_member) are peripheral legacy ops. Rick's relayed ask stays as a courtesy backstop. One requirement carried forward: suppression/consent data is a CDP data-model category in its own right.",
+          "owner": "Rick Sorich",
+          "session": "ssis-review-2026-06-08"
+        }
+      ]
+    },
+    {
+      "label": "Reporting / Juicebox Migration",
+      "items": [
+        {
+          "status": "resolved",
+          "question": "What replaces Juicebox? Power BI, Metabase, custom CDP reporting?",
+          "context": "Closed 2026-06-12 \u2014 this is Conflict's to answer, not an open question for DAS. Tracked as the Phase 1 reporting-platform decision in the project plan; deferred per the discovery deck so it does not block Phase 1. The 14 CDXP-Live client commitments remain the acceptance context.",
+          "owner": "Team decision",
+          "session": "reporting-juice-2026-06-08"
+        },
+        {
+          "status": "resolved",
+          "question": "Which Juicebox reports should we sample as reference patterns for CDP reporting?",
+          "context": "Closed 2026-06-12 \u2014 CDP reporting will be designed from first principles, not by replicating Juicebox reports. No sampling exercise. The 14 CDXP-Live client commitments remain relevant only as acceptance criteria, not as design templates.",
+          "owner": "Daniel Aston / Ron Mulder",
+          "session": "reporting-juice-2026-06-08"
+        }
+      ]
+    },
+    {
+      "label": "DAS AI Agent Integration",
+      "items": [
+        {
+          "status": "resolved",
+          "question": "What is the full architecture of ai.das-technology.com \u2014 who maintains it, what model, how is it deployed?",
+          "context": "Closed 2026-06-12 \u2014 not needed for CDP design. The relationship inverts: today's agents query DWRPT; once the CDP is the source of truth, AI features draw from the CDP. Current-stack details become relevant at Phase 3 (AI/ML integration), not before.",
+          "owner": "Daniel Aston",
+          "session": "reporting-juice-2026-06-08"
+        }
+      ]
+    },
+    {
+      "label": "Optional (DAS \u2014 nice-to-have)",
+      "items": [
+        {
+          "status": "resolved",
+          "question": "(Optional) Would DAS like us to sample the 14 client-facing CDXP-Live reports to model CDP reporting parity?",
+          "context": "Not required. CDP reporting is a first-principles Conflict design, not a Juicebox replication; a sample only sharpens parity modeling in the Scoping deliverable if DAS wants it. Was a timeline-only discovery step with no owner; reframed as an optional DAS question 2026-06-13. CLOSED 2026-06-18 \u2014 Leo\u2019s decision: NO. \"We saw enough in the live demo and meeting, we have screenshots.\" No separate report-sampling exercise needed.",
+          "owner": "DAS Team (optional)",
+          "session": "architecture-design-2026-06-13"
+        },
+        {
+          "status": "resolved",
+          "question": "(Optional) Can DAS confirm Common Client ID coverage across source systems \u2014 which carry the join key vs which need probabilistic matching?",
+          "context": "Optional input to the identity strategy (CCID is one signal, not the foundation; the assignment logic is already an ask to Ron Mulder). Was a timeline-only discovery step; reframed as an optional DAS question 2026-06-13. CLOSED 2026-06-18 \u2014 Leo\u2019s decision: NO. \"We\u2019re not going to get confirmation, this is hard for DAS to answer,\" and we don\u2019t need it \u2014 building our own CCID from first principles; coverage is informed by discovery.",
+          "owner": "DAS Team (optional)",
+          "session": "architecture-design-2026-06-13"
+        }
+      ]
+    }
+  ]
+}

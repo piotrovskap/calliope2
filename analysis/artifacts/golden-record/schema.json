@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "das-cdp/golden-record/schema.json",
+  "title": "DAS CDP Golden Record",
+  "description": "Schema for the DAS CDP golden record. It is an entity-relationship model, not a flat record: the core entities (Person, Household, Contact point, Address, Vehicle, Dealership, Deal, Event, Consent), the identity machinery that binds and matches them (identity graph, links, aliases, attributes, events, consent, provenance), the typed relationships between them, the verified 100+-source registry, a sample schema for each entity, and a worked example showing how one subject ties together. References are first-class: every hard link lives once in the top-level `references` registry and is cited by id (`ref_ids`) everywhere, so the link set is inspectable and a CI check can confirm each href resolves. Instance: record.json.",
+  "type": "object",
+  "required": ["version", "status", "references", "model", "sections", "source_registry", "identity_binding"],
+  "properties": {
+    "version": { "type": "integer" },
+    "schema_version": { "type": "integer" },
+    "updated": { "type": "string" },
+    "status": { "type": "string", "description": "Maturity, e.g. 'illustrative · v1' or 'validated'." },
+    "intent": { "type": "string" },
+    "legend": { "type": "object", "description": "Definitions for tier/status/identity_role/access_status/role/kind enums." },
+    "changelog": { "type": "array", "items": { "type": "object", "required": ["date", "note"], "properties": { "date": { "type": "string" }, "note": { "type": "string" } } } },
+
+    "references": {
+      "type": "object",
+      "description": "FIRST-CLASS REFERENCE REGISTRY. One entry per verifiable location, keyed by short stable ref_id (e.g. 'fsm', 'db:dwrpt', 'wiki:Mailgun-API', 'idstrat', 'spec:cdp-data-model-design'). Everything else cites these via `ref_ids`. A CI check iterates this map and asserts each href (and anchor, if given) resolves. No source, field, entity, relationship, or identity claim is allowed without a ref_id resolving here.",
+      "additionalProperties": { "$ref": "#/$defs/reference" }
+    },
+
+    "model": {
+      "type": "object",
+      "description": "The CDP entity-relationship model behind the golden record. `entities` are the core records (Person, Contact point, Address, Vehicle, Deal, Event), the derived ones (Household), the tenant boundary (Dealership), and the identity machinery that still matters as adjacent structures — identity graph, identity links, merge history, aliases (on Contact point), attributes (EAV+JSONB), consent, suppression, orphan identifiers, and per-fact provenance. `relationships` are the typed, mostly-temporal edges that bind and match them. The golden record is a projection over Person and its bound entities. Grounded in spec 01-cdp-data-model-design via ref_ids.",
+      "required": ["entities", "relationships"],
+      "properties": {
+        "entities": { "type": "array", "items": { "$ref": "#/$defs/entity" } },
+        "relationships": { "type": "array", "items": { "$ref": "#/$defs/relationship" } }
+      }
+    },
+
+    "sections": {
+      "type": "array",
+      "description": "The field dictionary, grouped. Each field attaches to a model entity (entity_id) and maps to its real sources. Backward-compatible with the brain ingest (reads name/tier/status/sources/note).",
+      "items": { "$ref": "#/$defs/section" }
+    },
+
+    "source_registry": {
+      "type": "array",
+      "description": "The 100+ sources that feed the record, one entry each, verified against a wiki research page, DB discovery doc, or the source inventory via ref_ids.",
+      "items": { "$ref": "#/$defs/source" }
+    },
+
+    "identity_binding": {
+      "type": "object",
+      "description": "The machinery that resolves raw inbound data to one Person and survives the winning values. Grounded in the locked identity strategy (Option A) and the identity-resolution-engine specs via ref_ids.",
+      "required": ["match_waterfall", "link_types", "blocking_keys", "survivorship", "alias_structures", "consent_binding", "orphan_handling", "provenance_model"],
+      "properties": {
+        "match_waterfall": { "type": "array", "items": { "$ref": "#/$defs/waterfall_step" }, "description": "Ordered deterministic-first resolution steps." },
+        "link_types": { "type": "array", "items": { "$ref": "#/$defs/named_def" }, "description": "Identity-graph link kinds: deterministic | heuristic | orphan | ml_scored | gnn_cluster | manual_merge." },
+        "blocking_keys": { "type": "array", "items": { "$ref": "#/$defs/named_def" } },
+        "survivorship": { "type": "array", "items": { "$ref": "#/$defs/named_def" }, "description": "Source-trust ranking + recency rules selecting the winning value per field." },
+        "alias_structures": { "type": "array", "items": { "$ref": "#/$defs/named_def" }, "description": "Multi-alias graphs (email/phone) that expand identity, e.g. RL franchise_consumer_alias." },
+        "consent_binding": { "type": "array", "items": { "$ref": "#/$defs/named_def" }, "description": "How consent/suppression binds to source + source-record for record-level suppression." },
+        "orphan_handling": { "type": "array", "items": { "$ref": "#/$defs/named_def" }, "description": "Store/attribute/resolve-later for identifiers with nothing to join today." },
+        "provenance_model": { "type": "array", "items": { "$ref": "#/$defs/named_def" }, "description": "Per-fact provenance: source / method / confidence / event_id / observed_at on every edge and attribute." }
+      }
+    },
+
+    "examples": {
+      "type": "object",
+      "description": "Sample schema is on each entity (model.entities[].sample_schema). This holds illustrative records: one or more per entity, plus a tied-together 'linked' example showing how a single subject's Person resolves across contact points, address, vehicles, household, deals, events, consent, identity links, and orphans. All values illustrative/modeled — nothing asserted as real PII.",
+      "properties": {
+        "entity_records": { "type": "object", "description": "Map of entity_id -> array of illustrative example records.", "additionalProperties": { "type": "array", "items": { "type": "object" } } },
+        "linked": { "$ref": "#/$defs/linked_example" }
+      }
+    },
+
+    "personas": {
+      "type": "array",
+      "description": "Subjects for the linked examples / visualizer (deferred UI). Stubs here; the linked example may reference a persona id.",
+      "items": { "$ref": "#/$defs/persona" }
+    }
+  },
+
+  "$defs": {
+    "reference": {
+      "type": "object",
+      "description": "A single verifiable location. href is a repo-relative path or URL; the cited file must support every claim that points at it.",
+      "required": ["label", "href", "kind"],
+      "properties": {
+        "label": { "type": "string" },
+        "href": { "type": "string", "description": "Repo-relative path (e.g. 'docs/cdp-field-source-matrix.md') or URL." },
+        "kind": { "type": "string", "enum": ["wiki", "db-doc", "field-matrix", "field-catalog", "identity-strategy", "spec", "decision", "memory", "session", "source-doc", "external"] },
+        "anchor": { "type": "string", "description": "Optional in-file heading/table-row/line." },
+        "verified": { "type": "boolean", "description": "True once a reader opened href and confirmed support." }
+      }
+    },
+    "ref_ids": { "type": "array", "description": "Keys into the top-level `references` registry. Required wherever a sourcing or design claim is made.", "items": { "type": "string" }, "minItems": 1 },
+    "attribute": {
+      "type": "object",
+      "description": "One attribute in an entity's sample schema.",
+      "required": ["name", "type"],
+      "properties": {
+        "name": { "type": "string" },
+        "type": { "type": "string", "description": "Logical type, e.g. uuid, text, email, phone_e164, vin, timestamptz, jsonb, tstzrange." },
+        "key": { "type": "string", "enum": ["pk", "fk", "natural", "none"] },
+        "nullable": { "type": "boolean" },
+        "note": { "type": "string" }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "required": ["id", "role", "purpose", "ref_ids"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string", "description": "Display name, e.g. 'Person', 'Household'." },
+        "role": { "type": "string", "enum": ["core", "derived", "adjacent", "tenant"], "description": "core = first-class record (Person, Vehicle, Contact point, Address, Event, Deal); derived = computed/recomputable/allowed-to-be-wrong (Household); adjacent = identity machinery (Identity, IdentityLink, MergeHistory, ConsumerAttribute, Consent, Suppression, OrphanIdentifier); tenant = privacy boundary (Dealership)." },
+        "purpose": { "type": "string" },
+        "key": { "type": "string", "description": "PK nature, e.g. 'persistent person_id, never reused' or 'VIN'. Identity keys (email/phone) are NOT Person columns — they are Contact-point edges." },
+        "is_temporal": { "type": "boolean", "description": "True if its edges carry valid-from/valid-to (bitemporal)." },
+        "attribute_storage": { "type": "string", "enum": ["columns", "eav-jsonb", "mixed", "n/a"] },
+        "sample_schema": { "type": "array", "items": { "$ref": "#/$defs/attribute" }, "description": "The entity's attribute shape — the per-entity sample schema." },
+        "binds": { "type": "array", "items": { "type": "string" }, "description": "Other entity ids this binds/matches (typed in relationships)." },
+        "ref_ids": { "$ref": "#/$defs/ref_ids" }
+      }
+    },
+    "relationship": {
+      "type": "object",
+      "description": "A typed edge between two entities. Most are temporal (valid-from/valid-to) and provenance-bearing.",
+      "required": ["id", "from", "to", "cardinality", "kind", "ref_ids"],
+      "properties": {
+        "id": { "type": "string" },
+        "from": { "type": "string", "description": "entity id." },
+        "to": { "type": "string", "description": "entity id." },
+        "cardinality": { "type": "string", "enum": ["1:1", "1:N", "N:1", "M:N"] },
+        "kind": { "type": "string", "enum": ["contact-edge", "address-edge", "ownership", "membership", "binding", "tenant-scope", "identity-link", "consent", "event-actor", "attribute-fact", "provenance"] },
+        "temporal": { "type": "boolean" },
+        "via": { "type": "string", "description": "Optional binding entity (e.g. Deal realizes person<->vehicle)." },
+        "definition": { "type": "string" },
+        "ref_ids": { "$ref": "#/$defs/ref_ids" }
+      }
+    },
+    "section": {
+      "type": "object",
+      "required": ["label", "fields"],
+      "properties": {
+        "label": { "type": "string" },
+        "note": { "type": "string" },
+        "fields": { "type": "array", "items": { "$ref": "#/$defs/field" } }
+      }
+    },
+    "field": {
+      "type": "object",
+      "required": ["name", "entity_id", "tier", "status", "identity_role", "sources", "source_mappings"],
+      "properties": {
+        "name": { "type": "string" },
+        "entity_id": { "type": "string", "description": "Model entity this field attaches to. Identity-key fields attach to 'contact_point'/'address', not 'person'." },
+        "cdp_target": { "type": "string", "description": "Canonical CDP table.column or attribute." },
+        "tier": { "type": "string", "enum": ["core", "valuable", "later", "tbd"] },
+        "status": { "type": "string", "enum": ["pending", "draft", "validated"] },
+        "identity_role": { "type": "string", "enum": ["primary_key", "deterministic_key", "blocking_key", "survivorship_attribute", "orphan", "derived", "none"] },
+        "sources": { "type": "array", "items": { "type": "string" }, "description": "Source-system names (brain-ingest compatible)." },
+        "source_mappings": {
+          "type": "array",
+          "description": "Per-source real mappings, hard-linked by ref_ids.",
+          "items": {
+            "type": "object",
+            "required": ["source_id", "ref_ids"],
+            "properties": {
+              "source_id": { "type": "string", "description": "id into source_registry." },
+              "source_field": { "type": "string", "description": "Real DB.table.column or API field." },
+              "format": { "type": "string", "description": "The value format this source delivers (e.g. 'E.164', 'lowercased at ingest', 'varchar (CAST to INT)'). Captures the diff-format provenance that the entity UUID resolves across." },
+              "verified": { "type": "boolean", "description": "True only where the source_field is literally backed by the cited doc (confirmed by grep/consensus fact-check). False = inferred, pattern, or design-proposed — honest provenance, not yet doc-confirmed." },
+              "access_status": { "type": "string", "enum": ["granted", "blocked", "csv-only", "api-unused", "n/a"] },
+              "ref_ids": { "$ref": "#/$defs/ref_ids" }
+            }
+          }
+        },
+        "survivorship": { "type": "string" },
+        "established_by": { "type": "string" },
+        "ref_ids": { "$ref": "#/$defs/ref_ids" },
+        "note": { "type": "string" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["id", "name", "category", "type", "access_status", "ref_ids"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string", "description": "One of the 14 source categories (CRM, DMS, Lead Provider, Advertising, Reviews, Email/SMS, Website/Analytics, Chat, Inventory, Credit/Financing, Valuation, Internal DAS, Video, OEM)." },
+        "type": { "type": "string", "enum": ["crm", "dms", "lead", "ad", "review", "comms", "enrichment", "billing", "inventory", "valuation", "internal", "db", "event", "oem", "analytics"] },
+        "access_status": { "type": "string", "enum": ["granted", "blocked", "csv-only", "api-unused", "n/a"] },
+        "identity_signals": { "type": "array", "items": { "type": "string" }, "description": "email, phone, vin, ccid, social_id, address, device_id, dealer_customer_id, ..." },
+        "contributes": { "type": "array", "items": { "type": "string" }, "description": "Golden-record field names this source feeds." },
+        "ref_ids": { "$ref": "#/$defs/ref_ids" },
+        "established_by": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    },
+    "waterfall_step": {
+      "type": "object",
+      "required": ["order", "rule", "ref_ids"],
+      "properties": {
+        "order": { "type": "integer" },
+        "rule": { "type": "string" },
+        "confidence": { "type": "string", "enum": ["deterministic", "heuristic", "ml"] },
+        "ref_ids": { "$ref": "#/$defs/ref_ids" }
+      }
+    },
+    "named_def": {
+      "type": "object",
+      "required": ["name", "definition", "ref_ids"],
+      "properties": {
+        "name": { "type": "string" },
+        "definition": { "type": "string" },
+        "ref_ids": { "$ref": "#/$defs/ref_ids" }
+      }
+    },
+    "linked_example": {
+      "type": "object",
+      "description": "A worked, illustrative example tying one subject across the entity graph — proof of how it all connects. All values modeled, not real PII.",
+      "required": ["subject", "graph"],
+      "properties": {
+        "subject": { "type": "string", "description": "persona id or label, e.g. 'mike'." },
+        "description": { "type": "string" },
+        "graph": {
+          "type": "object",
+          "description": "Keyed by entity_id -> the subject's record(s) for that entity, with edges showing how they link (person -> contact_points/addresses/vehicles/household/deals/events/consents/identities/identity_links/orphans).",
+          "additionalProperties": true
+        }
+      }
+    },
+    "persona": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "org": { "type": "string" },
+        "avatar": { "type": "string", "description": "Image URL (external/live link) or null." },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAID Log — DAS CDP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Roboto:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #1D1D1D;
+    --surface:  rgba(255,255,255,0.05);
+    --surface2: rgba(255,255,255,0.08);
+    --border:   rgba(168,168,167,0.2);
+    --border2:  rgba(236,239,245,0.15);
+    --red:      #DB394C;
+    --red-dim:  rgba(219,57,76,0.1);
+    --red-dark: #9C2633;
+    --text:     #FFFFFF;
+    --muted:    #A8A8A7;
+    --dim:      rgba(255,255,255,0.3);
+    --green:    #4CAF50; --green-dim: rgba(76,175,80,0.1);
+    --yellow:   #F5A623; --yellow-dim: rgba(245,166,35,0.08);
+    --blue:     #4A7FA5; --blue-dim: rgba(74,127,165,0.1);
+    --purple:   #7A5BA8; --purple-dim: rgba(122,91,168,0.1);
+    --radius:   6px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Roboto', sans-serif; font-size: 13px; line-height: 1.6; min-height: 100vh; }
+
+  /* ── Topbar (verbatim from Command Center home) ── */
+  .topbar {
+    height: 54px; background: var(--bg); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 32px; position: sticky; top: 0; z-index: 200;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-logo { display: inline-flex; line-height: 0; transition: opacity .15s; }
+  .brand-logo:hover { opacity: .75; }
+  .brand-divider { color: var(--border2); font-size: 16px; }
+  .brand-name { font-family: 'Unica One', sans-serif; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .topnav { display: flex; align-items: center; gap: 4px; }
+  .topnav a {
+    font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--dim); text-decoration: none;
+    padding: 5px 10px; border-radius: 3px; transition: color .15s, background .15s;
+  }
+  .topnav a:hover { color: var(--text); background: var(--surface); }
+  .phase-pill {
+    font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: .1em;
+    color: var(--red); border: 1px solid rgba(219,57,76,.4); background: var(--red-dim);
+    padding: 3px 10px; border-radius: 3px;
+  }
+
+  /* ── Breadcrumb ── */
+  .crumb { max-width: 1080px; margin: 0 auto; padding: 22px 32px 0; }
+  .crumb a {
+    font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--muted); text-decoration: none;
+    border: 1px solid var(--border); border-radius: 4px; padding: 6px 13px;
+    transition: color .12s, border-color .12s;
+  }
+  .crumb a:hover { color: var(--red); border-color: var(--red); }
+
+  /* ── Page head ── */
+  .page-head { max-width: 1080px; margin: 0 auto; padding: 36px 32px 0; }
+  .page-eyebrow {
+    font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--red); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .page-eyebrow-line { width: 40px; height: 1px; background: var(--red); opacity: .5; }
+  .page-title { font-family: 'Unica One', sans-serif; font-size: 40px; letter-spacing: .03em; text-transform: uppercase; line-height: 1; color: var(--text); margin-bottom: 10px; }
+  .page-subtitle { font-size: 13px; color: var(--muted); max-width: 640px; line-height: 1.7; }
+  .page-meta { font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: .08em; color: var(--dim); margin-top: 14px; }
+  .page-meta span { color: var(--text); }
+  .page-meta a { color: var(--blue); text-decoration: none; }
+  .page-meta a:hover { color: var(--text); }
+
+  /* ── Type tabs ── */
+  .tabbar {
+    max-width: 1080px; margin: 28px auto 0; padding: 0 32px;
+    display: flex; flex-wrap: wrap; gap: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab {
+    font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--dim); background: none;
+    border: none; border-bottom: 2px solid transparent; cursor: pointer;
+    padding: 8px 12px 9px; transition: color .15s, border-color .15s;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--red); border-bottom-color: var(--red); }
+  .tab-count { color: var(--dim); }
+  .tab.active .tab-count { color: var(--red); }
+
+  /* ── Status filter ── */
+  .filterbar {
+    max-width: 1080px; margin: 14px auto 0; padding: 0 32px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  }
+  .filterbar-label {
+    font-family: 'Roboto Mono', monospace; font-size: 9px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--dim); margin-right: 4px;
+  }
+  .pill {
+    font-family: 'Roboto Mono', monospace; font-size: 9px; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--muted); background: var(--surface);
+    border: 1px solid var(--border); border-radius: 999px; cursor: pointer;
+    padding: 4px 12px; transition: color .15s, border-color .15s, background .15s;
+  }
+  .pill:hover { color: var(--text); border-color: var(--border2); }
+  .pill.active { color: var(--text); border-color: var(--red); background: var(--red-dim); }
+  .pill-count { opacity: .7; }
+
+  /* ── Body ── */
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 24px 32px 80px; }
+
+  /* ── Type groups ── */
+  .group { margin-bottom: 34px; }
+  .group-head {
+    display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px;
+    padding-bottom: 9px; border-bottom: 1px solid var(--border);
+  }
+  .group-marker { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; align-self: center; }
+  .group-title {
+    font-family: 'Unica One', sans-serif; font-size: 16px; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--text);
+  }
+  .group-sub { font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: .04em; color: var(--dim); }
+  .group-count { font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--dim); margin-left: auto; white-space: nowrap; }
+
+  .t-risk       .group-marker { background: var(--red); }
+  .t-issue      .group-marker { background: var(--yellow); }
+  .t-assumption .group-marker { background: var(--blue); }
+  .t-dependency .group-marker { background: var(--purple); }
+  .t-other      .group-marker { background: var(--muted); }
+
+  /* ── RAID item cards ── */
+  .raid-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .raid-item {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    border-left: 3px solid var(--border2); padding: 13px 16px;
+    display: flex; flex-direction: column; gap: 9px;
+  }
+  .sev-high     { border-left-color: var(--red); }
+  .sev-medium   { border-left-color: var(--yellow); }
+  .sev-low      { border-left-color: var(--green); }
+
+  .raid-top { display: flex; align-items: baseline; gap: 10px; }
+  .raid-id {
+    font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: .04em;
+    color: var(--dim); white-space: nowrap; flex-shrink: 0; padding-top: 2px;
+  }
+  .raid-title { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.4; }
+  .raid-detail { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .raid-mit {
+    font-size: 12.5px; color: var(--muted); line-height: 1.6;
+    border-left: 2px solid var(--border); padding-left: 11px;
+  }
+  .raid-mit b { font-family: 'Roboto Mono', monospace; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); display: block; margin-bottom: 2px; font-weight: 500; }
+  .raid-meta { font-family: 'Roboto Mono', monospace; font-size: 9.5px; letter-spacing: .04em; color: var(--dim); line-height: 1.6; }
+  .raid-meta b { color: var(--muted); font-weight: 500; }
+  .raid-meta a { color: var(--blue); text-decoration: none; }
+  .raid-meta a:hover { color: var(--text); }
+
+  .raid-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .raid-owner { font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: .04em; color: var(--muted); }
+  .raid-owner b { color: var(--text); font-weight: 500; }
+  .raid-spacer { flex: 1; }
+
+  .chip {
+    font-family: 'Roboto Mono', monospace; font-size: 9px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: .06em; white-space: nowrap;
+    border-radius: 3px; padding: 2px 8px; border: 1px solid var(--border);
+    color: var(--muted); background: var(--surface2);
+  }
+  .chip-sev { display: inline-flex; align-items: center; gap: 5px; }
+  .chip-sev .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .chip-sev.sev-high   { color: var(--red);    border-color: var(--red-dim);    background: var(--red-dim); }
+  .chip-sev.sev-high   .dot { background: var(--red); }
+  .chip-sev.sev-medium { color: var(--yellow); border-color: var(--yellow-dim); background: var(--yellow-dim); }
+  .chip-sev.sev-medium .dot { background: var(--yellow); }
+  .chip-sev.sev-low    { color: var(--green);  border-color: var(--green-dim);  background: var(--green-dim); }
+  .chip-sev.sev-low    .dot { background: var(--green); }
+
+  .chip-status.s-open        { color: var(--text); }
+  .chip-status.s-in-progress { color: var(--blue);  border-color: var(--blue-dim);  background: var(--blue-dim); }
+  .chip-status.s-validated,
+  .chip-status.s-resolved,
+  .chip-status.s-closed      { color: var(--green); border-color: var(--green-dim); background: var(--green-dim); }
+
+  /* ── States ── */
+  .statebox, .errorbox {
+    border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
+    padding: 44px 28px; text-align: center; color: var(--muted); font-size: 13px;
+  }
+  .st-title { font-family: 'Unica One', sans-serif; font-size: 18px; letter-spacing: .1em; text-transform: uppercase; color: var(--text); margin-bottom: 6px; }
+  .errorbox { border-color: var(--red); }
+  .errorbox .st-title { color: var(--red); }
+  .statebox code, .errorbox code { font-family: 'Roboto Mono', monospace; font-size: 12px; color: var(--muted); background: var(--surface2); border: 1px solid var(--border); border-radius: 3px; padding: 2px 6px; }
+  .spinner { display: inline-block; width: 22px; height: 22px; border: 2px solid var(--border); border-top-color: var(--red); border-radius: 50%; animation: spin .7s linear infinite; margin-bottom: 16px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Footer (verbatim from Command Center home) ── */
+  .footer {
+    border-top: 1px solid var(--border); padding: 20px 32px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .footer-left { display: flex; align-items: center; gap: 16px; }
+  .footer-text { font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--dim); }
+  .footer-links { display: flex; gap: 16px; }
+  .footer-link { font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--dim); text-decoration: none; }
+  .footer-link:hover { color: var(--muted); }
+
+  @media (max-width: 560px) {
+    .topbar, .page-head, .tabbar, .filterbar, .wrap, .footer { padding-left: 18px; padding-right: 18px; }
+    .page-title { font-size: 32px; }
+    .group-count { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<header class="topbar">
+  <div class="brand">
+    <!-- CONFLICT logo → home -->
+    <a href="/" class="brand-logo" aria-label="Home">
+    <svg width="90" height="24" viewBox="0 0 141 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.76011 3.9038C5.92786 3.74184 4.10895 4.35124 2.69056 5.6021C2.11733 6.19678 1.66843 6.91459 1.37363 7.70833C1.07884 8.50207 0.944757 9.35363 0.980235 10.2068V25.8829C0.944276 26.744 1.08103 27.6033 1.38128 28.4032C1.68152 29.203 2.13834 29.9249 2.72104 30.5204C4.16802 31.7349 5.9866 32.3289 7.82125 32.186C9.65242 32.3376 11.4679 31.7295 12.8909 30.4878C13.4641 29.8931 13.9129 29.1752 14.2077 28.3814C14.5025 27.5877 14.6366 26.7361 14.6011 25.8829V22.911H10.5088V25.8829C10.5269 26.1963 10.4816 26.5101 10.3763 26.8031C10.2709 27.0962 10.1077 27.3615 9.89795 27.5811C9.29929 28.0511 8.56102 28.2717 7.82125 28.2016C7.06115 28.2882 6.29829 28.0668 5.68342 27.5811C5.47026 27.3642 5.30488 27.0992 5.19924 26.8055C5.0936 26.5118 5.05041 26.1967 5.07267 25.8829V10.2068C5.05065 9.89591 5.09096 9.58361 5.19104 9.29072C5.29111 8.99783 5.44865 8.73115 5.65294 8.50864C6.25972 8.0309 7.01016 7.80989 7.76011 7.88813C8.52022 7.80157 9.28308 8.023 9.89795 8.50864C10.1077 8.72828 10.2709 8.99361 10.3763 9.28663C10.4816 9.57966 10.5269 9.89349 10.5088 10.2068V14.7464H14.6011V10.2068C14.6348 9.34798 14.4939 8.49156 14.1881 7.69657C13.8823 6.90158 13.4188 6.18702 12.8298 5.6021C11.4067 4.3604 9.59128 3.7522 7.76011 3.9038Z" fill="white"/>
+      <path d="M55.2655 21.0496L48.4551 4.52451H44.7598V31.631H48.8521V15.0732L55.632 31.631H59.3579V4.52451H55.2655V21.0496Z" fill="white"/>
+      <path d="M64.1953 31.631H68.2877V19.8739H74.3346V15.8896H68.2877V8.47617H75.8005V4.52451H64.1953V31.631Z" fill="white"/>
+      <path d="M84.731 4.52451H80.6387V31.631H91.4498V27.6466H84.731V4.52451Z" fill="white"/>
+      <path d="M96.2871 8.47617H98.1195V27.6466H96.2871V31.631H104.044V27.6466H102.212V8.47617H104.044V4.52451H96.2871V8.47617Z" fill="white"/>
+      <path d="M115.64 3.90374C113.817 3.74697 112.01 4.35626 110.601 5.60204C110.022 6.19287 109.57 6.91008 109.275 7.70478C108.98 8.49948 108.849 9.35285 108.89 10.2068V25.8829C108.854 26.7439 108.991 27.6032 109.291 28.4031C109.592 29.203 110.048 29.9248 110.631 30.5203C112.075 31.7406 113.896 32.3352 115.731 32.1859C117.562 32.3375 119.378 31.7294 120.801 30.4877C121.374 29.893 121.823 29.1751 122.118 28.3814C122.412 27.5876 122.547 26.7361 122.511 25.8829V22.9109H118.419V25.8829C118.437 26.1962 118.392 26.51 118.286 26.8031C118.181 27.0961 118.018 27.3614 117.808 27.5811C117.209 28.051 116.471 28.2716 115.731 28.2016C114.971 28.2881 114.208 28.0667 113.593 27.5811C113.38 27.3641 113.215 27.0992 113.109 26.8055C113.004 26.5118 112.96 26.1966 112.983 25.8829V10.2068C112.961 9.89584 113.001 9.58355 113.101 9.29066C113.201 8.99777 113.359 8.73109 113.563 8.50858C114.162 8.0386 114.9 7.818 115.64 7.88806C116.41 7.79306 117.185 8.01491 117.808 8.50858C118.018 8.72822 118.181 8.99354 118.286 9.28657C118.392 9.5796 118.437 9.89342 118.419 10.2068V14.7463H122.511V10.2068C122.545 9.34791 122.404 8.4915 122.098 7.69651C121.792 6.90152 121.329 6.18696 120.74 5.60204C119.307 4.35529 117.481 3.74697 115.64 3.90374Z" fill="white"/>
+      <path d="M127.354 4.52451V8.47617H132.118V31.631H136.21V8.47617H140.974V4.52451H127.354Z" fill="white"/>
+      <path d="M19.3984 36.1741H26.9709V32.4944H22.9871V3.85375H27.0368V0.174088H19.3984V36.1741Z" fill="#DB394C"/>
+      <path d="M32.2717 0.174088V3.85375H36.2884V32.4944H32.2388V36.1741H39.8771V0.174088H32.2717Z" fill="#DB394C"/>
+      <path d="M31.4486 10.5303H27.827V25.5524H31.4486V10.5303Z" fill="#DB394C"/>
+    </svg>
+    </a>
+    <span class="brand-divider">×</span>
+    <span class="brand-name" id="brand-name">DAS CDP</span>
+  </div>
+  <nav class="topnav">
+    <a href="/analysis/">Sessions</a>
+    <a href="/knowledge/">Intelligence</a>
+    <a href="/tracker/">Status</a>
+    <a href="/reference/">Reference</a>
+    <a href="/deliverables/">Deliverables</a>
+    <a href="/docs/">Docs</a>
+  </nav>
+  <span class="phase-pill">PHASE 0</span>
+</header>
+
+<!-- Breadcrumb -->
+<nav class="crumb" aria-label="Breadcrumb"><a href="/">← Command Center</a></nav>
+
+<!-- Page head -->
+<section class="page-head">
+  <div class="page-eyebrow">
+    <span id="page-eyebrow-text">RAID Log</span>
+    <span class="page-eyebrow-line"></span>
+  </div>
+  <h1 class="page-title">RAID Log</h1>
+  <p class="page-subtitle" id="page-subtitle">Loading the engagement risk log…</p>
+  <div class="page-meta">
+    <span id="item-count">—</span> entries
+    <span id="meta-updated"></span>
+    <span id="meta-github"></span>
+  </div>
+</section>
+
+<!-- Type tabs -->
+<nav class="tabbar" id="tabbar" role="tablist" aria-label="Filter RAID entries by type"></nav>
+
+<!-- Status filter -->
+<nav class="filterbar" id="filterbar" aria-label="Filter RAID entries by status"></nav>
+
+<!-- Body -->
+<div class="wrap">
+  <div id="results">
+    <div class="statebox">
+      <div class="spinner"></div>
+      <div class="st-title">Loading</div>
+      <div>Fetching RAID log…</div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-left">
+    <svg width="64" height="17" viewBox="0 0 141 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.76011 3.9038C5.92786 3.74184 4.10895 4.35124 2.69056 5.6021C2.11733 6.19678 1.66843 6.91459 1.37363 7.70833C1.07884 8.50207 0.944757 9.35363 0.980235 10.2068V25.8829C0.944276 26.744 1.08103 27.6033 1.38128 28.4032C1.68152 29.203 2.13834 29.9249 2.72104 30.5204C4.16802 31.7349 5.9866 32.3289 7.82125 32.186C9.65242 32.3376 11.4679 31.7295 12.8909 30.4878C13.4641 29.8931 13.9129 29.1752 14.2077 28.3814C14.5025 27.5877 14.6366 26.7361 14.6011 25.8829V22.911H10.5088V25.8829C10.5269 26.1963 10.4816 26.5101 10.3763 26.8031C10.2709 27.0962 10.1077 27.3615 9.89795 27.5811C9.29929 28.0511 8.56102 28.2717 7.82125 28.2016C7.06115 28.2882 6.29829 28.0668 5.68342 27.5811C5.47026 27.3642 5.30488 27.0992 5.19924 26.8055C5.0936 26.5118 5.05041 26.1967 5.07267 25.8829V10.2068C5.05065 9.89591 5.09096 9.58361 5.19104 9.29072C5.29111 8.99783 5.44865 8.73115 5.65294 8.50864C6.25972 8.0309 7.01016 7.80989 7.76011 7.88813C8.52022 7.80157 9.28308 8.023 9.89795 8.50864C10.1077 8.72828 10.2709 8.99361 10.3763 9.28663C10.4816 9.57966 10.5269 9.89349 10.5088 10.2068V14.7464H14.6011V10.2068C14.6348 9.34798 14.4939 8.49156 14.1881 7.69657C13.8823 6.90158 13.4188 6.18702 12.8298 5.6021C11.4067 4.3604 9.59128 3.7522 7.76011 3.9038Z" fill="white" opacity=".4"/>
+      <path d="M55.2655 21.0496L48.4551 4.52451H44.7598V31.631H48.8521V15.0732L55.632 31.631H59.3579V4.52451H55.2655V21.0496Z" fill="white" opacity=".4"/>
+      <path d="M64.1953 31.631H68.2877V19.8739H74.3346V15.8896H68.2877V8.47617H75.8005V4.52451H64.1953V31.631Z" fill="white" opacity=".4"/>
+      <path d="M84.731 4.52451H80.6387V31.631H91.4498V27.6466H84.731V4.52451Z" fill="white" opacity=".4"/>
+      <path d="M96.2871 8.47617H98.1195V27.6466H96.2871V31.631H104.044V27.6466H102.212V8.47617H104.044V4.52451H96.2871V8.47617Z" fill="white" opacity=".4"/>
+      <path d="M115.64 3.90374C113.817 3.74697 112.01 4.35626 110.601 5.60204C110.022 6.19287 109.57 6.91008 109.275 7.70478C108.98 8.49948 108.849 9.35285 108.89 10.2068V25.8829C108.854 26.7439 108.991 27.6032 109.291 28.4031C109.592 29.203 110.048 29.9248 110.631 30.5203C112.075 31.7406 113.896 32.3352 115.731 32.1859C117.562 32.3375 119.378 31.7294 120.801 30.4877C121.374 29.893 121.823 29.1751 122.118 28.3814C122.412 27.5876 122.547 26.7361 122.511 25.8829V22.9109H118.419V25.8829C118.437 26.1962 118.392 26.51 118.286 26.8031C118.181 27.0961 118.018 27.3614 117.808 27.5811C117.209 28.051 116.471 28.2716 115.731 28.2016C114.971 28.2881 114.208 28.0667 113.593 27.5811C113.38 27.3641 113.215 27.0992 113.109 26.8055C113.004 26.5118 112.96 26.1966 112.983 25.8829V10.2068C112.961 9.89584 113.001 9.58355 113.101 9.29066C113.201 8.99777 113.359 8.73109 113.563 8.50858C114.162 8.0386 114.9 7.818 115.64 7.88806C116.41 7.79306 117.185 8.01491 117.808 8.50858C118.018 8.72822 118.181 8.99354 118.286 9.28657C118.392 9.5796 118.437 9.89342 118.419 10.2068V14.7463H122.511V10.2068C122.545 9.34791 122.404 8.4915 122.098 7.69651C121.792 6.90152 121.329 6.18696 120.74 5.60204C119.307 4.35529 117.481 3.74697 115.64 3.90374Z" fill="white" opacity=".4"/>
+      <path d="M127.354 4.52451V8.47617H132.118V31.631H136.21V8.47617H140.974V4.52451H127.354Z" fill="white" opacity=".4"/>
+      <path d="M19.3984 36.1741H26.9709V32.4944H22.9871V3.85375H27.0368V0.174088H19.3984V36.1741Z" fill="#DB394C" opacity=".4"/>
+      <path d="M32.2717 0.174088V3.85375H36.2884V32.4944H32.2388V36.1741H39.8771V0.174088H32.2717Z" fill="#DB394C" opacity=".4"/>
+      <path d="M31.4486 10.5303H27.827V25.5524H31.4486V10.5303Z" fill="#DB394C" opacity=".4"/>
+    </svg>
+    <span class="footer-text" id="footer-text">DAS CDP · RAID Log · Phase 0 · CONFLICT</span>
+  </div>
+  <div class="footer-links">
+    <a class="footer-link" href="/tracker/">Project Status</a>
+    <a class="footer-link" href="/analysis/artifacts/open-questions/">Open Questions</a>
+    <a class="footer-link" href="/docs/">Documentation</a>
+  </div>
+</footer>
+
+<script>
+function esc(s){ return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+// ── Optional re-brand: fetch /client.config.json if present. Eagle ships its
+//    own inline chrome, so this is a no-op enhancement that fails gracefully. ──
+async function loadConfig() {
+  let cfg;
+  try {
+    cfg = await fetch('/client.config.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null);
+  } catch (e) { return; }
+  if (!cfg) return;
+
+  const b = cfg.branding || {};
+  const colors = b.colors || {};
+  const root = document.documentElement.style;
+  const setVar = (name, val) => { if (val) root.setProperty(name, val); };
+  setVar('--red',     colors.primary);
+  setVar('--blue',    colors.link);
+  setVar('--green',   colors.accent);
+  setVar('--bg',      colors.bg);
+  setVar('--surface', colors.surface);
+  setVar('--border',  colors.border);
+  setVar('--text',    colors.text);
+  setVar('--muted',   colors.textMuted);
+  setVar('--dim',     colors.textFaint);
+
+  const client = cfg.client || {};
+  const name = client.name || client.shortName || '';
+  const short = client.shortName || client.name || '';
+  if (name) document.title = name + ' — RAID Log';
+  const set = (id, val) => { const el = document.getElementById(id); if (el && val) el.textContent = val; };
+  set('brand-name', short);
+  set('page-eyebrow-text', name ? name + ' RAID Log' : null);
+  set('footer-text', short ? short + ' · RAID Log · Phase 0 · CONFLICT' : null);
+
+  // Build nav from cfg.pages when provided; otherwise keep Eagle's inline nav.
+  const pages = Array.isArray(cfg.pages) ? cfg.pages.filter(p => p && p.path && p.label) : [];
+  if (pages.length) {
+    const navEl = document.querySelector('.topnav');
+    if (navEl) navEl.innerHTML = pages.map(p =>
+      '<a href="' + esc(p.path) + '">' + esc(p.label) + '</a>').join('');
+  }
+}
+
+// ── RAID log (reads /app/raid.json) ──────────────────────────────────────────
+const ALL = '__all__';
+
+const TYPE_ORDER = ['risk', 'assumption', 'issue', 'dependency', 'other'];
+const TYPE_META = {
+  risk:       { plural: 'Risks',        desc: 'Things that could go wrong' },
+  assumption: { plural: 'Assumptions',  desc: 'Taken as true, to validate' },
+  issue:      { plural: 'Issues',       desc: 'Active problems to resolve' },
+  dependency: { plural: 'Dependencies', desc: 'External inputs relied on' },
+  other:      { plural: 'Other',        desc: '' }
+};
+const TYPE_LABEL = { risk: 'Risks', assumption: 'Assumptions', issue: 'Issues', dependency: 'Dependencies', other: 'Other' };
+
+const SEV_RANK = { high: 0, medium: 1, low: 2, '': 3 };
+
+const state = { items: [], type: ALL, status: ALL };
+
+function normType(t) {
+  const v = String(t == null ? '' : t).trim().toLowerCase();
+  return TYPE_META[v] ? v : 'other';
+}
+function normSev(s) {
+  const v = String(s == null ? '' : s).trim().toLowerCase();
+  return (v === 'high' || v === 'medium' || v === 'low') ? v : '';
+}
+function statusSlug(s) {
+  return String(s == null ? '' : s).trim().toLowerCase().replace(/[\s_]+/g, '-');
+}
+function ownerLabel(owner) {
+  const o = (owner == null ? '' : String(owner)).trim();
+  if (!o || /^(n\/a|na|none|unspecified|unknown|tbd)$/i.test(o)) return '';
+  return o;
+}
+
+function passStatus(it) { return state.status === ALL || statusSlug(it.status) === state.status; }
+function passType(it)   { return state.type === ALL || normType(it.type) === state.type; }
+function visible(it)    { return passType(it) && passStatus(it); }
+
+function renderTypeTabs() {
+  const bar = document.getElementById('tabbar');
+  const present = TYPE_ORDER.filter(t => state.items.some(it => normType(it.type) === t));
+  const tabs = [{ id: ALL, label: 'All' }].concat(present.map(t => ({ id: t, label: TYPE_LABEL[t] })));
+  bar.innerHTML = tabs.map(t => {
+    const active = t.id === state.type;
+    const count = state.items.filter(it => (t.id === ALL || normType(it.type) === t.id) && passStatus(it)).length;
+    return '<button class="tab' + (active ? ' active' : '') + '" type="button" role="tab"' +
+      ' aria-selected="' + (active ? 'true' : 'false') + '" data-type="' + esc(t.id) + '">' +
+      esc(t.label) + ' <span class="tab-count">(' + count + ')</span></button>';
+  }).join('');
+}
+
+function renderStatusFilter() {
+  const bar = document.getElementById('filterbar');
+  const seen = [];
+  state.items.forEach(it => {
+    const slug = statusSlug(it.status);
+    if (slug && !seen.some(s => s.slug === slug)) seen.push({ slug, label: String(it.status).trim() });
+  });
+  if (!seen.length) { bar.innerHTML = ''; return; }
+  const pills = [{ slug: ALL, label: 'All statuses' }].concat(seen);
+  bar.innerHTML = '<span class="filterbar-label">Status</span>' + pills.map(p => {
+    const active = p.slug === state.status;
+    const count = state.items.filter(it => (p.slug === ALL || statusSlug(it.status) === p.slug) && passType(it)).length;
+    return '<button class="pill' + (active ? ' active' : '') + '" type="button"' +
+      ' aria-pressed="' + (active ? 'true' : 'false') + '" data-status="' + esc(p.slug) + '">' +
+      esc(p.label) + ' <span class="pill-count">' + count + '</span></button>';
+  }).join('');
+}
+
+function sevChip(sev) {
+  if (!sev) return '';
+  return '<span class="chip chip-sev sev-' + sev + '"><span class="dot"></span>' + esc(sev) + '</span>';
+}
+function statusChip(status) {
+  const raw = String(status == null ? '' : status).trim();
+  if (!raw) return '';
+  return '<span class="chip chip-status s-' + esc(statusSlug(raw)) + '">' + esc(raw) + '</span>';
+}
+
+function itemHTML(item) {
+  const sev = normSev(item.severity);
+  const owner = ownerLabel(item.owner);
+  const mit = (item.mitigation == null ? '' : String(item.mitigation)).trim();
+  const id = (item.id == null ? '' : String(item.id)).trim();
+  const src = (item.source == null ? '' : String(item.source)).trim();
+  const ghRef = (item.github_ref == null ? '' : String(item.github_ref)).trim();
+  const metaBits = [];
+  if (src) metaBits.push('<b>Source</b> ' + esc(src));
+  if (ghRef) metaBits.push('<b>GitHub</b> ' + esc(ghRef));
+  return '<li class="raid-item' + (sev ? ' sev-' + sev : '') + '">' +
+    '<div class="raid-top">' +
+      (id ? '<span class="raid-id">' + esc(id) + '</span>' : '') +
+      '<span class="raid-title">' + esc(item.title || 'Untitled') + '</span>' +
+    '</div>' +
+    (item.detail ? '<div class="raid-detail">' + esc(item.detail) + '</div>' : '') +
+    (mit ? '<div class="raid-mit"><b>Mitigation</b>' + esc(mit) + '</div>' : '') +
+    '<div class="raid-foot">' +
+      (owner ? '<span class="raid-owner">Owner: <b>' + esc(owner) + '</b></span>' : '') +
+      '<span class="raid-spacer"></span>' +
+      sevChip(sev) +
+      statusChip(item.status) +
+    '</div>' +
+    (metaBits.length ? '<div class="raid-meta">' + metaBits.join(' &nbsp;·&nbsp; ') + '</div>' : '') +
+  '</li>';
+}
+
+function groupHead(type, count) {
+  const m = TYPE_META[type];
+  return '<div class="group-head">' +
+    '<span class="group-marker"></span>' +
+    '<span class="group-title">' + esc(m.plural) + '</span>' +
+    (m.desc ? '<span class="group-sub">' + esc(m.desc) + '</span>' : '') +
+    '<span class="group-count">' + count + (count === 1 ? ' entry' : ' entries') + '</span>' +
+  '</div>';
+}
+
+function render() {
+  const resultsEl = document.getElementById('results');
+  renderTypeTabs();
+  renderStatusFilter();
+
+  const vis = state.items.filter(visible);
+  if (!vis.length) {
+    resultsEl.innerHTML = '<div class="statebox">' +
+      '<div class="st-title">No entries</div>' +
+      '<div>No RAID entries match the current filters.</div>' +
+    '</div>';
+    return;
+  }
+
+  let html = '';
+  TYPE_ORDER.forEach(type => {
+    const inType = vis
+      .map((it, i) => ({ it, i }))
+      .filter(x => normType(x.it.type) === type)
+      .sort((a, b) => {
+        const d = (SEV_RANK[normSev(a.it.severity)] ?? 3) - (SEV_RANK[normSev(b.it.severity)] ?? 3);
+        return d !== 0 ? d : a.i - b.i;
+      });
+    if (!inType.length) return;
+    html += '<section class="group t-' + type + '">' +
+      groupHead(type, inType.length) +
+      '<ul class="raid-list">' + inType.map(x => itemHTML(x.it)).join('') + '</ul>' +
+    '</section>';
+  });
+  resultsEl.innerHTML = html;
+}
+
+document.getElementById('tabbar').addEventListener('click', e => {
+  const btn = e.target.closest('.tab');
+  if (!btn) return;
+  const t = btn.getAttribute('data-type');
+  if (t === state.type) return;
+  state.type = t;
+  render();
+});
+
+document.getElementById('filterbar').addEventListener('click', e => {
+  const btn = e.target.closest('.pill');
+  if (!btn) return;
+  const s = btn.getAttribute('data-status');
+  if (s === state.status) return;
+  state.status = s;
+  render();
+});
+
+async function loadItems() {
+  const resultsEl = document.getElementById('results');
+  let data;
+  try {
+    const r = await fetch('/app/raid.json', { cache: 'no-cache' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    data = await r.json();
+  } catch (err) {
+    resultsEl.innerHTML = '<div class="errorbox">' +
+      '<div class="st-title">Failed to load</div>' +
+      'Could not fetch <code>/app/raid.json</code> (' + esc(err.message) + ').' +
+    '</div>';
+    document.getElementById('item-count').textContent = '0';
+    document.getElementById('page-subtitle').textContent =
+      'The engagement risk log — Risks, Assumptions, Issues, and Dependencies.';
+    return;
+  }
+
+  const items = Array.isArray(data.items) ? data.items : [];
+  document.getElementById('item-count').textContent = items.length;
+  document.getElementById('page-subtitle').textContent = data.scope ||
+    'The engagement risk log — Risks, Assumptions, Issues, and Dependencies. Filter by type and status; severity is cued on each item’s left edge.';
+
+  if (data.updated) {
+    document.getElementById('meta-updated').innerHTML =
+      ' · Updated <span>' + esc(data.updated) + '</span>' +
+      (data.version != null ? ' · v' + esc(data.version) : '');
+  }
+  if (data.github) {
+    document.getElementById('meta-github').innerHTML =
+      ' · <a href="' + esc(data.github) + '" target="_blank" rel="noopener">GitHub</a>';
+  }
+
+  if (!items.length) {
+    resultsEl.innerHTML = '<div class="statebox">' +
+      '<div class="st-title">No RAID entries yet</div>' +
+      'Risks, assumptions, issues, and dependencies for this engagement will appear here.' +
+    '</div>';
+    document.getElementById('tabbar').innerHTML = '';
+    document.getElementById('filterbar').innerHTML = '';
+    return;
+  }
+
+  state.items = items;
+  state.type = ALL;
+  state.status = ALL;
+  render();
+}
+
+loadConfig();
+loadItems();
+</script>
+</body>
+</html>

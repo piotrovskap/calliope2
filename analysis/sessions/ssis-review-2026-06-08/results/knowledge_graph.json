@@ -1,0 +1,4298 @@
+{
+  "nodes": [
+    {
+      "name": "Rick",
+      "type": "person",
+      "descriptions": [
+        "Person who conducted a walkthrough meeting",
+        "Engineering manager at DAS"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_0",
+          "timestamp": 0.0,
+          "text": " Thank you.  Maybe we can do some introductions.  All right, I'll start since my list is kind of sho..."
+        },
+        {
+          "source": "transcript_batch_390",
+          "timestamp": 1878.0799926757813,
+          "text": " if there's anything new that pops up or whatever, um, please feel free to, to, to reach out. And,  ..."
+        }
+      ]
+    },
+    {
+      "name": "DAS",
+      "type": "technology",
+      "descriptions": [
+        "Organization where Rick works as engineering manager",
+        "A system or tool being used at conflict.com"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_0",
+          "timestamp": 0.0,
+          "text": " Thank you.  Maybe we can do some introductions.  All right, I'll start since my list is kind of sho..."
+        },
+        {
+          "source": "transcript_batch_370",
+          "timestamp": 1749.919989013672,
+          "text": " It could be a new column that's breaking it or, or overflowing a data field.  Any problem, possible..."
+        }
+      ]
+    },
+    {
+      "name": "Dan Aston",
+      "type": "person",
+      "descriptions": [
+        "Person who works with Rick at DAS"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_0",
+          "timestamp": 0.0,
+          "text": " Thank you.  Maybe we can do some introductions.  All right, I'll start since my list is kind of sho..."
+        }
+      ]
+    },
+    {
+      "name": "Leo",
+      "type": "person",
+      "descriptions": [
+        "Manager of a group"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_0",
+          "timestamp": 0.0,
+          "text": " Thank you.  Maybe we can do some introductions.  All right, I'll start since my list is kind of sho..."
+        }
+      ]
+    },
+    {
+      "name": "Alicia",
+      "type": "person",
+      "descriptions": [
+        "Team member working on data-related tasks"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_10",
+          "timestamp": 39.880001068115234,
+          "text": " And we do computery things on the internet at a high level, you know, build things, AI,  cloud, all..."
+        }
+      ]
+    },
+    {
+      "name": "Luis",
+      "type": "person",
+      "descriptions": [
+        "Computer engineer on the team"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_10",
+          "timestamp": 39.880001068115234,
+          "text": " And we do computery things on the internet at a high level, you know, build things, AI,  cloud, all..."
+        }
+      ]
+    },
+    {
+      "name": "Hiram",
+      "type": "person",
+      "descriptions": [
+        "Team member"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_10",
+          "timestamp": 39.880001068115234,
+          "text": " And we do computery things on the internet at a high level, you know, build things, AI,  cloud, all..."
+        }
+      ]
+    },
+    {
+      "name": "AI",
+      "type": "technology",
+      "descriptions": [
+        "Tool used to determine job descriptions",
+        "Artificial Intelligence technology used by the team"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_10",
+          "timestamp": 39.880001068115234,
+          "text": " And we do computery things on the internet at a high level, you know, build things, AI,  cloud, all..."
+        },
+        {
+          "source": "transcript_batch_70",
+          "timestamp": 295.79998779296875,
+          "text": " So should hopefully give you somewhat of a high level of what we're dealing with here.  Job descrip..."
+        }
+      ]
+    },
+    {
+      "name": "Cloud",
+      "type": "technology",
+      "descriptions": [
+        "Cloud computing infrastructure where the application runs",
+        "Cloud infrastructure where dashboard execution monitoring is not yet deployed",
+        "Cloud computing technology used by the team"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_10",
+          "timestamp": 39.880001068115234,
+          "text": " And we do computery things on the internet at a high level, you know, build things, AI,  cloud, all..."
+        },
+        {
+          "source": "transcript_batch_230",
+          "timestamp": 1018.1599914550782,
+          "text": " the performance is in SQL Server,  the way they do the locking, yeah, of course, no wonders.  They'..."
+        },
+        {
+          "source": "transcript_batch_310",
+          "timestamp": 1319.6799997329713,
+          "text": " They create their own reports out of these tables? Our product managers do. So they generally make ..."
+        }
+      ]
+    },
+    {
+      "name": "Internet",
+      "type": "concept",
+      "descriptions": [
+        "Platform where the team performs computational work"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_10",
+          "timestamp": 39.880001068115234,
+          "text": " And we do computery things on the internet at a high level, you know, build things, AI,  cloud, all..."
+        }
+      ]
+    },
+    {
+      "name": "Software Engineer",
+      "type": "concept",
+      "descriptions": [
+        "Professional role mentioned by multiple speakers"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_20",
+          "timestamp": 78.80000305175781,
+          "text": " I'm one of the software engineers and avid fishkeeper.  So it's really nice to meet you.  Hey, fina..."
+        }
+      ]
+    },
+    {
+      "name": "Julio",
+      "type": "person",
+      "descriptions": [
+        "Software engineer who is introduced in the conversation"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_20",
+          "timestamp": 78.80000305175781,
+          "text": " I'm one of the software engineers and avid fishkeeper.  So it's really nice to meet you.  Hey, fina..."
+        }
+      ]
+    },
+    {
+      "name": "Fishkeeper",
+      "type": "concept",
+      "descriptions": [
+        "Hobby or profession involving keeping fish"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_20",
+          "timestamp": 78.80000305175781,
+          "text": " I'm one of the software engineers and avid fishkeeper.  So it's really nice to meet you.  Hey, fina..."
+        }
+      ]
+    },
+    {
+      "name": "SSIS jobs",
+      "type": "technology",
+      "descriptions": [
+        "Automated tasks or processes in SQL Server Integration Services",
+        "SQL Server Integration Services jobs that pick up data from database and move it to permanent destination",
+        "Automated tasks or processes running within SSIS that perform data operations",
+        "SQL Server Integration Services jobs that run data ingestion processes",
+        "SQL Server Integration Services jobs that are tightly coupled and run at different intervals"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_30",
+          "timestamp": 109.80000305175781,
+          "text": " Possibly an overview, lay of the land with me.  All right.  I will share what I've got here.  All r..."
+        },
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 249.8000030517578,
+          "text": " I basically was kind of tired of not knowing what the SSIS jobs were doing,  so, you know, that has..."
+        },
+        {
+          "source": "transcript_batch_90",
+          "timestamp": 403.79998779296875,
+          "text": " Sometimes it's on our end.  Sometimes it's actually our customers' SFTP for their personal dealersh..."
+        },
+        {
+          "source": "transcript_batch_150",
+          "timestamp": 678.3599998474122,
+          "text": " because I'm no SQL person.  I haven't had a lot of experience using SSIS jobs in the past.  So I do..."
+        },
+        {
+          "source": "transcript_batch_180",
+          "timestamp": 803.8999969482422,
+          "text": " But I don't believe the SSIS jobs trigger the API calls.  The API calls dumps it in the database,  ..."
+        }
+      ]
+    },
+    {
+      "name": "tables",
+      "type": "concept",
+      "descriptions": [
+        "Database tables that have been optimized",
+        "Data structures that store information in the system",
+        "Database tables that are truncated and rebuilt from scratch",
+        "Database tables that are dropped, truncated, and rebuilt by SSIS jobs"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_30",
+          "timestamp": 109.80000305175781,
+          "text": " Possibly an overview, lay of the land with me.  All right.  I will share what I've got here.  All r..."
+        },
+        {
+          "source": "transcript_batch_100",
+          "timestamp": 451.79998779296875,
+          "text": " and moves it along the chain into the different tables and databases throughout the process.  Somet..."
+        },
+        {
+          "source": "transcript_batch_160",
+          "timestamp": 718.3599998474122,
+          "text": " but I believe the one where the SSIS job is running is in the terabytes size.  But each database is..."
+        },
+        {
+          "source": "transcript_batch_340",
+          "timestamp": 1550.7999938964845,
+          "text": " related. We also break those reports all the time, but those are kind of not related to this proble..."
+        }
+      ]
+    },
+    {
+      "name": "fragility",
+      "type": "concept",
+      "descriptions": [
+        "System vulnerability issue caused by dropping and rebuilding tables from scratch"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_30",
+          "timestamp": 109.80000305175781,
+          "text": " Possibly an overview, lay of the land with me.  All right.  I will share what I've got here.  All r..."
+        }
+      ]
+    },
+    {
+      "name": "data loss",
+      "type": "concept",
+      "descriptions": [
+        "Risk of missing tables when SSIS jobs crash during execution"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_30",
+          "timestamp": 109.80000305175781,
+          "text": " Possibly an overview, lay of the land with me.  All right.  I will share what I've got here.  All r..."
+        }
+      ]
+    },
+    {
+      "name": "Jobs",
+      "type": "technology",
+      "descriptions": [
+        "A set of predetermined tasks that take a specific amount of time to run",
+        "Automated processes that trigger stored procedures"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_40",
+          "timestamp": 157.8000030517578,
+          "text": " But you can kind of see here, this is the high-level list of the jobs that we have.  Hopefully, you..."
+        },
+        {
+          "source": "transcript_batch_310",
+          "timestamp": 1319.6799997329713,
+          "text": " They create their own reports out of these tables? Our product managers do. So they generally make ..."
+        }
+      ]
+    },
+    {
+      "name": "Job Dependencies",
+      "type": "concept",
+      "descriptions": [
+        "Relationships where one job depends on the completion of a previous job"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_40",
+          "timestamp": 157.8000030517578,
+          "text": " But you can kind of see here, this is the high-level list of the jobs that we have.  Hopefully, you..."
+        }
+      ]
+    },
+    {
+      "name": "Job Status",
+      "type": "concept",
+      "descriptions": [
+        "Current state and history of job execution"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_40",
+          "timestamp": 157.8000030517578,
+          "text": " But you can kind of see here, this is the high-level list of the jobs that we have.  Hopefully, you..."
+        }
+      ]
+    },
+    {
+      "name": "Running Job",
+      "type": "concept",
+      "descriptions": [
+        "A job currently in execution"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_40",
+          "timestamp": 157.8000030517578,
+          "text": " But you can kind of see here, this is the high-level list of the jobs that we have.  Hopefully, you..."
+        }
+      ]
+    },
+    {
+      "name": "Staggering",
+      "type": "concept",
+      "descriptions": [
+        "The practice of spacing out job execution times"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_40",
+          "timestamp": 157.8000030517578,
+          "text": " But you can kind of see here, this is the high-level list of the jobs that we have.  Hopefully, you..."
+        }
+      ]
+    },
+    {
+      "name": "Data Engineers",
+      "type": "person",
+      "descriptions": [
+        "Team members responsible for data management and database operations",
+        "Team of engineers responsible for maintaining and fixing data systems",
+        "Three professionals working on maintaining and managing the system"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_50",
+          "timestamp": 209.8000030517578,
+          "text": " and I actually came in this morning,  and you see that this one has already failed a couple times o..."
+        },
+        {
+          "source": "transcript_batch_220",
+          "timestamp": 959.3600036621094,
+          "text": " and then we're pulling in every one of their customers for all time.  It gets really, really unruly..."
+        },
+        {
+          "source": "transcript_batch_280",
+          "timestamp": 1219.8799926757813,
+          "text": " Perfect. Yeah.  So basically, some of these,  we just dump all the data in whatever columns that ou..."
+        }
+      ]
+    },
+    {
+      "name": "India",
+      "type": "organization",
+      "descriptions": [
+        "Location where data engineers are based",
+        "Location where engineers currently have the project"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_50",
+          "timestamp": 209.8000030517578,
+          "text": " and I actually came in this morning,  and you see that this one has already failed a couple times o..."
+        },
+        {
+          "source": "transcript_batch_350",
+          "timestamp": 1623.5199951171876,
+          "text": " concept is not really been scoped out. It's gone through engineers in Ukraine,  engineers in Mexico..."
+        }
+      ]
+    },
+    {
+      "name": "System/Tool",
+      "type": "technology",
+      "descriptions": [
+        "A data system that frequently fails and requires constant maintenance"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_50",
+          "timestamp": 209.8000030517578,
+          "text": " and I actually came in this morning,  and you see that this one has already failed a couple times o..."
+        }
+      ]
+    },
+    {
+      "name": "Speaker",
+      "type": "person",
+      "descriptions": [
+        "The person who built the system about a week ago"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_50",
+          "timestamp": 209.8000030517578,
+          "text": " and I actually came in this morning,  and you see that this one has already failed a couple times o..."
+        }
+      ]
+    },
+    {
+      "name": "Error Message",
+      "type": "concept",
+      "descriptions": [
+        "Error encountered by the system over the weekend"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_50",
+          "timestamp": 209.8000030517578,
+          "text": " and I actually came in this morning,  and you see that this one has already failed a couple times o..."
+        }
+      ]
+    },
+    {
+      "name": "SSIS",
+      "type": "technology",
+      "descriptions": [
+        "SQL Server Integration Services - a data integration and workflow automation tool being monitored",
+        "SQL Server Integration Services ETL tool",
+        "SQL Server Integration Services jobs that perform data integration and ETL operations",
+        "SQL Server Integration Services - used for running jobs that process files and load data into database",
+        "SQL Server Integration Services - a data integration tool",
+        "SQL Server Integration Services repository"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 249.8000030517578,
+          "text": " I basically was kind of tired of not knowing what the SSIS jobs were doing,  so, you know, that has..."
+        },
+        {
+          "source": "transcript_batch_80",
+          "timestamp": 352.79998779296875,
+          "text": " Oh, go ahead.  Are these jobs committed to a repo or a code somewhere, or do they only live in SSIS..."
+        },
+        {
+          "source": "transcript_batch_110",
+          "timestamp": 503.79998779296875,
+          "text": " That was what their attempt was to modernize it.  So that runs on RDS.  But generally, this is wher..."
+        },
+        {
+          "source": "transcript_batch_150",
+          "timestamp": 678.3599998474122,
+          "text": " because I'm no SQL person.  I haven't had a lot of experience using SSIS jobs in the past.  So I do..."
+        },
+        {
+          "source": "transcript_batch_320",
+          "timestamp": 1395.5200027465821,
+          "text": " local host right now. We're still in process of getting this up into production. Maybe just  a scre..."
+        },
+        {
+          "source": "transcript_batch_330",
+          "timestamp": 1478.2399963378907,
+          "text": " And it's quite large, you know, all the different applications, but so I'm no expert by any means, ..."
+        }
+      ]
+    },
+    {
+      "name": "failure rates",
+      "type": "concept",
+      "descriptions": [
+        "Metric tracking how often SSIS jobs fail during execution"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 249.8000030517578,
+          "text": " I basically was kind of tired of not knowing what the SSIS jobs were doing,  so, you know, that has..."
+        }
+      ]
+    },
+    {
+      "name": "success rates",
+      "type": "concept",
+      "descriptions": [
+        "Metric tracking how often SSIS jobs complete successfully"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 249.8000030517578,
+          "text": " I basically was kind of tired of not knowing what the SSIS jobs were doing,  so, you know, that has..."
+        }
+      ]
+    },
+    {
+      "name": "engineers",
+      "type": "person",
+      "descriptions": [
+        "Technical team members with system knowledge",
+        "Team members who provide job description information",
+        "Technical staff who fix failing SSIS jobs"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 249.8000030517578,
+          "text": " I basically was kind of tired of not knowing what the SSIS jobs were doing,  so, you know, that has..."
+        },
+        {
+          "source": "transcript_batch_70",
+          "timestamp": 295.79998779296875,
+          "text": " So should hopefully give you somewhat of a high level of what we're dealing with here.  Job descrip..."
+        },
+        {
+          "source": "transcript_batch_320",
+          "timestamp": 1395.5200027465821,
+          "text": " local host right now. We're still in process of getting this up into production. Maybe just  a scre..."
+        }
+      ]
+    },
+    {
+      "name": "monitoring dashboard",
+      "type": "concept",
+      "descriptions": [
+        "Visual interface created to track SSIS job status and performance metrics"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_60",
+          "timestamp": 249.8000030517578,
+          "text": " I basically was kind of tired of not knowing what the SSIS jobs were doing,  so, you know, that has..."
+        }
+      ]
+    },
+    {
+      "name": "CDXP",
+      "type": "technology",
+      "descriptions": [
+        "A product that builds reports for customers"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_70",
+          "timestamp": 295.79998779296875,
+          "text": " So should hopefully give you somewhat of a high level of what we're dealing with here.  Job descrip..."
+        }
+      ]
+    },
+    {
+      "name": "CRM providers",
+      "type": "technology",
+      "descriptions": [
+        "Systems from which appointments are extracted"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_70",
+          "timestamp": 295.79998779296875,
+          "text": " So should hopefully give you somewhat of a high level of what we're dealing with here.  Job descrip..."
+        }
+      ]
+    },
+    {
+      "name": "Job descriptions",
+      "type": "concept",
+      "descriptions": [
+        "Documentation of roles and responsibilities"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_70",
+          "timestamp": 295.79998779296875,
+          "text": " So should hopefully give you somewhat of a high level of what we're dealing with here.  Job descrip..."
+        }
+      ]
+    },
+    {
+      "name": "Appointments",
+      "type": "concept",
+      "descriptions": [
+        "Data extracted from different CRM providers",
+        "Data that may be missing when ingestion fails"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_70",
+          "timestamp": 295.79998779296875,
+          "text": " So should hopefully give you somewhat of a high level of what we're dealing with here.  Job descrip..."
+        },
+        {
+          "source": "transcript_batch_360",
+          "timestamp": 1693.5199951171876,
+          "text": " system that sends a report and then picks it up and dumps it into this SFTP.  So there's, there's a..."
+        }
+      ]
+    },
+    {
+      "name": "SQL",
+      "type": "technology",
+      "descriptions": [
+        "Database query language for which metrics are being sought",
+        "Database query language",
+        "SQL code and database technology used in the data pipeline"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_80",
+          "timestamp": 352.79998779296875,
+          "text": " Oh, go ahead.  Are these jobs committed to a repo or a code somewhere, or do they only live in SSIS..."
+        },
+        {
+          "source": "transcript_batch_150",
+          "timestamp": 678.3599998474122,
+          "text": " because I'm no SQL person.  I haven't had a lot of experience using SSIS jobs in the past.  So I do..."
+        },
+        {
+          "source": "transcript_batch_260",
+          "timestamp": 1146.7599975585938,
+          "text": " I can see if the engineering team has that.  I'm not sure if they do specifically about the SQL stu..."
+        }
+      ]
+    },
+    {
+      "name": "Repository",
+      "type": "technology",
+      "descriptions": [
+        "Code repository containing all stored procedures and job configurations",
+        "Code repository where SQL and job code are committed and version controlled"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_80",
+          "timestamp": 352.79998779296875,
+          "text": " Oh, go ahead.  Are these jobs committed to a repo or a code somewhere, or do they only live in SSIS..."
+        },
+        {
+          "source": "transcript_batch_310",
+          "timestamp": 1319.6799997329713,
+          "text": " They create their own reports out of these tables? Our product managers do. So they generally make ..."
+        }
+      ]
+    },
+    {
+      "name": "AWS",
+      "type": "technology",
+      "descriptions": [
+        "Amazon Web Services cloud platform hosting DB servers and SSIS",
+        "Amazon Web Services - cloud platform used for monitoring and file processing",
+        "Amazon Web Services cloud platform provider",
+        "Amazon Web Services cloud platform being discussed as the scope of analysis"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_80",
+          "timestamp": 352.79998779296875,
+          "text": " Oh, go ahead.  Are these jobs committed to a repo or a code somewhere, or do they only live in SSIS..."
+        },
+        {
+          "source": "transcript_batch_110",
+          "timestamp": 503.79998779296875,
+          "text": " That was what their attempt was to modernize it.  So that runs on RDS.  But generally, this is wher..."
+        },
+        {
+          "source": "transcript_batch_330",
+          "timestamp": 1478.2399963378907,
+          "text": " And it's quite large, you know, all the different applications, but so I'm no expert by any means, ..."
+        },
+        {
+          "source": "transcript_batch_340",
+          "timestamp": 1550.7999938964845,
+          "text": " related. We also break those reports all the time, but those are kind of not related to this proble..."
+        }
+      ]
+    },
+    {
+      "name": "SFTP",
+      "type": "technology",
+      "descriptions": [
+        "File transfer protocol used for data transmission from customers' dealerships",
+        "SSH File Transfer Protocol - monitored by AWS for new file creation",
+        "File transfer protocol system used for dumping reports"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_80",
+          "timestamp": 352.79998779296875,
+          "text": " Oh, go ahead.  Are these jobs committed to a repo or a code somewhere, or do they only live in SSIS..."
+        },
+        {
+          "source": "transcript_batch_90",
+          "timestamp": 403.79998779296875,
+          "text": " Sometimes it's on our end.  Sometimes it's actually our customers' SFTP for their personal dealersh..."
+        },
+        {
+          "source": "transcript_batch_360",
+          "timestamp": 1693.5199951171876,
+          "text": " system that sends a report and then picks it up and dumps it into this SFTP.  So there's, there's a..."
+        }
+      ]
+    },
+    {
+      "name": "Database",
+      "type": "technology",
+      "descriptions": [
+        "Data storage system where API calls deposit data",
+        "Data storage system where individual records are loaded"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_80",
+          "timestamp": 352.79998779296875,
+          "text": " Oh, go ahead.  Are these jobs committed to a repo or a code somewhere, or do they only live in SSIS..."
+        },
+        {
+          "source": "transcript_batch_180",
+          "timestamp": 803.8999969482422,
+          "text": " But I don't believe the SSIS jobs trigger the API calls.  The API calls dumps it in the database,  ..."
+        }
+      ]
+    },
+    {
+      "name": "Customers",
+      "type": "person",
+      "descriptions": [
+        "Entities for which equity and recall data is being retrieved",
+        "External entities operating personal dealerships that provide data",
+        "End users who receive scoped dashboard access and scheduled reports"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_90",
+          "timestamp": 403.79998779296875,
+          "text": " Sometimes it's on our end.  Sometimes it's actually our customers' SFTP for their personal dealersh..."
+        },
+        {
+          "source": "transcript_batch_170",
+          "timestamp": 762.8399993896485,
+          "text": " or is because it is needed?  A lot of it, they just capture it all and  then just move the data tha..."
+        },
+        {
+          "source": "transcript_batch_310",
+          "timestamp": 1319.6799997329713,
+          "text": " They create their own reports out of these tables? Our product managers do. So they generally make ..."
+        }
+      ]
+    },
+    {
+      "name": "Dealerships",
+      "type": "organization",
+      "descriptions": [
+        "Customer business operations that provide data via SFTP"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_90",
+          "timestamp": 403.79998779296875,
+          "text": " Sometimes it's on our end.  Sometimes it's actually our customers' SFTP for their personal dealersh..."
+        }
+      ]
+    },
+    {
+      "name": "Databases",
+      "type": "technology",
+      "descriptions": [
+        "Organized collections of data",
+        "Data storage systems used throughout the process",
+        "Multiple database systems that may require read-only access",
+        "Multiple database instances used for data storage and processing",
+        "Multiple large databases containing millions of records",
+        "Data storage systems requiring read-only access",
+        "Database systems that are being evaluated for performance issues"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_90",
+          "timestamp": 403.79998779296875,
+          "text": " Sometimes it's on our end.  Sometimes it's actually our customers' SFTP for their personal dealersh..."
+        },
+        {
+          "source": "transcript_batch_100",
+          "timestamp": 451.79998779296875,
+          "text": " and moves it along the chain into the different tables and databases throughout the process.  Somet..."
+        },
+        {
+          "source": "transcript_batch_150",
+          "timestamp": 678.3599998474122,
+          "text": " because I'm no SQL person.  I haven't had a lot of experience using SSIS jobs in the past.  So I do..."
+        },
+        {
+          "source": "transcript_batch_160",
+          "timestamp": 718.3599998474122,
+          "text": " but I believe the one where the SSIS job is running is in the terabytes size.  But each database is..."
+        },
+        {
+          "source": "transcript_batch_200",
+          "timestamp": 888.3600036621094,
+          "text": " Do you store the historicals of the data if you need to rebuild the dataset?  Some we do and some w..."
+        },
+        {
+          "source": "transcript_batch_320",
+          "timestamp": 1395.5200027465821,
+          "text": " local host right now. We're still in process of getting this up into production. Maybe just  a scre..."
+        },
+        {
+          "source": "transcript_batch_340",
+          "timestamp": 1550.7999938964845,
+          "text": " related. We also break those reports all the time, but those are kind of not related to this proble..."
+        }
+      ]
+    },
+    {
+      "name": "EC2",
+      "type": "technology",
+      "descriptions": [
+        "Amazon Elastic Compute Cloud instance where SSIS jobs are executed",
+        "Amazon EC2 hosting service used for running databases"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_90",
+          "timestamp": 403.79998779296875,
+          "text": " Sometimes it's on our end.  Sometimes it's actually our customers' SFTP for their personal dealersh..."
+        },
+        {
+          "source": "transcript_batch_100",
+          "timestamp": 451.79998779296875,
+          "text": " and moves it along the chain into the different tables and databases throughout the process.  Somet..."
+        }
+      ]
+    },
+    {
+      "name": "Flat File",
+      "type": "concept",
+      "descriptions": [
+        "A data file format that is ingested in its entirety by the system",
+        "Source data file format ingested by SSIS jobs"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_90",
+          "timestamp": 403.79998779296875,
+          "text": " Sometimes it's on our end.  Sometimes it's actually our customers' SFTP for their personal dealersh..."
+        },
+        {
+          "source": "transcript_batch_170",
+          "timestamp": 762.8399993896485,
+          "text": " or is because it is needed?  A lot of it, they just capture it all and  then just move the data tha..."
+        }
+      ]
+    },
+    {
+      "name": "Raw Database Table",
+      "type": "technology",
+      "descriptions": [
+        "Intermediate storage location for ingested data before processing"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_90",
+          "timestamp": 403.79998779296875,
+          "text": " Sometimes it's on our end.  Sometimes it's actually our customers' SFTP for their personal dealersh..."
+        }
+      ]
+    },
+    {
+      "name": "RDS",
+      "type": "technology",
+      "descriptions": [
+        "Relational Database Service used for running modernized systems",
+        "Amazon RDS (Relational Database Service) used for specific data pulling purposes"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_100",
+          "timestamp": 451.79998779296875,
+          "text": " and moves it along the chain into the different tables and databases throughout the process.  Somet..."
+        },
+        {
+          "source": "transcript_batch_110",
+          "timestamp": 503.79998779296875,
+          "text": " That was what their attempt was to modernize it.  So that runs on RDS.  But generally, this is wher..."
+        }
+      ]
+    },
+    {
+      "name": "Mautic",
+      "type": "technology",
+      "descriptions": [
+        "Open source application for segmentation and emailing"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_100",
+          "timestamp": 451.79998779296875,
+          "text": " and moves it along the chain into the different tables and databases throughout the process.  Somet..."
+        }
+      ]
+    },
+    {
+      "name": "webhooks",
+      "type": "concept",
+      "descriptions": [
+        "Information pulled from emails and SMS"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_100",
+          "timestamp": 451.79998779296875,
+          "text": " and moves it along the chain into the different tables and databases throughout the process.  Somet..."
+        }
+      ]
+    },
+    {
+      "name": "Physical servers",
+      "type": "technology",
+      "descriptions": [
+        "On-premises hardware infrastructure running SSIS jobs"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_110",
+          "timestamp": 503.79998779296875,
+          "text": " That was what their attempt was to modernize it.  So that runs on RDS.  But generally, this is wher..."
+        }
+      ]
+    },
+    {
+      "name": "AWS Glue",
+      "type": "technology",
+      "descriptions": [
+        "Cloud-based serverless data integration service being considered as alternative"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_110",
+          "timestamp": 503.79998779296875,
+          "text": " That was what their attempt was to modernize it.  So that runs on RDS.  But generally, this is wher..."
+        }
+      ]
+    },
+    {
+      "name": "DMS warehouse",
+      "type": "technology",
+      "descriptions": [
+        "A partial data warehouse component that stores dealer management software data"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 553.7999877929688,
+          "text": " that have been slapped together over 12 years.  Which is the, I see a DMS warehouse.  That one is a..."
+        }
+      ]
+    },
+    {
+      "name": "staging database",
+      "type": "technology",
+      "descriptions": [
+        "Database where most data initially comes into the system"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 553.7999877929688,
+          "text": " that have been slapped together over 12 years.  Which is the, I see a DMS warehouse.  That one is a..."
+        }
+      ]
+    },
+    {
+      "name": "target database",
+      "type": "technology",
+      "descriptions": [
+        "Database where manipulated data is stored after processing from staging"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 553.7999877929688,
+          "text": " that have been slapped together over 12 years.  Which is the, I see a DMS warehouse.  That one is a..."
+        }
+      ]
+    },
+    {
+      "name": "inventory",
+      "type": "concept",
+      "descriptions": [
+        "Data pulled from the target database for use in operations"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 553.7999877929688,
+          "text": " that have been slapped together over 12 years.  Which is the, I see a DMS warehouse.  That one is a..."
+        }
+      ]
+    },
+    {
+      "name": "analytics",
+      "type": "concept",
+      "descriptions": [
+        "Data pulled from the target database for analytical purposes"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 553.7999877929688,
+          "text": " that have been slapped together over 12 years.  Which is the, I see a DMS warehouse.  That one is a..."
+        }
+      ]
+    },
+    {
+      "name": "dealer management software",
+      "type": "technology",
+      "descriptions": [
+        "Software system whose data is stored in the DMS warehouse"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_120",
+          "timestamp": 553.7999877929688,
+          "text": " that have been slapped together over 12 years.  Which is the, I see a DMS warehouse.  That one is a..."
+        }
+      ]
+    },
+    {
+      "name": "Website Builder",
+      "type": "technology",
+      "descriptions": [
+        "Application for building websites that stores client data across multiple databases"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_130",
+          "timestamp": 596.7999877929688,
+          "text": " I'm not 100% sure about all of these databases, what these are for.  But these other ones on the to..."
+        }
+      ]
+    },
+    {
+      "name": "BirdBath",
+      "type": "technology",
+      "descriptions": [
+        "Database that is no longer used but still maintained"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_130",
+          "timestamp": 596.7999877929688,
+          "text": " I'm not 100% sure about all of these databases, what these are for.  But these other ones on the to..."
+        }
+      ]
+    },
+    {
+      "name": "Digital Bundle",
+      "type": "technology",
+      "descriptions": [
+        "Database that is likely no longer used but still maintained"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_130",
+          "timestamp": 596.7999877929688,
+          "text": " I'm not 100% sure about all of these databases, what these are for.  But these other ones on the to..."
+        }
+      ]
+    },
+    {
+      "name": "12-year-old application",
+      "type": "technology",
+      "descriptions": [
+        "Legacy application that has changed hands multiple times with accumulated technical debt"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_130",
+          "timestamp": 596.7999877929688,
+          "text": " I'm not 100% sure about all of these databases, what these are for.  But these other ones on the to..."
+        }
+      ]
+    },
+    {
+      "name": "ETLs",
+      "type": "technology",
+      "descriptions": [
+        "Extract, Transform, Load processes that move and process data",
+        "Extract, Transform, Load processes being used in the system",
+        "Extract, Transform, Load processes with code repository access",
+        "Extract, Transform, Load jobs that process data"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_140",
+          "timestamp": 636.7999877929688,
+          "text": " because they don't know if they do anything or not.  It's one of those situations too.  So the ETLs..."
+        },
+        {
+          "source": "transcript_batch_220",
+          "timestamp": 959.3600036621094,
+          "text": " and then we're pulling in every one of their customers for all time.  It gets really, really unruly..."
+        },
+        {
+          "source": "transcript_batch_300",
+          "timestamp": 1284.72001953125,
+          "text": " Juice is not connecting to a read-only database?  It's just a regular transactional?  Okay, it is. ..."
+        },
+        {
+          "source": "transcript_batch_310",
+          "timestamp": 1319.6799997329713,
+          "text": " They create their own reports out of these tables? Our product managers do. So they generally make ..."
+        }
+      ]
+    },
+    {
+      "name": "24 hours",
+      "type": "time",
+      "descriptions": [
+        "Processing time duration for all ETL jobs",
+        "Time period for job execution cycle and potential delay in processing changes"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_140",
+          "timestamp": 636.7999877929688,
+          "text": " because they don't know if they do anything or not.  It's one of those situations too.  So the ETLs..."
+        },
+        {
+          "source": "transcript_batch_190",
+          "timestamp": 847.8999969482422,
+          "text": " it may take a full 24 hours to pick up that change and process it.  Because once this job is run,  ..."
+        }
+      ]
+    },
+    {
+      "name": "indexing",
+      "type": "concept",
+      "descriptions": [
+        "Database optimization technique applied to improve performance",
+        "Database optimization technique used to improve performance"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_140",
+          "timestamp": 636.7999877929688,
+          "text": " because they don't know if they do anything or not.  It's one of those situations too.  So the ETLs..."
+        },
+        {
+          "source": "transcript_batch_230",
+          "timestamp": 1018.1599914550782,
+          "text": " the performance is in SQL Server,  the way they do the locking, yeah, of course, no wonders.  They'..."
+        }
+      ]
+    },
+    {
+      "name": "optimizations",
+      "type": "concept",
+      "descriptions": [
+        "Performance improvements made to ETL processes"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_140",
+          "timestamp": 636.7999877929688,
+          "text": " because they don't know if they do anything or not.  It's one of those situations too.  So the ETLs..."
+        }
+      ]
+    },
+    {
+      "name": "scalability",
+      "type": "concept",
+      "descriptions": [
+        "Ability of the system to handle increased load efficiently"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_140",
+          "timestamp": 636.7999877929688,
+          "text": " because they don't know if they do anything or not.  It's one of those situations too.  So the ETLs..."
+        }
+      ]
+    },
+    {
+      "name": "best practices",
+      "type": "concept",
+      "descriptions": [
+        "Standard methods and procedures considered optimal in software development"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_150",
+          "timestamp": 678.3599998474122,
+          "text": " because I'm no SQL person.  I haven't had a lot of experience using SSIS jobs in the past.  So I do..."
+        }
+      ]
+    },
+    {
+      "name": "stability",
+      "type": "concept",
+      "descriptions": [
+        "System reliability and robustness",
+        "A system characteristic causing user off-boarding and preventing scaling"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_150",
+          "timestamp": 678.3599998474122,
+          "text": " because I'm no SQL person.  I haven't had a lot of experience using SSIS jobs in the past.  So I do..."
+        },
+        {
+          "source": "transcript_batch_250",
+          "timestamp": 1099.8000061035157,
+          "text": " we are seeing people off-board as well.  So as we grow,  we're also shrinking because of the stabil..."
+        }
+      ]
+    },
+    {
+      "name": "SSIS job",
+      "type": "technology",
+      "descriptions": [
+        "A SQL Server Integration Services job that is running and processing data",
+        "A SQL Server Integration Services job that processes data and triggers third-party API calls"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_160",
+          "timestamp": 718.3599998474122,
+          "text": " but I believe the one where the SSIS job is running is in the terabytes size.  But each database is..."
+        },
+        {
+          "source": "transcript_batch_170",
+          "timestamp": 762.8399993896485,
+          "text": " or is because it is needed?  A lot of it, they just capture it all and  then just move the data tha..."
+        }
+      ]
+    },
+    {
+      "name": "builder",
+      "type": "concept",
+      "descriptions": [
+        "A system or location where old customer data is stored"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_160",
+          "timestamp": 718.3599998474122,
+          "text": " but I believe the one where the SSIS job is running is in the terabytes size.  But each database is..."
+        }
+      ]
+    },
+    {
+      "name": "old records",
+      "type": "concept",
+      "descriptions": [
+        "Historical data that has not been deleted or cleaned up"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_160",
+          "timestamp": 718.3599998474122,
+          "text": " but I believe the one where the SSIS job is running is in the terabytes size.  But each database is..."
+        }
+      ]
+    },
+    {
+      "name": "old customers",
+      "type": "concept",
+      "descriptions": [
+        "Customer data from past periods that is retained in the system"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_160",
+          "timestamp": 718.3599998474122,
+          "text": " but I believe the one where the SSIS job is running is in the terabytes size.  But each database is..."
+        }
+      ]
+    },
+    {
+      "name": "third-party APIs",
+      "type": "technology",
+      "descriptions": [
+        "External APIs that are called to retrieve customer equity data and recall information"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_170",
+          "timestamp": 762.8399993896485,
+          "text": " or is because it is needed?  A lot of it, they just capture it all and  then just move the data tha..."
+        }
+      ]
+    },
+    {
+      "name": "equity data",
+      "type": "concept",
+      "descriptions": [
+        "Information about customer equity obtained from third-party sources"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_170",
+          "timestamp": 762.8399993896485,
+          "text": " or is because it is needed?  A lot of it, they just capture it all and  then just move the data tha..."
+        }
+      ]
+    },
+    {
+      "name": "recalls",
+      "type": "concept",
+      "descriptions": [
+        "Recall information retrieved for customers through third-party APIs"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_170",
+          "timestamp": 762.8399993896485,
+          "text": " or is because it is needed?  A lot of it, they just capture it all and  then just move the data tha..."
+        }
+      ]
+    },
+    {
+      "name": "API calls",
+      "type": "technology",
+      "descriptions": [
+        "Application Programming Interface calls that dump data into the database"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_180",
+          "timestamp": 803.8999969482422,
+          "text": " But I don't believe the SSIS jobs trigger the API calls.  The API calls dumps it in the database,  ..."
+        }
+      ]
+    },
+    {
+      "name": "permanent destination",
+      "type": "technology",
+      "descriptions": [
+        "Final data storage location where applications query the data"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_180",
+          "timestamp": 803.8999969482422,
+          "text": " But I don't believe the SSIS jobs trigger the API calls.  The API calls dumps it in the database,  ..."
+        }
+      ]
+    },
+    {
+      "name": "applications",
+      "type": "technology",
+      "descriptions": [
+        "Software systems that query data from permanent destination"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_180",
+          "timestamp": 803.8999969482422,
+          "text": " But I don't believe the SSIS jobs trigger the API calls.  The API calls dumps it in the database,  ..."
+        }
+      ]
+    },
+    {
+      "name": "appointment data",
+      "type": "concept",
+      "descriptions": [
+        "Data related to scheduled appointments"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_180",
+          "timestamp": 803.8999969482422,
+          "text": " But I don't believe the SSIS jobs trigger the API calls.  The API calls dumps it in the database,  ..."
+        }
+      ]
+    },
+    {
+      "name": "sales data",
+      "type": "concept",
+      "descriptions": [
+        "Data related to sales transactions"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_180",
+          "timestamp": 803.8999969482422,
+          "text": " But I don't believe the SSIS jobs trigger the API calls.  The API calls dumps it in the database,  ..."
+        }
+      ]
+    },
+    {
+      "name": "real time processing",
+      "type": "concept",
+      "descriptions": [
+        "Requirement for immediate data processing"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_180",
+          "timestamp": 803.8999969482422,
+          "text": " But I don't believe the SSIS jobs trigger the API calls.  The API calls dumps it in the database,  ..."
+        }
+      ]
+    },
+    {
+      "name": "Job",
+      "type": "concept",
+      "descriptions": [
+        "Automated process that ingests data and can break down midway",
+        "Automated process that runs on a scheduled basis (daily)"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_190",
+          "timestamp": 847.8999969482422,
+          "text": " it may take a full 24 hours to pick up that change and process it.  Because once this job is run,  ..."
+        },
+        {
+          "source": "transcript_batch_360",
+          "timestamp": 1693.5199951171876,
+          "text": " system that sends a report and then picks it up and dumps it into this SFTP.  So there's, there's a..."
+        }
+      ]
+    },
+    {
+      "name": "48 hours",
+      "type": "time",
+      "descriptions": [
+        "Maximum potential recovery time if a job fails"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_190",
+          "timestamp": 847.8999969482422,
+          "text": " it may take a full 24 hours to pick up that change and process it.  Because once this job is run,  ..."
+        }
+      ]
+    },
+    {
+      "name": "Email Communications",
+      "type": "technology",
+      "descriptions": [
+        "Communication channel for delivering information to customers"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_190",
+          "timestamp": 847.8999969482422,
+          "text": " it may take a full 24 hours to pick up that change and process it.  Because once this job is run,  ..."
+        }
+      ]
+    },
+    {
+      "name": "SMS",
+      "type": "technology",
+      "descriptions": [
+        "Short message service communication channel for customer notifications"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_190",
+          "timestamp": 847.8999969482422,
+          "text": " it may take a full 24 hours to pick up that change and process it.  Because once this job is run,  ..."
+        }
+      ]
+    },
+    {
+      "name": "Read-only Access",
+      "type": "concept",
+      "descriptions": [
+        "Permission level to view job information without modification rights"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_190",
+          "timestamp": 847.8999969482422,
+          "text": " it may take a full 24 hours to pick up that change and process it.  Because once this job is run,  ..."
+        }
+      ]
+    },
+    {
+      "name": "Customer",
+      "type": "person",
+      "descriptions": [
+        "End recipient of processed information and communications",
+        "User who reports issues with missing data in reports"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_190",
+          "timestamp": 847.8999969482422,
+          "text": " it may take a full 24 hours to pick up that change and process it.  Because once this job is run,  ..."
+        },
+        {
+          "source": "transcript_batch_360",
+          "timestamp": 1693.5199951171876,
+          "text": " system that sends a report and then picks it up and dumps it into this SFTP.  So there's, there's a..."
+        }
+      ]
+    },
+    {
+      "name": "SSIS DB",
+      "type": "technology",
+      "descriptions": [
+        "SQL Server Integration Services database used for data processing and storage"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_200",
+          "timestamp": 888.3600036621094,
+          "text": " Do you store the historicals of the data if you need to rebuild the dataset?  Some we do and some w..."
+        }
+      ]
+    },
+    {
+      "name": "dataset",
+      "type": "concept",
+      "descriptions": [
+        "Collection of data that may need to be rebuilt or reprocessed"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_200",
+          "timestamp": 888.3600036621094,
+          "text": " Do you store the historicals of the data if you need to rebuild the dataset?  Some we do and some w..."
+        }
+      ]
+    },
+    {
+      "name": "files",
+      "type": "concept",
+      "descriptions": [
+        "Data files that are retained and not deleted for reprocessing purposes"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_200",
+          "timestamp": 888.3600036621094,
+          "text": " Do you store the historicals of the data if you need to rebuild the dataset?  Some we do and some w..."
+        }
+      ]
+    },
+    {
+      "name": "data historicals",
+      "type": "concept",
+      "descriptions": [
+        "Historical records of data maintained for dataset rebuilding"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_200",
+          "timestamp": 888.3600036621094,
+          "text": " Do you store the historicals of the data if you need to rebuild the dataset?  Some we do and some w..."
+        }
+      ]
+    },
+    {
+      "name": "DMS",
+      "type": "technology",
+      "descriptions": [
+        "System that provides sales and appointment data"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_210",
+          "timestamp": 929.8000061035157,
+          "text": " that being the more the barrier.  Yeah, not a problem at all.  To size it up. Cool. Thanks.  Yeah, ..."
+        }
+      ]
+    },
+    {
+      "name": "staging tables",
+      "type": "technology",
+      "descriptions": [
+        "Initial database tables used to pull in DMS sales and appointment data"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_210",
+          "timestamp": 929.8000061035157,
+          "text": " that being the more the barrier.  Yeah, not a problem at all.  To size it up. Cool. Thanks.  Yeah, ..."
+        }
+      ]
+    },
+    {
+      "name": "clients",
+      "type": "concept",
+      "descriptions": [
+        "Users or customers of the system, approximately 200 in total"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_210",
+          "timestamp": 929.8000061035157,
+          "text": " that being the more the barrier.  Yeah, not a problem at all.  To size it up. Cool. Thanks.  Yeah, ..."
+        }
+      ]
+    },
+    {
+      "name": "Table Locking",
+      "type": "concept",
+      "descriptions": [
+        "Performance issue where tables are constantly being locked",
+        "A database mechanism that prevents concurrent access, affecting performance"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_220",
+          "timestamp": 959.3600036621094,
+          "text": " and then we're pulling in every one of their customers for all time.  It gets really, really unruly..."
+        },
+        {
+          "source": "transcript_batch_290",
+          "timestamp": 1251.17998046875,
+          "text": " they just throw all 300 columns in there and it's the wild, wild west.  So not great,  but fortunat..."
+        }
+      ]
+    },
+    {
+      "name": "Performance Issues",
+      "type": "concept",
+      "descriptions": [
+        "System performance problems affecting the database"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_220",
+          "timestamp": 959.3600036621094,
+          "text": " and then we're pulling in every one of their customers for all time.  It gets really, really unruly..."
+        }
+      ]
+    },
+    {
+      "name": "Customer Data",
+      "type": "concept",
+      "descriptions": [
+        "Historical customer information being pulled into the system"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_220",
+          "timestamp": 959.3600036621094,
+          "text": " and then we're pulling in every one of their customers for all time.  It gets really, really unruly..."
+        }
+      ]
+    },
+    {
+      "name": "300 Column Tables",
+      "type": "concept",
+      "descriptions": [
+        "Large database tables with excessive number of columns"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_220",
+          "timestamp": 959.3600036621094,
+          "text": " and then we're pulling in every one of their customers for all time.  It gets really, really unruly..."
+        }
+      ]
+    },
+    {
+      "name": "SQL Server",
+      "type": "technology",
+      "descriptions": [
+        "Database management system with specific locking mechanisms"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_230",
+          "timestamp": 1018.1599914550782,
+          "text": " the performance is in SQL Server,  the way they do the locking, yeah, of course, no wonders.  They'..."
+        }
+      ]
+    },
+    {
+      "name": "CPU",
+      "type": "concept",
+      "descriptions": [
+        "Computing resource used to increase application performance"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_230",
+          "timestamp": 1018.1599914550782,
+          "text": " the performance is in SQL Server,  the way they do the locking, yeah, of course, no wonders.  They'..."
+        }
+      ]
+    },
+    {
+      "name": "Memory",
+      "type": "concept",
+      "descriptions": [
+        "Computing resource used to increase application performance"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_230",
+          "timestamp": 1018.1599914550782,
+          "text": " the performance is in SQL Server,  the way they do the locking, yeah, of course, no wonders.  They'..."
+        }
+      ]
+    },
+    {
+      "name": "Application",
+      "type": "technology",
+      "descriptions": [
+        "The main software system being discussed, separate from the Juice reporting system",
+        "Software system being monitored for metrics",
+        "Software system serving customers with scalability concerns"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_230",
+          "timestamp": 1018.1599914550782,
+          "text": " the performance is in SQL Server,  the way they do the locking, yeah, of course, no wonders.  They'..."
+        },
+        {
+          "source": "transcript_batch_260",
+          "timestamp": 1146.7599975585938,
+          "text": " I can see if the engineering team has that.  I'm not sure if they do specifically about the SQL stu..."
+        },
+        {
+          "source": "transcript_batch_290",
+          "timestamp": 1251.17998046875,
+          "text": " they just throw all 300 columns in there and it's the wild, wild west.  So not great,  but fortunat..."
+        },
+        {
+          "source": "transcript_batch_320",
+          "timestamp": 1395.5200027465821,
+          "text": " local host right now. We're still in process of getting this up into production. Maybe just  a scre..."
+        }
+      ]
+    },
+    {
+      "name": "200 customers",
+      "type": "time",
+      "descriptions": [
+        "Current customer base scale"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_230",
+          "timestamp": 1018.1599914550782,
+          "text": " the performance is in SQL Server,  the way they do the locking, yeah, of course, no wonders.  They'..."
+        }
+      ]
+    },
+    {
+      "name": "2,000 customers",
+      "type": "time",
+      "descriptions": [
+        "Projected future customer base scale"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_230",
+          "timestamp": 1018.1599914550782,
+          "text": " the performance is in SQL Server,  the way they do the locking, yeah, of course, no wonders.  They'..."
+        }
+      ]
+    },
+    {
+      "name": "CEO",
+      "type": "person",
+      "descriptions": [
+        "Female executive pushing the flagship product as top sales priority"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_240",
+          "timestamp": 1054.4999877929688,
+          "text": " It's just not scaling correctly.  What's your objective midterm?  How many more customers are you p..."
+        }
+      ]
+    },
+    {
+      "name": "Salespeople",
+      "type": "person",
+      "descriptions": [
+        "Sales team being pushed to prioritize the flagship product"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_240",
+          "timestamp": 1054.4999877929688,
+          "text": " It's just not scaling correctly.  What's your objective midterm?  How many more customers are you p..."
+        }
+      ]
+    },
+    {
+      "name": "Flagship Product",
+      "type": "concept",
+      "descriptions": [
+        "Primary product being heavily promoted for sales, with low operational costs"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_240",
+          "timestamp": 1054.4999877929688,
+          "text": " It's just not scaling correctly.  What's your objective midterm?  How many more customers are you p..."
+        }
+      ]
+    },
+    {
+      "name": "Google",
+      "type": "organization",
+      "descriptions": [
+        "Third-party advertising provider not currently used"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_240",
+          "timestamp": 1054.4999877929688,
+          "text": " It's just not scaling correctly.  What's your objective midterm?  How many more customers are you p..."
+        }
+      ]
+    },
+    {
+      "name": "TikTok",
+      "type": "organization",
+      "descriptions": [
+        "Third-party advertising provider not currently used"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_240",
+          "timestamp": 1054.4999877929688,
+          "text": " It's just not scaling correctly.  What's your objective midterm?  How many more customers are you p..."
+        }
+      ]
+    },
+    {
+      "name": "Scaling Issues",
+      "type": "concept",
+      "descriptions": [
+        "Technical problem affecting the flagship product"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_240",
+          "timestamp": 1054.4999877929688,
+          "text": " It's just not scaling correctly.  What's your objective midterm?  How many more customers are you p..."
+        }
+      ]
+    },
+    {
+      "name": "Stability Issues",
+      "type": "concept",
+      "descriptions": [
+        "Product reliability problems limiting sales push"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_240",
+          "timestamp": 1054.4999877929688,
+          "text": " It's just not scaling correctly.  What's your objective midterm?  How many more customers are you p..."
+        }
+      ]
+    },
+    {
+      "name": "Data Integrity Issues",
+      "type": "concept",
+      "descriptions": [
+        "Data quality problems affecting the flagship product"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_240",
+          "timestamp": 1054.4999877929688,
+          "text": " It's just not scaling correctly.  What's your objective midterm?  How many more customers are you p..."
+        }
+      ]
+    },
+    {
+      "name": "2,000 mark",
+      "type": "concept",
+      "descriptions": [
+        "A scaling target or threshold that someone wants to reach as soon as possible"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_250",
+          "timestamp": 1099.8000061035157,
+          "text": " we are seeing people off-board as well.  So as we grow,  we're also shrinking because of the stabil..."
+        }
+      ]
+    },
+    {
+      "name": "app",
+      "type": "technology",
+      "descriptions": [
+        "An application being discussed in terms of growth, user off-boarding, and performance metrics"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_250",
+          "timestamp": 1099.8000061035157,
+          "text": " we are seeing people off-board as well.  So as we grow,  we're also shrinking because of the stabil..."
+        }
+      ]
+    },
+    {
+      "name": "usage metrics",
+      "type": "concept",
+      "descriptions": [
+        "Performance measurements including queries per second, ops, inbound/outbound traffic, and intake/reads"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_250",
+          "timestamp": 1099.8000061035157,
+          "text": " we are seeing people off-board as well.  So as we grow,  we're also shrinking because of the stabil..."
+        }
+      ]
+    },
+    {
+      "name": "queries per second",
+      "type": "concept",
+      "descriptions": [
+        "A performance metric measuring query throughput"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_250",
+          "timestamp": 1099.8000061035157,
+          "text": " we are seeing people off-board as well.  So as we grow,  we're also shrinking because of the stabil..."
+        }
+      ]
+    },
+    {
+      "name": "engineering team",
+      "type": "organization",
+      "descriptions": [
+        "Team responsible for technical implementation and metrics"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_260",
+          "timestamp": 1146.7599975585938,
+          "text": " I can see if the engineering team has that.  I'm not sure if they do specifically about the SQL stu..."
+        }
+      ]
+    },
+    {
+      "name": "marketing messages",
+      "type": "concept",
+      "descriptions": [
+        "Communications sent to clients, tracked by volume per day"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_260",
+          "timestamp": 1146.7599975585938,
+          "text": " I can see if the engineering team has that.  I'm not sure if they do specifically about the SQL stu..."
+        }
+      ]
+    },
+    {
+      "name": "metrics",
+      "type": "concept",
+      "descriptions": [
+        "Quantitative measurements of system performance and user engagement"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_260",
+          "timestamp": 1146.7599975585938,
+          "text": " I can see if the engineering team has that.  I'm not sure if they do specifically about the SQL stu..."
+        }
+      ]
+    },
+    {
+      "name": "customer engagement",
+      "type": "concept",
+      "descriptions": [
+        "Measurement of customer interactions such as clicks on content"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_260",
+          "timestamp": 1146.7599975585938,
+          "text": " I can see if the engineering team has that.  I'm not sure if they do specifically about the SQL stu..."
+        }
+      ]
+    },
+    {
+      "name": "juice reporting",
+      "type": "concept",
+      "descriptions": [
+        "A reporting methodology or system mentioned as being used for analysis"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_270",
+          "timestamp": 1186.8199951171875,
+          "text": " just that'll help paint a picture in numbers.  So that we can also think about targets.  We're talk..."
+        }
+      ]
+    },
+    {
+      "name": "scaling",
+      "type": "concept",
+      "descriptions": [
+        "The process of expanding or increasing capacity, with discussion of 10x growth targets"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_270",
+          "timestamp": 1186.8199951171875,
+          "text": " just that'll help paint a picture in numbers.  So that we can also think about targets.  We're talk..."
+        }
+      ]
+    },
+    {
+      "name": "juice session",
+      "type": "concept",
+      "descriptions": [
+        "A scheduled meeting or session related to juice reporting, occurring later in the afternoon"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_270",
+          "timestamp": 1186.8199951171875,
+          "text": " just that'll help paint a picture in numbers.  So that we can also think about targets.  We're talk..."
+        }
+      ]
+    },
+    {
+      "name": "footprint",
+      "type": "concept",
+      "descriptions": [
+        "Current operational scope or capacity being measured and analyzed"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_270",
+          "timestamp": 1186.8199951171875,
+          "text": " just that'll help paint a picture in numbers.  So that we can also think about targets.  We're talk..."
+        }
+      ]
+    },
+    {
+      "name": "targets",
+      "type": "concept",
+      "descriptions": [
+        "Goals or benchmarks to be set based on numerical analysis and scaling needs"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_270",
+          "timestamp": 1186.8199951171875,
+          "text": " just that'll help paint a picture in numbers.  So that we can also think about targets.  We're talk..."
+        }
+      ]
+    },
+    {
+      "name": "Product Managers",
+      "type": "person",
+      "descriptions": [
+        "Team members who create dashboards and define reporting requirements",
+        "Team members who create reports and dashboards for customers"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_280",
+          "timestamp": 1219.8799926757813,
+          "text": " Perfect. Yeah.  So basically, some of these,  we just dump all the data in whatever columns that ou..."
+        },
+        {
+          "source": "transcript_batch_310",
+          "timestamp": 1319.6799997329713,
+          "text": " They create their own reports out of these tables? Our product managers do. So they generally make ..."
+        }
+      ]
+    },
+    {
+      "name": "Juice",
+      "type": "technology",
+      "descriptions": [
+        "Dashboard creation tool used by product managers",
+        "A system or application that connects to databases",
+        "A system or tool that is decoupled from the main application and used for handling large queries and reports"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_280",
+          "timestamp": 1219.8799926757813,
+          "text": " Perfect. Yeah.  So basically, some of these,  we just dump all the data in whatever columns that ou..."
+        },
+        {
+          "source": "transcript_batch_290",
+          "timestamp": 1251.17998046875,
+          "text": " they just throw all 300 columns in there and it's the wild, wild west.  So not great,  but fortunat..."
+        },
+        {
+          "source": "transcript_batch_300",
+          "timestamp": 1284.72001953125,
+          "text": " Juice is not connecting to a read-only database?  It's just a regular transactional?  Okay, it is. ..."
+        }
+      ]
+    },
+    {
+      "name": "Dashboards",
+      "type": "technology",
+      "descriptions": [
+        "Data visualization and reporting interfaces created for analysis",
+        "Reports created by product managers with scoped customer data access"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_280",
+          "timestamp": 1219.8799926757813,
+          "text": " Perfect. Yeah.  So basically, some of these,  we just dump all the data in whatever columns that ou..."
+        },
+        {
+          "source": "transcript_batch_310",
+          "timestamp": 1319.6799997329713,
+          "text": " They create their own reports out of these tables? Our product managers do. So they generally make ..."
+        }
+      ]
+    },
+    {
+      "name": "Data",
+      "type": "concept",
+      "descriptions": [
+        "Information stored in database columns and tables"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_280",
+          "timestamp": 1219.8799926757813,
+          "text": " Perfect. Yeah.  So basically, some of these,  we just dump all the data in whatever columns that ou..."
+        }
+      ]
+    },
+    {
+      "name": "Performance",
+      "type": "concept",
+      "descriptions": [
+        "System efficiency and optimization of data queries"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_280",
+          "timestamp": 1219.8799926757813,
+          "text": " Perfect. Yeah.  So basically, some of these,  we just dump all the data in whatever columns that ou..."
+        }
+      ]
+    },
+    {
+      "name": "Breaking Changes",
+      "type": "concept",
+      "descriptions": [
+        "Incompatible updates or modifications that cause system failures or downtime"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_290",
+          "timestamp": 1251.17998046875,
+          "text": " they just throw all 300 columns in there and it's the wild, wild west.  So not great,  but fortunat..."
+        }
+      ]
+    },
+    {
+      "name": "read-only database",
+      "type": "technology",
+      "descriptions": [
+        "A database configured with read-only access restrictions"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_300",
+          "timestamp": 1284.72001953125,
+          "text": " Juice is not connecting to a read-only database?  It's just a regular transactional?  Okay, it is. ..."
+        }
+      ]
+    },
+    {
+      "name": "read-only table",
+      "type": "technology",
+      "descriptions": [
+        "A table within a database with read-only access"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_300",
+          "timestamp": 1284.72001953125,
+          "text": " Juice is not connecting to a read-only database?  It's just a regular transactional?  Okay, it is. ..."
+        }
+      ]
+    },
+    {
+      "name": "transactional database",
+      "type": "technology",
+      "descriptions": [
+        "A regular database supporting transactions"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_300",
+          "timestamp": 1284.72001953125,
+          "text": " Juice is not connecting to a read-only database?  It's just a regular transactional?  Okay, it is. ..."
+        }
+      ]
+    },
+    {
+      "name": "final users",
+      "type": "concept",
+      "descriptions": [
+        "End users with self-served access to the system"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_300",
+          "timestamp": 1284.72001953125,
+          "text": " Juice is not connecting to a read-only database?  It's just a regular transactional?  Okay, it is. ..."
+        }
+      ]
+    },
+    {
+      "name": "Stored Procedures",
+      "type": "technology",
+      "descriptions": [
+        "Database procedures triggered by jobs"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_310",
+          "timestamp": 1319.6799997329713,
+          "text": " They create their own reports out of these tables? Our product managers do. So they generally make ..."
+        }
+      ]
+    },
+    {
+      "name": "GitHub",
+      "type": "technology",
+      "descriptions": [
+        "Shared repository platform for code and collaboration",
+        "Version control platform hosting repositories",
+        "Platform for sharing code and repositories"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_320",
+          "timestamp": 1395.5200027465821,
+          "text": " local host right now. We're still in process of getting this up into production. Maybe just  a scre..."
+        },
+        {
+          "source": "transcript_batch_380",
+          "timestamp": 1812.160009765625,
+          "text": " Precisely. And we're on the VPN and we've got the last pass access on our one password vault  becau..."
+        },
+        {
+          "source": "transcript_batch_390",
+          "timestamp": 1878.0799926757813,
+          "text": " if there's anything new that pops up or whatever, um, please feel free to, to, to reach out. And,  ..."
+        }
+      ]
+    },
+    {
+      "name": "SQL repository",
+      "type": "technology",
+      "descriptions": [
+        "Repository for SQL-related code and configurations"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_320",
+          "timestamp": 1395.5200027465821,
+          "text": " local host right now. We're still in process of getting this up into production. Maybe just  a scre..."
+        }
+      ]
+    },
+    {
+      "name": "portal",
+      "type": "technology",
+      "descriptions": [
+        "Web interface for system access and visualization"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_320",
+          "timestamp": 1395.5200027465821,
+          "text": " local host right now. We're still in process of getting this up into production. Maybe just  a scre..."
+        }
+      ]
+    },
+    {
+      "name": "production",
+      "type": "concept",
+      "descriptions": [
+        "Live environment where system is being deployed"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_320",
+          "timestamp": 1395.5200027465821,
+          "text": " local host right now. We're still in process of getting this up into production. Maybe just  a scre..."
+        }
+      ]
+    },
+    {
+      "name": "local host",
+      "type": "technology",
+      "descriptions": [
+        "Local development environment"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_320",
+          "timestamp": 1395.5200027465821,
+          "text": " local host right now. We're still in process of getting this up into production. Maybe just  a scre..."
+        }
+      ]
+    },
+    {
+      "name": "Azure",
+      "type": "technology",
+      "descriptions": [
+        "Microsoft Azure cloud platform hosting an ETL and data warehouse"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_330",
+          "timestamp": 1478.2399963378907,
+          "text": " And it's quite large, you know, all the different applications, but so I'm no expert by any means, ..."
+        }
+      ]
+    },
+    {
+      "name": "Office 365",
+      "type": "technology",
+      "descriptions": [
+        "Microsoft Office 365 cloud service"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_330",
+          "timestamp": 1478.2399963378907,
+          "text": " And it's quite large, you know, all the different applications, but so I'm no expert by any means, ..."
+        }
+      ]
+    },
+    {
+      "name": "Lucid Charts",
+      "type": "technology",
+      "descriptions": [
+        "Diagramming and charting tool used to document system architecture"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_330",
+          "timestamp": 1478.2399963378907,
+          "text": " And it's quite large, you know, all the different applications, but so I'm no expert by any means, ..."
+        }
+      ]
+    },
+    {
+      "name": "Data Warehouse",
+      "type": "concept",
+      "descriptions": [
+        "Central repository where reports are run from"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_330",
+          "timestamp": 1478.2399963378907,
+          "text": " And it's quite large, you know, all the different applications, but so I'm no expert by any means, ..."
+        }
+      ]
+    },
+    {
+      "name": "DB Servers",
+      "type": "technology",
+      "descriptions": [
+        "Database servers hosted on AWS"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_330",
+          "timestamp": 1478.2399963378907,
+          "text": " And it's quite large, you know, all the different applications, but so I'm no expert by any means, ..."
+        }
+      ]
+    },
+    {
+      "name": "ETL",
+      "type": "concept",
+      "descriptions": [
+        "Extract, Transform, Load process for data integration"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_330",
+          "timestamp": 1478.2399963378907,
+          "text": " And it's quite large, you know, all the different applications, but so I'm no expert by any means, ..."
+        }
+      ]
+    },
+    {
+      "name": "queries",
+      "type": "concept",
+      "descriptions": [
+        "Database queries that have been optimized over time"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_340",
+          "timestamp": 1550.7999938964845,
+          "text": " related. We also break those reports all the time, but those are kind of not related to this proble..."
+        }
+      ]
+    },
+    {
+      "name": "system performance",
+      "type": "concept",
+      "descriptions": [
+        "Overall system performance and functionality across the platform"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_340",
+          "timestamp": 1550.7999938964845,
+          "text": " related. We also break those reports all the time, but those are kind of not related to this proble..."
+        }
+      ]
+    },
+    {
+      "name": "eight years",
+      "type": "time",
+      "descriptions": [
+        "Time period over which the system has accumulated functionality"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_340",
+          "timestamp": 1550.7999938964845,
+          "text": " related. We also break those reports all the time, but those are kind of not related to this proble..."
+        }
+      ]
+    },
+    {
+      "name": "Ukraine",
+      "type": "organization",
+      "descriptions": [
+        "Location where engineers worked on the project"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_350",
+          "timestamp": 1623.5199951171876,
+          "text": " concept is not really been scoped out. It's gone through engineers in Ukraine,  engineers in Mexico..."
+        }
+      ]
+    },
+    {
+      "name": "Mexico",
+      "type": "organization",
+      "descriptions": [
+        "Location where engineers worked on the project"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_350",
+          "timestamp": 1623.5199951171876,
+          "text": " concept is not really been scoped out. It's gone through engineers in Ukraine,  engineers in Mexico..."
+        }
+      ]
+    },
+    {
+      "name": "Data Ingestion",
+      "type": "technology",
+      "descriptions": [
+        "Process for receiving and processing files"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_350",
+          "timestamp": 1623.5199951171876,
+          "text": " concept is not really been scoped out. It's gone through engineers in Ukraine,  engineers in Mexico..."
+        }
+      ]
+    },
+    {
+      "name": "Table Problem",
+      "type": "concept",
+      "descriptions": [
+        "Individual data structure issue identified in the project"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_350",
+          "timestamp": 1623.5199951171876,
+          "text": " concept is not really been scoped out. It's gone through engineers in Ukraine,  engineers in Mexico..."
+        }
+      ]
+    },
+    {
+      "name": "Process Design and Architecture",
+      "type": "concept",
+      "descriptions": [
+        "Overall system design and planning approach"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_350",
+          "timestamp": 1623.5199951171876,
+          "text": " concept is not really been scoped out. It's gone through engineers in Ukraine,  engineers in Mexico..."
+        }
+      ]
+    },
+    {
+      "name": "Missing Data",
+      "type": "concept",
+      "descriptions": [
+        "Data that is absent or inaccessible in the system"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_350",
+          "timestamp": 1623.5199951171876,
+          "text": " concept is not really been scoped out. It's gone through engineers in Ukraine,  engineers in Mexico..."
+        }
+      ]
+    },
+    {
+      "name": "Email Job",
+      "type": "technology",
+      "descriptions": [
+        "Automated email-based file delivery mechanism"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_350",
+          "timestamp": 1623.5199951171876,
+          "text": " concept is not really been scoped out. It's gone through engineers in Ukraine,  engineers in Mexico..."
+        }
+      ]
+    },
+    {
+      "name": "Report",
+      "type": "concept",
+      "descriptions": [
+        "Data output that is sent and transferred via SFTP"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_360",
+          "timestamp": 1693.5199951171876,
+          "text": " system that sends a report and then picks it up and dumps it into this SFTP.  So there's, there's a..."
+        }
+      ]
+    },
+    {
+      "name": "Dealers Data",
+      "type": "concept",
+      "descriptions": [
+        "Information about dealers that can be missing due to system faults"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_360",
+          "timestamp": 1693.5199951171876,
+          "text": " system that sends a report and then picks it up and dumps it into this SFTP.  So there's, there's a..."
+        }
+      ]
+    },
+    {
+      "name": "9 PM",
+      "type": "time",
+      "descriptions": [
+        "Scheduled time when a job runs to repair missing data"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_360",
+          "timestamp": 1693.5199951171876,
+          "text": " system that sends a report and then picks it up and dumps it into this SFTP.  So there's, there's a..."
+        }
+      ]
+    },
+    {
+      "name": "Product Manager",
+      "type": "person",
+      "descriptions": [
+        "Role that identifies data ingestion problems"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_360",
+          "timestamp": 1693.5199951171876,
+          "text": " system that sends a report and then picks it up and dumps it into this SFTP.  So there's, there's a..."
+        }
+      ]
+    },
+    {
+      "name": "conflict.com",
+      "type": "organization",
+      "descriptions": [
+        "An organization using das and shared login systems"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_370",
+          "timestamp": 1749.919989013672,
+          "text": " It could be a new column that's breaking it or, or overflowing a data field.  Any problem, possible..."
+        }
+      ]
+    },
+    {
+      "name": "LastPass",
+      "type": "technology",
+      "descriptions": [
+        "Password management and credential sharing tool",
+        "Password management tool with organization setup for managing access and data storage",
+        "Password management tool for accessing credentials"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_370",
+          "timestamp": 1749.919989013672,
+          "text": " It could be a new column that's breaking it or, or overflowing a data field.  Any problem, possible..."
+        },
+        {
+          "source": "transcript_batch_380",
+          "timestamp": 1812.160009765625,
+          "text": " Precisely. And we're on the VPN and we've got the last pass access on our one password vault  becau..."
+        },
+        {
+          "source": "transcript_batch_390",
+          "timestamp": 1878.0799926757813,
+          "text": " if there's anything new that pops up or whatever, um, please feel free to, to, to reach out. And,  ..."
+        }
+      ]
+    },
+    {
+      "name": "VPN",
+      "type": "technology",
+      "descriptions": [
+        "Virtual Private Network used for secure access",
+        "Virtual Private Network being used for secure access"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_370",
+          "timestamp": 1749.919989013672,
+          "text": " It could be a new column that's breaking it or, or overflowing a data field.  Any problem, possible..."
+        },
+        {
+          "source": "transcript_batch_380",
+          "timestamp": 1812.160009765625,
+          "text": " Precisely. And we're on the VPN and we've got the last pass access on our one password vault  becau..."
+        }
+      ]
+    },
+    {
+      "name": "shared login",
+      "type": "concept",
+      "descriptions": [
+        "A common authentication method used across team members"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_370",
+          "timestamp": 1749.919989013672,
+          "text": " It could be a new column that's breaking it or, or overflowing a data field.  Any problem, possible..."
+        }
+      ]
+    },
+    {
+      "name": "1Password",
+      "type": "technology",
+      "descriptions": [
+        "Password vault used for storing and sharing access credentials"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_380",
+          "timestamp": 1812.160009765625,
+          "text": " Precisely. And we're on the VPN and we've got the last pass access on our one password vault  becau..."
+        }
+      ]
+    },
+    {
+      "name": "Microsoft Teams",
+      "type": "technology",
+      "descriptions": [
+        "Team communication and chat platform"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_380",
+          "timestamp": 1812.160009765625,
+          "text": " Precisely. And we're on the VPN and we've got the last pass access on our one password vault  becau..."
+        }
+      ]
+    },
+    {
+      "name": "Dan",
+      "type": "person",
+      "descriptions": [
+        "Team member with access to Teams chat"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_380",
+          "timestamp": 1812.160009765625,
+          "text": " Precisely. And we're on the VPN and we've got the last pass access on our one password vault  becau..."
+        }
+      ]
+    },
+    {
+      "name": "Email",
+      "type": "technology",
+      "descriptions": [
+        "Communication method for sharing information"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_380",
+          "timestamp": 1812.160009765625,
+          "text": " Precisely. And we're on the VPN and we've got the last pass access on our one password vault  becau..."
+        }
+      ]
+    },
+    {
+      "name": "Transcript",
+      "type": "concept",
+      "descriptions": [
+        "Written record of the meeting conversation"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_390",
+          "timestamp": 1878.0799926757813,
+          "text": " if there's anything new that pops up or whatever, um, please feel free to, to, to reach out. And,  ..."
+        }
+      ]
+    },
+    {
+      "name": "Meeting notes",
+      "type": "concept",
+      "descriptions": [
+        "Documentation of key points from the meeting"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_390",
+          "timestamp": 1878.0799926757813,
+          "text": " if there's anything new that pops up or whatever, um, please feel free to, to, to reach out. And,  ..."
+        }
+      ]
+    },
+    {
+      "name": "Action items",
+      "type": "concept",
+      "descriptions": [
+        "Tasks and follow-ups identified during the meeting"
+      ],
+      "source": null,
+      "occurrences": [
+        {
+          "source": "transcript_batch_390",
+          "timestamp": 1878.0799926757813,
+          "text": " if there's anything new that pops up or whatever, um, please feel free to, to, to reach out. And,  ..."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "source": "Rick",
+      "target": "DAS",
+      "type": "works at",
+      "content_source": "transcript_batch_0",
+      "timestamp": 0.0
+    },
+    {
+      "source": "Rick",
+      "target": "Dan Aston",
+      "type": "works directly with",
+      "content_source": "transcript_batch_0",
+      "timestamp": 0.0
+    },
+    {
+      "source": "Luis",
+      "target": "AI",
+      "type": "works with",
+      "content_source": "transcript_batch_10",
+      "timestamp": 39.880001068115234
+    },
+    {
+      "source": "Luis",
+      "target": "Cloud",
+      "type": "works with",
+      "content_source": "transcript_batch_10",
+      "timestamp": 39.880001068115234
+    },
+    {
+      "source": "Alicia",
+      "target": "Luis",
+      "type": "team members",
+      "content_source": "transcript_batch_10",
+      "timestamp": 39.880001068115234
+    },
+    {
+      "source": "Luis",
+      "target": "Hiram",
+      "type": "team members",
+      "content_source": "transcript_batch_10",
+      "timestamp": 39.880001068115234
+    },
+    {
+      "source": "Julio",
+      "target": "Software Engineer",
+      "type": "is a",
+      "content_source": "transcript_batch_20",
+      "timestamp": 78.80000305175781
+    },
+    {
+      "source": "SSIS jobs",
+      "target": "tables",
+      "type": "operates on - drops, truncates, and rebuilds",
+      "content_source": "transcript_batch_30",
+      "timestamp": 109.80000305175781
+    },
+    {
+      "source": "SSIS jobs",
+      "target": "fragility",
+      "type": "causes",
+      "content_source": "transcript_batch_30",
+      "timestamp": 109.80000305175781
+    },
+    {
+      "source": "fragility",
+      "target": "data loss",
+      "type": "leads to",
+      "content_source": "transcript_batch_30",
+      "timestamp": 109.80000305175781
+    },
+    {
+      "source": "Jobs",
+      "target": "Job Dependencies",
+      "type": "are tightly coupled through",
+      "content_source": "transcript_batch_40",
+      "timestamp": 157.8000030517578
+    },
+    {
+      "source": "Staggering",
+      "target": "Jobs",
+      "type": "applied to manage execution of",
+      "content_source": "transcript_batch_40",
+      "timestamp": 157.8000030517578
+    },
+    {
+      "source": "Running Job",
+      "target": "Job Status",
+      "type": "contributes to",
+      "content_source": "transcript_batch_40",
+      "timestamp": 157.8000030517578
+    },
+    {
+      "source": "Jobs",
+      "target": "Running Job",
+      "type": "includes",
+      "content_source": "transcript_batch_40",
+      "timestamp": 157.8000030517578
+    },
+    {
+      "source": "Data Engineers",
+      "target": "System/Tool",
+      "type": "maintains and fixes",
+      "content_source": "transcript_batch_50",
+      "timestamp": 209.8000030517578
+    },
+    {
+      "source": "Data Engineers",
+      "target": "India",
+      "type": "located in",
+      "content_source": "transcript_batch_50",
+      "timestamp": 209.8000030517578
+    },
+    {
+      "source": "System/Tool",
+      "target": "Error Message",
+      "type": "produces",
+      "content_source": "transcript_batch_50",
+      "timestamp": 209.8000030517578
+    },
+    {
+      "source": "Speaker",
+      "target": "System/Tool",
+      "type": "built",
+      "content_source": "transcript_batch_50",
+      "timestamp": 209.8000030517578
+    },
+    {
+      "source": "SSIS jobs",
+      "target": "failure rates",
+      "type": "exhibits",
+      "content_source": "transcript_batch_60",
+      "timestamp": 249.8000030517578
+    },
+    {
+      "source": "SSIS jobs",
+      "target": "success rates",
+      "type": "exhibits",
+      "content_source": "transcript_batch_60",
+      "timestamp": 249.8000030517578
+    },
+    {
+      "source": "engineers",
+      "target": "SSIS jobs",
+      "type": "fixes",
+      "content_source": "transcript_batch_60",
+      "timestamp": 249.8000030517578
+    },
+    {
+      "source": "monitoring dashboard",
+      "target": "SSIS jobs",
+      "type": "tracks",
+      "content_source": "transcript_batch_60",
+      "timestamp": 249.8000030517578
+    },
+    {
+      "source": "monitoring dashboard",
+      "target": "failure rates",
+      "type": "displays",
+      "content_source": "transcript_batch_60",
+      "timestamp": 249.8000030517578
+    },
+    {
+      "source": "monitoring dashboard",
+      "target": "success rates",
+      "type": "displays",
+      "content_source": "transcript_batch_60",
+      "timestamp": 249.8000030517578
+    },
+    {
+      "source": "CDXP",
+      "target": "Job descriptions",
+      "type": "uses",
+      "content_source": "transcript_batch_70",
+      "timestamp": 295.79998779296875
+    },
+    {
+      "source": "CDXP",
+      "target": "CRM providers",
+      "type": "extracts data from",
+      "content_source": "transcript_batch_70",
+      "timestamp": 295.79998779296875
+    },
+    {
+      "source": "CRM providers",
+      "target": "Appointments",
+      "type": "contains",
+      "content_source": "transcript_batch_70",
+      "timestamp": 295.79998779296875
+    },
+    {
+      "source": "AI",
+      "target": "Job descriptions",
+      "type": "determines",
+      "content_source": "transcript_batch_70",
+      "timestamp": 295.79998779296875
+    },
+    {
+      "source": "Engineers",
+      "target": "Job descriptions",
+      "type": "provide information for",
+      "content_source": "transcript_batch_70",
+      "timestamp": 295.79998779296875
+    },
+    {
+      "source": "SQL",
+      "target": "Repository",
+      "type": "committed to",
+      "content_source": "transcript_batch_80",
+      "timestamp": 352.79998779296875
+    },
+    {
+      "source": "SSIS",
+      "target": "Repository",
+      "type": "committed to",
+      "content_source": "transcript_batch_80",
+      "timestamp": 352.79998779296875
+    },
+    {
+      "source": "AWS",
+      "target": "SFTP",
+      "type": "monitors",
+      "content_source": "transcript_batch_80",
+      "timestamp": 352.79998779296875
+    },
+    {
+      "source": "AWS",
+      "target": "SSIS",
+      "type": "triggers",
+      "content_source": "transcript_batch_80",
+      "timestamp": 352.79998779296875
+    },
+    {
+      "source": "SSIS",
+      "target": "Database",
+      "type": "loads data into",
+      "content_source": "transcript_batch_80",
+      "timestamp": 352.79998779296875
+    },
+    {
+      "source": "Customers",
+      "target": "SFTP",
+      "type": "uses for data transmission",
+      "content_source": "transcript_batch_90",
+      "timestamp": 403.79998779296875
+    },
+    {
+      "source": "Dealerships",
+      "target": "SFTP",
+      "type": "provides data through",
+      "content_source": "transcript_batch_90",
+      "timestamp": 403.79998779296875
+    },
+    {
+      "source": "SSIS Jobs",
+      "target": "EC2",
+      "type": "runs on",
+      "content_source": "transcript_batch_90",
+      "timestamp": 403.79998779296875
+    },
+    {
+      "source": "SSIS Jobs",
+      "target": "Flat File",
+      "type": "ingests data from",
+      "content_source": "transcript_batch_90",
+      "timestamp": 403.79998779296875
+    },
+    {
+      "source": "SSIS Jobs",
+      "target": "Raw Database Table",
+      "type": "stores data into",
+      "content_source": "transcript_batch_90",
+      "timestamp": 403.79998779296875
+    },
+    {
+      "source": "Flat File",
+      "target": "Raw Database Table",
+      "type": "data flows to",
+      "content_source": "transcript_batch_90",
+      "timestamp": 403.79998779296875
+    },
+    {
+      "source": "databases",
+      "target": "tables",
+      "type": "contains",
+      "content_source": "transcript_batch_100",
+      "timestamp": 451.79998779296875
+    },
+    {
+      "source": "EC2",
+      "target": "databases",
+      "type": "hosts",
+      "content_source": "transcript_batch_100",
+      "timestamp": 451.79998779296875
+    },
+    {
+      "source": "RDS",
+      "target": "webhooks",
+      "type": "pulls information from",
+      "content_source": "transcript_batch_100",
+      "timestamp": 451.79998779296875
+    },
+    {
+      "source": "Mautic",
+      "target": "databases",
+      "type": "processes data from",
+      "content_source": "transcript_batch_100",
+      "timestamp": 451.79998779296875
+    },
+    {
+      "source": "webhooks",
+      "target": "tables",
+      "type": "moves data into",
+      "content_source": "transcript_batch_100",
+      "timestamp": 451.79998779296875
+    },
+    {
+      "source": "SSIS",
+      "target": "Physical servers",
+      "type": "runs on",
+      "content_source": "transcript_batch_110",
+      "timestamp": 503.79998779296875
+    },
+    {
+      "source": "RDS",
+      "target": "SSIS",
+      "type": "supports modernization of",
+      "content_source": "transcript_batch_110",
+      "timestamp": 503.79998779296875
+    },
+    {
+      "source": "AWS Glue",
+      "target": "Physical servers",
+      "type": "proposed replacement for",
+      "content_source": "transcript_batch_110",
+      "timestamp": 503.79998779296875
+    },
+    {
+      "source": "AWS Glue",
+      "target": "SSIS",
+      "type": "considered alternative to",
+      "content_source": "transcript_batch_110",
+      "timestamp": 503.79998779296875
+    },
+    {
+      "source": "staging database",
+      "target": "target database",
+      "type": "data flows to after manipulation",
+      "content_source": "transcript_batch_120",
+      "timestamp": 553.7999877929688
+    },
+    {
+      "source": "target database",
+      "target": "inventory",
+      "type": "data is pulled to",
+      "content_source": "transcript_batch_120",
+      "timestamp": 553.7999877929688
+    },
+    {
+      "source": "target database",
+      "target": "analytics",
+      "type": "data is pulled to",
+      "content_source": "transcript_batch_120",
+      "timestamp": 553.7999877929688
+    },
+    {
+      "source": "dealer management software",
+      "target": "DMS warehouse",
+      "type": "data is stored in",
+      "content_source": "transcript_batch_120",
+      "timestamp": 553.7999877929688
+    },
+    {
+      "source": "DMS warehouse",
+      "target": "staging database",
+      "type": "part of larger data warehouse system",
+      "content_source": "transcript_batch_120",
+      "timestamp": 553.7999877929688
+    },
+    {
+      "source": "Website Builder",
+      "target": "BirdBath",
+      "type": "uses/stores data in",
+      "content_source": "transcript_batch_130",
+      "timestamp": 596.7999877929688
+    },
+    {
+      "source": "Website Builder",
+      "target": "Digital Bundle",
+      "type": "uses/stores data in",
+      "content_source": "transcript_batch_130",
+      "timestamp": 596.7999877929688
+    },
+    {
+      "source": "12-year-old application",
+      "target": "Website Builder",
+      "type": "is the same as or related to",
+      "content_source": "transcript_batch_130",
+      "timestamp": 596.7999877929688
+    },
+    {
+      "source": "BirdBath",
+      "target": "12-year-old application",
+      "type": "is legacy artifact of",
+      "content_source": "transcript_batch_130",
+      "timestamp": 596.7999877929688
+    },
+    {
+      "source": "Digital Bundle",
+      "target": "12-year-old application",
+      "type": "is legacy artifact of",
+      "content_source": "transcript_batch_130",
+      "timestamp": 596.7999877929688
+    },
+    {
+      "source": "ETLs",
+      "target": "24 hours",
+      "type": "takes time to process",
+      "content_source": "transcript_batch_140",
+      "timestamp": 636.7999877929688
+    },
+    {
+      "source": "optimizations",
+      "target": "ETLs",
+      "type": "applied to improve",
+      "content_source": "transcript_batch_140",
+      "timestamp": 636.7999877929688
+    },
+    {
+      "source": "indexing",
+      "target": "ETLs",
+      "type": "applied to improve",
+      "content_source": "transcript_batch_140",
+      "timestamp": 636.7999877929688
+    },
+    {
+      "source": "ETLs",
+      "target": "scalability",
+      "type": "lacks scalable approach",
+      "content_source": "transcript_batch_140",
+      "timestamp": 636.7999877929688
+    },
+    {
+      "source": "SSIS jobs",
+      "target": "best practices",
+      "type": "lacks adherence to",
+      "content_source": "transcript_batch_150",
+      "timestamp": 678.3599998474122
+    },
+    {
+      "source": "best practices",
+      "target": "stability",
+      "type": "promotes",
+      "content_source": "transcript_batch_150",
+      "timestamp": 678.3599998474122
+    },
+    {
+      "source": "SSIS jobs",
+      "target": "databases",
+      "type": "operates on",
+      "content_source": "transcript_batch_150",
+      "timestamp": 678.3599998474122
+    },
+    {
+      "source": "SQL",
+      "target": "SSIS",
+      "type": "related technology",
+      "content_source": "transcript_batch_150",
+      "timestamp": 678.3599998474122
+    },
+    {
+      "source": "SSIS job",
+      "target": "databases",
+      "type": "processes",
+      "content_source": "transcript_batch_160",
+      "timestamp": 718.3599998474122
+    },
+    {
+      "source": "databases",
+      "target": "tables",
+      "type": "contains",
+      "content_source": "transcript_batch_160",
+      "timestamp": 718.3599998474122
+    },
+    {
+      "source": "databases",
+      "target": "old records",
+      "type": "stores",
+      "content_source": "transcript_batch_160",
+      "timestamp": 718.3599998474122
+    },
+    {
+      "source": "builder",
+      "target": "old customers",
+      "type": "maintains",
+      "content_source": "transcript_batch_160",
+      "timestamp": 718.3599998474122
+    },
+    {
+      "source": "old records",
+      "target": "old customers",
+      "type": "represents",
+      "content_source": "transcript_batch_160",
+      "timestamp": 718.3599998474122
+    },
+    {
+      "source": "SSIS job",
+      "target": "flat file",
+      "type": "ingests",
+      "content_source": "transcript_batch_170",
+      "timestamp": 762.8399993896485
+    },
+    {
+      "source": "SSIS job",
+      "target": "third-party APIs",
+      "type": "triggers calls to",
+      "content_source": "transcript_batch_170",
+      "timestamp": 762.8399993896485
+    },
+    {
+      "source": "third-party APIs",
+      "target": "equity data",
+      "type": "retrieves",
+      "content_source": "transcript_batch_170",
+      "timestamp": 762.8399993896485
+    },
+    {
+      "source": "third-party APIs",
+      "target": "recalls",
+      "type": "retrieves",
+      "content_source": "transcript_batch_170",
+      "timestamp": 762.8399993896485
+    },
+    {
+      "source": "equity data",
+      "target": "customers",
+      "type": "describes",
+      "content_source": "transcript_batch_170",
+      "timestamp": 762.8399993896485
+    },
+    {
+      "source": "recalls",
+      "target": "customers",
+      "type": "relates to",
+      "content_source": "transcript_batch_170",
+      "timestamp": 762.8399993896485
+    },
+    {
+      "source": "API calls",
+      "target": "database",
+      "type": "dumps data into",
+      "content_source": "transcript_batch_180",
+      "timestamp": 803.8999969482422
+    },
+    {
+      "source": "SSIS jobs",
+      "target": "database",
+      "type": "picks up data from",
+      "content_source": "transcript_batch_180",
+      "timestamp": 803.8999969482422
+    },
+    {
+      "source": "SSIS jobs",
+      "target": "permanent destination",
+      "type": "moves data to",
+      "content_source": "transcript_batch_180",
+      "timestamp": 803.8999969482422
+    },
+    {
+      "source": "applications",
+      "target": "permanent destination",
+      "type": "query data from",
+      "content_source": "transcript_batch_180",
+      "timestamp": 803.8999969482422
+    },
+    {
+      "source": "appointment data",
+      "target": "database",
+      "type": "example data type processed by",
+      "content_source": "transcript_batch_180",
+      "timestamp": 803.8999969482422
+    },
+    {
+      "source": "sales data",
+      "target": "database",
+      "type": "example data type processed by",
+      "content_source": "transcript_batch_180",
+      "timestamp": 803.8999969482422
+    },
+    {
+      "source": "Job",
+      "target": "24 hours",
+      "type": "runs on a daily cycle of",
+      "content_source": "transcript_batch_190",
+      "timestamp": 847.8999969482422
+    },
+    {
+      "source": "Job",
+      "target": "Email Communications",
+      "type": "related_to",
+      "content_source": "transcript_batch_190",
+      "timestamp": 847.8999969482422
+    },
+    {
+      "source": "Job",
+      "target": "SMS",
+      "type": "delivers information through",
+      "content_source": "transcript_batch_190",
+      "timestamp": 847.8999969482422
+    },
+    {
+      "source": "Job",
+      "target": "Customer",
+      "type": "processes information for",
+      "content_source": "transcript_batch_190",
+      "timestamp": 847.8999969482422
+    },
+    {
+      "source": "Job",
+      "target": "48 hours",
+      "type": "may require for recovery if failed",
+      "content_source": "transcript_batch_190",
+      "timestamp": 847.8999969482422
+    },
+    {
+      "source": "Read-only Access",
+      "target": "Job",
+      "type": "permission to view",
+      "content_source": "transcript_batch_190",
+      "timestamp": 847.8999969482422
+    },
+    {
+      "source": "files",
+      "target": "dataset",
+      "type": "used to rebuild",
+      "content_source": "transcript_batch_200",
+      "timestamp": 888.3600036621094
+    },
+    {
+      "source": "data historicals",
+      "target": "dataset",
+      "type": "supports reprocessing of",
+      "content_source": "transcript_batch_200",
+      "timestamp": 888.3600036621094
+    },
+    {
+      "source": "SSIS DB",
+      "target": "databases",
+      "type": "is one of multiple",
+      "content_source": "transcript_batch_200",
+      "timestamp": 888.3600036621094
+    },
+    {
+      "source": "staging tables",
+      "target": "DMS",
+      "type": "pulls data from",
+      "content_source": "transcript_batch_210",
+      "timestamp": 929.8000061035157
+    },
+    {
+      "source": "staging tables",
+      "target": "clients",
+      "type": "serves",
+      "content_source": "transcript_batch_210",
+      "timestamp": 929.8000061035157
+    },
+    {
+      "source": "Data Engineers",
+      "target": "Performance Issues",
+      "type": "manages/maintains",
+      "content_source": "transcript_batch_220",
+      "timestamp": 959.3600036621094
+    },
+    {
+      "source": "Performance Issues",
+      "target": "Table Locking",
+      "type": "manifests as",
+      "content_source": "transcript_batch_220",
+      "timestamp": 959.3600036621094
+    },
+    {
+      "source": "Customer Data",
+      "target": "Performance Issues",
+      "type": "causes",
+      "content_source": "transcript_batch_220",
+      "timestamp": 959.3600036621094
+    },
+    {
+      "source": "ETLs",
+      "target": "Customer Data",
+      "type": "processes",
+      "content_source": "transcript_batch_220",
+      "timestamp": 959.3600036621094
+    },
+    {
+      "source": "300 Column Tables",
+      "target": "Performance Issues",
+      "type": "contributes to",
+      "content_source": "transcript_batch_220",
+      "timestamp": 959.3600036621094
+    },
+    {
+      "source": "Indexing",
+      "target": "Application",
+      "type": "solves performance problems in",
+      "content_source": "transcript_batch_230",
+      "timestamp": 1018.1599914550782
+    },
+    {
+      "source": "CPU",
+      "target": "Application",
+      "type": "increases performance of",
+      "content_source": "transcript_batch_230",
+      "timestamp": 1018.1599914550782
+    },
+    {
+      "source": "Memory",
+      "target": "Application",
+      "type": "increases performance of",
+      "content_source": "transcript_batch_230",
+      "timestamp": 1018.1599914550782
+    },
+    {
+      "source": "Application",
+      "target": "Cloud",
+      "type": "runs on",
+      "content_source": "transcript_batch_230",
+      "timestamp": 1018.1599914550782
+    },
+    {
+      "source": "Application",
+      "target": "200 customers",
+      "type": "currently serves",
+      "content_source": "transcript_batch_230",
+      "timestamp": 1018.1599914550782
+    },
+    {
+      "source": "Application",
+      "target": "2,000 customers",
+      "type": "may not be affordable to serve",
+      "content_source": "transcript_batch_230",
+      "timestamp": 1018.1599914550782
+    },
+    {
+      "source": "CEO",
+      "target": "Salespeople",
+      "type": "pushes/directs",
+      "content_source": "transcript_batch_240",
+      "timestamp": 1054.4999877929688
+    },
+    {
+      "source": "CEO",
+      "target": "Flagship Product",
+      "type": "prioritizes",
+      "content_source": "transcript_batch_240",
+      "timestamp": 1054.4999877929688
+    },
+    {
+      "source": "Salespeople",
+      "target": "Flagship Product",
+      "type": "promote",
+      "content_source": "transcript_batch_240",
+      "timestamp": 1054.4999877929688
+    },
+    {
+      "source": "Flagship Product",
+      "target": "Google",
+      "type": "does not use for advertising",
+      "content_source": "transcript_batch_240",
+      "timestamp": 1054.4999877929688
+    },
+    {
+      "source": "Flagship Product",
+      "target": "TikTok",
+      "type": "does not use for advertising",
+      "content_source": "transcript_batch_240",
+      "timestamp": 1054.4999877929688
+    },
+    {
+      "source": "Stability Issues",
+      "target": "Flagship Product",
+      "type": "affects",
+      "content_source": "transcript_batch_240",
+      "timestamp": 1054.4999877929688
+    },
+    {
+      "source": "Data Integrity Issues",
+      "target": "Flagship Product",
+      "type": "affects",
+      "content_source": "transcript_batch_240",
+      "timestamp": 1054.4999877929688
+    },
+    {
+      "source": "app",
+      "target": "stability",
+      "type": "has_property",
+      "content_source": "transcript_batch_250",
+      "timestamp": 1099.8000061035157
+    },
+    {
+      "source": "app",
+      "target": "2,000 mark",
+      "type": "scaling_target",
+      "content_source": "transcript_batch_250",
+      "timestamp": 1099.8000061035157
+    },
+    {
+      "source": "app",
+      "target": "usage metrics",
+      "type": "measured_by",
+      "content_source": "transcript_batch_250",
+      "timestamp": 1099.8000061035157
+    },
+    {
+      "source": "usage metrics",
+      "target": "queries per second",
+      "type": "includes",
+      "content_source": "transcript_batch_250",
+      "timestamp": 1099.8000061035157
+    },
+    {
+      "source": "engineering team",
+      "target": "metrics",
+      "type": "maintains and tracks",
+      "content_source": "transcript_batch_260",
+      "timestamp": 1146.7599975585938
+    },
+    {
+      "source": "metrics",
+      "target": "marketing messages",
+      "type": "measures volume of",
+      "content_source": "transcript_batch_260",
+      "timestamp": 1146.7599975585938
+    },
+    {
+      "source": "metrics",
+      "target": "customer engagement",
+      "type": "tracks",
+      "content_source": "transcript_batch_260",
+      "timestamp": 1146.7599975585938
+    },
+    {
+      "source": "SQL",
+      "target": "metrics",
+      "type": "specific metrics sought for",
+      "content_source": "transcript_batch_260",
+      "timestamp": 1146.7599975585938
+    },
+    {
+      "source": "application",
+      "target": "SQL",
+      "type": "generates metrics from",
+      "content_source": "transcript_batch_260",
+      "timestamp": 1146.7599975585938
+    },
+    {
+      "source": "juice reporting",
+      "target": "juice session",
+      "type": "is discussed in",
+      "content_source": "transcript_batch_270",
+      "timestamp": 1186.8199951171875
+    },
+    {
+      "source": "scaling",
+      "target": "targets",
+      "type": "informs",
+      "content_source": "transcript_batch_270",
+      "timestamp": 1186.8199951171875
+    },
+    {
+      "source": "footprint",
+      "target": "scaling",
+      "type": "provides baseline for",
+      "content_source": "transcript_batch_270",
+      "timestamp": 1186.8199951171875
+    },
+    {
+      "source": "juice reporting",
+      "target": "tables",
+      "type": "includes",
+      "content_source": "transcript_batch_270",
+      "timestamp": 1186.8199951171875
+    },
+    {
+      "source": "Data Engineers",
+      "target": "Data",
+      "type": "dump data into database columns",
+      "content_source": "transcript_batch_280",
+      "timestamp": 1219.8799926757813
+    },
+    {
+      "source": "Product Managers",
+      "target": "Dashboards",
+      "type": "create using Juice",
+      "content_source": "transcript_batch_280",
+      "timestamp": 1219.8799926757813
+    },
+    {
+      "source": "Juice",
+      "target": "Dashboards",
+      "type": "tool used to build",
+      "content_source": "transcript_batch_280",
+      "timestamp": 1219.8799926757813
+    },
+    {
+      "source": "Data Engineers",
+      "target": "Performance",
+      "type": "do not prioritize optimization",
+      "content_source": "transcript_batch_280",
+      "timestamp": 1219.8799926757813
+    },
+    {
+      "source": "Product Managers",
+      "target": "Data",
+      "type": "require specific subset for reports",
+      "content_source": "transcript_batch_280",
+      "timestamp": 1219.8799926757813
+    },
+    {
+      "source": "Juice",
+      "target": "Application",
+      "type": "is decoupled from",
+      "content_source": "transcript_batch_290",
+      "timestamp": 1251.17998046875
+    },
+    {
+      "source": "Juice",
+      "target": "Table Locking",
+      "type": "causes isolation of",
+      "content_source": "transcript_batch_290",
+      "timestamp": 1251.17998046875
+    },
+    {
+      "source": "Breaking Changes",
+      "target": "Juice",
+      "type": "affects reliability of",
+      "content_source": "transcript_batch_290",
+      "timestamp": 1251.17998046875
+    },
+    {
+      "source": "Juice",
+      "target": "read-only database",
+      "type": "connects to",
+      "content_source": "transcript_batch_300",
+      "timestamp": 1284.72001953125
+    },
+    {
+      "source": "Juice",
+      "target": "read-only table",
+      "type": "connects to",
+      "content_source": "transcript_batch_300",
+      "timestamp": 1284.72001953125
+    },
+    {
+      "source": "ETLs",
+      "target": "read-only table",
+      "type": "pushes updates and data to",
+      "content_source": "transcript_batch_300",
+      "timestamp": 1284.72001953125
+    },
+    {
+      "source": "final users",
+      "target": "Juice",
+      "type": "self-served access to",
+      "content_source": "transcript_batch_300",
+      "timestamp": 1284.72001953125
+    },
+    {
+      "source": "Product Managers",
+      "target": "Dashboards",
+      "type": "creates",
+      "content_source": "transcript_batch_310",
+      "timestamp": 1319.6799997329713
+    },
+    {
+      "source": "Dashboards",
+      "target": "Customers",
+      "type": "provides access to",
+      "content_source": "transcript_batch_310",
+      "timestamp": 1319.6799997329713
+    },
+    {
+      "source": "Jobs",
+      "target": "Stored Procedures",
+      "type": "triggers",
+      "content_source": "transcript_batch_310",
+      "timestamp": 1319.6799997329713
+    },
+    {
+      "source": "Repository",
+      "target": "ETLs",
+      "type": "contains code for",
+      "content_source": "transcript_batch_310",
+      "timestamp": 1319.6799997329713
+    },
+    {
+      "source": "Repository",
+      "target": "Stored Procedures",
+      "type": "contains",
+      "content_source": "transcript_batch_310",
+      "timestamp": 1319.6799997329713
+    },
+    {
+      "source": "Dashboards",
+      "target": "Customers",
+      "type": "can be emailed to on schedule",
+      "content_source": "transcript_batch_310",
+      "timestamp": 1319.6799997329713
+    },
+    {
+      "source": "Jobs",
+      "target": "Cloud",
+      "type": "execution monitoring not yet deployed to",
+      "content_source": "transcript_batch_310",
+      "timestamp": 1319.6799997329713
+    },
+    {
+      "source": "application",
+      "target": "databases",
+      "type": "requires read-only access to",
+      "content_source": "transcript_batch_320",
+      "timestamp": 1395.5200027465821
+    },
+    {
+      "source": "GitHub",
+      "target": "SSIS",
+      "type": "hosts repository for",
+      "content_source": "transcript_batch_320",
+      "timestamp": 1395.5200027465821
+    },
+    {
+      "source": "GitHub",
+      "target": "SQL repository",
+      "type": "hosts repository for",
+      "content_source": "transcript_batch_320",
+      "timestamp": 1395.5200027465821
+    },
+    {
+      "source": "portal",
+      "target": "application",
+      "type": "provides interface to",
+      "content_source": "transcript_batch_320",
+      "timestamp": 1395.5200027465821
+    },
+    {
+      "source": "local host",
+      "target": "production",
+      "type": "being deployed to",
+      "content_source": "transcript_batch_320",
+      "timestamp": 1395.5200027465821
+    },
+    {
+      "source": "engineers",
+      "target": "application",
+      "type": "maintain and develop",
+      "content_source": "transcript_batch_320",
+      "timestamp": 1395.5200027465821
+    },
+    {
+      "source": "SSIS",
+      "target": "AWS",
+      "type": "hosted on",
+      "content_source": "transcript_batch_330",
+      "timestamp": 1478.2399963378907
+    },
+    {
+      "source": "DB Servers",
+      "target": "AWS",
+      "type": "hosted on",
+      "content_source": "transcript_batch_330",
+      "timestamp": 1478.2399963378907
+    },
+    {
+      "source": "ETL",
+      "target": "Azure",
+      "type": "hosted on",
+      "content_source": "transcript_batch_330",
+      "timestamp": 1478.2399963378907
+    },
+    {
+      "source": "ETL",
+      "target": "DB Servers",
+      "type": "pulls data from",
+      "content_source": "transcript_batch_330",
+      "timestamp": 1478.2399963378907
+    },
+    {
+      "source": "ETL",
+      "target": "Data Warehouse",
+      "type": "loads data into",
+      "content_source": "transcript_batch_330",
+      "timestamp": 1478.2399963378907
+    },
+    {
+      "source": "AWS",
+      "target": "databases",
+      "type": "contains",
+      "content_source": "transcript_batch_340",
+      "timestamp": 1550.7999938964845
+    },
+    {
+      "source": "databases",
+      "target": "queries",
+      "type": "executes",
+      "content_source": "transcript_batch_340",
+      "timestamp": 1550.7999938964845
+    },
+    {
+      "source": "databases",
+      "target": "tables",
+      "type": "contains",
+      "content_source": "transcript_batch_340",
+      "timestamp": 1550.7999938964845
+    },
+    {
+      "source": "system performance",
+      "target": "databases",
+      "type": "depends_on",
+      "content_source": "transcript_batch_340",
+      "timestamp": 1550.7999938964845
+    },
+    {
+      "source": "eight years",
+      "target": "system performance",
+      "type": "caused_degradation_of",
+      "content_source": "transcript_batch_340",
+      "timestamp": 1550.7999938964845
+    },
+    {
+      "source": "Ukraine",
+      "target": "Mexico",
+      "type": "sequential ownership transfer",
+      "content_source": "transcript_batch_350",
+      "timestamp": 1623.5199951171876
+    },
+    {
+      "source": "Mexico",
+      "target": "India",
+      "type": "sequential ownership transfer",
+      "content_source": "transcript_batch_350",
+      "timestamp": 1623.5199951171876
+    },
+    {
+      "source": "Data Ingestion",
+      "target": "Missing Data",
+      "type": "can cause",
+      "content_source": "transcript_batch_350",
+      "timestamp": 1623.5199951171876
+    },
+    {
+      "source": "Process Design and Architecture",
+      "target": "Table Problem",
+      "type": "root cause of",
+      "content_source": "transcript_batch_350",
+      "timestamp": 1623.5199951171876
+    },
+    {
+      "source": "Email Job",
+      "target": "Data Ingestion",
+      "type": "part of",
+      "content_source": "transcript_batch_350",
+      "timestamp": 1623.5199951171876
+    },
+    {
+      "source": "Report",
+      "target": "SFTP",
+      "type": "is transferred via",
+      "content_source": "transcript_batch_360",
+      "timestamp": 1693.5199951171876
+    },
+    {
+      "source": "Job",
+      "target": "Dealers Data",
+      "type": "ingests",
+      "content_source": "transcript_batch_360",
+      "timestamp": 1693.5199951171876
+    },
+    {
+      "source": "Job",
+      "target": "9 PM",
+      "type": "scheduled to run at",
+      "content_source": "transcript_batch_360",
+      "timestamp": 1693.5199951171876
+    },
+    {
+      "source": "Job",
+      "target": "Report",
+      "type": "can break down affecting",
+      "content_source": "transcript_batch_360",
+      "timestamp": 1693.5199951171876
+    },
+    {
+      "source": "Customer",
+      "target": "Appointments",
+      "type": "reports missing",
+      "content_source": "transcript_batch_360",
+      "timestamp": 1693.5199951171876
+    },
+    {
+      "source": "Product Manager",
+      "target": "Appointments",
+      "type": "reports missing",
+      "content_source": "transcript_batch_360",
+      "timestamp": 1693.5199951171876
+    },
+    {
+      "source": "Job",
+      "target": "Appointments",
+      "type": "failure causes missing",
+      "content_source": "transcript_batch_360",
+      "timestamp": 1693.5199951171876
+    },
+    {
+      "source": "conflict.com",
+      "target": "das",
+      "type": "uses",
+      "content_source": "transcript_batch_370",
+      "timestamp": 1749.919989013672
+    },
+    {
+      "source": "conflict.com",
+      "target": "LastPass",
+      "type": "uses for organization access management",
+      "content_source": "transcript_batch_370",
+      "timestamp": 1749.919989013672
+    },
+    {
+      "source": "conflict.com",
+      "target": "VPN",
+      "type": "uses for secure access",
+      "content_source": "transcript_batch_370",
+      "timestamp": 1749.919989013672
+    },
+    {
+      "source": "LastPass",
+      "target": "shared login",
+      "type": "manages",
+      "content_source": "transcript_batch_370",
+      "timestamp": 1749.919989013672
+    },
+    {
+      "source": "VPN",
+      "target": "1Password",
+      "type": "used together for secure access",
+      "content_source": "transcript_batch_380",
+      "timestamp": 1812.160009765625
+    },
+    {
+      "source": "1Password",
+      "target": "LastPass",
+      "type": "alternative password management tools",
+      "content_source": "transcript_batch_380",
+      "timestamp": 1812.160009765625
+    },
+    {
+      "source": "Dan",
+      "target": "Microsoft Teams",
+      "type": "member of chat channel",
+      "content_source": "transcript_batch_380",
+      "timestamp": 1812.160009765625
+    },
+    {
+      "source": "Microsoft Teams",
+      "target": "Email",
+      "type": "alternative communication methods",
+      "content_source": "transcript_batch_380",
+      "timestamp": 1812.160009765625
+    },
+    {
+      "source": "GitHub",
+      "target": "LastPass",
+      "type": "shared through",
+      "content_source": "transcript_batch_390",
+      "timestamp": 1878.0799926757813
+    },
+    {
+      "source": "Transcript",
+      "target": "Meeting notes",
+      "type": "generates",
+      "content_source": "transcript_batch_390",
+      "timestamp": 1878.0799926757813
+    },
+    {
+      "source": "Transcript",
+      "target": "Action items",
+      "type": "generates",
+      "content_source": "transcript_batch_390",
+      "timestamp": 1878.0799926757813
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "1258f1b6ac2c",
+      "source_type": "video",
+      "title": "ConflictAI - SSIS Review 2026-06-08",
+      "path": "/Users/ragelink/Downloads/ConflictAI - SSIS Review-20260608_090142-Meeting Recording.mp4",
+      "url": null,
+      "mime_type": "video/mp4",
+      "ingested_at": "2026-06-08T20:04:38.828427",
+      "metadata": {
+        "duration_seconds": 1955.712
+      }
+    }
+  ]
+}

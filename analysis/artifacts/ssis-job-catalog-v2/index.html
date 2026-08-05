@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSIS Job Catalog v2 — DAS CDP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Roboto:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1D1D1D; --surface: #111; --surface2: #1a1a1a;
+    --border: #2a2a2a; --border2: #333;
+    --red: #DB394C; --red-dim: rgba(219,57,76,0.1);
+    --text: #F8F8F8; --muted: #888; --dim: #444;
+    --green: #4CAF50; --green-dim: rgba(76,175,80,0.12);
+    --yellow: #F5A623; --yellow-dim: rgba(245,166,35,0.1);
+    --blue: #4A7FA5; --blue-dim: rgba(74,127,165,0.12);
+    --radius: 6px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Roboto', sans-serif; font-size: 13px; line-height: 1.6; }
+
+  /* Nav */
+  .portal-nav { height: 34px; background: var(--bg); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 24px; gap: 20px; font-size: 11px; position: sticky; top: 0; z-index: 100; }
+  .portal-nav a { color: var(--dim); text-decoration: none; }
+  .portal-nav a:hover { color: var(--muted); }
+  .nav-sep { color: var(--border2); }
+
+  /* Page header */
+  .page-header { max-width: 1100px; margin: 0 auto; padding: 36px 32px 24px; border-bottom: 1px solid var(--border); }
+  .artifact-label { font-family: 'Roboto Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: .1em; color: var(--red); background: var(--red-dim); border: 1px solid rgba(219,57,76,.3); border-radius: 3px; padding: 2px 8px; display: inline-block; }
+  h1 { font-family: 'Unica One', sans-serif; font-size: 28px; letter-spacing: .04em; text-transform: uppercase; color: var(--text); line-height: 1; margin-top: 8px; }
+  .header-desc { font-size: 13px; color: var(--muted); max-width: 640px; line-height: 1.6; margin-top: 8px; }
+  .header-meta { display: flex; gap: 8px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+  .meta-chip { font-family: 'Roboto Mono', monospace; font-size: 9px; color: var(--muted); background: var(--surface2); border: 1px solid var(--border); border-radius: 2px; padding: 2px 8px; }
+
+  /* Summary strip */
+  .summary-strip { display: flex; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 24px auto; max-width: calc(1100px - 64px); }
+  .sum-item { flex: 1; padding: 14px 20px; text-align: center; border-right: 1px solid var(--border); background: var(--surface); }
+  .sum-item:last-child { border-right: none; }
+  .sum-num { font-family: 'Unica One', sans-serif; font-size: 22px; line-height: 1; margin-bottom: 3px; }
+  .sum-label { font-size: 9px; text-transform: uppercase; letter-spacing: .07em; color: var(--dim); }
+
+  /* Content */
+  .content { max-width: 1100px; margin: 0 auto; padding: 0 32px 64px; }
+  .section { margin-bottom: 36px; }
+  .section-label {
+    font-family: 'Unica One', sans-serif; font-size: 11px; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--dim); margin-bottom: 14px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: baseline; gap: 10px;
+  }
+  .section-note { font-family: 'Roboto Mono', monospace; font-size: 9px; color: var(--dim); letter-spacing: .03em; text-transform: none; font-weight: normal; opacity: .8; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    font-family: 'Roboto Mono', monospace; font-size: 9px; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--dim); padding: 8px 12px;
+    border-bottom: 1px solid var(--border); text-align: left; background: var(--surface);
+  }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--surface); }
+  tbody td { padding: 10px 12px; vertical-align: top; font-size: 12px; }
+
+  /* Badges */
+  .badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-family: 'Roboto Mono', monospace; font-size: 9px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .06em;
+    padding: 2px 7px; border-radius: 3px; border: 1px solid; white-space: nowrap;
+  }
+  .badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+  .s-running  { color: var(--blue);   border-color: rgba(74,127,165,.4);  background: var(--blue-dim); }
+  .s-success  { color: var(--green);  border-color: rgba(76,175,80,.4);   background: var(--green-dim); }
+  .s-failed   { color: var(--red);    border-color: rgba(219,57,76,.4);   background: var(--red-dim); }
+  .s-unknown  { color: var(--dim);    border-color: var(--border);        background: var(--surface2); }
+  .p-high     { color: var(--red);    border-color: rgba(219,57,76,.4);   background: var(--red-dim); }
+  .p-medium   { color: var(--yellow); border-color: rgba(245,166,35,.4);  background: var(--yellow-dim); }
+  .p-low      { color: var(--muted);  border-color: var(--border);        background: var(--surface2); }
+
+  /* Table cell helpers */
+  .job-name { font-weight: 500; color: var(--text); }
+  .job-sub  { font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--dim); margin-top: 2px; }
+  .cell-dim   { color: var(--dim); font-family: 'Roboto Mono', monospace; font-size: 10px; }
+  .cell-muted { color: var(--muted); font-size: 12px; }
+  .pct-danger { color: var(--red);    font-weight: 600; font-family: 'Roboto Mono', monospace; font-size: 11px; }
+  .pct-warn   { color: var(--yellow); font-family: 'Roboto Mono', monospace; font-size: 11px; }
+  .pct-ok     { color: var(--green);  font-family: 'Roboto Mono', monospace; font-size: 11px; }
+  .tag { font-family: 'Roboto Mono', monospace; font-size: 9px; color: var(--muted); background: var(--surface2); border: 1px solid var(--border); border-radius: 2px; padding: 1px 6px; white-space: nowrap; }
+
+  /* Alert cards */
+  .alert { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid; border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; }
+  .alert-danger { border-left-color: var(--red); }
+  .alert-warn   { border-left-color: var(--yellow); }
+  .alert-title  { font-family: 'Unica One', sans-serif; font-size: 13px; letter-spacing: .02em; margin-bottom: 4px; }
+  .alert-danger .alert-title { color: var(--red); }
+  .alert-warn   .alert-title { color: var(--yellow); }
+  .alert-body   { font-size: 12px; color: var(--muted); line-height: 1.6; }
+  pre.error-block {
+    font-family: 'Roboto Mono', monospace; font-size: 11px; color: var(--red);
+    background: rgba(0,0,0,.5); border: 1px solid rgba(219,57,76,.2); border-radius: 4px;
+    padding: 10px 12px; margin-top: 8px; overflow-x: auto; white-space: pre-wrap;
+  }
+
+  /* Note list */
+  .note-list { display: flex; flex-direction: column; gap: 6px; }
+  .note-item {
+    padding: 10px 12px 10px 22px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 4px;
+    font-size: 12px; color: var(--muted); line-height: 1.5; position: relative;
+  }
+  .note-item::before { content: '›'; position: absolute; left: 9px; top: 10px; color: var(--red); font-weight: 700; line-height: 1.5; }
+
+  /* Dependency list */
+  .dep-list { display: flex; flex-direction: column; gap: 6px; }
+  .dep-item { display: flex; align-items: baseline; gap: 10px; padding: 9px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; flex-wrap: wrap; }
+  .dep-from  { font-family: 'Roboto Mono', monospace; font-size: 11px; color: var(--text); }
+  .dep-arrow { color: var(--dim); font-size: 14px; flex-shrink: 0; }
+  .dep-to    { font-family: 'Roboto Mono', monospace; font-size: 11px; color: var(--text); }
+  .dep-note  { font-size: 11px; color: var(--dim); margin-left: auto; }
+
+  /* Source captures */
+  .captures-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .capture-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; cursor: pointer; transition: border-color .15s; }
+  .capture-card:hover { border-color: var(--border2); }
+  .capture-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: #000; }
+  .capture-meta { padding: 8px 12px; border-top: 1px solid var(--border); }
+  .capture-label   { font-family: 'Roboto Mono', monospace; font-size: 10px; color: var(--muted); }
+  .capture-desc    { font-size: 11px; color: var(--dim); margin-top: 2px; }
+  .capture-session { font-family: 'Roboto Mono', monospace; font-size: 9px; color: var(--red); background: var(--red-dim); border: 1px solid rgba(219,57,76,.2); border-radius: 2px; padding: 1px 5px; display: inline-block; margin-top: 4px; }
+
+  /* Lightbox */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.94); z-index: 1000; align-items: center; justify-content: center; flex-direction: column; gap: 10px; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 92vw; max-height: 87vh; border: 1px solid var(--border2); border-radius: 4px; }
+  .lightbox-close { position: absolute; top: 18px; right: 22px; background: none; border: none; color: var(--muted); font-size: 22px; cursor: pointer; }
+  .lightbox-close:hover { color: var(--text); }
+  .lightbox-caption { font-family: 'Roboto Mono', monospace; font-size: 11px; color: var(--muted); }
+
+  /* Footer */
+  .page-footer { border-top: 1px solid var(--border); padding: 16px 32px; font-size: 10px; color: var(--dim); font-family: 'Roboto Mono', monospace; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+
+<nav class="portal-nav">
+  <a href="../../../">← Command Center</a>
+  <span class="nav-sep">/</span>
+  <a href="../../">Sessions</a>
+  <span class="nav-sep">/</span>
+  <a href="../ssis-job-catalog/" style="color:var(--dim)">SSIS Job Catalog</a>
+  <span class="nav-sep">/</span>
+  <span style="color:var(--muted)">v2</span>
+</nav>
+
+<div class="page-header">
+  <span class="artifact-label">Catalog · v2</span>
+  <h1>SSIS Job Catalog</h1>
+  <p class="header-desc">All 13 SSIS jobs with health data from 2026-06-08, enriched with authoritative stored procedure descriptions from the <code style="font-size:11px;color:var(--muted)">etl/SSIS/</code> submodule (3birdsmarketing/Database-Processes, added 2026-06-09). Inferred job dependency map included.</p>
+  <div class="header-meta">
+    <span class="meta-chip">Updated: 2026-06-09</span>
+    <span class="meta-chip">ssis-review-2026-06-08</span>
+    <span class="meta-chip">etl-analysis-2026-06-09</span>
+    <span class="meta-chip">v1: <a href="../ssis-job-catalog/" style="color:var(--muted);text-decoration:none">session snapshot only</a></span>
+  </div>
+</div>
+
+<div class="summary-strip">
+  <div class="sum-item"><div class="sum-num" style="color:var(--text)">13</div><div class="sum-label">Total Jobs</div></div>
+  <div class="sum-item"><div class="sum-num" style="color:var(--blue)">1</div><div class="sum-label">Running (9am)</div></div>
+  <div class="sum-item"><div class="sum-num" style="color:var(--red)">1</div><div class="sum-label">Failed (24h)</div></div>
+  <div class="sum-item"><div class="sum-num" style="color:var(--green)">93%</div><div class="sum-label">7-day Success</div></div>
+  <div class="sum-item"><div class="sum-num" style="color:var(--red)">2</div><div class="sum-label">Persistent Failures</div></div>
+  <div class="sum-item"><div class="sum-num" style="color:var(--yellow)">5</div><div class="sum-label">Jobs in etl/</div></div>
+</div>
+
+<div class="content">
+
+  <!-- All 13 Jobs -->
+  <div class="section">
+    <div class="section-label">All 13 Jobs <span class="section-note">snapshot · 2026-06-08 ~9am MST</span></div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:28%">Job</th>
+          <th style="width:11%">Last Run</th>
+          <th style="width:10%">Status</th>
+          <th style="width:8%">30d Runs</th>
+          <th style="width:9%">Success %</th>
+          <th style="width:10%">Avg Duration</th>
+          <th>In etl/</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="job-name">Mileone_reward_member</div><div class="job-sub">ThreeBirds.Analytics.Mileone.reward</div></td>
+          <td class="cell-dim">May 28, 11pm</td>
+          <td><span class="badge s-failed">Failed</span></td>
+          <td class="cell-muted">20</td>
+          <td><span class="pct-danger">0%</span></td>
+          <td class="cell-dim">4s</td>
+          <td class="cell-dim">—</td>
+        </tr>
+        <tr>
+          <td><div class="job-name">ThreeBirds.Analytics.BlueSky</div></td>
+          <td class="cell-dim">Jun 7, 6:30pm</td>
+          <td><span class="badge s-failed">Failed</span></td>
+          <td class="cell-muted">30</td>
+          <td><span class="pct-warn">93%</span></td>
+          <td class="cell-dim">2h 37m</td>
+          <td><span class="tag">etl/SSIS/BlueSky/</span></td>
+        </tr>
+        <tr>
+          <td><div class="job-name">JuiceReporting_CDXPCustomers</div></td>
+          <td class="cell-dim">Jun 7, 9pm</td>
+          <td><span class="badge s-success">Succeeded</span></td>
+          <td class="cell-muted">7</td>
+          <td><span class="pct-warn">71%</span></td>
+          <td class="cell-dim">7m 7s</td>
+          <td class="cell-dim">—</td>
+        </tr>
+        <tr>
+          <td><div class="job-name">ThreeBirds.Analytics.CRM</div></td>
+          <td class="cell-dim">Jun 8, 8:01am</td>
+          <td><span class="badge s-running">Running</span></td>
+          <td class="cell-muted">30</td>
+          <td><span class="pct-warn">93%</span></td>
+          <td class="cell-dim">3h 20m</td>
+          <td><span class="tag">etl/SSIS/CRM/</span></td>
+        </tr>
+        <tr>
+          <td><div class="job-name">appointment-process</div><div class="job-sub">ThreeBirds.Analytics.Appointment</div></td>
+          <td class="cell-dim">Jun 8, 5:30am</td>
+          <td><span class="badge s-success">Succeeded</span></td>
+          <td class="cell-muted">31</td>
+          <td><span class="pct-ok">97%</span></td>
+          <td class="cell-dim">2h 53m</td>
+          <td><span class="tag">etl/SSIS/DMS/</span></td>
+        </tr>
+        <tr>
+          <td><div class="job-name">Conquest_Mailing</div><div class="job-sub">ThreeBirds.Analytics.Conquest</div></td>
+          <td class="cell-dim">Jun 7, 12pm</td>
+          <td><span class="badge s-success">Succeeded</span></td>
+          <td class="cell-muted">30</td>
+          <td><span class="pct-ok">100%</span></td>
+          <td class="cell-dim">57s</td>
+          <td class="cell-dim">—</td>
+        </tr>
+        <tr>
+          <td><div class="job-name">MileOne Weekly Unsubscribe</div></td>
+          <td class="cell-dim">Jun 8, 6am</td>
+          <td><span class="badge s-success">Succeeded</span></td>
+          <td class="cell-muted">60</td>
+          <td><span class="pct-ok">100%</span></td>
+          <td class="cell-dim">2m 54s</td>
+          <td class="cell-dim">—</td>
+        </tr>
+        <tr>
+          <td><div class="job-name">ThreeBirds.Analytics.CustomerValue</div></td>
+          <td class="cell-dim">Jun 7, 11:30pm</td>
+          <td><span class="badge s-success">Succeeded</span></td>
+          <td class="cell-muted">30</td>
+          <td><span class="pct-ok">100%</span></td>
+          <td class="cell-dim">8m 41s</td>
+          <td class="cell-dim">—</td>
+        </tr>
+        <tr>
+          <td><div class="job-name">ThreeBirds.Analytics.CVH</div></td>
+          <td class="cell-dim">Jun 7, 4pm</td>
+          <td><span class="badge s-success">Succeeded</span></td>
+          <td class="cell-muted">30</td>
+          <td><span class="pct-ok">100%</span></td>
+          <td class="cell-dim">2h 4m</td>
+          <td><span class="tag">etl/SSIS/CVH/</span></td>
+        </tr>
+        <tr>
+          <td><div class="job-name">ThreeBirds.Analytics.DDE</div></td>
+          <td class="cell-dim">Jun 8, 3am</td>
+          <td><span class="badge s-success">Succeeded</span></td>
+          <td class="cell-muted">31</td>
+          <td><span class="pct-ok">97%</span></td>
+          <td class="cell-dim">1h 54m</td>
+          <td class="cell-dim">—</td>
+        </tr>
+        <tr>
+          <td><div class="job-name">ThreeBirds.Analytics.Email</div></td>
+          <td class="cell-dim">Jun 7, 12:30pm</td>
+          <td><span class="badge s-success">Succeeded</span></td>
+          <td class="cell-muted">30</td>
+          <td class="cell-dim">—</td>
+          <td class="cell-dim">4h 25m</td>
+          <td><span class="tag">etl/SSIS/Email/</span></td>
+        </tr>
+        <tr>
+          <td><div class="job-name">ThreeBirds.Analytics.LeadSource_LeadPerformance</div></td>
+          <td class="cell-dim">Jun 7, 11pm</td>
+          <td><span class="badge s-success">Succeeded</span></td>
+          <td class="cell-dim">—</td>
+          <td class="cell-dim">—</td>
+          <td class="cell-dim">1h 28m</td>
+          <td class="cell-dim">—</td>
+        </tr>
+        <tr>
+          <td><div class="job-name">ThreeBirds.Analytics.SmartSuppression</div></td>
+          <td class="cell-dim">—</td>
+          <td><span class="badge s-unknown">Unknown</span></td>
+          <td class="cell-dim">—</td>
+          <td class="cell-dim">—</td>
+          <td class="cell-dim">—</td>
+          <td class="cell-dim">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Active Failures -->
+  <div class="section">
+    <div class="section-label">Active Failures</div>
+    <div class="alert alert-danger">
+      <div class="alert-title">Mileone_reward_member — 0% success over 20 runs</div>
+      <div class="alert-body">Last run was May 28. Nobody on the DAS team knows why it's still in the pipeline. The job completes in 4 seconds (no-op or immediate failure). No stored procedures in <code style="font-family:'Roboto Mono',monospace;font-size:11px">etl/</code> — purpose entirely unknown. Owner: Rick / Eng team.</div>
+    </div>
+    <div class="alert alert-warn">
+      <div class="alert-title">ThreeBirds.Analytics.BlueSky — Duplicate object collision</div>
+      <div class="alert-body">93% success rate historically but currently failed. Classic SSIS truncate-rebuild failure: the job tries to recreate a table that was partially created in a prior run. Fix: add <code style="font-family:'Roboto Mono',monospace;font-size:11px;color:var(--yellow)">DROP TABLE IF EXISTS</code> before recreate, or migrate to incremental upsert. Stored procedures are in <code style="font-family:'Roboto Mono',monospace;font-size:11px">etl/SSIS/BlueSky/</code>.
+        <pre class="error-block">sp_juice_data_sync_bluesky_ssis: Error: Executing the query "EXEC
+sp_juice_data_sync_bluesky_ssis" failed with the following error:
+"There is already an object named 'JuiceReporting_CDXPCustomers'
+in the database."</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stored Procedure Inventory -->
+  <div class="section">
+    <div class="section-label">Stored Procedure Inventory <span class="section-note">authoritative · etl/ submodule · 2026-06-09</span></div>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.6;">Source code for 5 of 13 jobs is in <code style="font-family:'Roboto Mono',monospace;font-size:11px;color:var(--yellow)">etl/SSIS/</code> (Database-Processes repo, added as submodule 2026-06-09). The remaining 8 jobs have no stored procedures committed — descriptions from Rick still needed.</p>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:22%">Job</th>
+          <th style="width:14%">Module</th>
+          <th>What It Does</th>
+          <th style="width:22%">Key Tables</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="job-name">ThreeBirds.Analytics.CRM</div></td>
+          <td><span class="tag">etl/SSIS/CRM/</span></td>
+          <td style="color:var(--muted)">Processes CRM data from eLeads, DealerSocket, VinSolutions, DriveCentric, Momentum. Per-provider prestaging → merged staging → main CRM table. Also handles daily loads (RR/VS clients), unsubscribes, and lead source/status lookups.</td>
+          <td class="cell-dim">prestaging_CRM_*, staging_CRM, CRM</td>
+        </tr>
+        <tr>
+          <td><div class="job-name">ThreeBirds.Analytics.CVH</div></td>
+          <td><span class="tag">etl/SSIS/CVH/</span></td>
+          <td style="color:var(--muted)">Merges CRM and DMS staging data into centralized Customer Vehicle History (CVH) tables — the current platform-wide unified customer record. <strong style="color:var(--yellow)">CDP does not ingest from CVH</strong> — this is the post-processed merge layer that the CDP replaces.</td>
+          <td class="cell-dim">staging_CVH, CVH, CVH_List</td>
+        </tr>
+        <tr>
+          <td><div class="job-name">appointment-process</div><div class="job-sub">ThreeBirds.Analytics.Appointment</div></td>
+          <td><span class="tag">etl/SSIS/DMS/</span></td>
+          <td style="color:var(--muted)">Processes DMS data — appointments, sales, service records, address mapping, CRM-DMS recipient matching, declined services. Prestaging → staging → target DMS tables. Includes Alteryx address enrichment and cellphone normalization.</td>
+          <td class="cell-dim">prestaging_DMS_*, staging_DMS, DMS_Fact_*</td>
+        </tr>
+        <tr>
+          <td><div class="job-name">ThreeBirds.Analytics.Email</div></td>
+          <td><span class="tag">etl/SSIS/Email/</span></td>
+          <td style="color:var(--muted)">Processes email campaign data from the legacy platform: sends, recipients, opens, clicks, bounces, links, GA/customer journey tracking, 60-day matchbacks, MileOne summaries, and JuiceReporting OEM/parent group inserts.</td>
+          <td class="cell-dim">Email_Sends, Email_Events, Email_Recipients, Email_Links</td>
+        </tr>
+        <tr>
+          <td><div class="job-name">ThreeBirds.Analytics.BlueSky</div></td>
+          <td><span class="tag">etl/SSIS/BlueSky/</span></td>
+          <td style="color:var(--muted)">Generates data for BlueSky dashboards: contacts from legacy email platform, customer vehicles, engagement stats, vehicle lifecycle position (predicted mileage / next service), product engagement, and stream campaign messages.</td>
+          <td class="cell-dim">Analytics_BlueSky_Contact, Analytics_BlueSky_Engagement, Analytics_BlueSky_LifecyclePosition</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:10px;color:var(--dim);margin-top:10px;font-family:'Roboto Mono',monospace;line-height:1.7;">No source code in etl/: Mileone_reward_member · JuiceReporting_CDXPCustomers · CustomerValue · DDE · LeadSource_LeadPerformance · SmartSuppression · Conquest_Mailing · MileOne Weekly Unsubscribe</p>
+  </div>
+
+  <!-- Inferred Job Dependencies -->
+  <div class="section">
+    <div class="section-label">Inferred Job Dependencies <span class="section-note">partial · derived from stored procedure analysis · unconfirmed</span></div>
+    <div class="dep-list">
+      <div class="dep-item">
+        <span class="dep-from">ThreeBirds.Analytics.CRM</span>
+        <span class="dep-arrow">→</span>
+        <span class="dep-to">ThreeBirds.Analytics.CVH</span>
+        <span class="dep-note">CRM staging tables are a direct input to CVH merge</span>
+      </div>
+      <div class="dep-item">
+        <span class="dep-from">appointment-process (DMS)</span>
+        <span class="dep-arrow">→</span>
+        <span class="dep-to">ThreeBirds.Analytics.CVH</span>
+        <span class="dep-note">DMS staging tables are a direct input to CVH merge</span>
+      </div>
+      <div class="dep-item">
+        <span class="dep-from">ThreeBirds.Analytics.Email</span>
+        <span class="dep-arrow">→</span>
+        <span class="dep-to">ThreeBirds.Analytics.BlueSky</span>
+        <span class="dep-note">BlueSky contact/engagement data draws from legacy email platform tables</span>
+      </div>
+    </div>
+    <p style="font-size:11px;color:var(--dim);margin-top:10px;line-height:1.5;">Full 13-job DAG remains undocumented — the dashboard shows job health but no dependency graph exists. These three dependencies are inferred from stored procedure input/output table names and have not been confirmed by engineers.</p>
+  </div>
+
+  <!-- Architecture Notes -->
+  <div class="section">
+    <div class="section-label">Architecture Notes</div>
+    <div class="note-list">
+      <div class="note-item">All jobs use a <strong style="color:var(--text)">truncate-rebuild pattern</strong> — they drop/recreate target tables rather than upsert, creating fragility whenever a prior run leaves partial state.</div>
+      <div class="note-item">Jobs run in waves from <strong style="color:var(--text)">midnight through ~9am MST</strong>. CRM (~3h) and Email (~4h) are the longest-running and most likely to block dependent jobs.</div>
+      <div class="note-item"><strong style="color:var(--text)">3–4 offshore engineers</strong> manually monitor and remediate failures daily, with no automated alerting yet and limited documentation.</div>
+      <div class="note-item">The <strong style="color:var(--text)">CDXP Job Status Dashboard</strong> (localhost:3000) was built ~1 week before the 2026-06-08 session — the first centralized visibility layer added to the pipeline.</div>
+      <div class="note-item"><strong style="color:var(--text)">AWS Glue was evaluated and rejected</strong> — it relocates the truncate-rebuild problem without fixing it. Airflow is confirmed as the replacement path.</div>
+      <div class="note-item"><strong style="color:var(--text)">CDP ingestion target: raw source tables</strong> (EDW_Staging or upstream source DBs), not post-processed CVH or DWRPT views. See <code style="font-family:'Roboto Mono',monospace;font-size:11px">memory/decisions.md</code>.</div>
+    </div>
+  </div>
+
+  <!-- Action Items -->
+  <div class="section">
+    <div class="section-label">Action Items</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:8%">Priority</th>
+          <th>Action</th>
+          <th style="width:18%">Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge p-high">High</span></td>
+          <td style="color:var(--muted)">Investigate why Mileone_reward_member has 0% success rate over 20 runs — no stored procedures committed, purpose unknown</td>
+          <td style="color:var(--muted)">Rick / Eng team</td>
+        </tr>
+        <tr>
+          <td><span class="badge p-high">High</span></td>
+          <td style="color:var(--muted)">Fix BlueSky "already an object" failure — add <code style="font-family:'Roboto Mono',monospace;font-size:11px">DROP TABLE IF EXISTS</code> or switch to upsert in <code style="font-family:'Roboto Mono',monospace;font-size:11px">etl/SSIS/BlueSky/</code></td>
+          <td style="color:var(--muted)">Eng team</td>
+        </tr>
+        <tr>
+          <td><span class="badge p-high">High</span></td>
+          <td style="color:var(--muted)">Implement failure alerting — engineers are manually catching failures with no automated notifications</td>
+          <td style="color:var(--muted)">Rick / Leo's team</td>
+        </tr>
+        <tr>
+          <td><span class="badge p-medium">Med</span></td>
+          <td style="color:var(--muted)">Get job descriptions for the 8 jobs not in etl/: CustomerValue · DDE · LeadSource_LeadPerformance · SmartSuppression · Conquest_Mailing · MileOne Weekly Unsubscribe · JuiceReporting_CDXPCustomers · Mileone_reward_member</td>
+          <td style="color:var(--muted)">Rick</td>
+        </tr>
+        <tr>
+          <td><span class="badge p-medium">Med</span></td>
+          <td style="color:var(--muted)">Confirm inferred job dependency DAG with engineers — CRM/DMS → CVH and Email → BlueSky chains need verification</td>
+          <td style="color:var(--muted)">Rick / Eng team</td>
+        </tr>
+        <tr>
+          <td><span class="badge p-medium">Med</span></td>
+          <td style="color:var(--muted)">Airflow migration replaces SSIS — <code style="font-family:'Roboto Mono',monospace;font-size:11px">etl/SSIS/</code> becomes the authoritative stored procedure reference during migration planning</td>
+          <td style="color:var(--muted)">Conflict team</td>
+        </tr>
+        <tr>
+          <td><span class="badge p-low">Low</span></td>
+          <td style="color:var(--muted)">Audit unused databases (BirdBath, DigitalBundle) — dependency-map before deleting</td>
+          <td style="color:var(--muted)">Eng team</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Source Captures -->
+  <div class="section">
+    <div class="section-label">Source Captures <span class="section-note">ssis-review-2026-06-08</span></div>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.6;">Screencaps extracted from the session recording by Planopticon. Data in the job table above was verified against these frames.</p>
+    <div class="captures-grid">
+      <div class="capture-card" onclick="openLightbox('frame_0070.jpg','CDXP Job Status Dashboard — all 13 jobs')">
+        <img class="capture-img" src="../../sessions/ssis-review-2026-06-08/frames/frame_0070.jpg" onerror="this.closest('.capture-card').style.display='none'" alt="CDXP Job Status Dashboard" loading="lazy">
+        <div class="capture-meta">
+          <div class="capture-label">frame_0070 · CDXP Job Status Dashboard</div>
+          <div class="capture-desc">All 13 SSIS jobs with 30-day run history, success rates, and current status. Source for the job table above.</div>
+          <span class="capture-session">ssis-review-2026-06-08</span>
+        </div>
+      </div>
+      <div class="capture-card" onclick="openLightbox('frame_0005.jpg','BlueSky error modal')">
+        <img class="capture-img" src="../../sessions/ssis-review-2026-06-08/frames/frame_0005.jpg" onerror="this.closest('.capture-card').style.display='none'" alt="BlueSky error detail" loading="lazy">
+        <div class="capture-meta">
+          <div class="capture-label">frame_0005 · BlueSky error detail</div>
+          <div class="capture-desc">Modal showing the full sp_juice_data_sync_bluesky_ssis error — "already an object named JuiceReporting_CDXPCustomers".</div>
+          <span class="capture-session">ssis-review-2026-06-08</span>
+        </div>
+      </div>
+      <div class="capture-card" onclick="openLightbox('frame_0010.jpg','Dashboard grid view')">
+        <img class="capture-img" src="../../sessions/ssis-review-2026-06-08/frames/frame_0010.jpg" onerror="this.closest('.capture-card').style.display='none'" alt="Dashboard grid view" loading="lazy">
+        <div class="capture-meta">
+          <div class="capture-label">frame_0010 · Dashboard grid view</div>
+          <div class="capture-desc">Full grid layout showing job cards with KPIs — currently running, failed counts, 7-day success rate.</div>
+          <span class="capture-session">ssis-review-2026-06-08</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="page-footer">
+  <span>DAS CDP · SSIS Job Catalog v2 · Phase 0 · Conflict</span>
+  <span>Updated 2026-06-09 · <a href="../ssis-job-catalog/" style="color:var(--dim);text-decoration:none">v1 (session snapshot)</a></span>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lightbox-caption" id="lb-caption"></div>
+</div>
+
+<script>
+const BASE_FRAMES = '../../sessions/ssis-review-2026-06-08/frames/';
+function openLightbox(file, caption) {
+  document.getElementById('lb-img').src = BASE_FRAMES + file;
+  document.getElementById('lb-caption').textContent = caption;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>

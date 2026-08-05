@@ -1,0 +1,52 @@
+component,subject,total,b00_-86400_0_sec,b01_0_1_sec,b02_1_5_sec,b03_5_10_sec,b04_10_30_sec,b05_30_60_sec,b06_60_300_sec,b07_300_600_sec,b08_600_1800_sec,b09_1800_3600_sec,b10_3600_14400_sec,b11_14400_86400_sec,b12_86400_604800_sec,b13_604800_2592000_sec,b14_2592000_1000000000000_sec
+lead_create_process,lead_create log,4400471,0,25776,242213,276947,1201746,2109340,180013,23,284,113,347,125,361833,20,1691
+lead_consolidate_process_2,Path,2704755,0,14180,137018,139841,600998,1344001,130704,12,231,88,312,44,335622,20,1684
+initiate_campaign_status_process,initiate_campaign_status_process Completed,1006463,0,101,20199,49352,257870,486086,93832,69,356,363,2346,7693,87769,5,422
+lead_consolidate_process_2,txn_paload value,679247,0,3618,34378,35072,150902,337967,32793,3,58,22,78,11,83919,5,421
+smart_quote_lead_status_upsert,Status Updated,551156,0,0,0,1,759,6614,321254,83351,40368,3739,5487,1809,87442,3,329
+franchise_rep_update_pending_process_2,sqnp2 test,551144,0,0,3650,17543,103275,202250,49548,72623,16063,72,374,811,84603,3,329
+franchise_rep_update_pending_process_2,smart_quote_new_process_2 called,288961,0,0,1797,8838,53615,105074,25498,41500,6866,32,157,356,45014,3,211
+franchise_rep_update_pending_process_2,smart_quote_used_process_2 called,262183,0,0,1846,8695,49663,97174,24066,31123,9197,40,217,455,39589,0,118
+franchise_rep_update_pending_process_2,smart_quote_process not called,111366,0,4,3292,4814,19365,56179,7447,7876,8927,34,216,597,2529,0,86
+lead_create_process,"lead_upsert, Line: 169",13837,51,28,325,399,1575,1855,386,0,6311,2578,175,154,0,0,0
+franchise_consumer_franchise_rep_upsert,"franchise_consumer_franchise_rep_upsert, Line: 228",13778,0,28,326,401,1577,1852,374,0,6312,2579,174,155,0,0,0
+lead_consolidate_process_2,lead_consolidate_process log,12003,0,58,508,486,2409,7775,712,0,1,0,0,0,54,0,0
+lead_create_process,"lead_create_process, Line: 105",4008,4,12,85,66,359,727,76,0,1799,807,39,13,21,0,0
+franchise_rep_update_pending_process_2,"franchise_rep_update_pending_process_2, Line: 246",1539,0,0,0,0,0,2,0,1,5,4,3,21,1482,0,21
+InitiateCampaign,IC: Prospect ID Update Log,647,0,0,2,30,200,284,128,0,0,0,0,3,0,0,0
+"InitiateCampaign, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",GetInitiateCampaignSupplementReaderData Failure,510,0,0,1,1,9,153,6,0,239,92,6,3,0,0,0
+QuoteVehicleSelection,ApplyDealerInventoryPricingUpdates Failure,367,0,0,1,16,147,95,22,0,0,0,0,0,86,0,0
+SmartQuote,"Value cannot be null.
+Parameter name: input",226,0,0,0,0,3,0,85,3,34,6,3,0,92,0,0
+franchise_rep_update_pending_process_2,"franchise_consumer_franchise_rep_upsert, Line: 228",187,0,0,0,0,0,0,1,174,9,3,0,0,0,0,0
+franchise_consumer_alias_process,"franchise_consumer_alias_upsert, Line: 90",125,66,1,8,6,9,31,3,0,1,0,0,0,0,0,0
+franchise_consumer_alias_upsert,"franchise_consumer_alias_upsert, Line: 64",65,64,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+exception_log_sender,"exception_log_sender, Line: 0",61,51,0,1,0,3,5,1,0,0,0,0,0,0,0,0
+franchise_consumer_alias_upsert,"franchise_consumer_alias_upsert, Line: 48",60,2,1,8,6,9,32,2,0,0,0,0,0,0,0,0
+PrepareLead,BuildADFOptions Log,50,0,0,1,2,6,31,2,0,0,0,0,0,8,0,0
+SmartQuote,Thread was being aborted.,17,0,0,0,0,0,0,2,0,1,0,1,9,4,0,0
+InitiateCampaign,UpdateLeadStatus Failure,9,0,0,0,0,2,6,1,0,0,0,0,0,0,0,0
+lead_create_process,"franchise_consumer_crm_reference_upsert, Line: 30",8,7,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+reactivate_consumer_process,"app_server_config_sender, Line: 0",7,0,0,0,0,0,0,0,0,0,0,0,0,3,2,2
+initiate_campaign_status_process,"franchise_consumer_smart_follow_txn_upsert, Line: 26",7,0,0,0,0,2,4,1,0,0,0,0,0,0,0,0
+franchise_consumer_smart_follow_txn_upsert,"franchise_consumer_smart_follow_txn_upsert, Line: 11",7,0,0,0,0,2,4,1,0,0,0,0,0,0,0,0
+lead_match_process,"franchise_consumer_vehicle_upsert, Line: 65",4,0,0,0,0,0,3,1,0,0,0,0,0,0,0,0
+SmartQuote,"settingsjson cannot be null or empty
+Parameter name: settingsjson",4,0,0,0,0,0,0,2,0,2,0,0,0,0,0,0
+SmartQuote,Thread was being aborted. Blob exception for http://productionstoragerl.blob.core.windows.net/temp-2,3,0,0,0,0,0,0,0,0,1,0,0,2,0,0,0
+initiate_campaign_status_process,"lead_history_upsert, Line: 34",2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0
+SmartQuote,Thread was being aborted. Blob exception for http://storage.responselogix.com/txn-20260607/quotevehi,2,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0
+ParseHTTP,DeleteFromQueue Failure,2,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0
+SmartQuote,Thread was being aborted. Blob exception for log-20260417/0021005397761/log/smartquote/AI+Text+Reque,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+SmartQuote,Thread was being aborted. Blob exception for queuelog-20260514/smartquotequeue/1336171689504.7542ed4,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+ParseHTTP,Reprocess Failure,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+SmartQuote,Thread was being aborted. Blob exception for queuelog-20260417/smartquotequeue/0021010095652.ae6343f,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+"InitiateCampaign, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",GetFranchiseRepUpdatePendingReaderData Failure,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+SmartQuote,Thread was being aborted. Blob exception for http://storage.responselogix.com/txn-20260416/quotevehi,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+InitiateCampaign,SendLeadToDealer Failure,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+franchise_rep_update_pending_process_2,"franchise_rep_update_pending_process_2, Line: 254",1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+SmartQuote,Thread was being aborted. Blob exception for log-20260506/0206404726998/log/smartquote/LeadBlobBefor,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+SmartQuote,Thread was being aborted. Blob exception for queuelog-20260514/smartquotequeue/1336174494005.2f0f74f,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+ParseHTTP,ProcessCloudLeads Failure,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+QuoteVehicleSelection,GetICProcessingAction Failure,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+SmartQuote,Thread was being aborted. Blob exception for http://storage.responselogix.com/txn-20260415/quotevehi,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0

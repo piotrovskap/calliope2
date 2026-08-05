@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Record — DAS CDP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#1D1D1D; --surface:#111; --surface2:#1a1a1a; --border:#2a2a2a; --border2:#333;
+    --red:#DB394C; --red-dim:rgba(219,57,76,0.1);
+    --text:#F8F8F8; --muted:#888; --dim:#555; --green:#4CAF50; --yellow:#F5A623;
+    --blue:#4A7FA5; --purple:#7A5BA8; --radius:6px;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:'Roboto',sans-serif; font-size:13px; line-height:1.6; min-height:100vh; }
+  a { color:inherit; }
+  ::-webkit-scrollbar { width:9px; height:9px; }
+  ::-webkit-scrollbar-track { background:var(--surface); }
+  ::-webkit-scrollbar-thumb { background:var(--border2); border-radius:4px; }
+  ::-webkit-scrollbar-thumb:hover { background:#444; }
+
+  .header { border-bottom:1px solid var(--border); padding:0 28px; height:54px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:34px; background:var(--bg); z-index:100; }
+  .brand { display:flex; align-items:center; gap:14px; }
+  .wordmark { font-family:'Unica One',sans-serif; font-size:16px; color:var(--red); letter-spacing:.1em; text-transform:uppercase; line-height:1; }
+  .wordmark-sub { font-size:10px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-top:2px; }
+  .back-link { font-size:11px; color:var(--muted); text-decoration:none; border:1px solid var(--border); border-radius:4px; padding:4px 10px; }
+  .back-link:hover { color:var(--text); border-color:var(--border2); }
+  .artifact-badge { font-family:'Unica One',sans-serif; font-size:11px; letter-spacing:.1em; color:var(--yellow); border:1px solid var(--yellow); border-radius:3px; padding:2px 8px; background:rgba(245,166,35,.1); white-space:nowrap; }
+
+  .page { max-width:1180px; margin:0 auto; padding:30px 28px 90px; }
+  .artifact-header { margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid var(--border); }
+  .artifact-icon { font-size:26px; margin-bottom:6px; color:var(--red); }
+  .artifact-title { font-family:'Unica One',sans-serif; font-size:28px; letter-spacing:.03em; color:var(--text); line-height:1.1; margin-bottom:8px; }
+  .artifact-meta { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+  .meta-item { font-family:'Roboto Mono',monospace; font-size:11px; color:var(--dim); }
+  .intent { font-size:12px; color:var(--muted); max-width:880px; line-height:1.65; margin-top:10px; }
+
+  /* tabs */
+  .tabs { display:flex; gap:2px; flex-wrap:wrap; border-bottom:1px solid var(--border); margin-bottom:24px; position:sticky; top:88px; background:var(--bg); z-index:90; padding-top:2px; }
+  .tab { font-family:'Roboto Mono',monospace; font-size:11px; letter-spacing:.04em; color:var(--muted); background:none; border:none; border-bottom:2px solid transparent; padding:9px 14px; cursor:pointer; text-transform:uppercase; white-space:nowrap; }
+  .tab:hover { color:var(--text); }
+  .tab.active { color:var(--red); border-bottom-color:var(--red); }
+  .tab .tab-n { color:var(--dim); margin-left:5px; font-weight:500; }
+  .tab.active .tab-n { color:var(--red); }
+  .view { display:none; }
+  .view.active { display:block; }
+
+  .section { margin-bottom:30px; }
+  .section-title { font-family:'Unica One',sans-serif; font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+  .section-note { font-size:11px; color:var(--dim); margin-bottom:14px; line-height:1.55; max-width:900px; }
+
+  /* legend */
+  .legend-group { margin-bottom:12px; }
+  .legend-group-label { font-family:'Roboto Mono',monospace; font-size:9px; text-transform:uppercase; letter-spacing:.1em; color:var(--dim); margin-bottom:5px; }
+  .legend { display:flex; gap:7px; flex-wrap:wrap; }
+  .legend-chip { font-family:'Roboto Mono',monospace; font-size:9px; color:var(--muted); background:var(--surface2); border:1px solid var(--border); border-radius:2px; padding:3px 8px; }
+  .legend-chip b { color:var(--text); font-weight:500; }
+
+  /* stat cards */
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(128px,1fr)); gap:10px; margin:18px 0 26px; }
+  .stat { background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:13px 15px; }
+  .stat-n { font-family:'Unica One',sans-serif; font-size:30px; line-height:1; color:var(--text); }
+  .stat-n.accent { color:var(--red); }
+  .stat-n.good { color:var(--green); }
+  .stat-l { font-family:'Roboto Mono',monospace; font-size:9px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-top:7px; }
+  .stat-sub { font-size:10px; color:var(--dim); margin-top:2px; }
+
+  /* status banner */
+  .status-banner { display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start; background:rgba(245,166,35,.06); border:1px solid rgba(245,166,35,.3); border-radius:var(--radius); padding:16px 18px; margin-bottom:22px; }
+  .status-banner .sb-main { flex:1 1 320px; }
+  .status-banner .sb-status { font-family:'Unica One',sans-serif; font-size:18px; letter-spacing:.04em; color:var(--yellow); line-height:1.2; }
+  .status-banner .sb-basis { font-size:11px; color:var(--muted); margin-top:6px; line-height:1.5; }
+  .reviewers { display:flex; flex-direction:column; gap:6px; }
+  .reviewer { display:flex; align-items:center; gap:8px; font-size:11px; color:var(--text); }
+  .reviewer .dot { width:7px; height:7px; border-radius:50%; background:var(--yellow); flex-shrink:0; }
+  .reviewer-label { font-family:'Roboto Mono',monospace; font-size:9px; text-transform:uppercase; letter-spacing:.06em; color:var(--dim); }
+
+  /* tables */
+  table { width:100%; border-collapse:collapse; }
+  thead th { font-family:'Roboto Mono',monospace; font-size:9px; text-transform:uppercase; letter-spacing:.08em; color:var(--dim); padding:7px 10px; border-bottom:1px solid var(--border); text-align:left; background:var(--surface); position:sticky; top:0; }
+  tbody tr { border-bottom:1px solid var(--border); }
+  tbody td { padding:9px 10px; vertical-align:top; font-size:12px; }
+  .f-name { color:var(--text); font-weight:500; }
+  .f-note { font-size:10px; color:var(--dim); margin-top:3px; line-height:1.45; }
+  .mono { font-family:'Roboto Mono',monospace; }
+  .src { display:inline-block; font-family:'Roboto Mono',monospace; font-size:9px; color:var(--muted); background:var(--surface2); border:1px solid var(--border); border-radius:2px; padding:0 5px; margin:1px 3px 1px 0; white-space:nowrap; }
+
+  /* badges */
+  .badge { display:inline-block; font-family:'Roboto Mono',monospace; font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:1px 7px; border-radius:3px; border:1px solid; white-space:nowrap; }
+  .t-core     { color:var(--red);    border-color:rgba(219,57,76,.4);  background:var(--red-dim); }
+  .t-valuable { color:var(--yellow); border-color:rgba(245,166,35,.4); background:rgba(245,166,35,.1); }
+  .t-later    { color:var(--blue);   border-color:rgba(74,127,165,.4); background:rgba(74,127,165,.12); }
+  .t-tbd      { color:var(--dim);    border-color:var(--border2);      background:var(--surface2); }
+  .s-pending   { color:var(--dim);    border-color:var(--border2);      background:var(--surface2); }
+  .s-draft     { color:var(--yellow); border-color:rgba(245,166,35,.4); background:rgba(245,166,35,.1); }
+  .s-validated { color:var(--green);  border-color:rgba(76,175,80,.4);  background:rgba(76,175,80,.12); }
+  .role-badge { font-family:'Roboto Mono',monospace; font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:1px 7px; border-radius:3px; border:1px solid; white-space:nowrap; }
+  .r-core     { color:var(--red);    border-color:rgba(219,57,76,.4);  background:var(--red-dim); }
+  .r-derived  { color:var(--purple); border-color:rgba(122,91,168,.45);background:rgba(122,91,168,.14); }
+  .r-adjacent { color:var(--blue);   border-color:rgba(74,127,165,.4); background:rgba(74,127,165,.12); }
+  .r-tenant   { color:var(--green);  border-color:rgba(76,175,80,.4);  background:rgba(76,175,80,.12); }
+  .id-badge { color:var(--muted); border-color:var(--border2); background:var(--surface2); }
+  .id-badge.primary_key { color:var(--red); border-color:rgba(219,57,76,.4); background:var(--red-dim); }
+  .id-badge.deterministic_key { color:var(--green); border-color:rgba(76,175,80,.4); background:rgba(76,175,80,.12); }
+  .id-badge.blocking_key { color:var(--yellow); border-color:rgba(245,166,35,.4); background:rgba(245,166,35,.1); }
+  /* access status */
+  .acc { font-family:'Roboto Mono',monospace; font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:1px 7px; border-radius:3px; border:1px solid; white-space:nowrap; }
+  .acc-granted    { color:var(--green);  border-color:rgba(76,175,80,.4);  background:rgba(76,175,80,.12); }
+  .acc-blocked    { color:var(--red);    border-color:rgba(219,57,76,.4);  background:var(--red-dim); }
+  .acc-csv-only   { color:var(--yellow); border-color:rgba(245,166,35,.4); background:rgba(245,166,35,.1); }
+  .acc-api-unused { color:var(--blue);   border-color:rgba(74,127,165,.4); background:rgba(74,127,165,.12); }
+  .acc-na         { color:var(--dim);    border-color:var(--border2);      background:var(--surface2); }
+  .vbadge { font-family:'Roboto Mono',monospace; font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:1px 7px; border-radius:3px; border:1px solid; white-space:nowrap; }
+  .v-yes { color:var(--green); border-color:rgba(76,175,80,.5); background:rgba(76,175,80,.14); }
+  .v-no  { color:var(--dim);   border-color:var(--border2);     background:var(--surface2); }
+
+  /* ref pill */
+  .ref { display:inline-flex; align-items:center; gap:4px; font-family:'Roboto Mono',monospace; font-size:9px; color:var(--blue); background:rgba(74,127,165,.1); border:1px solid rgba(74,127,165,.3); border-radius:2px; padding:0 5px; margin:1px 3px 1px 0; text-decoration:none; white-space:nowrap; }
+  .ref:hover { background:rgba(74,127,165,.22); color:var(--text); }
+  .ref.unver { color:var(--dim); border-color:var(--border2); background:var(--surface2); }
+  .ref-x { font-size:8px; opacity:.7; }
+
+  /* filters */
+  .filters { display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end; margin-bottom:16px; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:14px; }
+  .filter { display:flex; flex-direction:column; gap:4px; }
+  .filter label { font-family:'Roboto Mono',monospace; font-size:9px; text-transform:uppercase; letter-spacing:.06em; color:var(--dim); }
+  .filter select, .filter input[type=text] { background:var(--surface); color:var(--text); border:1px solid var(--border2); border-radius:4px; padding:5px 8px; font-family:'Roboto Mono',monospace; font-size:11px; min-width:130px; }
+  .filter input[type=text] { min-width:200px; }
+  .filter select:focus, .filter input:focus { outline:none; border-color:var(--red); }
+  .toggle { display:flex; align-items:center; gap:7px; cursor:pointer; font-size:11px; color:var(--text); padding-bottom:6px; user-select:none; }
+  .toggle input { accent-color:var(--red); width:15px; height:15px; }
+  .filter-stat { margin-left:auto; font-family:'Roboto Mono',monospace; font-size:10px; color:var(--muted); padding-bottom:6px; }
+  .filter-stat b { color:var(--green); }
+  .btn-clear { font-family:'Roboto Mono',monospace; font-size:10px; color:var(--muted); background:var(--surface); border:1px solid var(--border2); border-radius:4px; padding:6px 10px; cursor:pointer; }
+  .btn-clear:hover { color:var(--text); border-color:var(--red); }
+
+  /* expandable rows */
+  tr.expandable { cursor:pointer; }
+  tr.expandable:hover td { background:rgba(255,255,255,.02); }
+  .expander { color:var(--dim); font-family:'Roboto Mono',monospace; font-size:11px; display:inline-block; width:12px; transition:transform .12s; }
+  tr.open .expander { transform:rotate(90deg); color:var(--red); }
+  tr.detail-row > td { padding:0; background:var(--surface); border-bottom:1px solid var(--border); }
+  .detail-wrap { padding:14px 18px 18px 32px; }
+  .detail-grid { display:grid; gap:3px 14px; grid-template-columns:auto 1fr; margin-bottom:12px; }
+  .dg-k { font-family:'Roboto Mono',monospace; font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); white-space:nowrap; padding-top:1px; }
+  .dg-v { font-size:11px; color:var(--text); }
+  .map-table { margin-top:8px; border:1px solid var(--border); border-radius:4px; overflow:hidden; }
+  .map-table thead th { background:var(--surface2); }
+  .map-table td { font-size:11px; }
+  .empty { color:var(--dim); font-style:italic; font-size:11px; padding:18px 0; }
+
+  /* ER graph */
+  .graph-wrap { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; position:relative; }
+  .graph-wrap svg { display:block; width:100%; height:auto; }
+  .gnode { cursor:pointer; }
+  .gnode rect { transition:stroke-width .1s; }
+  .gnode:hover rect { stroke-width:2.5; }
+  .gnode.sel rect { stroke-width:3; }
+  .gnode text { font-family:'Roboto',sans-serif; pointer-events:none; }
+  .gnode .nlabel { font-size:11px; font-weight:500; fill:var(--text); }
+  .gnode .nrole { font-family:'Roboto Mono',monospace; font-size:7.5px; letter-spacing:.05em; }
+  .gedge { stroke:var(--border2); stroke-width:1.2; fill:none; }
+  .gedge.temporal { stroke-dasharray:4 3; }
+  .gelabel { font-family:'Roboto Mono',monospace; font-size:7px; fill:var(--muted); pointer-events:none; }
+  .graph-hint { position:absolute; bottom:10px; right:14px; font-family:'Roboto Mono',monospace; font-size:9px; color:var(--dim); }
+
+  /* drawer */
+  .drawer-back { position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:300; display:none; }
+  .drawer-back.open { display:block; }
+  .drawer { position:fixed; top:0; right:0; width:min(560px,94vw); height:100%; background:var(--bg); border-left:1px solid var(--border2); z-index:310; transform:translateX(100%); transition:transform .18s ease; display:flex; flex-direction:column; }
+  .drawer.open { transform:translateX(0); }
+  .drawer-head { padding:18px 22px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+  .drawer-title { font-family:'Unica One',sans-serif; font-size:22px; letter-spacing:.03em; line-height:1.1; }
+  .drawer-close { background:none; border:1px solid var(--border2); color:var(--muted); border-radius:4px; width:28px; height:28px; cursor:pointer; font-size:16px; line-height:1; flex-shrink:0; }
+  .drawer-close:hover { color:var(--text); border-color:var(--red); }
+  .drawer-body { padding:18px 22px 40px; overflow-y:auto; }
+  .key-highlight { background:var(--red-dim); border:1px solid rgba(219,57,76,.4); border-radius:4px; padding:8px 11px; margin:10px 0; }
+  .key-highlight .kh-label { font-family:'Roboto Mono',monospace; font-size:9px; text-transform:uppercase; letter-spacing:.06em; color:var(--red); margin-bottom:2px; }
+  .key-highlight .kh-val { font-family:'Roboto Mono',monospace; font-size:12px; color:var(--text); }
+  .drawer-sub { font-family:'Roboto Mono',monospace; font-size:9px; text-transform:uppercase; letter-spacing:.08em; color:var(--dim); margin:18px 0 7px; }
+  .schema-scroll { max-height:320px; overflow-y:auto; border:1px solid var(--border); border-radius:4px; }
+  .schema-scroll table thead th { background:var(--surface2); }
+  .k-pill { font-family:'Roboto Mono',monospace; font-size:8px; font-weight:700; text-transform:uppercase; padding:0 4px; border-radius:2px; border:1px solid; }
+  .k-pk { color:var(--red); border-color:rgba(219,57,76,.4); background:var(--red-dim); }
+  .k-fk { color:var(--blue); border-color:rgba(74,127,165,.4); background:rgba(74,127,165,.12); }
+  .k-natural { color:var(--yellow); border-color:rgba(245,166,35,.4); background:rgba(245,166,35,.1); }
+  .k-none { color:var(--dim); border-color:var(--border2); background:transparent; }
+
+  /* identity machinery panels */
+  .panel-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:14px; }
+  .panel { background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:16px 18px; }
+  .panel-title { font-family:'Unica One',sans-serif; font-size:14px; letter-spacing:.05em; color:var(--text); margin-bottom:3px; }
+  .panel-meta { font-family:'Roboto Mono',monospace; font-size:9px; color:var(--dim); margin-bottom:12px; }
+  .wf-step { display:flex; gap:11px; padding:9px 0; border-bottom:1px solid var(--border); }
+  .wf-step:last-child { border-bottom:none; }
+  .wf-order { font-family:'Unica One',sans-serif; font-size:18px; color:var(--red); min-width:22px; line-height:1.1; }
+  .wf-rule { font-size:11px; color:var(--text); line-height:1.45; }
+  .wf-conf { font-family:'Roboto Mono',monospace; font-size:8px; text-transform:uppercase; letter-spacing:.05em; margin-top:3px; }
+  .conf-deterministic { color:var(--green); }
+  .conf-heuristic { color:var(--yellow); }
+  .conf-ml { color:var(--purple); }
+  .ndef { padding:9px 0; border-bottom:1px solid var(--border); }
+  .ndef:last-child { border-bottom:none; }
+  .ndef-name { font-family:'Roboto Mono',monospace; font-size:11px; color:var(--red); font-weight:500; }
+  .ndef-def { font-size:11px; color:var(--muted); margin-top:3px; line-height:1.5; }
+
+  /* worked example */
+  .we-desc { font-size:12px; color:var(--muted); max-width:880px; line-height:1.6; margin-bottom:20px; }
+  .subject-card { display:flex; align-items:center; gap:16px; background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:16px 20px; margin-bottom:20px; }
+  .avatar { width:54px; height:54px; border-radius:50%; object-fit:cover; border:2px solid var(--red); background:var(--surface); flex-shrink:0; }
+  .avatar-fallback { width:54px; height:54px; border-radius:50%; border:2px solid var(--red); background:var(--red-dim); display:flex; align-items:center; justify-content:center; font-family:'Unica One',sans-serif; font-size:22px; color:var(--red); flex-shrink:0; }
+  .subject-name { font-family:'Unica One',sans-serif; font-size:22px; letter-spacing:.03em; }
+  .subject-role { font-size:11px; color:var(--muted); }
+  .subject-id { font-family:'Roboto Mono',monospace; font-size:11px; color:var(--red); margin-top:4px; }
+  .we-graph-wrap { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-bottom:24px; position:relative; }
+  .we-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px; }
+  .we-card { background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:13px 15px; }
+  .we-card-h { font-family:'Roboto Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-bottom:9px; display:flex; align-items:center; gap:7px; }
+  .we-card-h .cnt { color:var(--dim); }
+  .kv { display:grid; grid-template-columns:auto 1fr; gap:2px 10px; font-size:11px; padding:4px 0; border-bottom:1px solid var(--border); }
+  .kv:last-child { border-bottom:none; }
+  .kv-k { font-family:'Roboto Mono',monospace; font-size:9px; color:var(--dim); text-transform:uppercase; letter-spacing:.04em; }
+  .kv-v { color:var(--text); word-break:break-word; }
+  .kv-v .mono { color:var(--text); }
+  .er-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px; margin-top:14px; }
+
+  .load-error { color:var(--red); font-family:'Roboto Mono',monospace; font-size:12px; padding:30px; border:1px solid rgba(219,57,76,.4); border-radius:var(--radius); background:var(--red-dim); }
+  .footer-note { margin-top:40px; padding-top:18px; border-top:1px solid var(--border); font-size:10px; color:var(--dim); line-height:1.6; }
+  @media (max-width:720px){ .stats { grid-template-columns:repeat(2,1fr); } .tabs { top:88px; } }
+</style>
+</head>
+<body>
+<nav style="height:34px;background:#000;border-bottom:1px solid #2a2a2a;display:flex;align-items:center;padding:0 24px;gap:16px;font-size:11px;font-family:Roboto,sans-serif;position:sticky;top:0;z-index:200"><a href="../../../" style="color:#444;text-decoration:none">&larr; Command Center</a><span style="color:#333">/</span><a href="../../" style="color:#444;text-decoration:none">Repository</a><span style="color:#333">/</span><span style="color:#888">Golden Record</span></nav>
+
+<header class="header">
+  <div class="brand">
+    <svg width="30" height="30" viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="38" stroke="#DB394C" stroke-width="7" fill="none"/>
+      <circle cx="50" cy="50" r="22" stroke="#DB394C" stroke-width="7" fill="none"/>
+      <rect x="46.5" y="46.5" width="7" height="7" fill="#DB394C"/>
+      <rect x="46.5" y="4" width="7" height="20" fill="#DB394C"/>
+      <rect x="46.5" y="76" width="7" height="20" fill="#DB394C"/>
+      <rect x="4" y="46.5" width="20" height="7" fill="#DB394C"/>
+      <rect x="76" y="46.5" width="20" height="7" fill="#DB394C"/>
+    </svg>
+    <div>
+      <div class="wordmark">DAS CDP</div>
+      <div class="wordmark-sub">Artifact &middot; Review</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <span class="artifact-badge" id="badge">LOADING</span>
+    <a class="back-link" href="../../index.html">&larr; Repository</a>
+  </div>
+</header>
+
+<div class="page">
+  <div class="artifact-header">
+    <div class="artifact-icon">&#x2B22;</div>
+    <div class="artifact-title">Golden Record</div>
+    <div class="artifact-meta" id="meta"></div>
+    <div class="intent" id="intent"></div>
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+  <div id="views">
+    <noscript><div class="load-error">This page renders record.json &amp; schema.json &mdash; JavaScript required.</div></noscript>
+  </div>
+  <div class="footer-note" id="footer"></div>
+</div>
+
+<!-- entity drawer -->
+<div class="drawer-back" id="drawerBack"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head">
+    <div>
+      <div class="drawer-title" id="drawerTitle"></div>
+      <div id="drawerRole" style="margin-top:6px"></div>
+    </div>
+    <button class="drawer-close" id="drawerClose" aria-label="Close">&times;</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+
+<script>
+(async () => {
+  "use strict";
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const cls = s => String(s == null ? "" : s).replace(/[^a-z0-9_-]/gi, "-");
+  const views = $("views");
+
+  // ---- load data ----
+  let d, schema = null;
+  try {
+    d = await (await fetch('./record.json', {cache:'no-cache'})).json();
+  } catch (e) {
+    views.innerHTML = '<div class="load-error">Failed to load <b>./record.json</b> &mdash; ' + esc(e.message) + '</div>';
+    return;
+  }
+  try {
+    schema = await (await fetch('./schema.json', {cache:'no-cache'})).json();
+  } catch (e) {
+    schema = null; // schema is for tooltips only; degrade gracefully
+  }
+  const defs = (schema && schema.$defs) || {};
+
+  // ---- references registry helpers ----
+  const refs = d.references || {};
+  const isUrl = h => /^https?:\/\//i.test(h || "");
+  // repo-relative hrefs are relative to repo root; this page lives at analysis/artifacts/golden-record/
+  const REPO_PREFIX = "../../../";
+  const refHref = r => isUrl(r.href) ? r.href : (REPO_PREFIX + r.href + (r.anchor ? "#" + r.anchor : ""));
+  function refPill(id) {
+    const r = refs[id];
+    if (!r) return '<span class="ref unver" title="unknown ref id">' + esc(id) + '</span>';
+    const ver = r.verified ? '' : ' unver';
+    const tip = esc(r.label) + " — " + esc(r.kind) + (r.verified ? " (verified)" : " (unverified)") + " — " + esc(r.href);
+    const ext = isUrl(r.href) ? ' target="_blank" rel="noopener"' : '';
+    const mark = r.verified ? '✓' : '○';
+    return '<a class="ref' + ver + '" href="' + esc(refHref(r)) + '"' + ext + ' title="' + tip + '"><span class="ref-x">' + mark + '</span>' + esc(id) + '</a>';
+  }
+  const refList = ids => (ids && ids.length) ? ids.map(refPill).join("") : '<span style="color:var(--dim);font-size:10px">—</span>';
+
+  // ---- derived collections ----
+  const entities = d.model.entities;
+  const rels = d.model.relationships;
+  const entById = Object.fromEntries(entities.map(e => [e.id, e]));
+  const entName = id => (entById[id] && (entById[id].name || entById[id].id)) || id;
+  const allFields = d.sections.flatMap(s => s.fields.map(f => ({...f, _section: s.label})));
+  const allMaps = allFields.flatMap(f => f.source_mappings || []);
+  const sources = d.source_registry;
+  const srcById = Object.fromEntries(sources.map(s => [s.id, s]));
+  const verCount = allMaps.filter(m => m.verified).length;
+  const refVer = Object.values(refs).filter(r => r.verified).length;
+
+  // ---- header / badge ----
+  $("badge").textContent = "v" + (d.locked && d.locked.version ? d.locked.version : d.version);
+  $("meta").innerHTML =
+    '<span class="meta-item">' + entities.length + ' entities · ' + rels.length + ' relationships · ' +
+    allFields.length + ' fields · ' + sources.length + ' sources · updated ' + esc(d.updated) + '</span>';
+  $("intent").textContent = d.intent || "";
+
+  // ============================================================
+  // TAB DEFINITIONS
+  // ============================================================
+  const TABS = [
+    { id: "overview",  label: "Overview",            render: renderOverview,  count: null },
+    { id: "model",     label: "Entity Model",        render: renderModel,     count: entities.length },
+    { id: "fields",    label: "Field Dictionary",    render: renderFields,    count: allFields.length },
+    { id: "sources",   label: "Source Registry",     render: renderSources,   count: sources.length },
+    { id: "identity",  label: "Identity Machinery",  render: renderIdentity,  count: Object.keys(d.identity_binding).length },
+    { id: "example",   label: "Worked Example",      render: renderExample,   count: null },
+    { id: "refs",      label: "References",          render: renderRefs,      count: Object.keys(refs).length },
+  ];
+
+  $("tabs").innerHTML = TABS.map((t, i) =>
+    '<button class="tab' + (i === 0 ? ' active' : '') + '" data-tab="' + t.id + '">' +
+    esc(t.label) + (t.count != null ? '<span class="tab-n">' + t.count + '</span>' : '') + '</button>'
+  ).join("");
+  views.innerHTML = TABS.map((t, i) =>
+    '<div class="view' + (i === 0 ? ' active' : '') + '" id="view-' + t.id + '"></div>'
+  ).join("");
+
+  const rendered = {};
+  function activate(id) {
+    document.querySelectorAll(".tab").forEach(b => b.classList.toggle("active", b.dataset.tab === id));
+    document.querySelectorAll(".view").forEach(v => v.classList.toggle("active", v.id === "view-" + id));
+    if (!rendered[id]) {
+      const t = TABS.find(x => x.id === id);
+      try { t.render($("view-" + id)); }
+      catch (e) { $("view-" + id).innerHTML = '<div class="load-error">Render error in ' + esc(id) + ': ' + esc(e.message) + '</div>'; }
+      rendered[id] = true;
+    }
+    if (history.replaceState) history.replaceState(null, "", "#" + id);
+  }
+  $("tabs").addEventListener("click", e => {
+    const b = e.target.closest(".tab"); if (b) activate(b.dataset.tab);
+  });
+
+  // ============================================================
+  // 1. OVERVIEW
+  // ============================================================
+  function renderOverview(el) {
+    const lk = d.locked || {};
+    const statusLine = esc(d.status || (lk.version ? "v" + lk.version : ""));
+    const reviewers = (lk.reviewers || []).map(r =>
+      '<div class="reviewer"><span class="dot"></span>' + esc(r) + '</div>').join("");
+    const banner =
+      '<div class="status-banner">' +
+        '<div class="sb-main">' +
+          '<div class="reviewer-label">Status</div>' +
+          '<div class="sb-status">' + statusLine + '</div>' +
+          (lk.basis ? '<div class="sb-basis">' + esc(lk.basis) + '</div>' : '') +
+        '</div>' +
+        (reviewers ?
+          '<div><div class="reviewer-label" style="margin-bottom:6px">Signed off by</div>' +
+          '<div class="reviewers">' + reviewers + '</div>' +
+          (lk.date ? '<div class="reviewer-label" style="margin-top:8px">locked ' + esc(lk.date) + ' · ' + esc(lk.status || '') + '</div>' : '') +
+          '</div>' : '') +
+      '</div>';
+
+    const verPct = allMaps.length ? Math.round(verCount / allMaps.length * 100) : 0;
+    const stat = (n, l, sub, kls) =>
+      '<div class="stat"><div class="stat-n ' + (kls||'') + '">' + n + '</div>' +
+      '<div class="stat-l">' + l + '</div>' + (sub ? '<div class="stat-sub">' + sub + '</div>' : '') + '</div>';
+    const coreCount = entities.filter(e => e.role === "core").length;
+    const grantedSrc = sources.filter(s => s.access_status === "granted").length;
+    const stats =
+      '<div class="stats">' +
+        stat(entities.length, "Entities", coreCount + " core", "accent") +
+        stat(rels.length, "Relationships", rels.filter(r => r.temporal).length + " temporal") +
+        stat(allFields.length, "Dictionary fields", d.sections.length + " sections") +
+        stat(allMaps.length, "Source mappings", null) +
+        stat(verPct + "%", "Doc-verified", verCount + "/" + allMaps.length + " mappings", verPct === 100 ? "good" : "") +
+        stat(sources.length, "Sources", grantedSrc + " granted") +
+        stat(Object.keys(refs).length, "References", refVer + " verified") +
+        stat(Object.keys(d.identity_binding).length, "ID subsystems", null) +
+      '</div>';
+
+    // legend (all groups in record.legend)
+    const legendBlocks = Object.entries(d.legend || {}).map(([group, map]) =>
+      '<div class="legend-group">' +
+        '<div class="legend-group-label">' + esc(group.replace(/_/g, " ")) + '</div>' +
+        '<div class="legend">' +
+        Object.entries(map).map(([k, v]) =>
+          '<span class="legend-chip"><b>' + esc(k) + '</b> ' + esc(v) + '</span>').join("") +
+        '</div></div>'
+    ).join("");
+
+    el.innerHTML =
+      banner + stats +
+      '<div class="section"><div class="section-title">Legend</div>' + legendBlocks + '</div>' +
+      '<div class="section"><div class="section-title">Intent</div>' +
+        '<div class="intent" style="max-width:none">' + esc(d.intent) + '</div></div>' +
+      renderChangelog();
+  }
+
+  function renderChangelog() {
+    const cl = d.changelog || [];
+    if (!cl.length) return "";
+    return '<div class="section"><div class="section-title">Changelog</div>' +
+      '<table><thead><tr><th style="width:110px">Date</th><th>Note</th></tr></thead><tbody>' +
+      cl.map(c => '<tr><td class="mono" style="color:var(--muted)">' + esc(c.date) + '</td>' +
+        '<td style="color:var(--muted)">' + esc(c.note) + '</td></tr>').join("") +
+      '</tbody></table></div>';
+  }
+
+  // ============================================================
+  // 2. ENTITY-RELATIONSHIP MODEL (inline SVG)
+  // ============================================================
+  const ROLE_COLOR = { core:"#DB394C", derived:"#7A5BA8", adjacent:"#4A7FA5", tenant:"#4CAF50" };
+  function roleColor(r) { return ROLE_COLOR[r] || "#888"; }
+
+  function renderModel(el) {
+    el.innerHTML =
+      '<div class="section-note">Entities are nodes colored by role; relationships are directed edges labeled with kind &amp; cardinality. ' +
+      'Dashed edges are temporal (bitemporal valid-from/valid-to). Click any node for its purpose, key, and full sample schema.</div>' +
+      '<div class="legend" style="margin-bottom:14px">' +
+        Object.entries(ROLE_COLOR).map(([r, c]) =>
+          '<span class="legend-chip"><b style="color:' + c + '">■</b> ' + esc(r) + '</span>').join("") +
+        '<span class="legend-chip"><b>— —</b> temporal edge</span>' +
+      '</div>' +
+      '<div class="graph-wrap" id="erGraph"></div>' +
+      '<div class="section" style="margin-top:24px"><div class="section-title">Entities</div>' +
+        renderEntityTable() + '</div>';
+    drawGraph($("erGraph"), entities, rels);
+    el.querySelectorAll("[data-ent]").forEach(r =>
+      r.addEventListener("click", () => openDrawer(r.dataset.ent)));
+  }
+
+  function renderEntityTable() {
+    return '<table><thead><tr><th>Entity</th><th>Role</th><th>Key</th><th style="width:48px">Attrs</th><th style="width:60px">Temporal</th><th>Purpose</th></tr></thead><tbody>' +
+      entities.map(e =>
+        '<tr class="expandable" data-ent="' + esc(e.id) + '" style="cursor:pointer">' +
+          '<td><span class="f-name">' + esc(e.name || e.id) + '</span><div class="f-note mono">' + esc(e.id) + '</div></td>' +
+          '<td><span class="role-badge r-' + esc(e.role) + '">' + esc(e.role) + '</span></td>' +
+          '<td class="mono" style="font-size:10px;color:var(--muted)">' + esc(e.key || "—") + '</td>' +
+          '<td class="mono" style="color:var(--muted)">' + (e.sample_schema ? e.sample_schema.length : 0) + '</td>' +
+          '<td>' + (e.is_temporal ? '<span class="badge t-core">yes</span>' : '<span class="badge t-tbd">no</span>') + '</td>' +
+          '<td style="color:var(--muted);font-size:11px">' + esc(e.purpose) + '</td>' +
+        '</tr>').join("") +
+      '</tbody></table>';
+  }
+
+  // deterministic layered layout: core ring center, others around
+  function drawGraph(container, ents, edges) {
+    const W = 1140, H = 720, cx = W/2, cy = H/2;
+    const NW = 124, NH = 38;
+    // group by role into concentric placement
+    const groups = { core: [], tenant: [], derived: [], adjacent: [] };
+    ents.forEach(e => (groups[e.role] || (groups.adjacent)).push(e));
+    const pos = {};
+    function ring(list, radius, startAngle) {
+      const n = list.length;
+      list.forEach((e, i) => {
+        const a = startAngle + (i / Math.max(1,n)) * Math.PI * 2;
+        pos[e.id] = { x: cx + Math.cos(a) * radius, y: cy + Math.sin(a) * radius * 0.82 };
+      });
+    }
+    // core in an inner ring, tenant+derived mid, adjacent outer
+    ring(groups.core, 150, -Math.PI/2);
+    ring(groups.tenant.concat(groups.derived), 290, -Math.PI/2 + 0.4);
+    ring(groups.adjacent, 470, -Math.PI/2);
+    // clamp into viewport
+    Object.values(pos).forEach(p => {
+      p.x = Math.max(NW/2 + 6, Math.min(W - NW/2 - 6, p.x));
+      p.y = Math.max(NH/2 + 6, Math.min(H - NH/2 - 6, p.y));
+    });
+
+    let svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Entity relationship graph">';
+    svg += '<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">' +
+           '<path d="M0,0 L8,3 L0,6 Z" fill="#555"/></marker></defs>';
+
+    // edges (skip self where from/to lack positions)
+    edges.forEach(r => {
+      const a = pos[r.from], b = pos[r.to];
+      if (!a || !b) return;
+      // trim endpoints to node borders
+      const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
+      const ux = dx/len, uy = dy/len;
+      const ax = a.x + ux * (NW/2), ay = a.y + uy * (NH/2 + 2);
+      const bx = b.x - ux * (NW/2 + 8), by = b.y - uy * (NH/2 + 10);
+      const mx = (ax+bx)/2, my = (ay+by)/2;
+      svg += '<path class="gedge' + (r.temporal ? ' temporal' : '') + '" d="M' + ax.toFixed(1) + ',' + ay.toFixed(1) +
+             ' L' + bx.toFixed(1) + ',' + by.toFixed(1) + '" marker-end="url(#arrow)"/>';
+      svg += '<text class="gelabel" x="' + mx.toFixed(1) + '" y="' + (my-2).toFixed(1) + '" text-anchor="middle">' +
+             esc(r.kind) + ' · ' + esc(r.cardinality) + '</text>';
+    });
+    // nodes
+    ents.forEach(e => {
+      const p = pos[e.id]; if (!p) return;
+      const c = roleColor(e.role);
+      const x = p.x - NW/2, y = p.y - NH/2;
+      svg += '<g class="gnode" data-ent="' + esc(e.id) + '" role="button" tabindex="0">' +
+        '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + NW + '" height="' + NH +
+          '" rx="5" fill="' + c + '22" stroke="' + c + '" stroke-width="1.4"/>' +
+        '<text class="nlabel" x="' + p.x.toFixed(1) + '" y="' + (p.y - 2).toFixed(1) + '" text-anchor="middle">' + esc(e.name || e.id) + '</text>' +
+        '<text class="nrole" x="' + p.x.toFixed(1) + '" y="' + (p.y + 11).toFixed(1) + '" text-anchor="middle" fill="' + c + '">' +
+          esc(e.role) + ' · ' + (e.sample_schema ? e.sample_schema.length : 0) + ' attr</text>' +
+        '</g>';
+    });
+    svg += '</svg><div class="graph-hint">click a node → sample schema</div>';
+    container.innerHTML = svg;
+    container.querySelectorAll(".gnode").forEach(g => {
+      const open = () => { container.querySelectorAll(".gnode").forEach(n => n.classList.remove("sel")); g.classList.add("sel"); openDrawer(g.dataset.ent); };
+      g.addEventListener("click", open);
+      g.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); open(); } });
+    });
+  }
+
+  // ---- entity drawer ----
+  function openDrawer(id) {
+    const e = entById[id]; if (!e) return;
+    $("drawerTitle").textContent = e.name || e.id;
+    $("drawerRole").innerHTML = '<span class="role-badge r-' + esc(e.role) + '">' + esc(e.role) + '</span>' +
+      ' <span class="mono" style="font-size:10px;color:var(--dim)">' + esc(e.id) + '</span>';
+    const sch = e.sample_schema || [];
+    const schemaRows = sch.map(a =>
+      '<tr><td class="mono" style="color:var(--text)">' + esc(a.name) + '</td>' +
+      '<td class="mono" style="font-size:10px;color:var(--blue)">' + esc(a.type) + '</td>' +
+      '<td><span class="k-pill k-' + cls(a.key || "none") + '">' + esc(a.key || "none") + '</span></td>' +
+      '<td style="color:var(--dim);font-size:10px">' + (a.nullable ? "null" : "") + '</td>' +
+      '<td style="color:var(--muted);font-size:10px;line-height:1.4">' + esc(a.note || "") + '</td></tr>'
+    ).join("");
+    const binds = (e.binds || []).map(b =>
+      '<a class="src" href="#" data-bind="' + esc(b) + '" style="text-decoration:none;cursor:pointer">' + esc(entName(b)) + '</a>').join("");
+    $("drawerBody").innerHTML =
+      '<div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:6px">' + esc(e.purpose) + '</div>' +
+      (e.key ? '<div class="key-highlight"><div class="kh-label">Primary key</div><div class="kh-val">' + esc(e.key) + '</div></div>' : '') +
+      '<div class="detail-grid" style="margin-top:14px">' +
+        '<div class="dg-k">temporal</div><div class="dg-v">' + (e.is_temporal ? "yes — bitemporal edges" : "no") + '</div>' +
+        '<div class="dg-k">storage</div><div class="dg-v mono">' + esc(e.attribute_storage || "—") + '</div>' +
+        '<div class="dg-k">binds</div><div class="dg-v">' + (binds || '<span style="color:var(--dim)">—</span>') + '</div>' +
+        '<div class="dg-k">refs</div><div class="dg-v">' + refList(e.ref_ids) + '</div>' +
+      '</div>' +
+      '<div class="drawer-sub">Sample schema — ' + sch.length + ' attribute' + (sch.length===1?'':'s') + '</div>' +
+      (sch.length ?
+        '<div class="schema-scroll"><table><thead><tr><th>Attribute</th><th>Type</th><th>Key</th><th></th><th>Note</th></tr></thead><tbody>' +
+        schemaRows + '</tbody></table></div>' :
+        '<div class="empty">No sample schema defined.</div>');
+    $("drawerBody").querySelectorAll("[data-bind]").forEach(a =>
+      a.addEventListener("click", ev => { ev.preventDefault(); openDrawer(a.dataset.bind); }));
+    $("drawer").classList.add("open");
+    $("drawerBack").classList.add("open");
+  }
+  function closeDrawer() { $("drawer").classList.remove("open"); $("drawerBack").classList.remove("open"); }
+  $("drawerClose").addEventListener("click", closeDrawer);
+  $("drawerBack").addEventListener("click", closeDrawer);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeDrawer(); });
+
+  // ============================================================
+  // 3. FIELD DICTIONARY (centerpiece)
+  // ============================================================
+  function uniq(arr) { return [...new Set(arr)].filter(x => x != null && x !== ""); }
+  function selOptions(vals, label) {
+    return '<option value="">All ' + label + '</option>' +
+      vals.map(v => '<option value="' + esc(v) + '">' + esc(v) + '</option>').join("");
+  }
+
+  function renderFields(el) {
+    const sectionVals = uniq(allFields.map(f => f._section));
+    const entityVals = uniq(allFields.map(f => f.entity_id)).sort();
+    const tierVals = uniq(allFields.map(f => f.tier));
+    const statusVals = uniq(allFields.map(f => f.status));
+    const roleVals = uniq(allFields.map(f => f.identity_role));
+
+    el.innerHTML =
+      '<div class="section-note">Every dictionary field, its target entity, and per-source mappings. Expand a row to inspect each source mapping with its real source field, delivered format, access status, and a per-mapping <b>verified</b> badge (a specific identifier literally present in the cited doc). This is the review centerpiece.</div>' +
+      '<div class="filters">' +
+        '<div class="filter"><label>Section</label><select id="fSection">' + selOptions(sectionVals, "sections") + '</select></div>' +
+        '<div class="filter"><label>Entity</label><select id="fEntity">' + selOptions(entityVals, "entities") + '</select></div>' +
+        '<div class="filter"><label>Tier</label><select id="fTier">' + selOptions(tierVals, "tiers") + '</select></div>' +
+        '<div class="filter"><label>Status</label><select id="fStatus">' + selOptions(statusVals, "statuses") + '</select></div>' +
+        '<div class="filter"><label>Identity role</label><select id="fRole">' + selOptions(roleVals, "roles") + '</select></div>' +
+        '<div class="filter"><label>Search</label><input type="text" id="fSearch" placeholder="name, target, source…"></div>' +
+        '<label class="toggle"><input type="checkbox" id="fVerified"> verified mappings only</label>' +
+        '<button class="btn-clear" id="fClear">Reset</button>' +
+        '<div class="filter-stat" id="fStat"></div>' +
+      '</div>' +
+      '<div id="fTableWrap"></div>';
+
+    const ctrls = ["fSection","fEntity","fTier","fStatus","fRole","fSearch","fVerified"].map($);
+    const wrap = $("fTableWrap");
+
+    function apply() {
+      const sec = $("fSection").value, ent = $("fEntity").value, tier = $("fTier").value,
+            st = $("fStatus").value, role = $("fRole").value,
+            q = $("fSearch").value.trim().toLowerCase(), vonly = $("fVerified").checked;
+      let rows = allFields.filter(f =>
+        (!sec || f._section === sec) && (!ent || f.entity_id === ent) &&
+        (!tier || f.tier === tier) && (!st || f.status === st) && (!role || f.identity_role === role));
+      if (vonly) rows = rows.filter(f => (f.source_mappings || []).some(m => m.verified));
+      if (q) rows = rows.filter(f => {
+        const hay = [f.name, f.cdp_target, f.entity_id, f.note, ...(f.sources||[]),
+          ...(f.source_mappings||[]).map(m => m.source_field + " " + m.source_id)].join(" ").toLowerCase();
+        return hay.includes(q);
+      });
+      drawFieldTable(wrap, rows, vonly);
+      const shownMaps = rows.flatMap(f => f.source_mappings || []);
+      const shownVer = shownMaps.filter(m => m.verified).length;
+      $("fStat").innerHTML = rows.length + " / " + allFields.length + " fields · <b>" + shownVer + "/" + shownMaps.length + "</b> mappings doc-verified";
+    }
+    ctrls.forEach(c => c.addEventListener(c.type === "checkbox" ? "change" : "input", apply));
+    $("fClear").addEventListener("click", () => {
+      ["fSection","fEntity","fTier","fStatus","fRole"].forEach(id => $(id).value = "");
+      $("fSearch").value = ""; $("fVerified").checked = false; apply();
+    });
+    apply();
+  }
+
+  function drawFieldTable(wrap, rows, vonly) {
+    if (!rows.length) { wrap.innerHTML = '<div class="empty">No fields match the current filters.</div>'; return; }
+    wrap.innerHTML =
+      '<table><thead><tr><th style="width:26px"></th><th>Field</th><th>Entity</th><th>Tier</th><th>Status</th><th>Identity role</th><th style="width:70px">Mappings</th></tr></thead><tbody>' +
+      rows.map((f, i) => {
+        const maps = f.source_mappings || [];
+        const mv = maps.filter(m => m.verified).length;
+        const main =
+          '<tr class="expandable" data-row="' + i + '">' +
+            '<td><span class="expander">▶</span></td>' +
+            '<td><span class="f-name">' + esc(f.name) + '</span>' +
+              (f.cdp_target ? '<div class="f-note mono">' + esc(f.cdp_target) + '</div>' : '') + '</td>' +
+            '<td><a class="src" href="#" data-ent2="' + esc(f.entity_id) + '" style="text-decoration:none;cursor:pointer">' + esc(entName(f.entity_id)) + '</a></td>' +
+            '<td><span class="badge t-' + cls(f.tier) + '">' + esc(f.tier) + '</span></td>' +
+            '<td><span class="badge s-' + cls(f.status) + '">' + esc(f.status) + '</span></td>' +
+            '<td><span class="role-badge id-badge ' + cls(f.identity_role) + '">' + esc(f.identity_role) + '</span></td>' +
+            '<td class="mono" style="font-size:10px"><span style="color:var(--green)">' + mv + '</span><span style="color:var(--dim)">/' + maps.length + ' ✓</span></td>' +
+          '</tr>';
+        const detail =
+          '<tr class="detail-row" data-detail="' + i + '" style="display:none"><td colspan="7"><div class="detail-wrap">' +
+            fieldDetail(f, vonly) +
+          '</div></td></tr>';
+        return main + detail;
+      }).join("") +
+      '</tbody></table>';
+
+    wrap.querySelectorAll("tr.expandable").forEach(tr => {
+      tr.addEventListener("click", ev => {
+        if (ev.target.closest("[data-ent2]")) return;
+        const i = tr.dataset.row;
+        const det = wrap.querySelector('tr[data-detail="' + i + '"]');
+        const open = det.style.display !== "none";
+        det.style.display = open ? "none" : "table-row";
+        tr.classList.toggle("open", !open);
+      });
+    });
+    wrap.querySelectorAll("[data-ent2]").forEach(a =>
+      a.addEventListener("click", ev => { ev.preventDefault(); ev.stopPropagation(); openDrawer(a.dataset.ent2); }));
+  }
+
+  function fieldDetail(f, vonly) {
+    let maps = f.source_mappings || [];
+    if (vonly) maps = maps.filter(m => m.verified);
+    const mapTable = maps.length ?
+      '<div class="map-table"><table><thead><tr><th>Source</th><th>Source field</th><th>Format</th><th>Access</th><th style="width:84px">Verified</th><th>Refs</th></tr></thead><tbody>' +
+      maps.map(m => {
+        const s = srcById[m.source_id];
+        return '<tr>' +
+          '<td><span class="f-name" style="font-size:11px">' + esc(s ? s.name : m.source_id) + '</span>' +
+            '<div class="f-note mono">' + esc(m.source_id) + '</div>' +
+            (m.note ? '<div class="f-note">' + esc(m.note) + '</div>' : '') + '</td>' +
+          '<td class="mono" style="font-size:10px;color:var(--text);word-break:break-word">' + esc(m.source_field || "—") + '</td>' +
+          '<td class="mono" style="font-size:10px;color:var(--muted)">' + esc(m.format || "—") + '</td>' +
+          '<td><span class="acc acc-' + cls(m.access_status || "na") + '">' + esc(m.access_status || "n/a") + '</span></td>' +
+          '<td>' + (m.verified ? '<span class="vbadge v-yes">✓ verified</span>' : '<span class="vbadge v-no">unverified</span>') + '</td>' +
+          '<td>' + refList(m.ref_ids) + '</td>' +
+        '</tr>';
+      }).join("") + '</tbody></table></div>' :
+      '<div class="empty">' + (vonly ? "No verified mappings (filtered)." : "No source mappings.") + '</div>';
+
+    return mapTable +
+      '<div class="detail-grid" style="margin-top:14px">' +
+        (f.survivorship ? '<div class="dg-k">survivorship</div><div class="dg-v">' + esc(f.survivorship) + '</div>' : '') +
+        (f.established_by ? '<div class="dg-k">established by</div><div class="dg-v">' + esc(f.established_by) + '</div>' : '') +
+        (f.note ? '<div class="dg-k">note</div><div class="dg-v">' + esc(f.note) + '</div>' : '') +
+        '<div class="dg-k">field refs</div><div class="dg-v">' + refList(f.ref_ids) + '</div>' +
+        '<div class="dg-k">sources</div><div class="dg-v">' + (f.sources||[]).map(s => '<span class="src">' + esc(s) + '</span>').join("") + '</div>' +
+      '</div>';
+  }
+
+  // ============================================================
+  // 4. SOURCE REGISTRY
+  // ============================================================
+  function renderSources(el) {
+    const catVals = uniq(sources.map(s => s.category)).sort();
+    const typeVals = uniq(sources.map(s => s.type)).sort();
+    const accVals = uniq(sources.map(s => s.access_status));
+
+    el.innerHTML =
+      '<div class="section-note">The verified source registry feeding the record, grouped by category. Access status is color-coded; identity signals show what each source can resolve on; <b>contributes</b> links to the fields it feeds.</div>' +
+      '<div class="filters">' +
+        '<div class="filter"><label>Category</label><select id="sCat">' + selOptions(catVals, "categories") + '</select></div>' +
+        '<div class="filter"><label>Type</label><select id="sType">' + selOptions(typeVals, "types") + '</select></div>' +
+        '<div class="filter"><label>Access</label><select id="sAcc">' + selOptions(accVals, "access") + '</select></div>' +
+        '<div class="filter"><label>Search</label><input type="text" id="sSearch" placeholder="name, signal, note…"></div>' +
+        '<button class="btn-clear" id="sClear">Reset</button>' +
+        '<div class="filter-stat" id="sStat"></div>' +
+      '</div><div id="sWrap"></div>';
+
+    function apply() {
+      const cat = $("sCat").value, type = $("sType").value, acc = $("sAcc").value,
+            q = $("sSearch").value.trim().toLowerCase();
+      let rows = sources.filter(s =>
+        (!cat || s.category === cat) && (!type || s.type === type) && (!acc || s.access_status === acc));
+      if (q) rows = rows.filter(s =>
+        [s.name, s.id, s.note, s.scope, ...(s.identity_signals||[]), ...(s.contributes||[])].join(" ").toLowerCase().includes(q));
+      drawSources($("sWrap"), rows);
+      $("sStat").textContent = rows.length + " / " + sources.length + " sources";
+    }
+    ["sCat","sType","sAcc","sSearch"].map($).forEach(c => c.addEventListener(c.type === "text" ? "input" : "change", apply));
+    $("sClear").addEventListener("click", () => {
+      ["sCat","sType","sAcc"].forEach(id => $(id).value = ""); $("sSearch").value = ""; apply();
+    });
+    apply();
+  }
+
+  function drawSources(wrap, rows) {
+    if (!rows.length) { wrap.innerHTML = '<div class="empty">No sources match the current filters.</div>'; return; }
+    // group by category, preserving sorted order
+    const byCat = {};
+    rows.forEach(s => (byCat[s.category] || (byCat[s.category] = [])).push(s));
+    wrap.innerHTML = Object.keys(byCat).sort().map(cat =>
+      '<div class="section">' +
+        '<div class="section-title">' + esc(cat) + ' <span style="color:var(--dim);font-size:11px">(' + byCat[cat].length + ')</span></div>' +
+        '<div class="panel-grid">' +
+        byCat[cat].map(s => sourceCard(s)).join("") +
+        '</div></div>'
+    ).join("");
+  }
+
+  function sourceCard(s) {
+    const signals = (s.identity_signals||[]).map(x => '<span class="src">' + esc(x) + '</span>').join("");
+    const contrib = (s.contributes||[]).map(x => '<span class="src" style="color:var(--blue);border-color:rgba(74,127,165,.3)">' + esc(x) + '</span>').join("");
+    return '<div class="panel">' +
+      '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px">' +
+        '<div class="panel-title" style="font-size:13px">' + esc(s.name) + '</div>' +
+        '<span class="acc acc-' + cls(s.access_status) + '">' + esc(s.access_status) + '</span>' +
+      '</div>' +
+      '<div class="panel-meta">' + esc(s.id) + ' · ' + esc(s.type) + '</div>' +
+      (s.note ? '<div style="font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:9px">' + esc(s.note) + '</div>' : '') +
+      (s.scope ? '<div style="font-size:10px;color:var(--yellow);margin-bottom:9px"><b>scope:</b> ' + esc(s.scope) + '</div>' : '') +
+      (signals ? '<div class="drawer-sub" style="margin:8px 0 4px">identity signals</div><div>' + signals + '</div>' : '') +
+      (contrib ? '<div class="drawer-sub" style="margin:10px 0 4px">contributes</div><div>' + contrib + '</div>' : '') +
+      (s.established_by ? '<div class="f-note" style="margin-top:9px">est. ' + esc(s.established_by) + '</div>' : '') +
+      '<div style="margin-top:8px">' + refList(s.ref_ids) + '</div>' +
+      '</div>';
+  }
+
+  // ============================================================
+  // 5. IDENTITY MACHINERY
+  // ============================================================
+  function renderIdentity(el) {
+    const ib = d.identity_binding;
+    const order = ["match_waterfall","blocking_keys","link_types","survivorship","confidence_bands",
+      "alias_structures","consent_binding","orphan_handling","merge_split_machinery",
+      "household_resolution","curation_queue","provenance_model"];
+    const keys = order.filter(k => ib[k]).concat(Object.keys(ib).filter(k => !order.includes(k)));
+    const titleCase = k => k.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+    el.innerHTML =
+      '<div class="section-note">The machinery that resolves raw inbound data to one Person and survives the winning values. Deterministic-first waterfall, then the link, blocking, survivorship, alias, consent, orphan, merge/split, household, curation, and provenance subsystems. Grounded in the locked Option A identity strategy.</div>' +
+      '<div class="panel-grid">' +
+      keys.map(k => {
+        const items = ib[k];
+        const body = (k === "match_waterfall")
+          ? items.slice().sort((a,b)=>(a.order||0)-(b.order||0)).map(s =>
+              '<div class="wf-step"><div class="wf-order">' + esc(s.order) + '</div><div>' +
+                '<div class="wf-rule">' + esc(s.rule) + '</div>' +
+                (s.confidence ? '<div class="wf-conf conf-' + cls(s.confidence) + '">' + esc(s.confidence) + '</div>' : '') +
+                '<div style="margin-top:4px">' + refList(s.ref_ids) + '</div>' +
+              '</div></div>').join("")
+          : items.map(n =>
+              '<div class="ndef"><div class="ndef-name">' + esc(n.name) + '</div>' +
+                '<div class="ndef-def">' + esc(n.definition) + '</div>' +
+                '<div style="margin-top:5px">' + refList(n.ref_ids) + '</div></div>').join("");
+        return '<div class="panel">' +
+          '<div class="panel-title">' + esc(titleCase(k)) + '</div>' +
+          '<div class="panel-meta">' + items.length + ' ' + (k === "match_waterfall" ? "ordered steps" : "entries") + '</div>' +
+          body + '</div>';
+      }).join("") +
+      '</div>';
+  }
+
+  // ============================================================
+  // 6. WORKED EXAMPLE (Leo)
+  // ============================================================
+  function renderExample(el) {
+    const ex = d.examples || {};
+    const linked = ex.linked;
+    if (!linked) { el.innerHTML = '<div class="empty">No worked example defined.</div>'; return; }
+    const persona = (d.personas || []).find(p => p.id === linked.subject) || { name: linked.subject };
+    const g = linked.graph || {};
+    const personId = (g.person && (g.person.person_id || g.person.id)) || persona.id || "person";
+    const goldenName = (g.person && (g.person.golden_name || g.person.name)) || persona.name;
+
+    // avatar w/ initials fallback
+    const initials = (persona.name || "?").split(/\s+/).map(w => w[0]).join("").slice(0,2).toUpperCase();
+    const avatar = persona.avatar
+      ? '<img class="avatar" src="' + esc(persona.avatar) + '" alt="' + esc(persona.name) + '" ' +
+        'onerror="this.outerHTML=\'<div class=&quot;avatar-fallback&quot;>' + esc(initials) + '</div>\'">'
+      : '<div class="avatar-fallback">' + esc(initials) + '</div>';
+
+    const subjectCard =
+      '<div class="subject-card">' + avatar +
+        '<div><div class="subject-name">' + esc(persona.name) + '</div>' +
+          (persona.role ? '<div class="subject-role">' + esc(persona.role) + (persona.org ? ' · ' + esc(persona.org) : '') + '</div>' : '') +
+          '<div class="subject-id">person_id ' + esc(personId) + ' — ' + esc(goldenName) + '</div>' +
+        '</div></div>';
+
+    el.innerHTML =
+      '<div class="we-desc">' + esc(linked.description || "") + '</div>' +
+      subjectCard +
+      '<div class="we-graph-wrap" id="weGraph"></div>' +
+      '<div class="section"><div class="section-title">Linked entities</div>' +
+        '<div class="we-cards" id="weCards"></div></div>' +
+      (ex.entity_records ? renderEntityRecords(ex.entity_records) : "");
+
+    drawRadial($("weGraph"), g, goldenName, personId);
+    drawLinkedCards($("weCards"), g);
+  }
+
+  // radial graph: subject Person at center, each graph group as a satellite
+  function drawRadial(container, g, centerName, personId) {
+    const groups = Object.keys(g).filter(k => k !== "person");
+    const W = 1140, H = 560, cx = W/2, cy = H/2, R = 200;
+    let svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Worked example graph for ' + esc(centerName) + '">';
+    svg += '<defs><marker id="warrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#555"/></marker></defs>';
+    const SAT_W = 150, SAT_H = 50;
+    const pts = groups.map((k, i) => {
+      const a = -Math.PI/2 + (i / groups.length) * Math.PI * 2;
+      return { k, x: cx + Math.cos(a) * R, y: cy + Math.sin(a) * R * 0.86 };
+    });
+    // edges
+    pts.forEach(p => {
+      const dx = p.x - cx, dy = p.y - cy, len = Math.hypot(dx,dy)||1, ux=dx/len, uy=dy/len;
+      const ax = cx + ux*64, ay = cy + uy*30;
+      const bx = p.x - ux*(SAT_W/2), by = p.y - uy*(SAT_H/2);
+      svg += '<path class="gedge" d="M' + ax.toFixed(1) + ',' + ay.toFixed(1) + ' L' + bx.toFixed(1) + ',' + by.toFixed(1) + '" marker-end="url(#warrow)"/>';
+    });
+    // center person
+    svg += '<g><ellipse cx="' + cx + '" cy="' + cy + '" rx="64" ry="34" fill="#DB394C22" stroke="#DB394C" stroke-width="2"/>' +
+      '<text x="' + cx + '" y="' + (cy-3) + '" text-anchor="middle" class="nlabel" style="font-size:12px">' + esc(centerName) + '</text>' +
+      '<text x="' + cx + '" y="' + (cy+12) + '" text-anchor="middle" class="nrole" fill="#DB394C">' + esc(personId) + '</text></g>';
+    // satellites
+    pts.forEach(p => {
+      const val = g[p.k];
+      const count = Array.isArray(val) ? val.length : 1;
+      const x = p.x - SAT_W/2, y = p.y - SAT_H/2;
+      svg += '<g><rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + SAT_W + '" height="' + SAT_H +
+        '" rx="5" fill="#1a1a1a" stroke="#4A7FA5" stroke-width="1.3"/>' +
+        '<text x="' + p.x.toFixed(1) + '" y="' + (p.y-4).toFixed(1) + '" text-anchor="middle" class="nlabel" style="font-size:11px;fill:#4A7FA5">' + esc(p.k.replace(/_/g," ")) + '</text>' +
+        '<text x="' + p.x.toFixed(1) + '" y="' + (p.y+11).toFixed(1) + '" text-anchor="middle" class="nrole" fill="#888">' + count + (count===1?' record':' records') + '</text></g>';
+    });
+    svg += '</svg>';
+    container.innerHTML = svg;
+  }
+
+  // generic renderer for heterogeneous example objects
+  function renderValue(v) {
+    if (v == null) return '<span style="color:var(--dim)">—</span>';
+    if (Array.isArray(v)) {
+      if (!v.length) return '<span style="color:var(--dim)">[]</span>';
+      if (v.every(x => typeof x !== "object" || x === null))
+        return v.map(x => '<span class="src">' + esc(x) + '</span>').join("");
+      return v.map(x => '<div style="margin:4px 0;padding-left:8px;border-left:2px solid var(--border2)">' + renderObj(x) + '</div>').join("");
+    }
+    if (typeof v === "object") return renderObj(v);
+    if (typeof v === "boolean") return '<span class="mono" style="color:' + (v?'var(--green)':'var(--dim)') + '">' + v + '</span>';
+    // string that looks like a source id -> pill
+    if (typeof v === "string" && srcById[v]) return '<span class="src" title="' + esc(srcById[v].name) + '">' + esc(v) + '</span>';
+    return '<span class="kv-v">' + esc(v) + '</span>';
+  }
+  function renderObj(o) {
+    return Object.entries(o).map(([k, val]) =>
+      '<div class="kv"><div class="kv-k">' + esc(k) + '</div><div class="kv-v">' + renderValue(val) + '</div></div>'
+    ).join("");
+  }
+
+  function drawLinkedCards(wrap, g) {
+    wrap.innerHTML = Object.entries(g).map(([k, v]) => {
+      const count = Array.isArray(v) ? v.length : (v && typeof v === "object" ? 1 : 1);
+      return '<div class="we-card">' +
+        '<div class="we-card-h">' + esc(k.replace(/_/g, " ")) + '<span class="cnt">×' + count + '</span></div>' +
+        renderValue(v) + '</div>';
+    }).join("");
+  }
+
+  function renderEntityRecords(recs) {
+    return '<div class="section"><div class="section-title">Illustrative entity records</div>' +
+      '<div class="section-note">Sample records per entity (values modeled/masked, structure real per schema).</div>' +
+      '<div class="er-cards">' +
+      Object.entries(recs).map(([eid, arr]) =>
+        (arr||[]).map((rec, i) =>
+          '<div class="we-card">' +
+            '<div class="we-card-h">' + esc(entName(eid)) + (arr.length > 1 ? '<span class="cnt">#' + (i+1) + '</span>' : '') + '</div>' +
+            renderObj(rec) + '</div>').join("")
+      ).join("") +
+      '</div></div>';
+  }
+
+  // ============================================================
+  // 7. REFERENCES
+  // ============================================================
+  function renderRefs(el) {
+    const entriesArr = Object.entries(refs);
+    const kindVals = uniq(entriesArr.map(([, r]) => r.kind)).sort();
+    el.innerHTML =
+      '<div class="section-note">First-class reference registry. Every source, field, entity, relationship, and identity claim cites these by id. ' +
+      'Repo-relative hrefs link relative to this artifact; external hrefs open in a new tab. ' + refVer + ' of ' + entriesArr.length + ' verified.</div>' +
+      '<div class="filters">' +
+        '<div class="filter"><label>Kind</label><select id="rKind">' + selOptions(kindVals, "kinds") + '</select></div>' +
+        '<div class="filter"><label>Search</label><input type="text" id="rSearch" placeholder="id, label, href…"></div>' +
+        '<label class="toggle"><input type="checkbox" id="rVerified"> verified only</label>' +
+        '<button class="btn-clear" id="rClear">Reset</button>' +
+        '<div class="filter-stat" id="rStat"></div>' +
+      '</div><div id="rWrap"></div>';
+
+    function apply() {
+      const kind = $("rKind").value, q = $("rSearch").value.trim().toLowerCase(), vonly = $("rVerified").checked;
+      let rows = entriesArr.filter(([id, r]) =>
+        (!kind || r.kind === kind) && (!vonly || r.verified) &&
+        (!q || (id + " " + r.label + " " + r.href).toLowerCase().includes(q)));
+      drawRefs($("rWrap"), rows);
+      $("rStat").textContent = rows.length + " / " + entriesArr.length + " references";
+    }
+    ["rKind","rSearch","rVerified"].map($).forEach(c => c.addEventListener(c.type === "checkbox" ? "change" : "input", apply));
+    $("rClear").addEventListener("click", () => { $("rKind").value=""; $("rSearch").value=""; $("rVerified").checked=false; apply(); });
+    apply();
+  }
+
+  function drawRefs(wrap, rows) {
+    if (!rows.length) { wrap.innerHTML = '<div class="empty">No references match.</div>'; return; }
+    wrap.innerHTML =
+      '<table><thead><tr><th style="width:130px">Ref id</th><th>Label</th><th style="width:120px">Kind</th><th>Href</th><th style="width:90px">Verified</th></tr></thead><tbody>' +
+      rows.map(([id, r]) => {
+        const ext = isUrl(r.href);
+        return '<tr>' +
+          '<td class="mono" style="color:var(--blue)">' + esc(id) + '</td>' +
+          '<td>' + esc(r.label) + '</td>' +
+          '<td><span class="src">' + esc(r.kind) + '</span></td>' +
+          '<td><a class="mono" style="font-size:10px;color:var(--muted);text-decoration:none;word-break:break-all" href="' + esc(refHref(r)) + '"' +
+            (ext ? ' target="_blank" rel="noopener"' : '') + '>' + esc(r.href) + (r.anchor ? '#' + esc(r.anchor) : '') +
+            (ext ? ' ↗' : '') + '</a></td>' +
+          '<td>' + (r.verified ? '<span class="vbadge v-yes">✓ verified</span>' : '<span class="vbadge v-no">unverified</span>') + '</td>' +
+        '</tr>';
+      }).join("") +
+      '</tbody></table>';
+  }
+
+  // ---- footer ----
+  $("footer").innerHTML =
+    'Data-driven from <span class="mono">./record.json</span>' + (schema ? ' &amp; <span class="mono">./schema.json</span>' : ' (schema.json unavailable)') +
+    '. All counts, filters, and views derive from the JSON — enriching the record updates this page with no code change. ' +
+    'Persona/example values are illustrative/modeled, not real PII.';
+
+  // ---- deep-link to tab via hash ----
+  const initial = (location.hash || "").replace("#", "");
+  if (TABS.some(t => t.id === initial)) activate(initial); else activate("overview");
+})();
+</script>
+</body>
+</html>

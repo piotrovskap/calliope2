@@ -1,0 +1,15 @@
+database,schema,table,column,data_type
+Central Inventory,FHD,vehicles_loc,created_at,datetime
+Central Inventory,FHD,vehicles_loc,updated_at,datetime
+Central Inventory,FHD,vehicles_removed,created_at,datetime
+Central Inventory,FHD,vehicles_removed,date_removed,date
+Central Inventory,FHD,vehicles_removed,updated_at,datetime
+Central Inventory,stage,FHvehicle_price_updates,updated_at,datetime2
+Central Inventory,stage,FHvehicles,created_at,datetime
+Central Inventory,stage,FHvehicles,updated_at,datetime
+Central Inventory,stage,FHvehicles_new,created_at,datetime2
+Central Inventory,stage,FHvehicles_new,updated_at,datetime2
+Central Inventory,stage,FHvehicles_Test,created_at,datetime
+Central Inventory,stage,FHvehicles_Test,updated_at,datetime
+Central Inventory,stage,incoming_dealer_feeds,created_at,datetime
+Central Inventory,stage,incoming_dealer_feeds,updated_at,datetime

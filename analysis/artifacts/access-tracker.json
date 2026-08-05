@@ -1,0 +1,9 @@
+{
+  "id": "access-tracker",
+  "title": "System Access Tracker",
+  "description": "Tracks database, tool, and documentation access requested, committed, or granted for the CDP engagement.",
+  "type": "tracker",
+  "icon": "KEY",
+  "href": "artifacts/access-tracker/index.html",
+  "updated": "2026-06-09"
+}
