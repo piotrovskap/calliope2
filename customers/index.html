@@ -101,13 +101,15 @@
     .bulk-toolbar-gradient.open { opacity: 1; }
     .bulk-toolbar { position: fixed; bottom: 56px; left: 50%; z-index: 30; display: flex; align-items: center; gap: 16px; width: max-content; max-width: calc(100vw - 48px); min-height: 52px; padding: 8px 16px; border: 1px solid var(--input-border, #ccccce); border-radius: 8px; background: #fff; box-shadow: 0 4px 10px rgba(152,154,157,.42); transform: translate(-50%, 120%); transition: transform .2s ease, opacity .2s ease; opacity: 0; pointer-events: none; }
     .bulk-toolbar.open { transform: translate(-50%, 0); opacity: 1; pointer-events: auto; }
-    .bulk-count { margin-right: auto; color: var(--txt-neutral-900); font-size: 14px; font-weight: 700; }
+    .bulk-count { margin-right: 0; color: #4d4d4d; font-family: Satoshi, Arial, sans-serif; font-size: 16px; font-weight: 500; line-height: normal; white-space: nowrap; }
+    .bulk-count strong { font-weight: 700; }
     .bulk-divider { width: 1px; height: 36px; flex: 0 0 1px; background: var(--input-border, #ccccce); }
     .bulk-actions { display: flex; align-items: center; gap: 8px; }
-    .bulk-actions .button { min-height: 44px; padding: 8px 16px; border: 0; border-radius: 10px; color: #4d4d4d; font-size: 16px; font-weight: 700; }
+    .bulk-actions .button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 8px 16px; border: 0; border-radius: 10px; color: #4d4d4d; font-family: Satoshi, Arial, sans-serif; font-size: 16px; font-weight: 700; line-height: normal; white-space: nowrap; }
     .bulk-actions .button:hover { background: #f4f4f4; }
     .bulk-actions .button img { width: 24px; height: 24px; object-fit: contain; }
     .bulk-actions .bulk-delete { min-height: 44px; padding: 10px 12px; background: var(--txt-error-50, #fef3f2); color: var(--txt-warning-200, #b54708); }
+    .bulk-actions .bulk-delete img { width: 20px; height: 20px; }
     .bulk-actions .bulk-delete:hover { background: #fee4e2; }
     .bulk-close { width: 24px; height: 24px; margin-left: 0; padding: 0; border: 0; background: transparent; color: #54565b; font-size: 26px; line-height: 24px; cursor: pointer; }
     .bulk-close:hover { color: #1d2939; }
