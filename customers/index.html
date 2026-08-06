@@ -94,11 +94,11 @@
     .row-select, .select-all { width: 16px; height: 16px; accent-color: var(--primary-clementine-900); cursor: pointer; }
     .select-cell { width: 42px; padding-right: 0; text-align: center; }
     .customer-cell { gap: 9px; }
-    .bulk-toolbar { position: fixed; right: 24px; bottom: 24px; left: 268px; z-index: 30; display: flex; align-items: center; gap: 16px; min-height: 64px; padding: 12px 16px; border: 1px solid var(--primary-clementine-900); border-radius: 10px; background: #fff; box-shadow: 0 10px 24px rgba(16,24,40,.14); transform: translateY(120%); transition: transform .2s ease, opacity .2s ease; opacity: 0; pointer-events: none; }
+    .bulk-toolbar { position: fixed; right: 24px; bottom: 24px; left: 268px; z-index: 30; display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 8px 12px; border: 0; border-radius: 8px; background: #fff; box-shadow: 0 6px 18px rgba(16,24,40,.12); transform: translateY(120%); transition: transform .2s ease, opacity .2s ease; opacity: 0; pointer-events: none; }
     .bulk-toolbar.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
     .bulk-count { margin-right: auto; color: var(--txt-neutral-900); font-size: 14px; font-weight: 700; }
     .bulk-actions { display: flex; align-items: center; gap: 8px; }
-    .bulk-actions .button { min-height: 36px; }
+    .bulk-actions .button { min-height: 32px; padding-right: 10px; padding-left: 10px; }
     .bulk-actions .danger { color: var(--status-error); border-color: var(--status-error); background: #fff; }
     .bulk-actions .danger:hover { background: var(--status-error-bg); }
     table { width: 100%; border-collapse: collapse; table-layout: fixed; }
