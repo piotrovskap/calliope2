@@ -601,6 +601,78 @@
     @media (max-width: 900px) { .figma-merge-intro, .figma-compare-grid { grid-template-columns: 1fr; } .figma-record-card + .figma-record-card { border-top: 1px solid #ccccce; border-left: 0; } }
     @media (max-width: 900px) { .candidate-grid { grid-template-columns: repeat(2, 1fr); } .full-review-modal { max-height: 100vh; height: 100%; border-radius: 0; } }
     @media (max-width: 680px) { .evidence-layout, .confirmation-summary { grid-template-columns: 1fr; } .candidate-grid { grid-template-columns: 1fr; } .stepper { gap: 10px; justify-content: space-between; } .step { font-size: 0; } .step-number { margin: 0; } }
+
+    /* Navigation refresh — Product Design frame 155:19851. */
+    .app { background: #f2f4f7; }
+    .sidebar {
+      top: 12px;
+      bottom: 12px;
+      left: 12px;
+      width: 260px;
+      height: auto;
+      flex-basis: 260px;
+      padding: 0;
+      overflow: hidden;
+      border: .5px solid #ddddde;
+      border-radius: 8px;
+      background: #fff;
+    }
+    .brand {
+      height: 64px;
+      padding: 14px 16px;
+      border-bottom: 0;
+    }
+    .brand-logo { width: 143px; max-width: 143px; height: 35px; object-fit: contain; object-position: left center; }
+    .brand-toggle { width: 28px; height: 28px; padding: 5px; border: 1px solid #ccccce; border-radius: 6px; }
+    .brand-toggle img { width: 18px; height: 18px; }
+    .sidebar-search {
+      height: 44px;
+      padding: 10px 16px;
+      border-top: 1px solid #eeeeef;
+      border-bottom: 1px solid #ddddde;
+      background: #fff;
+    }
+    .sidebar-search img { width: 20px; height: 20px; }
+    .sidebar-search span { font-size: 14px; line-height: 24px; }
+    .sidebar-search kbd { color: #828282; font-size: 14px; line-height: 24px; }
+    .nav-label { padding: 20px 16px 8px; color: #828282; font-size: 11px; line-height: 16px; font-weight: 500; }
+    .nav { gap: 4px; padding: 0 12px; }
+    .nav-item {
+      min-height: 44px;
+      padding: 0 12px;
+      border-radius: 8px;
+      color: #54565b;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 500;
+      transition: background .16s ease, color .16s ease, padding .24s ease, gap .24s ease, font-size .18s ease;
+    }
+    .nav-item:hover { background: #f8f8f8; color: #252525; }
+    .nav-item.active { color: #fff; background: #dd6000; font-weight: 700; }
+    .nav-item.active:hover { color: #fff; background: #e0701a; }
+    .nav-icon, .nav-icon img { width: 24px; height: 24px; }
+    .nav-icon { flex: 0 0 24px; }
+    .sidebar-bottom { padding: 14px 12px 12px; border-top: 1px solid #ddddde; }
+    .profile { min-height: 48px; padding: 8px 4px; gap: 10px; }
+    .profile .avatar { width: 32px; height: 32px; flex: 0 0 32px; font-size: 12px; }
+    .profile strong, .profile small { line-height: 20px; }
+
+    main { width: calc(100% - 284px); margin-left: 284px; }
+    .app.sidebar-collapsed .sidebar { left: 12px; width: 68px; flex-basis: 68px; }
+    .app.sidebar-collapsed main { width: calc(100% - 92px); margin-left: 92px; }
+    .app.sidebar-collapsed .brand { padding-left: 16px; padding-right: 16px; }
+    .app.sidebar-collapsed .brand-toggle { width: 28px; height: 28px; }
+    .app.sidebar-collapsed .sidebar-search { padding-left: 0; padding-right: 0; }
+    .app.sidebar-collapsed .nav { padding-left: 8px; padding-right: 8px; }
+    .app.sidebar-collapsed .nav-item { min-height: 44px; padding-left: 0; padding-right: 0; }
+    .app.sidebar-collapsed .sidebar-bottom { padding-left: 8px; padding-right: 8px; }
+
+    @media (max-width: 1120px) {
+      .sidebar { width: 260px; flex-basis: 260px; }
+      main { width: calc(100% - 284px); margin-left: 284px; }
+      .app.sidebar-collapsed .sidebar { width: 68px; flex-basis: 68px; }
+      .app.sidebar-collapsed main { width: calc(100% - 92px); margin-left: 92px; }
+    }
     .pagination { display: flex; align-items: center; justify-content: flex-end; padding: 16px 0 0; color: var(--txt-neutral-600); font-size: 12px; }
     .pagination-actions { display: inline-flex; gap: 0; }
     .pagination-button { display: inline-flex; align-items: center; justify-content: center; height: 35px; min-width: 39px; padding: 8px 12px; border: 1px solid #ccccce; border-left: 0; border-radius: 0; background: #fff; color: var(--txt-neutral-900); font-family: Satoshi, Arial, sans-serif; font-size: 14px; line-height: normal; font-weight: 500; }
