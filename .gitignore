@@ -89,3 +89,8 @@ docs/databases/raw/
 !scripts/
 !scripts/dev-local.mjs
 !scripts/build-portal-site.py
+
+# Never publish generated or installed local files.
+node_modules/
+_site/
+.wrangler/
