@@ -730,6 +730,19 @@
     .bulk-merge-tooltip:hover::after, .bulk-merge-tooltip:focus-within::after,
     .bulk-merge-tooltip:hover::before, .bulk-merge-tooltip:focus-within::before { opacity: 1; transform: translate(-50%, 0); }
     .bulk-merge-tooltip:has(button:not(:disabled))::after, .bulk-merge-tooltip:has(button:not(:disabled))::before { display: none; }
+    /* Bulk toolbar — dark DS surface with inverted action text. */
+    .bulk-toolbar { border-color: #54565B; background: #54565B; }
+    .bulk-count { color: #fff; }
+    .bulk-divider { background: rgba(255,255,255,.34); }
+    .bulk-actions .button { color: #fff; background: transparent; }
+    .bulk-actions .button:hover { color: #fff; background: rgba(255,255,255,.14); }
+    .bulk-actions .button:disabled,
+    .bulk-actions .button:disabled:hover { color: #bfc1c3; background: rgba(255,255,255,.12); }
+    .bulk-actions .button:disabled img { opacity: .65; }
+    .bulk-actions .bulk-delete,
+    .bulk-actions .bulk-delete:hover { color: #fff; background: #D92D20; }
+    .bulk-close { color: #fff; }
+    .bulk-close:hover { color: #fff; background: rgba(255,255,255,.14); }
   </style>
 </head>
 <body>
