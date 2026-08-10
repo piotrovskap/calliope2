@@ -982,8 +982,11 @@
     document.addEventListener('keydown', event => { if (event.key === 'Escape') closeFullReview(); });
     const tableState = { query:'', status:[], source:[] };
     const selectedCustomerIds = new Set();
+    const selectionKey = (customer, index) => `${customer.id}::row-${index}`;
+    function syncSelectAllState() { const selectAll = document.getElementById('selectAllCustomers'); const visible = filteredCustomers(); const selectedVisible = visible.filter(customer => selectedCustomerIds.has(selectionKey(customer, customers.indexOf(customer)))).length; selectAll.checked = visible.length > 0 && selectedVisible === visible.length; selectAll.indeterminate = selectedVisible > 0 && selectedVisible < visible.length; }
+    function prepareRowSelectionInputs() { document.querySelectorAll('#customerRows .row-select').forEach(input => { const index = customers.findIndex(customer => customer.name === input.closest('tr')?.dataset.customer); if (index < 0) return; input.dataset.selectCustomer = String(index); input.checked = selectedCustomerIds.has(selectionKey(customers[index], index)); }); syncSelectAllState(); }
     function updateBulkToolbar(visibleData = filteredCustomers()) { const toolbar = document.getElementById('bulkToolbar'); const gradient = document.getElementById('bulkToolbarGradient'); const count = selectedCustomerIds.size; document.getElementById('bulkCount').innerHTML = `<strong>${count} customer${count === 1 ? '' : 's'}</strong> selected`; document.getElementById('bulkDeleteCount').textContent = count; toolbar.querySelector('[data-bulk-action="merge"]').disabled = count !== 2; toolbar.classList.toggle('open', count > 0); gradient.classList.toggle('open', count > 0); document.querySelector('.table-card').classList.toggle('has-selection', count > 0); const selectAll = document.getElementById('selectAllCustomers'); const visibleIds = visibleData.map(customer => customer.id); const selectedVisible = visibleIds.filter(id => selectedCustomerIds.has(id)).length; selectAll.checked = visibleIds.length > 0 && selectedVisible === visibleIds.length; selectAll.indeterminate = selectedVisible > 0 && selectedVisible < visibleIds.length; }
-    function toggleCustomerSelection(id, checked) { if (checked) selectedCustomerIds.add(id); else selectedCustomerIds.delete(id); updateBulkToolbar(); }
+    function toggleCustomerSelection(index, checked) { const customer = customers[Number(index)]; if (!customer) return; const key = selectionKey(customer, Number(index)); if (checked) selectedCustomerIds.add(key); else selectedCustomerIds.delete(key); updateBulkToolbar(); syncSelectAllState(); }
     function filteredCustomers() { return customers.filter(customer => { const haystack = [customer.name, customer.id, customer.email, customer.location, customer.vehicle, ...customer.phones].join(' ').toLowerCase(); return (!tableState.query || haystack.includes(tableState.query)) && (!tableState.status.length || tableState.status.includes(customer.status)) && (!tableState.source.length || tableState.source.some(source => customer.sources.includes(source))); }); }
     function updateFilterButton(id, value) { const label = value.length === 0 ? 'All' : value.length === 1 ? value[0] : `${value.length} selected`; const prefix = id === 'statusFilter' ? 'Status' : 'Source'; document.querySelector(`#${id} .filter-label`).textContent = `${prefix} | ${label}`; document.getElementById(id).classList.toggle('active', value.length > 0); }
     function renderActiveFilters() { const container = document.getElementById('activeFilters'); const filters = []; tableState.status.forEach(value => filters.push(['status', value, `Status: ${value}`])); tableState.source.forEach(value => filters.push(['source', value, `Source: ${value}`])); container.innerHTML = filters.map(([key, value, label]) => `<span class="active-filter">${esc(label)}<button type="button" data-clear-filter="${key}" data-clear-value="${esc(value)}" aria-label="Remove ${esc(label)}">×</button></span>`).join('') + (filters.length > 1 ? '<button type="button" class="clear-active-filters" id="clearActiveFilters">Clear all</button>' : ''); container.querySelectorAll('[data-clear-filter]').forEach(button => button.addEventListener('click', () => { const key = button.dataset.clearFilter; tableState[key] = tableState[key].filter(value => value !== button.dataset.clearValue); refreshTable(); })); document.getElementById('clearActiveFilters')?.addEventListener('click', clearTableFilters); }
@@ -1047,6 +1050,39 @@
       mergeBulkButton.replaceWith(tooltip);
       tooltip.appendChild(mergeBulkButton);
     }
+    const rowSelectionObserver = new MutationObserver(() => prepareRowSelectionInputs());
+    rowSelectionObserver.observe(rows, { childList: true });
+    document.getElementById('selectAllCustomers').addEventListener('change', event => {
+      event.stopImmediatePropagation();
+      filteredCustomers().forEach(customer => { const index = customers.indexOf(customer); const key = selectionKey(customer, index); if (event.target.checked) selectedCustomerIds.add(key); else selectedCustomerIds.delete(key); });
+      render(filteredCustomers());
+      prepareRowSelectionInputs();
+    }, true);
+    mergeBulkButton.addEventListener('click', event => {
+      if (selectedCustomerIds.size !== 2) return;
+      event.stopImmediatePropagation();
+      const selectedIndexes = [...selectedCustomerIds].map(key => Number(key.match(/row-(\d+)$/)?.[1])).filter(Number.isInteger);
+      const reviewIndex = selectedIndexes.find(index => customers[index]?.review);
+      if (reviewIndex === undefined) { showSuccessToast('Merge requires identity evidence for the selected records.'); return; }
+      openFullReview(reviewIndex);
+    }, true);
+    document.addEventListener('click', event => {
+      const button = event.target.closest('[data-bulk-action]');
+      if (!button || button === mergeBulkButton) return;
+      event.stopImmediatePropagation();
+      if (!selectedCustomerIds.size) return;
+      const selectedIndexes = [...selectedCustomerIds].map(key => Number(key.match(/row-(\d+)$/)?.[1])).filter(Number.isInteger);
+      const action = button.dataset.bulkAction;
+      if (action === 'household') {
+        const reviewIndex = selectedIndexes.find(index => customers[index]?.review);
+        if (reviewIndex === undefined) { showSuccessToast('Household requires identity evidence for the selected records.'); return; }
+        fullReviewState = { customerIndex: reviewIndex, step: 1, selected: [0, 1], goldenSelections: {}, figmaSelections: {} };
+        openHousehold();
+        return;
+      }
+      const labels = { segment: 'Segment creation started', delete: 'Deletion queued' };
+      showSuccessToast(`${labels[action] || action} for ${selectedIndexes.length} selected customer${selectedIndexes.length === 1 ? '' : 's'}.`);
+    }, true);
     refreshTable({ immediate: true });
   </script>
 </body>
