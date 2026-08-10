@@ -70,25 +70,25 @@ docs/databases/raw/
 # Publish only the Customers UI and the minimal build/deploy files.
 *
 !*/
-!index.html
-!profile.html
-!daisyui.css
-!daisyui.generated.css
-!fonts/
-!fonts/**
-!package.json
-!package-lock.json
-!Makefile
-!wrangler.toml
-!worker.js
-!_headers
-!_redirects
-!.assetsignore
-!.gitignore
-!.gitattributes
-!scripts/
-!scripts/dev-local.mjs
-!scripts/build-portal-site.py
+!/index.html
+!/profile.html
+!/daisyui.css
+!/daisyui.generated.css
+!/fonts/
+!/fonts/**
+!/package.json
+!/package-lock.json
+!/Makefile
+!/wrangler.toml
+!/worker.js
+!/_headers
+!/_redirects
+!/.assetsignore
+!/.gitignore
+!/.gitattributes
+!/scripts/
+!/scripts/dev-local.mjs
+!/scripts/build-portal-site.py
 
 # Never publish generated or installed local files.
 node_modules/
