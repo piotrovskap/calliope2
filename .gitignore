@@ -55,3 +55,14 @@ docs/databases/raw/
 # DAS ETL stored procedures — separate repo (3birdsmarketing/Database-Processes)
 # Clone locally as needed: git clone git@github.com:3birdsmarketing/Database-Processes.git etl
 /etl/
+
+# UI-only repository: project documentation and compiled knowledge data stay local.
+**/*.md
+**/brain.json
+**/knowledge_graph.json
+**/knowledge-pack.json
+**/*.brain.json
+**/*brain*.json
+**/*knowledge*graph*.json
+**/*knowledge-pack*.json
+**/*.db

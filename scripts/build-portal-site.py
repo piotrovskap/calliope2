@@ -124,6 +124,16 @@ def main() -> int:
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, dst)
         count += 1
+
+    # Customers is the public application entry point. Keep the original
+    # /customers/ paths available, but publish the UI at the site root so the
+    # Pages URL opens directly on the customer dashboard.
+    customers = ROOT / "customers"
+    for name in ("index.html", "profile.html", "daisyui.generated.css"):
+        src = customers / name
+        if src.is_file():
+            shutil.copy2(src, OUT / name)
+    print("Published Customers UI at /")
     print(f"Wrote {OUT} ({count} files)")
     return 0
 
