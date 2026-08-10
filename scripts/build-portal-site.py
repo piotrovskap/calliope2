@@ -128,9 +128,8 @@ def main() -> int:
     # Customers is the public application entry point. Keep the original
     # /customers/ paths available, but publish the UI at the site root so the
     # Pages URL opens directly on the customer dashboard.
-    customers = ROOT / "customers"
     for name in ("index.html", "profile.html", "daisyui.generated.css"):
-        src = customers / name
+        src = ROOT / name
         if src.is_file():
             shutil.copy2(src, OUT / name)
     print("Published Customers UI at /")

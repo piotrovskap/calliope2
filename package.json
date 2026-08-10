@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "npm run predeploy",
-    "build:customers:css": "tailwindcss -i ./customers/daisyui.css -o ./customers/daisyui.generated.css --minify",
+    "build:customers:css": "tailwindcss -i ./daisyui.css -o ./daisyui.generated.css --minify",
     "dev": "node scripts/dev-local.mjs",
     "predeploy": "npm run build:customers:css && make portal-site",
     "deploy": "wrangler deploy",

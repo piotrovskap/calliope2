@@ -1,4 +1,0 @@
-interface:
-  display_name: "DAS Knowledge Graph"
-  short_description: "Query the DAS CDP knowledge graph"
-  default_prompt: "Use $kg to answer this question from the DAS CDP knowledge graph via Planopticon."

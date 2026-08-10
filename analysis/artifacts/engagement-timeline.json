@@ -1,9 +1,0 @@
-{
-  "id": "engagement-timeline",
-  "title": "Engagement Timeline",
-  "description": "Phase-by-phase milestone tracker for the DAS CDP engagement, showing completed, active, and upcoming steps.",
-  "type": "tracker",
-  "icon": "PLAN",
-  "href": "artifacts/engagement-timeline/index.html",
-  "updated": "2026-06-13"
-}

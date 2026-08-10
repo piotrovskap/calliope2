@@ -1,4 +1,0 @@
-[submodule "wiki"]
-	path = wiki
-	url = https://github.com/ConflictHQ/das-tech.wiki.git
-	update = none

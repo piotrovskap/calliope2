@@ -23,12 +23,9 @@ async function build() {
   try {
     const npmArgs = process.env.npm_execpath ? [process.env.npm_execpath, 'run', 'build:customers:css'] : ['run', 'build:customers:css'];
     await command(process.env.npm_execpath ? process.execPath : 'npm', npmArgs);
-    await mkdir(resolve(root, '_site/customers'), { recursive: true });
-    await copyFile(resolve(root, 'customers/index.html'), resolve(root, '_site/customers/index.html'));
-    await copyFile(resolve(root, 'customers/daisyui.generated.css'), resolve(root, '_site/customers/daisyui.generated.css'));
-    await copyFile(resolve(root, 'customers/index.html'), resolve(root, '_site/index.html'));
-    await copyFile(resolve(root, 'customers/profile.html'), resolve(root, '_site/profile.html'));
-    await copyFile(resolve(root, 'customers/daisyui.generated.css'), resolve(root, '_site/daisyui.generated.css'));
+    await copyFile(resolve(root, 'index.html'), resolve(root, '_site/index.html'));
+    await copyFile(resolve(root, 'profile.html'), resolve(root, '_site/profile.html'));
+    await copyFile(resolve(root, 'daisyui.generated.css'), resolve(root, '_site/daisyui.generated.css'));
     console.log('[dev] customers updated; browser live reload will refresh the page');
   } catch (error) {
     console.error('[dev] rebuild failed:', error.message);
@@ -46,8 +43,8 @@ function queueBuild() {
   buildTimer = setTimeout(() => build(), 180);
 }
 
-watch(resolve(root, 'customers/index.html'), queueBuild);
-watch(resolve(root, 'customers/daisyui.css'), queueBuild);
+watch(resolve(root, 'index.html'), queueBuild);
+watch(resolve(root, 'daisyui.css'), queueBuild);
 
 function shutdown() { wrangler.kill('SIGTERM'); }
 process.on('SIGINT', shutdown);

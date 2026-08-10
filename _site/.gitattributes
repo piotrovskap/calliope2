@@ -1,0 +1,19 @@
+# Normalize line endings to LF in the repo for all text files.
+# Git auto-detects text vs binary; binary files are left untouched.
+# Prevents CRLF churn from Windows editors (re-saved files showing as
+# whole-file diffs with no content change).
+* text=auto eol=lf
+
+# Mark known binary types explicitly so Git never applies text/EOL filters to
+# them (belt-and-suspenders over auto-detection). Covers the types tracked in
+# the repo today (Office docs, PDFs, images) plus the SQLite brain artifact
+# (app/brain.db, built by `make brain-db`).
+*.xlsx binary
+*.xlsm binary
+*.docx binary
+*.pdf  binary
+*.db   binary
+*.sqlite binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary

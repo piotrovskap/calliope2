@@ -1,0 +1,1089 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Customers · Meridian</title>
+    <link rel="icon" type="image/png" href="/fonts/das-technology-logo.png" />
+    <link rel="stylesheet" href="./daisyui.generated.css" />
+  <style>
+    @font-face { font-family: Satoshi; src: url('/fonts/Satoshi-Regular.otf'); font-weight: 400; }
+    @font-face { font-family: Satoshi; src: url('/fonts/Satoshi-Medium.otf'); font-weight: 500; }
+    @font-face { font-family: Satoshi; src: url('/fonts/Satoshi-Bold.otf'); font-weight: 700; }
+    :root {
+      --primary-clementine-900: #dd6000;
+      --primary-clementine-800: #e0701a;
+      --primary-clementine-50: #fcefe5;
+      --primary-shuttle-gray-900: #54565b;
+      --primary-shuttle-gray-300: #bbbbbd;
+      --secondary-background-100: #fafafa;
+      --secondary-background-150: #eaecf0;
+      --secondary-background-250: #f9fafb;
+      --secondary-background-50: #f2f4f7;
+      --txt-neutral-900: #4d4d4d;
+      --txt-neutral-700: #717171;
+      --txt-neutral-600: #828282;
+      --txt-neutral-400: #a6a6a6;
+      --status-warning: #dc6803;
+      --status-warning-bg: #fef0c7;
+      --status-review: #d92d20;
+      --status-review-bg: #fee4e2;
+      --status-success: #079455;
+      --status-success-bg: #dcfae6;
+      --status-error: #d92d20;
+      --status-error-bg: #fee4e2;
+      --alert-row-bg: #fff8f2;
+      --radius-5xl: 10px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--secondary-background-100); color: var(--txt-neutral-900); font-family: Satoshi, Arial, sans-serif; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    .app { display: flex; min-height: 100vh; }
+    .sidebar { width: 244px; flex: 0 0 244px; background: #fff; border-right: 1px solid var(--secondary-background-150); padding: 20px 14px; display: flex; flex-direction: column; }
+    .brand { display: flex; align-items: center; gap: 10px; padding: 4px 16px 8px; font-weight: 700; font-size: 18px; }
+    .brand-logo { display: block; width: 190px; height: auto; }
+    .brand-mark { display: grid; place-items: center; width: 30px; height: 30px; color: #fff; background: var(--primary-clementine-900); border-radius: 9px; font-weight: 700; }
+    .nav-label { padding: 0 12px 8px; color: var(--txt-neutral-600); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .nav { display: grid; gap: 3px; }
+    .nav-item { display: flex; align-items: center; gap: 11px; width: 100%; min-height: 40px; padding: 0 12px; border: 0; border-radius: var(--radius-5xl); color: var(--txt-neutral-700); background: transparent; text-align: left; font-size: 14px; }
+    .nav-item:hover { background: var(--secondary-background-250); color: var(--txt-neutral-900); }
+    .nav-item.active { background: var(--secondary-background-50); color: var(--primary-clementine-900); font-weight: 700; }
+    .nav-icon { width: 18px; text-align: center; font-size: 16px; }
+    .sidebar-bottom { margin-top: auto; border-top: 1px solid var(--secondary-background-150); padding-top: 16px; }
+    .profile { display: flex; align-items: center; gap: 10px; padding: 12px; }
+    .avatar { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--primary-clementine-50); color: var(--primary-clementine-900); font-weight: 700; }
+    .profile small { display: block; color: var(--txt-neutral-600); font-size: 12px; }
+    main { min-width: 0; flex: 1; padding: 28px 34px 48px; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 34px; }
+    .breadcrumbs { color: var(--txt-neutral-600); font-size: 13px; }
+    .breadcrumbs strong { color: var(--txt-neutral-900); font-weight: 500; }
+    .top-actions { display: flex; align-items: center; gap: 12px; }
+    .icon-button { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--secondary-background-150); border-radius: var(--radius-5xl); background: #fff; color: var(--primary-shuttle-gray-900); }
+    .page-heading { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 24px; }
+    h1 { margin: 0 0 5px; font-size: 30px; letter-spacing: -.03em; }
+    .subtitle { margin: 0; color: var(--txt-neutral-700); font-size: 14px; }
+    .button { min-height: 40px; padding: 0 16px; border: 1px solid transparent; border-radius: var(--radius-5xl); font-weight: 700; font-size: 14px; transition: .16s ease; }
+    .button.primary { background: var(--primary-clementine-900); color: #fff; border-color: var(--primary-clementine-900); }
+    .button.primary:hover { background: var(--primary-clementine-800); }
+    .button.outline { background: #fff; color: var(--primary-shuttle-gray-900); border-color: var(--primary-shuttle-gray-300); }
+    .button.outline:hover { background: var(--secondary-background-50); }
+    .button.secondary { background: #fff; color: var(--primary-clementine-900); border-color: var(--primary-clementine-900); box-shadow: none; }
+    .button.secondary:hover { background: var(--primary-clementine-50); }
+    .button.ghost { background: transparent; color: var(--txt-neutral-700); }
+    .button.ghost:hover { background: var(--secondary-background-250); color: var(--txt-neutral-900); }
+    .button.small { min-height: 32px; padding: 0 11px; font-size: 13px; }
+    .merge-button-loading { display: inline-flex; align-items: center; gap: 8px; }
+    .merge-button-loading .loading { width: 14px; height: 14px; }
+    .toast-region { position: fixed; right: 24px; bottom: 24px; z-index: 1200; display: grid; gap: 10px; width: min(360px, calc(100vw - 32px)); }
+    .success-toast { display: flex; align-items: flex-start; gap: 10px; padding: 14px 16px; border: 1px solid #abefc6; border-radius: 10px; background: #fff; color: var(--txt-neutral-900); box-shadow: 0 12px 24px rgba(16,24,40,.14); animation: toast-in .2s ease-out both; }
+    .success-toast-icon { display: grid; place-items: center; width: 20px; height: 20px; flex: 0 0 20px; border-radius: 50%; background: var(--status-success); color: #fff; font-size: 13px; font-weight: 700; }
+    .success-toast strong { display: block; margin-bottom: 2px; font-size: 14px; line-height: 20px; }
+    .success-toast span:last-child { color: var(--txt-neutral-600); font-size: 13px; line-height: 18px; }
+    @keyframes toast-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 16px; }
+    .search { position: relative; width: min(420px, 100%); }
+    .search span { position: absolute; left: 13px; top: 9px; color: var(--txt-neutral-600); }
+    .search span { z-index: 1; display: grid; place-items: center; width: 16px; height: 16px; }
+    .search span img { display: block; }
+    .customers-toolbar .search span { top: 50%; transform: translateY(-50%); }
+    .search input { width: 100%; height: 40px; padding: 0 14px 0 36px; border: 1px solid var(--primary-shuttle-gray-300); border-radius: var(--radius-5xl); background: #fff; color: var(--txt-neutral-900); outline: none; }
+    .search input:focus { border-color: var(--primary-clementine-900); box-shadow: 0 0 0 4px var(--primary-clementine-50); }
+    .toolbar-actions { display: flex; gap: 8px; }
+    .table-card { overflow: hidden; background: #fff; border: 1px solid var(--secondary-background-150); border-radius: var(--radius-5xl); box-shadow: 0 1px 2px rgba(16,24,40,.05); }
+    .row-select, .select-all { width: 16px; height: 16px; accent-color: var(--primary-clementine-900); cursor: pointer; }
+    .row-select { opacity: 0; transition: opacity .16s ease; }
+    .data-row:hover .row-select, .row-select:checked, .table-card.has-selection .row-select { opacity: 1; }
+    .row-select:focus-visible { opacity: 1; }
+    .select-cell { width: 42px; padding-right: 0; text-align: center; }
+    .customer-cell { gap: 9px; }
+    .bulk-toolbar-gradient { position: fixed; right: 0; bottom: 0; left: 0; z-index: 29; height: 180px; pointer-events: none; background: linear-gradient(to top, rgba(16,24,40,.10), rgba(16,24,40,0)); opacity: 0; transition: opacity .2s ease; }
+    .bulk-toolbar-gradient.open { opacity: 1; }
+    .bulk-toolbar { position: fixed; bottom: 56px; left: 50%; z-index: 30; display: flex; align-items: center; gap: 16px; width: max-content; max-width: calc(100vw - 48px); min-height: 52px; padding: 8px 16px; border: 1px solid var(--input-border, #ccccce); border-radius: 8px; background: #fff; box-shadow: 0 4px 10px rgba(152,154,157,.42); transform: translate(-50%, 120%); transition: transform .2s ease, opacity .2s ease; opacity: 0; pointer-events: none; }
+    .bulk-toolbar.open { transform: translate(-50%, 0); opacity: 1; pointer-events: auto; }
+    .bulk-count { margin-right: 0; color: #4d4d4d; font-family: Satoshi, Arial, sans-serif; font-size: 16px; font-weight: 500; line-height: normal; white-space: nowrap; }
+    .bulk-count strong { font-weight: 700; }
+    .bulk-divider { width: 1px; height: 36px; flex: 0 0 1px; background: var(--input-border, #ccccce); }
+    .bulk-actions { display: flex; align-items: center; gap: 8px; }
+    .bulk-actions .button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 8px 16px; border: 0; border-radius: 10px; color: #4d4d4d; font-family: Satoshi, Arial, sans-serif; font-size: 16px; font-weight: 700; line-height: normal; white-space: nowrap; }
+    .bulk-actions .button:hover { background: #f4f4f4; }
+    .bulk-actions .button:disabled { color: #a6a6a6; background: #f2f4f7; cursor: not-allowed; opacity: 1; }
+    .bulk-actions .button:disabled:hover { color: #a6a6a6; background: #f2f4f7; }
+    .bulk-actions .button:disabled img { opacity: .45; }
+    .bulk-actions .button img { width: 24px; height: 24px; object-fit: contain; }
+    .bulk-actions .bulk-delete { min-height: 44px; padding: 10px 12px; background: var(--txt-error-50, #fef3f2); color: var(--txt-warning-200, #b54708); }
+    .bulk-actions .bulk-delete img { width: 20px; height: 20px; }
+    .bulk-actions .bulk-delete:hover { background: #fee4e2; }
+    .bulk-close { width: 24px; height: 24px; margin-left: 0; padding: 0; border: 0; background: transparent; color: #54565b; font-size: 26px; line-height: 24px; cursor: pointer; }
+    .bulk-close:hover { color: #1d2939; }
+    .bulk-actions .danger { color: var(--status-error); border-color: var(--status-error); background: #fff; }
+    .bulk-actions .danger:hover { background: var(--status-error-bg); }
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    th { height: 44px; padding: 0 16px; background: var(--secondary-background-250); color: var(--txt-neutral-600); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-align: left; text-transform: uppercase; }
+    td { padding: 14px 16px; border-top: 1px solid var(--secondary-background-150); vertical-align: middle; font-size: 13px; }
+    tbody tr.data-row:hover td { background: #fffaf6; }
+    tbody tr.data-row.review-open td { background: var(--primary-clementine-50); border-top-color: var(--primary-clementine-100, #f8dfcc); }
+    .customer-cell { display: flex; align-items: center; gap: 11px; min-width: 190px; }
+    .row-flag { display: inline-grid; place-items: center; width: 16px; height: 20px; flex: 0 0 16px; }
+    .row-flag img { width: 16px; height: 16px; }
+    .customer-cell .avatar { width: 36px; height: 36px; flex: 0 0 36px; }
+    .customer-name { color: var(--txt-neutral-900); font-weight: 700; }
+    .customer-id, .muted { color: var(--txt-neutral-600); font-size: 12px; }
+    .contact { line-height: 1.5; }
+    .contact div:first-child { color: var(--txt-neutral-900); }
+    .source-list { display: flex; flex-wrap: wrap; gap: 4px; }
+    .source { padding: 3px 7px; border: 1px solid var(--secondary-background-150); border-radius: 999px; color: var(--txt-neutral-700); background: var(--secondary-background-250); font-size: 11px; }
+    .quality { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+    .quality-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--status-success); }
+    .quality.medium .quality-dot { background: var(--status-warning); }
+    .quality.low .quality-dot { background: var(--status-error); }
+    .badge { display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px; border: 1px solid transparent; border-radius: 999px; font-size: 12px; font-weight: 500; white-space: nowrap; }
+    .badge.active { color: var(--status-success); background: var(--status-success-bg); border-color: #b7ebce; }
+    .badge.new { color: var(--primary-clementine-900); background: var(--primary-clementine-50); border-color: #f1bf99; }
+    .badge.review { color: var(--status-review); background: var(--status-review-bg); border-color: var(--status-review); }
+    .badge.incomplete { color: var(--txt-neutral-700); background: var(--secondary-background-50); border-color: var(--secondary-background-150); }
+    .expand { width: 30px; height: 30px; border: 0; border-radius: 8px; background: transparent; color: var(--txt-neutral-700); font-size: 16px; }
+    .expand:hover, .expand[aria-expanded="true"] { background: var(--primary-clementine-50); color: var(--primary-clementine-900); }
+    .review-row { display: none; }
+    .review-row.open { display: table-row; }
+    .review-row td { padding: 0; background: #fffaf6; }
+    .review-panel { display: grid; grid-template-columns: 1.05fr 1.2fr 1.35fr; gap: 22px; padding: 20px 24px 22px 62px; border-top: 1px solid #f1bf99; border-bottom: 1px solid #f1bf99; }
+    .review-section { min-width: 0; }
+    .review-section + .review-section { border-left: 1px solid #f5cfb2; padding-left: 22px; }
+    .eyebrow { margin-bottom: 8px; color: var(--txt-neutral-600); font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+    .review-title { margin: 0 0 6px; font-size: 15px; }
+    .review-copy { margin: 0; color: var(--txt-neutral-700); font-size: 13px; line-height: 1.45; }
+    .signal-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .signal { padding: 5px 8px; border-radius: 6px; background: var(--primary-clementine-50); color: var(--primary-clementine-900); font-size: 12px; }
+    .candidate { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f5cfb2; cursor: pointer; }
+    .candidate:last-child { border-bottom: 0; }
+    .candidate input { width: 16px; height: 16px; accent-color: var(--primary-clementine-900); }
+    .candidate:has(input:checked) { color: var(--primary-clementine-900); }
+    .candidate .avatar { width: 30px; height: 30px; font-size: 11px; }
+    .candidate-name { font-weight: 700; font-size: 13px; }
+    .candidate-meta { color: var(--txt-neutral-600); font-size: 11px; }
+    .comparison { width: 100%; border-collapse: collapse; }
+    .comparison td { padding: 5px 0; border: 0; font-size: 12px; vertical-align: top; }
+    .comparison td:first-child { width: 82px; color: var(--txt-neutral-600); }
+    .comparison td:nth-child(2) { color: var(--txt-neutral-900); font-weight: 500; }
+    .comparison td:last-child { color: var(--txt-neutral-600); text-align: right; }
+    .review-footer { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 14px; border-top: 1px solid #f5cfb2; }
+    .review-footer small { color: var(--txt-neutral-600); }
+    .review-actions { display: flex; flex-wrap: wrap; gap: 7px; justify-content: end; }
+    .drawer-backdrop { position: fixed; inset: 0; z-index: 20; display: none; background: rgba(16,24,40,.28); }
+    .drawer-backdrop.open { display: block; }
+    .drawer { position: absolute; top: 0; right: 0; display: flex; flex-direction: column; width: min(720px, 100%); height: 100%; background: #fff; box-shadow: -12px 0 30px rgba(16,24,40,.12); transform: translateX(100%); transition: transform .2s ease; }
+    .drawer-backdrop.open .drawer { transform: translateX(0); }
+    .drawer-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 24px 28px 18px; border-bottom: 1px solid var(--secondary-background-150); }
+    .drawer-header h2 { margin: 0 0 5px; font-size: 20px; }
+    .drawer-close { display: grid; place-items: center; width: 34px; height: 34px; border: 0; border-radius: 8px; background: transparent; color: var(--txt-neutral-700); font-size: 20px; }
+    .drawer-close:hover { background: var(--secondary-background-50); }
+    .drawer-content { overflow-y: auto; flex: 1; padding: 22px 28px; }
+    .drawer-section { padding: 20px 0; border-bottom: 1px solid var(--secondary-background-150); }
+    .drawer-section:first-child { padding-top: 0; }
+    .drawer-section:last-child { border-bottom: 0; }
+    .drawer-candidates { display: grid; gap: 6px; margin-top: 12px; }
+    .drawer-candidate { display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid var(--secondary-background-150); border-radius: var(--radius-5xl); background: #fff; box-shadow: 0 1px 2px rgba(16,24,40,.04); cursor: pointer; transition: border-color .16s ease, box-shadow .16s ease, background .16s ease; }
+    .drawer-candidate:hover { border-color: var(--primary-shuttle-gray-300); background: var(--secondary-background-250); }
+    .drawer-candidate:has(input:checked) { border-color: var(--primary-clementine-400); background: #fff; box-shadow: 0 0 0 3px var(--primary-clementine-50); }
+    .drawer-candidate input { width: 16px; height: 16px; accent-color: var(--primary-clementine-900); }
+    .drawer-candidate .avatar { width: 32px; height: 32px; font-size: 11px; }
+    .drawer-field-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    .drawer-field-table th { height: auto; padding: 8px 10px; background: var(--secondary-background-50); font-size: 10px; }
+    .drawer-field-table td { padding: 11px 10px; border-top: 1px solid var(--secondary-background-150); font-size: 12px; }
+    .drawer-field-table td:first-child { width: 26%; color: var(--txt-neutral-600); font-weight: 500; }
+    .drawer-field-table td:last-child { color: var(--txt-neutral-600); font-size: 11px; }
+    .side-by-side { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+    .compare-card { min-width: 0; padding: 16px; border: 1px solid var(--secondary-background-150); border-radius: var(--radius-5xl); background: #fff; box-shadow: 0 1px 2px rgba(16,24,40,.04); }
+    .compare-card.selected { border-color: var(--primary-clementine-400); box-shadow: 0 0 0 3px var(--primary-clementine-50); }
+    .compare-card h4 { margin: 0 0 3px; font-size: 14px; }
+    .compare-id { color: var(--txt-neutral-600); font-size: 11px; }
+    .profile-link { display: inline-block; margin-top: 8px; color: var(--primary-clementine-900); font-size: 12px; font-weight: 700; text-decoration: none; }
+    .profile-link:hover { text-decoration: underline; }
+    .compare-field { padding: 11px 0; border-top: 1px solid var(--secondary-background-150); }
+    .compare-field:first-child { margin-top: 10px; }
+    .compare-label { display: block; margin-bottom: 3px; color: var(--txt-neutral-600); font-size: 11px; }
+    .compare-value { display: block; color: var(--txt-neutral-900); font-size: 13px; font-weight: 500; overflow-wrap: anywhere; }
+    .compare-source { display: block; margin-top: 3px; color: var(--txt-neutral-600); font-size: 10px; }
+    .drawer-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 28px; border-top: 1px solid var(--secondary-background-150); background: #fff; }
+    .drawer-footer small { color: var(--txt-neutral-600); }
+    .modal-backdrop { position: fixed; inset: 0; z-index: 30; display: none; place-items: center; padding: 24px; background: rgba(16,24,40,.42); }
+    .modal-backdrop.open { display: grid; }
+    .modal { width: min(680px, 100%); max-height: min(820px, 92vh); overflow: hidden; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--secondary-background-150); border-radius: 12px; box-shadow: 0 20px 32px rgba(16,24,40,.18); }
+    .modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 22px 24px 16px; border-bottom: 1px solid var(--secondary-background-150); }
+    .modal-header h2 { margin: 0 0 5px; font-size: 19px; }
+    .modal-content { overflow-y: auto; padding: 20px 24px; }
+    .modal-section { padding: 16px 0; border-bottom: 1px solid var(--secondary-background-150); }
+    .modal-section:first-child { padding-top: 0; }
+    .modal-section:last-child { border-bottom: 0; }
+    .modal-alert { display: flex; gap: 10px; padding: 12px; border: 1px solid #fedf89; border-radius: var(--radius-5xl); background: var(--status-warning-bg); color: var(--status-warning); font-size: 13px; line-height: 1.4; }
+    .selected-profiles { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+    .selected-profile { padding: 6px 9px; border: 1px solid var(--secondary-background-150); border-radius: 999px; background: var(--secondary-background-250); font-size: 12px; }
+    .golden-field { display: grid; grid-template-columns: 100px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--secondary-background-150); }
+    .golden-field:first-child { border-top: 0; }
+    .golden-label { color: var(--txt-neutral-600); font-size: 12px; }
+    .golden-options { display: grid; gap: 6px; }
+    .golden-option { display: flex; gap: 8px; align-items: flex-start; padding: 7px 9px; border: 1px solid var(--secondary-background-150); border-radius: 8px; font-size: 12px; cursor: pointer; }
+    .golden-option:has(input:checked) { border-color: var(--primary-clementine-400); background: var(--primary-clementine-50); }
+    .golden-option input { margin-top: 2px; accent-color: var(--primary-clementine-900); }
+    .golden-option small { display: block; margin-top: 2px; color: var(--txt-neutral-600); }
+    .modal-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 24px; border-top: 1px solid var(--secondary-background-150); }
+    .confirm-check { display: flex; gap: 8px; align-items: flex-start; color: var(--txt-neutral-700); font-size: 12px; line-height: 1.4; }
+    .confirm-check input { margin-top: 2px; accent-color: var(--primary-clementine-900); }
+    .full-review-backdrop { position: fixed; inset: 0; z-index: 40; display: none; place-items: center; padding: 24px; background: rgba(16,24,40,.42); }
+    .full-review-backdrop.open { display: grid; }
+    .full-review-modal { width: min(1120px, 100%); max-height: min(900px, 94vh); overflow: hidden; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--secondary-background-150); border-radius: 12px; box-shadow: 0 20px 32px rgba(16,24,40,.18); }
+    .full-review-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 22px 28px 0; }
+    .full-review-header h2 { margin: 0 0 4px; font-size: 21px; }
+    .stepper { display: flex; gap: 26px; padding: 22px 28px 0; border-bottom: 1px solid var(--secondary-background-150); }
+    .step { position: relative; padding-bottom: 14px; color: var(--txt-neutral-600); font-size: 12px; font-weight: 700; }
+    .step.active { color: var(--primary-clementine-900); }
+    .step.active::after { position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; background: var(--primary-clementine-900); content: ''; }
+    .step-number { display: inline-grid; place-items: center; width: 20px; height: 20px; margin-right: 6px; border-radius: 50%; background: var(--secondary-background-50); color: var(--txt-neutral-700); font-size: 11px; }
+    .step.active .step-number { background: var(--primary-clementine-50); color: var(--primary-clementine-900); }
+    .full-review-content { overflow-y: auto; flex: 1; padding: 24px 28px; }
+    .full-review-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 15px 28px; border-top: 1px solid var(--secondary-background-150); }
+    .full-review-footer .review-actions { justify-content: end; }
+    /* Alert-record merge modal: follows Product Design frame 76:4858. */
+    .full-review-modal { width: min(1429px, 100%); max-height: min(1044px, 94vh); border-color: #ccccce; border-radius: 10px; box-shadow: 0 20px 32px rgba(16,24,40,.18); }
+    .household-modal { width: min(920px, 100%); max-height: min(760px, 92vh); overflow: hidden; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--secondary-background-150); border-radius: 12px; box-shadow: 0 20px 32px rgba(16,24,40,.18); }
+    .household-content { overflow: auto; padding: 28px 32px; }
+    .household-evidence { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 20px 0; }
+    .household-card { padding: 16px; border: 1px solid var(--secondary-background-150); border-radius: 10px; background: #fff; }
+    .household-card h3 { margin: 0 0 4px; color: var(--txt-neutral-900); font-size: 18px; }
+    .household-card p { margin: 0; color: var(--txt-neutral-600); font-size: 13px; line-height: 20px; }
+    .household-signal-list { display: grid; gap: 8px; margin-top: 12px; }
+    .household-signal { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border: 1px solid #f1bf99; border-radius: 8px; background: #fffaf6; color: var(--txt-neutral-900); font-size: 14px; }
+    .household-signal::before { display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: var(--primary-clementine-900); color: #fff; content: '✓'; font-size: 11px; font-weight: 700; }
+    .household-note { margin: 18px 0 0; padding: 12px 14px; border: 1px solid var(--secondary-background-150); border-radius: 8px; background: var(--secondary-background-250); color: var(--txt-neutral-600); font-size: 13px; line-height: 20px; }
+    .coming-soon-state { display: grid; min-height: 260px; place-items: center; text-align: center; }
+    .coming-soon-state strong { display: block; color: var(--txt-neutral-900); font-size: 24px; }
+    .coming-soon-state span { display: block; margin-top: 6px; color: var(--txt-neutral-600); font-size: 14px; }
+    .full-review-header { align-items: center; min-height: 60px; padding: 8px 16px; border-bottom: .5px solid #ccccce; }
+    .full-review-header > div { display: flex; align-items: center; gap: 8px; }
+    .full-review-header .eyebrow { display: none; }
+    .full-review-header h2 { margin: 0; color: #717171; font-size: 16px; line-height: 32px; }
+    .full-review-header h2::before { content: none; }
+    .full-review-header .merge-header-icon { width: 24px; height: 24px; flex: 0 0 24px; }
+    .full-review-header .subtitle { display: none; }
+    .full-review-header .drawer-close { width: 32px; height: 32px; font-size: 25px; }
+    .full-review-modal .stepper { display: none; }
+    .full-review-content { padding: 24px 16px 32px; }
+    .figma-merge-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, .78fr); gap: 24px; margin-bottom: 24px; }
+    .figma-merge-intro h3 { margin: 0 0 20px; color: #717171; font-size: 16px; line-height: 16px; font-weight: 700; }
+    .figma-merge-intro p { max-width: 690px; margin: 0 0 10px; color: #828282; font-size: 16px; line-height: 24px; }
+    .figma-merge-intro strong { display: block; margin-bottom: 8px; color: #717171; font-size: 16px; line-height: 16px; }
+    .figma-signal-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .figma-signal { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border: 1px solid #eaecf0; border-radius: 999px; background: #f9fafb; color: #344054; font-size: 14px; }
+    .figma-confidence { align-self: end; padding: 32px 16px; background: #fafafa; }
+    .figma-confidence-title { margin-bottom: 12px; color: #828282; font-size: 14px; line-height: 20px; font-weight: 600; }
+    .figma-confidence strong { display: block; margin: 24px 0 8px; color: #717171; font-size: 14px; line-height: 20px; }
+    .figma-confidence-label { display: flex; justify-content: space-between; margin-bottom: 8px; color: #828282; font-size: 14px; }
+    .figma-confidence-bar { height: 8px; overflow: hidden; border: 1px solid #bbbbbd; border-radius: 999px; background: #f2f4f7; }
+    .figma-confidence-bar span { display: block; height: 100%; border-radius: inherit; background: #079455; }
+    .figma-compare-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 1px solid #ccccce; border-radius: 4px; overflow: hidden; }
+    .figma-record-card { min-width: 0; padding: 24px; background: #fafafa; }
+    .figma-record-card + .figma-record-card { border-left: 1px solid #ccccce; }
+    .figma-record-card.result { background: #fcefe5; }
+    .figma-record-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 24px; color: #717171; font-size: 16px; font-weight: 700; }
+    .figma-profile-link { color: #dd6000; font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .figma-profile-link:hover { text-decoration: underline; }
+    .figma-field-head, .figma-field-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; }
+    .figma-field-head { padding: 0 16px 8px; color: #4d4d4d; font-size: 14px; }
+    .figma-field-row { min-height: 68px; align-items: center; padding: 12px 16px; border: .5px solid #ccccce; border-bottom: 0; background: #fff; }
+    .figma-field-row:last-child { border-bottom: .5px solid #ccccce; }
+    .figma-field-row.match { background: var(--primary-clementine-50); }
+    .figma-field-value { display: flex; align-items: flex-start; gap: 8px; min-width: 0; }
+    .figma-radio { width: 16px; height: 16px; flex: 0 0 16px; margin-top: 2px; border: 1px solid #bbbbbd; border-radius: 50%; }
+    .figma-radio.selected { border: 2px solid #dd6000; box-shadow: inset 0 0 0 3px #fff; background: #dd6000; }
+    input[type="checkbox"].figma-checkbox { appearance: none !important; -webkit-appearance: none; width: 16px; height: 16px; flex: 0 0 16px; margin: 2px 0 0; border: 1px solid #bbbbbd; border-radius: 3px; background: #fff; cursor: pointer; }
+    input[type="checkbox"].figma-checkbox:checked { border-color: #dd6000; background-color: #dd6000; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='m2 6 2.3 2.3L10 2.7' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-position: center; background-repeat: no-repeat; background-size: 11px 11px; box-shadow: none; }
+    .figma-merge-row-choice { cursor: pointer; }
+    .figma-result-value { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; min-height: 24px; }
+    .figma-result-value + .figma-result-value { margin-top: 8px; }
+    .figma-field-label { display: block; margin-bottom: 2px; color: #828282; font-size: 12px; line-height: 16px; }
+    .figma-field-text { display: block; color: #4d4d4d; font-size: 14px; line-height: 20px; overflow-wrap: anywhere; }
+    .figma-source { align-self: center; padding: 3px 9px; border: 1px solid #eaecf0; border-radius: 999px; background: #f9fafb; color: #344054; font-size: 14px; white-space: nowrap; }
+    .figma-result-list .figma-field-row { display: flex; flex-direction: column; align-items: stretch; gap: 8px; min-height: 76px; padding-top: 14px; padding-bottom: 14px; }
+    .figma-result-list .figma-field-label { margin-bottom: 0; }
+    .figma-result-list .figma-source { float: none; margin-top: 0; justify-self: end; }
+    .full-review-footer { padding: 15px 16px; }
+    .full-review-footer small { color: #717171; font-size: 12px; }
+    .candidate-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 14px; }
+    .candidate-grid .drawer-candidate { min-height: 120px; align-items: flex-start; flex-direction: column; }
+    .candidate-grid .candidate-top { display:flex; align-items:center; gap:9px; width:100%; }
+    .evidence-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .evidence-card { padding: 18px; border: 1px solid var(--secondary-background-150); border-radius: var(--radius-5xl); background: #fff; box-shadow: 0 1px 2px rgba(16,24,40,.04); }
+    .merge-evidence-summary { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; margin: 14px 0 18px; padding: 14px 16px; border: 1px solid #f1bf99; border-radius: var(--radius-5xl); background: #fffaf6; }
+    .merge-confidence { display: flex; align-items: center; gap: 12px; }
+    .merge-confidence strong { color: var(--primary-clementine-900); font-size: 22px; }
+    .merge-confidence small, .merge-evidence-list { color: var(--txt-neutral-700); font-size: 12px; }
+    .merge-evidence-list { display: flex; flex-wrap: wrap; gap: 5px; justify-content: end; }
+    .merge-evidence-list span { padding: 4px 7px; border-radius: 999px; background: var(--status-success-bg); color: var(--status-success); font-size: 11px; font-weight: 700; }
+    .evidence-breakdown { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 14px 0 20px; }
+    .evidence-group { padding: 14px; border: 1px solid var(--secondary-background-150); border-radius: var(--radius-5xl); background: #fff; }
+    .evidence-group.match { border-color: #b7ebce; background: #fbfffc; }
+    .evidence-group.diff { border-color: #f1bf99; background: #fffaf6; }
+    .evidence-group.missing { background: var(--secondary-background-250); }
+    .evidence-group h4 { margin: 0 0 10px; font-size: 12px; }
+    .evidence-item { padding: 9px 0; border-top: 1px solid rgba(16,24,40,.08); font-size: 11px; line-height: 1.35; }
+    .evidence-item:first-of-type { border-top: 0; padding-top: 0; }
+    .evidence-item strong { display: block; color: var(--txt-neutral-900); font-size: 11px; }
+    .evidence-item span { display: block; color: var(--txt-neutral-700); }
+    .evidence-item small { display: block; margin-top: 3px; color: var(--txt-neutral-600); font-size: 10px; }
+    .evidence-card h3 { margin: 0; font-size: 15px; }
+    .evidence-card .compare-field { padding: 13px 0; }
+    .golden-grid { display: grid; grid-template-columns: 150px 1fr; border: 1px solid var(--secondary-background-150); border-radius: var(--radius-5xl); overflow: hidden; }
+    .golden-grid > div { padding: 12px; border-top: 1px solid var(--secondary-background-150); }
+    .golden-grid > div:nth-child(-n+2) { border-top: 0; }
+    .golden-grid .golden-label { background: var(--secondary-background-50); font-weight: 500; }
+    .confirmation-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0; }
+    .summary-box { padding: 16px; border: 1px solid var(--secondary-background-150); border-radius: var(--radius-5xl); background: var(--secondary-background-50); }
+    .summary-box strong { display:block; margin-top:5px; font-size:18px; }
+    /* Customers screen: alignment with Product Design frame 60:325 */
+    .app { min-height: 100vh; background: #fff; }
+    .sidebar { position: fixed; top: 0; bottom: 0; left: 0; z-index: 10; width: 260px; height: 100vh; flex-basis: 260px; padding: 8px 0 0; overflow-y: auto; }
+    .brand { height: 51px; padding: 8px 16px; border-bottom: 1px solid var(--secondary-background-150); font-size: 16px; }
+    .brand-logo-wrap { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .brand-toggle { display: inline-grid; place-items: center; width: 22px; height: 22px; padding: 2px; border: .5px solid #ccccce; border-radius: 4px; background: #fff; }
+    .brand-toggle img { width: 16px; height: 16px; }
+    .sidebar-search { display: flex; align-items: center; gap: 12px; height: 40px; padding: 8px 16px; border-top: .5px solid #ccccce; border-bottom: .5px solid #ccccce; color: #828282; }
+    .sidebar-search img { width: 16px; height: 16px; }
+    .sidebar-search span { flex: 1; font-size: 12px; line-height: 24px; font-weight: 500; }
+    .sidebar-search kbd { font-size: 16px; line-height: 24px; font-weight: 400; }
+    .brand-mark { width: 28px; height: 28px; border-radius: 7px; font-size: 13px; }
+    .nav-label { padding: 16px 16px 8px; font-size: 10px; font-weight: 500; letter-spacing: 0; text-transform: none; }
+    .nav { gap: 2px; padding: 0 12px; }
+    .nav-item { min-height: 40px; padding: 0 12px; border-radius: 7px; font-size: 16px; line-height: 24px; font-weight: 500; }
+    .nav-item.active { color: #fff; background: var(--primary-clementine-900); }
+    .nav-item.active:hover { color: #fff; background: var(--primary-clementine-800); }
+    .nav-icon { display: inline-grid; place-items: center; width: 24px; height: 24px; font-size: 16px; }
+    .nav-icon img { width: 24px; height: 24px; object-fit: contain; }
+    .nav-item[data-tooltip="Settings"] .nav-icon { position: relative; }
+    .nav-item[data-tooltip="Settings"] .nav-icon::after { position: absolute; top: 50%; left: 50%; z-index: 2; width: 7px; height: 7px; border: 1.5px solid #4d4d4d; border-radius: 50%; background: transparent; content: ''; transform: translate(-50%, -50%); pointer-events: none; }
+    .search span img { width: 16px; height: 16px; }
+    .sidebar-bottom { padding: 14px 12px 8px; }
+    main { width: calc(100% - 260px); min-height: 100vh; margin-left: 260px; padding: 0; background: #fff; }
+    .topbar { height: 68px; margin: 0; padding: 0 16px; border-bottom: 1px solid var(--secondary-background-150); }
+    .breadcrumbs { font-size: 12px; }
+    .breadcrumbs { display: flex; align-items: center; line-height: 24px; color: var(--txt-neutral-600); }
+    .breadcrumbs img { width: 16px; height: 16px; }
+    .icon-button { width: 32px; height: 32px; border: 0; background: transparent; }
+    .icon-button img { width: 24px; height: 24px; }
+    .top-chevron { display: inline-grid; place-items: center; width: 20px; height: 20px; border: .5px solid #ccccce; border-radius: 4px; padding: 2px; }
+    .top-chevron img { width: 16px; height: 16px; }
+    .page-heading { align-items: flex-end; margin: 0; padding: 17px 16px 16px; border-bottom: 1px solid var(--secondary-background-150); }
+    h1 { margin-bottom: 6px; font-size: 24px; line-height: 32px; letter-spacing: 0; font-weight: 700; }
+    .page-heading .subtitle { max-width: 760px; font-size: 14px; line-height: 20px; }
+    .page-heading > div:first-child .date-control { margin-top: 12px; }
+    .page-heading-actions { display: flex; align-items: center; gap: 8px; }
+    .date-control { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; width: 228px; padding: 0 12px; border: 1px solid #ccccce; border-radius: 8px; background: #fff; color: var(--txt-neutral-900); font-size: 16px; line-height: normal; }
+    .date-control img { width: 20px; height: 20px; flex: 0 0 20px; }
+    .date-control span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .date-picker-wrap { position: relative; display: inline-block; margin-top: 12px; }
+    .date-picker-wrap .date-control { margin-top: 0 !important; }
+    .date-picker-menu { position: absolute; top: calc(100% + 6px); left: 0; z-index: 20; display: none; width: 310px; padding: 16px; border: 1px solid #ccccce; border-radius: 8px; background: #fff; box-shadow: 0 8px 20px rgba(16,24,40,.12); }
+    .date-picker-menu.open { display: block; }
+    .date-picker-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .date-picker-field { display: grid; gap: 6px; color: var(--txt-neutral-700); font-size: 12px; font-weight: 700; }
+    .date-picker-field input { width: 100%; height: 38px; padding: 0 8px; border: 1px solid #ccccce; border-radius: 6px; color: var(--txt-neutral-900); font-size: 13px; }
+    .date-picker-footer { display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--secondary-background-150); }
+    .page-heading .button { min-height: 44px; padding: 8px 12px; border-radius: 10px; font-size: 14px; line-height: normal; }
+    .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 18px 16px; background: #fafafa; border-bottom: 1px solid var(--secondary-background-150); }
+    .metric-card { min-height: 102px; padding: 16px; border: 1px solid var(--secondary-background-150); border-radius: 6px; background: #fff; }
+    .metric-card-link { cursor: pointer; transition: background .16s ease, border-color .16s ease; }
+    .metric-card-link:hover { border-color: var(--primary-clementine-900); background: var(--alert-row-bg); }
+    .metric-label { display: flex; align-items: center; gap: 8px; color: var(--txt-neutral-900); font-size: 16px; line-height: 24px; font-weight: 500; }
+    .metric-icon { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 4px; background: #fafafa; border: .5px solid #ccccce; color: var(--primary-shuttle-gray-900); }
+    .metric-icon img { width: 20px; height: 20px; object-fit: contain; }
+    .metric-chevron { width: 20px; height: 20px; margin-left: auto; transform: rotate(-90deg); }
+    .metric-value { display: flex; align-items: center; gap: 8px; margin-top: 8px; color: var(--txt-neutral-900); font-size: 32px; line-height: 32px; font-weight: 700; }
+    .metric-card .metric-delta, .metric-card .metric-foot { display: none; }
+    .metric-value.warning { color: var(--txt-neutral-900); }
+    .metric-value.danger { color: var(--status-error); }
+    .metric-delta { padding: 3px 6px; border-radius: 999px; color: var(--status-success); background: var(--status-success-bg); font-size: 10px; }
+    .metric-foot { margin-top: 8px; color: var(--txt-neutral-700); font-size: 12px; line-height: 16px; }
+    .customers-section { padding: 14px 16px 30px; }
+    .customers-section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .customers-section-heading h2 { margin: 0; font-size: 16px; line-height: 24px; font-weight: 700; }
+    .customers-toolbar { display: flex; align-items: center; gap: 8px; }
+    .customers-toolbar .search { width: 384px; }
+    .customers-toolbar .search input { height: 44px; font-size: 13px; line-height: 20px; }
+    .filter-control { height: 44px; padding: 0 12px; border: 1px solid #ccccce; border-radius: 8px; background: #fff; color: var(--txt-neutral-900); font-size: 16px; line-height: normal; }
+    .filter-control.active { border-color: var(--primary-clementine-900); background: var(--primary-clementine-50); color: var(--primary-clementine-900); }
+    .filter-wrap { position: relative; }
+    .filter-menu { position: absolute; top: calc(100% + 6px); right: 0; z-index: 15; display: none; min-width: 210px; padding: 8px; border: 1px solid #ccccce; border-radius: 8px; background: #fff; box-shadow: 0 8px 20px rgba(16,24,40,.12); }
+    .filter-menu.open { display: grid; gap: 2px; }
+    .filter-option { display: flex; align-items: center; gap: 8px; min-height: 34px; padding: 6px 8px; border-radius: 6px; color: var(--txt-neutral-900); font-size: 14px; cursor: pointer; }
+    .filter-option:hover { background: var(--secondary-background-50); }
+    .filter-option input { width: 16px; height: 16px; accent-color: var(--primary-clementine-900); }
+    .filter-menu-footer { display: flex; justify-content: flex-end; gap: 6px; margin-top: 6px; padding-top: 8px; border-top: 1px solid var(--secondary-background-150); }
+    .filter-menu-footer button { min-height: 30px; padding: 4px 9px; border-radius: 6px; font-size: 12px; }
+    .active-filters { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; min-height: 0; margin: -2px 0 12px; }
+    .active-filters:empty { display: none; }
+    .active-filter { display: inline-flex; align-items: center; gap: 6px; min-height: 28px; padding: 4px 8px 4px 10px; border: 1px solid #f1bf99; border-radius: 999px; background: var(--primary-clementine-50); color: var(--txt-neutral-900); font-size: 13px; line-height: 18px; }
+    .active-filter button { display: inline-grid; place-items: center; width: 18px; height: 18px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--txt-neutral-700); font-size: 16px; line-height: 1; }
+    .active-filter button:hover { background: #fff; color: var(--primary-clementine-900); }
+    .clear-active-filters { min-height: 28px; padding: 3px 8px; border: 0; background: transparent; color: var(--primary-clementine-900); font-size: 13px; font-weight: 700; }
+    .table-card { border-radius: 6px; box-shadow: none; }
+    table { table-layout: fixed; }
+    th { height: 35px; padding: 0 10px; background: var(--secondary-background-250); font-size: 12px; line-height: 16px; letter-spacing: 0; text-transform: none; }
+    td { height: 70px; padding: 8px 10px; font-size: 14px; line-height: 19px; }
+    .customer-cell { gap: 7px; min-width: 0; }
+    .row-flag + div { min-width: 0; }
+    .customer-cell .avatar { width: 22px; height: 22px; flex-basis: 22px; font-size: 9px; }
+    .customer-name { font-size: 14px; line-height: 19px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .customer-id, .muted { font-size: 12px; line-height: 16px; }
+    .contact { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; line-height: 1.35; }
+    .contact div:first-child { overflow: hidden; text-overflow: ellipsis; }
+    .source { padding: 3px 7px; font-size: 12px; line-height: 16px; }
+    .source-overflow { border: 0; color: #fff; background: var(--primary-clementine-900); }
+    .quality { display: block; font-size: 11px; }
+    .quality-dot { display: none; }
+    .confidence-cell { min-width: 105px; }
+    .confidence-line { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 5px; font-size: 12px; line-height: 16px; }
+    .confidence-track { height: 5px; overflow: hidden; border: 1px solid #c9cdd1; border-radius: 999px; background: #f1f2f3; }
+    .confidence-fill { height: 100%; border-radius: inherit; background: var(--status-success); }
+    .confidence-fill.medium { background: var(--status-warning); }
+    .confidence-fill.low { background: var(--status-error); }
+    .confidence-cell .progress.progress-success { color: #079455; }
+    .confidence-cell .progress.progress-warning { color: #DC6803; }
+    .confidence-cell .progress.progress-error { color: #D92D20; }
+    .status-cell .badge { padding: 4px 8px; font-size: 12px; line-height: 16px; }
+    .table-action { display: inline-flex; align-items: center; gap: 5px; padding: 4px 6px; border: 0; border-radius: 6px; color: var(--txt-neutral-700); background: transparent; font-size: 11px; }
+    .table-action:hover { color: var(--primary-clementine-900); background: var(--primary-clementine-50); }
+    .expand { width: 20px; height: 24px; font-size: 13px; }
+    .pagination { padding: 12px 8px 0; }
+    .app.sidebar-collapsed .sidebar { width: 68px; flex-basis: 68px; }
+    .app.sidebar-collapsed main { width: calc(100% - 68px); margin-left: 68px; }
+    .app.sidebar-collapsed .brand { padding-left: 16px; padding-right: 16px; }
+    .app.sidebar-collapsed .brand-logo { display: none; }
+    .app.sidebar-collapsed .brand-logo-wrap { justify-content: center; }
+    .app.sidebar-collapsed .sidebar-search { justify-content: center; padding-left: 0; padding-right: 0; }
+    .app.sidebar-collapsed .sidebar-search { position: relative; gap: 0; }
+    .app.sidebar-collapsed .sidebar-search img { position: absolute; left: 50%; margin: 0; transform: translateX(-50%); }
+    .app.sidebar-collapsed .sidebar-search span, .app.sidebar-collapsed .sidebar-search kbd { flex: 0 0 0; }
+    .app.sidebar-collapsed .sidebar-search span, .app.sidebar-collapsed .sidebar-search kbd, .app.sidebar-collapsed .nav-label, .app.sidebar-collapsed .nav-item { font-size: 0; }
+    .app.sidebar-collapsed .sidebar-search span, .app.sidebar-collapsed .sidebar-search kbd { display: none; }
+    .app.sidebar-collapsed .nav { padding: 0 12px; }
+    .app.sidebar-collapsed .nav-item { justify-content: center; gap: 0; padding: 0; }
+    .app.sidebar-collapsed .nav-icon { display: grid; place-items: center; width: 24px; height: 24px; margin: 0; }
+    .app.sidebar-collapsed .nav-icon img { display: block; margin: 0 auto; }
+    .app.sidebar-collapsed .sidebar-bottom .profile { justify-content: center; padding-left: 0; padding-right: 0; }
+    .app.sidebar-collapsed .sidebar-bottom .profile > div, .app.sidebar-collapsed .sidebar-bottom .profile > span:last-child { display: none; }
+    /* Smooth expand/collapse motion for the fixed navigation. */
+    .sidebar { transition: width .24s ease, padding .24s ease; }
+    main { transition: width .24s ease, margin-left .24s ease; }
+    .brand-logo { max-width: 190px; opacity: 1; transition: max-width .2s ease, opacity .16s ease; }
+    .brand-toggle img { transition: transform .24s ease; }
+    .sidebar-search span, .sidebar-search kbd, .nav-label, .nav-item { transition: opacity .18s ease, width .24s ease, font-size .18s ease, padding .24s ease, gap .24s ease; }
+    .app.sidebar-collapsed .brand-logo { display: block; max-width: 0; width: 0; opacity: 0; overflow: hidden; }
+    .app.sidebar-collapsed .brand-toggle img { transform: rotate(180deg); }
+    .app.sidebar-collapsed .sidebar-search span { display: block; width: 0; opacity: 0; overflow: hidden; }
+    .app.sidebar-collapsed .sidebar-search kbd { display: block; width: 0; opacity: 0; overflow: hidden; }
+    .app.sidebar-collapsed .nav-label { width: 0; height: 0; padding-top: 0; padding-bottom: 0; opacity: 0; overflow: hidden; }
+    .app.sidebar-collapsed .sidebar-bottom .profile > div, .app.sidebar-collapsed .sidebar-bottom .profile > span:last-child { display: block; width: 0; opacity: 0; overflow: hidden; }
+    .app.sidebar-collapsed .sidebar { overflow: visible; }
+    .app.sidebar-collapsed .nav-item[data-tooltip] { position: relative; }
+    .app.sidebar-collapsed .nav-item[data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: 50%;
+      left: calc(100% + 10px);
+      z-index: 30;
+      width: max-content;
+      max-width: 220px;
+      padding: 7px 10px;
+      border: 0;
+      border-radius: 6px;
+      background: var(--primary-clementine-900);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 18px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-4px, -50%);
+      transition: opacity .16s ease, transform .16s ease;
+    }
+    .app.sidebar-collapsed .nav-item[data-tooltip]::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: calc(100% + 4px);
+      z-index: 31;
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-right: 7px solid var(--primary-clementine-900);
+      opacity: 0;
+      transform: translate(-4px, -50%);
+      transition: opacity .16s ease, transform .16s ease;
+    }
+    .app.sidebar-collapsed .nav-item[data-tooltip]:hover::after,
+    .app.sidebar-collapsed .nav-item[data-tooltip]:focus-visible::after { opacity: 1; transform: translate(0, -50%); }
+    .app.sidebar-collapsed .nav-item[data-tooltip]:hover::before,
+    .app.sidebar-collapsed .nav-item[data-tooltip]:focus-visible::before { opacity: 1; transform: translate(0, -50%); }
+    /* Flat button treatment: no elevation in any state. */
+    .button, .button:hover, .button:focus, .button:active, .btn, .btn:hover, .btn:focus, .btn:active, .pagination-button, .filter-control, .icon-button, .brand-toggle, .table-action, .expand, .drawer-close { box-shadow: none !important; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; }
+    /* Slightly larger table type for scanability. */
+    .table-card th { font-size: 13px; }
+    .table-card td { font-size: 15px; }
+    .table-card .customer-name { font-size: 15px; }
+    .table-card .customer-id, .table-card .muted { font-size: 13px; }
+    .table-card .source, .table-card .status-cell .badge { font-size: 13px; }
+    .table-card .confidence-line { font-size: 13px; }
+    .table-card .table-action { font-size: 13px; line-height: 19px; }
+    .vehicle-value { display: inline-flex; align-items: center; gap: 7px; }
+    .vehicle-overflow { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; color: #fff; background: var(--primary-clementine-900); font-size: 11px; line-height: 1; font-weight: 700; }
+    .status-badge-icon { width: 16px; height: 16px; object-fit: contain; }
+    .table-card .row-flag { display: inline-grid !important; place-items: center; position: relative; width: 40px; height: 32px; flex: 0 0 40px; padding: 0; border: 0; background: transparent; cursor: pointer; visibility: visible !important; opacity: 1 !important; }
+    .table-card .row-flag img { display: block; width: 32px; height: 32px; visibility: visible; opacity: 1; }
+    .table-card .row-flag-count { position: absolute; left: 1px; bottom: 1px; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--primary-clementine-900); color: #fff; font-size: 12px; font-weight: 400; line-height: 1; }
+    .table-card .row-flag[data-tooltip] { position: relative; }
+    .table-card .row-flag[data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: 50%;
+      left: calc(100% + 10px);
+      z-index: 35;
+      width: max-content;
+      padding: 7px 10px;
+      border-radius: 6px;
+      background: var(--primary-clementine-900);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 18px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-4px, -50%);
+      transition: opacity .16s ease, transform .16s ease;
+    }
+    .table-card .row-flag[data-tooltip]::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: calc(100% + 4px);
+      z-index: 36;
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-right: 7px solid var(--primary-clementine-900);
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-4px, -50%);
+      transition: opacity .16s ease, transform .16s ease;
+    }
+    .table-card .row-flag[data-tooltip]:hover::after,
+    .table-card .row-flag[data-tooltip]:focus-visible::after,
+    .table-card .row-flag[data-tooltip]:hover::before,
+    .table-card .row-flag[data-tooltip]:focus-visible::before { opacity: 1; transform: translate(0, -50%); }
+    .table-card tbody tr.data-row.alert-row td { background: var(--alert-row-bg); }
+    .table-card tbody tr.data-row.alert-row:hover td { background: var(--alert-row-bg); }
+    .table-card tbody tr.data-row { cursor: pointer; }
+    .empty-state-cell { height: 260px; padding: 32px 20px; text-align: center; }
+    .empty-state { display: grid; justify-items: center; gap: 8px; color: var(--txt-neutral-700); }
+    .empty-state-title { color: var(--txt-neutral-900); font-size: 16px; line-height: 24px; font-weight: 700; }
+    .empty-state-copy { max-width: 360px; margin: 0 0 8px; color: var(--txt-neutral-600); font-size: 14px; line-height: 20px; }
+    .table-loading-cell { height: 260px; padding: 32px 20px; }
+    .table-loading { display: grid; justify-items: center; gap: 10px; color: var(--txt-neutral-600); font-size: 14px; }
+    .table-loading .loading { width: 24px; height: 24px; color: var(--primary-clementine-900); }
+    .table-card tbody { transition: opacity .22s ease; }
+    .table-card tbody.is-loading { opacity: .68; }
+    @media (max-width: 820px) { .app.sidebar-collapsed main { width: 100%; margin-left: 0; } }
+    @media (max-width: 1120px) { .metrics-grid { grid-template-columns: repeat(3, minmax(180px, 1fr)); overflow-x: auto; } .customers-toolbar .search { width: 280px; } }
+    @media (max-width: 820px) { .sidebar { display: none; } .page-heading, .customers-section-heading { align-items: flex-start; flex-direction: column; } .page-heading-actions, .customers-toolbar { width: 100%; flex-wrap: wrap; } .customers-toolbar .search { width: 100%; } .metrics-grid { grid-template-columns: 1fr; } .bulk-toolbar { right: 12px; bottom: 24px; left: 12px; width: auto; max-width: none; transform: translateY(120%); flex-wrap: wrap; gap: 8px; } .bulk-toolbar.open { transform: translateY(0); } .bulk-actions { width: 100%; overflow-x: auto; } }
+    @media (max-width: 900px) { .figma-merge-intro, .figma-compare-grid { grid-template-columns: 1fr; } .figma-record-card + .figma-record-card { border-top: 1px solid #ccccce; border-left: 0; } }
+    @media (max-width: 900px) { .candidate-grid { grid-template-columns: repeat(2, 1fr); } .full-review-modal { max-height: 100vh; height: 100%; border-radius: 0; } }
+    @media (max-width: 680px) { .evidence-layout, .confirmation-summary { grid-template-columns: 1fr; } .candidate-grid { grid-template-columns: 1fr; } .stepper { gap: 10px; justify-content: space-between; } .step { font-size: 0; } .step-number { margin: 0; } }
+
+    /* Navigation refresh — Product Design frame 155:19851. */
+    .app { background: #f2f4f7; }
+    .sidebar {
+      top: 12px;
+      bottom: 12px;
+      left: 12px;
+      width: 260px;
+      height: auto;
+      flex-basis: 260px;
+      padding: 0;
+      overflow: hidden;
+      border: .5px solid #ddddde;
+      border-radius: 8px;
+      background: #fff;
+    }
+    .brand {
+      height: 64px;
+      padding: 14px 16px;
+      border-bottom: 0;
+    }
+    .brand-logo { width: 143px; max-width: 143px; height: 35px; object-fit: contain; object-position: left center; }
+    .brand-toggle { width: 28px; height: 28px; padding: 5px; border: 1px solid #ccccce; border-radius: 6px; }
+    .brand-toggle img { width: 18px; height: 18px; }
+    .sidebar-search {
+      height: 44px;
+      padding: 10px 16px;
+      border-top: 1px solid #eeeeef;
+      border-bottom: 1px solid #ddddde;
+      background: #fff;
+    }
+    .sidebar-search img { width: 20px; height: 20px; }
+    .sidebar-search span { font-size: 14px; line-height: 24px; }
+    .sidebar-search kbd { color: #828282; font-size: 14px; line-height: 24px; }
+    .nav-label { padding: 20px 16px 8px; color: #828282; font-size: 11px; line-height: 16px; font-weight: 500; }
+    .nav { gap: 4px; padding: 0 12px; }
+    .nav-item {
+      min-height: 44px;
+      padding: 0 12px;
+      border-radius: 8px;
+      color: #54565b;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 500;
+      transition: background .16s ease, color .16s ease, padding .24s ease, gap .24s ease, font-size .18s ease;
+    }
+    .nav-item:hover { background: #f8f8f8; color: #252525; }
+    .nav-item.active { color: #fff; background: #dd6000; font-weight: 700; }
+    .nav-item.active:hover { color: #fff; background: #e0701a; }
+    .nav-icon, .nav-icon img { width: 24px; height: 24px; }
+    .nav-icon { flex: 0 0 24px; }
+    .sidebar-bottom { padding: 14px 12px 12px; border-top: 1px solid #ddddde; }
+    .profile { min-height: 48px; padding: 8px 4px; gap: 10px; }
+    .profile .avatar { width: 32px; height: 32px; flex: 0 0 32px; font-size: 12px; }
+    .profile strong, .profile small { line-height: 20px; }
+
+    main { width: calc(100% - 284px); margin-left: 284px; }
+    .app.sidebar-collapsed .sidebar { left: 12px; width: 68px; flex-basis: 68px; }
+    .app.sidebar-collapsed main { width: calc(100% - 92px); margin-left: 92px; }
+    .app.sidebar-collapsed .brand { padding-left: 16px; padding-right: 16px; }
+    .app.sidebar-collapsed .brand-toggle { width: 28px; height: 28px; }
+    .app.sidebar-collapsed .sidebar-search { padding-left: 0; padding-right: 0; }
+    .app.sidebar-collapsed .nav { padding-left: 8px; padding-right: 8px; }
+    .app.sidebar-collapsed .nav-item { min-height: 44px; padding-left: 0; padding-right: 0; }
+    .app.sidebar-collapsed .sidebar-bottom { padding-left: 8px; padding-right: 8px; }
+
+    @media (max-width: 1120px) {
+      .sidebar { width: 260px; flex-basis: 260px; }
+      main { width: calc(100% - 284px); margin-left: 284px; }
+      .app.sidebar-collapsed .sidebar { width: 68px; flex-basis: 68px; }
+      .app.sidebar-collapsed main { width: calc(100% - 92px); margin-left: 92px; }
+    }
+    .pagination { display: flex; align-items: center; justify-content: flex-end; padding: 16px 0 0; color: var(--txt-neutral-600); font-size: 12px; }
+    .pagination-actions { display: inline-flex; gap: 0; }
+    .pagination-button { display: inline-flex; align-items: center; justify-content: center; height: 35px; min-width: 39px; padding: 8px 12px; border: 1px solid #ccccce; border-left: 0; border-radius: 0; background: #fff; color: var(--txt-neutral-900); font-family: Satoshi, Arial, sans-serif; font-size: 14px; line-height: normal; font-weight: 500; }
+    .pagination-button:first-child { border-left: 1px solid #ccccce; border-radius: 8px 0 0 8px; }
+    .pagination-button:last-child { border-left: 1px solid #ccccce; border-radius: 0 8px 8px 0; }
+    .pagination-button.active { border: 1px solid var(--primary-clementine-900); background: var(--primary-clementine-50); color: var(--primary-clementine-900); }
+    .pagination-icon { width: 14px; height: 14px; }
+    .pagination-button:first-child .pagination-icon { transform: rotate(90deg); }
+    .pagination-button:last-child .pagination-icon { transform: rotate(-90deg); }
+    .filter-control { display: inline-flex; align-items: center; gap: 8px; }
+    .filter-control img { width: 20px; height: 20px; }
+    @media (max-width: 1120px) { .sidebar { width: 210px; flex-basis: 210px; } main { width: calc(100% - 210px); margin-left: 210px; } .review-panel { grid-template-columns: 1fr 1fr; } .review-footer { grid-column: 1 / -1; } th:nth-child(4), td:nth-child(4) { display: none; } }
+    @media (max-width: 820px) { .sidebar { display: none; } main { width: 100%; margin-left: 0; padding: 22px 16px 36px; } .page-heading, .toolbar { align-items: start; flex-direction: column; } .toolbar-actions { width: 100%; } .toolbar-actions .button { flex: 1; } .table-card { overflow-x: auto; } table { min-width: 930px; } .review-panel { grid-template-columns: 1fr; padding-left: 24px; } .review-section + .review-section { border-left: 0; padding-left: 0; border-top: 1px solid #f5cfb2; padding-top: 16px; } .review-footer { align-items: start; flex-direction: column; } .review-actions { justify-content: start; } }
+    /* Storybook Tooltip treatment for disabled bulk actions. The wrapper keeps hover available while the button remains truly disabled. */
+    .bulk-merge-tooltip { position: relative; display: inline-flex; }
+    .bulk-merge-tooltip::after {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      z-index: 40;
+      width: max-content;
+      max-width: 250px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: var(--primary-clementine-900);
+      color: #fff;
+      content: attr(data-tooltip);
+      font-family: Satoshi, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 16px;
+      text-align: center;
+      white-space: normal;
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-50%, 4px);
+      transition: opacity .16s ease, transform .16s ease;
+    }
+    .bulk-merge-tooltip::before {
+      position: absolute;
+      bottom: calc(100% + 4px);
+      left: 50%;
+      z-index: 40;
+      width: 0;
+      height: 0;
+      border-top: 6px solid var(--primary-clementine-900);
+      border-right: 6px solid transparent;
+      border-left: 6px solid transparent;
+      content: '';
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-50%, 4px);
+      transition: opacity .16s ease, transform .16s ease;
+    }
+    .bulk-merge-tooltip:hover::after, .bulk-merge-tooltip:focus-within::after,
+    .bulk-merge-tooltip:hover::before, .bulk-merge-tooltip:focus-within::before { opacity: 1; transform: translate(-50%, 0); }
+    .bulk-merge-tooltip:has(button:not(:disabled))::after, .bulk-merge-tooltip:has(button:not(:disabled))::before { display: none; }
+    /* Bulk toolbar — dark DS surface with inverted action text. */
+    .bulk-toolbar { border-color: #ccccce; background: #54565B; }
+    .bulk-count { color: #fff; }
+    .bulk-divider { background: rgba(255,255,255,.34); }
+    .bulk-actions .button { color: #fff; background: transparent; }
+    .bulk-actions .button:hover { color: #fff; background: rgba(255,255,255,.14); }
+    .bulk-actions [data-bulk-action="merge"]:not(:disabled),
+    .bulk-actions [data-bulk-action="merge"]:not(:disabled):hover { color: #fff; background: transparent; }
+    .bulk-actions [data-bulk-action="merge"]:disabled,
+    .bulk-actions [data-bulk-action="merge"]:disabled:hover { color: #4d4d4d; background: #eaecf0; opacity: .56; }
+    .bulk-actions [data-bulk-action="merge"]:disabled img { opacity: .56; }
+    .bulk-actions [data-bulk-action="household"] img,
+    .bulk-actions [data-bulk-action="segment"] img { filter: brightness(0) invert(1); }
+    .bulk-actions .bulk-delete,
+    .bulk-actions .bulk-delete:hover { color: #b54708; background: #fef3f2; }
+    .bulk-close { color: #fff; }
+    .bulk-close:hover { color: #fff; background: rgba(255,255,255,.14); }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-logo-wrap"><img class="brand-logo" src="../fonts/das-technology-logo.png" alt="DAS Technology — Your Unfair Advantage" /><button class="brand-toggle" type="button" aria-label="Toggle sidebar"><img src="../fonts/icon-layout.svg" alt="" /></button></div></div>
+      <div class="sidebar-search"><img src="../fonts/icon-search.svg" alt="" /><span>Search for...</span><kbd>/</kbd></div>
+      <div class="nav-label">Platform</div>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-item" data-tooltip="Dashboard"><span class="nav-icon"><img src="../fonts/icon-house.svg" alt="" /></span>Dashboard</button>
+        <button class="nav-item active" data-tooltip="Customers"><span class="nav-icon"><img src="../fonts/icon-users.svg" alt="" /></span>Customers</button>
+        <button class="nav-item" data-tooltip="Navbaritem"><span class="nav-icon"><img src="../fonts/icon-menu.svg" alt="" /></span>Navbaritem</button>
+        <button class="nav-item" data-tooltip="Navbaritem"><span class="nav-icon"><img src="../fonts/icon-menu.svg" alt="" /></span>Navbaritem</button>
+        <button class="nav-item" data-tooltip="Navbaritem"><span class="nav-icon"><img src="../fonts/icon-menu.svg" alt="" /></span>Navbaritem</button>
+        <button class="nav-item" data-tooltip="Navbaritem"><span class="nav-icon"><img src="../fonts/icon-menu.svg" alt="" /></span>Navbaritem</button>
+      </nav>
+      <div class="nav-label" style="margin-top:28px">Administration</div>
+      <nav class="nav">
+        <button class="nav-item" data-tooltip="Reports"><span class="nav-icon"><img src="../fonts/icon-menu.svg" alt="" /></span>Reports</button>
+        <button class="nav-item" data-tooltip="Audit log"><span class="nav-icon"><img src="../fonts/icon-menu.svg" alt="" /></span>Audit log</button>
+        <button class="nav-item" data-tooltip="Settings"><span class="nav-icon"><img src="../fonts/icon-settings.svg" alt="" /></span>Settings</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="profile"><span class="avatar">PP</span><div><strong style="font-size:16px;font-weight:500;color:#87898c">Patricia Piotrowska</strong><small style="font-size:16px;color:#4d4d4d">pp@company.com</small></div><span style="margin-left:auto;color:var(--txt-neutral-600)">⌄</span></div></div>
+    </aside>
+    <main>
+      <div class="topbar"><div class="breadcrumbs"><img src="../fonts/icon-house-topbar.svg" alt="" /> <span style="padding:0 7px">Home</span> <span style="padding:0 7px">/</span> <strong>Customers</strong></div><div class="top-actions"><button class="icon-button" aria-label="Notifications"><img src="../fonts/icon-bell.svg" alt="" /></button><span class="avatar" style="width:24px;height:24px;border-radius:4px;background:var(--primary-shuttle-gray-900);color:transparent"></span><span style="font-size:16px">SuperCar LLC</span><span class="top-chevron"><img src="../fonts/icon-chevron-selector.svg" alt="" /></span></div></div>
+      <section class="page-heading"><div><h1>Customers</h1><p class="subtitle">Displays unified customer profiles, also known as golden records. Each row represents one customer, regardless of how many source records have been linked to that profile.</p><div class="date-picker-wrap"><button class="date-control" id="datePickerTrigger" type="button" aria-expanded="false"><img src="../fonts/icon-calendar.svg" alt="" /> <span id="dateRangeLabel">1 Jan '26 – 1 Jan '27</span><img src="../fonts/icon-chevron-topbar.svg" alt="" /></button><div class="date-picker-menu" id="datePickerMenu"><div class="date-picker-fields"><label class="date-picker-field">Start date<input id="dateStart" type="date" value="2026-01-01" /></label><label class="date-picker-field">End date<input id="dateEnd" type="date" value="2027-01-01" /></label></div><div class="date-picker-footer"><button class="button ghost small" id="datePickerClear" type="button">Clear</button><button class="button secondary small" id="datePickerApply" type="button">Apply</button></div></div></div></div><div class="page-heading-actions"><button class="button primary">＋ Add customer</button><button class="button secondary" id="reviewMatches">Review records (34)</button></div></section>
+      <section class="metrics-grid" aria-label="Customer metrics"><article class="metric-card"><div class="metric-label"><span class="metric-icon"><img src="../fonts/icon-users-metric.svg" alt="" /></span>Total customers</div><div class="metric-value">18,981</div></article><article class="metric-card metric-card-link" id="needsReviewMetric" role="button" tabindex="0" aria-label="Filter customers needing review"><div class="metric-label"><span class="metric-icon"><img src="../fonts/icon-alert-review.svg" alt="" /></span>Needs review<img class="metric-chevron" src="../fonts/icon-chevron-down.svg" alt="" /></div><div class="metric-value warning">34</div></article><article class="metric-card"><div class="metric-label"><span class="metric-icon"><img src="../fonts/icon-alert-error.svg" alt="" /></span>Unresolved identities</div><div class="metric-value danger">1,981</div></article></section>
+      <section class="customers-section" aria-label="Customers table"><div class="customers-section-heading"><h2>Customers</h2><div class="customers-toolbar"><div class="search"><span><img src="../fonts/icon-search.svg" alt="" /></span><input id="search" type="search" placeholder="Search by name, email, phone or customer ID..." /></div><div class="filter-wrap"><button class="filter-control" id="statusFilter" type="button" aria-expanded="false"><span class="filter-label">Status | All</span><img src="../fonts/icon-chevron-down.svg" alt="" /></button><div class="filter-menu" id="statusMenu"><label class="filter-option"><input type="checkbox" value="Active" />Active</label><label class="filter-option"><input type="checkbox" value="Merged" />Merged</label><label class="filter-option"><input type="checkbox" value="Needs review" />Needs review</label><label class="filter-option"><input type="checkbox" value="Incomplete" />Incomplete</label><label class="filter-option"><input type="checkbox" value="New" />New</label><div class="filter-menu-footer"><button type="button" class="button ghost filter-cancel">Clear</button><button type="button" class="button secondary filter-apply">Apply filters</button></div></div></div><div class="filter-wrap"><button class="filter-control" id="sourceFilter" type="button" aria-expanded="false"><span class="filter-label">Source | All</span><img src="../fonts/icon-chevron-down.svg" alt="" /></button><div class="filter-menu" id="sourceMenu"><label class="filter-option"><input type="checkbox" value="Cars.com" />Cars.com</label><label class="filter-option"><input type="checkbox" value="DMS" />DMS</label><label class="filter-option"><input type="checkbox" value="CRM" />CRM</label><label class="filter-option"><input type="checkbox" value="Meta" />Meta</label><label class="filter-option"><input type="checkbox" value="Operator" />Operator</label><label class="filter-option"><input type="checkbox" value="SMS" />SMS</label><label class="filter-option"><input type="checkbox" value="Consultant" />Consultant</label><div class="filter-menu-footer"><button type="button" class="button ghost filter-cancel">Clear</button><button type="button" class="button secondary filter-apply">Apply filters</button></div></div></div></div></div><div class="active-filters" id="activeFilters" aria-live="polite"></div>
+      <section class="table-card" aria-label="Customers table">
+        <table>
+          <colgroup><col style="width:42px"><col style="width:192px"><col style="width:192px"><col style="width:166px"><col style="width:192px"><col style="width:192px"><col style="width:192px"><col style="width:128px"><col style="width:192px"><col style="width:96px"></colgroup>
+          <thead><tr><th class="select-cell"><input class="select-all" id="selectAllCustomers" type="checkbox" aria-label="Select all customers" /></th><th>Full name</th><th>Contact</th><th>Location</th><th>Sources</th><th>Vehicle</th><th>Last updated</th><th>Status</th><th>Confidence score</th><th>Actions</th></tr></thead>
+          <tbody id="customerRows"></tbody>
+        </table>
+      </section>
+      <div class="bulk-toolbar-gradient" id="bulkToolbarGradient" aria-hidden="true"></div><div class="bulk-toolbar" id="bulkToolbar" aria-live="polite"><div class="bulk-count" id="bulkCount">0 customers selected</div><div class="bulk-divider" aria-hidden="true"></div><div class="bulk-actions"><button type="button" class="button ghost small" data-bulk-action="merge" disabled><img src="../fonts/icon-merge-records.svg" alt="" />Merge</button><button type="button" class="button ghost small" data-bulk-action="household"><img src="../fonts/icon-house.svg" alt="" />Group</button><button type="button" class="button ghost small" data-bulk-action="segment"><img src="../fonts/icon-users-metric.svg" alt="" />Create segment</button><button type="button" class="button bulk-delete" data-bulk-action="delete"><img src="https://www.figma.com/api/mcp/asset/ca240211-574d-4ac8-b987-05130ae40728.svg" alt="" />Delete (<span id="bulkDeleteCount">0</span>)</button></div><div class="bulk-divider" aria-hidden="true"></div><button type="button" class="bulk-close" id="clearSelection" aria-label="Clear selection">×</button></div>
+      <div class="pagination"><div class="pagination-actions" aria-label="Pagination"><button class="pagination-button"><img class="pagination-icon" src="../fonts/icon-chevron-down.svg" alt="" />Prevous</button><button class="pagination-button">1</button><button class="pagination-button">2</button><button class="pagination-button">3</button><button class="pagination-button">4</button><button class="pagination-button active">5</button><button class="pagination-button">6</button><button class="pagination-button">7</button><button class="pagination-button">8</button><button class="pagination-button">...</button><button class="pagination-button">20</button><button class="pagination-button">Next<img class="pagination-icon" src="../fonts/icon-chevron-down.svg" alt="" /></button></div></div>
+      </section>
+    </main>
+  </div>
+  <div class="drawer-backdrop" id="reviewDrawer" role="presentation"><aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle"><header class="drawer-header"><div><div class="eyebrow">Identity review</div><h2 id="drawerTitle">Review identity match</h2><p class="subtitle" id="drawerSubtitle"></p></div><button class="drawer-close" id="closeDrawer" aria-label="Close review">×</button></header><div class="drawer-content" id="drawerContent"></div><footer class="drawer-footer"><small id="drawerSelection">0 records selected</small><div class="review-actions"><button class="button outline small" id="drawerSeparate">Keep identities separate</button><button class="button primary small" id="drawerMerge" disabled>Review merge</button></div></footer></aside></div>
+  <div class="modal-backdrop" id="mergeModal" role="presentation"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="mergeTitle"><header class="modal-header"><div><div class="eyebrow">Final confirmation</div><h2 id="mergeTitle">Confirm merge</h2><p class="subtitle">Review the winning values before creating one golden record.</p></div><button class="drawer-close" id="closeMergeModal" aria-label="Close confirmation">×</button></header><div class="modal-content" id="mergeModalContent"></div><footer class="modal-footer"><label class="confirm-check"><input type="checkbox" id="confirmMerge" /> <span>I reviewed the evidence and want to merge only these selected profiles.</span></label><button class="button primary small" id="confirmMergeButton" disabled>Confirm merge</button></footer></section></div>
+  <div class="full-review-backdrop" id="fullReviewModal" role="presentation"><section class="full-review-modal" role="dialog" aria-modal="true" aria-labelledby="fullReviewTitle"><header class="full-review-header"><div><img class="merge-header-icon" src="../fonts/icon-merge-records.svg" alt="" /><div><div class="eyebrow">Golden Record merge</div><h2 id="fullReviewTitle">Merge potential duplicated profiles</h2><p class="subtitle" id="fullReviewSubtitle"></p></div></div><button class="drawer-close" id="closeFullReview" aria-label="Close merge modal">×</button></header><div class="stepper"><div class="step active" data-step-label="1"><span class="step-number">1</span>Select profiles</div><div class="step" data-step-label="2"><span class="step-number">2</span>Compare evidence</div><div class="step" data-step-label="3"><span class="step-number">3</span>Golden values</div><div class="step" data-step-label="4"><span class="step-number">4</span>Confirm merge</div></div><div class="full-review-content" id="fullReviewContent"></div><footer class="full-review-footer"><small id="fullReviewHint">Check identity, contact, address, vehicle and source evidence.</small><div class="review-actions"><button class="button outline small" id="fullReviewBack" style="display:none">Back</button><button class="button ghost small" id="fullReviewCancel">Cancel merge</button><button class="button secondary small" id="fullReviewHousehold">Create household</button><button class="button primary small" id="fullReviewNext">Confirm merge</button></div></footer></section></div>
+  <div class="full-review-backdrop" id="householdModal" role="presentation"><section class="household-modal" role="dialog" aria-modal="true" aria-labelledby="householdTitle"><header class="full-review-header"><div><img class="merge-header-icon" src="../fonts/icon-users.svg" alt="" /><div><div class="eyebrow">Household relationship</div><h2 id="householdTitle">Create household relationship</h2><p class="subtitle" id="householdSubtitle">Coming soon</p></div></div><button class="drawer-close" id="closeHousehold" aria-label="Close household modal">×</button></header><div class="household-content" id="householdContent"></div><footer class="full-review-footer"><small>Household relationships are not available yet.</small><div class="review-actions"><button class="button ghost small" id="cancelHousehold">Close</button><button class="button primary small" id="confirmHousehold" disabled>Coming soon</button></div></footer></section></div>
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+  <script>
+    const legacyCustomers = [
+      { name:'Maria Gonzalez', id:'CUS-10482', initials:'MG', email:'maria.gonzalez@example.com', phones:['+1 480 555 0192'], location:'Phoenix, AZ', sources:['DMS','CRM','Service','Email'], resolution:'High confidence · Auto-linked', tone:'high', activity:'Service visit · 2 Aug 2026', status:'Active', statusClass:'active', review:null },
+      { name:'Jason Williams', id:'CUS-10391', initials:'JW', email:'jwilliams@example.com', phones:['+1 602 555 0847','+1 602 555 0112'], location:'Scottsdale, AZ', sources:['DMS','CRM','Meta','Service','CCID'], resolution:'High confidence · Manual merge', tone:'high', activity:'Vehicle purchase · 31 Jul 2026', status:'Active', statusClass:'active', review:null },
+      { name:'Sandra Lee', id:'CUS-10276', initials:'SL', email:'sandra.lee@example.com', phones:[], location:'Phoenix, AZ', sources:['DMS','Cars.com'], resolution:'Medium confidence · Curation queue', tone:'medium', activity:'New lead · 30 Jul 2026', status:'Needs review', statusClass:'review', review:{reason:'Possible duplicate based on name and address', signals:['same address','similar last name','different emails'], candidates:[['Sandra Lee','CUS-10276','DMS · sli@example.com'],['Sandra Li','CUS-10144','DMS · CRM · same address']], fields:[['Name','Sandra Lee','Cars.com'],['Address','4420 W Bell Rd','DMS'],['Email','sandra.lee@example.com','Cars.com'],['Phone','Not available','—']], fieldPairs:[['Name','Sandra Lee','Sandra Li','Cars.com','DMS'],['Address','4420 W Bell Rd','4420 W Bell Road','Cars.com','DMS'],['Email','sandra.lee@example.com','sli@hotmail.com','Cars.com','DMS'],['Phone','Not available','Not available','—','—']] }},
+      { name:'Olivia Bennett', id:'CUS-10144', initials:'OB', email:'olivia.bennett@example.com', phones:['+1 415 555 0184'], location:'San Francisco, CA', sources:['DMS','CRM','Website','Email'], resolution:'High confidence · Auto-linked', tone:'high', activity:'Email engagement · 29 Jul 2026', status:'Active', statusClass:'active', review:null },
+      { name:'Marcus Thompson', id:'CUS-10098', initials:'MT', email:'marcus.t@example.com', phones:['+1 312 555 0147','+1 312 555 0191'], location:'Chicago, IL', sources:['CRM','DMS','Service'], resolution:'Medium confidence · Conflicting values', tone:'medium', activity:'CRM update · 28 Jul 2026', status:'Needs review', statusClass:'review', review:{reason:'Shared phone number found in 4 customer profiles', signals:['shared phone','different emails','same last name'], candidates:[['Marcus Thompson','CUS-10098','CRM · marcus.t@example.com'],['Elena Thompson','CUS-10412','Service · elena.t@example.com'],['Jordan Thompson','CUS-10851','Website · email unavailable'],['Taylor Thompson','CUS-10903','Call center · email unavailable']], fields:[['Phone','+1 312 555 0147','CRM · DMS · Service'],['Email','4 different values','CRM · Service · Web'],['Last name','Thompson','DMS · CRM'],['Address','2 different values','DMS · Website']], fieldPairs:[['Phone','+1 312 555 0147','+1 312 555 0147','CRM · DMS','Service'],['Email','marcus.t@example.com','elena.t@example.com','CRM','Service'],['Last name','Thompson','Thompson','DMS','Service'],['Address','Chicago, IL','Chicago, IL','DMS','Service']] }},
+      { name:'Emma Wilson', id:'CUS-09987', initials:'EW', email:'emma.wilson@example.com', phones:[], location:'Seattle, WA', sources:['Website'], resolution:'Provisional · Single source', tone:'medium', activity:'Web form · 27 Jul 2026', status:'New', statusClass:'new', review:null },
+      { name:'Daniel Fischer', id:'CUS-09842', initials:'DF', email:'', phones:['+1 303 555 0168'], location:'Denver, CO', sources:['DMS','CRM','Service','Call center','CCID'], resolution:'Medium confidence · Candidate match', tone:'medium', activity:'Duplicate detected · 26 Jul 2026', status:'Needs review', statusClass:'review', review:{reason:'Conflicting identity values across source records', signals:['same phone','name variation','missing email'], candidates:[['Daniel Fischer','CUS-09842','DMS · daniel.f@example.com'],['Dan Fischer','CUS-09711','CRM · email unavailable']], fields:[['Name','Daniel Fischer / Dan Fischer','DMS · CRM'],['Phone','+1 303 555 0168','DMS · Service'],['Email','Not available on golden record','—'],['VIN','1FMCU9...A421','DMS']], fieldPairs:[['Name','Daniel Fischer','Dan Fischer','DMS','CRM'],['Phone','+1 303 555 0168','+1 303 555 0168','DMS','Service'],['Email','Not available','dan.fischer@example.com','DMS','CRM'],['VIN','1FMCU9...A421','Not available','DMS','—']] }},
+      { name:'Aisha Patel', id:'CUS-09731', initials:'AP', email:'aisha.patel@example.com', phones:[], location:'New York, NY', sources:['DMS','CRM','Email'], resolution:'High confidence · Auto-linked', tone:'high', activity:'Consent update · 24 Jul 2026', status:'Active', statusClass:'active', review:null },
+      { name:'Noah Anderson', id:'CUS-09554', initials:'NA', email:'noah.anderson@example.com', phones:[], location:'Atlanta, GA', sources:['Website'], resolution:'Orphan · No link yet', tone:'low', activity:'New inbound event · 22 Jul 2026', status:'Incomplete', statusClass:'incomplete', review:null },
+      { name:'Grace Lee', id:'CUS-09318', initials:'GL', email:'grace.lee@example.com', phones:['+1 213 555 0128'], location:'Los Angeles, CA', sources:['DMS','Service','CRM','Recall'], resolution:'High confidence · Auto-linked', tone:'high', activity:'Service completed · 19 Jul 2026', status:'Active', statusClass:'active', review:null }
+    ];
+    // Fixture aligned with the records shown in Product Design frame 60:325.
+    // Values that are truncated or not exposed in the design remain intentionally masked.
+    const customers = [
+      { name:'Michael Anderson', id:'CR-0048321', initials:'MA', email:'michael.anderson@email.com', phones:['+1 321 555 9312'], location:'1847 N Damen Ave, Chicago IL 60647', sources:['Cars.com'], sourceOverflow:8, vehicle:'Toyota Rav 4', vehicleExtra:3, year:'2021', activity:'1 Jan 2026, 04:44 PM', status:'Active', statusClass:'active', confidence:92, tone:'high', actionLabel:'More', review:{reason:'Possible duplicate based on identity evidence', signals:['same address','same phone','same vehicle'], candidates:[['Michael Anderson','CR-0048321','Cars.com · michael.anderson@email.com'],['Aisha Patel','CR-0048321','DMS · Operator · shared contact']], fields:[['Full name','Michael Anderson / Aisha Patel','Cars.com · DMS'],['Phone','+1 321 555 9312','Cars.com · DMS'],['Address','1847 N Damen Ave, Chicago IL 60647','Cars.com · DMS'],['Vehicle','Toyota Rav 4 · 2021','Cars.com']], fieldPairs:[['Full name','Michael Anderson','Aisha Patel','Cars.com · DMS','DMS · Operator'],['Email address','michael.anderson@email.com','apatel143@email.com','Operator','DMS'],['Phone number','+1 321 555 9312','+1 321 555 9312','Cars.com','DMS'],['Address','1847 N Damen Ave, Chicago IL 60647','1847 N Damen Ave, Chicago IL 60647','CRM','CRM'],['Vehicle','Toyota Rav 4 · 2021','Ford Escape · 2019','Cars.com','DMS']] } },
+      { name:'Aisha Patel', id:'CR-0048321', initials:'AP', email:'apatel143@email.com', phones:['+1 321 555 9312'], location:'1847 N Damen Ave, Chicago IL 60647', sources:['DMS','Operator'], sourceOverflow:8, vehicle:'Ford Escape', year:'2019', activity:'1 Jan 2026, 04:44 PM', status:'Active', statusClass:'active', confidence:100, tone:'high', actionLabel:'More', review:null },
+      { name:'Liam Chen', id:'CR-0075642', initials:'LC', email:'lchen89@domain.com', phones:['+1 415 732 4567'], location:'4028 Elm St, San Francisco CA 94107', sources:['DMS','Operator'], sourceOverflow:5, vehicle:'Toyota Camry', vehicleExtra:3, year:'2021', activity:'15 Feb 2026, 11:20 AM', status:'Active', statusClass:'active', confidence:85, tone:'medium', actionLabel:'Details', review:null },
+      { name:'Sofia Gomez', id:'CR-0029817', initials:'SG', email:'sgomez52@example.com', phones:['+1 718 555 2741'], location:'1234 Maple Ave, Brooklyn NY 11201', sources:['SMS'], sourceOverflow:1, vehicle:'Honda Accord', year:'2018', activity:'22 Mar 2026, 02:15 PM', status:'Active', statusClass:'active', confidence:92, tone:'high', actionLabel:'More Info', review:null },
+      { name:'Ethan Brooks', id:'CR-0094730', initials:'EB', email:'ethan.brooks@example.com', phones:['+1 512 555 7895'], location:'7890 Oak St, Austin TX 78701', sources:['DMS','CRM'], sourceOverflow:7, vehicle:'Chevrolet Malibu', year:'2020', activity:'30 Jan 2026, 09:05 AM', status:'Active', statusClass:'active', confidence:78, tone:'medium', actionLabel:'View', review:null },
+      { name:'Isabella Rivera', id:'CR-0056674', initials:'IR', email:'irivera23@gmail.com', phones:['+1 305 555 6612'], location:'5678 Pine St, Miami FL 33131', sources:['CRM'], vehicle:'Nissan Altima', year:'2017', activity:'8 Apr 2026, 01:50 PM', status:'Active', statusClass:'active', confidence:88, tone:'high', actionLabel:'Details', review:null },
+      { name:'Noah Kim', id:'CR-0082739', initials:'NK', email:'noah.kim@webmail.com', phones:['+1 206 555 4827'], location:'9102 Cedar St, Seattle WA 98101', sources:['DMS','Operator'], sourceOverflow:9, vehicle:'Subaru Outback', vehicleExtra:3, year:'2022', activity:'19 May 2026, 03:30 PM', status:'Merged', statusClass:'new', confidence:95, tone:'critical', actionLabel:'More', review:null },
+      { name:'Maya Singh', id:'CR-0038569', initials:'MS', email:'maya.singh@email.com', phones:['+1 617 555 1296'], location:'3456 Birch Rd, Boston MA 02115', sources:['DMS','Consultant'], sourceOverflow:4, vehicle:'Mazda CX-5', year:'2016', activity:'27 Jun 2026, 10:45 AM', status:'Merged', statusClass:'new', confidence:80, tone:'medium', actionLabel:'Info', review:null },
+      { name:'Olivia Bennett', id:'CR-0048321', initials:'OB', email:'olivia.bennett@company.com', phones:[], location:'—', sources:['Meta'], vehicle:'—', year:'', activity:'1 Jan 2026, 04:44 PM', status:'Needs review', statusClass:'review', confidence:10, tone:'low', actionLabel:'More', review:{reason:'Possible duplicate based on name, contact and vehicle evidence', signals:['same email','same phone','same VIN'], candidates:[['Olivia Bennett','CR-0048321','Meta · olivia.bennett@company.com'],['Olivia M. Bennett','CR-0048322','CRM · email unavailable']], fields:[['Full name','Olivia Bennett / Olivia M. Bennett','Meta · CRM'],['Email','olivia.bennett@company.com','Meta'],['Phone','Not available','—'],['Vehicle / VIN','Not available','—']], fieldPairs:[['Full name','Olivia Bennett','Olivia M. Bennett','Meta','CRM'],['Email','olivia.bennett@company.com','Not available','Meta','—'],['Phone','Not available','Not available','—','—'],['Vehicle / VIN','Not available','Not available','—','—']] } },
+      { name:'Ethan Ramirez', id:'CR-0048322', initials:'ER', email:'ethan.ramirez@company.com', phones:[], location:'—', sources:['Meta'], vehicle:'Mercedes CLA', year:'2025', activity:'15 Feb 2026, 11:20 AM', status:'Needs review', statusClass:'review', confidence:10, tone:'low', actionLabel:'Details', review:null },
+      { name:'Sophia Nguyen', id:'CR-0048323', initials:'SN', email:'sophia.nguyen@company.com', phones:[], location:'—', sources:['Meta'], vehicle:'—', year:'', activity:'3 Mar 2026, 09:10 AM', status:'Needs review', statusClass:'review', confidence:10, tone:'low', actionLabel:'More', review:null },
+      { name:'Liam Johnson', id:'CR-0048324', initials:'LJ', email:'liam.johnson@company.com', phones:[], location:'—', sources:['Meta'], vehicle:'Peugeot 208', year:'2016', activity:'20 Apr 2026, 02:30 PM', status:'Needs review', statusClass:'review', confidence:55, tone:'medium', actionLabel:'Info', review:null },
+      { name:'Isabella Martinez', id:'CR-0048325', initials:'IM', email:'', phones:['+1 617 555 1298'], location:'—', sources:['Cars.com'], vehicle:'—', year:'', activity:'12 May 2026, 05:55 PM', status:'Needs review', statusClass:'review', confidence:10, tone:'low', actionLabel:'More', review:null }
+    ];
+    const rows = document.getElementById('customerRows');
+    const esc = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    const vehicleById = { 'CUS-10482':'2020 Chevrolet Equinox', 'CUS-10391':'2022 Ford F-150', 'CUS-10276':'—', 'CUS-10144':'2021 Toyota RAV4', 'CUS-10098':'2019 Honda CR-V', 'CUS-09987':'2018 Chevrolet Malibu', 'CUS-09842':'2019 Ford Escape', 'CUS-09731':'2023 Lexus NX', 'CUS-09554':'—', 'CUS-09318':'2017 Nissan Altima' };
+
+    // Local component primitives. Their visual contract follows the DAS Storybook
+    // components; the prototype remains dependency-free because this repository is
+    // a static Cloudflare portal, not the React component package.
+    const UI = {
+      button(label, { variant = 'outline', size = '', id = '', className = '', disabled = false, action = '' } = {}) {
+        const daisyVariant = variant === 'primary' ? 'btn-primary' : variant === 'secondary' ? 'btn-secondary' : variant === 'ghost' ? 'btn-ghost' : 'btn-outline';
+        const daisySize = size === 'small' ? 'btn-sm' : '';
+        return `<button type="button" ${id ? `id="${id}"` : ''} ${action ? `data-ui-action="${action}"` : ''} class="btn ${daisyVariant} ${daisySize} button ${variant} ${size} ${className}" ${disabled ? 'disabled' : ''}>${label}</button>`;
+      },
+      badge(label, tone = 'incomplete') { const daisyTone = tone === 'active' ? 'badge-success' : tone === 'review' ? 'badge-warning' : tone === 'new' ? 'badge-primary' : 'badge-ghost'; return `<span class="badge ${daisyTone} ${tone}">${esc(label)}</span>`; },
+      source(label) { return `<span class="badge badge-ghost source">${esc(label)}</span>`; },
+      sourceList(sources, max = 3, overflow = 0) { const hidden = overflow || Math.max(0, sources.length - max); return `<div class="source-list">${sources.slice(0, max).map(UI.source).join('')}${hidden ? `<span class="badge badge-primary source source-overflow">+${hidden}</span>` : ''}</div>`; },
+      confidence(score, tone) { const label = tone === 'critical' ? 'Critical' : score >= 90 ? 'High' : score >= 70 ? 'Medium' : 'Low'; const progressTone = tone === 'high' ? 'progress-success' : tone === 'medium' ? 'progress-warning' : 'progress-error'; return `<div class="confidence-line"><span>${score}%</span><span>${label}</span></div><progress class="progress ${progressTone}" value="${score}" max="100">${score}%</progress>`; },
+      avatar(initials) { return `<div class="avatar placeholder"><div><span>${esc(initials)}</span></div></div>`; },
+      card(content, className = '') { return `<article class="card bg-base-100 metric-card ${className}">${content}</article>`; },
+      tooltip(content, text) { return `<span class="tooltip" data-tip="${esc(text)}">${content}</span>`; }
+    };
+    function applyStorybookHtmlComponents() {
+      document.querySelectorAll('button.button').forEach(button => {
+        button.classList.add('btn');
+        if (button.classList.contains('primary')) button.classList.add('btn-primary');
+        else if (button.classList.contains('secondary')) button.classList.add('btn-secondary');
+        else if (button.classList.contains('ghost')) button.classList.add('btn-ghost');
+        else button.classList.add('btn-outline');
+        if (button.classList.contains('small')) button.classList.add('btn-sm');
+      });
+      document.querySelectorAll('input:not([type="checkbox"]):not([type="radio"])').forEach(input => input.classList.add('input', 'input-bordered'));
+      document.querySelectorAll('table').forEach(table => table.classList.add('table'));
+      document.querySelectorAll('.metric-card').forEach(card => card.classList.add('card', 'bg-base-100'));
+      document.querySelectorAll('.source').forEach(source => source.classList.add('badge', 'badge-ghost'));
+    }
+    function render(data = customers) {
+      rows.innerHTML = data.length ? data.map((customer, index) => {
+        const hasReview = Boolean(customer.review);
+        const contact = customer.email ? `<div>${esc(customer.email)}</div>` : '<div class="muted">Email not available</div>';
+        const phone = customer.phones.length ? `<div class="muted">${customer.phones.length > 1 ? `${customer.phones.length} phone numbers` : esc(customer.phones[0])}</div>` : '<div class="muted">-</div>';
+        const sourceTags = UI.sourceList(customer.sources, 3, customer.sourceOverflow);
+        const resolution = (customer.resolution || customer.status || 'Identity review').split(' · ');
+        const score = customer.confidence || ({ high: 92, medium: 78, low: 10 }[customer.tone] || 50);
+        const confidenceLabel = score >= 90 ? 'High' : score >= 70 ? 'Medium' : 'Low';
+        const vehicle = customer.vehicle || vehicleById[customer.id] || '—';
+        const reviewMarkup = hasReview ? `<tr class="review-row" id="review-${index}"><td colspan="10"><div class="review-panel"><div class="review-section"><div class="eyebrow">Review reason</div><h3 class="review-title">${esc(customer.review.reason)}</h3><p class="review-copy">${esc(resolution[0])} match requiring curator review. Select only the profiles that should be merged; unselected profiles remain separate.</p><div class="signal-list">${customer.review.signals.map(signal => `<span class="signal">${esc(signal)}</span>`).join('')}</div></div><div class="review-section"><div class="eyebrow">Candidate profiles · select to merge</div>${customer.review.candidates.map((candidate, candidateIndex) => `<label class="candidate"><input type="checkbox" class="candidate-check" data-candidate="${candidateIndex}" aria-label="Select ${esc(candidate[0])}" /><span class="avatar">${esc(candidate[0].split(' ').map(part => part[0]).join('').slice(0,2))}</span><div><div class="candidate-name">${esc(candidate[0])}</div><div class="candidate-meta">${esc(candidate[1])} · ${esc(candidate[2])}</div></div></label>`).join('')}<div class="muted" style="margin-top:10px"><strong class="selected-count">0 selected</strong> · choose at least 2 profiles to merge</div></div><div class="review-section"><div class="eyebrow">Field comparison</div><table class="comparison">${customer.review.fields.map(field => `<tr><td>${esc(field[0])}</td><td>${esc(field[1])}</td><td>${esc(field[2])}</td></tr>`).join('')}</table><div class="eyebrow" style="margin-top:14px">Source records</div><div class="source-list">${customer.sources.map(source => `<span class="source">${esc(source)}</span>`).join('')}</div></div><div class="review-footer"><small>Only selected profiles will be merged. The decision and evidence are recorded for audit.</small><div class="review-actions"><button class="button outline small" data-action="details">Review details</button><button class="button outline small" data-action="separate">Keep separate</button><button class="button primary small" data-action="merge" disabled>Merge 0 records</button><button class="button ghost small" data-action="defer">Defer</button></div></div></div></td></tr>` : '';
+        const vehicleSecondary = customer.year || (vehicle === '—' ? '' : '');
+        const actionLabel = 'More';
+        return `<tr class="data-row${hasReview ? ' alert-row' : ''}" data-customer="${esc(customer.name)}"><td class="select-cell"><input class="row-select" type="checkbox" data-select-customer="${esc(customer.id)}" ${selectedCustomerIds.has(customer.id) ? 'checked' : ''} aria-label="Select ${esc(customer.name)}" /></td><td><div class="customer-cell">${hasReview ? '<button type="button" class="row-flag" data-tooltip="Review potential duplicates" aria-label="Open merge review for ' + esc(customer.name) + '"><img src="/fonts/icon-merge-records.svg" alt="" /><span class="row-flag-count">' + (customer.review.candidates?.length || 2) + '</span></button>' : ''}<div><div class="customer-name">${esc(customer.name)}</div><div class="customer-id">${esc(customer.id)}</div></div></div></td><td><div class="contact">${contact}${phone}</div></td><td><div>${esc(customer.location || '—')}</div></td><td>${sourceTags}</td><td><div class="vehicle-value"><span>${esc(vehicle)}</span>${customer.vehicleExtra ? `<span class="vehicle-overflow">+${customer.vehicleExtra}</span>` : ''}</div><div class="muted">${esc(vehicleSecondary)}</div></td><td><div>${esc(customer.activity || '—')}</div></td><td class="status-cell">${UI.badge(customer.status, customer.statusClass)}</td><td class="confidence-cell">${UI.confidence(score, customer.tone)}</td><td><button class="table-action" data-customer="${esc(customer.name)}" aria-label="${esc(actionLabel)} ${esc(customer.name)}">${esc(actionLabel)} <span>•••</span></button></td></tr>`;
+      }).join('') : '<tr><td class="empty-state-cell" colspan="10"><div class="empty-state"><div class="empty-state-title">No customers found</div><p class="empty-state-copy">Try adjusting your search or filters to find the customer you are looking for.</p><button type="button" class="button secondary small empty-state-clear">Clear filters</button></div></td></tr>';
+      applyStorybookHtmlComponents();
+      rows.querySelector('.empty-state-clear')?.addEventListener('click', clearTableFilters);
+      rows.querySelectorAll('.row-select').forEach(input => input.addEventListener('change', event => toggleCustomerSelection(event.target.dataset.selectCustomer, event.target.checked)));
+      rows.querySelectorAll('.row-flag').forEach(button => button.addEventListener('click', () => { const name = button.closest('tr').dataset.customer; const index = customers.findIndex(item => item.name === name); if (index >= 0) openFullReview(index); }));
+      rows.querySelectorAll('.table-action').forEach(button => button.addEventListener('click', () => { const index = customers.findIndex(item => item.name === button.dataset.customer); if (index < 0) return; window.open(`profile.html?id=${encodeURIComponent(customers[index].id)}`, '_blank', 'noopener'); }));
+      rows.querySelectorAll('.review-panel').forEach(panel => { const checks = panel.querySelectorAll('.candidate-check'); const mergeButton = panel.querySelector('[data-action="merge"]'); const count = panel.querySelector('.selected-count'); checks.forEach(check => check.addEventListener('change', () => { const selected = panel.querySelectorAll('.candidate-check:checked').length; count.textContent = `${selected} selected`; mergeButton.textContent = `Merge ${selected} record${selected === 1 ? '' : 's'}`; mergeButton.disabled = selected < 2; })); });
+      rows.querySelectorAll('[data-action]').forEach(button => button.addEventListener('click', event => { const action = event.currentTarget.dataset.action; const panel = event.currentTarget.closest('.review-panel'); const selected = panel ? panel.querySelectorAll('.candidate-check:checked').length : 0; if (action === 'merge' && selected < 2) return; const message = action === 'merge' ? `Merge of ${selected} selected profiles queued for curator confirmation.` : action === 'separate' ? 'Selected profiles will remain separate.' : action === 'defer' ? 'Review deferred.' : 'Opening full review details.'; const note = document.createElement('div'); note.className = 'signal'; note.textContent = message; panel.querySelector('.review-footer').prepend(note); }));
+      updateBulkToolbar(data);
+    }
+    let activeDrawerIndex = null;
+    function renderDrawerComparison(customer, selectedIndexes) {
+      const comparison = document.getElementById('drawerComparison');
+      if (selectedIndexes.length !== 2) { comparison.innerHTML = '<p class="review-copy">Select exactly two profiles to compare their values side by side.</p>'; return; }
+      const left = customer.review.candidates[selectedIndexes[0]];
+      const right = customer.review.candidates[selectedIndexes[1]];
+      const basePairs = customer.review.fieldPairs || customer.review.fields.map(field => [field[0], field[1], field[1], field[2], field[2]]);
+      const pairs = [...basePairs, ['Source record ID', left[1], right[1], left[2].split(' · ')[0], right[2].split(' · ')[0]], ['Location', customer.location, customer.location, 'Customer profile', 'Customer profile'], ['Date of birth', 'Not available', 'Not available', '—', '—'], ['Vehicle / VIN', 'Not available', 'Not available', '—', '—'], ['Consent state', 'See profile', 'See profile', 'Consent ledger', 'Consent ledger']];
+      const card = (candidate, side) => `<div class="compare-card selected"><h4>${esc(candidate[0])}</h4><span class="compare-id">${esc(candidate[1])}</span><a class="profile-link" href="profile.html?id=${encodeURIComponent(candidate[1])}" target="_blank" rel="noopener">Open profile ↗</a>${pairs.map(pair => `<div class="compare-field"><span class="compare-label">${esc(pair[0])}</span><span class="compare-value">${esc(pair[side === 'left' ? 1 : 2])}</span><span class="compare-source">Source: ${esc(pair[side === 'left' ? 3 : 4])}</span></div>`).join('')}</div>`;
+      comparison.innerHTML = `<div class="side-by-side">${card(left, 'left')}${card(right, 'right')}</div>`;
+    }
+    function openDrawer(index) {
+      const customer = customers[index];
+      if (!customer.review) return;
+      activeDrawerIndex = index;
+      const drawer = document.getElementById('reviewDrawer');
+      document.getElementById('drawerTitle').textContent = customer.review.reason;
+      document.getElementById('drawerSubtitle').textContent = `${customer.name} · ${customer.id} · ${customer.resolution}`;
+      document.getElementById('drawerContent').innerHTML = `<section class="drawer-section"><div class="eyebrow">Why this needs review</div><p class="review-copy">The system found supporting evidence for a possible relationship, but it does not automatically assume these profiles belong to one person.</p><div class="signal-list">${customer.review.signals.map(signal => `<span class="signal">${esc(signal)}</span>`).join('')}</div></section><section class="drawer-section"><div class="eyebrow">Candidate profiles · select to merge</div><p class="review-copy">Select only the profiles that should become one golden record. Unselected profiles remain separate.</p><div class="drawer-candidates">${customer.review.candidates.map((candidate, candidateIndex) => `<label class="drawer-candidate"><input type="checkbox" class="drawer-check" data-candidate="${candidateIndex}" /><span class="avatar">${esc(candidate[0].split(' ').map(part => part[0]).join('').slice(0,2))}</span><div><div class="candidate-name">${esc(candidate[0])}</div><div class="candidate-meta">${esc(candidate[1])} · ${esc(candidate[2])}</div></div></label>`).join('')}</div></section><section class="drawer-section"><div class="eyebrow">Field comparison</div><table class="drawer-field-table"><thead><tr><th>Field</th><th>Observed values</th><th>Source / provenance</th></tr></thead><tbody>${customer.review.fields.map(field => `<tr><td>${esc(field[0])}</td><td>${esc(field[1])}</td><td>${esc(field[2])}</td></tr>`).join('')}</tbody></table></section><section class="drawer-section"><div class="eyebrow">Source records</div><div class="source-list">${customer.sources.map(source => `<span class="source">${esc(source)}</span>`).join('')}</div></section>`;
+      const comparisonSection = drawer.querySelectorAll('.drawer-section')[2];
+      comparisonSection.innerHTML = '<div class="eyebrow">Compare selected profiles</div><div id="drawerComparison"></div>';
+      drawer.classList.add('open');
+      const checks = drawer.querySelectorAll('.drawer-check');
+      const mergeButton = document.getElementById('drawerMerge');
+      const selection = document.getElementById('drawerSelection');
+      if (checks.length > 1) { checks[0].checked = true; checks[1].checked = true; }
+      renderDrawerComparison(customer, [0, 1].filter(index => index < checks.length));
+      checks.forEach(check => check.addEventListener('change', () => { const selectedIndexes = [...drawer.querySelectorAll('.drawer-check:checked')].map(item => Number(item.dataset.candidate)); const count = selectedIndexes.length; selection.textContent = `${count} record${count === 1 ? '' : 's'} selected`; mergeButton.textContent = `Merge ${count} record${count === 1 ? '' : 's'}`; mergeButton.disabled = count < 2; renderDrawerComparison(customer, selectedIndexes); }));
+    }
+    function closeDrawer() { document.getElementById('reviewDrawer').classList.remove('open'); activeDrawerIndex = null; }
+    document.getElementById('closeDrawer').addEventListener('click', closeDrawer);
+    document.getElementById('reviewDrawer').addEventListener('click', event => { if (event.target.id === 'reviewDrawer') closeDrawer(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') closeDrawer(); });
+    function openMergeModal() {
+      const customer = customers[activeDrawerIndex];
+      const selectedIndexes = [...document.querySelectorAll('.drawer-check:checked')].map(item => Number(item.dataset.candidate));
+      if (!customer || selectedIndexes.length < 2) return;
+      const selected = selectedIndexes.map(index => customer.review.candidates[index]);
+      const pairs = customer.review.fieldPairs || customer.review.fields.map(field => [field[0], field[1], field[1], field[2], field[2]]);
+      document.getElementById('mergeModalContent').innerHTML = `<section class="modal-section"><div class="eyebrow">Selected profiles</div><div class="selected-profiles">${selected.map(candidate => `<span class="selected-profile">${esc(candidate[0])} · ${esc(candidate[1])}</span>`).join('')}</div></section><section class="modal-section"><div class="eyebrow">Golden record values</div><p class="review-copy" style="margin-bottom:12px">Choose the surviving value when sources disagree. The other observations remain in the history and provenance trail.</p>${pairs.map((pair, fieldIndex) => `<div class="golden-field"><span class="golden-label">${esc(pair[0])}</span><div class="golden-options">${selected.slice(0,2).map((candidate, optionIndex) => `<label class="golden-option"><input type="radio" name="golden-${fieldIndex}" ${optionIndex === 0 ? 'checked' : ''} /><span>${esc(pair[optionIndex === 0 ? 1 : 2])}<small>Source: ${esc(pair[optionIndex === 0 ? 3 : 4])}</small></span></label>`).join('')}</div></div>`).join('')}</section><section class="modal-section"><div class="modal-alert"><span>!</span><span>This operation will combine the selected identity histories, source records and relationships. The merge is auditable and reversible; unselected profiles will remain separate.</span></div></section>`;
+      document.getElementById('confirmMerge').checked = false;
+      document.getElementById('confirmMergeButton').disabled = true;
+      document.getElementById('mergeModal').classList.add('open');
+    }
+    document.getElementById('drawerMerge').addEventListener('click', openMergeModal);
+    document.getElementById('closeMergeModal').addEventListener('click', () => document.getElementById('mergeModal').classList.remove('open'));
+    document.getElementById('mergeModal').addEventListener('click', event => { if (event.target.id === 'mergeModal') event.currentTarget.classList.remove('open'); });
+    document.getElementById('confirmMerge').addEventListener('change', event => { document.getElementById('confirmMergeButton').disabled = !event.target.checked; });
+    document.getElementById('confirmMergeButton').addEventListener('click', () => { document.getElementById('mergeModalContent').insertAdjacentHTML('afterbegin', '<div class="signal">Merge confirmed for audit review. The selected profiles would now become one golden record.</div>'); document.getElementById('confirmMergeButton').disabled = true; });
+    document.getElementById('drawerSeparate').addEventListener('click', () => { document.getElementById('drawerSelection').textContent = 'Selected profiles will remain separate'; });
+    let fullReviewState = { customerIndex: null, step: 1, selected: [0, 1], goldenSelections: {} };
+    function getPairs(customer) { return customer.review.fieldPairs || customer.review.fields.map(field => [field[0], field[1], field[1], field[2], field[2]]); }
+    function profileCard(candidate, index, selected) { return `<label class="drawer-candidate ${selected ? 'selected' : ''}"><div class="candidate-top"><input type="checkbox" class="full-candidate-check" data-index="${index}" ${selected ? 'checked' : ''} /><span class="avatar">${esc(candidate[0].split(' ').map(part => part[0]).join('').slice(0,2))}</span><strong>${esc(candidate[0])}</strong></div><span class="candidate-meta">${esc(candidate[1])}</span><span class="candidate-meta">${esc(candidate[2])}</span><a class="profile-link" href="profile.html?id=${encodeURIComponent(candidate[1])}" target="_blank" rel="noopener">Open profile ↗</a></label>`; }
+    function comparisonCards(customer) {
+      const selected = fullReviewState.selected.slice(0, 2);
+      if (selected.length < 2) return '<p class="review-copy">Select two profiles to compare their evidence side by side.</p>';
+      const pairs = getPairs(customer);
+      const evidenceBreakdown = `<div class="evidence-breakdown"><section class="evidence-group match"><h4>Matching evidence</h4><div class="evidence-item"><strong>Exact match · Primary email</strong><span>olivia.bennett@gmail.com</span><small>CRM ↔ DMS · observed 18 Jun 2026</small></div><div class="evidence-item"><strong>Exact match · Phone number</strong><span>+1 312 555 0186</span><small>CRM ↔ Service · observed 18 Jun 2026</small></div><div class="evidence-item"><strong>Exact match · Vehicle VIN</strong><span>••••7K42</span><small>CRM ↔ DMS · same vehicle</small></div><div class="evidence-item"><strong>Exact match · Mailing address</strong><span>1847 N Damen Ave, Chicago IL 60647</span><small>CRM ↔ DMS · normalized address</small></div></section><section class="evidence-group diff"><h4>Differences to review</h4><div class="evidence-item"><strong>Name variation</strong><span>Olivia Bennett ↔ Olivia M. Bennett</span><small>CRM ↔ DMS · manual review required</small></div><div class="evidence-item"><strong>Different last activity</strong><span>Purchase · 09 Sep 2021 ↔ Service visit · 18 Jun 2026</span><small>CRM ↔ DMS · both observations retained</small></div></section><section class="evidence-group missing"><h4>Missing or restricted data</h4><div class="evidence-item"><strong>Date of birth</strong><span>Available in CRM · missing in DMS</span><small>Do not infer or overwrite</small></div><div class="evidence-item"><strong>Consent state</strong><span>Available only in Consent Ledger</span><small>Privacy-controlled field</small></div><div class="evidence-item"><strong>PII visibility</strong><span>Some values may be masked</span><small>Access depends on tenant and consent</small></div></section></div>`;
+      const cards = `${evidenceBreakdown}<div class="evidence-layout"><div class="eyebrow" style="grid-column:1 / -1;margin-bottom:-8px">Record details</div>${selected.map((index, side) => { const candidate = customer.review.candidates[index]; return `<article class="evidence-card"><div class="eyebrow">${side === 0 ? 'Current profile · survives by default' : 'Duplicate candidate · selected'}</div><h3>${esc(candidate[0])}</h3><span class="candidate-meta">${esc(candidate[1])} · ${esc(candidate[2])}</span><a class="profile-link" href="profile.html?id=${encodeURIComponent(candidate[1])}" target="_blank" rel="noopener">Open profile in new tab ↗</a>${pairs.map(pair => `<div class="compare-field"><span class="compare-label">${esc(pair[0])}</span><span class="compare-value">${esc(pair[side === 0 ? 1 : 2])}</span><span class="compare-source">Source: ${esc(pair[side === 0 ? 3 : 4])}</span></div>`).join('')}</article>`; }).join('')}</div>`;
+      const preview = `<div style="margin-top:24px"><div class="eyebrow">Resulting Golden Record</div><h3 class="review-title">Choose the value that will survive the merge</h3><p class="review-copy">Conflicting values require an explicit decision. Unselected observations remain in provenance and merge history.</p><div class="golden-grid">${pairs.map((pair, fieldIndex) => `<div class="golden-label">${esc(pair[0])}</div><div class="golden-options">${selected.map((index, optionIndex) => { const candidate = customer.review.candidates[index]; return `<label class="golden-option"><input type="radio" name="step2-golden-${fieldIndex}" ${optionIndex === 0 ? 'checked' : ''} /><span>${esc(pair[optionIndex === 0 ? 1 : 2])}<small>${esc(candidate[0])} · ${esc(pair[optionIndex === 0 ? 3 : 4])}</small></span></label>`; }).join('')}</div>`).join('')}</div></div>`;
+      return cards + preview;
+    }
+    function goldenValues(customer) { const selected = fullReviewState.selected.slice(0, 2); const pairs = getPairs(customer); if (selected.length < 2) return '<p class="review-copy">Select two profiles before choosing golden values.</p>'; return `<p class="review-copy" style="margin-bottom:14px">For every conflict, choose the value that should survive in the golden record. Losing observations remain available through provenance and history.</p><div class="golden-grid">${pairs.map((pair, fieldIndex) => `<div class="golden-label">${esc(pair[0])}</div><div class="golden-options">${selected.map((index, optionIndex) => { const candidate = customer.review.candidates[index]; const checked = (fullReviewState.goldenSelections[fieldIndex] ?? 0) === optionIndex; return `<label class="golden-option"><input type="radio" name="full-golden-${fieldIndex}" data-golden-field="${fieldIndex}" data-golden-option="${optionIndex}" ${checked ? 'checked' : ''} /><span>${esc(pair[optionIndex === 0 ? 1 : 2])}<small>${esc(candidate[0])} · ${esc(pair[optionIndex === 0 ? 3 : 4])}</small></span></label>`; }).join('')}</div>`).join('')}</div>`; }
+    function renderFigmaMergeModal(customer) {
+      const candidates = customer.review.candidates.slice(0, 2);
+      const pairs = getPairs(customer).slice(0, 8);
+      const score = customer.confidence || ({ high: 92, medium: 78, low: 10 }[customer.tone] || 50);
+      const confidenceLabel = score >= 90 ? 'High' : score >= 70 ? 'Medium' : 'Low';
+      const evidence = customer.review.signals.slice(0, 3);
+      const source = (value, fallback) => value && value !== 'Not available' ? value : fallback;
+      fullReviewState.figmaSelections = fullReviewState.figmaSelections || {};
+      const fieldCard = (candidateIndex, label) => { const candidate = candidates[candidateIndex] || candidates[0] || ['', '', '']; return `<article class="figma-record-card"><div class="figma-record-heading"><span>${esc(label)} · ${esc(candidate[0])}</span><a class="figma-profile-link" href="profile.html?id=${encodeURIComponent(candidate[1])}" target="_blank" rel="noopener">Open profile ↗</a></div><div class="figma-field-head"><span>Field</span><span>Source</span></div>${pairs.map((pair, fieldIndex) => { const value = source(pair[candidateIndex === 0 ? 1 : 2], '—'); const src = source(pair[candidateIndex === 0 ? 3 : 4], '—'); const matching = pair[1] && pair[1] === pair[2] && value !== '—'; const selected = (fullReviewState.figmaSelections[fieldIndex] || (matching ? [0, 1] : [0])).includes(candidateIndex); return `<label class="figma-field-row figma-merge-row-choice ${matching || selected ? 'match' : ''}"><div class="figma-field-value"><input class="figma-checkbox" type="checkbox" data-merge-field="${fieldIndex}" data-merge-side="${candidateIndex}" ${selected ? 'checked' : ''} /><span><span class="figma-field-label">${esc(pair[0])}</span><span class="figma-field-text">${esc(value)}</span></span></div><span class="figma-source">${esc(src)}</span></label>`; }).join('')}</article>`; };
+      const resultCard = `<article class="figma-record-card result"><div class="figma-record-heading"><span> Merged record</span></div><div class="figma-result-list">${pairs.map((pair, fieldIndex) => { const matching = pair[1] && pair[1] === pair[2] && pair[1] !== '—'; const sides = fullReviewState.figmaSelections[fieldIndex] || (matching ? [0, 1] : [0]); return `<div class="figma-field-row"><span class="figma-field-label">${esc(pair[0])}</span><div>${sides.map(side => `<div class="figma-result-value"><span class="figma-field-text">${esc(source(pair[side === 0 ? 1 : 2], '—'))}</span><span class="figma-source">${esc(source(pair[side === 0 ? 3 : 4], '—'))}</span></div>`).join('')}</div></div>`; }).join('')}</div></article>`;
+      document.getElementById('fullReviewContent').innerHTML = `<div class="figma-merge-intro"><div><h3>Merge confidence</h3><p>Merge confidence indicates how strongly the available evidence suggests that the selected records belong to the same person.</p><p>It is based on matching attributes such as email, phone number, VIN, address, and name.</p></div><div class="figma-confidence"><div class="figma-confidence-title">Merge confidence</div><div class="figma-confidence-label"><span>${score}%</span><span>${confidenceLabel}</span></div><div class="figma-confidence-bar"><span style="width:${score}%"></span></div><strong>Possible duplicate based on:</strong><div class="figma-signal-list">${evidence.map(signal => `<span class="figma-signal">${esc(signal.replace(/^same |similar |different /i, ''))}</span>`).join('')}</div></div></div><div class="figma-compare-grid">${fieldCard(0, 'Customer A')}${fieldCard(1, 'Customer B')}${resultCard}</div>`;
+      document.getElementById('fullReviewHint').textContent = 'Check identity, contact, address, vehicle and source evidence.';
+      document.getElementById('fullReviewBack').style.display = 'none';
+      document.getElementById('fullReviewNext').textContent = 'Confirm merge';
+      document.getElementById('fullReviewNext').disabled = false;
+      document.querySelectorAll('#fullReviewContent [data-merge-field]').forEach(input => input.addEventListener('change', () => { const field = Number(input.dataset.mergeField); const side = Number(input.dataset.mergeSide); const selected = fullReviewState.figmaSelections[field] || [0]; const next = input.checked ? [...new Set([...selected, side])] : selected.filter(item => item !== side); fullReviewState.figmaSelections[field] = next.length ? next : [side === 0 ? 1 : 0]; renderFigmaMergeModal(customer); }));
+    }
+    function renderFullReviewStep() { const customer = customers[fullReviewState.customerIndex]; const step = fullReviewState.step; const resolution = customer.resolution || customer.status || 'Identity review'; document.querySelectorAll('#fullReviewModal .step').forEach(item => item.classList.toggle('active', Number(item.dataset.stepLabel) === step)); const content = document.getElementById('fullReviewContent'); const back = document.getElementById('fullReviewBack'); const next = document.getElementById('fullReviewNext'); const hint = document.getElementById('fullReviewHint'); back.style.display = step > 1 ? 'inline-flex' : 'none'; next.textContent = step === 4 ? 'Confirm merge' : 'Continue'; if (step === 1) { content.innerHTML = `<div class="eyebrow">Why this needs review</div><h3 class="review-title">${esc(customer.review.reason)}</h3><p class="review-copy">${esc(resolution)}. Review all candidates, then select only the profiles that should become one person.</p><div class="signal-list">${customer.review.signals.map(signal => `<span class="signal">${esc(signal)}</span>`).join('')}</div><div class="eyebrow" style="margin-top:24px">Candidate profiles · ${customer.review.candidates.length} found</div><div class="candidate-grid">${customer.review.candidates.map((candidate, index) => profileCard(candidate, index, fullReviewState.selected.includes(index))).join('')}</div>`; hint.textContent = `${fullReviewState.selected.length} profile${fullReviewState.selected.length === 1 ? '' : 's'} selected`; next.disabled = fullReviewState.selected.length < 2; content.querySelectorAll('.full-candidate-check').forEach(check => check.addEventListener('change', event => { const index = Number(event.target.dataset.index); fullReviewState.selected = event.target.checked ? [...new Set([...fullReviewState.selected, index])] : fullReviewState.selected.filter(item => item !== index); renderFullReviewStep(); })); } else if (step === 2) { content.innerHTML = `<div class="eyebrow">Compare evidence</div><h3 class="review-title">Two profiles side by side</h3>${comparisonCards(customer)}`; hint.textContent = 'Check identity, contact, address, vehicle and source evidence.'; next.disabled = fullReviewState.selected.length < 2; } else if (step === 3) { content.innerHTML = `<div class="eyebrow">Golden record values</div><h3 class="review-title">Choose the values that survive</h3>${goldenValues(customer)}`; hint.textContent = 'Selected values will be retained with field-level provenance.'; next.disabled = false; } else { content.innerHTML = `<div class="eyebrow">Final review</div><h3 class="review-title">Ready to merge ${fullReviewState.selected.length} selected profiles?</h3><div class="confirmation-summary"><div class="summary-box"><span class="eyebrow">Profiles</span><strong>${fullReviewState.selected.length}</strong></div><div class="summary-box"><span class="eyebrow">Sources preserved</span><strong>${customer.sources.length}</strong></div><div class="summary-box"><span class="eyebrow">Audit</span><strong>Enabled</strong></div></div><div class="modal-alert"><span>!</span><span>This operation combines only the selected identity histories and relationships. Unselected profiles remain separate. The merge is reversible and recorded with curator, timestamp, evidence and reason.</span></div><label class="confirm-check" style="margin-top:16px"><input type="checkbox" id="fullConfirmCheck" /> <span>I reviewed the profiles, comparison and golden values, and confirm this merge.</span></label>`; hint.textContent = 'The merge will not be executed until you confirm.'; next.disabled = true; document.getElementById('fullConfirmCheck').addEventListener('change', event => { next.disabled = !event.target.checked; }); } }
+    document.getElementById('fullReviewContent').addEventListener('change', event => { if (event.target.matches('[data-golden-field]')) { fullReviewState.goldenSelections[event.target.dataset.goldenField] = Number(event.target.dataset.goldenOption); } });
+    function openFullReview(index) { const customer = customers[index]; if (!customer.review) return; fullReviewState = { customerIndex: index, step: 1, selected: [0, 1], goldenSelections: {}, figmaSelections: {} }; document.getElementById('fullReviewTitle').textContent = 'Merge potential duplicated profiles'; document.getElementById('fullReviewSubtitle').textContent = `${customer.name} · ${customer.id} · ${customer.resolution || customer.status}`; document.getElementById('fullReviewModal').classList.add('open'); renderFigmaMergeModal(customer); }
+    function closeFullReview() { document.getElementById('fullReviewModal').classList.remove('open'); }
+    function closeHousehold() { document.getElementById('householdModal').classList.remove('open'); }
+    function openHousehold() { document.getElementById('householdSubtitle').textContent = 'Coming soon'; document.getElementById('householdContent').innerHTML = '<div class="coming-soon-state"><div><strong>Coming soon</strong><span>Household relationships will be available in a future release.</span></div></div>'; document.getElementById('householdModal').classList.add('open'); }
+    function showSuccessToast(message) { const toast = document.createElement('div'); toast.className = 'success-toast'; toast.setAttribute('role', 'status'); toast.innerHTML = `<span class="success-toast-icon">✓</span><div><strong>Merge successful</strong><span>${esc(message)}</span></div>`; document.getElementById('toastRegion').appendChild(toast); setTimeout(() => toast.remove(), 4200); }
+    document.getElementById('fullReviewNext').addEventListener('click', () => { const customer = customers[fullReviewState.customerIndex]; const button = document.getElementById('fullReviewNext'); if (!customer || button.disabled) return; button.disabled = true; button.innerHTML = '<span class="merge-button-loading"><span class="loading loading-spinner loading-xs" aria-hidden="true"></span><span>Merging…</span></span>'; setTimeout(() => { customer.status = 'Merged'; customer.statusClass = 'merged'; customer.review = null; customer.resolution = 'Merged golden record'; render(filteredCustomers()); closeFullReview(); showSuccessToast(`${customer.name} is now one golden record.`); button.disabled = false; button.innerHTML = 'Confirm merge'; }, 1000); });
+    document.getElementById('fullReviewBack').addEventListener('click', () => { if (fullReviewState.step > 1) { fullReviewState.step -= 1; renderFullReviewStep(); } });
+    document.getElementById('fullReviewCancel').addEventListener('click', closeFullReview);
+    document.getElementById('fullReviewHousehold').addEventListener('click', openHousehold);
+    document.getElementById('closeHousehold').addEventListener('click', closeHousehold);
+    document.getElementById('cancelHousehold').addEventListener('click', closeHousehold);
+    document.getElementById('householdModal').addEventListener('click', event => { if (event.target.id === 'householdModal') closeHousehold(); });
+    document.getElementById('confirmHousehold').addEventListener('click', () => { const customer = customers[fullReviewState.customerIndex]; if (!customer?.review) return; const householdId = customer.householdId || `HH-${customer.id.replace(/[^A-Z0-9]/gi, '')}`; customer.householdId = householdId; customer.review.candidates.slice(0, 2).forEach(candidate => { const member = customers.find(item => item.id === candidate[1] || item.name === candidate[0]); if (member) member.householdId = householdId; }); closeHousehold(); closeFullReview(); showSuccessToast('Household relationship created. Profiles remain separate.'); });
+    document.getElementById('closeFullReview').addEventListener('click', closeFullReview);
+    document.getElementById('fullReviewModal').addEventListener('click', event => { if (event.target.id === 'fullReviewModal') closeFullReview(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') closeFullReview(); });
+    const tableState = { query:'', status:[], source:[] };
+    const selectedCustomerIds = new Set();
+    const selectionKey = (customer, index) => `${customer.id}::row-${index}`;
+    function syncSelectAllState() { const selectAll = document.getElementById('selectAllCustomers'); const visible = filteredCustomers(); const selectedVisible = visible.filter(customer => selectedCustomerIds.has(selectionKey(customer, customers.indexOf(customer)))).length; selectAll.checked = visible.length > 0 && selectedVisible === visible.length; selectAll.indeterminate = selectedVisible > 0 && selectedVisible < visible.length; }
+    function prepareRowSelectionInputs() { document.querySelectorAll('#customerRows .row-select').forEach(input => { const index = customers.findIndex(customer => customer.name === input.closest('tr')?.dataset.customer); if (index < 0) return; input.dataset.selectCustomer = String(index); input.checked = selectedCustomerIds.has(selectionKey(customers[index], index)); }); syncSelectAllState(); }
+    function updateBulkToolbar(visibleData = filteredCustomers()) { const toolbar = document.getElementById('bulkToolbar'); const gradient = document.getElementById('bulkToolbarGradient'); const count = selectedCustomerIds.size; document.getElementById('bulkCount').innerHTML = `<strong>${count} customer${count === 1 ? '' : 's'}</strong> selected`; document.getElementById('bulkDeleteCount').textContent = count; toolbar.querySelector('[data-bulk-action="merge"]').disabled = count !== 2; toolbar.classList.toggle('open', count > 0); gradient.classList.toggle('open', count > 0); document.querySelector('.table-card').classList.toggle('has-selection', count > 0); const selectAll = document.getElementById('selectAllCustomers'); const visibleIds = visibleData.map(customer => customer.id); const selectedVisible = visibleIds.filter(id => selectedCustomerIds.has(id)).length; selectAll.checked = visibleIds.length > 0 && selectedVisible === visibleIds.length; selectAll.indeterminate = selectedVisible > 0 && selectedVisible < visibleIds.length; }
+    function toggleCustomerSelection(index, checked) { const customer = customers[Number(index)]; if (!customer) return; const key = selectionKey(customer, Number(index)); if (checked) selectedCustomerIds.add(key); else selectedCustomerIds.delete(key); updateBulkToolbar(); syncSelectAllState(); }
+    function filteredCustomers() { return customers.filter(customer => { const haystack = [customer.name, customer.id, customer.email, customer.location, customer.vehicle, ...customer.phones].join(' ').toLowerCase(); return (!tableState.query || haystack.includes(tableState.query)) && (!tableState.status.length || tableState.status.includes(customer.status)) && (!tableState.source.length || tableState.source.some(source => customer.sources.includes(source))); }); }
+    function updateFilterButton(id, value) { const label = value.length === 0 ? 'All' : value.length === 1 ? value[0] : `${value.length} selected`; const prefix = id === 'statusFilter' ? 'Status' : 'Source'; document.querySelector(`#${id} .filter-label`).textContent = `${prefix} | ${label}`; document.getElementById(id).classList.toggle('active', value.length > 0); }
+    function renderActiveFilters() { const container = document.getElementById('activeFilters'); const filters = []; tableState.status.forEach(value => filters.push(['status', value, `Status: ${value}`])); tableState.source.forEach(value => filters.push(['source', value, `Source: ${value}`])); container.innerHTML = filters.map(([key, value, label]) => `<span class="active-filter">${esc(label)}<button type="button" data-clear-filter="${key}" data-clear-value="${esc(value)}" aria-label="Remove ${esc(label)}">×</button></span>`).join('') + (filters.length > 1 ? '<button type="button" class="clear-active-filters" id="clearActiveFilters">Clear all</button>' : ''); container.querySelectorAll('[data-clear-filter]').forEach(button => button.addEventListener('click', () => { const key = button.dataset.clearFilter; tableState[key] = tableState[key].filter(value => value !== button.dataset.clearValue); refreshTable(); })); document.getElementById('clearActiveFilters')?.addEventListener('click', clearTableFilters); }
+    let refreshTimer;
+    function refreshTable({ immediate = false } = {}) { clearTimeout(refreshTimer); updateFilterButton('statusFilter', tableState.status); updateFilterButton('sourceFilter', tableState.source); renderActiveFilters(); if (immediate) { rows.classList.remove('is-loading'); render(filteredCustomers()); return; } rows.classList.add('is-loading'); rows.innerHTML = '<tr><td class="table-loading-cell" colspan="10"><div class="table-loading"><span class="loading loading-spinner loading-md" aria-label="Loading"></span><span>Loading customers…</span></div></td></tr>'; refreshTimer = setTimeout(() => { render(filteredCustomers()); requestAnimationFrame(() => rows.classList.remove('is-loading')); }, 1000); }
+    function clearTableFilters() { tableState.query = ''; tableState.status = []; tableState.source = []; document.getElementById('search').value = ''; refreshTable({ immediate: true }); }
+    function setupFilterDropdown(buttonId, menuId, group) { const button = document.getElementById(buttonId); const menu = document.getElementById(menuId); const sync = () => menu.querySelectorAll('input').forEach(input => { input.checked = tableState[group].includes(input.value); }); button.addEventListener('click', event => { event.stopPropagation(); document.querySelectorAll('.filter-menu.open').forEach(item => item !== menu && item.classList.remove('open')); sync(); menu.classList.toggle('open'); button.setAttribute('aria-expanded', String(menu.classList.contains('open'))); }); menu.addEventListener('click', event => event.stopPropagation()); menu.querySelector('.filter-apply').addEventListener('click', () => { tableState[group] = [...menu.querySelectorAll('input:checked')].map(input => input.value); menu.classList.remove('open'); button.setAttribute('aria-expanded', 'false'); refreshTable(); }); menu.querySelector('.filter-cancel').addEventListener('click', () => { menu.querySelectorAll('input').forEach(input => { input.checked = false; }); tableState[group] = []; menu.classList.remove('open'); button.setAttribute('aria-expanded', 'false'); refreshTable(); }); }
+    document.getElementById('search').addEventListener('input', event => { tableState.query = event.target.value.toLowerCase().trim(); refreshTable(); });
+    setupFilterDropdown('statusFilter', 'statusMenu', 'status');
+    setupFilterDropdown('sourceFilter', 'sourceMenu', 'source');
+    document.addEventListener('click', () => document.querySelectorAll('.filter-menu.open').forEach(menu => menu.classList.remove('open')));
+    function filterNeedsReview() { tableState.status = ['Needs review']; refreshTable(); document.querySelector('.customers-section').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    document.getElementById('needsReviewMetric').addEventListener('click', filterNeedsReview);
+    document.getElementById('needsReviewMetric').addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); filterNeedsReview(); } });
+    document.querySelectorAll('.pagination-button').forEach(button => button.addEventListener('click', () => { if (button.textContent.includes('...')) return; const page = button.textContent.replace(/[^0-9]/g, ''); if (!page) return; document.querySelectorAll('.pagination-button').forEach(item => item.classList.remove('active')); button.classList.add('active'); }));
+    document.getElementById('reviewMatches').addEventListener('click', filterNeedsReview);
+    document.getElementById('selectAllCustomers').addEventListener('change', event => { filteredCustomers().forEach(customer => { if (event.target.checked) selectedCustomerIds.add(customer.id); else selectedCustomerIds.delete(customer.id); }); render(filteredCustomers()); });
+    document.getElementById('clearSelection').addEventListener('click', () => { selectedCustomerIds.clear(); render(filteredCustomers()); });
+    document.querySelectorAll('[data-bulk-action]').forEach(button => button.addEventListener('click', () => { const selected = customers.filter(customer => selectedCustomerIds.has(customer.id)); const action = button.dataset.bulkAction; if (!selected.length) return; if (action === 'merge' || action === 'household') { const reviewIndex = customers.findIndex(customer => selectedCustomerIds.has(customer.id) && customer.review); if (reviewIndex < 0) { showSuccessToast(`${action === 'merge' ? 'Merge' : 'Household'} requires identity evidence for the selected records.`); return; } fullReviewState = { customerIndex: reviewIndex, step: 1, selected: [0, 1], goldenSelections: {}, figmaSelections: {} }; if (action === 'merge') openFullReview(reviewIndex); else openHousehold(); return; } const labels = { segment:'Segment creation started', deactivate:'Deactivation queued', delete:'Deletion queued' }; showSuccessToast(`${labels[action]} for ${selected.length} selected customer${selected.length === 1 ? '' : 's'}.`); }));
+    const datePickerTrigger = document.getElementById('datePickerTrigger');
+    const datePickerMenu = document.getElementById('datePickerMenu');
+    const dateStart = document.getElementById('dateStart');
+    const dateEnd = document.getElementById('dateEnd');
+    const dateRangeLabel = document.getElementById('dateRangeLabel');
+    const formatDateRange = (start, end) => {
+      const format = value => new Intl.DateTimeFormat('en-US', { day: 'numeric', month: 'short', year: '2-digit' }).format(new Date(`${value}T00:00:00`));
+      return `${format(start)} – ${format(end)}`;
+    };
+    datePickerTrigger.addEventListener('click', event => {
+      event.stopPropagation();
+      datePickerMenu.classList.toggle('open');
+      datePickerTrigger.setAttribute('aria-expanded', String(datePickerMenu.classList.contains('open')));
+    });
+    datePickerMenu.addEventListener('click', event => event.stopPropagation());
+    document.getElementById('datePickerApply').addEventListener('click', () => {
+      if (!dateStart.value || !dateEnd.value || dateStart.value > dateEnd.value) return;
+      dateRangeLabel.textContent = formatDateRange(dateStart.value, dateEnd.value);
+      datePickerMenu.classList.remove('open');
+      datePickerTrigger.setAttribute('aria-expanded', 'false');
+    });
+    document.getElementById('datePickerClear').addEventListener('click', () => {
+      dateStart.value = '';
+      dateEnd.value = '';
+      dateRangeLabel.textContent = 'Select date range';
+      datePickerMenu.classList.remove('open');
+      datePickerTrigger.setAttribute('aria-expanded', 'false');
+    });
+    document.addEventListener('click', () => {
+      datePickerMenu.classList.remove('open');
+      datePickerTrigger.setAttribute('aria-expanded', 'false');
+    });
+    document.querySelector('.brand-toggle').addEventListener('click', () => { const app = document.querySelector('.app'); const collapsed = app.classList.toggle('sidebar-collapsed'); document.querySelector('.brand-toggle').setAttribute('aria-expanded', String(!collapsed)); });
+    rows.addEventListener('click', event => { if (!event.target.closest('.row-flag') && !event.target.closest('.table-action') && !event.target.closest('.empty-state-clear') && !event.target.closest('.row-select')) { event.stopPropagation(); } }, true);
+    applyStorybookHtmlComponents();
+    const mergeBulkButton = document.querySelector('[data-bulk-action="merge"]');
+    if (mergeBulkButton && !mergeBulkButton.parentElement.classList.contains('bulk-merge-tooltip')) {
+      const tooltip = document.createElement('span');
+      tooltip.className = 'bulk-merge-tooltip';
+      tooltip.dataset.tooltip = 'Select exactly two customers to enable Merge.';
+      tooltip.setAttribute('aria-label', 'Select exactly two customers to enable Merge.');
+      mergeBulkButton.replaceWith(tooltip);
+      tooltip.appendChild(mergeBulkButton);
+    }
+    const rowSelectionObserver = new MutationObserver(() => prepareRowSelectionInputs());
+    rowSelectionObserver.observe(rows, { childList: true });
+    document.getElementById('selectAllCustomers').addEventListener('change', event => {
+      event.stopImmediatePropagation();
+      filteredCustomers().forEach(customer => { const index = customers.indexOf(customer); const key = selectionKey(customer, index); if (event.target.checked) selectedCustomerIds.add(key); else selectedCustomerIds.delete(key); });
+      render(filteredCustomers());
+      prepareRowSelectionInputs();
+    }, true);
+    mergeBulkButton.addEventListener('click', event => {
+      if (selectedCustomerIds.size !== 2) return;
+      event.stopImmediatePropagation();
+      const selectedIndexes = [...selectedCustomerIds].map(key => Number(key.match(/row-(\d+)$/)?.[1])).filter(Number.isInteger);
+      const reviewIndex = selectedIndexes.find(index => customers[index]?.review);
+      if (reviewIndex === undefined) { showSuccessToast('Merge requires identity evidence for the selected records.'); return; }
+      openFullReview(reviewIndex);
+    }, true);
+    document.addEventListener('click', event => {
+      const button = event.target.closest('[data-bulk-action]');
+      if (!button || button === mergeBulkButton) return;
+      event.stopImmediatePropagation();
+      if (!selectedCustomerIds.size) return;
+      const selectedIndexes = [...selectedCustomerIds].map(key => Number(key.match(/row-(\d+)$/)?.[1])).filter(Number.isInteger);
+      const action = button.dataset.bulkAction;
+      if (action === 'household') {
+        const reviewIndex = selectedIndexes.find(index => customers[index]?.review);
+        if (reviewIndex === undefined) { showSuccessToast('Household requires identity evidence for the selected records.'); return; }
+        fullReviewState = { customerIndex: reviewIndex, step: 1, selected: [0, 1], goldenSelections: {}, figmaSelections: {} };
+        openHousehold();
+        return;
+      }
+      const labels = { segment: 'Segment creation started', delete: 'Deletion queued' };
+      showSuccessToast(`${labels[action] || action} for ${selectedIndexes.length} selected customer${selectedIndexes.length === 1 ? '' : 's'}.`);
+    }, true);
+    refreshTable({ immediate: true });
+  </script>
+</body>
+</html>
