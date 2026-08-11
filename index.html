@@ -1163,7 +1163,7 @@
       datePickerTrigger.setAttribute('aria-expanded', 'false');
     });
     document.querySelector('.brand-toggle').addEventListener('click', () => { const app = document.querySelector('.app'); const collapsed = app.classList.toggle('sidebar-collapsed'); document.querySelector('.brand-toggle').setAttribute('aria-expanded', String(!collapsed)); });
-    rows.addEventListener('click', event => { if (!event.target.closest('.row-flag') && !event.target.closest('.table-action') && !event.target.closest('.row-menu-item') && !event.target.closest('.empty-state-clear') && !event.target.closest('.row-select')) { event.stopPropagation(); } }, true);
+    rows.addEventListener('click', event => { if (event.target.closest('.row-flag') || event.target.closest('.table-action') || event.target.closest('.row-menu-item') || event.target.closest('.empty-state-clear') || event.target.closest('.row-select')) { event.stopPropagation(); return; } const row = event.target.closest('.data-row'); const customer = row ? customers.find(item => item.name === row.dataset.customer) : null; if (customer) window.location.href = `profile.html?id=${encodeURIComponent(customer.id)}`; }, true);
     applyStorybookHtmlComponents();
     const mergeBulkButton = document.querySelector('[data-bulk-action="merge"]');
     if (mergeBulkButton && !mergeBulkButton.parentElement.classList.contains('bulk-merge-tooltip')) {
