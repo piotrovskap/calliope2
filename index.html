@@ -715,6 +715,7 @@
       font-size: 16px;
       line-height: 24px;
       font-weight: 500;
+      cursor: pointer;
       transition: background .16s ease, color .16s ease, padding .24s ease, gap .24s ease, font-size .18s ease;
     }
     .nav-item:hover { background: #f8f8f8; color: #252525; }
@@ -832,6 +833,12 @@
     .bulk-actions .bulk-delete:hover { color: #b54708; background: #fef3f2; }
     .bulk-close { color: #fff; }
     .bulk-close:hover { color: #fff; background: rgba(255,255,255,.14); }
+    /* Shared selector indicator. */
+    .top-chevron img,
+    .date-control img:last-child,
+    .filter-control img,
+    .pagination-size-trigger img { content: url('/fonts/icon-chevron-down-small.svg'); width: 14px; height: 8px; flex: 0 0 14px; }
+    .sidebar-bottom .profile > span:last-child { width: 14px; height: 8px; flex: 0 0 14px; overflow: hidden; background: url('/fonts/icon-chevron-down-small.svg') center/14px 8px no-repeat; color: transparent !important; font-size: 0; }
   </style>
 </head>
 <body>
@@ -912,9 +919,14 @@
     const fixtureNames = ['James Carter','Emily Davis','Benjamin Clark','Charlotte Lewis','Lucas Walker','Amelia Hall','Henry Allen','Harper Young','Alexander King','Evelyn Wright','William Scott','Abigail Green','James Baker','Ella Adams','Michael Nelson','Sofia Hill','Daniel Roberts','Avery Campbell','Matthew Mitchell','Mia Perez','Samuel Turner','Luna Phillips','David Parker','Nora Evans','Joseph Edwards','Layla Collins','Jackson Stewart','Camila Sanchez','John Morris','Aria Rogers','Owen Reed','Elizabeth Cook','Wyatt Morgan','Scarlett Bell','Luke Murphy','Victoria Bailey','Gabriel Rivera','Grace Cooper','Julian Richardson','Chloe Cox','Levi Howard','Penelope Ward','Isaac Torres','Riley Peterson','Anthony Gray','Zoey Ramirez','Dylan James','Hannah Watson','Leo Brooks','Lily Kelly'];
     while (customers.length < 100) {
       const number = customers.length + 1;
-      const name = fixtureNames[(number - 14) % fixtureNames.length];
+      const fixtureOffset = number - 14;
+      const fixtureIndex = fixtureOffset % fixtureNames.length;
+      const fixtureCycle = Math.floor(fixtureOffset / fixtureNames.length);
+      const firstName = fixtureNames[fixtureIndex].split(' ')[0];
+      const lastName = fixtureNames[(fixtureIndex + fixtureCycle * 17) % fixtureNames.length].split(' ').slice(1).join(' ');
+      const name = `${firstName} ${lastName}`;
       const id = `CR-${String(1000000 + number).slice(-7)}`;
-      customers.push({ name: `${name} ${Math.ceil(number / fixtureNames.length)}`, id, initials: name.split(' ').map(part => part[0]).join(''), email: `${name.toLowerCase().replace(/ /g, '.')}@example.com`, phones: [`+1 ${200 + (number % 700)} 555 ${String(1000 + number).slice(-4)}`], location: ['New York, NY','Chicago, IL','Austin, TX','Seattle, WA','Denver, CO'][number % 5], sources: [['CRM'],['DMS'],['Cars.com'],['Website'],['Operator']][number % 5], vehicle: ['Toyota Camry','Honda Civic','Ford Escape','Chevrolet Malibu','—'][number % 5], year: String(2018 + (number % 8)), activity: `${(number % 27) + 1} Jul 2026, 10:00 AM`, status: number % 7 === 0 ? 'Needs review' : 'Active', statusClass: number % 7 === 0 ? 'review' : 'active', confidence: 72 + (number % 28), tone: number % 7 === 0 ? 'low' : 'high', actionLabel: 'More', review: null });
+      customers.push({ name, id, initials: name.split(' ').map(part => part[0]).join(''), email: `${name.toLowerCase().replace(/ /g, '.')}@example.com`, phones: [`+1 ${200 + (number % 700)} 555 ${String(1000 + number).slice(-4)}`], location: ['New York, NY','Chicago, IL','Austin, TX','Seattle, WA','Denver, CO'][number % 5], sources: [['CRM'],['DMS'],['Cars.com'],['Website'],['Operator']][number % 5], vehicle: ['Toyota Camry','Honda Civic','Ford Escape','Chevrolet Malibu','—'][number % 5], year: String(2018 + (number % 8)), activity: `${(number % 27) + 1} Jul 2026, 10:00 AM`, status: number % 7 === 0 ? 'Needs review' : 'Active', statusClass: number % 7 === 0 ? 'review' : 'active', confidence: 72 + (number % 28), tone: number % 7 === 0 ? 'low' : 'high', actionLabel: 'More', review: null });
     }
     customers.forEach((customer, index) => { customer.created = customer.created || `${(index % 28) + 1} Jun 2026, ${String(8 + (index % 10)).padStart(2, '0')}:${String((index * 7) % 60).padStart(2, '0')} ${index % 2 ? 'AM' : 'PM'}`; });
     const dateTimeMarkup=value=>{const raw=String(value||'—');if(raw==='—')return '<div class="table-date-time"><span class="table-date-time-date">—</span><span class="table-date-time-time">—</span></div>';const valuePart=raw.includes('·')?raw.split('·').pop().trim():raw;const parts=valuePart.split(',').map(part=>part.trim());return `<div class="table-date-time"><span class="table-date-time-date">${esc(parts[0]||'—')}</span><span class="table-date-time-time">${esc(parts.slice(1).join(', ')||'—')}</span></div>`};     const rows = document.getElementById('customerRows');
