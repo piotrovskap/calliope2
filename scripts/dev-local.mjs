@@ -33,6 +33,7 @@ async function build() {
     await command(process.env.npm_execpath ? process.execPath : 'npm', npmArgs);
     await copyFile(resolve(root, 'index.html'), resolve(site, 'index.html'));
     await copyFile(resolve(root, 'profile.html'), resolve(site, 'profile.html'));
+    await copyFile(resolve(root, 'audit-log.html'), resolve(site, 'audit-log.html'));
     await copyFile(resolve(root, 'daisyui.generated.css'), resolve(site, 'daisyui.generated.css'));
     console.log('[dev] static site rebuilt; browser reload sent');
     notifyReload();
@@ -101,6 +102,7 @@ server.listen(port, '127.0.0.1', () => console.log(`[dev] Customers UI: http://l
 
 watch(resolve(root, 'index.html'), queueBuild);
 watch(resolve(root, 'profile.html'), queueBuild);
+watch(resolve(root, 'audit-log.html'), queueBuild);
 watch(resolve(root, 'daisyui.css'), queueBuild);
 watch(resolve(root, 'fonts'), { recursive: false }, queueBuild);
 
