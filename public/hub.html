@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Create application · Calliope AI</title>
-  <link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="/launcher-create.css?v=145"><link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="/launcher-create.css?v=166"><link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 </head>
 <body>
   <div class="create-shell">
     <header class="create-topbar">
       <a class="brand" href="/"><img class="brand-logo" src="/img/calliope%20logo.png" alt="Calliope AI"></a><nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a><a class="active" href="/hub" aria-current="page">Workbench</a><a href="#tokens">Tokens</a><a class="nav-active-env" href="#active-environments">Active environments <span class="nav-count">2</span></a></nav>
-      <div class="topbar-actions"><div class="top-account"><div class="theme-switch" role="group" aria-label="Color theme"><button class="theme-option" type="button" data-theme-value="light" aria-pressed="false"><i class="ph ph-sun" aria-hidden="true"></i><span>Light</span></button><button class="theme-option" type="button" data-theme-value="dark" aria-pressed="true"><i class="ph ph-moon" aria-hidden="true"></i><span>Dark</span></button></div><span class="workspace-dot"></span><span>Conflict Labs</span><i>⌄</i></div></div>
+      <div class="topbar-actions"><div class="top-account"><div class="theme-switch" role="group" aria-label="Color theme"><button class="theme-option" type="button" data-theme-value="light" aria-pressed="false"><i class="ph ph-sun" aria-hidden="true"></i><span>Light</span></button><button class="theme-option" type="button" data-theme-value="dark" aria-pressed="true"><i class="ph ph-moon" aria-hidden="true"></i><span>Dark</span></button></div><span class="workspace-dot"></span><span>Conflict Labs</span><i>⌄</i><a class="logout-link" href="/welcome.html"><i class="ph ph-sign-out" aria-hidden="true"></i><span>Log out</span></a></div></div>
     </header>
     <main class="create-layout">
       <section class="workbench-heading"><div class="workbench-hero-content"><h1 class="workbench-title">Calliope AI <em>Workbench</em></h1><p class="workbench-description">One governed place to build, run, observe, control, and secure AI.</p></div><img class="hero-hand" src="/img/calliope-img/hand.png" alt="" aria-hidden="true" loading="eager"></section>
@@ -57,8 +57,34 @@
           </div>
         </div>
       </section>
+      <section id="tokens" class="tokens-view" aria-label="API tokens">
+        <div class="tokens-card">
+          <header class="tokens-head">
+            <h2>Request a new API token</h2>
+            <p>Create a token to access the Calliope API programmatically.</p>
+          </header>
+          <form class="tokens-form" onsubmit="return false">
+            <div class="tokens-field">
+              <label for="token-note">Note</label>
+              <input id="token-note" type="text" placeholder="note to identify your new token">
+              <small>This note will help you keep track of what your tokens are for.</small>
+            </div>
+            <div class="tokens-field">
+              <label for="token-expiry">Token expires in</label>
+              <div class="tokens-select"><select id="token-expiry"><option>Never</option><option>1 hour</option><option>1 day</option><option>1 week</option><option>1 month</option><option>1 year</option></select><i class="ph ph-caret-down" aria-hidden="true"></i></div>
+              <small>You can configure when your token will expire.</small>
+            </div>
+            <div class="tokens-field">
+              <label for="token-scopes">Permissions</label>
+              <input id="token-scopes" type="text" placeholder="list of scopes for the token to have, separated by space">
+              <small>You can limit the permissions of the token so it can only do what you want it to. If none are specified, the token will have permission to do everything you can do. See the <a href="#">documentation for a list of available scopes</a>.</small>
+            </div>
+            <button type="submit" class="tokens-submit">Request new API token</button>
+          </form>
+        </div>
+      </section>
     </main>
   </div>
-  <script src="/launcher-create.js?v=42"></script>
+  <script src="/launcher-create.js?v=43"></script>
 </body>
 </html>

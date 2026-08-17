@@ -23,21 +23,24 @@
     applyTheme(option.dataset.themeValue);
   }));
 
-  // Nav view switching: Workbench flow  <->  Active environments table
+  // Nav view switching: Workbench flow  <->  Active environments  <->  Tokens
   const createLayout = document.querySelector('.create-layout');
   const navWorkbench = document.querySelector('.site-nav a[href="/hub"]');
   const navActiveEnv = document.querySelector('.nav-active-env');
+  const navTokens = document.querySelector('.site-nav a[href="#tokens"]');
   const setWorkbenchView = (view) => {
-    const active = view === 'active';
-    createLayout.classList.toggle('view-active', active);
+    createLayout.classList.toggle('view-active', view === 'active');
+    createLayout.classList.toggle('view-tokens', view === 'tokens');
     if (navWorkbench) {
-      navWorkbench.classList.toggle('active', !active);
-      navWorkbench.setAttribute('aria-current', active ? 'false' : 'page');
+      navWorkbench.classList.toggle('active', view === 'workbench');
+      navWorkbench.setAttribute('aria-current', view === 'workbench' ? 'page' : 'false');
     }
-    if (navActiveEnv) navActiveEnv.classList.toggle('active', active);
+    if (navActiveEnv) navActiveEnv.classList.toggle('active', view === 'active');
+    if (navTokens) navTokens.classList.toggle('active', view === 'tokens');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   navActiveEnv?.addEventListener('click', (event) => { event.preventDefault(); setWorkbenchView('active'); });
+  navTokens?.addEventListener('click', (event) => { event.preventDefault(); setWorkbenchView('tokens'); });
   navWorkbench?.addEventListener('click', (event) => { event.preventDefault(); setWorkbenchView('workbench'); });
 
   const steps = [...document.querySelectorAll('[data-flow-step]')];
@@ -108,6 +111,7 @@
     instanceTabs.append(tab);
   });
   instanceStep.querySelector('.instance-options').before(instanceTabs);
+  const instanceGroupHeadings = {};
   instanceTabs.querySelectorAll('.environment-tab').forEach((tab) => tab.addEventListener('click', () => {
     const group = tab.dataset.sizeGroup;
     instanceTabs.querySelectorAll('.environment-tab').forEach((item) => {
@@ -120,6 +124,7 @@
       option.hidden = hidden;
       option.style.setProperty('display', hidden ? 'none' : 'grid', 'important');
     });
+    Object.values(instanceGroupHeadings).forEach((heading) => heading.style.setProperty('display', group === 'all' ? 'block' : 'none', 'important'));
     if (selectedInstance && sizeOptions.find((option) => option.dataset.instance === selectedInstance)?.hidden) {
       selectedInstance = null;
       sizeOptions.forEach((option) => option.classList.remove('selected'));
@@ -157,13 +162,25 @@
   environmentBody.className = 'environment-selection-body';
   environmentBody.replaceChildren();
   originalPanels.forEach((panel) => environmentBody.append(panel));
+  const categoryLabels = { core: 'Core Tools', agents: 'Agentic Engineering', integrations: 'Integrations' };
   const allPanel = document.createElement('div');
-  allPanel.className = 'environment-grid all-environments-panel hidden-panel';
+  allPanel.className = 'all-environments-panel hidden-panel';
   allPanel.dataset.panel = 'all';
-  originalPanels.forEach((panel) => panel.querySelectorAll('.environment-card').forEach((card) => allPanel.append(card.cloneNode(true))));
-  const allCards = [...allPanel.querySelectorAll('.environment-card')]
-    .sort((a, b) => a.querySelector('strong').textContent.localeCompare(b.querySelector('strong').textContent));
-  allPanel.replaceChildren(...allCards);
+  originalPanels.forEach((panel) => {
+    const cards = [...panel.querySelectorAll('.environment-card')]
+      .sort((a, b) => a.querySelector('strong').textContent.localeCompare(b.querySelector('strong').textContent));
+    if (!cards.length) return;
+    const section = document.createElement('div');
+    section.className = 'all-env-section';
+    const heading = document.createElement('h3');
+    heading.className = 'all-env-category';
+    heading.textContent = categoryLabels[panel.dataset.panel] || panel.dataset.panel;
+    const grid = document.createElement('div');
+    grid.className = 'environment-grid';
+    cards.forEach((card) => grid.append(card.cloneNode(true)));
+    section.append(heading, grid);
+    allPanel.append(section);
+  });
   environmentBody.append(allPanel);
   categoryStep.append(environmentBody);
   let renderedCurrent = null;
@@ -210,6 +227,19 @@
   if (instanceOptions) {
     const sortedInstances = [...instanceOptions.querySelectorAll('.instance-option')].sort((a, b) => instanceOrder.indexOf(a.dataset.instance) - instanceOrder.indexOf(b.dataset.instance));
     instanceOptions.replaceChildren(...sortedInstances);
+    const sizeGroupLabels = { small: 'Small', medium: 'Medium', large: 'Large' };
+    let lastSizeGroup = null;
+    [...instanceOptions.querySelectorAll('.instance-option')].forEach((option) => {
+      const group = option.dataset.sizeGroup;
+      if (group === lastSizeGroup) return;
+      const heading = document.createElement('div');
+      heading.className = 'instance-group-heading';
+      heading.dataset.sizeGroup = group;
+      heading.textContent = sizeGroupLabels[group] || group;
+      instanceOptions.insertBefore(heading, option);
+      instanceGroupHeadings[group] = heading;
+      lastSizeGroup = group;
+    });
   }
   const tabBar = document.querySelector('.environment-tabs');
   const allTab = document.createElement('button');
