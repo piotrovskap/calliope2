@@ -52,14 +52,7 @@
         radial-gradient(78% 128% at 50% 142%, rgba(203, 243, 157, .52), rgba(143, 216, 42, .4) 22%, rgba(30, 169, 123, .22) 46%, transparent 72%),
         radial-gradient(52% 78% at 50% 128%, rgba(234, 255, 194, .32), transparent 66%); }
     /* exact hero planet, rising from the bottom of the footer (injected into .footer) */
-    .footer .footer-planet { --fpsize: 3200px; --peek: 190px; position: absolute; display: block; left: 50%; bottom: calc(var(--peek) - var(--fpsize)); transform: translateX(-50%);
-      width: var(--fpsize); height: var(--fpsize); border-radius: 50%; z-index: 0; pointer-events: none;
-      background: radial-gradient(circle at 50% 13%,
-        #eefcc6 0%, #cbf374 6%, #8ada33 14%, #3bb673 28%, #158b58 42%, #0b6644 56%, #064c37 70%, #05402e 100%);
-      box-shadow:
-        0 0 0 1px rgba(203, 243, 157, .18),
-        inset -26px -46px 130px 12px rgba(2, 26, 19, .62),
-        inset 26px 36px 110px rgba(230, 250, 186, .22); }
+    .footer 
     .footer > * { position: relative; z-index: 1; }
     .footer::after { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: .42;
       background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='fn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0.34 0.34 0.34 0 0 0.34 0.34 0.34 0 0 0.34 0.34 0.34 0 0 0 0 0 0 1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23fn)'/%3E%3C/svg%3E");
