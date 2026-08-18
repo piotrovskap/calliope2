@@ -422,6 +422,27 @@
     /* intro section that used to live inside the hero */
     .proof + .hero-intro-sec { padding: 0 0 1rem; text-align: center; margin-top: -70px; position: relative; z-index: 3; }
     .hero-intro-sec .hero-sub { margin-left: auto; margin-right: auto; }
+
+    /* ===== Hero v2 — full-bleed video ===== */
+    .hero--video { background: #04231a; }
+    .hero--video::after { display: none; }            /* drop the film-grain layer over video */
+    .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
+      pointer-events: none; transform: scale(1); transition: transform 1.1s cubic-bezier(.16, .8, .3, 1); }
+    .hero-video.is-stopped { transform: scale(1.028); }   /* gentle settle as it comes to rest */
+    /* dark scrim so copy stays legible over the video */
+    .hero-video-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        radial-gradient(60% 55% at 50% 42%, rgba(4, 35, 26, .1), transparent 70%),
+        linear-gradient(180deg, rgba(4, 35, 26, .55) 0%, rgba(4, 35, 26, .35) 40%, rgba(4, 35, 26, .78) 100%); }
+    .hero-planet-content--video { position: relative; z-index: 3; }
+    /* copy stays hidden until the video stops at 3s, then reveals */
+    .hero-planet-content--video .hero-title,
+    .hero-planet-content--video .hero-sub { opacity: 0; animation: none; }
+    .hero--video.is-revealed .hero-title { animation: copyBlur .95s cubic-bezier(.16, .8, .3, 1) 0s both; }
+    .hero--video.is-revealed .hero-sub { animation: copyBlur .95s cubic-bezier(.16, .8, .3, 1) .18s both; }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-planet-content--video .hero-title,
+      .hero-planet-content--video .hero-sub { opacity: 1 !important; animation: none !important; } }
   </style>
 </head>
 <body>
@@ -474,17 +495,12 @@
 
   <main id="main">
     <!-- ===== Hero ===== -->
-    <section class="hero hero--center">
-      <div class="orbit-rings" aria-hidden="true">
-        <span class="orbit-ring r1"></span>
-        <span class="orbit-ring r2"></span>
-        <span class="orbit-dot-track t1"><i class="orbit-dot"></i></span>
-        <span class="orbit-dot-track t2"><i class="orbit-dot"></i></span>
-      </div>
-      <div class="planet-fx" aria-hidden="true">
-        <span class="planet"></span>
-      </div>
-      <div class="wrap hero-center hero-planet-content">
+    <section class="hero hero--center hero--video">
+      <video class="hero-video" id="heroVideo" autoplay muted playsinline preload="auto" poster="/img/bg.png" aria-hidden="true">
+        <source src="/video/hero.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-video-scrim" aria-hidden="true"></div>
+      <div class="wrap hero-center hero-planet-content hero-planet-content--video">
         <h1 class="hero-title">Bring your own cloud.<br />Ship the same way <em>everywhere</em>.</h1>
         <p class="hero-sub hero-sub--planet">Astrolift is an opinionated, multi-tenant, multi-cloud PaaS. Run a control plane on <strong>AWS, Azure, GCP or OCI</strong>, declare your apps in <strong>astrolift.toml</strong>, and deploy to any Kubernetes cluster with one workflow.</p>
       </div>
@@ -802,6 +818,29 @@
         ticking = false;
       }
       window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    })();
+
+    /* hero v2 — slow the video, ease it to a stop at 4s, then reveal the copy */
+    (function () {
+      var v = document.getElementById('heroVideo');
+      var hero = document.querySelector('.hero--video');
+      if (!v || !hero) return;
+      var STOP = 4;            // play at normal speed, hard stop at 4s
+      var done = false;
+      function reveal() { if (done) return; done = true; hero.classList.add('is-revealed'); }
+      function freeze() { try { v.pause(); } catch (e) {} v.classList.add('is-stopped'); reveal(); }
+      // keep it frozen on the last frame — if anything resumes playback, re-pause
+      v.addEventListener('play', function () { if (done) { try { v.pause(); } catch (e) {} } });
+      v.addEventListener('ended', function () { try { v.pause(); } catch (e) {} freeze(); });
+      function tick() {
+        if (done) return;
+        if (v.currentTime >= STOP || v.ended) { freeze(); return; }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      // fallback if autoplay is blocked / video missing
+      setTimeout(reveal, 9000);
+      v.play && v.play().catch(function () { reveal(); });
     })();
   </script>
 </body>

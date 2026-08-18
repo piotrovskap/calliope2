@@ -370,7 +370,15 @@
         grid-row: auto;
       }
       .tm-feature-row > .tm-feature:last-child { grid-column: auto; }
-      .tm-feature.is-founder .tm-feature-portrait { min-height: 220px; }
+      .tm-feature.is-founder .tm-feature-portrait {
+        height: 320px;
+        min-height: 320px;
+      }
+      .tm-feature.is-founder .tm-feature-portrait img {
+        height: 145%;
+        bottom: -145px;
+        transform: translateX(-50%);
+      }
     }
 
     @media (max-width: 980px) {
