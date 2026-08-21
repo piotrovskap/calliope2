@@ -95,7 +95,7 @@
           '</div>' +
         '</div>' +
         '<div class="wrap footer-bottom">' +
-          '<p>© 2026 Calliope Labs / CONFLICT · Miami, FL. All rights reserved.</p>' +
+          '<p>© ' + new Date().getFullYear() + ' Calliope Labs Inc. All Rights Reserved.</p>' +
           '<nav class="footer-legal" aria-label="Legal">' +
             '<a href="/#">Privacy</a><a href="/#">Terms</a><a href="/#">Security</a><a href="/#">Status</a>' +
             '<span class="footer-region">🌐 Global</span>' +
