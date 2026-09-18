@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zentinelle · Blueprint — Calliope AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="/img/favicon.png">
+  <link rel="stylesheet" href="/blueprint/product.css">
+  <style>:root { --tint: var(--zn); }</style>
+</head>
+<body>
+<div class="bp-topbar">
+  <header class="bp-header">
+    <div class="bp-header-inner">
+      <a class="bp-brand rv in" href="https://calliope.ai/" aria-label="Calliope AI" data-rv-delay="0">
+        <img class="bp-brand-logo" src="/blueprint/assets/calliope-ai.png" alt="Calliope AI" width="560" height="99">
+      </a>
+      <nav class="bp-nav rv in" aria-label="Sections" data-rv-delay="80">
+        <a class="bp-nav-link" href="/blueprint/" id="navtop">Start</a>
+        <a class="bp-nav-link" href="/blueprint/#assembly">Assembly</a>
+        <a class="bp-nav-link" href="/blueprint/#parts">Parts</a>
+        <a class="bp-nav-link" href="/blueprint/#topologies">Topologies</a>
+        <a class="bp-nav-link" href="/blueprint/#rollout">Rollout</a>
+      </nav>
+      <div class="bp-cta rv in" data-rv-delay="160">
+        <a class="bp-nav-link bp-nav-link--solo" href="https://calliope.ai/contact">Contact us</a>
+        <a class="bp-btn bp-btn-primary" href="https://calliope.ai/blueprint/calliope-ai-deployment-blueprint.pdf" download="">Download PDF</a>
+      </div>
+    </div>
+  </header>
+</div>
+<div id="bp-content"></div>
+<script src="/blueprint/product.js"></script>
+<script>
+renderProduct({
+  name: 'Zentinelle', tagline: 'Agent Governance & Runtime Security',
+  desc: 'Every AI call passes the gate. Policy decides what an agent may do, budgets and routes are enforced in line, and every decision lands in the audit ledger with the context that produced it.',
+  dwg: 'DWG CAL-ZN-003', badge: 'MIT Open Source', figSvg: '/blueprint/assets/zentinelle-fig.svg',
+  brocs: [0,0,0,1,1],
+  cta: { label: 'zentinelle.ai', href: 'https://zentinelle.ai' },
+  ctaSecondary: { label: 'Tech sheet', href: '#' },
+  stats: [{ num: '18+', lbl: 'Policy evaluators' },{ num: '5', lbl: 'Compliance frameworks' },{ num: '0', lbl: 'Agent code changes needed' }],
+  features: [
+    { h: 'Policy enforced in line', p: '18+ evaluators, inherited from org to team to deployment to endpoint. A transparent proxy in line with every AI call — no agent code changes.' },
+    { h: 'The audit log chain', p: 'Every decision lands in the ledger with the context that produced it. SOC2, GDPR, HIPAA, EU AI Act, NIST AI RMF compliance packs included.' },
+    { h: 'Runtime security for agents', p: 'Guardrails hold at the perimeter and inside it. Evidence is collected while agents run, compliance maps to your auditors\' frameworks.' }
+  ],
+  specs: [['Evaluators','18+ policy evaluators, inherited org-to-user'],['Integration','Transparent proxy — no agent code changes'],['Compliance','SOC2 · GDPR · HIPAA · EU AI Act · NIST AI RMF'],['BROCS surface','Observe (shared) · Control (full) · Secure (full)'],['Licensing','MIT open source']],
+  footer: [{ lbl: 'Part', val: 'Zentinelle' },{ lbl: 'Blueprint', val: 'The Private-AI Deployment Blueprint' },{ lbl: 'BROCS', val: 'Control · Secure' },{ lbl: 'Site', val: '<a class="foot-link" href="https://zentinelle.ai" target="_blank">zentinelle.ai</a>' }]
+});
+</script></body></html>

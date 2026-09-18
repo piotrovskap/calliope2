@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Full Loop · Blueprint — Calliope AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="/img/favicon.png">
+  <link rel="stylesheet" href="/blueprint/product.css">
+  <style>:root { --tint: var(--al); }</style>
+</head>
+<body>
+<div class="bp-topbar">
+  <header class="bp-header">
+    <div class="bp-header-inner">
+      <a class="bp-brand rv in" href="https://calliope.ai/" aria-label="Calliope AI" data-rv-delay="0">
+        <img class="bp-brand-logo" src="/blueprint/assets/calliope-ai.png" alt="Calliope AI" width="560" height="99">
+      </a>
+      <nav class="bp-nav rv in" aria-label="Sections" data-rv-delay="80">
+        <a class="bp-nav-link" href="/blueprint/" id="navtop">Start</a>
+        <a class="bp-nav-link" href="/blueprint/#assembly">Assembly</a>
+        <a class="bp-nav-link" href="/blueprint/#parts">Parts</a>
+        <a class="bp-nav-link" href="/blueprint/#topologies">Topologies</a>
+        <a class="bp-nav-link" href="/blueprint/#rollout">Rollout</a>
+      </nav>
+      <div class="bp-cta rv in" data-rv-delay="160">
+        <a class="bp-nav-link bp-nav-link--solo" href="https://calliope.ai/contact">Contact us</a>
+        <a class="bp-btn bp-btn-primary" href="https://calliope.ai/blueprint/calliope-ai-deployment-blueprint.pdf" download="">Download PDF</a>
+      </div>
+    </div>
+  </header>
+</div>
+<div id="bp-content"></div>
+<script src="/blueprint/product.js"></script>
+<script>
+renderProduct({
+  name: 'The Full Loop', tagline: 'Build, run, watch, govern',
+  desc: 'All three machines, one assembly. Workbench builds and ships, Astrolift runs and observes, Zentinelle governs and secures. Telemetry, policy and evidence flow back to Build — the loop closes.',
+  dwg: 'DWG CAL-TOP-04', badge: null, figSvg: '/blueprint/assets/topo-full-loop.svg',
+  brocs: [1,1,1,1,1],
+  cta: { label: 'calliope.ai', href: 'https://calliope.ai' },
+  ctaSecondary: { label: 'Full blueprint', href: '/blueprint/' },
+  stats: [{ num: '3', lbl: 'Machines, full surface' },{ num: 'BROCS', lbl: 'All five stages covered' },{ num: 'Closed', lbl: 'Telemetry loop' }],
+  features: [
+    { h: 'The complete AI surface', p: 'Workbench, Astrolift and Zentinelle together cover every stage of BROCS. An app or agent is built, runs, is observed, controlled and secured — all inside your perimeter.' },
+    { h: 'The loop closes', p: 'Telemetry from Astrolift and policy evidence from Zentinelle flow back into Workbench. What the platform ran and what the auditors saw lands on one timeline.' },
+    { h: 'Zero to governed production', p: 'From first install to compliant production in days, not quarters. One manifest, one perimeter, five stages.' }
+  ],
+  specs: [['Machines','Calliope AI Workbench · Astrolift · Zentinelle'],['Coverage','All five BROCS stages'],['Telemetry','Closed loop — platform + agent events'],['Compliance','SOC2 · GDPR · HIPAA · EU AI Act · NIST AI RMF'],['Egress','None required']],
+  footer: [{ lbl: 'Topology', val: 'The Full Loop' },{ lbl: 'Pattern', val: 'Build, run, watch, govern' },{ lbl: 'Blueprint', val: 'The Private-AI Deployment Blueprint' },{ lbl: 'Ref', val: 'CAL-SURF-001' }]
+});
+</script></body></html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workbench on Astrolift · Blueprint — Calliope AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="/img/favicon.png">
+  <link rel="stylesheet" href="/blueprint/product.css">
+  <style>:root { --tint: var(--wb); }</style>
+</head>
+<body>
+<div class="bp-topbar">
+  <header class="bp-header">
+    <div class="bp-header-inner">
+      <a class="bp-brand rv in" href="https://calliope.ai/" aria-label="Calliope AI" data-rv-delay="0">
+        <img class="bp-brand-logo" src="/blueprint/assets/calliope-ai.png" alt="Calliope AI" width="560" height="99">
+      </a>
+      <nav class="bp-nav rv in" aria-label="Sections" data-rv-delay="80">
+        <a class="bp-nav-link" href="/blueprint/" id="navtop">Start</a>
+        <a class="bp-nav-link" href="/blueprint/#assembly">Assembly</a>
+        <a class="bp-nav-link" href="/blueprint/#parts">Parts</a>
+        <a class="bp-nav-link" href="/blueprint/#topologies">Topologies</a>
+        <a class="bp-nav-link" href="/blueprint/#rollout">Rollout</a>
+      </nav>
+      <div class="bp-cta rv in" data-rv-delay="160">
+        <a class="bp-nav-link bp-nav-link--solo" href="https://calliope.ai/contact">Contact us</a>
+        <a class="bp-btn bp-btn-primary" href="https://calliope.ai/blueprint/calliope-ai-deployment-blueprint.pdf" download="">Download PDF</a>
+      </div>
+    </div>
+  </header>
+</div>
+<div id="bp-content"></div>
+<script src="/blueprint/product.js"></script>
+<script>
+renderProduct({
+  name: 'Workbench on Astrolift', tagline: 'The bench rides the platform',
+  desc: 'Calliope AI Workbench ships its artifacts directly onto Astrolift. The same Kubernetes platform that serves your agents also carries the dev runtime — one manifest, one deploy story, end to end.',
+  dwg: 'DWG CAL-TOP-02', badge: null, figSvg: '/blueprint/assets/topo-stacked.svg',
+  brocs: [1,1,1,0,0],
+  cta: { label: 'calliope.ai', href: 'https://calliope.ai' },
+  ctaSecondary: { label: 'Full blueprint', href: '/blueprint/' },
+  stats: [{ num: '2', lbl: 'Machines, stacked' },{ num: '1', lbl: 'Manifest to rule both' },{ num: 'Full', lbl: 'Build → Run coverage' }],
+  features: [
+    { h: 'One manifest, two machines', p: 'The Workbench Installer places Workbench on Astrolift. The same manifest that describes your dev environment also describes your runtime.' },
+    { h: 'Telemetry closes the loop', p: 'Astrolift streams platform telemetry back into Workbench\'s Observe pane. What the platform ran and what the agent did land on one timeline.' },
+    { h: 'Start here, extend with Zentinelle', p: 'Add Zentinelle to this topology at any time to close the governance loop — no re-architecture, just one more machine on the same platform.' }
+  ],
+  specs: [['Machines','Calliope AI Workbench · Astrolift'],['Substrate','Kubernetes · ECS · Cloud Run'],['Coverage','Build (full) · Run (full) · Observe (shared)'],['Pattern','Stacked'],['Egress','None required']],
+  footer: [{ lbl: 'Topology', val: 'Workbench on Astrolift' },{ lbl: 'Pattern', val: 'Stacked' },{ lbl: 'Blueprint', val: 'The Private-AI Deployment Blueprint' },{ lbl: 'Ref', val: 'CAL-SURF-001' }]
+});
+</script></body></html>

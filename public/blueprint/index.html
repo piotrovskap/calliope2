@@ -70,11 +70,12 @@
   ]
 }
 </script>
+<link rel="stylesheet" href="/styles.css?v=49">
 <style>
 :root {
   color-scheme: dark;
   --abyss: #162345; --void: #0B1120;
-  --cyan: #0AF0CE; --blue: #3FF1EF;
+  --cyan: #3FF1EF; --blue: #0AF0CE;
   --aqua: #00E0E4; --mint: #00E5B8; --teal: #00B1B4;
   --cloud: #E6E9EE; --frost: #D6FCF4;
   --muted: #8fa3c4; --line: rgba(10, 240, 206, 0.18);
@@ -103,6 +104,7 @@ body {
   margin: 0; background: var(--void); color: var(--frost);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   background-image:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(30,50,90,0.55) 0%, transparent 100%),
     repeating-linear-gradient(90deg, var(--ink-3) 0 1px, transparent 1px 40px),
     repeating-linear-gradient(0deg, var(--ink-3) 0 1px, transparent 1px 40px);
   background-position: center top;
@@ -421,7 +423,7 @@ button.bp:focus-visible, a.bp:focus-visible { outline: 2px solid var(--cyan);
 
 /* ---- the walkthrough: the sheet pins while scroll drives the machine.
    Conveyance stays linear; the scroll position IS the timeline. ---- */
-.scrolly { position: relative; height: 640vh; }
+.scrolly { position: relative; height: 300vh; }
 .scrolly .stick { position: sticky; top: 10px; }
 body.noscrolly .scrolly { height: auto; }
 body.noscrolly .scrolly .stick { position: static; }
@@ -440,15 +442,18 @@ body.noscrolly .scrollhint, .scrolly.started .scrollhint { opacity: 0; }
 
 /* ---- the landing: one piece of the assembly, opened ---- */
 .sheet01 .sheet-body { position: relative; }
+.sheet01 > .sheet-head { position: sticky; top: 66px; z-index: 8; background: var(--void); padding-bottom: 8px; }
+.sheet01 > .rail { position: sticky; top: calc(66px + 58px); z-index: 7; background: var(--void); padding-bottom: 8px; }
 .landing { position: absolute; inset: 0; display: flex; justify-content: flex-end;
   pointer-events: none; opacity: 0; visibility: hidden;
   transition: opacity 300ms var(--ease-standard), visibility 0s 300ms; }
 .landing.open { opacity: 1; visibility: visible; pointer-events: auto;
   transition: opacity 320ms var(--ease-standard) 200ms, visibility 0s; }
-.landing .panel { width: min(430px, 92%); margin: 12px 12px 12px 0;
+.landing .panel { width: min(430px, 92%); margin: calc(66px + 58px + 44px) 12px 12px 0;
   background: rgba(11, 17, 32, 0.90);
   -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-  border: 1px solid var(--ink-1); padding: 22px 24px; overflow: auto;
+  border: 1px solid var(--ink-1); padding: clamp(12px, 2vh, 22px) 24px; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center;
   transform: translateX(14px); transition: transform 350ms var(--ease-out-heavy); }
 .landing.open .panel { transform: translateX(0); }
 .landing .panel::before { content: ""; position: absolute; }
@@ -470,8 +475,17 @@ body.noscrolly .scrollhint, .scrolly.started .scrollhint { opacity: 0; }
   border-bottom: 1px solid var(--ink-3); }
 .landing ul.points li::before { content: ""; position: absolute; left: 2px;
   top: 12px; width: 7px; height: 7px; border: 1px solid var(--ltint, var(--cyan)); }
-.landing .lserves { margin: 0 0 16px; }
-.landing .lrow { display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+.landing .lserves { margin: 0 0 14px; }
+.landing .lrow { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+.landing .lrow-ctas { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.landing .lrow-ctas #lsheet { font-size: 0.78rem; opacity: 0.75; padding: 0.45rem 0.8rem; }
+.landing .lrow-nav { display: flex; gap: 6px; align-items: center; padding-top: 8px; border-top: 1px solid var(--ink-2); }
+.landing .lrow-nav #lprev, .landing .lrow-nav #lnext { min-width: 32px; font-size: 0.85rem; padding: 0.4rem 0.6rem; opacity: 0.6; }
+.landing .lrow-nav #lback { margin-left: auto; font-size: 0.78rem; background: none; border-color: transparent; color: var(--muted); padding: 0.4rem 0.6rem; }
+.landing .lrow-nav #lback:hover { color: var(--frost); }
+.landing .lrow .lnav { display: none; }
+/* keep old lrow for non-restructured fallback */
+.landing .lrow > a, .landing .lrow > span:not(.lnav) { display: flex; gap: 8px; flex-wrap: wrap; }
   margin-top: 14px; }
 .landing .lnav { margin-left: auto; display: flex; gap: 6px; }
 .landing .lnav button { min-width: 34px; }
@@ -497,14 +511,14 @@ body.noscrolly .scrollhint, .scrolly.started .scrollhint { opacity: 0; }
   color: var(--cyan); letter-spacing: 0.06em; }
 
 /* -------------------------------------------------------- sheet 02, parts */
-.parts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
-.part { border-right: 1px solid var(--ink-3); padding: 20px 22px 24px; }
+.parts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--ink-2); border: 1px solid var(--ink-2); border-radius: 4px; overflow: hidden; }
+.part { background: var(--void); padding: 48px 36px 40px; border: 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .part:last-child { border-right: 0; }
-.part figure { margin: 0 0 14px; border: 1px solid var(--ink-3);
-  background: rgba(22, 35, 69, 0.25); transition: border-color var(--t-micro); }
+.part figure { margin: 0 0 14px; border: 0; background: none; transition: border-color var(--t-micro); }
 .part h3 { margin: 0 0 2px; font-size: 16px; color: var(--cloud); }
 a.partlink { display: block; text-decoration: none; cursor: pointer; }
 a.partlink h3 .go { color: var(--cyan); opacity: 0; transition: opacity var(--t-micro); }
+.part:has(a.partlink:hover) { background: rgba(10, 240, 206, 0.06); }
 a.partlink:hover figure { border-color: var(--cyan); }
 a.partlink:hover h3 { color: var(--cyan); }
 a.partlink:hover h3 .go { opacity: 1; }
@@ -526,9 +540,10 @@ a.partlink:hover h3 .go { opacity: 1; }
   .part:last-child { border-bottom: 0; } }
 
 /* -------------------------------------------------------- sheet 03, sites */
-.sites { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; }
-.site { border-right: 1px solid var(--ink-3); padding: 14px 10px; }
-.site:last-child { border-right: 0; }
+.sites { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--ink-2); border: 1px solid var(--ink-2); border-radius: 4px; overflow: hidden; }
+.site { background: var(--void); padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 12px; border: 0; }
+.site:nth-child(1), .site:nth-child(2) { grid-column: span 3; }
+.site:nth-child(3), .site:nth-child(4), .site:nth-child(5) { grid-column: span 2; }
 a.sitelink { display: block; text-decoration: none; cursor: pointer;
   transition: background var(--t-micro); }
 a.sitelink:hover { background: rgba(22, 35, 69, 0.4); }
@@ -548,7 +563,7 @@ a.sitelink:hover .minisite .callout { fill: var(--cyan); }
 .carry h4 { margin: 0 0 6px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--cyan); font-weight: 700; }
-.carry p { margin: 0; font-size: 13px; line-height: 1.55; color: var(--muted); }
+.carry p { margin: 0; font-size: 13px; line-height: 1.55; color: var(--frost); }
 @media (max-width: 900px) { .carries { grid-template-columns: 1fr; }
   .carry { border-right: 0; border-bottom: 1px solid var(--ink-3); } }
 .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px;
@@ -695,8 +710,8 @@ body { font-size: 1rem; line-height: 1.55;
 
 /* ---- eyebrows / labels: raise sub-11px + trim heavy tracking ---- */
 .eyebrow, .mp-lbl { font-size: 0.75rem; letter-spacing: 0.1em; }         /* 12 */
-.sheet-head .what { font-size: 1.02rem; letter-spacing: 0.02em; }
-.sheet-head .no, .sheet-head .when { font-size: 0.86rem; }
+.sheet-head .what { font-size: 1.4rem; letter-spacing: 0.02em; }
+.sheet-head .no, .sheet-head .when { font-size: 1.1rem; }
 .sheet-foot span { font-size: 0.78rem; letter-spacing: 0.08em; }
 .sheet-foot b { font-size: 1.02rem; letter-spacing: 0; }
 .landing .eyebrow2 { font-size: 0.74rem; letter-spacing: 0.12em; }
@@ -794,14 +809,15 @@ html { scroll-behavior: auto; }   /* Lenis drives smoothing; native smooth confl
    NB: only the masthead is sized here — the .scrolly / .stick that
    drives the chart animation is deliberately left alone.
    ============================================================ */
-.masthead { min-height: calc(100vh - 66px); align-items: center; position: relative; }
-.masthead::after { content: "SCROLL ↓"; position: absolute; left: 50%; bottom: 1.4rem;
-  transform: translateX(-50%); font: 600 .68rem/1 "IBM Plex Sans", system-ui, sans-serif;
+.masthead { min-height: calc(100vh - 66px); align-items: center; align-content: center; position: relative; padding-bottom: 8vh; }
+.masthead::after { display: none; }
+.hero-cue { grid-area: cue; text-align: center; margin-top: 1.8rem;
+  font: 600 .68rem/1 "IBM Plex Sans", system-ui, sans-serif;
   letter-spacing: .22em; color: var(--muted);
   animation: heroCue 2.4s ease-in-out infinite; }
-@keyframes heroCue { 0%,100% { transform: translateX(-50%) translateY(0); opacity:.5; }
-  50% { transform: translateX(-50%) translateY(5px); opacity:.95; } }
-@media (prefers-reduced-motion: reduce) { .masthead::after { animation: none; } }
+@keyframes heroCue { 0%,100% { transform: translateY(0); opacity:.5; }
+  50% { transform: translateY(5px); opacity:.95; } }
+@media (prefers-reduced-motion: reduce) { .hero-cue { animation: none; } }
 
 /* one scroll from the hero jumps to the assembly — handled in JS below;
    this just offsets the landing position under the sticky nav. */
@@ -826,7 +842,7 @@ html { scroll-padding-top: 66px; }
 .masthead { position: relative; isolation: isolate;
   display: grid; align-items: center; align-content: center;
   grid-template-columns: minmax(220px, 36%) 1fr;
-  grid-template-areas: "statue text" "products products";
+  grid-template-areas: "statue text" "products products" "cue cue";
   column-gap: clamp(24px, 4vw, 72px); row-gap: 1.6rem; }
 .hero-brocs { grid-area: statue; justify-self: center; align-self: center;
   width: 100%; max-width: 380px; max-height: 58vh; height: auto; object-fit: contain;
@@ -842,13 +858,12 @@ html { scroll-padding-top: 66px; }
 .masthead .mast-products a { display: inline-flex; align-items: center; gap: .6rem; padding: 0; border-top: 0; }
 .masthead .mast-products a span { font-size: 0.9rem; }
 .masthead .mast-products img { height: 30px; }
-@media (max-width: 820px) {
-  .masthead { grid-template-columns: 1fr; grid-template-areas: "text" "statue" "products"; }
+@media (max-width: 900px) {
+  .masthead { grid-template-columns: 1fr; grid-template-areas: "text" "statue" "products" "cue"; }
   .hero-brocs { max-height: 42vh; }
 }
 .masthead::before {
-  content: ""; position: absolute; top: -66px; bottom: 0;
-  left: 50%; width: 100vw; transform: translateX(-50%);   /* full viewport width */
+  content: ""; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
   z-index: -1; pointer-events: none;
   background-image:
     repeating-linear-gradient(90deg, rgba(10,240,206,.09) 0 1px, transparent 1px 46px),
@@ -873,22 +888,316 @@ html { scroll-padding-top: 66px; }
 /* mini-diagram labels (topologies / parts) scale down with their SVG — bump more */
 .minisite .callout { font-size: 17px; }
 .minisite .callsub { font-size: 14px; fill: rgba(214,252,244,.85); }
+svg.minisite { display: block; width: 100%; height: auto; max-height: 280px; margin-bottom: 8px; }
+svg.minisite > g.edge { display: none; }
+svg.minisite { overflow: visible; }
+svg.minisite text.callout, svg.minisite text.callsub { visibility: hidden; }
+svg.partfig { display: block; width: 100%; height: auto; max-height: 260px; }
+svg.partfig text.stamp, svg.partfig text.stampsub { visibility: hidden; }
+.site { align-items: center; text-align: center; }
+a.sitelink .site-title { display: block; font-family: "DM Sans", system-ui, sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--cloud); letter-spacing: -0.01em; text-align: center; }
+a.sitelink .site-sub { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 4px; text-align: center; }
 
 /* chart fills the viewport, centred only when it fits (safe = never bleeds) */
 .scrolly .stick { min-height: 100vh; display: grid; align-content: safe center; }
 /* the short content sections become full-screen slides, content centred */
-#parts, #topologies, #rollout, .docfoot {
+#parts, #topologies, #rollout, .docfoot, .ai-surface-slide {
   min-height: 100vh; display: grid; align-content: safe center; margin-top: 0; margin-bottom: 0;
 }
+.ai-surface-slide { padding: clamp(32px,6vw,80px) 0; }
+#ai-surface .notes .ntitle { font-size: 1.1rem !important; }
+#ai-surface .notes li { font-size: 1.25rem !important; line-height: 1.7 !important; }
+#ai-surface .notes li::before { font-size: 1rem !important; }
+.ai-surface-slide .stagecard h3 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+.ai-surface-slide .stagecard .tagline { font-size: 0.95rem; letter-spacing: 0.14em; }
+.ai-surface-slide .stagecard p.note { font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.65; max-width: 64ch; }
+.ai-surface-slide .stagecard .let { font-size: clamp(2rem, 3.5vw, 3rem); width: clamp(64px,8vw,90px); height: clamp(64px,8vw,90px); }
+.ai-surface-slide .servedby .lbl { font-size: 0.8rem; }
+#ai-surface .servedby { border-left: 0; border-bottom: 0; }
 
+/* ---- product overlay ---- */
+#product-overlay { position: fixed; inset: 0; z-index: 80; background: var(--void);
+  overflow-y: auto; opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility 0s .35s; }
+#product-overlay.open { opacity: 1; visibility: visible; transition: opacity .35s ease; }
+.po-topbar { position: sticky; top: 0; z-index: 2; background: rgba(11,17,32,.9);
+  backdrop-filter: blur(10px); border-bottom: 1px solid var(--ink-2);
+  display: flex; align-items: center; gap: 16px; padding: 0 clamp(20px,5vw,60px); height: 56px; }
+.po-back { background: none; border: 1px solid var(--ink-2); color: var(--muted); font-size: .82rem;
+  letter-spacing: .1em; text-transform: uppercase; cursor: pointer; padding: 6px 14px; border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; transition: color .15s, border-color .15s; }
+.po-back:hover { color: var(--frost); border-color: var(--ink-1); }
+.po-crumb { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .72rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.po-crumb b { color: var(--cyan); }
+.po-inner { max-width: 1200px; margin: 0 auto; padding: clamp(32px,6vw,72px) clamp(20px,5vw,60px); }
+.po-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-bottom: 4rem; }
+.po-logo { height: 28px; width: auto; display: block; margin-bottom: 1rem; }
+.po-tagline { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .72rem;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1rem; }
+.po-desc { font-size: 1.05rem; line-height: 1.65; color: var(--frost); margin-bottom: 1.5rem; max-width: 56ch; }
+.po-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+.po-fig { display: flex; align-items: center; justify-content: center; }
+.po-fig svg { width: 100%; height: auto; max-height: 340px; }
+.po-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  background: var(--ink-2); border: 1px solid var(--ink-2); border-radius: 4px;
+  overflow: hidden; margin-bottom: 3rem; }
+.po-feat { background: var(--void); padding: 28px 24px; }
+.po-feat h4 { font-size: 1rem; font-weight: 700; color: var(--cloud); margin-bottom: .6rem;
+  font-family: "DM Sans", system-ui, sans-serif; }
+.po-feat p { font-size: .9rem; line-height: 1.6; color: var(--frost); margin: 0; }
+.po-specs { border-top: 1px solid var(--ink-2); padding-top: 2rem; }
+.po-specs-title { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .72rem;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1.2rem; }
+.po-spec-row { display: flex; gap: 2rem; padding: .75rem 0; border-bottom: 1px solid var(--ink-3); font-size: .88rem; }
+.po-spec-key { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .72rem;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted); min-width: 140px; padding-top: .1rem; }
+.po-spec-val { color: var(--frost); }
+@media (max-width: 760px) {
+  .po-hero { grid-template-columns: 1fr; }
+  .po-features { grid-template-columns: 1fr; }
+}
+
+/* ai-surface layout improvements */
+#ai-surface .stagecard { padding-bottom: 2rem; }
+#ai-surface .servedby { padding: 1.4rem 0; border-top: 1px solid var(--ink-2); }
+#ai-surface #cardserves { display: flex; flex-wrap: wrap; gap: 0.6rem 2.4rem; margin-top: 0.6rem; }
+#ai-surface .serve { margin: 0; }
+#ai-surface .notes { padding: 1.8rem 0; }
+#ai-surface .notes ol { grid-template-columns: repeat(3, minmax(200px, 1fr)); gap: 1.6rem 2.4rem; }
+.ai-surface-slide .serve { font-size: 1rem; }
+.ai-surface-slide .serve .w { font-size: 0.8rem; }
+
+/* burger */
+.bp-burger { display: none; flex-direction: column; justify-content: center; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 8px; margin-left: auto; }
+.bp-burger span { display: block; width: 22px; height: 2px; background: var(--frost);
+  border-radius: 2px; transition: transform .25s, opacity .25s; }
+.bp-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.bp-burger.open span:nth-child(2) { opacity: 0; }
+.bp-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.bp-mobile-menu { display: none; position: sticky; top: 66px; z-index: 49;
+  background: rgba(11,17,32,.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.bp-mobile-menu.open { display: block; }
+.bp-mobile-menu nav { display: flex; flex-direction: column; padding: 12px 20px 20px; }
+.bp-mobile-link { font: 500 1rem/1 "IBM Plex Sans", system-ui, sans-serif;
+  color: var(--muted); padding: 14px 0; border-bottom: 1px solid var(--ink-3);
+  text-decoration: none; transition: color .15s; }
+.bp-mobile-link:last-child { border-bottom: 0; }
+.bp-mobile-link:hover { color: #fff; }
 @media (max-width: 760px) {
   .bp-nav { display: none; }
   .bp-cta .bp-nav-link--solo { display: none; }
+  .bp-cta { margin-left: auto; }
+  .bp-burger { display: flex; }
+  .bp-cta .bp-btn { display: none; }
+}
+
+/* ------------------------------------------------------------ sheet 05 closing */
+.sheet05 { min-height: 100vh; display: grid; align-content: center; margin-top: 0; margin-bottom: 0; }
+.closing-body { display: flex; flex-direction: column; gap: 48px;
+  max-width: 860px; margin: 0 auto; padding: clamp(32px, 6vw, 80px) clamp(24px, 5vw, 60px); }
+.closing-body .cta { border: none; padding: 0; }
+.closing-body .stay { border-top: 1px solid var(--ink-2); padding-top: 32px; }
+.closing-body .docfoot { border-top: 1px solid var(--ink-2); padding-top: 24px; border-left: 0; border-right: 0; border-bottom: 0; }
+
+/* --------------------------------------------------------- scroll reveal */
+.rv {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+}
+.rv.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .rv { opacity: 1; transform: none; transition: none; }
 }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="/site-footer.js?v=18"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var labels = {
+    standalone: ['Standalone', 'Any machine, alone'],
+    stacked:    ['Workbench on Astrolift', 'The bench rides the platform'],
+    embedded:   ['Zentinelle in Astrolift', 'The gate inside the platform'],
+    'full-loop':['The Full Loop', 'Build, run, watch, govern'],
+    mesh:       ['Mesh', 'Sites managing sites']
+  };
+  document.querySelectorAll('a.sitelink').forEach(function (a) {
+    var key = a.getAttribute('href').split('/').filter(Boolean).pop();
+    if (!labels[key]) return;
+    var title = document.createElement('span');
+    title.className = 'site-title';
+    title.textContent = labels[key][0];
+    var sub = document.createElement('span');
+    sub.className = 'site-sub';
+    sub.textContent = labels[key][1];
+    a.appendChild(title);
+    a.appendChild(sub);
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+(function () {
+  var PRODUCTS = {
+    workbench: {
+      name: 'Calliope AI Workbench', pid: 'workbench', tint: '#0AF0CE',
+      logo: 'assets/calliope-ai.png',
+      tagline: 'The governed AI workspace for your technical team',
+      desc: 'Every tool your builders reach for — IDE, notebooks, SQL, chat, app and agent builders — on one governed bench. Built and installed through the Workbench Installer, inside your perimeter, on your compute.',
+      brocs: [1,0,0,0,0],
+      cta: { label: 'calliope.ai ↗', href: 'https://calliope.ai' },
+      features: [
+        { h: 'One bench for every builder', p: 'Devs, analysts and business users share IDE, notebooks, SQL, deep research and chat in a single browser workspace.' },
+        { h: 'Ships with its manifest', p: 'An integrated CLI and one manifest sends the artifact to Astrolift for deployment, with provenance intact.' },
+        { h: 'Installed in your perimeter', p: 'The Workbench Installer runs on K8s, ECS or Cloud Run. Nothing leaves your network.' }
+      ],
+      specs: [
+        ['Runs on', 'Kubernetes, ECS, Cloud Run'],
+        ['Installs via', 'Workbench Installer'],
+        ['BROCS coverage', 'Build (full) · Run (full, dev runtime)'],
+        ['Licensing', 'Commercial']
+      ]
+    },
+    astrolift: {
+      name: 'Astrolift', pid: 'astrolift', tint: '#7B8CFF',
+      logo: 'assets/astrolift.png',
+      tagline: 'The cloud-agnostic PaaS that runs whatever you build',
+      desc: 'A Kubernetes platform that takes one manifest and runs it anywhere you own compute: EKS, GKE, AKS, vanilla clusters, or bare metal. MIT licensed, so your team can adopt it this afternoon without a procurement cycle.',
+      brocs: [0,1,1,0,0],
+      cta: { label: 'astrolift.ai ↗', href: 'https://astrolift.ai' },
+      features: [
+        { h: 'Any ground, one deploy story', p: 'The same manifest lands on every cloud and on your own racks. Cross-region installs manage each other, so a mesh of sites still reads as one platform.' },
+        { h: 'The pipeline is part of the platform', p: 'CI, SBOM and CVE checks ride the same path as the deploy, so what reaches production has already been inspected, not just promised.' },
+        { h: 'Built to be wielded by agents', p: 'The CLI is designed as a skill an AI agent can use, not just a human: your automation can open the same door your engineers do, with the same audit trail.' }
+      ],
+      specs: [
+        ['Runs on', 'EKS · GKE · AKS · vanilla K8s · bare metal'],
+        ['Deploys', 'Apps, agents, services, from one manifest'],
+        ['Pipeline', 'CI to rollout with SBOM + CVE checks'],
+        ['Telemetry', 'Platform metrics, logs and runtime state, streamed to Observe'],
+        ['Licensing', 'MIT, open source']
+      ]
+    },
+    zentinelle: {
+      name: 'Zentinelle', pid: 'zentinelle', tint: '#F0B071',
+      logo: 'assets/zentinelle.png',
+      tagline: 'The governance layer that sees and governs every agent action',
+      desc: 'Every AI call passes the gate. Policy decides what an agent may do, budgets and routes are enforced in line, and every decision lands in the audit ledger with the context that produced it.',
+      brocs: [0,0,1,1,1],
+      cta: { label: 'zentinelle.ai ↗', href: 'https://zentinelle.ai' },
+      features: [
+        { h: 'Policy enforced in line', p: '18+ evaluators, inherited from org to team to deployment to endpoint to user. A transparent proxy in line with every AI call — no agent code changes.' },
+        { h: 'The audit log chain', p: 'Every decision lands in the ledger with the context that produced it. SOC2, GDPR, HIPAA, EU AI Act, NIST AI RMF compliance packs included.' },
+        { h: 'Runtime security for agents', p: 'Guardrails hold at the perimeter and inside it. SBOM and CVE coverage from Astrolift on everything you ship.' }
+      ],
+      specs: [
+        ['Evaluators', '18+ policy evaluators, inherited org-to-user'],
+        ['Integration', 'Transparent proxy or gateway — no agent code changes'],
+        ['Compliance', 'SOC2 · GDPR · HIPAA · EU AI Act · NIST AI RMF'],
+        ['BROCS coverage', 'Observe (shared) · Control (full) · Secure (full)'],
+        ['Licensing', 'MIT, open source']
+      ]
+    }
+  };
+
+  var BROCS_LABELS = ['B','R','O','C','S'];
+  var overlay = document.getElementById('product-overlay');
+  var inner = document.getElementById('po-inner');
+  var crumbName = document.getElementById('po-crumb-name');
+  var backBtn = document.getElementById('po-back');
+
+  function brocsRow(flags) {
+    return '<div class="brocsrow">' + BROCS_LABELS.map(function(l,i){
+      return '<i class="' + (flags[i] ? 'on' : '') + '" style="' + (flags[i] ? '--tint:' + Object.values(PRODUCTS)[0].tint : '') + '">' + l + '</i>';
+    }).join('') + '</div>';
+  }
+
+  function renderProduct(p) {
+    var tint = p.tint;
+    var specs = p.specs.map(function(s){
+      return '<div class="po-spec-row"><span class="po-spec-key">' + s[0] + '</span><span class="po-spec-val">' + s[1] + '</span></div>';
+    }).join('');
+    var feats = p.features.map(function(f){
+      return '<div class="po-feat"><h4>' + f.h + '</h4><p>' + f.p + '</p></div>';
+    }).join('');
+    var brocs = '<div class="brocsrow">' + BROCS_LABELS.map(function(l,i){
+      return '<i class="' + (p.brocs[i] ? 'on' : '') + '" style="--tint:' + tint + '">' + l + '</i>';
+    }).join('') + '</div>';
+
+    inner.innerHTML = ''
+      + '<div class="po-hero">'
+      +   '<div>'
+      +     '<img class="po-logo" src="' + p.logo + '" alt="' + p.name + '">'
+      +     '<p class="po-tagline">' + p.tagline + '</p>'
+      +     '<p class="po-desc">' + p.desc + '</p>'
+      +     brocs
+      +     '<div class="po-ctas" style="margin-top:1.4rem">'
+      +       '<a class="bp" href="' + p.cta.href + '" target="_blank" rel="noopener">' + p.cta.label + '</a>'
+      +       '<a class="bp quiet" href="https://calliope.ai/blueprint/' + p.pid + '/" target="_blank" rel="noopener">Tech sheet ↗</a>'
+      +     '</div>'
+      +   '</div>'
+      +   '<div class="po-fig"></div>'
+      + '</div>'
+      + '<div class="po-features">' + feats + '</div>'
+      + '<div class="po-specs"><p class="po-specs-title">Specifications</p>' + specs + '</div>';
+  }
+
+  function openOverlay(pid) {
+    var p = PRODUCTS[pid];
+    if (!p) return;
+    crumbName.textContent = p.name.toUpperCase();
+    renderProduct(p);
+    overlay.classList.add('open');
+    overlay.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeOverlay() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  backBtn.addEventListener('click', closeOverlay);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeOverlay(); });
+
+  document.querySelectorAll('.part').forEach(function(part) {
+    part.style.cursor = 'pointer';
+    part.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function(e) { e.preventDefault(); });
+    });
+    part.addEventListener('click', function(e) {
+      var link = part.querySelector('a.partlink');
+      if (!link) return;
+      var pid = link.getAttribute('href').replace('#', '');
+      window.location.href = '/blueprint/' + pid + '/';
+    });
+  });
+})();
+});
+</script>
+<style>
+/* reset blueprint variables for the site-footer scope */
+.sf-scope {
+  --navy: #162345; --navy-deep: #0e1730; --navy-card: #1b2a52;
+  --cyan: #3ff1ef; --cyan-press: #25d6d4; --purple: #5a4dc7;
+  --fg: rgba(255,255,255,.94); --fg-soft: rgba(255,255,255,.78);
+  --muted: #8a91a2; --line: rgba(255,255,255,.11);
+  --ring: rgba(63,241,239,.28);
+  --l-bg: #eaf0fb; --l-card: #fff; --l-ink: #131a2e; --l-soft: #45506b;
+  --l-muted: #76819c; --l-line: rgba(19,26,46,.12); --l-accent: #5a4dc7;
+  --font-head: "DM Sans", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --maxw: 1140px; --radius: 6px;
+  font-family: var(--font-body);
+}
+.sf-scope .valley { display: none; }
+</style>
 </head>
 <body class="anim">
 
@@ -899,6 +1208,7 @@ html { scroll-padding-top: 66px; }
         <img class="bp-brand-logo" src="assets/calliope-ai.png" alt="Calliope AI" width="560" height="99">
       </a>
       <nav class="bp-nav" aria-label="Sections">
+        <a class="bp-nav-link" href="#" id="navtop">Start</a>
         <a class="bp-nav-link" href="#assembly">Assembly</a>
         <a class="bp-nav-link" href="#parts">Parts</a>
         <a class="bp-nav-link" href="#topologies">Topologies</a>
@@ -908,8 +1218,21 @@ html { scroll-padding-top: 66px; }
         <a class="bp-nav-link bp-nav-link--solo" href="https://calliope.ai/contact">Contact us</a>
         <a class="bp-btn bp-btn-primary" href="https://calliope.ai/blueprint/calliope-ai-deployment-blueprint.pdf" download>Download PDF</a>
       </div>
+      <button class="bp-burger" id="bp-burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
+  <div class="bp-mobile-menu" id="bp-mobile-menu" aria-hidden="true">
+    <nav>
+      <a class="bp-mobile-link" href="#" onclick="closeMobileMenu()">Start</a>
+      <a class="bp-mobile-link" href="#assembly" onclick="closeMobileMenu()">Assembly</a>
+      <a class="bp-mobile-link" href="#parts" onclick="closeMobileMenu()">Parts</a>
+      <a class="bp-mobile-link" href="#topologies" onclick="closeMobileMenu()">Topologies</a>
+      <a class="bp-mobile-link" href="#rollout" onclick="closeMobileMenu()">Rollout</a>
+      <a class="bp-mobile-link" href="https://calliope.ai/contact">Contact us</a>
+    </nav>
+  </div>
 </div>
 
 <div class="doc">
@@ -965,31 +1288,30 @@ html { scroll-padding-top: 66px; }
     something governs it, and something keeps it safe.<br><br>
     <a class="ext-link" href="https://leomata.com/blog/brocs/" target="_blank" rel="noopener">BROCS<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
     is that lifecycle written down: Build, Run, Observe, Control, Secure.<br><br>
-    This drawing is the framework as one assembly, standing inside your perimeter on
-    infrastructure you own, with each stage served by a Calliope AI machine.</p>
+    <mark class="drawing-mark">Scroll to the drawing — the framework as one assembly, standing inside your perimeter on infrastructure you own, with each stage served by a Calliope AI machine.</mark></p>
 </div>
 <nav class="mast-products" aria-label="The three machines">
   <p class="mp-lbl">The machines on this sheet</p>
-  <a href="https://calliope.ai/blueprint/workbench/"><img src="assets/calliope-ai.png" alt="Calliope AI Workbench" width="560" height="99"><span>Workbench →</span></a>
-  <a href="https://calliope.ai/blueprint/astrolift/"><img src="assets/astrolift.png" alt="Astrolift" width="560" height="108"><span>Runtime →</span></a>
-  <a href="https://calliope.ai/blueprint/zentinelle/"><img src="assets/zentinelle.png" alt="Zentinelle" width="560" height="86"><span>Governance →</span></a>
+  <a href="#workbench"><img src="assets/calliope-ai.png" alt="Calliope AI Workbench" width="560" height="99"><span>Workbench →</span></a>
+  <a href="#astrolift"><img src="assets/astrolift.png" alt="Astrolift" width="560" height="108"><span>Runtime →</span></a>
+  <a href="#zentinelle"><img src="assets/zentinelle.png" alt="Zentinelle" width="560" height="86"><span>Governance →</span></a>
 </nav>
 <img class="hero-brocs" src="assets/Calliope_brocs_2.png" alt="Calliope, muse of the blueprint" />
+<p class="hero-cue">SCROLL TO COMMISSION THE LINE ↓</p>
 </header>
 
 <!-- ------------------------------------------------------------- sheet 01 -->
 <section class="sheet sheet01 sheetanim armed done" id="assembly">
   <i class="reg tl"></i><i class="reg tr"></i><i class="reg bl"></i><i class="reg br"></i>
-  <div class="sheet-head"><span class="no">SHT 01</span>
+  <div class="sheet-head"><span class="no">01</span>
     <span class="what">The assembly · the AI surface</span>
-    <span class="when">SCALE NTS · DIMETRIC 2:1</span></div>
+</div>
   <div class="rail" id="rail" aria-label="Commission the line">
     <span class="lbl">Commission</span>
     <button class="stagebtn live" type="button" data-stage="build" style="--tint: #0AF0CE;"><b>B</b>Build</button><button class="stagebtn live here" type="button" data-stage="run" style="--tint: #7B8CFF;"><b>R</b>Run</button><button class="stagebtn" type="button" data-stage="observe" style="--tint: #7B8CFF;"><b>O</b>Observe</button><button class="stagebtn" type="button" data-stage="control" style="--tint: #F0B071;"><b>C</b>Control</button><button class="stagebtn" type="button" data-stage="secure" style="--tint: #F0B071;"><b>S</b>Secure</button>
     <span class="actions">
-      <button class="bp" id="playbtn" type="button">Run the line</button>
-      <button class="bp quiet" id="explodebtn" type="button" aria-pressed="false">Explode</button>
-      <button class="bp quiet" id="resetbtn" type="button">Back to ink</button>
+      <button class="bp" id="playbtn" type="button">Start animation</button>
+            <button class="bp quiet" id="resetbtn" type="button">Back</button>
     </span>
   </div>
   <div class="sheet-body" style="padding: 8px 6px 0;">
@@ -1006,7 +1328,6 @@ html { scroll-padding-top: 66px; }
 </g></svg>
     <p class="scrollhint">Scroll to commission the line</p>
     <div class="legend legend--chart">
-      <span>the drawing begins uncolored. scroll, and each machine powers on in its maker's color:</span>
       <span class="swatch" style="--sw:var(--wb)"><i></i>WORKBENCH</span>
       <span class="swatch" style="--sw:var(--al)"><i></i>ASTROLIFT</span>
       <span class="swatch" style="--sw:var(--zn)"><i></i>ZENTINELLE</span>
@@ -1020,13 +1341,15 @@ html { scroll-padding-top: 66px; }
         <ul class="points" id="lpoints"><li>Same manifest on vanilla K8s, EKS, GKE, AKS or bare metal</li><li>CI to rollout, with SBOM and CVE checks on the way through</li><li>MIT licensed, adopt without procurement, a CLI agents can wield</li></ul>
         <div class="lserves" id="lserves"><div class="serve" style="--tint:#7B8CFF"><i></i>Astrolift<span class="w">full coverage</span></div><div class="serve" style="--tint:#0AF0CE"><i></i>Calliope AI Workbench<span class="w">full coverage</span></div></div>
         <div class="lrow">
-          <span id="lctas"><a class="bp" href="https://astrolift.ai/" target="_blank" rel="noopener">astrolift.ai ↗</a> </span>
-          <a class="bp quiet" id="lsheet" href="https://calliope.ai/blueprint/run/">Tech sheet ↗</a>
-          <span class="lnav">
+          <div class="lrow-ctas">
+            <span id="lctas"><a class="bp" href="https://astrolift.ai/" target="_blank" rel="noopener">astrolift.ai ↗</a></span>
+            <a class="bp quiet" id="lsheet" href="https://calliope.ai/blueprint/run/">Tech sheet ↗</a>
+          </div>
+          <div class="lrow-nav">
             <button class="bp quiet" id="lprev" type="button" aria-label="Previous stage">←</button>
             <button class="bp quiet" id="lnext" type="button" aria-label="Next stage">→</button>
-            <button class="bp" id="lback" type="button">Back to the assembly</button>
-          </span>
+            <button class="bp quiet" id="lback" type="button">Back to the assembly</button>
+          </div>
         </div>
       </div>
     </div>
@@ -1034,52 +1357,51 @@ html { scroll-padding-top: 66px; }
     </div>
   </div>
   <div class="cardrow">
+  </div>
+
+  <!-- === AI surface summary slide === -->
+  <div class="ai-surface-slide" id="ai-surface">
     <div class="stagecard" id="stagecard" aria-live="polite">
-      <div class="let" id="cardlet" style="--tint: #7B8CFF;">R</div>
+      <div class="let" id="cardlet" style="--tint: #0AF0CE;">AI</div>
       <div>
-        <h3 id="cardname">Run</h3>
-        <p class="tagline" id="cardtag">Deploy and serve at scale</p>
-        <p class="note" id="cardnote">Multi-cloud and on-prem Kubernetes PaaS; the Workbench carries the dev runtime.</p>
+        <h3 id="cardname">The AI surface</h3>
+        <p class="tagline" id="cardtag">All five stages commissioned</p>
+        <p class="note" id="cardnote">An app or agent is built in Workbench, runs on Astrolift, and is observed, controlled, and secured by Zentinelle, all provisioned and governed through Client Cove.</p>
       </div>
     </div>
     <div class="servedby">
       <p class="lbl">Served by</p>
-      <div id="cardserves"><div class="serve" style="--tint:#7B8CFF"><i></i>Astrolift<span class="w">full coverage</span></div><div class="serve" style="--tint:#0AF0CE"><i></i>Calliope AI Workbench<span class="w">full coverage</span></div></div>
+      <div id="cardserves"><div class="serve" style="--tint:#7B8CFF"><i></i>Astrolift<span class="w">full coverage</span></div><div class="serve" style="--tint:#0AF0CE"><i></i>Calliope AI Workbench<span class="w">full coverage</span></div><div class="serve" style="--tint:#F0B071"><i></i>Zentinelle<span class="w">full coverage</span></div></div>
     </div>
-  </div>
-  <div class="notes">
-    <p class="ntitle">General notes</p>
-    <ol>
-      <li>Everything runs in your environment. Your cloud, your racks, your
-        rules.</li>
-      <li>Any model welcome: local open weights, cloud hosted, or bring your
-        own, served inside.</li>
-      <li>Nothing leaves the perimeter. Models, prompts, data and audit stay
-        in.</li>
-      <li>Lead time drops. One integrated happy path from idea to governed
-        production.</li>
-      <li>Technical and business builders alike get autonomy and flexibility,
-        while the org keeps control and visibility.</li>
-    </ol>
-  </div>
-  <div class="sheet-foot">
-    <div><span>Drawing</span><b>The AI surface</b></div>
-    <div><span>Projection</span><b>Dimetric 2:1</b></div>
-    <div><span>Stages</span><b>B · R · O · C · S</b></div>
-    <div><span>Perimeter</span><b>Yours</b></div>
-    <div><span>Egress</span><b>None required</b></div>
+    <div class="notes">
+      <p class="ntitle">General notes</p>
+      <ol>
+        <li>Everything runs in your environment. Your cloud, your racks, your rules.</li>
+        <li>Any model welcome: local open weights, cloud hosted, or bring your own, served inside.</li>
+        <li>Nothing leaves the perimeter. Models, prompts, data and audit stay in.</li>
+        <li>Lead time drops. One integrated happy path from idea to governed production.</li>
+        <li>Technical and business builders alike get autonomy and flexibility, while the org keeps control and visibility.</li>
+      </ol>
+    </div>
+    <div class="sheet-foot">
+      <div><span>Drawing</span><b>The AI surface</b></div>
+      <div><span>Projection</span><b>Dimetric 2:1</b></div>
+      <div><span>Stages</span><b>B · R · O · C · S</b></div>
+      <div><span>Perimeter</span><b>Yours</b></div>
+      <div><span>Egress</span><b>None required</b></div>
+    </div>
   </div>
 </section>
 
 <!-- ------------------------------------------------------------- sheet 02 -->
 <section class="sheet sheet02 sheetanim" id="parts">
   <i class="reg tl"></i><i class="reg tr"></i><i class="reg bl"></i><i class="reg br"></i>
-  <div class="sheet-head"><span class="no">SHT 02</span>
+  <div class="sheet-head"><span class="no">02</span>
     <span class="what">Parts list · the three machines</span>
     <span class="when">EXPLODED · NTS</span></div>
   <div class="parts">
     <div class="part">
-      <a class="partlink" href="https://calliope.ai/blueprint/workbench/">
+      <a class="partlink" href="#workbench">
         <figure><svg class="iso partfig" viewBox="0 0 360 300" role="img" aria-label="Calliope AI Workbench part drawing, exploded"><g class="rule"><path d="M208.05 163.68 L95.85 219.78" pathLength="1"></path><path d="M236.1 177.7 L123.9 233.8" pathLength="1"></path><path d="M264.15 191.73 L151.95 247.83" pathLength="1"></path><path d="M151.95 163.68 L264.15 219.78" pathLength="1"></path><path d="M123.9 177.7 L236.1 233.8" pathLength="1"></path><path d="M95.85 191.73 L208.05 247.83" pathLength="1"></path></g><g class="ext"><path d="M168 143.65 L180 149.65"></path><path d="M292.2 205.75 L304.2 211.75"></path><path d="M304.2 199.75 L292.2 205.75"></path><path d="M180 261.85 L168 267.85"></path><path d="M192 267.85 L180 261.85"></path><path d="M67.8 205.75 L55.8 199.75"></path><path d="M55.8 211.75 L67.8 205.75"></path><path d="M180 149.65 L192 143.65"></path></g><g class="hatch"></g><g class="hid"><path d="M180 155.9 L180 149.65"></path><path d="M180 155.9 L292.2 212"></path><path d="M180 155.9 L67.8 212"></path></g><g class="edge2"><path d="M180 149.65 L292.2 205.75 L180 261.85 L67.8 205.75 Z" pathLength="1"></path><path d="M292.2 212 L292.2 205.75" pathLength="1"></path><path d="M180 268.1 L180 261.85" pathLength="1"></path><path d="M67.8 212 L67.8 205.75" pathLength="1"></path><path d="M292.2 212 L180 268.1" pathLength="1"></path><path d="M180 268.1 L67.8 212" pathLength="1"></path></g><g class="station live nofade" style="--tint:#0AF0CE;--xe:0.55"><path class="stalign" style="opacity:.8" d="M180 205.75 L180 93.75"></path><g class="mach"><g class="spoke"><path d="M180 194.3 L157.9 183.25" pathLength="1"></path><path d="M180 194.3 L202.1 205.35" pathLength="1"></path><path d="M180 194.3 L202.1 183.25" pathLength="1"></path><path d="M180 194.3 L157.9 205.35" pathLength="1"></path><path d="M180 194.3 L180 176.51" pathLength="1"></path><path d="M180 194.3 L231 202.01" pathLength="1"></path><path d="M180 194.3 L129 202.01" pathLength="1"></path><path d="M180 194.3 L180 227.51" pathLength="1"></path></g><g class="face"><path d="M157.9 174.75 L174.9 183.25 L157.9 191.75 L140.9 183.25 Z"></path><path d="M174.9 194.7 L157.9 203.2 L157.9 191.75 L174.9 183.25 Z"></path><path d="M157.9 203.2 L140.9 194.7 L140.9 183.25 L157.9 191.75 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M157.9 186.2 L157.9 174.75"></path><path d="M157.9 186.2 L174.9 194.7"></path><path d="M157.9 186.2 L140.9 194.7"></path></g><g class="edge"><path d="M157.9 174.75 L174.9 183.25 L157.9 191.75 L140.9 183.25 Z" pathLength="1"></path><path d="M174.9 194.7 L174.9 183.25" pathLength="1"></path><path d="M157.9 203.2 L157.9 191.75" pathLength="1"></path><path d="M140.9 194.7 L140.9 183.25" pathLength="1"></path><path d="M174.9 194.7 L157.9 203.2" pathLength="1"></path><path d="M157.9 203.2 L140.9 194.7" pathLength="1"></path></g><g class="face"><path d="M202.1 174.75 L219.1 183.25 L202.1 191.75 L185.1 183.25 Z"></path><path d="M219.1 194.7 L202.1 203.2 L202.1 191.75 L219.1 183.25 Z"></path><path d="M202.1 203.2 L185.1 194.7 L185.1 183.25 L202.1 191.75 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M202.1 186.2 L202.1 174.75"></path><path d="M202.1 186.2 L219.1 194.7"></path><path d="M202.1 186.2 L185.1 194.7"></path></g><g class="edge"><path d="M202.1 174.75 L219.1 183.25 L202.1 191.75 L185.1 183.25 Z" pathLength="1"></path><path d="M219.1 194.7 L219.1 183.25" pathLength="1"></path><path d="M202.1 203.2 L202.1 191.75" pathLength="1"></path><path d="M185.1 194.7 L185.1 183.25" pathLength="1"></path><path d="M219.1 194.7 L202.1 203.2" pathLength="1"></path><path d="M202.1 203.2 L185.1 194.7" pathLength="1"></path></g><g class="face"><path d="M202.1 196.85 L219.1 205.35 L202.1 213.85 L185.1 205.35 Z"></path><path d="M219.1 216.8 L202.1 225.3 L202.1 213.85 L219.1 205.35 Z"></path><path d="M202.1 225.3 L185.1 216.8 L185.1 205.35 L202.1 213.85 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M202.1 208.3 L202.1 196.85"></path><path d="M202.1 208.3 L219.1 216.8"></path><path d="M202.1 208.3 L185.1 216.8"></path></g><g class="edge"><path d="M202.1 196.85 L219.1 205.35 L202.1 213.85 L185.1 205.35 Z" pathLength="1"></path><path d="M219.1 216.8 L219.1 205.35" pathLength="1"></path><path d="M202.1 225.3 L202.1 213.85" pathLength="1"></path><path d="M185.1 216.8 L185.1 205.35" pathLength="1"></path><path d="M219.1 216.8 L202.1 225.3" pathLength="1"></path><path d="M202.1 225.3 L185.1 216.8" pathLength="1"></path></g><g class="face"><path d="M157.9 196.85 L174.9 205.35 L157.9 213.85 L140.9 205.35 Z"></path><path d="M174.9 216.8 L157.9 225.3 L157.9 213.85 L174.9 205.35 Z"></path><path d="M157.9 225.3 L140.9 216.8 L140.9 205.35 L157.9 213.85 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M157.9 208.3 L157.9 196.85"></path><path d="M157.9 208.3 L174.9 216.8"></path><path d="M157.9 208.3 L140.9 216.8"></path></g><g class="edge"><path d="M157.9 196.85 L174.9 205.35 L157.9 213.85 L140.9 205.35 Z" pathLength="1"></path><path d="M174.9 216.8 L174.9 205.35" pathLength="1"></path><path d="M157.9 225.3 L157.9 213.85" pathLength="1"></path><path d="M140.9 216.8 L140.9 205.35" pathLength="1"></path><path d="M174.9 216.8 L157.9 225.3" pathLength="1"></path><path d="M157.9 225.3 L140.9 216.8" pathLength="1"></path></g><g class="face"><path d="M180 175.97 L202.1 187.02 L180 198.07 L157.9 187.02 Z"></path><path d="M202.1 205.75 L180 216.8 L180 198.07 L202.1 187.02 Z"></path><path d="M180 216.8 L157.9 205.75 L157.9 187.02 L180 198.07 Z"></path></g><g class="hatch"><path d="M202.1 200.75 L180 211.8"></path><path d="M202.1 195.75 L180 206.8"></path><path d="M202.1 190.75 L180 201.8"></path></g><g class="hid"><path d="M180 194.7 L180 175.97"></path><path d="M180 194.7 L202.1 205.75"></path><path d="M180 194.7 L157.9 205.75"></path></g><g class="edge"><path d="M180 175.97 L202.1 187.02 L180 198.07 L157.9 187.02 Z" pathLength="1"></path><path d="M202.1 205.75 L202.1 187.02" pathLength="1"></path><path d="M180 216.8 L180 198.07" pathLength="1"></path><path d="M157.9 205.75 L157.9 187.02" pathLength="1"></path><path d="M202.1 205.75 L180 216.8" pathLength="1"></path><path d="M180 216.8 L157.9 205.75" pathLength="1"></path></g><path class="axis" d="M180 180.25 L180 168.8"></path><circle class="node" cx="180" cy="164.01" r="2.38"></circle><path class="axis" d="M231 205.75 L231 194.3"></path><circle class="node" cx="231" cy="189.51" r="2.38"></circle><path class="axis" d="M129 205.75 L129 194.3"></path><circle class="node" cx="129" cy="189.51" r="2.38"></circle><path class="axis" d="M180 231.25 L180 219.8"></path><circle class="node" cx="180" cy="215.01" r="2.38"></circle><g class="xl1"><g class="face"><path d="M157.9 171.72 L166.4 175.97 L157.9 180.22 L149.4 175.97 Z"></path><path d="M166.4 183.25 L157.9 187.5 L157.9 180.22 L166.4 175.97 Z"></path><path d="M157.9 187.5 L149.4 183.25 L149.4 175.97 L157.9 180.22 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M157.9 179 L157.9 171.72"></path><path d="M157.9 179 L166.4 183.25"></path><path d="M157.9 179 L149.4 183.25"></path></g><g class="edge"><path d="M157.9 171.72 L166.4 175.97 L157.9 180.22 L149.4 175.97 Z" pathLength="1"></path><path d="M166.4 183.25 L166.4 175.97" pathLength="1"></path><path d="M157.9 187.5 L157.9 180.22" pathLength="1"></path><path d="M149.4 183.25 L149.4 175.97" pathLength="1"></path><path d="M166.4 183.25 L157.9 187.5" pathLength="1"></path><path d="M157.9 187.5 L149.4 183.25" pathLength="1"></path></g><g class="face"><path d="M157.9 193.82 L166.4 198.07 L157.9 202.32 L149.4 198.07 Z"></path><path d="M166.4 205.35 L157.9 209.6 L157.9 202.32 L166.4 198.07 Z"></path><path d="M157.9 209.6 L149.4 205.35 L149.4 198.07 L157.9 202.32 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M157.9 201.1 L157.9 193.82"></path><path d="M157.9 201.1 L166.4 205.35"></path><path d="M157.9 201.1 L149.4 205.35"></path></g><g class="edge"><path d="M157.9 193.82 L166.4 198.07 L157.9 202.32 L149.4 198.07 Z" pathLength="1"></path><path d="M166.4 205.35 L166.4 198.07" pathLength="1"></path><path d="M157.9 209.6 L157.9 202.32" pathLength="1"></path><path d="M149.4 205.35 L149.4 198.07" pathLength="1"></path><path d="M166.4 205.35 L157.9 209.6" pathLength="1"></path><path d="M157.9 209.6 L149.4 205.35" pathLength="1"></path></g><g class="face"><path d="M180 155.46 L183.74 157.33 L180 159.2 L176.26 157.33 Z"></path><path d="M183.74 189.6 L180 191.47 L180 159.2 L183.74 157.33 Z"></path><path d="M180 191.47 L176.26 189.6 L176.26 157.33 L180 159.2 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M180 187.73 L180 155.46"></path><path d="M180 187.73 L183.74 189.6"></path><path d="M180 187.73 L176.26 189.6"></path></g><g class="edge"><path d="M180 155.46 L183.74 157.33 L180 159.2 L176.26 157.33 Z" pathLength="1"></path><path d="M183.74 189.6 L183.74 157.33" pathLength="1"></path><path d="M180 191.47 L180 159.2" pathLength="1"></path><path d="M176.26 189.6 L176.26 157.33" pathLength="1"></path><path d="M183.74 189.6 L180 191.47" pathLength="1"></path><path d="M180 191.47 L176.26 189.6" pathLength="1"></path></g><g class="face"><path d="M212.3 171.61 L216.04 173.48 L212.3 175.35 L208.56 173.48 Z"></path><path d="M216.04 205.75 L212.3 207.62 L212.3 175.35 L216.04 173.48 Z"></path><path d="M212.3 207.62 L208.56 205.75 L208.56 173.48 L212.3 175.35 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M212.3 203.88 L212.3 171.61"></path><path d="M212.3 203.88 L216.04 205.75"></path><path d="M212.3 203.88 L208.56 205.75"></path></g><g class="edge"><path d="M212.3 171.61 L216.04 173.48 L212.3 175.35 L208.56 173.48 Z" pathLength="1"></path><path d="M216.04 205.75 L216.04 173.48" pathLength="1"></path><path d="M212.3 207.62 L212.3 175.35" pathLength="1"></path><path d="M208.56 205.75 L208.56 173.48" pathLength="1"></path><path d="M216.04 205.75 L212.3 207.62" pathLength="1"></path><path d="M212.3 207.62 L208.56 205.75" pathLength="1"></path></g><g class="face"><path d="M147.7 171.61 L151.44 173.48 L147.7 175.35 L143.96 173.48 Z"></path><path d="M151.44 205.75 L147.7 207.62 L147.7 175.35 L151.44 173.48 Z"></path><path d="M147.7 207.62 L143.96 205.75 L143.96 173.48 L147.7 175.35 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M147.7 203.88 L147.7 171.61"></path><path d="M147.7 203.88 L151.44 205.75"></path><path d="M147.7 203.88 L143.96 205.75"></path></g><g class="edge"><path d="M147.7 171.61 L151.44 173.48 L147.7 175.35 L143.96 173.48 Z" pathLength="1"></path><path d="M151.44 205.75 L151.44 173.48" pathLength="1"></path><path d="M147.7 207.62 L147.7 175.35" pathLength="1"></path><path d="M143.96 205.75 L143.96 173.48" pathLength="1"></path><path d="M151.44 205.75 L147.7 207.62" pathLength="1"></path><path d="M147.7 207.62 L143.96 205.75" pathLength="1"></path></g><g class="face"><path d="M180 187.76 L183.74 189.63 L180 191.5 L176.26 189.63 Z"></path><path d="M183.74 221.9 L180 223.77 L180 191.5 L183.74 189.63 Z"></path><path d="M180 223.77 L176.26 221.9 L176.26 189.63 L180 191.5 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M180 220.03 L180 187.76"></path><path d="M180 220.03 L183.74 221.9"></path><path d="M180 220.03 L176.26 221.9"></path></g><g class="edge"><path d="M180 187.76 L183.74 189.63 L180 191.5 L176.26 189.63 Z" pathLength="1"></path><path d="M183.74 221.9 L183.74 189.63" pathLength="1"></path><path d="M180 223.77 L180 191.5" pathLength="1"></path><path d="M176.26 221.9 L176.26 189.63" pathLength="1"></path><path d="M183.74 221.9 L180 223.77" pathLength="1"></path><path d="M180 223.77 L176.26 221.9" pathLength="1"></path></g><g class="face"><path d="M180 164.79 L195.3 172.44 L180 180.09 L164.7 172.44 Z"></path><path d="M195.3 187.02 L180 194.67 L180 180.09 L195.3 172.44 Z"></path><path d="M180 194.67 L164.7 187.02 L164.7 172.44 L180 180.09 Z"></path></g><g class="hatch"><path d="M195.3 182.42 L180 190.07"></path><path d="M195.3 177.82 L180 185.47"></path></g><g class="hid"><path d="M180 179.37 L180 164.79"></path><path d="M180 179.37 L195.3 187.02"></path><path d="M180 179.37 L164.7 187.02"></path></g><g class="edge"><path d="M180 164.79 L195.3 172.44 L180 180.09 L164.7 172.44 Z" pathLength="1"></path><path d="M195.3 187.02 L195.3 172.44" pathLength="1"></path><path d="M180 194.67 L180 180.09" pathLength="1"></path><path d="M164.7 187.02 L164.7 172.44" pathLength="1"></path><path d="M195.3 187.02 L180 194.67" pathLength="1"></path><path d="M180 194.67 L164.7 187.02" pathLength="1"></path></g></g><g class="xl2"><g class="face"><path d="M180 163.18 L190.2 168.28 L180 173.38 L169.8 168.28 Z"></path><path d="M190.2 172.44 L180 177.54 L180 173.38 L190.2 168.28 Z"></path><path d="M180 177.54 L169.8 172.44 L169.8 168.28 L180 173.38 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M180 167.34 L180 163.18"></path><path d="M180 167.34 L190.2 172.44"></path><path d="M180 167.34 L169.8 172.44"></path></g><g class="edge"><path d="M180 163.18 L190.2 168.28 L180 173.38 L169.8 168.28 Z" pathLength="1"></path><path d="M190.2 172.44 L190.2 168.28" pathLength="1"></path><path d="M180 177.54 L180 173.38" pathLength="1"></path><path d="M169.8 172.44 L169.8 168.28" pathLength="1"></path><path d="M190.2 172.44 L180 177.54" pathLength="1"></path><path d="M180 177.54 L169.8 172.44" pathLength="1"></path></g><g class="face"><path d="M180 160.71 L186.8 164.11 L180 167.51 L173.2 164.11 Z"></path><path d="M186.8 168.28 L180 171.68 L180 167.51 L186.8 164.11 Z"></path><path d="M180 171.68 L173.2 168.28 L173.2 164.11 L180 167.51 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M180 164.88 L180 160.71"></path><path d="M180 164.88 L186.8 168.28"></path><path d="M180 164.88 L173.2 168.28"></path></g><g class="edge"><path d="M180 160.71 L186.8 164.11 L180 167.51 L173.2 164.11 Z" pathLength="1"></path><path d="M186.8 168.28 L186.8 164.11" pathLength="1"></path><path d="M180 171.68 L180 167.51" pathLength="1"></path><path d="M173.2 168.28 L173.2 164.11" pathLength="1"></path><path d="M186.8 168.28 L180 171.68" pathLength="1"></path><path d="M180 171.68 L173.2 168.28" pathLength="1"></path></g><path class="axis" d="M180 164.11 L180 151.62"></path></g></g></g><circle class="node" cx="180" cy="119.88" r="2.6"></circle><path class="lead" d="M180 119.88 L214 46 L222 46"></path><text class="callout" x="226" y="42" text-anchor="start">the artifact</text><text class="callsub" x="226" y="55" text-anchor="start">ships with its manifest</text><circle class="node" cx="157.9" cy="163.45" r="2.6"></circle><path class="lead" d="M157.9 163.45 L142 268 L134 268"></path><text class="callout" x="130" y="264" text-anchor="end">tool benches</text><text class="callsub" x="130" y="277" text-anchor="end">IDE, notebooks, SQL, chat</text><text class="stamp" x="18" y="30">FIG. 1</text><text class="stampsub" x="18" y="45">THE WORKBENCH . EXPLODED</text></svg></figure>
         <h3>Calliope AI Workbench <span class="go">→</span></h3>
       </a>
@@ -1088,10 +1410,9 @@ html { scroll-padding-top: 66px; }
       <p>Compose apps and agents on one governed bench. The tool stack your
         builders already reach for, assembled and installed inside your
         perimeter through the Workbench Installer.</p>
-      <a class="site" href="https://calliope.ai/" target="_blank" rel="noopener">calliope.ai ↗</a>
     </div>
     <div class="part">
-      <a class="partlink" href="https://calliope.ai/blueprint/astrolift/">
+      <a class="partlink" href="#astrolift">
         <figure><svg class="iso partfig" viewBox="0 0 360 300" role="img" aria-label="Astrolift part drawing, exploded"><g class="rule"><path d="M206.4 178.52 L100.8 231.32" pathLength="1"></path><path d="M232.8 191.72 L127.2 244.52" pathLength="1"></path><path d="M259.2 204.92 L153.6 257.72" pathLength="1"></path><path d="M153.6 178.52 L259.2 231.32" pathLength="1"></path><path d="M127.2 191.72 L232.8 244.52" pathLength="1"></path><path d="M100.8 204.92 L206.4 257.72" pathLength="1"></path></g><g class="ext"><path d="M168 159.32 L180 165.32"></path><path d="M285.6 218.12 L297.6 224.12"></path><path d="M297.6 212.12 L285.6 218.12"></path><path d="M180 270.92 L168 276.92"></path><path d="M192 276.92 L180 270.92"></path><path d="M74.4 218.12 L62.4 212.12"></path><path d="M62.4 224.12 L74.4 218.12"></path><path d="M180 165.32 L192 159.32"></path></g><g class="hatch"></g><g class="hid"><path d="M180 171.2 L180 165.32"></path><path d="M180 171.2 L285.6 224"></path><path d="M180 171.2 L74.4 224"></path></g><g class="edge2"><path d="M180 165.32 L285.6 218.12 L180 270.92 L74.4 218.12 Z" pathLength="1"></path><path d="M285.6 224 L285.6 218.12" pathLength="1"></path><path d="M180 276.8 L180 270.92" pathLength="1"></path><path d="M74.4 224 L74.4 218.12" pathLength="1"></path><path d="M285.6 224 L180 276.8" pathLength="1"></path><path d="M180 276.8 L74.4 224" pathLength="1"></path></g><g class="station live nofade" style="--tint:#7B8CFF;--xe:0.55"><path class="stalign" style="opacity:.8" d="M180 218.12 L180 90.12"></path><g class="mach"><g class="face"><path d="M180 185.12 L226.4 208.32 L180 231.52 L133.6 208.32 Z"></path><path d="M226.4 218.12 L180 241.32 L180 231.52 L226.4 208.32 Z"></path><path d="M180 241.32 L133.6 218.12 L133.6 208.32 L180 231.52 Z"></path></g><g class="hatch"><path d="M226.4 213.12 L180 236.32"></path></g><g class="hid"><path d="M180 194.92 L180 185.12"></path><path d="M180 194.92 L226.4 218.12"></path><path d="M180 194.92 L133.6 218.12"></path></g><g class="edge"><path d="M180 185.12 L226.4 208.32 L180 231.52 L133.6 208.32 Z" pathLength="1"></path><path d="M226.4 218.12 L226.4 208.32" pathLength="1"></path><path d="M180 241.32 L180 231.52" pathLength="1"></path><path d="M133.6 218.12 L133.6 208.32" pathLength="1"></path><path d="M226.4 218.12 L180 241.32" pathLength="1"></path><path d="M180 241.32 L133.6 218.12" pathLength="1"></path></g><g class="xl1"><g class="face"><path d="M180 136.29 L182.88 137.73 L180 139.17 L177.12 137.73 Z"></path><path d="M182.88 186.72 L180 188.16 L180 139.17 L182.88 137.73 Z"></path><path d="M180 188.16 L177.12 186.72 L177.12 137.73 L180 139.17 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M180 185.28 L180 136.29"></path><path d="M180 185.28 L182.88 186.72"></path><path d="M180 185.28 L177.12 186.72"></path></g><g class="edge"><path d="M180 136.29 L182.88 137.73 L180 139.17 L177.12 137.73 Z" pathLength="1"></path><path d="M182.88 186.72 L182.88 137.73" pathLength="1"></path><path d="M180 188.16 L180 139.17" pathLength="1"></path><path d="M177.12 186.72 L177.12 137.73" pathLength="1"></path><path d="M182.88 186.72 L180 188.16" pathLength="1"></path><path d="M180 188.16 L177.12 186.72" pathLength="1"></path></g><g class="face"><path d="M223.2 157.89 L226.08 159.33 L223.2 160.77 L220.32 159.33 Z"></path><path d="M226.08 208.32 L223.2 209.76 L223.2 160.77 L226.08 159.33 Z"></path><path d="M223.2 209.76 L220.32 208.32 L220.32 159.33 L223.2 160.77 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M223.2 206.88 L223.2 157.89"></path><path d="M223.2 206.88 L226.08 208.32"></path><path d="M223.2 206.88 L220.32 208.32"></path></g><g class="edge"><path d="M223.2 157.89 L226.08 159.33 L223.2 160.77 L220.32 159.33 Z" pathLength="1"></path><path d="M226.08 208.32 L226.08 159.33" pathLength="1"></path><path d="M223.2 209.76 L223.2 160.77" pathLength="1"></path><path d="M220.32 208.32 L220.32 159.33" pathLength="1"></path><path d="M226.08 208.32 L223.2 209.76" pathLength="1"></path><path d="M223.2 209.76 L220.32 208.32" pathLength="1"></path></g><g class="face"><path d="M136.8 157.89 L139.68 159.33 L136.8 160.77 L133.92 159.33 Z"></path><path d="M139.68 208.32 L136.8 209.76 L136.8 160.77 L139.68 159.33 Z"></path><path d="M136.8 209.76 L133.92 208.32 L133.92 159.33 L136.8 160.77 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M136.8 206.88 L136.8 157.89"></path><path d="M136.8 206.88 L139.68 208.32"></path><path d="M136.8 206.88 L133.92 208.32"></path></g><g class="edge"><path d="M136.8 157.89 L139.68 159.33 L136.8 160.77 L133.92 159.33 Z" pathLength="1"></path><path d="M139.68 208.32 L139.68 159.33" pathLength="1"></path><path d="M136.8 209.76 L136.8 160.77" pathLength="1"></path><path d="M133.92 208.32 L133.92 159.33" pathLength="1"></path><path d="M139.68 208.32 L136.8 209.76" pathLength="1"></path><path d="M136.8 209.76 L133.92 208.32" pathLength="1"></path></g><g class="face"><path d="M180 179.49 L182.88 180.93 L180 182.37 L177.12 180.93 Z"></path><path d="M182.88 229.92 L180 231.36 L180 182.37 L182.88 180.93 Z"></path><path d="M180 231.36 L177.12 229.92 L177.12 180.93 L180 182.37 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M180 228.48 L180 179.49"></path><path d="M180 228.48 L182.88 229.92"></path><path d="M180 228.48 L177.12 229.92"></path></g><g class="edge"><path d="M180 179.49 L182.88 180.93 L180 182.37 L177.12 180.93 Z" pathLength="1"></path><path d="M182.88 229.92 L182.88 180.93" pathLength="1"></path><path d="M180 231.36 L180 182.37" pathLength="1"></path><path d="M177.12 229.92 L177.12 180.93" pathLength="1"></path><path d="M182.88 229.92 L180 231.36" pathLength="1"></path><path d="M180 231.36 L177.12 229.92" pathLength="1"></path></g><g class="face"><path d="M180 173.23 L212.96 189.71 L180 206.19 L147.04 189.71 Z"></path><path d="M212.96 199.51 L180 215.99 L180 206.19 L212.96 189.71 Z"></path><path d="M180 215.99 L147.04 199.51 L147.04 189.71 L180 206.19 Z"></path></g><g class="hatch"><path d="M212.96 194.51 L180 210.99"></path></g><g class="hid"><path d="M180 183.03 L180 173.23"></path><path d="M180 183.03 L212.96 199.51"></path><path d="M180 183.03 L147.04 199.51"></path></g><g class="edge"><path d="M180 173.23 L212.96 189.71 L180 206.19 L147.04 189.71 Z" pathLength="1"></path><path d="M212.96 199.51 L212.96 189.71" pathLength="1"></path><path d="M180 215.99 L180 206.19" pathLength="1"></path><path d="M147.04 199.51 L147.04 189.71" pathLength="1"></path><path d="M212.96 199.51 L180 215.99" pathLength="1"></path><path d="M180 215.99 L147.04 199.51" pathLength="1"></path></g></g><g class="xl2"><g class="face"><path d="M180 161.33 L199.52 171.09 L180 180.85 L160.48 171.09 Z"></path><path d="M199.52 180.89 L180 190.65 L180 180.85 L199.52 171.09 Z"></path><path d="M180 190.65 L160.48 180.89 L160.48 171.09 L180 180.85 Z"></path></g><g class="hatch"><path d="M199.52 175.89 L180 185.65"></path></g><g class="hid"><path d="M180 171.13 L180 161.33"></path><path d="M180 171.13 L199.52 180.89"></path><path d="M180 171.13 L160.48 180.89"></path></g><g class="edge"><path d="M180 161.33 L199.52 171.09 L180 180.85 L160.48 171.09 Z" pathLength="1"></path><path d="M199.52 180.89 L199.52 171.09" pathLength="1"></path><path d="M180 190.65 L180 180.85" pathLength="1"></path><path d="M160.48 180.89 L160.48 171.09" pathLength="1"></path><path d="M199.52 180.89 L180 190.65" pathLength="1"></path><path d="M180 190.65 L160.48 180.89" pathLength="1"></path></g><g class="face"><path d="M180 146.57 L190.24 151.69 L180 156.81 L169.76 151.69 Z"></path><path d="M190.24 164.23 L180 169.35 L180 156.81 L190.24 151.69 Z"></path><path d="M180 169.35 L169.76 164.23 L169.76 151.69 L180 156.81 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M180 159.11 L180 146.57"></path><path d="M180 159.11 L190.24 164.23"></path><path d="M180 159.11 L169.76 164.23"></path></g><g class="edge"><path d="M180 146.57 L190.24 151.69 L180 156.81 L169.76 151.69 Z" pathLength="1"></path><path d="M190.24 164.23 L190.24 151.69" pathLength="1"></path><path d="M180 169.35 L180 156.81" pathLength="1"></path><path d="M169.76 164.23 L169.76 151.69" pathLength="1"></path><path d="M190.24 164.23 L180 169.35" pathLength="1"></path><path d="M180 169.35 L169.76 164.23" pathLength="1"></path></g><path class="axis" d="M180 151.69 L180 136.8"></path><path class="axis" d="M180 136.8 L182.44 142.28"></path><path class="axis" d="M180 136.8 L177.56 142.28"></path></g></g></g><circle class="node" cx="180" cy="105.05" r="2.6"></circle><path class="lead" d="M180 105.05 L214 46 L222 46"></path><text class="callout" x="226" y="42" text-anchor="start">your workload</text><text class="callsub" x="226" y="55" text-anchor="start">apps, agents, services</text><circle class="node" cx="143.2" cy="194.22" r="2.6"></circle><path class="lead" d="M143.2 194.22 L160 268 L152 268"></path><text class="callout" x="148" y="264" text-anchor="end">foundation</text><text class="callsub" x="148" y="277" text-anchor="end">your cluster, any cloud</text><text class="stamp" x="18" y="30">FIG. 2</text><text class="stampsub" x="18" y="45">THE LIFT . EXPLODED</text></svg></figure>
         <h3>Astrolift <span class="go">→</span></h3>
       </a>
@@ -1100,10 +1421,9 @@ html { scroll-padding-top: 66px; }
       <p>Deploy and serve at scale. A multi-cloud and on-prem Kubernetes PaaS
         that lifts what the bench built into production and streams the
         platform telemetry back.</p>
-      <a class="site" href="https://astrolift.ai/" target="_blank" rel="noopener">astrolift.ai ↗</a>
     </div>
     <div class="part">
-      <a class="partlink" href="https://calliope.ai/blueprint/zentinelle/">
+      <a class="partlink" href="#zentinelle">
         <figure><svg class="iso partfig" viewBox="0 0 360 300" role="img" aria-label="Zentinelle part drawing, exploded"><g class="rule"><path d="M209.06 147.81 L92.81 205.94" pathLength="1"></path><path d="M238.12 162.34 L121.88 220.47" pathLength="1"></path><path d="M267.19 176.88 L150.94 235" pathLength="1"></path><path d="M150.94 147.81 L267.19 205.94" pathLength="1"></path><path d="M121.88 162.34 L238.12 220.47" pathLength="1"></path><path d="M92.81 176.88 L209.06 235" pathLength="1"></path></g><g class="ext"><path d="M168 127.28 L180 133.28"></path><path d="M296.25 191.41 L308.25 197.41"></path><path d="M308.25 185.41 L296.25 191.41"></path><path d="M180 249.53 L168 255.53"></path><path d="M192 255.53 L180 249.53"></path><path d="M63.75 191.41 L51.75 185.41"></path><path d="M51.75 197.41 L63.75 191.41"></path><path d="M180 133.28 L192 127.28"></path></g><g class="hatch"></g><g class="hid"><path d="M180 137.88 L180 133.28"></path><path d="M180 137.88 L296.25 196"></path><path d="M180 137.88 L63.75 196"></path></g><g class="edge2"><path d="M180 133.28 L296.25 191.41 L180 249.53 L63.75 191.41 Z" pathLength="1"></path><path d="M296.25 196 L296.25 191.41" pathLength="1"></path><path d="M180 254.12 L180 249.53" pathLength="1"></path><path d="M63.75 196 L63.75 191.41" pathLength="1"></path><path d="M296.25 196 L180 254.12" pathLength="1"></path><path d="M180 254.12 L63.75 196" pathLength="1"></path></g><g class="station live nofade" style="--tint:#F0B071;--xe:.45"><path class="stalign" style="opacity:.8" d="M123.75 191.41 L123.75 99.41"></path><path class="stalign" style="opacity:.8" d="M236.25 191.41 L236.25 99.41"></path><g class="mach"><g class="face"><path d="M123.75 169.03 L156.25 185.28 L123.75 201.53 L91.25 185.28 Z"></path><path d="M156.25 191.41 L123.75 207.66 L123.75 201.53 L156.25 185.28 Z"></path><path d="M123.75 207.66 L91.25 191.41 L91.25 185.28 L123.75 201.53 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M123.75 175.16 L123.75 169.03"></path><path d="M123.75 175.16 L156.25 191.41"></path><path d="M123.75 175.16 L91.25 191.41"></path></g><g class="edge"><path d="M123.75 169.03 L156.25 185.28 L123.75 201.53 L91.25 185.28 Z" pathLength="1"></path><path d="M156.25 191.41 L156.25 185.28" pathLength="1"></path><path d="M123.75 207.66 L123.75 201.53" pathLength="1"></path><path d="M91.25 191.41 L91.25 185.28" pathLength="1"></path><path d="M156.25 191.41 L123.75 207.66" pathLength="1"></path><path d="M123.75 207.66 L91.25 191.41" pathLength="1"></path></g><g class="face"><path d="M103.75 140.14 L111.25 143.89 L103.75 147.64 L96.25 143.89 Z"></path><path d="M111.25 182.16 L103.75 185.91 L103.75 147.64 L111.25 143.89 Z"></path><path d="M103.75 185.91 L96.25 182.16 L96.25 143.89 L103.75 147.64 Z"></path></g><g class="hatch"><path d="M111.25 177.56 L103.75 181.31"></path><path d="M111.25 172.96 L103.75 176.71"></path><path d="M111.25 168.36 L103.75 172.11"></path><path d="M111.25 163.76 L103.75 167.51"></path><path d="M111.25 159.16 L103.75 162.91"></path><path d="M111.25 154.56 L103.75 158.31"></path><path d="M111.25 149.96 L103.75 153.71"></path></g><g class="hid"><path d="M103.75 178.41 L103.75 140.14"></path><path d="M103.75 178.41 L111.25 182.16"></path><path d="M103.75 178.41 L96.25 182.16"></path></g><g class="edge"><path d="M103.75 140.14 L111.25 143.89 L103.75 147.64 L96.25 143.89 Z" pathLength="1"></path><path d="M111.25 182.16 L111.25 143.89" pathLength="1"></path><path d="M103.75 185.91 L103.75 147.64" pathLength="1"></path><path d="M96.25 182.16 L96.25 143.89" pathLength="1"></path><path d="M111.25 182.16 L103.75 185.91" pathLength="1"></path><path d="M103.75 185.91 L96.25 182.16" pathLength="1"></path></g><g class="face"><path d="M156.25 140.14 L163.75 143.89 L156.25 147.64 L148.75 143.89 Z"></path><path d="M163.75 182.16 L156.25 185.91 L156.25 147.64 L163.75 143.89 Z"></path><path d="M156.25 185.91 L148.75 182.16 L148.75 143.89 L156.25 147.64 Z"></path></g><g class="hatch"><path d="M163.75 177.56 L156.25 181.31"></path><path d="M163.75 172.96 L156.25 176.71"></path><path d="M163.75 168.36 L156.25 172.11"></path><path d="M163.75 163.76 L156.25 167.51"></path><path d="M163.75 159.16 L156.25 162.91"></path><path d="M163.75 154.56 L156.25 158.31"></path><path d="M163.75 149.96 L156.25 153.71"></path></g><g class="hid"><path d="M156.25 178.41 L156.25 140.14"></path><path d="M156.25 178.41 L163.75 182.16"></path><path d="M156.25 178.41 L148.75 182.16"></path></g><g class="edge"><path d="M156.25 140.14 L163.75 143.89 L156.25 147.64 L148.75 143.89 Z" pathLength="1"></path><path d="M163.75 182.16 L163.75 143.89" pathLength="1"></path><path d="M156.25 185.91 L156.25 147.64" pathLength="1"></path><path d="M148.75 182.16 L148.75 143.89" pathLength="1"></path><path d="M163.75 182.16 L156.25 185.91" pathLength="1"></path><path d="M156.25 185.91 L148.75 182.16" pathLength="1"></path></g><g class="xl1"><g class="edge"><path d="M103.75 143.89 L156.25 143.89" pathLength="1"></path><path d="M103.75 137.76 L156.25 137.76" pathLength="1"></path><path d="M103.75 143.89 L103.75 137.76" pathLength="1"></path><path d="M156.25 143.89 L156.25 137.76" pathLength="1"></path></g><g class="edge"><path d="M114.5 143.89 L145.5 143.89 L145.5 164.55 L114.5 164.55 Z" pathLength="1"></path></g><g class="hatch"><path d="M114.5 148.02 L145.5 148.02"></path><path d="M114.5 152.15 L145.5 152.15"></path><path d="M114.5 156.29 L145.5 156.29"></path><path d="M114.5 160.42 L145.5 160.42"></path></g><circle class="mark" cx="130" cy="154.22" r="4.2"></circle></g><g class="xl2"><g class="face"><path d="M130 123.02 L140.5 128.27 L130 133.52 L119.5 128.27 Z"></path><path d="M140.5 137.76 L130 143.01 L130 133.52 L140.5 128.27 Z"></path><path d="M130 143.01 L119.5 137.76 L119.5 128.27 L130 133.52 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M130 132.51 L130 123.02"></path><path d="M130 132.51 L140.5 137.76"></path><path d="M130 132.51 L119.5 137.76"></path></g><g class="edge"><path d="M130 123.02 L140.5 128.27 L130 133.52 L119.5 128.27 Z" pathLength="1"></path><path d="M140.5 137.76 L140.5 128.27" pathLength="1"></path><path d="M130 143.01 L130 133.52" pathLength="1"></path><path d="M119.5 137.76 L119.5 128.27" pathLength="1"></path><path d="M140.5 137.76 L130 143.01" pathLength="1"></path><path d="M130 143.01 L119.5 137.76" pathLength="1"></path></g><path class="axis" d="M130 128.27 L130 124.29"></path><circle class="node" cx="130" cy="124.29" r="1.6"></circle></g><g class="face"><path d="M236.25 144.82 L271.25 162.32 L236.25 179.82 L201.25 162.32 Z"></path><path d="M271.25 191.41 L236.25 208.91 L236.25 179.82 L271.25 162.32 Z"></path><path d="M236.25 208.91 L201.25 191.41 L201.25 162.32 L236.25 179.82 Z"></path></g><g class="hatch"><path d="M271.25 186.21 L236.25 203.71"></path><path d="M271.25 181.01 L236.25 198.51"></path><path d="M271.25 175.81 L236.25 193.31"></path><path d="M271.25 170.61 L236.25 188.11"></path><path d="M271.25 165.41 L236.25 182.91"></path></g><g class="hid"><path d="M236.25 173.91 L236.25 144.82"></path><path d="M236.25 173.91 L271.25 191.41"></path><path d="M236.25 173.91 L201.25 191.41"></path></g><g class="edge"><path d="M236.25 144.82 L271.25 162.32 L236.25 179.82 L201.25 162.32 Z" pathLength="1"></path><path d="M271.25 191.41 L271.25 162.32" pathLength="1"></path><path d="M236.25 208.91 L236.25 179.82" pathLength="1"></path><path d="M201.25 191.41 L201.25 162.32" pathLength="1"></path><path d="M271.25 191.41 L236.25 208.91" pathLength="1"></path><path d="M236.25 208.91 L201.25 191.41" pathLength="1"></path></g><g class="hid"><path d="M211.88 196.72 L211.88 176.82"></path><path d="M225.62 203.59 L225.62 183.69"></path><path d="M211.88 176.82 L225.62 183.69"></path></g><g class="markline"><path d="M214.38 190.32 L218.75 184.85 L223.12 194.69" pathLength="1"></path></g><g class="xl1"><g class="hid"><path d="M236.25 149.19 L262.5 162.32 L236.25 175.44 L210 162.32 Z"></path></g><g class="face"><path d="M236.25 143.96 L250 150.84 L236.25 157.71 L222.5 150.84 Z"></path><path d="M250 162.32 L236.25 169.19 L236.25 157.71 L250 150.84 Z"></path><path d="M236.25 169.19 L222.5 162.32 L222.5 150.84 L236.25 157.71 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M236.25 155.44 L236.25 143.96"></path><path d="M236.25 155.44 L250 162.32"></path><path d="M236.25 155.44 L222.5 162.32"></path></g><g class="edge"><path d="M236.25 143.96 L250 150.84 L236.25 157.71 L222.5 150.84 Z" pathLength="1"></path><path d="M250 162.32 L250 150.84" pathLength="1"></path><path d="M236.25 169.19 L236.25 157.71" pathLength="1"></path><path d="M222.5 162.32 L222.5 150.84" pathLength="1"></path><path d="M250 162.32 L236.25 169.19" pathLength="1"></path><path d="M236.25 169.19 L222.5 162.32" pathLength="1"></path></g></g><g class="xl2"><g class="face"><path d="M236.25 138.75 L241.12 141.19 L236.25 143.63 L231.38 141.19 Z"></path><path d="M241.12 147.01 L236.25 149.44 L236.25 143.63 L241.12 141.19 Z"></path><path d="M236.25 149.44 L231.38 147.01 L231.38 141.19 L236.25 143.63 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M236.25 144.57 L236.25 138.75"></path><path d="M236.25 144.57 L241.12 147.01"></path><path d="M236.25 144.57 L231.38 147.01"></path></g><g class="edge"><path d="M236.25 138.75 L241.12 141.19 L236.25 143.63 L231.38 141.19 Z" pathLength="1"></path><path d="M241.12 147.01 L241.12 141.19" pathLength="1"></path><path d="M236.25 149.44 L236.25 143.63" pathLength="1"></path><path d="M231.38 147.01 L231.38 141.19" pathLength="1"></path><path d="M241.12 147.01 L236.25 149.44" pathLength="1"></path><path d="M236.25 149.44 L231.38 147.01" pathLength="1"></path></g><g class="face"><path d="M266.88 154.06 L271.75 156.5 L266.88 158.94 L262 156.5 Z"></path><path d="M271.75 162.32 L266.88 164.76 L266.88 158.94 L271.75 156.5 Z"></path><path d="M266.88 164.76 L262 162.32 L262 156.5 L266.88 158.94 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M266.88 159.88 L266.88 154.06"></path><path d="M266.88 159.88 L271.75 162.32"></path><path d="M266.88 159.88 L262 162.32"></path></g><g class="edge"><path d="M266.88 154.06 L271.75 156.5 L266.88 158.94 L262 156.5 Z" pathLength="1"></path><path d="M271.75 162.32 L271.75 156.5" pathLength="1"></path><path d="M266.88 164.76 L266.88 158.94" pathLength="1"></path><path d="M262 162.32 L262 156.5" pathLength="1"></path><path d="M271.75 162.32 L266.88 164.76" pathLength="1"></path><path d="M266.88 164.76 L262 162.32" pathLength="1"></path></g><g class="face"><path d="M205.62 154.06 L210.5 156.5 L205.62 158.94 L200.75 156.5 Z"></path><path d="M210.5 162.32 L205.62 164.76 L205.62 158.94 L210.5 156.5 Z"></path><path d="M205.62 164.76 L200.75 162.32 L200.75 156.5 L205.62 158.94 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M205.62 159.88 L205.62 154.06"></path><path d="M205.62 159.88 L210.5 162.32"></path><path d="M205.62 159.88 L200.75 162.32"></path></g><g class="edge"><path d="M205.62 154.06 L210.5 156.5 L205.62 158.94 L200.75 156.5 Z" pathLength="1"></path><path d="M210.5 162.32 L210.5 156.5" pathLength="1"></path><path d="M205.62 164.76 L205.62 158.94" pathLength="1"></path><path d="M200.75 162.32 L200.75 156.5" pathLength="1"></path><path d="M210.5 162.32 L205.62 164.76" pathLength="1"></path><path d="M205.62 164.76 L200.75 162.32" pathLength="1"></path></g><g class="face"><path d="M236.25 169.38 L241.12 171.81 L236.25 174.25 L231.38 171.81 Z"></path><path d="M241.12 177.63 L236.25 180.07 L236.25 174.25 L241.12 171.81 Z"></path><path d="M236.25 180.07 L231.38 177.63 L231.38 171.81 L236.25 174.25 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M236.25 175.19 L236.25 169.38"></path><path d="M236.25 175.19 L241.12 177.63"></path><path d="M236.25 175.19 L231.38 177.63"></path></g><g class="edge"><path d="M236.25 169.38 L241.12 171.81 L236.25 174.25 L231.38 171.81 Z" pathLength="1"></path><path d="M241.12 177.63 L241.12 171.81" pathLength="1"></path><path d="M236.25 180.07 L236.25 174.25" pathLength="1"></path><path d="M231.38 177.63 L231.38 171.81" pathLength="1"></path><path d="M241.12 177.63 L236.25 180.07" pathLength="1"></path><path d="M236.25 180.07 L231.38 177.63" pathLength="1"></path></g><g class="face"><path d="M236.25 143.09 L245 147.47 L236.25 151.84 L227.5 147.47 Z"></path><path d="M245 150.84 L236.25 155.21 L236.25 151.84 L245 147.47 Z"></path><path d="M236.25 155.21 L227.5 150.84 L227.5 147.47 L236.25 151.84 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M236.25 146.46 L236.25 143.09"></path><path d="M236.25 146.46 L245 150.84"></path><path d="M236.25 146.46 L227.5 150.84"></path></g><g class="edge"><path d="M236.25 143.09 L245 147.47 L236.25 151.84 L227.5 147.47 Z" pathLength="1"></path><path d="M245 150.84 L245 147.47" pathLength="1"></path><path d="M236.25 155.21 L236.25 151.84" pathLength="1"></path><path d="M227.5 150.84 L227.5 147.47" pathLength="1"></path><path d="M245 150.84 L236.25 155.21" pathLength="1"></path><path d="M236.25 155.21 L227.5 150.84" pathLength="1"></path></g></g></g></g><circle class="node" cx="265.62" cy="117.81" r="2.6"></circle><path class="lead" d="M265.62 117.81 L212 46 L220 46"></path><text class="callout" x="224" y="42" text-anchor="start">compliance packs</text><text class="callsub" x="224" y="55" text-anchor="start">SOC2 to NIST AI RMF</text><circle class="node" cx="130" cy="128.23" r="2.6"></circle><path class="lead" d="M130 128.23 L160 268 L152 268"></path><text class="callout" x="148" y="264" text-anchor="end">policy engine</text><text class="callsub" x="148" y="277" text-anchor="end">24 evaluators, in line</text><text class="stamp" x="18" y="30">FIG. 3</text><text class="stampsub" x="18" y="45">GATE + VAULT . EXPLODED</text></svg></figure>
         <h3>Zentinelle <span class="go">→</span></h3>
       </a>
@@ -1112,7 +1432,6 @@ html { scroll-padding-top: 66px; }
       <p>Agent governance, risk and compliance. The sentinel watches what agents
         do, the gate governs what they may do, and policy is enforced at
         runtime, with the audit trail to prove it.</p>
-      <a class="site" href="https://zentinelle.ai/" target="_blank" rel="noopener">zentinelle.ai ↗</a>
     </div>
   </div>
   <div class="sheet-foot">
@@ -1125,7 +1444,7 @@ html { scroll-padding-top: 66px; }
 <!-- ------------------------------------------------------------- sheet 03 -->
 <section class="sheet sheet03 sheetanim" id="topologies">
   <i class="reg tl"></i><i class="reg tr"></i><i class="reg bl"></i><i class="reg br"></i>
-  <div class="sheet-head"><span class="no">SHT 03</span>
+  <div class="sheet-head"><span class="no">03</span>
     <span class="what">Deployment topologies · compose it to suit</span>
     <span class="when">ANY SUBSET · ANY GROUND</span></div>
   <p class="sitenote">The machines are independent, and they compose. Adopt
@@ -1135,11 +1454,11 @@ html { scroll-padding-top: 66px; }
     racks on Kubernetes, or air-gapped metal: the drawing does not change when
     the ground does.</p>
   <div class="sites">
-    <a class="site sitelink" href="https://calliope.ai/blueprint/topologies/standalone/"><svg class="iso minisite" viewBox="0 0 300 226" role="img" aria-label="Deployment topology: STANDALONE"><g class="rule"><path d="M110.24 107.7 L77.76 123.94" pathLength="1"></path><path d="M77.76 107.7 L110.24 123.94" pathLength="1"></path></g><g class="ext"><path d="M88 96.58 L94 99.58"></path><path d="M126.48 115.82 L132.48 118.82"></path><path d="M132.48 112.82 L126.48 115.82"></path><path d="M94 132.06 L88 135.06"></path><path d="M100 135.06 L94 132.06"></path><path d="M61.52 115.82 L55.52 112.82"></path><path d="M55.52 118.82 L61.52 115.82"></path><path d="M94 99.58 L100 96.58"></path></g><g class="hid"><path d="M94 102.32 L94 99.58"></path><path d="M94 102.32 L126.48 118.56"></path><path d="M94 102.32 L61.52 118.56"></path></g><g class="edge2"><path d="M94 99.58 L126.48 115.82 L94 132.06 L61.52 115.82 Z" pathLength="1"></path><path d="M126.48 118.56 L126.48 115.82" pathLength="1"></path><path d="M94 134.8 L94 132.06" pathLength="1"></path><path d="M61.52 118.56 L61.52 115.82" pathLength="1"></path><path d="M126.48 118.56 L94 134.8" pathLength="1"></path><path d="M94 134.8 L61.52 118.56" pathLength="1"></path></g><g class="station live nofade" style="--tint:#0AF0CE"><g class="face"><path d="M88.4 106.1 L92.88 108.34 L87.28 111.14 L82.8 108.9 Z"></path><path d="M92.88 112.46 L87.28 115.26 L87.28 111.14 L92.88 108.34 Z"></path><path d="M87.28 115.26 L82.8 113.02 L82.8 108.9 L87.28 111.14 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M88.4 110.22 L88.4 106.1"></path><path d="M88.4 110.22 L92.88 112.46"></path><path d="M88.4 110.22 L82.8 113.02"></path></g><g class="edge"><path d="M88.4 106.1 L92.88 108.34 L87.28 111.14 L82.8 108.9 Z" pathLength="1"></path><path d="M92.88 112.46 L92.88 108.34" pathLength="1"></path><path d="M87.28 115.26 L87.28 111.14" pathLength="1"></path><path d="M82.8 113.02 L82.8 108.9" pathLength="1"></path><path d="M92.88 112.46 L87.28 115.26" pathLength="1"></path><path d="M87.28 115.26 L82.8 113.02" pathLength="1"></path></g><g class="face"><path d="M100.72 112.26 L105.2 114.5 L99.6 117.3 L95.12 115.06 Z"></path><path d="M105.2 118.62 L99.6 121.42 L99.6 117.3 L105.2 114.5 Z"></path><path d="M99.6 121.42 L95.12 119.18 L95.12 115.06 L99.6 117.3 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M100.72 116.38 L100.72 112.26"></path><path d="M100.72 116.38 L105.2 118.62"></path><path d="M100.72 116.38 L95.12 119.18"></path></g><g class="edge"><path d="M100.72 112.26 L105.2 114.5 L99.6 117.3 L95.12 115.06 Z" pathLength="1"></path><path d="M105.2 118.62 L105.2 114.5" pathLength="1"></path><path d="M99.6 121.42 L99.6 117.3" pathLength="1"></path><path d="M95.12 119.18 L95.12 115.06" pathLength="1"></path><path d="M105.2 118.62 L99.6 121.42" pathLength="1"></path><path d="M99.6 121.42 L95.12 119.18" pathLength="1"></path></g><g class="face"><path d="M94 103.13 L100.16 106.21 L94 109.29 L87.84 106.21 Z"></path><path d="M100.16 115.82 L94 118.9 L94 109.29 L100.16 106.21 Z"></path><path d="M94 118.9 L87.84 115.82 L87.84 106.21 L94 109.29 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M94 112.74 L94 103.13"></path><path d="M94 112.74 L100.16 115.82"></path><path d="M94 112.74 L87.84 115.82"></path></g><g class="edge"><path d="M94 103.13 L100.16 106.21 L94 109.29 L87.84 106.21 Z" pathLength="1"></path><path d="M100.16 115.82 L100.16 106.21" pathLength="1"></path><path d="M94 118.9 L94 109.29" pathLength="1"></path><path d="M87.84 115.82 L87.84 106.21" pathLength="1"></path><path d="M100.16 115.82 L94 118.9" pathLength="1"></path><path d="M94 118.9 L87.84 115.82" pathLength="1"></path></g></g><g class="rule"><path d="M166.24 107.14 L133.76 123.38" pathLength="1"></path><path d="M133.76 107.14 L166.24 123.38" pathLength="1"></path></g><g class="ext"><path d="M144 96.02 L150 99.02"></path><path d="M182.48 115.26 L188.48 118.26"></path><path d="M188.48 112.26 L182.48 115.26"></path><path d="M150 131.5 L144 134.5"></path><path d="M156 134.5 L150 131.5"></path><path d="M117.52 115.26 L111.52 112.26"></path><path d="M111.52 118.26 L117.52 115.26"></path><path d="M150 99.02 L156 96.02"></path></g><g class="hid"><path d="M150 101.76 L150 99.02"></path><path d="M150 101.76 L182.48 118"></path><path d="M150 101.76 L117.52 118"></path></g><g class="edge2"><path d="M150 99.02 L182.48 115.26 L150 131.5 L117.52 115.26 Z" pathLength="1"></path><path d="M182.48 118 L182.48 115.26" pathLength="1"></path><path d="M150 134.24 L150 131.5" pathLength="1"></path><path d="M117.52 118 L117.52 115.26" pathLength="1"></path><path d="M182.48 118 L150 134.24" pathLength="1"></path><path d="M150 134.24 L117.52 118" pathLength="1"></path></g><g class="station live nofade" style="--tint:#7B8CFF"><g class="face"><path d="M150 103.48 L161.2 109.08 L150 114.68 L138.8 109.08 Z"></path><path d="M161.2 115.26 L150 120.86 L150 114.68 L161.2 109.08 Z"></path><path d="M150 120.86 L138.8 115.26 L138.8 109.08 L150 114.68 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M150 109.66 L150 103.48"></path><path d="M150 109.66 L161.2 115.26"></path><path d="M150 109.66 L138.8 115.26"></path></g><g class="edge"><path d="M150 103.48 L161.2 109.08 L150 114.68 L138.8 109.08 Z" pathLength="1"></path><path d="M161.2 115.26 L161.2 109.08" pathLength="1"></path><path d="M150 120.86 L150 114.68" pathLength="1"></path><path d="M138.8 115.26 L138.8 109.08" pathLength="1"></path><path d="M161.2 115.26 L150 120.86" pathLength="1"></path><path d="M150 120.86 L138.8 115.26" pathLength="1"></path></g><g class="face"><path d="M150 100.11 L155.6 102.91 L150 105.71 L144.4 102.91 Z"></path><path d="M155.6 109.08 L150 111.88 L150 105.71 L155.6 102.91 Z"></path><path d="M150 111.88 L144.4 109.08 L144.4 102.91 L150 105.71 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M150 106.28 L150 100.11"></path><path d="M150 106.28 L155.6 109.08"></path><path d="M150 106.28 L144.4 109.08"></path></g><g class="edge"><path d="M150 100.11 L155.6 102.91 L150 105.71 L144.4 102.91 Z" pathLength="1"></path><path d="M155.6 109.08 L155.6 102.91" pathLength="1"></path><path d="M150 111.88 L150 105.71" pathLength="1"></path><path d="M144.4 109.08 L144.4 102.91" pathLength="1"></path><path d="M155.6 109.08 L150 111.88" pathLength="1"></path><path d="M150 111.88 L144.4 109.08" pathLength="1"></path></g></g><g class="rule"><path d="M222.24 106.58 L189.76 122.82" pathLength="1"></path><path d="M189.76 106.58 L222.24 122.82" pathLength="1"></path></g><g class="ext"><path d="M200 95.46 L206 98.46"></path><path d="M238.48 114.7 L244.48 117.7"></path><path d="M244.48 111.7 L238.48 114.7"></path><path d="M206 130.94 L200 133.94"></path><path d="M212 133.94 L206 130.94"></path><path d="M173.52 114.7 L167.52 111.7"></path><path d="M167.52 117.7 L173.52 114.7"></path><path d="M206 98.46 L212 95.46"></path></g><g class="hid"><path d="M206 101.2 L206 98.46"></path><path d="M206 101.2 L238.48 117.44"></path><path d="M206 101.2 L173.52 117.44"></path></g><g class="edge2"><path d="M206 98.46 L238.48 114.7 L206 130.94 L173.52 114.7 Z" pathLength="1"></path><path d="M238.48 117.44 L238.48 114.7" pathLength="1"></path><path d="M206 133.68 L206 130.94" pathLength="1"></path><path d="M173.52 117.44 L173.52 114.7" pathLength="1"></path><path d="M238.48 117.44 L206 133.68" pathLength="1"></path><path d="M206 133.68 L173.52 117.44" pathLength="1"></path></g><g class="station live nofade" style="--tint:#F0B071"><g class="face"><path d="M197.6 100.27 L200.4 101.67 L197.6 103.07 L194.8 101.67 Z"></path><path d="M200.4 114.7 L197.6 116.1 L197.6 103.07 L200.4 101.67 Z"></path><path d="M197.6 116.1 L194.8 114.7 L194.8 101.67 L197.6 103.07 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M197.6 113.3 L197.6 100.27"></path><path d="M197.6 113.3 L200.4 114.7"></path><path d="M197.6 113.3 L194.8 114.7"></path></g><g class="edge"><path d="M197.6 100.27 L200.4 101.67 L197.6 103.07 L194.8 101.67 Z" pathLength="1"></path><path d="M200.4 114.7 L200.4 101.67" pathLength="1"></path><path d="M197.6 116.1 L197.6 103.07" pathLength="1"></path><path d="M194.8 114.7 L194.8 101.67" pathLength="1"></path><path d="M200.4 114.7 L197.6 116.1" pathLength="1"></path><path d="M197.6 116.1 L194.8 114.7" pathLength="1"></path></g><g class="face"><path d="M214.4 100.27 L217.2 101.67 L214.4 103.07 L211.6 101.67 Z"></path><path d="M217.2 114.7 L214.4 116.1 L214.4 103.07 L217.2 101.67 Z"></path><path d="M214.4 116.1 L211.6 114.7 L211.6 101.67 L214.4 103.07 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M214.4 113.3 L214.4 100.27"></path><path d="M214.4 113.3 L217.2 114.7"></path><path d="M214.4 113.3 L211.6 114.7"></path></g><g class="edge"><path d="M214.4 100.27 L217.2 101.67 L214.4 103.07 L211.6 101.67 Z" pathLength="1"></path><path d="M217.2 114.7 L217.2 101.67" pathLength="1"></path><path d="M214.4 116.1 L214.4 103.07" pathLength="1"></path><path d="M211.6 114.7 L211.6 101.67" pathLength="1"></path><path d="M217.2 114.7 L214.4 116.1" pathLength="1"></path><path d="M214.4 116.1 L211.6 114.7" pathLength="1"></path></g><g class="edge"><path d="M197.6 101.67 L214.4 101.67" pathLength="1"></path></g></g><g class="edge"><path d="M260 24 h10 v10 h-10 Z" pathLength="1"></path><path d="M276 24 h10 v10 h-10 Z" pathLength="1"></path></g><text class="callout" x="16" y="24">STANDALONE</text><text class="callsub" x="16" y="37">any machine, alone</text></svg></a>
-    <a class="site sitelink" href="https://calliope.ai/blueprint/topologies/stacked/"><svg class="iso minisite" viewBox="0 0 300 226" role="img" aria-label="Deployment topology: WORKBENCH ON ASTROLIFT"><g class="rule"><path d="M172.4 81.66 L82.8 126.46" pathLength="1"></path><path d="M194.8 92.86 L105.2 137.66" pathLength="1"></path><path d="M217.2 104.06 L127.6 148.86" pathLength="1"></path><path d="M127.6 81.66 L217.2 126.46" pathLength="1"></path><path d="M105.2 92.86 L194.8 137.66" pathLength="1"></path><path d="M82.8 104.06 L172.4 148.86" pathLength="1"></path></g><g class="ext"><path d="M144 67.46 L150 70.46"></path><path d="M239.6 115.26 L245.6 118.26"></path><path d="M245.6 112.26 L239.6 115.26"></path><path d="M150 160.06 L144 163.06"></path><path d="M156 163.06 L150 160.06"></path><path d="M60.4 115.26 L54.4 112.26"></path><path d="M54.4 118.26 L60.4 115.26"></path><path d="M150 70.46 L156 67.46"></path></g><g class="hid"><path d="M150 73.2 L150 70.46"></path><path d="M150 73.2 L239.6 118"></path><path d="M150 73.2 L60.4 118"></path></g><g class="edge2"><path d="M150 70.46 L239.6 115.26 L150 160.06 L60.4 115.26 Z" pathLength="1"></path><path d="M239.6 118 L239.6 115.26" pathLength="1"></path><path d="M150 162.8 L150 160.06" pathLength="1"></path><path d="M60.4 118 L60.4 115.26" pathLength="1"></path><path d="M239.6 118 L150 162.8" pathLength="1"></path><path d="M150 162.8 L60.4 118" pathLength="1"></path></g><g class="station live nofade" style="--tint:#7B8CFF"><g class="face"><path d="M150 79.71 L206 107.71 L150 135.71 L94 107.71 Z"></path><path d="M206 115.26 L150 143.26 L150 135.71 L206 107.71 Z"></path><path d="M150 143.26 L94 115.26 L94 107.71 L150 135.71 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M150 87.26 L150 79.71"></path><path d="M150 87.26 L206 115.26"></path><path d="M150 87.26 L94 115.26"></path></g><g class="edge"><path d="M150 79.71 L206 107.71 L150 135.71 L94 107.71 Z" pathLength="1"></path><path d="M206 115.26 L206 107.71" pathLength="1"></path><path d="M150 143.26 L150 135.71" pathLength="1"></path><path d="M94 115.26 L94 107.71" pathLength="1"></path><path d="M206 115.26 L150 143.26" pathLength="1"></path><path d="M150 143.26 L94 115.26" pathLength="1"></path></g><g class="face"><path d="M150 82.5 L188.08 101.54 L150 120.58 L111.92 101.54 Z"></path><path d="M188.08 107.71 L150 126.75 L150 120.58 L188.08 101.54 Z"></path><path d="M150 126.75 L111.92 107.71 L111.92 101.54 L150 120.58 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M150 88.67 L150 82.5"></path><path d="M150 88.67 L188.08 107.71"></path><path d="M150 88.67 L111.92 107.71"></path></g><g class="edge"><path d="M150 82.5 L188.08 101.54 L150 120.58 L111.92 101.54 Z" pathLength="1"></path><path d="M188.08 107.71 L188.08 101.54" pathLength="1"></path><path d="M150 126.75 L150 120.58" pathLength="1"></path><path d="M111.92 107.71 L111.92 101.54" pathLength="1"></path><path d="M188.08 107.71 L150 126.75" pathLength="1"></path><path d="M150 126.75 L111.92 107.71" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#0AF0CE"><g class="face"><path d="M144.4 91.82 L148.88 94.06 L143.28 96.86 L138.8 94.62 Z"></path><path d="M148.88 98.18 L143.28 100.98 L143.28 96.86 L148.88 94.06 Z"></path><path d="M143.28 100.98 L138.8 98.74 L138.8 94.62 L143.28 96.86 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M144.4 95.94 L144.4 91.82"></path><path d="M144.4 95.94 L148.88 98.18"></path><path d="M144.4 95.94 L138.8 98.74"></path></g><g class="edge"><path d="M144.4 91.82 L148.88 94.06 L143.28 96.86 L138.8 94.62 Z" pathLength="1"></path><path d="M148.88 98.18 L148.88 94.06" pathLength="1"></path><path d="M143.28 100.98 L143.28 96.86" pathLength="1"></path><path d="M138.8 98.74 L138.8 94.62" pathLength="1"></path><path d="M148.88 98.18 L143.28 100.98" pathLength="1"></path><path d="M143.28 100.98 L138.8 98.74" pathLength="1"></path></g><g class="face"><path d="M156.72 97.98 L161.2 100.22 L155.6 103.02 L151.12 100.78 Z"></path><path d="M161.2 104.34 L155.6 107.14 L155.6 103.02 L161.2 100.22 Z"></path><path d="M155.6 107.14 L151.12 104.9 L151.12 100.78 L155.6 103.02 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M156.72 102.1 L156.72 97.98"></path><path d="M156.72 102.1 L161.2 104.34"></path><path d="M156.72 102.1 L151.12 104.9"></path></g><g class="edge"><path d="M156.72 97.98 L161.2 100.22 L155.6 103.02 L151.12 100.78 Z" pathLength="1"></path><path d="M161.2 104.34 L161.2 100.22" pathLength="1"></path><path d="M155.6 107.14 L155.6 103.02" pathLength="1"></path><path d="M151.12 104.9 L151.12 100.78" pathLength="1"></path><path d="M161.2 104.34 L155.6 107.14" pathLength="1"></path><path d="M155.6 107.14 L151.12 104.9" pathLength="1"></path></g><g class="face"><path d="M150 88.86 L156.16 91.94 L150 95.02 L143.84 91.94 Z"></path><path d="M156.16 101.54 L150 104.62 L150 95.02 L156.16 91.94 Z"></path><path d="M150 104.62 L143.84 101.54 L143.84 91.94 L150 95.02 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M150 98.46 L150 88.86"></path><path d="M150 98.46 L156.16 101.54"></path><path d="M150 98.46 L143.84 101.54"></path></g><g class="edge"><path d="M150 88.86 L156.16 91.94 L150 95.02 L143.84 91.94 Z" pathLength="1"></path><path d="M156.16 101.54 L156.16 91.94" pathLength="1"></path><path d="M150 104.62 L150 95.02" pathLength="1"></path><path d="M143.84 101.54 L143.84 91.94" pathLength="1"></path><path d="M156.16 101.54 L150 104.62" pathLength="1"></path><path d="M150 104.62 L143.84 101.54" pathLength="1"></path></g></g><g class="edge"><path d="M264 32 h18 v8 h-18 Z" pathLength="1"></path><path d="M268 21 h10 v8 h-10 Z" pathLength="1"></path></g><text class="callout" x="16" y="24">WORKBENCH ON ASTROLIFT</text><text class="callsub" x="16" y="37">the bench rides the platform</text></svg></a>
-    <a class="site sitelink" href="https://calliope.ai/blueprint/topologies/embedded/"><svg class="iso minisite" viewBox="0 0 300 226" role="img" aria-label="Deployment topology: ZENTINELLE IN ASTROLIFT"><g class="rule"><path d="M172.4 81.66 L82.8 126.46" pathLength="1"></path><path d="M194.8 92.86 L105.2 137.66" pathLength="1"></path><path d="M217.2 104.06 L127.6 148.86" pathLength="1"></path><path d="M127.6 81.66 L217.2 126.46" pathLength="1"></path><path d="M105.2 92.86 L194.8 137.66" pathLength="1"></path><path d="M82.8 104.06 L172.4 148.86" pathLength="1"></path></g><g class="ext"><path d="M144 67.46 L150 70.46"></path><path d="M239.6 115.26 L245.6 118.26"></path><path d="M245.6 112.26 L239.6 115.26"></path><path d="M150 160.06 L144 163.06"></path><path d="M156 163.06 L150 160.06"></path><path d="M60.4 115.26 L54.4 112.26"></path><path d="M54.4 118.26 L60.4 115.26"></path><path d="M150 70.46 L156 67.46"></path></g><g class="hid"><path d="M150 73.2 L150 70.46"></path><path d="M150 73.2 L239.6 118"></path><path d="M150 73.2 L60.4 118"></path></g><g class="edge2"><path d="M150 70.46 L239.6 115.26 L150 160.06 L60.4 115.26 Z" pathLength="1"></path><path d="M239.6 118 L239.6 115.26" pathLength="1"></path><path d="M150 162.8 L150 160.06" pathLength="1"></path><path d="M60.4 118 L60.4 115.26" pathLength="1"></path><path d="M239.6 118 L150 162.8" pathLength="1"></path><path d="M150 162.8 L60.4 118" pathLength="1"></path></g><g class="station live nofade" style="--tint:#7B8CFF"><g class="face"><path d="M150 76.17 L217.2 109.77 L150 143.37 L82.8 109.77 Z"></path><path d="M217.2 115.26 L150 148.86 L150 143.37 L217.2 109.77 Z"></path><path d="M150 148.86 L82.8 115.26 L82.8 109.77 L150 143.37 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M150 81.66 L150 76.17"></path><path d="M150 81.66 L217.2 115.26"></path><path d="M150 81.66 L82.8 115.26"></path></g><g class="edge"><path d="M150 76.17 L217.2 109.77 L150 143.37 L82.8 109.77 Z" pathLength="1"></path><path d="M217.2 115.26 L217.2 109.77" pathLength="1"></path><path d="M150 148.86 L150 143.37" pathLength="1"></path><path d="M82.8 115.26 L82.8 109.77" pathLength="1"></path><path d="M217.2 115.26 L150 148.86" pathLength="1"></path><path d="M150 148.86 L82.8 115.26" pathLength="1"></path></g></g><path class="carrier" d="M76.08 102.91 L223.92 102.91"></path><g class="station live nofade" style="--tint:#F0B071"><g class="face"><path d="M141.6 95.34 L144.4 96.74 L141.6 98.14 L138.8 96.74 Z"></path><path d="M144.4 109.77 L141.6 111.17 L141.6 98.14 L144.4 96.74 Z"></path><path d="M141.6 111.17 L138.8 109.77 L138.8 96.74 L141.6 98.14 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M141.6 108.37 L141.6 95.34"></path><path d="M141.6 108.37 L144.4 109.77"></path><path d="M141.6 108.37 L138.8 109.77"></path></g><g class="edge"><path d="M141.6 95.34 L144.4 96.74 L141.6 98.14 L138.8 96.74 Z" pathLength="1"></path><path d="M144.4 109.77 L144.4 96.74" pathLength="1"></path><path d="M141.6 111.17 L141.6 98.14" pathLength="1"></path><path d="M138.8 109.77 L138.8 96.74" pathLength="1"></path><path d="M144.4 109.77 L141.6 111.17" pathLength="1"></path><path d="M141.6 111.17 L138.8 109.77" pathLength="1"></path></g><g class="face"><path d="M158.4 95.34 L161.2 96.74 L158.4 98.14 L155.6 96.74 Z"></path><path d="M161.2 109.77 L158.4 111.17 L158.4 98.14 L161.2 96.74 Z"></path><path d="M158.4 111.17 L155.6 109.77 L155.6 96.74 L158.4 98.14 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M158.4 108.37 L158.4 95.34"></path><path d="M158.4 108.37 L161.2 109.77"></path><path d="M158.4 108.37 L155.6 109.77"></path></g><g class="edge"><path d="M158.4 95.34 L161.2 96.74 L158.4 98.14 L155.6 96.74 Z" pathLength="1"></path><path d="M161.2 109.77 L161.2 96.74" pathLength="1"></path><path d="M158.4 111.17 L158.4 98.14" pathLength="1"></path><path d="M155.6 109.77 L155.6 96.74" pathLength="1"></path><path d="M161.2 109.77 L158.4 111.17" pathLength="1"></path><path d="M158.4 111.17 L155.6 109.77" pathLength="1"></path></g><g class="edge"><path d="M141.6 96.74 L158.4 96.74" pathLength="1"></path></g></g><g class="edge"><path d="M262 20 h24 v20 h-24 Z" pathLength="1"></path><path d="M269 26 h10 v8 h-10 Z" pathLength="1"></path></g><text class="callout" x="16" y="24">ZENTINELLE IN ASTROLIFT</text><text class="callsub" x="16" y="37">the gate inside the platform</text></svg></a>
-    <a class="site sitelink" href="https://calliope.ai/blueprint/topologies/full-loop/"><svg class="iso minisite" viewBox="0 0 300 226" role="img" aria-label="Deployment topology: THE FULL LOOP"><g class="rule"><path d="M172.4 81.66 L82.8 126.46" pathLength="1"></path><path d="M194.8 92.86 L105.2 137.66" pathLength="1"></path><path d="M217.2 104.06 L127.6 148.86" pathLength="1"></path><path d="M127.6 81.66 L217.2 126.46" pathLength="1"></path><path d="M105.2 92.86 L194.8 137.66" pathLength="1"></path><path d="M82.8 104.06 L172.4 148.86" pathLength="1"></path></g><g class="ext"><path d="M144 67.46 L150 70.46"></path><path d="M239.6 115.26 L245.6 118.26"></path><path d="M245.6 112.26 L239.6 115.26"></path><path d="M150 160.06 L144 163.06"></path><path d="M156 163.06 L150 160.06"></path><path d="M60.4 115.26 L54.4 112.26"></path><path d="M54.4 118.26 L60.4 115.26"></path><path d="M150 70.46 L156 67.46"></path></g><g class="hid"><path d="M150 73.2 L150 70.46"></path><path d="M150 73.2 L239.6 118"></path><path d="M150 73.2 L60.4 118"></path></g><g class="edge2"><path d="M150 70.46 L239.6 115.26 L150 160.06 L60.4 115.26 Z" pathLength="1"></path><path d="M239.6 118 L239.6 115.26" pathLength="1"></path><path d="M150 162.8 L150 160.06" pathLength="1"></path><path d="M60.4 118 L60.4 115.26" pathLength="1"></path><path d="M239.6 118 L150 162.8" pathLength="1"></path><path d="M150 162.8 L60.4 118" pathLength="1"></path></g><path class="carrier" d="M74.96 106.03 L231.76 106.03"></path><path class="loop" d="M231.76 106.03 L231.76 113.58 L74.96 113.58 L74.96 106.03"></path><g class="station live nofade" style="--tint:#0AF0CE"><g class="face"><path d="M88.4 102.18 L92.88 104.42 L87.28 107.22 L82.8 104.98 Z"></path><path d="M92.88 108.54 L87.28 111.34 L87.28 107.22 L92.88 104.42 Z"></path><path d="M87.28 111.34 L82.8 109.1 L82.8 104.98 L87.28 107.22 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M88.4 106.3 L88.4 102.18"></path><path d="M88.4 106.3 L92.88 108.54"></path><path d="M88.4 106.3 L82.8 109.1"></path></g><g class="edge"><path d="M88.4 102.18 L92.88 104.42 L87.28 107.22 L82.8 104.98 Z" pathLength="1"></path><path d="M92.88 108.54 L92.88 104.42" pathLength="1"></path><path d="M87.28 111.34 L87.28 107.22" pathLength="1"></path><path d="M82.8 109.1 L82.8 104.98" pathLength="1"></path><path d="M92.88 108.54 L87.28 111.34" pathLength="1"></path><path d="M87.28 111.34 L82.8 109.1" pathLength="1"></path></g><g class="face"><path d="M100.72 108.34 L105.2 110.58 L99.6 113.38 L95.12 111.14 Z"></path><path d="M105.2 114.7 L99.6 117.5 L99.6 113.38 L105.2 110.58 Z"></path><path d="M99.6 117.5 L95.12 115.26 L95.12 111.14 L99.6 113.38 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M100.72 112.46 L100.72 108.34"></path><path d="M100.72 112.46 L105.2 114.7"></path><path d="M100.72 112.46 L95.12 115.26"></path></g><g class="edge"><path d="M100.72 108.34 L105.2 110.58 L99.6 113.38 L95.12 111.14 Z" pathLength="1"></path><path d="M105.2 114.7 L105.2 110.58" pathLength="1"></path><path d="M99.6 117.5 L99.6 113.38" pathLength="1"></path><path d="M95.12 115.26 L95.12 111.14" pathLength="1"></path><path d="M105.2 114.7 L99.6 117.5" pathLength="1"></path><path d="M99.6 117.5 L95.12 115.26" pathLength="1"></path></g><g class="face"><path d="M94 99.21 L100.16 102.29 L94 105.37 L87.84 102.29 Z"></path><path d="M100.16 111.9 L94 114.98 L94 105.37 L100.16 102.29 Z"></path><path d="M94 114.98 L87.84 111.9 L87.84 102.29 L94 105.37 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M94 108.82 L94 99.21"></path><path d="M94 108.82 L100.16 111.9"></path><path d="M94 108.82 L87.84 111.9"></path></g><g class="edge"><path d="M94 99.21 L100.16 102.29 L94 105.37 L87.84 102.29 Z" pathLength="1"></path><path d="M100.16 111.9 L100.16 102.29" pathLength="1"></path><path d="M94 114.98 L94 105.37" pathLength="1"></path><path d="M87.84 111.9 L87.84 102.29" pathLength="1"></path><path d="M100.16 111.9 L94 114.98" pathLength="1"></path><path d="M94 114.98 L87.84 111.9" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#7B8CFF"><g class="face"><path d="M138.8 100.12 L150 105.72 L138.8 111.32 L127.6 105.72 Z"></path><path d="M150 111.9 L138.8 117.5 L138.8 111.32 L150 105.72 Z"></path><path d="M138.8 117.5 L127.6 111.9 L127.6 105.72 L138.8 111.32 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M138.8 106.3 L138.8 100.12"></path><path d="M138.8 106.3 L150 111.9"></path><path d="M138.8 106.3 L127.6 111.9"></path></g><g class="edge"><path d="M138.8 100.12 L150 105.72 L138.8 111.32 L127.6 105.72 Z" pathLength="1"></path><path d="M150 111.9 L150 105.72" pathLength="1"></path><path d="M138.8 117.5 L138.8 111.32" pathLength="1"></path><path d="M127.6 111.9 L127.6 105.72" pathLength="1"></path><path d="M150 111.9 L138.8 117.5" pathLength="1"></path><path d="M138.8 117.5 L127.6 111.9" pathLength="1"></path></g><g class="face"><path d="M138.8 96.75 L144.4 99.55 L138.8 102.35 L133.2 99.55 Z"></path><path d="M144.4 105.72 L138.8 108.52 L138.8 102.35 L144.4 99.55 Z"></path><path d="M138.8 108.52 L133.2 105.72 L133.2 99.55 L138.8 102.35 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M138.8 102.92 L138.8 96.75"></path><path d="M138.8 102.92 L144.4 105.72"></path><path d="M138.8 102.92 L133.2 105.72"></path></g><g class="edge"><path d="M138.8 96.75 L144.4 99.55 L138.8 102.35 L133.2 99.55 Z" pathLength="1"></path><path d="M144.4 105.72 L144.4 99.55" pathLength="1"></path><path d="M138.8 108.52 L138.8 102.35" pathLength="1"></path><path d="M133.2 105.72 L133.2 99.55" pathLength="1"></path><path d="M144.4 105.72 L138.8 108.52" pathLength="1"></path><path d="M138.8 108.52 L133.2 105.72" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#F0B071"><g class="face"><path d="M172.96 97.47 L175.76 98.87 L172.96 100.27 L170.16 98.87 Z"></path><path d="M175.76 111.9 L172.96 113.3 L172.96 100.27 L175.76 98.87 Z"></path><path d="M172.96 113.3 L170.16 111.9 L170.16 98.87 L172.96 100.27 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M172.96 110.5 L172.96 97.47"></path><path d="M172.96 110.5 L175.76 111.9"></path><path d="M172.96 110.5 L170.16 111.9"></path></g><g class="edge"><path d="M172.96 97.47 L175.76 98.87 L172.96 100.27 L170.16 98.87 Z" pathLength="1"></path><path d="M175.76 111.9 L175.76 98.87" pathLength="1"></path><path d="M172.96 113.3 L172.96 100.27" pathLength="1"></path><path d="M170.16 111.9 L170.16 98.87" pathLength="1"></path><path d="M175.76 111.9 L172.96 113.3" pathLength="1"></path><path d="M172.96 113.3 L170.16 111.9" pathLength="1"></path></g><g class="face"><path d="M189.76 97.47 L192.56 98.87 L189.76 100.27 L186.96 98.87 Z"></path><path d="M192.56 111.9 L189.76 113.3 L189.76 100.27 L192.56 98.87 Z"></path><path d="M189.76 113.3 L186.96 111.9 L186.96 98.87 L189.76 100.27 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M189.76 110.5 L189.76 97.47"></path><path d="M189.76 110.5 L192.56 111.9"></path><path d="M189.76 110.5 L186.96 111.9"></path></g><g class="edge"><path d="M189.76 97.47 L192.56 98.87 L189.76 100.27 L186.96 98.87 Z" pathLength="1"></path><path d="M192.56 111.9 L192.56 98.87" pathLength="1"></path><path d="M189.76 113.3 L189.76 100.27" pathLength="1"></path><path d="M186.96 111.9 L186.96 98.87" pathLength="1"></path><path d="M192.56 111.9 L189.76 113.3" pathLength="1"></path><path d="M189.76 113.3 L186.96 111.9" pathLength="1"></path></g><g class="edge"><path d="M172.96 98.87 L189.76 98.87" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#F0B071"><g class="face"><path d="M216.08 97.94 L227.28 103.54 L216.08 109.14 L204.88 103.54 Z"></path><path d="M227.28 112.46 L216.08 118.06 L216.08 109.14 L227.28 103.54 Z"></path><path d="M216.08 118.06 L204.88 112.46 L204.88 103.54 L216.08 109.14 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M216.08 106.86 L216.08 97.94"></path><path d="M216.08 106.86 L227.28 112.46"></path><path d="M216.08 106.86 L204.88 112.46"></path></g><g class="edge"><path d="M216.08 97.94 L227.28 103.54 L216.08 109.14 L204.88 103.54 Z" pathLength="1"></path><path d="M227.28 112.46 L227.28 103.54" pathLength="1"></path><path d="M216.08 118.06 L216.08 109.14" pathLength="1"></path><path d="M204.88 112.46 L204.88 103.54" pathLength="1"></path><path d="M227.28 112.46 L216.08 118.06" pathLength="1"></path><path d="M216.08 118.06 L204.88 112.46" pathLength="1"></path></g><g class="face"><path d="M216.08 98.21 L220.56 100.45 L216.08 102.69 L211.6 100.45 Z"></path><path d="M220.56 103.54 L216.08 105.78 L216.08 102.69 L220.56 100.45 Z"></path><path d="M216.08 105.78 L211.6 103.54 L211.6 100.45 L216.08 102.69 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M216.08 101.3 L216.08 98.21"></path><path d="M216.08 101.3 L220.56 103.54"></path><path d="M216.08 101.3 L211.6 103.54"></path></g><g class="edge"><path d="M216.08 98.21 L220.56 100.45 L216.08 102.69 L211.6 100.45 Z" pathLength="1"></path><path d="M220.56 103.54 L220.56 100.45" pathLength="1"></path><path d="M216.08 105.78 L216.08 102.69" pathLength="1"></path><path d="M211.6 103.54 L211.6 100.45" pathLength="1"></path><path d="M220.56 103.54 L216.08 105.78" pathLength="1"></path><path d="M216.08 105.78 L211.6 103.54" pathLength="1"></path></g></g><g class="edge"><path d="M284 30 A10 8 0 1 1 276 21" pathLength="1"></path><path d="M276 21 l6 -3 M276 21 l1 6" pathLength="1"></path></g><text class="callout" x="16" y="24">THE FULL LOOP</text><text class="callsub" x="16" y="37">build, run, watch, govern</text></svg></a>
-    <a class="site sitelink" href="https://calliope.ai/blueprint/topologies/mesh/"><svg class="iso minisite" viewBox="0 0 300 226" role="img" aria-label="Deployment topology: MESH"><g class="rule"><path d="M122.56 104.9 L81.12 125.62" pathLength="1"></path><path d="M81.12 104.9 L122.56 125.62" pathLength="1"></path></g><g class="ext"><path d="M95.84 91.54 L101.84 94.54"></path><path d="M143.28 115.26 L149.28 118.26"></path><path d="M149.28 112.26 L143.28 115.26"></path><path d="M101.84 135.98 L95.84 138.98"></path><path d="M107.84 138.98 L101.84 135.98"></path><path d="M60.4 115.26 L54.4 112.26"></path><path d="M54.4 118.26 L60.4 115.26"></path><path d="M101.84 94.54 L107.84 91.54"></path></g><g class="hid"><path d="M101.84 97.28 L101.84 94.54"></path><path d="M101.84 97.28 L143.28 118"></path><path d="M101.84 97.28 L60.4 118"></path></g><g class="edge2"><path d="M101.84 94.54 L143.28 115.26 L101.84 135.98 L60.4 115.26 Z" pathLength="1"></path><path d="M143.28 118 L143.28 115.26" pathLength="1"></path><path d="M101.84 138.72 L101.84 135.98" pathLength="1"></path><path d="M60.4 118 L60.4 115.26" pathLength="1"></path><path d="M143.28 118 L101.84 138.72" pathLength="1"></path><path d="M101.84 138.72 L60.4 118" pathLength="1"></path></g><g class="station live nofade" style="--tint:#0AF0CE"><g class="face"><path d="M81.12 101.9 L85.6 104.14 L80 106.94 L75.52 104.7 Z"></path><path d="M85.6 108.26 L80 111.06 L80 106.94 L85.6 104.14 Z"></path><path d="M80 111.06 L75.52 108.82 L75.52 104.7 L80 106.94 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M81.12 106.02 L81.12 101.9"></path><path d="M81.12 106.02 L85.6 108.26"></path><path d="M81.12 106.02 L75.52 108.82"></path></g><g class="edge"><path d="M81.12 101.9 L85.6 104.14 L80 106.94 L75.52 104.7 Z" pathLength="1"></path><path d="M85.6 108.26 L85.6 104.14" pathLength="1"></path><path d="M80 111.06 L80 106.94" pathLength="1"></path><path d="M75.52 108.82 L75.52 104.7" pathLength="1"></path><path d="M85.6 108.26 L80 111.06" pathLength="1"></path><path d="M80 111.06 L75.52 108.82" pathLength="1"></path></g><g class="face"><path d="M93.44 108.06 L97.92 110.3 L92.32 113.1 L87.84 110.86 Z"></path><path d="M97.92 114.42 L92.32 117.22 L92.32 113.1 L97.92 110.3 Z"></path><path d="M92.32 117.22 L87.84 114.98 L87.84 110.86 L92.32 113.1 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M93.44 112.18 L93.44 108.06"></path><path d="M93.44 112.18 L97.92 114.42"></path><path d="M93.44 112.18 L87.84 114.98"></path></g><g class="edge"><path d="M93.44 108.06 L97.92 110.3 L92.32 113.1 L87.84 110.86 Z" pathLength="1"></path><path d="M97.92 114.42 L97.92 110.3" pathLength="1"></path><path d="M92.32 117.22 L92.32 113.1" pathLength="1"></path><path d="M87.84 114.98 L87.84 110.86" pathLength="1"></path><path d="M97.92 114.42 L92.32 117.22" pathLength="1"></path><path d="M92.32 117.22 L87.84 114.98" pathLength="1"></path></g><g class="face"><path d="M86.72 98.93 L92.88 102.01 L86.72 105.09 L80.56 102.01 Z"></path><path d="M92.88 111.62 L86.72 114.7 L86.72 105.09 L92.88 102.01 Z"></path><path d="M86.72 114.7 L80.56 111.62 L80.56 102.01 L86.72 105.09 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M86.72 108.54 L86.72 98.93"></path><path d="M86.72 108.54 L92.88 111.62"></path><path d="M86.72 108.54 L80.56 111.62"></path></g><g class="edge"><path d="M86.72 98.93 L92.88 102.01 L86.72 105.09 L80.56 102.01 Z" pathLength="1"></path><path d="M92.88 111.62 L92.88 102.01" pathLength="1"></path><path d="M86.72 114.7 L86.72 105.09" pathLength="1"></path><path d="M80.56 111.62 L80.56 102.01" pathLength="1"></path><path d="M92.88 111.62 L86.72 114.7" pathLength="1"></path><path d="M86.72 114.7 L80.56 111.62" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#7B8CFF"><g class="face"><path d="M113.04 100.68 L124.24 106.28 L113.04 111.88 L101.84 106.28 Z"></path><path d="M124.24 112.46 L113.04 118.06 L113.04 111.88 L124.24 106.28 Z"></path><path d="M113.04 118.06 L101.84 112.46 L101.84 106.28 L113.04 111.88 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M113.04 106.86 L113.04 100.68"></path><path d="M113.04 106.86 L124.24 112.46"></path><path d="M113.04 106.86 L101.84 112.46"></path></g><g class="edge"><path d="M113.04 100.68 L124.24 106.28 L113.04 111.88 L101.84 106.28 Z" pathLength="1"></path><path d="M124.24 112.46 L124.24 106.28" pathLength="1"></path><path d="M113.04 118.06 L113.04 111.88" pathLength="1"></path><path d="M101.84 112.46 L101.84 106.28" pathLength="1"></path><path d="M124.24 112.46 L113.04 118.06" pathLength="1"></path><path d="M113.04 118.06 L101.84 112.46" pathLength="1"></path></g><g class="face"><path d="M113.04 97.31 L118.64 100.11 L113.04 102.91 L107.44 100.11 Z"></path><path d="M118.64 106.28 L113.04 109.08 L113.04 102.91 L118.64 100.11 Z"></path><path d="M113.04 109.08 L107.44 106.28 L107.44 100.11 L113.04 102.91 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M113.04 103.48 L113.04 97.31"></path><path d="M113.04 103.48 L118.64 106.28"></path><path d="M113.04 103.48 L107.44 106.28"></path></g><g class="edge"><path d="M113.04 97.31 L118.64 100.11 L113.04 102.91 L107.44 100.11 Z" pathLength="1"></path><path d="M118.64 106.28 L118.64 100.11" pathLength="1"></path><path d="M113.04 109.08 L113.04 102.91" pathLength="1"></path><path d="M107.44 106.28 L107.44 100.11" pathLength="1"></path><path d="M118.64 106.28 L113.04 109.08" pathLength="1"></path><path d="M113.04 109.08 L107.44 106.28" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#F0B071"><g class="face"><path d="M96.24 111.75 L99.04 113.15 L96.24 114.55 L93.44 113.15 Z"></path><path d="M99.04 126.18 L96.24 127.58 L96.24 114.55 L99.04 113.15 Z"></path><path d="M96.24 127.58 L93.44 126.18 L93.44 113.15 L96.24 114.55 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M96.24 124.78 L96.24 111.75"></path><path d="M96.24 124.78 L99.04 126.18"></path><path d="M96.24 124.78 L93.44 126.18"></path></g><g class="edge"><path d="M96.24 111.75 L99.04 113.15 L96.24 114.55 L93.44 113.15 Z" pathLength="1"></path><path d="M99.04 126.18 L99.04 113.15" pathLength="1"></path><path d="M96.24 127.58 L96.24 114.55" pathLength="1"></path><path d="M93.44 126.18 L93.44 113.15" pathLength="1"></path><path d="M99.04 126.18 L96.24 127.58" pathLength="1"></path><path d="M96.24 127.58 L93.44 126.18" pathLength="1"></path></g><g class="face"><path d="M113.04 111.75 L115.84 113.15 L113.04 114.55 L110.24 113.15 Z"></path><path d="M115.84 126.18 L113.04 127.58 L113.04 114.55 L115.84 113.15 Z"></path><path d="M113.04 127.58 L110.24 126.18 L110.24 113.15 L113.04 114.55 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M113.04 124.78 L113.04 111.75"></path><path d="M113.04 124.78 L115.84 126.18"></path><path d="M113.04 124.78 L110.24 126.18"></path></g><g class="edge"><path d="M113.04 111.75 L115.84 113.15 L113.04 114.55 L110.24 113.15 Z" pathLength="1"></path><path d="M115.84 126.18 L115.84 113.15" pathLength="1"></path><path d="M113.04 127.58 L113.04 114.55" pathLength="1"></path><path d="M110.24 126.18 L110.24 113.15" pathLength="1"></path><path d="M115.84 126.18 L113.04 127.58" pathLength="1"></path><path d="M113.04 127.58 L110.24 126.18" pathLength="1"></path></g><g class="edge"><path d="M96.24 113.15 L113.04 113.15" pathLength="1"></path></g></g><g class="rule"><path d="M218.88 104.9 L177.44 125.62" pathLength="1"></path><path d="M177.44 104.9 L218.88 125.62" pathLength="1"></path></g><g class="ext"><path d="M192.16 91.54 L198.16 94.54"></path><path d="M239.6 115.26 L245.6 118.26"></path><path d="M245.6 112.26 L239.6 115.26"></path><path d="M198.16 135.98 L192.16 138.98"></path><path d="M204.16 138.98 L198.16 135.98"></path><path d="M156.72 115.26 L150.72 112.26"></path><path d="M150.72 118.26 L156.72 115.26"></path><path d="M198.16 94.54 L204.16 91.54"></path></g><g class="hid"><path d="M198.16 97.28 L198.16 94.54"></path><path d="M198.16 97.28 L239.6 118"></path><path d="M198.16 97.28 L156.72 118"></path></g><g class="edge2"><path d="M198.16 94.54 L239.6 115.26 L198.16 135.98 L156.72 115.26 Z" pathLength="1"></path><path d="M239.6 118 L239.6 115.26" pathLength="1"></path><path d="M198.16 138.72 L198.16 135.98" pathLength="1"></path><path d="M156.72 118 L156.72 115.26" pathLength="1"></path><path d="M239.6 118 L198.16 138.72" pathLength="1"></path><path d="M198.16 138.72 L156.72 118" pathLength="1"></path></g><g class="station live nofade" style="--tint:#0AF0CE"><g class="face"><path d="M177.44 101.9 L181.92 104.14 L176.32 106.94 L171.84 104.7 Z"></path><path d="M181.92 108.26 L176.32 111.06 L176.32 106.94 L181.92 104.14 Z"></path><path d="M176.32 111.06 L171.84 108.82 L171.84 104.7 L176.32 106.94 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M177.44 106.02 L177.44 101.9"></path><path d="M177.44 106.02 L181.92 108.26"></path><path d="M177.44 106.02 L171.84 108.82"></path></g><g class="edge"><path d="M177.44 101.9 L181.92 104.14 L176.32 106.94 L171.84 104.7 Z" pathLength="1"></path><path d="M181.92 108.26 L181.92 104.14" pathLength="1"></path><path d="M176.32 111.06 L176.32 106.94" pathLength="1"></path><path d="M171.84 108.82 L171.84 104.7" pathLength="1"></path><path d="M181.92 108.26 L176.32 111.06" pathLength="1"></path><path d="M176.32 111.06 L171.84 108.82" pathLength="1"></path></g><g class="face"><path d="M189.76 108.06 L194.24 110.3 L188.64 113.1 L184.16 110.86 Z"></path><path d="M194.24 114.42 L188.64 117.22 L188.64 113.1 L194.24 110.3 Z"></path><path d="M188.64 117.22 L184.16 114.98 L184.16 110.86 L188.64 113.1 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M189.76 112.18 L189.76 108.06"></path><path d="M189.76 112.18 L194.24 114.42"></path><path d="M189.76 112.18 L184.16 114.98"></path></g><g class="edge"><path d="M189.76 108.06 L194.24 110.3 L188.64 113.1 L184.16 110.86 Z" pathLength="1"></path><path d="M194.24 114.42 L194.24 110.3" pathLength="1"></path><path d="M188.64 117.22 L188.64 113.1" pathLength="1"></path><path d="M184.16 114.98 L184.16 110.86" pathLength="1"></path><path d="M194.24 114.42 L188.64 117.22" pathLength="1"></path><path d="M188.64 117.22 L184.16 114.98" pathLength="1"></path></g><g class="face"><path d="M183.04 98.93 L189.2 102.01 L183.04 105.09 L176.88 102.01 Z"></path><path d="M189.2 111.62 L183.04 114.7 L183.04 105.09 L189.2 102.01 Z"></path><path d="M183.04 114.7 L176.88 111.62 L176.88 102.01 L183.04 105.09 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M183.04 108.54 L183.04 98.93"></path><path d="M183.04 108.54 L189.2 111.62"></path><path d="M183.04 108.54 L176.88 111.62"></path></g><g class="edge"><path d="M183.04 98.93 L189.2 102.01 L183.04 105.09 L176.88 102.01 Z" pathLength="1"></path><path d="M189.2 111.62 L189.2 102.01" pathLength="1"></path><path d="M183.04 114.7 L183.04 105.09" pathLength="1"></path><path d="M176.88 111.62 L176.88 102.01" pathLength="1"></path><path d="M189.2 111.62 L183.04 114.7" pathLength="1"></path><path d="M183.04 114.7 L176.88 111.62" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#7B8CFF"><g class="face"><path d="M209.36 100.68 L220.56 106.28 L209.36 111.88 L198.16 106.28 Z"></path><path d="M220.56 112.46 L209.36 118.06 L209.36 111.88 L220.56 106.28 Z"></path><path d="M209.36 118.06 L198.16 112.46 L198.16 106.28 L209.36 111.88 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M209.36 106.86 L209.36 100.68"></path><path d="M209.36 106.86 L220.56 112.46"></path><path d="M209.36 106.86 L198.16 112.46"></path></g><g class="edge"><path d="M209.36 100.68 L220.56 106.28 L209.36 111.88 L198.16 106.28 Z" pathLength="1"></path><path d="M220.56 112.46 L220.56 106.28" pathLength="1"></path><path d="M209.36 118.06 L209.36 111.88" pathLength="1"></path><path d="M198.16 112.46 L198.16 106.28" pathLength="1"></path><path d="M220.56 112.46 L209.36 118.06" pathLength="1"></path><path d="M209.36 118.06 L198.16 112.46" pathLength="1"></path></g><g class="face"><path d="M209.36 97.31 L214.96 100.11 L209.36 102.91 L203.76 100.11 Z"></path><path d="M214.96 106.28 L209.36 109.08 L209.36 102.91 L214.96 100.11 Z"></path><path d="M209.36 109.08 L203.76 106.28 L203.76 100.11 L209.36 102.91 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M209.36 103.48 L209.36 97.31"></path><path d="M209.36 103.48 L214.96 106.28"></path><path d="M209.36 103.48 L203.76 106.28"></path></g><g class="edge"><path d="M209.36 97.31 L214.96 100.11 L209.36 102.91 L203.76 100.11 Z" pathLength="1"></path><path d="M214.96 106.28 L214.96 100.11" pathLength="1"></path><path d="M209.36 109.08 L209.36 102.91" pathLength="1"></path><path d="M203.76 106.28 L203.76 100.11" pathLength="1"></path><path d="M214.96 106.28 L209.36 109.08" pathLength="1"></path><path d="M209.36 109.08 L203.76 106.28" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#F0B071"><g class="face"><path d="M192.56 111.75 L195.36 113.15 L192.56 114.55 L189.76 113.15 Z"></path><path d="M195.36 126.18 L192.56 127.58 L192.56 114.55 L195.36 113.15 Z"></path><path d="M192.56 127.58 L189.76 126.18 L189.76 113.15 L192.56 114.55 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M192.56 124.78 L192.56 111.75"></path><path d="M192.56 124.78 L195.36 126.18"></path><path d="M192.56 124.78 L189.76 126.18"></path></g><g class="edge"><path d="M192.56 111.75 L195.36 113.15 L192.56 114.55 L189.76 113.15 Z" pathLength="1"></path><path d="M195.36 126.18 L195.36 113.15" pathLength="1"></path><path d="M192.56 127.58 L192.56 114.55" pathLength="1"></path><path d="M189.76 126.18 L189.76 113.15" pathLength="1"></path><path d="M195.36 126.18 L192.56 127.58" pathLength="1"></path><path d="M192.56 127.58 L189.76 126.18" pathLength="1"></path></g><g class="face"><path d="M209.36 111.75 L212.16 113.15 L209.36 114.55 L206.56 113.15 Z"></path><path d="M212.16 126.18 L209.36 127.58 L209.36 114.55 L212.16 113.15 Z"></path><path d="M209.36 127.58 L206.56 126.18 L206.56 113.15 L209.36 114.55 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M209.36 124.78 L209.36 111.75"></path><path d="M209.36 124.78 L212.16 126.18"></path><path d="M209.36 124.78 L206.56 126.18"></path></g><g class="edge"><path d="M209.36 111.75 L212.16 113.15 L209.36 114.55 L206.56 113.15 Z" pathLength="1"></path><path d="M212.16 126.18 L212.16 113.15" pathLength="1"></path><path d="M209.36 127.58 L209.36 114.55" pathLength="1"></path><path d="M206.56 126.18 L206.56 113.15" pathLength="1"></path><path d="M212.16 126.18 L209.36 127.58" pathLength="1"></path><path d="M209.36 127.58 L206.56 126.18" pathLength="1"></path></g><g class="edge"><path d="M192.56 113.15 L209.36 113.15" pathLength="1"></path></g></g><path class="loop" d="M111.92 119.85 L188.08 119.85"></path><path class="loop" d="M109.68 97.45 L190.32 97.45"></path><path class="loop" d="M146 115.85 L154 119.85 L146 123.85"></path><path class="loop" d="M154 93.45 L146 97.45 L154 101.45"></path><g class="edge"><path d="M260 20 h9 v9 h-9 Z" pathLength="1"></path><path d="M277 31 h9 v9 h-9 Z" pathLength="1"></path><path d="M269 29 L277 35" pathLength="1"></path></g><text class="callout" x="16" y="24">MESH</text><text class="callsub" x="16" y="37">sites managing sites</text></svg></a>
+    <a class="site sitelink" href="/blueprint/topologies/standalone/"><svg class="iso minisite" viewBox="0 0 300 226" role="img" aria-label="Deployment topology: STANDALONE"><g class="rule"><path d="M110.24 107.7 L77.76 123.94" pathLength="1"></path><path d="M77.76 107.7 L110.24 123.94" pathLength="1"></path></g><g class="ext"><path d="M88 96.58 L94 99.58"></path><path d="M126.48 115.82 L132.48 118.82"></path><path d="M132.48 112.82 L126.48 115.82"></path><path d="M94 132.06 L88 135.06"></path><path d="M100 135.06 L94 132.06"></path><path d="M61.52 115.82 L55.52 112.82"></path><path d="M55.52 118.82 L61.52 115.82"></path><path d="M94 99.58 L100 96.58"></path></g><g class="hid"><path d="M94 102.32 L94 99.58"></path><path d="M94 102.32 L126.48 118.56"></path><path d="M94 102.32 L61.52 118.56"></path></g><g class="edge2"><path d="M94 99.58 L126.48 115.82 L94 132.06 L61.52 115.82 Z" pathLength="1"></path><path d="M126.48 118.56 L126.48 115.82" pathLength="1"></path><path d="M94 134.8 L94 132.06" pathLength="1"></path><path d="M61.52 118.56 L61.52 115.82" pathLength="1"></path><path d="M126.48 118.56 L94 134.8" pathLength="1"></path><path d="M94 134.8 L61.52 118.56" pathLength="1"></path></g><g class="station live nofade" style="--tint:#0AF0CE"><g class="face"><path d="M88.4 106.1 L92.88 108.34 L87.28 111.14 L82.8 108.9 Z"></path><path d="M92.88 112.46 L87.28 115.26 L87.28 111.14 L92.88 108.34 Z"></path><path d="M87.28 115.26 L82.8 113.02 L82.8 108.9 L87.28 111.14 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M88.4 110.22 L88.4 106.1"></path><path d="M88.4 110.22 L92.88 112.46"></path><path d="M88.4 110.22 L82.8 113.02"></path></g><g class="edge"><path d="M88.4 106.1 L92.88 108.34 L87.28 111.14 L82.8 108.9 Z" pathLength="1"></path><path d="M92.88 112.46 L92.88 108.34" pathLength="1"></path><path d="M87.28 115.26 L87.28 111.14" pathLength="1"></path><path d="M82.8 113.02 L82.8 108.9" pathLength="1"></path><path d="M92.88 112.46 L87.28 115.26" pathLength="1"></path><path d="M87.28 115.26 L82.8 113.02" pathLength="1"></path></g><g class="face"><path d="M100.72 112.26 L105.2 114.5 L99.6 117.3 L95.12 115.06 Z"></path><path d="M105.2 118.62 L99.6 121.42 L99.6 117.3 L105.2 114.5 Z"></path><path d="M99.6 121.42 L95.12 119.18 L95.12 115.06 L99.6 117.3 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M100.72 116.38 L100.72 112.26"></path><path d="M100.72 116.38 L105.2 118.62"></path><path d="M100.72 116.38 L95.12 119.18"></path></g><g class="edge"><path d="M100.72 112.26 L105.2 114.5 L99.6 117.3 L95.12 115.06 Z" pathLength="1"></path><path d="M105.2 118.62 L105.2 114.5" pathLength="1"></path><path d="M99.6 121.42 L99.6 117.3" pathLength="1"></path><path d="M95.12 119.18 L95.12 115.06" pathLength="1"></path><path d="M105.2 118.62 L99.6 121.42" pathLength="1"></path><path d="M99.6 121.42 L95.12 119.18" pathLength="1"></path></g><g class="face"><path d="M94 103.13 L100.16 106.21 L94 109.29 L87.84 106.21 Z"></path><path d="M100.16 115.82 L94 118.9 L94 109.29 L100.16 106.21 Z"></path><path d="M94 118.9 L87.84 115.82 L87.84 106.21 L94 109.29 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M94 112.74 L94 103.13"></path><path d="M94 112.74 L100.16 115.82"></path><path d="M94 112.74 L87.84 115.82"></path></g><g class="edge"><path d="M94 103.13 L100.16 106.21 L94 109.29 L87.84 106.21 Z" pathLength="1"></path><path d="M100.16 115.82 L100.16 106.21" pathLength="1"></path><path d="M94 118.9 L94 109.29" pathLength="1"></path><path d="M87.84 115.82 L87.84 106.21" pathLength="1"></path><path d="M100.16 115.82 L94 118.9" pathLength="1"></path><path d="M94 118.9 L87.84 115.82" pathLength="1"></path></g></g><g class="rule"><path d="M166.24 107.14 L133.76 123.38" pathLength="1"></path><path d="M133.76 107.14 L166.24 123.38" pathLength="1"></path></g><g class="ext"><path d="M144 96.02 L150 99.02"></path><path d="M182.48 115.26 L188.48 118.26"></path><path d="M188.48 112.26 L182.48 115.26"></path><path d="M150 131.5 L144 134.5"></path><path d="M156 134.5 L150 131.5"></path><path d="M117.52 115.26 L111.52 112.26"></path><path d="M111.52 118.26 L117.52 115.26"></path><path d="M150 99.02 L156 96.02"></path></g><g class="hid"><path d="M150 101.76 L150 99.02"></path><path d="M150 101.76 L182.48 118"></path><path d="M150 101.76 L117.52 118"></path></g><g class="edge2"><path d="M150 99.02 L182.48 115.26 L150 131.5 L117.52 115.26 Z" pathLength="1"></path><path d="M182.48 118 L182.48 115.26" pathLength="1"></path><path d="M150 134.24 L150 131.5" pathLength="1"></path><path d="M117.52 118 L117.52 115.26" pathLength="1"></path><path d="M182.48 118 L150 134.24" pathLength="1"></path><path d="M150 134.24 L117.52 118" pathLength="1"></path></g><g class="station live nofade" style="--tint:#7B8CFF"><g class="face"><path d="M150 103.48 L161.2 109.08 L150 114.68 L138.8 109.08 Z"></path><path d="M161.2 115.26 L150 120.86 L150 114.68 L161.2 109.08 Z"></path><path d="M150 120.86 L138.8 115.26 L138.8 109.08 L150 114.68 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M150 109.66 L150 103.48"></path><path d="M150 109.66 L161.2 115.26"></path><path d="M150 109.66 L138.8 115.26"></path></g><g class="edge"><path d="M150 103.48 L161.2 109.08 L150 114.68 L138.8 109.08 Z" pathLength="1"></path><path d="M161.2 115.26 L161.2 109.08" pathLength="1"></path><path d="M150 120.86 L150 114.68" pathLength="1"></path><path d="M138.8 115.26 L138.8 109.08" pathLength="1"></path><path d="M161.2 115.26 L150 120.86" pathLength="1"></path><path d="M150 120.86 L138.8 115.26" pathLength="1"></path></g><g class="face"><path d="M150 100.11 L155.6 102.91 L150 105.71 L144.4 102.91 Z"></path><path d="M155.6 109.08 L150 111.88 L150 105.71 L155.6 102.91 Z"></path><path d="M150 111.88 L144.4 109.08 L144.4 102.91 L150 105.71 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M150 106.28 L150 100.11"></path><path d="M150 106.28 L155.6 109.08"></path><path d="M150 106.28 L144.4 109.08"></path></g><g class="edge"><path d="M150 100.11 L155.6 102.91 L150 105.71 L144.4 102.91 Z" pathLength="1"></path><path d="M155.6 109.08 L155.6 102.91" pathLength="1"></path><path d="M150 111.88 L150 105.71" pathLength="1"></path><path d="M144.4 109.08 L144.4 102.91" pathLength="1"></path><path d="M155.6 109.08 L150 111.88" pathLength="1"></path><path d="M150 111.88 L144.4 109.08" pathLength="1"></path></g></g><g class="rule"><path d="M222.24 106.58 L189.76 122.82" pathLength="1"></path><path d="M189.76 106.58 L222.24 122.82" pathLength="1"></path></g><g class="ext"><path d="M200 95.46 L206 98.46"></path><path d="M238.48 114.7 L244.48 117.7"></path><path d="M244.48 111.7 L238.48 114.7"></path><path d="M206 130.94 L200 133.94"></path><path d="M212 133.94 L206 130.94"></path><path d="M173.52 114.7 L167.52 111.7"></path><path d="M167.52 117.7 L173.52 114.7"></path><path d="M206 98.46 L212 95.46"></path></g><g class="hid"><path d="M206 101.2 L206 98.46"></path><path d="M206 101.2 L238.48 117.44"></path><path d="M206 101.2 L173.52 117.44"></path></g><g class="edge2"><path d="M206 98.46 L238.48 114.7 L206 130.94 L173.52 114.7 Z" pathLength="1"></path><path d="M238.48 117.44 L238.48 114.7" pathLength="1"></path><path d="M206 133.68 L206 130.94" pathLength="1"></path><path d="M173.52 117.44 L173.52 114.7" pathLength="1"></path><path d="M238.48 117.44 L206 133.68" pathLength="1"></path><path d="M206 133.68 L173.52 117.44" pathLength="1"></path></g><g class="station live nofade" style="--tint:#F0B071"><g class="face"><path d="M197.6 100.27 L200.4 101.67 L197.6 103.07 L194.8 101.67 Z"></path><path d="M200.4 114.7 L197.6 116.1 L197.6 103.07 L200.4 101.67 Z"></path><path d="M197.6 116.1 L194.8 114.7 L194.8 101.67 L197.6 103.07 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M197.6 113.3 L197.6 100.27"></path><path d="M197.6 113.3 L200.4 114.7"></path><path d="M197.6 113.3 L194.8 114.7"></path></g><g class="edge"><path d="M197.6 100.27 L200.4 101.67 L197.6 103.07 L194.8 101.67 Z" pathLength="1"></path><path d="M200.4 114.7 L200.4 101.67" pathLength="1"></path><path d="M197.6 116.1 L197.6 103.07" pathLength="1"></path><path d="M194.8 114.7 L194.8 101.67" pathLength="1"></path><path d="M200.4 114.7 L197.6 116.1" pathLength="1"></path><path d="M197.6 116.1 L194.8 114.7" pathLength="1"></path></g><g class="face"><path d="M214.4 100.27 L217.2 101.67 L214.4 103.07 L211.6 101.67 Z"></path><path d="M217.2 114.7 L214.4 116.1 L214.4 103.07 L217.2 101.67 Z"></path><path d="M214.4 116.1 L211.6 114.7 L211.6 101.67 L214.4 103.07 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M214.4 113.3 L214.4 100.27"></path><path d="M214.4 113.3 L217.2 114.7"></path><path d="M214.4 113.3 L211.6 114.7"></path></g><g class="edge"><path d="M214.4 100.27 L217.2 101.67 L214.4 103.07 L211.6 101.67 Z" pathLength="1"></path><path d="M217.2 114.7 L217.2 101.67" pathLength="1"></path><path d="M214.4 116.1 L214.4 103.07" pathLength="1"></path><path d="M211.6 114.7 L211.6 101.67" pathLength="1"></path><path d="M217.2 114.7 L214.4 116.1" pathLength="1"></path><path d="M214.4 116.1 L211.6 114.7" pathLength="1"></path></g><g class="edge"><path d="M197.6 101.67 L214.4 101.67" pathLength="1"></path></g></g><g class="edge"><path d="M260 24 h10 v10 h-10 Z" pathLength="1"></path><path d="M276 24 h10 v10 h-10 Z" pathLength="1"></path></g><text class="callout" x="16" y="24">STANDALONE</text><text class="callsub" x="16" y="37">any machine, alone</text></svg></a>
+    <a class="site sitelink" href="/blueprint/topologies/stacked/"><svg class="iso minisite" viewBox="0 0 300 226" role="img" aria-label="Deployment topology: WORKBENCH ON ASTROLIFT"><g class="rule"><path d="M172.4 81.66 L82.8 126.46" pathLength="1"></path><path d="M194.8 92.86 L105.2 137.66" pathLength="1"></path><path d="M217.2 104.06 L127.6 148.86" pathLength="1"></path><path d="M127.6 81.66 L217.2 126.46" pathLength="1"></path><path d="M105.2 92.86 L194.8 137.66" pathLength="1"></path><path d="M82.8 104.06 L172.4 148.86" pathLength="1"></path></g><g class="ext"><path d="M144 67.46 L150 70.46"></path><path d="M239.6 115.26 L245.6 118.26"></path><path d="M245.6 112.26 L239.6 115.26"></path><path d="M150 160.06 L144 163.06"></path><path d="M156 163.06 L150 160.06"></path><path d="M60.4 115.26 L54.4 112.26"></path><path d="M54.4 118.26 L60.4 115.26"></path><path d="M150 70.46 L156 67.46"></path></g><g class="hid"><path d="M150 73.2 L150 70.46"></path><path d="M150 73.2 L239.6 118"></path><path d="M150 73.2 L60.4 118"></path></g><g class="edge2"><path d="M150 70.46 L239.6 115.26 L150 160.06 L60.4 115.26 Z" pathLength="1"></path><path d="M239.6 118 L239.6 115.26" pathLength="1"></path><path d="M150 162.8 L150 160.06" pathLength="1"></path><path d="M60.4 118 L60.4 115.26" pathLength="1"></path><path d="M239.6 118 L150 162.8" pathLength="1"></path><path d="M150 162.8 L60.4 118" pathLength="1"></path></g><g class="station live nofade" style="--tint:#7B8CFF"><g class="face"><path d="M150 79.71 L206 107.71 L150 135.71 L94 107.71 Z"></path><path d="M206 115.26 L150 143.26 L150 135.71 L206 107.71 Z"></path><path d="M150 143.26 L94 115.26 L94 107.71 L150 135.71 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M150 87.26 L150 79.71"></path><path d="M150 87.26 L206 115.26"></path><path d="M150 87.26 L94 115.26"></path></g><g class="edge"><path d="M150 79.71 L206 107.71 L150 135.71 L94 107.71 Z" pathLength="1"></path><path d="M206 115.26 L206 107.71" pathLength="1"></path><path d="M150 143.26 L150 135.71" pathLength="1"></path><path d="M94 115.26 L94 107.71" pathLength="1"></path><path d="M206 115.26 L150 143.26" pathLength="1"></path><path d="M150 143.26 L94 115.26" pathLength="1"></path></g><g class="face"><path d="M150 82.5 L188.08 101.54 L150 120.58 L111.92 101.54 Z"></path><path d="M188.08 107.71 L150 126.75 L150 120.58 L188.08 101.54 Z"></path><path d="M150 126.75 L111.92 107.71 L111.92 101.54 L150 120.58 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M150 88.67 L150 82.5"></path><path d="M150 88.67 L188.08 107.71"></path><path d="M150 88.67 L111.92 107.71"></path></g><g class="edge"><path d="M150 82.5 L188.08 101.54 L150 120.58 L111.92 101.54 Z" pathLength="1"></path><path d="M188.08 107.71 L188.08 101.54" pathLength="1"></path><path d="M150 126.75 L150 120.58" pathLength="1"></path><path d="M111.92 107.71 L111.92 101.54" pathLength="1"></path><path d="M188.08 107.71 L150 126.75" pathLength="1"></path><path d="M150 126.75 L111.92 107.71" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#0AF0CE"><g class="face"><path d="M144.4 91.82 L148.88 94.06 L143.28 96.86 L138.8 94.62 Z"></path><path d="M148.88 98.18 L143.28 100.98 L143.28 96.86 L148.88 94.06 Z"></path><path d="M143.28 100.98 L138.8 98.74 L138.8 94.62 L143.28 96.86 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M144.4 95.94 L144.4 91.82"></path><path d="M144.4 95.94 L148.88 98.18"></path><path d="M144.4 95.94 L138.8 98.74"></path></g><g class="edge"><path d="M144.4 91.82 L148.88 94.06 L143.28 96.86 L138.8 94.62 Z" pathLength="1"></path><path d="M148.88 98.18 L148.88 94.06" pathLength="1"></path><path d="M143.28 100.98 L143.28 96.86" pathLength="1"></path><path d="M138.8 98.74 L138.8 94.62" pathLength="1"></path><path d="M148.88 98.18 L143.28 100.98" pathLength="1"></path><path d="M143.28 100.98 L138.8 98.74" pathLength="1"></path></g><g class="face"><path d="M156.72 97.98 L161.2 100.22 L155.6 103.02 L151.12 100.78 Z"></path><path d="M161.2 104.34 L155.6 107.14 L155.6 103.02 L161.2 100.22 Z"></path><path d="M155.6 107.14 L151.12 104.9 L151.12 100.78 L155.6 103.02 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M156.72 102.1 L156.72 97.98"></path><path d="M156.72 102.1 L161.2 104.34"></path><path d="M156.72 102.1 L151.12 104.9"></path></g><g class="edge"><path d="M156.72 97.98 L161.2 100.22 L155.6 103.02 L151.12 100.78 Z" pathLength="1"></path><path d="M161.2 104.34 L161.2 100.22" pathLength="1"></path><path d="M155.6 107.14 L155.6 103.02" pathLength="1"></path><path d="M151.12 104.9 L151.12 100.78" pathLength="1"></path><path d="M161.2 104.34 L155.6 107.14" pathLength="1"></path><path d="M155.6 107.14 L151.12 104.9" pathLength="1"></path></g><g class="face"><path d="M150 88.86 L156.16 91.94 L150 95.02 L143.84 91.94 Z"></path><path d="M156.16 101.54 L150 104.62 L150 95.02 L156.16 91.94 Z"></path><path d="M150 104.62 L143.84 101.54 L143.84 91.94 L150 95.02 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M150 98.46 L150 88.86"></path><path d="M150 98.46 L156.16 101.54"></path><path d="M150 98.46 L143.84 101.54"></path></g><g class="edge"><path d="M150 88.86 L156.16 91.94 L150 95.02 L143.84 91.94 Z" pathLength="1"></path><path d="M156.16 101.54 L156.16 91.94" pathLength="1"></path><path d="M150 104.62 L150 95.02" pathLength="1"></path><path d="M143.84 101.54 L143.84 91.94" pathLength="1"></path><path d="M156.16 101.54 L150 104.62" pathLength="1"></path><path d="M150 104.62 L143.84 101.54" pathLength="1"></path></g></g><g class="edge"><path d="M264 32 h18 v8 h-18 Z" pathLength="1"></path><path d="M268 21 h10 v8 h-10 Z" pathLength="1"></path></g><text class="callout" x="16" y="24">WORKBENCH ON ASTROLIFT</text><text class="callsub" x="16" y="37">the bench rides the platform</text></svg></a>
+    <a class="site sitelink" href="/blueprint/topologies/embedded/"><svg class="iso minisite" viewBox="0 0 300 226" role="img" aria-label="Deployment topology: ZENTINELLE IN ASTROLIFT"><g class="rule"><path d="M172.4 81.66 L82.8 126.46" pathLength="1"></path><path d="M194.8 92.86 L105.2 137.66" pathLength="1"></path><path d="M217.2 104.06 L127.6 148.86" pathLength="1"></path><path d="M127.6 81.66 L217.2 126.46" pathLength="1"></path><path d="M105.2 92.86 L194.8 137.66" pathLength="1"></path><path d="M82.8 104.06 L172.4 148.86" pathLength="1"></path></g><g class="ext"><path d="M144 67.46 L150 70.46"></path><path d="M239.6 115.26 L245.6 118.26"></path><path d="M245.6 112.26 L239.6 115.26"></path><path d="M150 160.06 L144 163.06"></path><path d="M156 163.06 L150 160.06"></path><path d="M60.4 115.26 L54.4 112.26"></path><path d="M54.4 118.26 L60.4 115.26"></path><path d="M150 70.46 L156 67.46"></path></g><g class="hid"><path d="M150 73.2 L150 70.46"></path><path d="M150 73.2 L239.6 118"></path><path d="M150 73.2 L60.4 118"></path></g><g class="edge2"><path d="M150 70.46 L239.6 115.26 L150 160.06 L60.4 115.26 Z" pathLength="1"></path><path d="M239.6 118 L239.6 115.26" pathLength="1"></path><path d="M150 162.8 L150 160.06" pathLength="1"></path><path d="M60.4 118 L60.4 115.26" pathLength="1"></path><path d="M239.6 118 L150 162.8" pathLength="1"></path><path d="M150 162.8 L60.4 118" pathLength="1"></path></g><g class="station live nofade" style="--tint:#7B8CFF"><g class="face"><path d="M150 76.17 L217.2 109.77 L150 143.37 L82.8 109.77 Z"></path><path d="M217.2 115.26 L150 148.86 L150 143.37 L217.2 109.77 Z"></path><path d="M150 148.86 L82.8 115.26 L82.8 109.77 L150 143.37 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M150 81.66 L150 76.17"></path><path d="M150 81.66 L217.2 115.26"></path><path d="M150 81.66 L82.8 115.26"></path></g><g class="edge"><path d="M150 76.17 L217.2 109.77 L150 143.37 L82.8 109.77 Z" pathLength="1"></path><path d="M217.2 115.26 L217.2 109.77" pathLength="1"></path><path d="M150 148.86 L150 143.37" pathLength="1"></path><path d="M82.8 115.26 L82.8 109.77" pathLength="1"></path><path d="M217.2 115.26 L150 148.86" pathLength="1"></path><path d="M150 148.86 L82.8 115.26" pathLength="1"></path></g></g><path class="carrier" d="M76.08 102.91 L223.92 102.91"></path><g class="station live nofade" style="--tint:#F0B071"><g class="face"><path d="M141.6 95.34 L144.4 96.74 L141.6 98.14 L138.8 96.74 Z"></path><path d="M144.4 109.77 L141.6 111.17 L141.6 98.14 L144.4 96.74 Z"></path><path d="M141.6 111.17 L138.8 109.77 L138.8 96.74 L141.6 98.14 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M141.6 108.37 L141.6 95.34"></path><path d="M141.6 108.37 L144.4 109.77"></path><path d="M141.6 108.37 L138.8 109.77"></path></g><g class="edge"><path d="M141.6 95.34 L144.4 96.74 L141.6 98.14 L138.8 96.74 Z" pathLength="1"></path><path d="M144.4 109.77 L144.4 96.74" pathLength="1"></path><path d="M141.6 111.17 L141.6 98.14" pathLength="1"></path><path d="M138.8 109.77 L138.8 96.74" pathLength="1"></path><path d="M144.4 109.77 L141.6 111.17" pathLength="1"></path><path d="M141.6 111.17 L138.8 109.77" pathLength="1"></path></g><g class="face"><path d="M158.4 95.34 L161.2 96.74 L158.4 98.14 L155.6 96.74 Z"></path><path d="M161.2 109.77 L158.4 111.17 L158.4 98.14 L161.2 96.74 Z"></path><path d="M158.4 111.17 L155.6 109.77 L155.6 96.74 L158.4 98.14 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M158.4 108.37 L158.4 95.34"></path><path d="M158.4 108.37 L161.2 109.77"></path><path d="M158.4 108.37 L155.6 109.77"></path></g><g class="edge"><path d="M158.4 95.34 L161.2 96.74 L158.4 98.14 L155.6 96.74 Z" pathLength="1"></path><path d="M161.2 109.77 L161.2 96.74" pathLength="1"></path><path d="M158.4 111.17 L158.4 98.14" pathLength="1"></path><path d="M155.6 109.77 L155.6 96.74" pathLength="1"></path><path d="M161.2 109.77 L158.4 111.17" pathLength="1"></path><path d="M158.4 111.17 L155.6 109.77" pathLength="1"></path></g><g class="edge"><path d="M141.6 96.74 L158.4 96.74" pathLength="1"></path></g></g><g class="edge"><path d="M262 20 h24 v20 h-24 Z" pathLength="1"></path><path d="M269 26 h10 v8 h-10 Z" pathLength="1"></path></g><text class="callout" x="16" y="24">ZENTINELLE IN ASTROLIFT</text><text class="callsub" x="16" y="37">the gate inside the platform</text></svg></a>
+    <a class="site sitelink" href="/blueprint/topologies/full-loop/"><svg class="iso minisite" viewBox="0 0 300 226" role="img" aria-label="Deployment topology: THE FULL LOOP"><g class="rule"><path d="M172.4 81.66 L82.8 126.46" pathLength="1"></path><path d="M194.8 92.86 L105.2 137.66" pathLength="1"></path><path d="M217.2 104.06 L127.6 148.86" pathLength="1"></path><path d="M127.6 81.66 L217.2 126.46" pathLength="1"></path><path d="M105.2 92.86 L194.8 137.66" pathLength="1"></path><path d="M82.8 104.06 L172.4 148.86" pathLength="1"></path></g><g class="ext"><path d="M144 67.46 L150 70.46"></path><path d="M239.6 115.26 L245.6 118.26"></path><path d="M245.6 112.26 L239.6 115.26"></path><path d="M150 160.06 L144 163.06"></path><path d="M156 163.06 L150 160.06"></path><path d="M60.4 115.26 L54.4 112.26"></path><path d="M54.4 118.26 L60.4 115.26"></path><path d="M150 70.46 L156 67.46"></path></g><g class="hid"><path d="M150 73.2 L150 70.46"></path><path d="M150 73.2 L239.6 118"></path><path d="M150 73.2 L60.4 118"></path></g><g class="edge2"><path d="M150 70.46 L239.6 115.26 L150 160.06 L60.4 115.26 Z" pathLength="1"></path><path d="M239.6 118 L239.6 115.26" pathLength="1"></path><path d="M150 162.8 L150 160.06" pathLength="1"></path><path d="M60.4 118 L60.4 115.26" pathLength="1"></path><path d="M239.6 118 L150 162.8" pathLength="1"></path><path d="M150 162.8 L60.4 118" pathLength="1"></path></g><path class="carrier" d="M74.96 106.03 L231.76 106.03"></path><path class="loop" d="M231.76 106.03 L231.76 113.58 L74.96 113.58 L74.96 106.03"></path><g class="station live nofade" style="--tint:#0AF0CE"><g class="face"><path d="M88.4 102.18 L92.88 104.42 L87.28 107.22 L82.8 104.98 Z"></path><path d="M92.88 108.54 L87.28 111.34 L87.28 107.22 L92.88 104.42 Z"></path><path d="M87.28 111.34 L82.8 109.1 L82.8 104.98 L87.28 107.22 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M88.4 106.3 L88.4 102.18"></path><path d="M88.4 106.3 L92.88 108.54"></path><path d="M88.4 106.3 L82.8 109.1"></path></g><g class="edge"><path d="M88.4 102.18 L92.88 104.42 L87.28 107.22 L82.8 104.98 Z" pathLength="1"></path><path d="M92.88 108.54 L92.88 104.42" pathLength="1"></path><path d="M87.28 111.34 L87.28 107.22" pathLength="1"></path><path d="M82.8 109.1 L82.8 104.98" pathLength="1"></path><path d="M92.88 108.54 L87.28 111.34" pathLength="1"></path><path d="M87.28 111.34 L82.8 109.1" pathLength="1"></path></g><g class="face"><path d="M100.72 108.34 L105.2 110.58 L99.6 113.38 L95.12 111.14 Z"></path><path d="M105.2 114.7 L99.6 117.5 L99.6 113.38 L105.2 110.58 Z"></path><path d="M99.6 117.5 L95.12 115.26 L95.12 111.14 L99.6 113.38 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M100.72 112.46 L100.72 108.34"></path><path d="M100.72 112.46 L105.2 114.7"></path><path d="M100.72 112.46 L95.12 115.26"></path></g><g class="edge"><path d="M100.72 108.34 L105.2 110.58 L99.6 113.38 L95.12 111.14 Z" pathLength="1"></path><path d="M105.2 114.7 L105.2 110.58" pathLength="1"></path><path d="M99.6 117.5 L99.6 113.38" pathLength="1"></path><path d="M95.12 115.26 L95.12 111.14" pathLength="1"></path><path d="M105.2 114.7 L99.6 117.5" pathLength="1"></path><path d="M99.6 117.5 L95.12 115.26" pathLength="1"></path></g><g class="face"><path d="M94 99.21 L100.16 102.29 L94 105.37 L87.84 102.29 Z"></path><path d="M100.16 111.9 L94 114.98 L94 105.37 L100.16 102.29 Z"></path><path d="M94 114.98 L87.84 111.9 L87.84 102.29 L94 105.37 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M94 108.82 L94 99.21"></path><path d="M94 108.82 L100.16 111.9"></path><path d="M94 108.82 L87.84 111.9"></path></g><g class="edge"><path d="M94 99.21 L100.16 102.29 L94 105.37 L87.84 102.29 Z" pathLength="1"></path><path d="M100.16 111.9 L100.16 102.29" pathLength="1"></path><path d="M94 114.98 L94 105.37" pathLength="1"></path><path d="M87.84 111.9 L87.84 102.29" pathLength="1"></path><path d="M100.16 111.9 L94 114.98" pathLength="1"></path><path d="M94 114.98 L87.84 111.9" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#7B8CFF"><g class="face"><path d="M138.8 100.12 L150 105.72 L138.8 111.32 L127.6 105.72 Z"></path><path d="M150 111.9 L138.8 117.5 L138.8 111.32 L150 105.72 Z"></path><path d="M138.8 117.5 L127.6 111.9 L127.6 105.72 L138.8 111.32 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M138.8 106.3 L138.8 100.12"></path><path d="M138.8 106.3 L150 111.9"></path><path d="M138.8 106.3 L127.6 111.9"></path></g><g class="edge"><path d="M138.8 100.12 L150 105.72 L138.8 111.32 L127.6 105.72 Z" pathLength="1"></path><path d="M150 111.9 L150 105.72" pathLength="1"></path><path d="M138.8 117.5 L138.8 111.32" pathLength="1"></path><path d="M127.6 111.9 L127.6 105.72" pathLength="1"></path><path d="M150 111.9 L138.8 117.5" pathLength="1"></path><path d="M138.8 117.5 L127.6 111.9" pathLength="1"></path></g><g class="face"><path d="M138.8 96.75 L144.4 99.55 L138.8 102.35 L133.2 99.55 Z"></path><path d="M144.4 105.72 L138.8 108.52 L138.8 102.35 L144.4 99.55 Z"></path><path d="M138.8 108.52 L133.2 105.72 L133.2 99.55 L138.8 102.35 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M138.8 102.92 L138.8 96.75"></path><path d="M138.8 102.92 L144.4 105.72"></path><path d="M138.8 102.92 L133.2 105.72"></path></g><g class="edge"><path d="M138.8 96.75 L144.4 99.55 L138.8 102.35 L133.2 99.55 Z" pathLength="1"></path><path d="M144.4 105.72 L144.4 99.55" pathLength="1"></path><path d="M138.8 108.52 L138.8 102.35" pathLength="1"></path><path d="M133.2 105.72 L133.2 99.55" pathLength="1"></path><path d="M144.4 105.72 L138.8 108.52" pathLength="1"></path><path d="M138.8 108.52 L133.2 105.72" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#F0B071"><g class="face"><path d="M172.96 97.47 L175.76 98.87 L172.96 100.27 L170.16 98.87 Z"></path><path d="M175.76 111.9 L172.96 113.3 L172.96 100.27 L175.76 98.87 Z"></path><path d="M172.96 113.3 L170.16 111.9 L170.16 98.87 L172.96 100.27 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M172.96 110.5 L172.96 97.47"></path><path d="M172.96 110.5 L175.76 111.9"></path><path d="M172.96 110.5 L170.16 111.9"></path></g><g class="edge"><path d="M172.96 97.47 L175.76 98.87 L172.96 100.27 L170.16 98.87 Z" pathLength="1"></path><path d="M175.76 111.9 L175.76 98.87" pathLength="1"></path><path d="M172.96 113.3 L172.96 100.27" pathLength="1"></path><path d="M170.16 111.9 L170.16 98.87" pathLength="1"></path><path d="M175.76 111.9 L172.96 113.3" pathLength="1"></path><path d="M172.96 113.3 L170.16 111.9" pathLength="1"></path></g><g class="face"><path d="M189.76 97.47 L192.56 98.87 L189.76 100.27 L186.96 98.87 Z"></path><path d="M192.56 111.9 L189.76 113.3 L189.76 100.27 L192.56 98.87 Z"></path><path d="M189.76 113.3 L186.96 111.9 L186.96 98.87 L189.76 100.27 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M189.76 110.5 L189.76 97.47"></path><path d="M189.76 110.5 L192.56 111.9"></path><path d="M189.76 110.5 L186.96 111.9"></path></g><g class="edge"><path d="M189.76 97.47 L192.56 98.87 L189.76 100.27 L186.96 98.87 Z" pathLength="1"></path><path d="M192.56 111.9 L192.56 98.87" pathLength="1"></path><path d="M189.76 113.3 L189.76 100.27" pathLength="1"></path><path d="M186.96 111.9 L186.96 98.87" pathLength="1"></path><path d="M192.56 111.9 L189.76 113.3" pathLength="1"></path><path d="M189.76 113.3 L186.96 111.9" pathLength="1"></path></g><g class="edge"><path d="M172.96 98.87 L189.76 98.87" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#F0B071"><g class="face"><path d="M216.08 97.94 L227.28 103.54 L216.08 109.14 L204.88 103.54 Z"></path><path d="M227.28 112.46 L216.08 118.06 L216.08 109.14 L227.28 103.54 Z"></path><path d="M216.08 118.06 L204.88 112.46 L204.88 103.54 L216.08 109.14 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M216.08 106.86 L216.08 97.94"></path><path d="M216.08 106.86 L227.28 112.46"></path><path d="M216.08 106.86 L204.88 112.46"></path></g><g class="edge"><path d="M216.08 97.94 L227.28 103.54 L216.08 109.14 L204.88 103.54 Z" pathLength="1"></path><path d="M227.28 112.46 L227.28 103.54" pathLength="1"></path><path d="M216.08 118.06 L216.08 109.14" pathLength="1"></path><path d="M204.88 112.46 L204.88 103.54" pathLength="1"></path><path d="M227.28 112.46 L216.08 118.06" pathLength="1"></path><path d="M216.08 118.06 L204.88 112.46" pathLength="1"></path></g><g class="face"><path d="M216.08 98.21 L220.56 100.45 L216.08 102.69 L211.6 100.45 Z"></path><path d="M220.56 103.54 L216.08 105.78 L216.08 102.69 L220.56 100.45 Z"></path><path d="M216.08 105.78 L211.6 103.54 L211.6 100.45 L216.08 102.69 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M216.08 101.3 L216.08 98.21"></path><path d="M216.08 101.3 L220.56 103.54"></path><path d="M216.08 101.3 L211.6 103.54"></path></g><g class="edge"><path d="M216.08 98.21 L220.56 100.45 L216.08 102.69 L211.6 100.45 Z" pathLength="1"></path><path d="M220.56 103.54 L220.56 100.45" pathLength="1"></path><path d="M216.08 105.78 L216.08 102.69" pathLength="1"></path><path d="M211.6 103.54 L211.6 100.45" pathLength="1"></path><path d="M220.56 103.54 L216.08 105.78" pathLength="1"></path><path d="M216.08 105.78 L211.6 103.54" pathLength="1"></path></g></g><g class="edge"><path d="M284 30 A10 8 0 1 1 276 21" pathLength="1"></path><path d="M276 21 l6 -3 M276 21 l1 6" pathLength="1"></path></g><text class="callout" x="16" y="24">THE FULL LOOP</text><text class="callsub" x="16" y="37">build, run, watch, govern</text></svg></a>
+    <a class="site sitelink" href="/blueprint/topologies/mesh/"><svg class="iso minisite" viewBox="0 0 300 226" role="img" aria-label="Deployment topology: MESH"><g class="rule"><path d="M122.56 104.9 L81.12 125.62" pathLength="1"></path><path d="M81.12 104.9 L122.56 125.62" pathLength="1"></path></g><g class="ext"><path d="M95.84 91.54 L101.84 94.54"></path><path d="M143.28 115.26 L149.28 118.26"></path><path d="M149.28 112.26 L143.28 115.26"></path><path d="M101.84 135.98 L95.84 138.98"></path><path d="M107.84 138.98 L101.84 135.98"></path><path d="M60.4 115.26 L54.4 112.26"></path><path d="M54.4 118.26 L60.4 115.26"></path><path d="M101.84 94.54 L107.84 91.54"></path></g><g class="hid"><path d="M101.84 97.28 L101.84 94.54"></path><path d="M101.84 97.28 L143.28 118"></path><path d="M101.84 97.28 L60.4 118"></path></g><g class="edge2"><path d="M101.84 94.54 L143.28 115.26 L101.84 135.98 L60.4 115.26 Z" pathLength="1"></path><path d="M143.28 118 L143.28 115.26" pathLength="1"></path><path d="M101.84 138.72 L101.84 135.98" pathLength="1"></path><path d="M60.4 118 L60.4 115.26" pathLength="1"></path><path d="M143.28 118 L101.84 138.72" pathLength="1"></path><path d="M101.84 138.72 L60.4 118" pathLength="1"></path></g><g class="station live nofade" style="--tint:#0AF0CE"><g class="face"><path d="M81.12 101.9 L85.6 104.14 L80 106.94 L75.52 104.7 Z"></path><path d="M85.6 108.26 L80 111.06 L80 106.94 L85.6 104.14 Z"></path><path d="M80 111.06 L75.52 108.82 L75.52 104.7 L80 106.94 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M81.12 106.02 L81.12 101.9"></path><path d="M81.12 106.02 L85.6 108.26"></path><path d="M81.12 106.02 L75.52 108.82"></path></g><g class="edge"><path d="M81.12 101.9 L85.6 104.14 L80 106.94 L75.52 104.7 Z" pathLength="1"></path><path d="M85.6 108.26 L85.6 104.14" pathLength="1"></path><path d="M80 111.06 L80 106.94" pathLength="1"></path><path d="M75.52 108.82 L75.52 104.7" pathLength="1"></path><path d="M85.6 108.26 L80 111.06" pathLength="1"></path><path d="M80 111.06 L75.52 108.82" pathLength="1"></path></g><g class="face"><path d="M93.44 108.06 L97.92 110.3 L92.32 113.1 L87.84 110.86 Z"></path><path d="M97.92 114.42 L92.32 117.22 L92.32 113.1 L97.92 110.3 Z"></path><path d="M92.32 117.22 L87.84 114.98 L87.84 110.86 L92.32 113.1 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M93.44 112.18 L93.44 108.06"></path><path d="M93.44 112.18 L97.92 114.42"></path><path d="M93.44 112.18 L87.84 114.98"></path></g><g class="edge"><path d="M93.44 108.06 L97.92 110.3 L92.32 113.1 L87.84 110.86 Z" pathLength="1"></path><path d="M97.92 114.42 L97.92 110.3" pathLength="1"></path><path d="M92.32 117.22 L92.32 113.1" pathLength="1"></path><path d="M87.84 114.98 L87.84 110.86" pathLength="1"></path><path d="M97.92 114.42 L92.32 117.22" pathLength="1"></path><path d="M92.32 117.22 L87.84 114.98" pathLength="1"></path></g><g class="face"><path d="M86.72 98.93 L92.88 102.01 L86.72 105.09 L80.56 102.01 Z"></path><path d="M92.88 111.62 L86.72 114.7 L86.72 105.09 L92.88 102.01 Z"></path><path d="M86.72 114.7 L80.56 111.62 L80.56 102.01 L86.72 105.09 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M86.72 108.54 L86.72 98.93"></path><path d="M86.72 108.54 L92.88 111.62"></path><path d="M86.72 108.54 L80.56 111.62"></path></g><g class="edge"><path d="M86.72 98.93 L92.88 102.01 L86.72 105.09 L80.56 102.01 Z" pathLength="1"></path><path d="M92.88 111.62 L92.88 102.01" pathLength="1"></path><path d="M86.72 114.7 L86.72 105.09" pathLength="1"></path><path d="M80.56 111.62 L80.56 102.01" pathLength="1"></path><path d="M92.88 111.62 L86.72 114.7" pathLength="1"></path><path d="M86.72 114.7 L80.56 111.62" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#7B8CFF"><g class="face"><path d="M113.04 100.68 L124.24 106.28 L113.04 111.88 L101.84 106.28 Z"></path><path d="M124.24 112.46 L113.04 118.06 L113.04 111.88 L124.24 106.28 Z"></path><path d="M113.04 118.06 L101.84 112.46 L101.84 106.28 L113.04 111.88 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M113.04 106.86 L113.04 100.68"></path><path d="M113.04 106.86 L124.24 112.46"></path><path d="M113.04 106.86 L101.84 112.46"></path></g><g class="edge"><path d="M113.04 100.68 L124.24 106.28 L113.04 111.88 L101.84 106.28 Z" pathLength="1"></path><path d="M124.24 112.46 L124.24 106.28" pathLength="1"></path><path d="M113.04 118.06 L113.04 111.88" pathLength="1"></path><path d="M101.84 112.46 L101.84 106.28" pathLength="1"></path><path d="M124.24 112.46 L113.04 118.06" pathLength="1"></path><path d="M113.04 118.06 L101.84 112.46" pathLength="1"></path></g><g class="face"><path d="M113.04 97.31 L118.64 100.11 L113.04 102.91 L107.44 100.11 Z"></path><path d="M118.64 106.28 L113.04 109.08 L113.04 102.91 L118.64 100.11 Z"></path><path d="M113.04 109.08 L107.44 106.28 L107.44 100.11 L113.04 102.91 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M113.04 103.48 L113.04 97.31"></path><path d="M113.04 103.48 L118.64 106.28"></path><path d="M113.04 103.48 L107.44 106.28"></path></g><g class="edge"><path d="M113.04 97.31 L118.64 100.11 L113.04 102.91 L107.44 100.11 Z" pathLength="1"></path><path d="M118.64 106.28 L118.64 100.11" pathLength="1"></path><path d="M113.04 109.08 L113.04 102.91" pathLength="1"></path><path d="M107.44 106.28 L107.44 100.11" pathLength="1"></path><path d="M118.64 106.28 L113.04 109.08" pathLength="1"></path><path d="M113.04 109.08 L107.44 106.28" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#F0B071"><g class="face"><path d="M96.24 111.75 L99.04 113.15 L96.24 114.55 L93.44 113.15 Z"></path><path d="M99.04 126.18 L96.24 127.58 L96.24 114.55 L99.04 113.15 Z"></path><path d="M96.24 127.58 L93.44 126.18 L93.44 113.15 L96.24 114.55 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M96.24 124.78 L96.24 111.75"></path><path d="M96.24 124.78 L99.04 126.18"></path><path d="M96.24 124.78 L93.44 126.18"></path></g><g class="edge"><path d="M96.24 111.75 L99.04 113.15 L96.24 114.55 L93.44 113.15 Z" pathLength="1"></path><path d="M99.04 126.18 L99.04 113.15" pathLength="1"></path><path d="M96.24 127.58 L96.24 114.55" pathLength="1"></path><path d="M93.44 126.18 L93.44 113.15" pathLength="1"></path><path d="M99.04 126.18 L96.24 127.58" pathLength="1"></path><path d="M96.24 127.58 L93.44 126.18" pathLength="1"></path></g><g class="face"><path d="M113.04 111.75 L115.84 113.15 L113.04 114.55 L110.24 113.15 Z"></path><path d="M115.84 126.18 L113.04 127.58 L113.04 114.55 L115.84 113.15 Z"></path><path d="M113.04 127.58 L110.24 126.18 L110.24 113.15 L113.04 114.55 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M113.04 124.78 L113.04 111.75"></path><path d="M113.04 124.78 L115.84 126.18"></path><path d="M113.04 124.78 L110.24 126.18"></path></g><g class="edge"><path d="M113.04 111.75 L115.84 113.15 L113.04 114.55 L110.24 113.15 Z" pathLength="1"></path><path d="M115.84 126.18 L115.84 113.15" pathLength="1"></path><path d="M113.04 127.58 L113.04 114.55" pathLength="1"></path><path d="M110.24 126.18 L110.24 113.15" pathLength="1"></path><path d="M115.84 126.18 L113.04 127.58" pathLength="1"></path><path d="M113.04 127.58 L110.24 126.18" pathLength="1"></path></g><g class="edge"><path d="M96.24 113.15 L113.04 113.15" pathLength="1"></path></g></g><g class="rule"><path d="M218.88 104.9 L177.44 125.62" pathLength="1"></path><path d="M177.44 104.9 L218.88 125.62" pathLength="1"></path></g><g class="ext"><path d="M192.16 91.54 L198.16 94.54"></path><path d="M239.6 115.26 L245.6 118.26"></path><path d="M245.6 112.26 L239.6 115.26"></path><path d="M198.16 135.98 L192.16 138.98"></path><path d="M204.16 138.98 L198.16 135.98"></path><path d="M156.72 115.26 L150.72 112.26"></path><path d="M150.72 118.26 L156.72 115.26"></path><path d="M198.16 94.54 L204.16 91.54"></path></g><g class="hid"><path d="M198.16 97.28 L198.16 94.54"></path><path d="M198.16 97.28 L239.6 118"></path><path d="M198.16 97.28 L156.72 118"></path></g><g class="edge2"><path d="M198.16 94.54 L239.6 115.26 L198.16 135.98 L156.72 115.26 Z" pathLength="1"></path><path d="M239.6 118 L239.6 115.26" pathLength="1"></path><path d="M198.16 138.72 L198.16 135.98" pathLength="1"></path><path d="M156.72 118 L156.72 115.26" pathLength="1"></path><path d="M239.6 118 L198.16 138.72" pathLength="1"></path><path d="M198.16 138.72 L156.72 118" pathLength="1"></path></g><g class="station live nofade" style="--tint:#0AF0CE"><g class="face"><path d="M177.44 101.9 L181.92 104.14 L176.32 106.94 L171.84 104.7 Z"></path><path d="M181.92 108.26 L176.32 111.06 L176.32 106.94 L181.92 104.14 Z"></path><path d="M176.32 111.06 L171.84 108.82 L171.84 104.7 L176.32 106.94 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M177.44 106.02 L177.44 101.9"></path><path d="M177.44 106.02 L181.92 108.26"></path><path d="M177.44 106.02 L171.84 108.82"></path></g><g class="edge"><path d="M177.44 101.9 L181.92 104.14 L176.32 106.94 L171.84 104.7 Z" pathLength="1"></path><path d="M181.92 108.26 L181.92 104.14" pathLength="1"></path><path d="M176.32 111.06 L176.32 106.94" pathLength="1"></path><path d="M171.84 108.82 L171.84 104.7" pathLength="1"></path><path d="M181.92 108.26 L176.32 111.06" pathLength="1"></path><path d="M176.32 111.06 L171.84 108.82" pathLength="1"></path></g><g class="face"><path d="M189.76 108.06 L194.24 110.3 L188.64 113.1 L184.16 110.86 Z"></path><path d="M194.24 114.42 L188.64 117.22 L188.64 113.1 L194.24 110.3 Z"></path><path d="M188.64 117.22 L184.16 114.98 L184.16 110.86 L188.64 113.1 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M189.76 112.18 L189.76 108.06"></path><path d="M189.76 112.18 L194.24 114.42"></path><path d="M189.76 112.18 L184.16 114.98"></path></g><g class="edge"><path d="M189.76 108.06 L194.24 110.3 L188.64 113.1 L184.16 110.86 Z" pathLength="1"></path><path d="M194.24 114.42 L194.24 110.3" pathLength="1"></path><path d="M188.64 117.22 L188.64 113.1" pathLength="1"></path><path d="M184.16 114.98 L184.16 110.86" pathLength="1"></path><path d="M194.24 114.42 L188.64 117.22" pathLength="1"></path><path d="M188.64 117.22 L184.16 114.98" pathLength="1"></path></g><g class="face"><path d="M183.04 98.93 L189.2 102.01 L183.04 105.09 L176.88 102.01 Z"></path><path d="M189.2 111.62 L183.04 114.7 L183.04 105.09 L189.2 102.01 Z"></path><path d="M183.04 114.7 L176.88 111.62 L176.88 102.01 L183.04 105.09 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M183.04 108.54 L183.04 98.93"></path><path d="M183.04 108.54 L189.2 111.62"></path><path d="M183.04 108.54 L176.88 111.62"></path></g><g class="edge"><path d="M183.04 98.93 L189.2 102.01 L183.04 105.09 L176.88 102.01 Z" pathLength="1"></path><path d="M189.2 111.62 L189.2 102.01" pathLength="1"></path><path d="M183.04 114.7 L183.04 105.09" pathLength="1"></path><path d="M176.88 111.62 L176.88 102.01" pathLength="1"></path><path d="M189.2 111.62 L183.04 114.7" pathLength="1"></path><path d="M183.04 114.7 L176.88 111.62" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#7B8CFF"><g class="face"><path d="M209.36 100.68 L220.56 106.28 L209.36 111.88 L198.16 106.28 Z"></path><path d="M220.56 112.46 L209.36 118.06 L209.36 111.88 L220.56 106.28 Z"></path><path d="M209.36 118.06 L198.16 112.46 L198.16 106.28 L209.36 111.88 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M209.36 106.86 L209.36 100.68"></path><path d="M209.36 106.86 L220.56 112.46"></path><path d="M209.36 106.86 L198.16 112.46"></path></g><g class="edge"><path d="M209.36 100.68 L220.56 106.28 L209.36 111.88 L198.16 106.28 Z" pathLength="1"></path><path d="M220.56 112.46 L220.56 106.28" pathLength="1"></path><path d="M209.36 118.06 L209.36 111.88" pathLength="1"></path><path d="M198.16 112.46 L198.16 106.28" pathLength="1"></path><path d="M220.56 112.46 L209.36 118.06" pathLength="1"></path><path d="M209.36 118.06 L198.16 112.46" pathLength="1"></path></g><g class="face"><path d="M209.36 97.31 L214.96 100.11 L209.36 102.91 L203.76 100.11 Z"></path><path d="M214.96 106.28 L209.36 109.08 L209.36 102.91 L214.96 100.11 Z"></path><path d="M209.36 109.08 L203.76 106.28 L203.76 100.11 L209.36 102.91 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M209.36 103.48 L209.36 97.31"></path><path d="M209.36 103.48 L214.96 106.28"></path><path d="M209.36 103.48 L203.76 106.28"></path></g><g class="edge"><path d="M209.36 97.31 L214.96 100.11 L209.36 102.91 L203.76 100.11 Z" pathLength="1"></path><path d="M214.96 106.28 L214.96 100.11" pathLength="1"></path><path d="M209.36 109.08 L209.36 102.91" pathLength="1"></path><path d="M203.76 106.28 L203.76 100.11" pathLength="1"></path><path d="M214.96 106.28 L209.36 109.08" pathLength="1"></path><path d="M209.36 109.08 L203.76 106.28" pathLength="1"></path></g></g><g class="station live nofade" style="--tint:#F0B071"><g class="face"><path d="M192.56 111.75 L195.36 113.15 L192.56 114.55 L189.76 113.15 Z"></path><path d="M195.36 126.18 L192.56 127.58 L192.56 114.55 L195.36 113.15 Z"></path><path d="M192.56 127.58 L189.76 126.18 L189.76 113.15 L192.56 114.55 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M192.56 124.78 L192.56 111.75"></path><path d="M192.56 124.78 L195.36 126.18"></path><path d="M192.56 124.78 L189.76 126.18"></path></g><g class="edge"><path d="M192.56 111.75 L195.36 113.15 L192.56 114.55 L189.76 113.15 Z" pathLength="1"></path><path d="M195.36 126.18 L195.36 113.15" pathLength="1"></path><path d="M192.56 127.58 L192.56 114.55" pathLength="1"></path><path d="M189.76 126.18 L189.76 113.15" pathLength="1"></path><path d="M195.36 126.18 L192.56 127.58" pathLength="1"></path><path d="M192.56 127.58 L189.76 126.18" pathLength="1"></path></g><g class="face"><path d="M209.36 111.75 L212.16 113.15 L209.36 114.55 L206.56 113.15 Z"></path><path d="M212.16 126.18 L209.36 127.58 L209.36 114.55 L212.16 113.15 Z"></path><path d="M209.36 127.58 L206.56 126.18 L206.56 113.15 L209.36 114.55 Z"></path></g><g class="hatch"></g><g class="hid"><path d="M209.36 124.78 L209.36 111.75"></path><path d="M209.36 124.78 L212.16 126.18"></path><path d="M209.36 124.78 L206.56 126.18"></path></g><g class="edge"><path d="M209.36 111.75 L212.16 113.15 L209.36 114.55 L206.56 113.15 Z" pathLength="1"></path><path d="M212.16 126.18 L212.16 113.15" pathLength="1"></path><path d="M209.36 127.58 L209.36 114.55" pathLength="1"></path><path d="M206.56 126.18 L206.56 113.15" pathLength="1"></path><path d="M212.16 126.18 L209.36 127.58" pathLength="1"></path><path d="M209.36 127.58 L206.56 126.18" pathLength="1"></path></g><g class="edge"><path d="M192.56 113.15 L209.36 113.15" pathLength="1"></path></g></g><path class="loop" d="M111.92 119.85 L188.08 119.85"></path><path class="loop" d="M109.68 97.45 L190.32 97.45"></path><path class="loop" d="M146 115.85 L154 119.85 L146 123.85"></path><path class="loop" d="M154 93.45 L146 97.45 L154 101.45"></path><g class="edge"><path d="M260 20 h9 v9 h-9 Z" pathLength="1"></path><path d="M277 31 h9 v9 h-9 Z" pathLength="1"></path><path d="M269 29 L277 35" pathLength="1"></path></g><text class="callout" x="16" y="24">MESH</text><text class="callsub" x="16" y="37">sites managing sites</text></svg></a>
   </div>
   <div class="sheet-foot">
     <div><span>Patterns</span><b>Standalone · stacked · embedded · full loop · mesh</b></div>
@@ -1151,7 +1470,7 @@ html { scroll-padding-top: 66px; }
 <!-- ------------------------------------------------------------- sheet 04 -->
 <section class="sheet sheet04 sheetanim" id="rollout">
   <i class="reg tl"></i><i class="reg tr"></i><i class="reg bl"></i><i class="reg br"></i>
-  <div class="sheet-head"><span class="no">SHT 04</span>
+  <div class="sheet-head"><span class="no">04</span>
     <span class="what">Section A-A · zero to governed production</span>
     <span class="when">DAYS, NOT QUARTERS</span></div>
   <div class="sheet-body" style="padding: 10px 10px 0;">
@@ -1169,36 +1488,10 @@ html { scroll-padding-top: 66px; }
       <p>The honest cost model: what the assembly replaces, what it costs to
         run, and what building the same surface yourself would take.</p></div>
   </div>
-  <div class="cta">
-    <div class="say">Deploy inside your perimeter.
-      <small>Self-host enterprise AI in days. Stop choosing between moving fast
-        and staying in control.</small></div>
-    <div class="actions">
-      <a class="bp" href="https://calliope.ai/contact" target="_blank" rel="noopener">Book a demo</a>
-      <a class="bp quiet" href="https://calliope.ai/blueprint/calliope-ai-deployment-blueprint.pdf" download="">Download the PDF</a>
-    </div>
-  </div>
-  <div class="stay" id="stay">
-    <span class="staylbl">Want what we learn deploying this, in your inbox?</span>
-    <form id="stayform">
-      <input type="email" id="stayemail" required="" placeholder="you@company.com" aria-label="Work email">
-      <button class="bp" type="submit">Keep me posted</button>
-    </form>
-    <span class="staynote">Optional. No spam.</span>
-  </div>
 </section>
 
-<!-- ------------------------------------------------------------ doc footer -->
-<footer class="docfoot">
-  <div class="sheet-foot">
-    <div><span>Drawing</span><b>The Private-AI Deployment Blueprint</b></div>
-    <div><span>No</span><b>CAL-SURF-001</b></div>
-    <div><span>Rev</span><b>A</b></div>
-    <div><span>Date</span><b>2026-08-22</b></div>
-    <div><span>Drawn by</span><b>Calliope Labs Inc</b></div>
-    <div><span>Sites</span><b>calliope.ai · astrolift.ai · zentinelle.ai</b></div>
-  </div>
-</footer>
+<!-- ------------------------------------------------------------- sheet 05 -->
+
 
 <div class="egg" id="egg">
   <p class="eggnote">Field note 06 · issued only to those who kept scrolling</p>
@@ -1216,7 +1509,21 @@ html { scroll-padding-top: 66px; }
 
 </div>
 
+<!-- ====== PRODUCT OVERLAY ====== -->
+<div id="product-overlay" role="dialog" aria-modal="true">
+  <div class="po-topbar">
+    <button class="po-back" id="po-back">← Back</button>
+    <span class="po-crumb">THE PRIVATE-AI DEPLOYMENT BLUEPRINT · PART <b id="po-crumb-name">ASTROLIFT</b></span>
+  </div>
+  <div class="po-inner" id="po-inner"></div>
+</div>
+
+<div class="sf-scope">
+  <site-footer data-page="blueprint"></site-footer>
+</div>
+
 <script>
+if (location.hash && history.replaceState) history.replaceState(null, "", location.pathname + location.search);
 (function () {
   "use strict";
   var BROCS = {"stages":[{"id":"build","letter":"B","name":"Build","tagline":"Compose apps and agents","note":"Built and installed through the Workbench Installer.","serves":[{"name":"Calliope AI Workbench","pid":"workbench","tint":"#0AF0CE","weight":"full"}],"tint":"#0AF0CE","nfull":1,"landing":{"copy":"Compose apps and agents on the Calliope AI Workbench: the tool stack your builders already reach for, on one governed bench. Everything is assembled and installed through the Workbench Installer, inside your perimeter, on your compute. What leaves this station is an artifact the rest of the line can trust.","points":["Devs, analysts and business users on one browser bench: IDE, notebooks, SQL, app and agent builders, deep research, chat","Ships to Astrolift with an integrated CLI and one manifest","Installed by the Workbench Installer on K8s, ECS or Cloud Run"],"ctas":[{"label":"calliope.ai","href":"https://calliope.ai"}]}},{"id":"run","letter":"R","name":"Run","tagline":"Deploy and serve at scale","note":"Multi-cloud and on-prem Kubernetes PaaS; the Workbench carries the dev runtime.","serves":[{"name":"Astrolift","pid":"astrolift","tint":"#7B8CFF","weight":"full"},{"name":"Calliope AI Workbench","pid":"workbench","tint":"#0AF0CE","weight":"full"}],"tint":"#7B8CFF","nfull":2,"landing":{"copy":"Astrolift lifts what the bench built into production. A multi-cloud and on-prem Kubernetes PaaS takes the artifact from Build, deploys it, scales it, and streams platform telemetry back into Observe.","points":["Same manifest on vanilla K8s, EKS, GKE, AKS or bare metal","CI to rollout, with SBOM and CVE checks on the way through","MIT licensed, adopt without procurement, a CLI agents can wield"],"ctas":[{"label":"astrolift.ai","href":"https://astrolift.ai"}]}},{"id":"observe","letter":"O","name":"Observe","tagline":"See what agents do","note":"Astrolift owns the stage with platform telemetry; agent-level insight rides in from Zentinelle, and the bench watches its own dev runtime.","serves":[{"name":"Astrolift","pid":"astrolift","tint":"#7B8CFF","weight":"full"},{"name":"Zentinelle","pid":"zentinelle","tint":"#F0B071","weight":"half"},{"name":"Calliope AI Workbench","pid":"workbench","tint":"#0AF0CE","weight":"half"}],"tint":"#7B8CFF","nfull":1,"landing":{"copy":"Astrolift owns the mast: platform telemetry from every deploy, pod and rollout. Agent-level insight rides in from Zentinelle and the bench watches its own dev runtime, so what the platform ran and what the agent actually did land on one pane.","points":["Platform metrics, logs and runtime state from Astrolift","Real-time agent events, the risk register and FinOps metering from Zentinelle","One timeline, from deploy event to agent action"],"ctas":[{"label":"astrolift.ai","href":"https://astrolift.ai"},{"label":"zentinelle.ai","href":"https://zentinelle.ai"}]}},{"id":"control","letter":"C","name":"Control","tagline":"Govern agent behavior","note":"Agent governance, risk, and compliance; runtime settings ride with Astrolift.","serves":[{"name":"Zentinelle","pid":"zentinelle","tint":"#F0B071","weight":"full"},{"name":"Astrolift","pid":"astrolift","tint":"#7B8CFF","weight":"half"}],"tint":"#F0B071","nfull":1,"landing":{"copy":"Zentinelle governs agent behavior. Every call passes the gate: policy decides what an agent may do, budgets and routes are enforced in line, and every decision lands in the audit ledger with the context that produced it.","points":["18+ policy evaluators, inherited from org to team to deployment to endpoint to user","A transparent proxy or gateway in line with every AI call, no agent code changes","Every decision lands in the audit log chain"],"ctas":[{"label":"zentinelle.ai","href":"https://zentinelle.ai"}]}},{"id":"secure","letter":"S","name":"Secure","tagline":"Enforce policy and guardrails","note":"Runtime security for agents.","serves":[{"name":"Zentinelle","pid":"zentinelle","tint":"#F0B071","weight":"full"}],"tint":"#F0B071","nfull":1,"landing":{"copy":"Runtime security for agents, enforced where the work happens. Guardrails hold at the perimeter and inside it, evidence is collected while agents run, and compliance maps to the frameworks your auditors already use.","points":["Guardrails and policy enforced at runtime, at the gateway","One-click compliance packs: SOC2, GDPR, HIPAA, EU AI Act, NIST AI RMF","SBOM and CVE coverage from Astrolift on everything you ship"],"ctas":[{"label":"zentinelle.ai","href":"https://zentinelle.ai"}]}}],"updated":"2026-08-21","flow":"An app or agent is built in Workbench, runs on Astrolift, and is observed, controlled, and secured by Zentinelle, all provisioned and governed through Client Cove."};
@@ -1629,9 +1936,34 @@ html { scroll-padding-top: 66px; }
   }
 
   // ---- controls -----------------------------------------------------------
-  document.getElementById("playbtn").addEventListener("click", function () {
-    if (scrollyOn) { scrollToProgress(0, false); runTheLine(); }
-    else { liveCount = 0; syncLive(); play(0); }
+  var playBtn = document.getElementById("playbtn");
+  function updatePlayBtn() {
+    playBtn.textContent = autoRun ? "Stop animation" : "Start animation";
+  }
+  playBtn.addEventListener("click", function () {
+    if (autoRun) {
+      cancelAnimationFrame(autoRun); autoRun = null;
+      /* pause SVG animations */
+      document.querySelectorAll("svg").forEach(function(s){ try { s.pauseAnimations(); } catch(e){} });
+    } else {
+      /* resume SVG animations */
+      document.querySelectorAll("svg").forEach(function(s){ try { s.unpauseAnimations(); } catch(e){} });
+      if (scrollyOn) {
+        var span = scrolly.offsetHeight - window.innerHeight;
+        var top = scrolly.getBoundingClientRect().top + window.scrollY;
+        var p0 = progress();
+        var start = null;
+        function step(ts) {
+          if (start === null) start = ts - p0 * 16000;
+          var p = clamp01((ts - start) / 16000);
+          window.scrollTo(0, top + p * span);
+          if (p < 1) { autoRun = requestAnimationFrame(step); }
+          else { autoRun = null; updatePlayBtn(); }
+        }
+        autoRun = requestAnimationFrame(step);
+      } else { liveCount = 0; syncLive(); play(0); }
+    }
+    updatePlayBtn();
   });
   document.getElementById("resetbtn").addEventListener("click", function () {
     stopAuto(); stopPlay();
@@ -1877,6 +2209,10 @@ html { scroll-padding-top: 66px; }
   });
 
   /* nav anchor links glide smoothly */
+  var navTop = document.getElementById("navtop");
+  if (navTop) navTop.addEventListener("click", function (e) {
+    e.preventDefault(); lenis.scrollTo(0, { duration: 1.2 });
+  });
   document.querySelectorAll('.bp-nav-link[href^="#"]').forEach(function (a) {
     a.addEventListener("click", function (e) {
       var target = document.querySelector(a.getAttribute("href"));
@@ -1909,35 +2245,198 @@ html { scroll-padding-top: 66px; }
       })(k);
       slides.push(function () { return pY(0.985); });             // "all five commissioned"
     }
+    var aiSurface = document.getElementById("ai-surface");
+    if (aiSurface) (function(el){ slides.push(function(){ return absTop(el) - NAV; }); })(aiSurface);
+
     ["parts", "topologies", "rollout"].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) slides.push(function () { return absTop(el) - NAV; });
     });
-    var foot = document.querySelector(".docfoot");
+    var foot = document.querySelector(".sf-scope");
     if (foot) slides.push(function () { return absTop(foot) - NAV; });
 
+    var currentIdx = 0;
     var current = function () {
       var y = window.pageYOffset, best = 0, bd = Infinity;
       slides.forEach(function (g, i) { var d = Math.abs(g() - y); if (d < bd) { bd = d; best = i; } });
       return best;
     };
     var go = function (dir) {
-      var i = Math.max(0, Math.min(slides.length - 1, current() + dir));
+      var i = Math.max(0, Math.min(slides.length - 1, currentIdx + dir));
+      if (i === currentIdx && dir !== 0) return;
+      currentIdx = i;
       locked = true;
       lenis.scrollTo(Math.max(0, slides[i]()), { duration: 1.1, lock: true,
-        onComplete: function () { setTimeout(function () { locked = false; }, 120); } });
+        onComplete: function () { setTimeout(function () { locked = false; }, 80); } });
     };
+    /* sync index on natural scroll (drag, keyboard momentum, etc.) */
+    window.addEventListener("scroll", function () {
+      if (!locked) currentIdx = current();
+    }, { passive: true });
     window.addEventListener("wheel", function (e) {
       if (locked || Math.abs(e.deltaY) < 6) return;
       if (e.target && e.target.closest && e.target.closest("[data-lenis-prevent]")) return;
-      go(e.deltaY > 0 ? 1 : -1);
+      var dir = e.deltaY > 0 ? 1 : -1;
+      /* on the last slide scrolling down — let Lenis handle it freely */
+      if (dir > 0 && current() >= slides.length - 1) return;
+      /* if scrolling down and the next slide's top is still below the viewport
+         bottom, the current section has more content — let it scroll freely.
+         Skip this check for slide 0 (hero) — assembly starts after sticky
+         sheet-head/rail which adds ~95px offset, causing false positive. */
+      if (dir > 0 && currentIdx > 0) {
+        var nextIdx = Math.min(currentIdx + 1, slides.length - 1);
+        var nextY = slides[nextIdx]();
+        var viewportBottom = window.pageYOffset + window.innerHeight;
+        if (nextY > viewportBottom + 40) return;
+      }
+      go(dir);
     }, { passive: true });
     window.addEventListener("keydown", function (e) {
       if (locked) return;
-      if (e.key === "PageDown" || e.key === "ArrowDown" || e.key === " ") { e.preventDefault(); go(1); }
-      else if (e.key === "PageUp" || e.key === "ArrowUp") { e.preventDefault(); go(-1); }
+      if (e.key === "PageDown" || e.key === "ArrowDown" || e.key === " ") {
+        if (current() >= slides.length - 1) return;
+        if (currentIdx > 0) {
+          var nIdx = Math.min(currentIdx + 1, slides.length - 1);
+          var nY = slides[nIdx]();
+          if (nY > window.pageYOffset + window.innerHeight + 40) return;
+        }
+        e.preventDefault(); go(1);
+      } else if (e.key === "PageUp" || e.key === "ArrowUp") { e.preventDefault(); go(-1); }
     });
   }
+})();
+</script>
+
+<script>
+(function () {
+  if (!("IntersectionObserver" in window)) return;
+  var SELECTORS = [
+    '.bp-header-inner > *',
+    '.mast-main > *',
+    '.hero-brocs',
+    '.mast-products a',
+    '.sheet-head',
+    '.part',
+    '.stagecard',
+    '.servedby',
+    '.notes',
+    '.sitenote',
+    '.site',
+    '.stay',
+    '.cta',
+    '.docfoot > *',
+    '.rollout-row',
+    '.legend'
+  ];
+  var els = [];
+  SELECTORS.forEach(function (sel) {
+    document.querySelectorAll(sel).forEach(function (el) {
+      if (!els.includes(el)) els.push(el);
+    });
+  });
+
+  var io2 = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        var el = en.target;
+        var delay = parseFloat(el.dataset.rvDelay || 0);
+        setTimeout(function () { el.classList.add('in'); }, delay);
+        io2.unobserve(el);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+
+  /* group siblings so they stagger; unrelated lone elements fire immediately */
+  var parentMap = new Map();
+  els.forEach(function (el) {
+    var p = el.parentNode;
+    if (!parentMap.has(p)) parentMap.set(p, []);
+    parentMap.get(p).push(el);
+  });
+  parentMap.forEach(function (group) {
+    group.forEach(function (el, i) {
+      el.classList.add('rv');
+      el.dataset.rvDelay = i * 80;
+    });
+  });
+
+  els.forEach(function (el) { io2.observe(el); });
+})();
+</script>
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var glyphs = "CALLIOPEai01<>/\\*=+-#·".split("");
+  [].forEach.call(document.querySelectorAll(".split-ascii"), function (cv) {
+    if (!cv.getContext) return;
+    var ctx = cv.getContext("2d");
+    var HOT = (getComputedStyle(cv).getPropertyValue("--ascii-hot") || "").trim() || "rgba(63,241,239,.95)";
+    var STEP = 13, CW, CH, cols, rows, t = 0;
+    function size() {
+      CW = cv.clientWidth; CH = cv.clientHeight;
+      cv.width = CW; cv.height = CH;
+      cols = Math.ceil(CW / STEP); rows = Math.ceil(CH / STEP);
+      ctx.font = STEP + "px ui-monospace, SFMono-Regular, Menlo, monospace";
+      ctx.textBaseline = "top";
+    }
+    window.addEventListener("resize", size);
+    function frame() {
+      if (!CW || cv.clientWidth !== CW) size();
+      if (!CW) { requestAnimationFrame(frame); return; }
+      t++;
+      ctx.clearRect(0, 0, CW, CH);
+      for (var r = 0; r < rows; r++) {
+        var yy = r / rows, dens = 0.28 + 0.72 * yy;
+        for (var c = 0; c < cols; c++) {
+          var fl = 0.5 + 0.5 * Math.sin(t * 0.022 - r * 0.55 + c * 0.32);
+          var on = fl * dens;
+          if (on < 0.1) continue;
+          ctx.globalAlpha = Math.min(0.72, on);
+          ctx.fillStyle = (fl > 0.9 && yy > 0.55) ? HOT : "rgb(122,131,156)";
+          ctx.fillText(glyphs[(r * cols + c + (t >> 4)) % glyphs.length], c * STEP, r * STEP);
+        }
+      }
+      if (!reduce) requestAnimationFrame(frame);
+    }
+    frame();
+  });
+})();
+</script>
+<style>
+/* "this drawing" highlight */
+.drawing-mark { background: var(--cyan); color: #08131f; padding: 2px 0; border-radius: 2px; font-weight: inherit; }
+
+/* unified readable size + colour for all body text */
+.stagecard p.note,
+.landing p.copy,
+.landing ul.points li,
+.sitenote,
+#ai-surface .notes li { font-size: 1.1rem !important; line-height: 1.7 !important; color: var(--frost) !important; }
+#ai-surface .notes .ntitle { font-size: 0.9rem !important; }
+.landing p.copy, .landing ul.points li, .stagecard p.note { color: var(--frost) !important; }
+.landing p.copy,
+.landing ul.points li { font-size: clamp(0.72rem, 1.6vh, 1.1rem) !important; line-height: 1.5 !important; }
+.stagecard p.note { font-size: clamp(0.72rem, 1.6vh, 1.1rem) !important; line-height: 1.5 !important; }
+.landing ul.points { margin-bottom: clamp(8px, 1.5vh, 16px) !important; }
+.landing ul.points li { padding-top: clamp(3px, 0.5vh, 5px) !important; padding-bottom: clamp(3px, 0.5vh, 5px) !important; }
+.landing p.copy { margin-bottom: clamp(8px, 1.5vh, 14px) !important; }
+</style>
+<script>
+(function () {
+  var burger = document.getElementById('bp-burger');
+  var menu = document.getElementById('bp-mobile-menu');
+  if (!burger || !menu) return;
+  burger.addEventListener('click', function () {
+    var open = menu.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    menu.setAttribute('aria-hidden', !open);
+  });
+  window.closeMobileMenu = function () {
+    menu.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  };
 })();
 </script>
 </body></html>
